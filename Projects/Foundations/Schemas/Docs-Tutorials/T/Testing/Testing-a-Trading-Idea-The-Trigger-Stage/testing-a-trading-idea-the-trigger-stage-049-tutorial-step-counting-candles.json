@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Schauen Sie sich die ersten paar Kerzen im Datensatz genau an. Sehen Sie etwas Ungewöhnliches?",
                 "updated": 1639268011211
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri setindeki ilk birkaç mumu yakından inceleyin. Olağandışı bir şey görebildinmi?",
+                "updated": 1641661705548
+            },
+            {
+                "language": "RU",
+                "text": "Внимательно посмотрите на первые несколько свечей в наборе данных. Видите ли вы что-нибудь необычное?",
+                "updated": 1642657751058
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Die Bollinger SubChannels existieren für die ersten 19 Kerzen nicht! Das Objekt ist also undefiniert!",
                     "updated": 1639268020854
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger SubChannels ilk 19 mum için mevcut değil! Yani nesne tanımsız!",
+                    "updated": 1641661720754
+                },
+                {
+                    "language": "RU",
+                    "text": "На первых 19 свечах отсутствуют Bollinger SubChannel! Следовательно, объект не определен!",
+                    "updated": 1642657862197
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Der Indikator leitet sich von den Bollinger Bands ab, und die Bänder benötigen mindestens 20 Perioden historischer Daten, um berechnet zu werden. Deshalb ist er für 19 Kerzen undefiniert.",
                     "updated": 1639268048706
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Bollinger Bantlarından türetilmiştir ve bantların hesaplanması için en az 20 dönemlik geçmiş veri gerekir. Bu nedenle 19 mum için tanımsızdır.",
+                    "updated": 1641661739868
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикатор берет свое начало от Bollinger Bands, а для расчета этих полос требуется не менее 20 периодов исторических данных. Вот почему он не определяется для первых 19 свечей.",
+                    "updated": 1642657931534
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Wenn wir einen bestimmten Zeitbereich testen wollen, müssen wir sicherstellen, dass alle Indikatoren, die wir in unserem Trading System verwenden, für den gesamten Bereich berechnet werden!",
                     "updated": 1639268041196
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Belirli bir zaman aralığını test etmek istiyorsak, ticaret sistemimizde kullandığımız tüm göstergelerin tüm aralık için hesaplandığından emin olmalıyız!",
+                    "updated": 1641661755211
+                },
+                {
+                    "language": "RU",
+                    "text": "Если мы хотим протестировать определенный временной диапазон, мы должны убедиться, что все индикаторы, которые мы используем в нашей торговой системе, рассчитаны для всего диапазона!",
+                    "updated": 1642657949968
                 }
             ]
         }

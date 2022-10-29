@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Эта команда предоставляет механизм для перехода на страницу документов или привязку внутри страницы.",
                 "updated": 1638527465475
+            },
+            {
+                "language": "TR",
+                "text": "Bu komut, bir Dokümanlar sayfasına veya sayfa içindeki bir bağlantıya gitmek için bir mekanizma sağlar.",
+                "updated": 1652127299956
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1638527481955
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652127315175
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1638527498175
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler",
+                    "updated": 1652127332916
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Project: Это проект, в котором определена страница.",
                     "updated": 1638527543684
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Sayfanın tanımlandığı projedir.",
+                    "updated": 1652127436114
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Docs Page Category: Одна из доступных категорий.",
                     "updated": 1638527559565
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Category: Mevcut kategorilerden biri.",
+                    "updated": 1652127476865
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "RU",
                     "text": "Docs Page Name: Название страницы.",
                     "updated": 1638527580289
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Name: Sayfanın adı.",
+                    "updated": 1652127498219
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "RU",
                     "text": "Этот параметр не является обязательным. Когда он присутствует, он относится к абзацу  Docs Paragraph со стилем привязки Docs Anchor Style.",
                     "updated": 1638527685449
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Anchor: Bu parametre isteğe bağlıdır. Kullanılabilir olduğunda, sayfa içinde Dokümanlar Bağlantı Stili ( Docs Anchor Style ) olan bir Dokümanlar Paragrafına ( Docs Paragraph ) atıfta bulunur.",
+                    "updated": 1652127676347
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638527693521
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652127710668
                 }
             ]
         },

@@ -20,7 +20,7 @@ function newGovernanceReportsLiquidity() {
         Parameters
         */
         let table = 'Liquidity'
-        let programName = 'Liquidity Program'
+        //let programName = 'Liquidity Program'
         let programPropertyName = 'liquidityProgram'
         /*
         Setup Filters
@@ -52,12 +52,19 @@ function newGovernanceReportsLiquidity() {
                     "textAlign": "center"
                 },
                 {
+                    "name": "exchange",
+                    "label": "Exchange",
+                    "type": "string",
+                    "order": "ascending",
+                    "textAlign": "center"
+                },                
+                {
                     "name": "liquidityPower",
                     "label": "Liquidity Power",
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "percentage",
@@ -87,17 +94,31 @@ function newGovernanceReportsLiquidity() {
 
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
-            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
-                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
-                if (userProfile.tokenPowerSwitch === undefined) { continue }
-                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, programName, 'asset', asset)
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let liquidityProgramList = UI.projects.governance.globals.saToken.SA_TOKEN_LIQUIDITY_POOL_LIST
+            for (let liqProgram of liquidityProgramList) {
+                let liqAsset = liqProgram['pairedAsset']
+                let liqExchange = liqProgram['exchange']
+                //let chain = liqProgram['chain']
+
+                let configPropertyObject = {
+                    "asset": liqAsset,
+                    "exchange": liqExchange
+                }
+                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+                /* If nothing found, interpret empty as PANCAKE for backwards compatibility */
+                if (program === undefined && liqExchange === "PANCAKE") {
+                    configPropertyObject["exchange"] = null
+                    program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject) 
+                }
                 if (program === undefined) { continue }
                 if (program.payload === undefined) { continue }
                 if (program.payload[programPropertyName] === undefined) { continue }
 
                 let tableRecord = {
                     "name": userProfile.name,
-                    "market": 'SA / ' + asset,
+                    "market": 'SA / ' + liqAsset,
+                    "exchange": liqExchange,
                     "liquidityPower": program.payload[programPropertyName].ownPower,
                     "percentage": program.payload[programPropertyName].awarded.percentage / 100,
                     "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0
@@ -105,7 +126,7 @@ function newGovernanceReportsLiquidity() {
 
                 if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
                     tableRecords.push(tableRecord)
-                }
+                }                        
             }
         }
         /*

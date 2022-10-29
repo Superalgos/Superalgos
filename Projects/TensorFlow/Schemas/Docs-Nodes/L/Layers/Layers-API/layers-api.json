@@ -2,12 +2,37 @@
     "type": "Layers API",
     "definition": {
         "text": "The Layers API is a higher-level API for building models.",
-        "updated": 1613201561078
+        "updated": 1613201561078,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Layers API - это API более высокого уровня для построения моделей.",
+                "updated": 1645248425464
+            },
+            {
+                "language": "TR",
+                "text": "Layers API, model oluşturmak için daha üst düzey bir API'dir.",
+                "updated": 1654397273084
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248431388
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397281025,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

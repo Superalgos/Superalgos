@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Indicator Bots ermöglichen die Verarbeitung von Daten, indem sie von anderen erstellte Datensätze nutzen, Berechnungen durchführen und ein neues Datenprodukt mit Mehrwert ausgeben, das von anderen genutzt werden kann.",
                 "updated": 1635246859259
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge botları, başkalarının ürettiği veri kümelerini tüketerek, hesaplamalar yaparak ve başkalarının tüketebileceği yeni bir katma değerli veri ürünü çıkararak verilerin işlenmesini sağlar.",
+                "updated": 1645970968413
             }
         ]
     },
@@ -31,7 +36,14 @@
         {
             "style": "Hierarchy",
             "text": "Data-Mining->Indicator Bot->2",
-            "updated": 1611408262027
+            "updated": 1611408262027,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Data-Mining->Gösterge botu ( Indicator Bot )->2",
+                    "updated": 1645971014445
+                }
+            ]
         }
     ]
 }

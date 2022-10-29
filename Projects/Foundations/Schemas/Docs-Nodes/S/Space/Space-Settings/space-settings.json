@@ -1,14 +1,20 @@
 {
     "type": "Space Settings",
     "definition": {
-        "text": "The space settings node features controls over the physics, proportions, and positioning of icons representing node, and their menus.",
+        "text": "The space settings node features controls over the physics, proportions, and positioning of icons representing nodes, and their menus.",
         "translations": [
             {
                 "language": "RU",
-                "text": "Узел Space Settings содержит элементы управления физикой, пропорциями и расположением значков, представляющих узел, и их меню.",
-                "updated": 1638351043130
+                "text": "Узел Space Settings позволяет управлять физикой, пропорциями и позиционированием иконок, представляющих узлы, и их меню.",
+                "updated": 1647435975638
+            },
+            {
+                "language": "DE",
+                "text": "Die Node für die space settings (Raumeinstellungen) enthält Steuerelemente für die Physik, die Proportionen und die Positionierung von Symbolen, die nodes und ihre Menüs darstellen.",
+                "updated": 1642891083676
             }
-        ]
+        ],
+        "updated": 1642891043278
     },
     "paragraphs": [
         {
@@ -24,6 +30,11 @@
                     "language": "RU",
                     "text": "Конфигурация Space Settings",
                     "updated": 1638351072614
+                },
+                {
+                    "language": "DE",
+                    "text": "Space Settings Konfiguration",
+                    "updated": 1642891096815
                 }
             ]
         },
@@ -41,13 +52,18 @@
         },
         {
             "style": "List",
-            "text": "\"physics\" determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes.",
-            "updated": 1631588883144,
+            "text": "\"physics\" determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by the gravitational pull and repulsion of other nodes.",
+            "updated": 1642891475933,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "physics определяет, является ли среда статической (false) или динамической (true). Когда для физики установлено значение true, на узлы в пространстве дизайна влияют гравитационное притяжение и отталкивание других узлов.",
-                    "updated": 1638351198739
+                    "text": "\"physics\" определяет, является ли среда статичной (false) или динамичной (true). Когда физика установлена в true, на узлы в пространстве проектирования влияют гравитационное притяжение и отталкивание других узлов.",
+                    "updated": 1647436139312
+                },
+                {
+                    "language": "DE",
+                    "text": "\"physics\" bestimmt, ob die Umgebung statisch (false) oder dynamisch (true) ist. Wenn \"physics\" auf \"true\" gesetzt ist, werden die nodes im design space von der Anziehungskraft und Abstoßung anderer nodes beeinflusst.",
+                    "updated": 1642891575107
                 }
             ]
         },
@@ -59,6 +75,11 @@
                     "language": "RU",
                     "text": "detachUsingMouse определяет, можете ли вы отсоединять узлы от его родительского или ссылочного родителя только с помощью мыши (если true) или если вы не можете использовать мышь для этого и можете делать это только с помощью кнопок отсоединения в меню значка (если false).",
                     "updated": 1638351219937
+                },
+                {
+                    "language": "DE",
+                    "text": "detachUsingMouse legt fest, ob Sie nodes von ihren parent (Eltern) oder reference parents nur mit der Maus abtrennen können (wenn true) oder ob Sie die Maus dafür nicht verwenden können und es nur mit den Abtrennungs Knöpfen im Menü des Symbols tun können (wenn false).",
+                    "updated": 1642891711832
                 }
             ]
         },
@@ -80,8 +101,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "\"node\" здесь относится к каждому узлу в пространстве дизайна. Этот набор свойств регулирует настройки всех узлов в пространстве дизайна.",
-                    "updated": 1638351280868
+                    "text": "node здесь относится к каждому узлу в пространстве проектирования. Этот набор свойств регулирует настройки всех узлов в пространстве проектирования.",
+                    "updated": 1647436017290
                 }
             ]
         },
@@ -182,6 +203,16 @@
             ]
         },
         {
+            "style": "List",
+            "text": "fps is the frames per second. Value defaults to 23. To slow down the frame rate raise the number, to speed it up lower the number. ",
+            "updated": 1664719902742
+        },
+        {
+            "style": "Warning",
+            "text": "The fps value is evaluated in real time and must never equal null or 0. If it does the UI will crash and a page refresh will be required.",
+            "updated": 1664719978737
+        },
+        {
             "style": "Subtitle",
             "text": "Shortcut Properties",
             "translations": [
@@ -259,7 +290,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "saveWorkspace определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для сохранения рабочей области Workspace.",
+                    "text": "saveWorkspace определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для сохранения рабочего пространства Workspace.",
                     "updated": 1638351891630
                 }
             ]

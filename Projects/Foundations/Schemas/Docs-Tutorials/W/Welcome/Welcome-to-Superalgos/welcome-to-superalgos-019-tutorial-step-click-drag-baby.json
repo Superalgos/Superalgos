@@ -29,8 +29,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man läuft... in zwei Sekunden!",
-                "updated": 1634163512229,
+                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet: Ich bringe Ihnen bei, wie man sich im Entwurfsbereich bewegt... in zwei Sekunden!",
+                "updated": 1660419117659,
                 "style": "Definition"
             },
             {
@@ -41,8 +41,8 @@
             },
             {
                 "language": "RU",
-                "text": "Я хочу показать Вам кое-что, пока операция data mining в процессе. Я научу Вас передвигаться... за 2 секунды!",
-                "updated": 1635596573723,
+                "text": "Я хочу показать вам кое-что, пока проводится добыча данных. Я научу Вас передвигаться... за 2 секунды!",
+                "updated": 1641808444202,
                 "style": "Definition"
             },
             {
@@ -95,15 +95,15 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle/Bırak gibi.",
-                    "updated": 1635945252224
+                    "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle-Bırak gibi.",
+                    "updated": 1644850449377
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Easy, right? Great! However, the design space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
-            "updated": 1610613840200,
+            "text": "Easy, right? Great! However, the Design Space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
+            "updated": 1660143557922,
             "translations": [
                 {
                     "language": "IT",
@@ -125,8 +125,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Leicht, nicht wahr? Großartig! Der Entwurfsbereich ist jedoch riesig, und ich möchte nicht, dass Sie sich eine Sehnenscheidenentzündung zuziehen, wenn Sie sich auf diese Weise bewegen.",
-                    "updated": 1634163528834,
+                    "text": "Leicht, nicht wahr? Großartig! Der Entwurfsbereich ist jedoch riesig, und ich möchte nicht, dass Sie sich eine Sehnenscheidenentzündung zuziehen, wenn Sie ihn auf diese Weise durchqueren.",
+                    "updated": 1660419063464,
                     "style": "Text"
                 },
                 {
@@ -137,8 +137,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Легко, правда? Отлично! Однако дизайнерское пространство - это огромное место и я бы не хотел, чтобы у Вас возникли определенные тендиниты, передвигаясь таким образом.",
-                    "updated": 1635608367917,
+                    "text": "Легко, правда? Отлично! Однако пространство Design Space очень велико, и я бы не хотел, чтобы вы заработали тендинит, таскаясь по нему таким образом.",
+                    "updated": 1662032558703,
                     "style": "Text"
                 },
                 {

@@ -15,14 +15,19 @@
                 "language": "RU",
                 "text": "При выполнении операции интеллектуального анализа данных индикаторы следуют циклу, разработанному для выполнения своей цели: обрабатывать данные, созданные другими, и делать результат доступным для использования другими.",
                 "updated": 1639666789006
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir veri madenciliği operasyonunda çalışırken, göstergeler amaçlarını yerine getirmek için tasarlanmış bir döngüyü takip eder: başkalarının ürettiği verileri işlemek ve sonucu başkalarının tüketmesi için kullanılabilir hale getirmek.",
+                "updated": 1645971537219
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Indicators take datasets produced by sensors or by other indicators as input. These inputs are determined by the data dependencies defined. The calculations procedure and the data building procedure produce the intended transformations. The data building procedure stores the results in datasets that others may use as input, and the calculations procedure may make certain pieces of information available without ever writing it in the files.",
-            "updated": 1611427699110,
+            "text": "Indicators take datasets produced by sensors or by other indicators as inputs. These inputs are determined by the defined data dependencies. ",
+            "updated": 1652828609157,
             "translations": [
                 {
                     "language": "DE",
@@ -31,8 +36,24 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Индикаторы принимают в качестве входных данных наборы данных, полученные с помощью датчиков или других индикаторов. Эти входные данные определяются определенными зависимостями данных. Процедура вычислений и процедура построения данных производят предполагаемые преобразования. Процедура построения данных сохраняет результаты в наборах данных, которые другие могут использовать в качестве входных,и процедура вычислений может сделать некоторые части информации доступными, даже не записывая их в файлы.",
-                    "updated": 1639666827958
+                    "text": "Индикаторы принимают на вход наборы данных, созданные датчиками или другими индикаторами. Эти входы определяются определенными зависимостями данных.",
+                    "updated": 1661275946989
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler, sensörler veya diğer göstergeler tarafından üretilen veri kümelerini girdi olarak alır. Bu girdiler, tanımlanan veri bağımlılıkları tarafından belirlenir. Hesaplama prosedürü ve veri oluşturma prosedürü, amaçlanan dönüşümleri üretir. Veri oluşturma prosedürü, sonuçları, başkalarının girdi olarak kullanabileceği veri kümelerinde depolar ve hesaplama prosedürü, dosyalara hiç yazmadan belirli bilgi parçalarını kullanılabilir hale getirebilir.",
+                    "updated": 1645971584660
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The calculations procedure and the data building procedure produce the intended transformations. The data building procedure stores the results in datasets that others may use as input, and the calculations procedure may make certain pieces of information available without ever writing it in the files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процедура вычислений и процедура построения данных производят необходимые преобразования. Процедура построения данных хранит результаты в наборах данных, которые другие могут использовать в качестве исходных данных, а процедура вычислений может сделать определенные части информации доступными без сохранения их в файлах.",
+                    "updated": 1661276000100
                 }
             ]
         },
@@ -49,6 +70,11 @@
                     "language": "RU",
                     "text": "Ниже приводится разбивка цикла.",
                     "updated": 1639666855447
+                },
+                {
+                    "language": "TR",
+                    "text": "Döngünün dökümü aşağıdadır.",
+                    "updated": 1645971601877
                 }
             ]
         },
@@ -65,12 +91,17 @@
                     "language": "RU",
                     "text": "1. Загрузка зависимостей данных",
                     "updated": 1639666867133
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Veri bağımlılıklarının yüklenmesi",
+                    "updated": 1645971613638
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are too separated by colons. The format in which data is stored in files aims to make files as lightweight as possible.",
+            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are separated by commas. The format in which data is stored in files aims to make files as lightweight as possible.",
             "translations": [
                 {
                     "language": "DE",
@@ -79,10 +110,16 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Наборы данных, создаваемые индикаторами, представляют собой наборы текстовых файлов с данными, хранящимися в виде массивов. Каждое значение в записи разделяется двоеточиями, а каждая запись заключена в квадратные скобки. Записи излишне разделены двоеточиями. Формат, в котором данные хранятся в файлах, направлен на то, чтобы сделать файлы как можно более легкими.",
-                    "updated": 1639666951482
+                    "text": "Наборы данных, создаваемые индикаторами, представляют собой наборы текстовых файлов с данными, хранящимися в виде массивов. Каждое значение в записи отделяется двоеточиями, а каждая запись разграничивается квадратными скобками. Записи разделяются запятыми. Формат, в котором данные хранятся в файлах, направлен на то, чтобы сделать файлы как можно более легковесными.",
+                    "updated": 1661276054558
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler tarafından üretilen veri kümeleri, diziler biçiminde depolanan verileri içeren metin dosyaları kümeleridir. Bir kayıttaki her değer iki nokta üst üste ile ayrılır ve her kayıt köşeli parantez ile sınırlandırılır. Kayıtlar iki nokta üst üste ile çok ayrılmış. Verilerin dosyalarda saklandığı format, dosyaları olabildiğince hafif hale getirmeyi amaçlar.",
+                    "updated": 1645971665203
                 }
-            ]
+            ],
+            "updated": 1652828712704
         },
         {
             "style": "Text",
@@ -97,6 +134,11 @@
                     "language": "RU",
                     "text": "Например, следующий фрагмент содержит три записи в файле 24-часовых Multi-Time-Frame-Market Bollinger Bands Data.json:",
                     "updated": 1639666971185
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, aşağıdaki parçada üç kayıt bulunur: 24 saatlik Çok Zamanlı Çerçeve Piyasası ( Multi-Time-Frame-Market ) Bollinger Bantları Data.json dosyası:",
+                    "updated": 1645971759138
                 }
             ]
         },
@@ -117,6 +159,11 @@
                     "language": "RU",
                     "text": "Это то, с чем сталкивается система во время чтения обычного файла в наборе данных, что является первым шагом в цикле выполнения.",
                     "updated": 1639666995424
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma zamanı döngüsünün ilk adımı olan bir veri kümesindeki tipik bir dosyayı okurken sistemin karşılaştığı şey budur.",
+                    "updated": 1645971830163
                 }
             ]
         },
@@ -133,6 +180,11 @@
                     "language": "RU",
                     "text": "2. Преобразование файлов в объекты JSON с именованными свойствами",
                     "updated": 1639667017776
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Adlandırılmış özelliklere sahip dosyaların JSON nesnelerine şişirilmesi",
+                    "updated": 1645971869323
                 }
             ]
         },
@@ -149,6 +201,11 @@
                     "language": "RU",
                     "text": "После загрузки файла в память он преобразуется в объектную структуру JSON с именованными свойствами. Это второй шаг в цикле, цель которого - значительно упростить доступ к каждой записи из кода.",
                     "updated": 1639667033330
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir dosya belleğe yüklendikten sonra, adlandırılmış özelliklere sahip bir JSON nesne yapısına şişirilir. Bu, döngüdeki ikinci adımdır ve her kayda -kod içinden- erişmeyi çok daha kolay hale getirmeyi amaçlar.",
+                    "updated": 1645971931276
                 }
             ]
         },
@@ -165,6 +222,11 @@
                     "language": "RU",
                     "text": "3. Вычисление свойств, не сохраненных в наборе данных",
                     "updated": 1639667051505
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Veri setinde saklanmayan özelliklerin hesaplanması",
+                    "updated": 1645971958163
                 }
             ]
         },
@@ -181,6 +243,11 @@
                     "language": "RU",
                     "text": "Поскольку производительность обратно пропорциональна весу файлов, разработчики могут не сохранять все свойства индикаторов в файлах. Они могут оставить свойства, которые легко вычислить, из набора данных и вместо этого сделать их доступными как вычисляемые свойства. Вычисляемые свойства вычисляются процедурой вычислений и передаются в формулы определения записи, которые становятся доступными как неотъемлемая часть объекта, к которому могут обращаться другие индикаторы.",
                     "updated": 1639667098689
+                },
+                {
+                    "language": "TR",
+                    "text": "Performans, dosyaların ağırlığıyla ters orantılı olduğundan, geliştiriciler tüm gösterge özelliklerini dosyalarda saklamamayı seçebilir. Hesaplanması kolay özellikleri veri kümesinin dışında bırakmayı ve bunun yerine bunları hesaplanmış özellikler olarak kullanılabilir hale getirmeyi seçebilirler. Hesaplanan özellikler, hesaplama prosedürü ile hesaplanır ve diğer göstergelerin erişebileceği nesnenin ayrılmaz bir parçası olarak kullanıma sunulacak kayıt tanımı formüllerine beslenir.",
+                    "updated": 1645971988817
                 }
             ]
         },
@@ -197,6 +264,11 @@
                     "language": "RU",
                     "text": "Например, представьте индикатор, который предлагает покупки, продажи и общие объемы. Поскольку общий объем очень легко рассчитать, разработчик такого индикатора может выбрать сохранение только объемов покупок и продаж и сделать общий объем доступным в качестве расчетного свойства.",
                     "updated": 1639667147245
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, alım, satım ve toplam hacimler sunan bir gösterge hayal edin. Toplam hacmi hesaplamak çok kolay olduğu için, böyle bir göstergenin geliştiricisi yalnızca alım satım hacimlerini saklamayı ve toplam hacmi hesaplanmış bir özellik olarak kullanıma sunmayı seçebilir.",
+                    "updated": 1645972002283
                 }
             ]
         },
@@ -214,6 +286,11 @@
                     "language": "RU",
                     "text": "Сделайте свои индикаторы более эффективными, ограничив объем информации, которую вы храните в файлах.",
                     "updated": 1639667161658
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Dosyalarda sakladığınız bilgi miktarını sınırlayarak göstergelerinizi daha verimli hale getirin.",
+                    "updated": 1645972027764
                 }
             ]
         },
@@ -230,6 +307,11 @@
                     "language": "RU",
                     "text": "Таким образом, третьим шагом в цикле выполнения является выполнение процедуры вычислений каждой зависимости данных и добавление вычисленных свойств в структуру объекта JSON в памяти, чтобы все свойства были доступны для следующих шагов цикла.",
                     "updated": 1639667183316
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma zamanı döngüsündeki üçüncü adım, bu nedenle, her veri bağımlılığının hesaplama prosedürünü çalıştırmak ve hesaplanan özellikleri bellekteki JSON nesne yapısına eklemektir, böylece tüm özellikler döngüdeki sonraki adımlar için kullanılabilir olur.",
+                    "updated": 1645972051834
                 }
             ]
         },
@@ -246,6 +328,11 @@
                     "language": "RU",
                     "text": "4. Структура продуктов",
                     "updated": 1639667201581
+                },
+                {
+                    "language": "TR",
+                    "text": "4. Ürün yapısı",
+                    "updated": 1645972068643
                 }
             ]
         },
@@ -262,6 +349,11 @@
                     "language": "RU",
                     "text": "Шаги 1, 2 и 3 выполняются для каждой из зависимостей данных, а результаты помещаются в объект с именем products. Таким образом, все зависимости данных могут быть легко доступны с помощью следующего синтаксиса:",
                     "updated": 1639667222623
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 1, 2 ve 3, veri bağımlılıklarının her biri için çalıştırılır ve sonuçlar, ürünler adlı bir nesnenin içine yerleştirilir. Bu şekilde, tüm veri bağımlılıklarına aşağıdaki tür sözdizimi ile kolayca erişilebilir:",
+                    "updated": 1645972090096
                 }
             ]
         },
@@ -283,6 +375,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1639667236352
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek :",
+                    "updated": 1645972102858
                 }
             ]
         },
@@ -303,6 +400,11 @@
                     "language": "RU",
                     "text": "Каждый продукт остается массивом объектов JSON с именованными переменными.",
                     "updated": 1639667259620
+                },
+                {
+                    "language": "TR",
+                    "text": "Her ürün, adlandırılmış değişkenlere sahip bir JSON nesnesi dizisi olarak kalır.",
+                    "updated": 1645972119072
                 }
             ]
         },
@@ -319,6 +421,11 @@
                     "language": "RU",
                     "text": "5. Построение данных",
                     "updated": 1639667361015
+                },
+                {
+                    "language": "TR",
+                    "text": "5. Veri oluşturma",
+                    "updated": 1645972148901
                 }
             ]
         },
@@ -335,6 +442,11 @@
                     "language": "RU",
                     "text": "Пятым шагом в цикле выполнения является выполнение процедуры построения данных индикатора. Именно здесь разработчик кодирует логику для просмотра входных наборов данных и выполнения вычислений, необходимых для получения выходных данных индикатора.",
                     "updated": 1639667326787
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma zamanı döngüsündeki beşinci adım, göstergenin veri oluşturma prosedürünü yürütmektir. Geliştiricinin, giriş veri kümelerini gözden geçirmek ve göstergenin çıktısını üretmek için gereken hesaplamaları yapmak için mantığı kodladığı yer burasıdır.",
+                    "updated": 1645972161011
                 }
             ]
         },
@@ -351,6 +463,11 @@
                     "language": "RU",
                     "text": "Индикаторы могут иметь несколько продуктов, таким образом, процедура построения данных, соответствующая каждому продукту, выполняется последовательно, в том порядке, в котором продукты были определены вокруг Indicator Bot.",
                     "updated": 1639667441570
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergelerin birden fazla ürünü olabilir, bu nedenle her ürüne karşılık gelen veri oluşturma prosedürü, ürünlerin gösterge bot düğümü etrafında tanımlandığı sırayla sırayla çalıştırılır.",
+                    "updated": 1645972170075
                 }
             ]
         },
@@ -367,6 +484,11 @@
                     "language": "RU",
                     "text": "По мере завершения преобразований для данного продукта результаты добавляются к объекту products и немедленно становятся доступными для остальных продуктов в очереди для использования в качестве входных данных в дополнение к исходным зависимостям данных. Зависимости данных одинаковы для всех продуктов, так как зависимости данных определяются на уровне процессов.",
                     "updated": 1639667507017
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli bir ürün için dönüşümler tamamlandığında, sonuçlar ürünler nesnesine eklenir ve orijinal veri bağımlılıklarına ek olarak kuyruktaki diğer ürünlerin girdi olarak kullanması için hemen kullanıma sunulur. Veri bağımlılıkları süreçler düzeyinde tanımlandığından, veri bağımlılıkları tüm ürünler için aynıdır.",
+                    "updated": 1645972181938
                 }
             ]
         },
@@ -383,6 +505,11 @@
                     "language": "RU",
                     "text": "6. Запись выходных данных",
                     "updated": 1639667671310
+                },
+                {
+                    "language": "TR",
+                    "text": "6. Çıktının Yazılması",
+                    "updated": 1645972200222
                 }
             ]
         },
@@ -399,6 +526,11 @@
                     "language": "RU",
                     "text": "Последним шагом является преобразование записей в формате объекта обратно в формат свернутого массива и сохранение соответствующих файлов в наборе данных.",
                     "updated": 1639667611620
+                },
+                {
+                    "language": "TR",
+                    "text": "Son adım, nesne biçimli kayıtları yeniden simge durumuna küçültülmüş bir dizi biçimine dönüştürmek ve ilgili dosyaları veri kümesine kaydetmektir.",
+                    "updated": 1645972220087
                 }
             ]
         },
@@ -415,6 +547,11 @@
                     "language": "RU",
                     "text": "Приложение: Построение 2-х взаимозависимых индикаторов",
                     "updated": 1639667692740
+                },
+                {
+                    "language": "TR",
+                    "text": "Ek: Birbirine Bağlı 2 Gösterge Oluşturma",
+                    "updated": 1645972360947
                 }
             ]
         },
@@ -431,6 +568,11 @@
                     "language": "RU",
                     "text": "Допустим, вы создали индикатор 1 с продуктом A, который зависит от Indicator Candles Volumes, продукта Candles, и вы создате индикатор2 с продуктом Б, который зависит от продукта A индикатора1.",
                     "updated": 1639669676667
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki, Gösterge Mumları Hacimlerine, ürün Mumlarına bağlı olan A ürünüyle gösterge1 oluşturdunuz ve gösterge1 ürününe A bağlı olan gösterge2, ürün B'yi oluşturuyorsunuz.",
+                    "updated": 1645972402985
                 }
             ]
         },
@@ -447,12 +589,24 @@
                     "language": "RU",
                     "text": "Когда вы писали код для Индикатора 1 продукта A, вы использовали синтаксис:",
                     "updated": 1639668182100
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge 1 Ürün A'nın kodunu yazarken şu söz dizimini kullanıyordunuz:",
+                    "updated": 1645972429732
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "variable property1 = record.current.open"
+            "text": "variable property1 = record.current.open",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "değişken özellik1 = record.current.open",
+                    "updated": 1645972443613
+                }
+            ]
         },
         {
             "style": "Text",
@@ -468,6 +622,11 @@
                     "language": "RU",
                     "text": "Почему? Поскольку индикатор 1 зависит от Candles Volumes, продукта Candles, и каждая свеча имеет свойство, называемое 'open', и поскольку продукт Candles это единственная зависимость от данных, она также является основной зависимостью, а затем она будет предоставлена ​​вам внутри объекта записи для вашего удобства.",
                     "updated": 1639670107277
+                },
+                {
+                    "language": "TR",
+                    "text": "Neden? Gösterge 1, Mum Hacimlerine, ürün Mumlarına bağlı olduğundan ve her mumun açık olarak adlandırılan bir özelliği olduğundan ve ürün Mumlar tek veri bağımlılığı olduğundan, o zaman aynı zamanda ana bağımlılıktır ve daha sonra size kayıt nesnesinin içinde sunulacaktır. senin rahatlığın.",
+                    "updated": 1645972464106
                 }
             ]
         },
@@ -485,6 +644,11 @@
                     "language": "RU",
                     "text": "Вы также можете:",
                     "updated": 1639670172882
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca şunları da yapabilirdiniz:",
+                    "updated": 1645972516520
                 }
             ]
         },
@@ -501,6 +665,11 @@
                     "language": "RU",
                     "text": "переменная property1 = products.candles[индекс], но это сложнее, потому что вы точно не знаете, в каком индексе вы находитесь в любой момент времени. Лучше и проще использовать объект записи. Массив предназначен для очень опытных пользователей.",
                     "updated": 1639670239059
+                },
+                {
+                    "language": "TR",
+                    "text": "değişken property1 = product.candles[index] ama bu daha zordur çünkü herhangi bir anda hangi indekste olduğunuzu gerçekten bilmiyorsunuzdur. Kayıt nesnesini kullanmak en iyisidir ve daha kolaydır. Dizi çok ileri düzey kullanıcılar içindir.",
+                    "updated": 1645972530355
                 }
             ]
         },
@@ -517,6 +686,11 @@
                     "language": "RU",
                     "text": "Затем вы хотите написать код для индикатора 2, продукта Б, вы уже объявили индикатор 1, продукт A как единственную зависимость данных.",
                     "updated": 1639670390402
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, gösterge 2, ürün B için kod yazmak istiyorsunuz, zaten tek veri bağımlılığı olarak Gösterge 1, Ürün A'yı beyan ettiniz.",
+                    "updated": 1645972539631
                 }
             ]
         },
@@ -533,6 +707,11 @@
                     "language": "RU",
                     "text": "Поскольку продукт A индикатора 1 является единственной зависимостью данных индикатора 2, то он также является основной зависимостью, что означает, что для построения индикатора 2 процесс построения данных Data Building Process будет перебирать каждый элемент индикатора 1 в этом случае (не свечи, потому что это вообще не зависимость).",
                     "updated": 1639670456483
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge1 ürünü A, gösterge 2'nin tek veri bağımlılığı olduğundan, aynı zamanda ana bağımlılıktır; bu, gösterge 2'yi oluşturmak için Veri Oluşturma Süreci'nin bu durumda Gösterge 1'in her öğesini yineleyeceği anlamına gelir (mumlar değil çünkü bu bir bağımlılık değil).",
+                    "updated": 1645972548380
                 }
             ]
         },
@@ -549,6 +728,11 @@
                     "language": "RU",
                     "text": "Так же, как и раньше, вы напишете такой код:",
                     "updated": 1639670466824
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce yaptığınız gibi, şöyle bir kod yazacaksınız:",
+                    "updated": 1645972565944
                 }
             ]
         },
@@ -565,6 +749,11 @@
                     "language": "RU",
                     "text": "переменная propertyX = record.current.property1 (что означает свойство 1 продукта A индикатора 1)",
                     "updated": 1639670503829
+                },
+                {
+                    "language": "TR",
+                    "text": "değişken propertyX = record.current.property1 (bu, Gösterge 1'deki Ürün A'nın özelliği 1 anlamına gelir)",
+                    "updated": 1645972576529
                 }
             ]
         },

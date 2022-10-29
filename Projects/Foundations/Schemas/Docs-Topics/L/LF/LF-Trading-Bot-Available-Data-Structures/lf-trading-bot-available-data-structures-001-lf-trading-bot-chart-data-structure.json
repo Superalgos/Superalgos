@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Chart Data Structure - это объект, содержащий данные Indicator Bot или Sensor Bot, доступные во время выполнения, к которым можно получить из кода условий (Condition) и формул (Formula).",
                 "updated": 1640150363527
+            },
+            {
+                "language": "TR",
+                "text": "Grafik Veri Yapısı, çalışma zamanında mevcut olan Gösterge Botu ( Indicator Bot ) veya Sensör Botu ( Sensor Bot ) verilerini içeren bir nesnedir ve Koşullar ve Formüller kodundan erişilebilir.",
+                "updated": 1655140171645
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Этот объект Javascript, вместе с двумя другими структурами данных, описанными в этой теме, в конечном итоге определяет синтаксис, который используется для записи условий и формул, и, более точно, синтаксис для получения данных Indicator Bot и Sensor Bot.",
                     "updated": 1640150405987
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Javascript nesnesi, bu konuda açıklanan diğer iki veri yapısıyla birlikte, nihayetinde koşulları ve formülleri yazmak için kullanılan sözdizimini ve daha kesin olarak Gösterge Botu ( Indicator Bot ) ve Sensör Bot ( Sensor Bot ) verilerini almak için kullanılan sözdizimini tanımlar.",
+                    "updated": 1655140314968
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Структура",
                     "updated": 1640150421822
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapı",
+                    "updated": 1655140342973
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Корнем объекта является...",
                     "updated": 1640150995029
+                },
+                {
+                    "language": "TR",
+                    "text": "Nesnenin kökü ...",
+                    "updated": 1655140367028
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "После корня определение таймфрейма является обязательным...",
                     "updated": 1640150541896
+                },
+                {
+                    "language": "TR",
+                    "text": "Kökten sonra, zaman çerçevesinin tanımı zorunludur...",
+                    "updated": 1655140384386
                 }
             ]
         },
@@ -79,6 +104,11 @@
                     "language": "RU",
                     "text": "После этого идет singleVariableName, определенное в конфигурации Product Definition ботов Indicator Bot или Sensor Bot.",
                     "updated": 1640150587102
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonra, bir Gösterge Botunun ( Indicator Bot ) veya Sensör Botunun ( Sensor Bot ) Ürün Tanımının ( Product Definition ) konfigürasyonunda tanımlanan singleVariableName gelir.",
+                    "updated": 1655140531388
                 }
             ]
         },
@@ -91,6 +121,11 @@
                     "language": "RU",
                     "text": "Наконец, последнее свойство - это codeName узла Record Property, соответствующего тому же самому Product Definition, упомянутому ранее.",
                     "updated": 1640150607476
+                },
+                {
+                    "language": "TR",
+                    "text": "Son olarak, son özellik, daha önce bahsedilen Ürün Tanımına ( Product Definition ) karşılık gelen bir Kayıt Özelliği (  Record Property ) düğümünün kod Adıdır. codeName ",
+                    "updated": 1655140670759
                 }
             ]
         },
@@ -103,6 +138,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1640150615902
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1655140699286
                 }
             ]
         },
@@ -129,6 +169,11 @@
                     "language": "RU",
                     "text": "Расширенное использование",
                     "updated": 1640150628035
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelişmiş Kullanım",
+                    "updated": 1655140712003
                 }
             ]
         },
@@ -141,6 +186,11 @@
                     "language": "RU",
                     "text": "Через эту же структуру данных вы имеете доступ к набору объектов индикатора, загруженных в память.",
                     "updated": 1640150650094
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı veri yapısı aracılığıyla belleğe yüklenen gösterge nesneleri kümesine de erişebilirsiniz.",
+                    "updated": 1655140731559
                 }
             ]
         },
@@ -153,6 +203,11 @@
                     "language": "RU",
                     "text": "Если вместо singleVariableName вы используете pluralVariableName, вы получите массив объектов, который - в зависимости от таймфрейма - может быть объектом, отображающим весь рынок (для таймфреймов один час и выше) или текущий и предыдущий день (для таймфреймов менее одного часа).",
                     "updated": 1640150680569
+                },
+                {
+                    "language": "TR",
+                    "text": "singleVariable Nameöğesini kullanmak yerine, pluralVariableName - zaman çerçevesine bağlı olarak - tüm marketi içeren nesne (bir saat ve üzeri zaman dilimleri için) veya mevcut ve önceki gün (zaman için) olabilecek bir nesne dizisi elde edersiniz. bir saatin altındaki kareler).",
+                    "updated": 1655140887943
                 }
             ]
         },
@@ -164,6 +219,11 @@
                     "language": "RU",
                     "text": "Помните, что таймфреймы от одного часа и выше хранятся как Market Files, а таймфреймы меньше одного часа - как Daily Files.",
                     "updated": 1640150712009
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir saat ve üzeri zaman dilimlerinin Piyasa ( Market ) Dosyaları, bir saatin altındaki zaman dilimlerinin ise Günlük Dosyalar olarak saklandığını unutmayın.",
+                    "updated": 1655141038986
                 }
             ]
         },
@@ -175,6 +235,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1640150721099
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1655140982955
                 }
             ]
         },
@@ -191,6 +256,11 @@
                     "language": "RU",
                     "text": "Вышеприведенное действие возвращает массив свечей предыдущих дней, объединенный со свечами текущего дня. Вы можете использовать эту информацию по своему усмотрению.",
                     "updated": 1640150769463
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki, geçerli günün mumlarıyla birleştirilmiş önceki günlerin bir dizi mumunu döndürür. Bu bilgileri dilediğiniz gibi kullanabilirsiniz.",
+                    "updated": 1655141058261
                 }
             ]
         },
@@ -207,8 +277,18 @@
                     "language": "RU",
                     "text": "Вышеприведенное действие возвращает массив всех объектов BollingerBands всего рынка, поскольку таймфрейм выше 1 часа.",
                     "updated": 1640150785874
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki, zaman çerçevesi 1 saatin üzerinde olduğu için tüm piyasanın tüm bollingerBands nesnesinin bir dizisini döndürür.",
+                    "updated": 1655141110153
                 }
             ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Dependency Filter->Explanation",
+            "updated": 1646057346889
         },
         {
             "style": "Text",

@@ -1,0 +1,61 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 21,
+    "type": "HARSI-BB",
+    "definition": {
+        "text": "This script, originally made by javabgar on TradingView, translates the Heikin Ashi Candles over to an RSI oscillator, and includes Bollinger Bands to show clear trends in the market.",
+        "updated": 1661142181959
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HARSI-BB On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The HARSI-BB indicator uses the RSI as it's basis to show strength in a price trend. It then calculates the standard deviation to create a Bollinger Band style plot around the RSI values. ",
+            "updated": 1661142267102
+        },
+        {
+            "style": "Text",
+            "text": "Buy and Sell zones are then set up at the 30 and 70 lines respectively. "
+        },
+        {
+            "style": "Text",
+            "text": "A Heikin Ashi style histogram is then plotted using the RSI function as an input. This provides a potential buy/sell signal when the candles enter the respective zones."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-harsi-bb-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the HARSI-BB can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"HARSI-BB\" Product Definition.",
+            "updated": 1661142278633
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-harsi-bb-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "HARSI Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| HARSI-BB | harsi-bb | rsi, HaOpen, HaClose, HaMax, HaMin, avg, upper1, upper2, lower1, lower2 |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the HA histogram enters the buy zone at 30 and then leaves it again:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.harsi-bb.previous.HaClose < 30 && chart.at15min.harsi-bb.HaClose > 0"
+        }
+    ]
+}

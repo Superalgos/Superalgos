@@ -88,8 +88,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Workspaces сохраняют всю информацию относительно структур данных, включенных в рабочую область.",
-                    "updated": 1636192315950
+                    "text": "Workspaces сохраняют всю информацию относительно структур данных, включенных в рабочее пространство.",
+                    "updated": 1641809425403
                 },
                 {
                     "language": "NL",
@@ -117,8 +117,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Gelin bu Plugin Workspace'in bir kopyasını oluşturalım ve sizin için yapalım! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
-                    "updated": 1636013459404
+                    "text": "Gelin bu Plugin Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "updated": 1644909265051
                 },
                 {
                     "language": "RU",
@@ -162,13 +162,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama üzerine tıklamanıza gerek yok!",
-                    "updated": 1636013495006
+                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama şimdilik üzerine tıklamanıza gerek yok!",
+                    "updated": 1644909283788
                 },
                 {
                     "language": "RU",
-                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее место! Но не нужно нажимать на него!",
-                    "updated": 1636192559470
+                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее пространство! Но пока не нужно нажимать на него!",
+                    "updated": 1641809497890
                 },
                 {
                     "language": "NL",

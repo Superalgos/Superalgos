@@ -4,17 +4,50 @@
     "type": "Candles by @luis_fernando_molina",
     "definition": {
         "text": "The Candles Data Mine features the Exchange Raw Data Sensor Bot and the Candles Volumes Indicator Bot.",
-        "updated": 1622481284246
+        "updated": 1622481284246,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Candles Data Mine enthält den Exchange Raw Data Sensor Bot und den Candles Volumes Indicator Bot.",
+                "updated": 1641732014067
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Candles Veri Madeni'nde şunlar bulunur,Değişim Ham Veri Sensör Botu (Exchange Raw Data Sensor Bot) ve Mum Hacimleri Gösterge Botu (Candles Volumes Indicator Bot).",
+                "updated": 1644500390348
+            },
+            {
+                "language": "RU",
+                "text": "Candles Data Mine включает в себя Exchange Raw Data Sensor Bot и Candles Volumes Indicator Bot.",
+                "updated": 1645606598719
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481391711
+            "updated": 1622481391711,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı:",
+                    "updated": 1654393238820,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+                    "updated": 1654393245318,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

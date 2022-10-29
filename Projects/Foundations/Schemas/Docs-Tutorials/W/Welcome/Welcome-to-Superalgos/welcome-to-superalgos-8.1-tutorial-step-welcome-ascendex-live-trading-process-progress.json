@@ -4,7 +4,20 @@
     "type": "Tutorial Step - Welcome AscendEX Live Trading Process Progress",
     "definition": {
         "text": "This step plays a video in full screen mode.",
-        "updated": 1640967785818
+        "updated": 1640967785818,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1642771702233
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım bir videoyu tam ekran modunda oynatır.",
+                "updated": 1654394327262,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {

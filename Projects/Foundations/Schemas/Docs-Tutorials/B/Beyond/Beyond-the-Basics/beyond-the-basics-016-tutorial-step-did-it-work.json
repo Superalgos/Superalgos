@@ -1,14 +1,14 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 16,
+    "pageNumber": "16",
     "type": "Tutorial Step - Did It Work?",
     "definition": {
         "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
+        "updated": 1616875304376,
         "icon": {
             "name": "Docs\\docs-action-edit-paragraph",
             "project": "Foundations"
         },
-        "updated": 1616875304376,
         "translations": [
             {
                 "language": "IT",
@@ -105,6 +105,18 @@
                     "language": "TR",
                     "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
                     "updated": 1640555531810
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you are using the Packaged or Docker installations, keep hitting Next and ignoring the instructions that are not available for your version of the software.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Paketlenmiş veya Docker kurulumlarını kullanıyorsanız, İleri'ye basmaya devam edin ve yazılım sürümünüz için mevcut olmayan talimatları göz ardı edin.",
+                    "updated": 1654393916499,
+                    "style": "Text"
                 }
             ]
         }

@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Paylaşımlar tıpkı Yedekler ( Backups ) gibidir, ancak ortaya çıkan dosya hassas kişisel bilgilerden arındırılır!",
                 "updated": 1639740983804
+            },
+            {
+                "language": "RU",
+                "text": "Совместное использование (Shares) - это то же самое, что и резервное копирование, но полученный файл очищен от конфиденциальной личной информации!",
+                "updated": 1640871306292
+            },
+            {
+                "language": "ID",
+                "text": "Shares seperti Backups, tetapi file yang dihasilkan menghilangkan informasi pribadi yang sensitif!",
+                "updated": 1645032822776
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "İhtiyacınız olduğunda dosyalarınızı Share işlevini kullanarak paylaşın. Bu alışkanlığınız, gelecekte tehlikeli hatalardan kaçınmanıza yardımcı olacaktır!",
                     "updated": 1639743191701
+                },
+                {
+                    "language": "RU",
+                    "text": "Привыкайте пользоваться Shares! Такая практика поможет вам избежать опасных ошибок в будущем!",
+                    "updated": 1640871482818
+                },
+                {
+                    "language": "ID",
+                    "text": "Biasakan berbagi Shares! Latihan yang baik ini akan membantu kamu menghindari kesalahan berbahaya di masa depan!",
+                    "updated": 1645032853836
                 }
             ]
         },
@@ -89,6 +109,16 @@
                     "language": "TR",
                     "text": "Daha fazla bilgi için Shares hakkındaki sayfayı okuyun!",
                     "updated": 1639741096920
+                },
+                {
+                    "language": "RU",
+                    "text": "Читайте страницу о Shares для получения дополнительной информации!",
+                    "updated": 1640871464374
+                },
+                {
+                    "language": "ID",
+                    "text": "Baca halaman tentang Shares untuk info lebih lanjut!",
+                    "updated": 1645032879007
                 }
             ]
         },
@@ -117,6 +147,16 @@
                     "language": "TR",
                     "text": "Çalışmanızı paylaşmak isterseniz, Çalışma Alanı dosyalarınızı veya Yedeklerinizi ( Backups ) asla paylaşmayın. Bu dosyalar, Borsa Hesap Anahtarınız gibi hassas bilgiler içerebilir. Bunun yerine, share işlevini kullanarak paylaşın!",
                     "updated": 1639743396391
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы хотите поделиться своей работой, никогда не делитесь файлами рабочего пространства или резервными копиями. Эти файлы могут содержать конфиденциальную информацию, например, ключи вашей учетной записи биржи. Вместо этого делитесь с помощью Shares!",
+                    "updated": 1640871539689
+                },
+                {
+                    "language": "ID",
+                    "text": "Kapan pun kamu ingin membagikan pekerjaanmu, jangan pernah membagikan file atau Cadangan Workspacemu. File-file itu mungkin berisi informasi sensitif seperti Exchange Account Key kamu. Alih-alih, bagikan Shares kamu!",
+                    "updated": 1645032961010
                 }
             ]
         }

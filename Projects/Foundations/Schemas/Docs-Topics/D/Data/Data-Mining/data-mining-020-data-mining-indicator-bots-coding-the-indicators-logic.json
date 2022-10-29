@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Узнайте, как использовать зависимости данных, переменный объект и как работать с индикаторами с нерегулярными периодами.",
                 "updated": 1639670541463
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri bağımlılıklarını, değişken nesneyi nasıl kullanacağınızı ve düzensiz dönemli göstergelerle nasıl başa çıkacağınızı öğrenin.",
+                "updated": 1645972689835
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Основная зависимость от данных (Main Data Dependency)",
                     "updated": 1639676429660
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Veri Bağımlılığı",
+                    "updated": 1645972834093
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Процедура построения данных работает на основе того, что алгоритм циклически обращается к сбору данных и для каждого цикла генерирует запись для строящегося продукта. Например, индикатор SMA циклично взаимодействует с продуктом Candles индикатора Candles Volumes, таким образом, свечи являются основной зависимостью данных. В случае продукта bollingerChannels основной зависимостью данных является продукт bollingerBands индикатора Bollinger Bands.",
                     "updated": 1639722475226
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri oluşturma prosedürü, algoritmanın bir veri toplama etrafında döndüğü ve her döngü için oluşturulmakta olan ürün için bir kayıt oluşturduğu öncülü altında çalışır. Örneğin, SMA göstergesi Mum Hacimleri göstergesinin mum ürününün etrafında döner, bu nedenle mumlar ana veri bağımlılığıdır. BollingerChannels ürünü söz konusu olduğunda, ana veri bağımlılığı Bollinger Bantları göstergesinin bollingerBands ürünüdür.",
+                    "updated": 1645972727275
                 }
             ]
         },
@@ -65,13 +80,25 @@
                     "language": "RU",
                     "text": "Основная зависимость данных - это первая зависимость, объявленная на уровне процессов. Эта зависимость доступна в объекте записи, который имеет три свойства:",
                     "updated": 1639676238380
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana veri bağımlılığı, süreçler düzeyinde bildirilen ilk bağımlılıktır. Bu bağımlılık, üç özelliği içeren kayıt nesnesinde kullanıma sunulur:",
+                    "updated": 1645972738656
                 }
             ]
         },
         {
             "style": "List",
             "text": "previous: ",
-            "updated": 1611429276716
+            "updated": 1611429276716,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "önceki:",
+                    "updated": 1645972777374
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -80,7 +107,14 @@
         {
             "style": "List",
             "text": "current: ",
-            "updated": 1611429281291
+            "updated": 1611429281291,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "şimdiki:",
+                    "updated": 1645972785742
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -90,7 +124,14 @@
         {
             "style": "List",
             "text": "next: ",
-            "updated": 1611429287433
+            "updated": 1611429287433,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "sonraki:",
+                    "updated": 1645972793769
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -109,6 +150,11 @@
                     "language": "RU",
                     "text": "Переменная index - это индекс в массиве основной зависимости.",
                     "updated": 1639676297703
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişken indeksi, ana bağımlılığın dizisindeki indekstir.",
+                    "updated": 1645972825284
                 }
             ]
         },
@@ -125,6 +171,11 @@
                     "language": "RU",
                     "text": "Например, вы можете использовать оператор record.propertyName для доступа к значению любого из свойств во входных наборах данных для текущей записи или record.previous.propertyName для доступа к значению свойства в предыдущей записи.",
                     "updated": 1639676324151
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, geçerli kayıt için girdi veri kümelerindeki herhangi bir özelliğin değerine erişmek için record.propertyName ifadesini veya önceki kayıttaki özelliğin değerine erişmek için record.previous.propertyName ifadesini kullanabilirsiniz.",
+                    "updated": 1645972844115
                 }
             ]
         },
@@ -142,6 +193,11 @@
                     "language": "RU",
                     "text": "Порядок определения зависимостей определяет, какая из них является основной зависимостью данных.",
                     "updated": 1639676339363
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bağımlılıkların tanımlanma sırası, hangisinin ana veri bağımlılığı olduğunu belirler.",
+                    "updated": 1645972856031
                 }
             ]
         },
@@ -159,6 +215,11 @@
                     "language": "RU",
                     "text": "Множественные зависимости от данных (Multiple Data Dependencies)",
                     "updated": 1639676408965
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoklu Veri Bağımlılığı",
+                    "updated": 1645972888951
                 }
             ]
         },
@@ -175,6 +236,11 @@
                     "language": "RU",
                     "text": "Объект products имеет свойство для каждой зависимости данных, и каждое свойство имеет pluralVariableName, определенное в конфигурации продукта. Каждое свойство представляет собой массив с набором данных зависимости.",
                     "updated": 1639676565091
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler nesnesi, her veri bağımlılığı için bir özellik içerir ve her özellik, ürünün yapılandırmasında tanımlanan pluralVariableName ile adlandırılır. Her özellik, bağımlılığın veri toplamasına sahip bir diziye sahiptir.",
+                    "updated": 1645972910805
                 }
             ]
         },
@@ -191,6 +257,11 @@
                     "language": "RU",
                     "text": "Сбор данных по разным продуктам может начинаться и заканчиваться в разные моменты времени. Например, требуется 20 свечей, чтобы построить первый объект bollingerBands индикатора Bollinger Bands, или 200 свечей, чтобы построить первые popularSMA индикатора SMA. Следовательно, запись в позиции i в массиве одного продукта может не соответствовать тому же периоду времени записи в той же позиции другого продукта.",
                     "updated": 1639676703769
+                },
+                {
+                    "language": "TR",
+                    "text": "Farklı ürünlerin veri toplamaları, zaman içinde farklı noktalarda başlayıp bitebilir. Örneğin, Bollinger Bantları göstergesinin ilk bollingerBands nesnesini oluşturmak için 20 mum veya SMA göstergesinin ilk popülerSMA nesnesini oluşturmak için 200 mum gerekir. Bu nedenle, bir ürünün dizisindeki i konumundaki kayıt, farklı bir ürünün aynı konumundaki kaydın aynı zaman periyoduna karşılık gelmeyebilir.",
+                    "updated": 1645972936173
                 }
             ]
         },
@@ -207,12 +278,17 @@
                     "language": "RU",
                     "text": "Функция getElement",
                     "updated": 1639676720490
+                },
+                {
+                    "language": "TR",
+                    "text": "getElement İşlevi",
+                    "updated": 1645972949338
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is whitin the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
+            "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is within the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
             "updated": 1621105823745,
             "translations": [
                 {
@@ -224,6 +300,11 @@
                     "language": "RU",
                     "text": "Эта функция позволяет пользователям находить объект в наборе данных, у объектов которого нет свойства begin и end, но вместо этого у них есть свойство timestamp. Он получает произвольный объект начала / конца, и функция будет искать в наборе данных зависимостей первую запись, метка времени которой совпадает с началом и концом полученного ссылочного объекта. Например, пользователь может получить запись новостей, принадлежащую определенному объекту Candle.",
                     "updated": 1639676797678
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlev, kullanıcıların bir veri kümesindeki nesneleri bir başlangıç ve bitiş özelliği olmayan, bunun yerine bir zaman damgası özelliğine sahip olan bir nesneyi bulmasını sağlar. Rastgele bir başlangıç / bitiş nesnesi alır ve işlev, zaman damgası alınan referans nesnesinin başlangıç ve bitişinde olan ilk kayıt için bağımlılık veri kümesi içinde arama yapar. Örneğin, bir kullanıcı belirli bir Candle nesnesine ait Haber kaydını alabilir.",
+                    "updated": 1645972962710
                 }
             ]
         },
@@ -241,6 +322,11 @@
                     "language": "RU",
                     "text": "Можно использовать функцию getElement, которая принимает два параметра:",
                     "updated": 1639676874313
+                },
+                {
+                    "language": "TR",
+                    "text": "İki parametre alan getElement işlevi kullanılabilir:",
+                    "updated": 1645973041195
                 }
             ]
         },
@@ -257,6 +343,11 @@
                     "language": "RU",
                     "text": "Имя набора данных (pluralVariableName), к которому вы хотите обратиться.",
                     "updated": 1639676889008
+                },
+                {
+                    "language": "TR",
+                    "text": "Danışmak istediğiniz veri toplamanın (pluralVariableName) adı.",
+                    "updated": 1645973076570
                 }
             ]
         },
@@ -273,6 +364,11 @@
                     "language": "RU",
                     "text": "Объект со свойствами begin и end, например десятая свеча.",
                     "updated": 1639676945239
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç ve bitiş özelliklerine sahip bir nesne, örneğin onuncu mum.",
+                    "updated": 1645973089517
                 }
             ]
         },
@@ -289,6 +385,11 @@
                     "language": "RU",
                     "text": "Функция возвращает запись, которая соответствует датам начала и окончания второго параметра.",
                     "updated": 1639677433185
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlev, ikinci parametrenin başlangıç ve bitiş tarih saatiyle eşleşen kaydı döndürür.",
+                    "updated": 1645973100900
                 }
             ]
         },
@@ -305,6 +406,11 @@
                     "language": "RU",
                     "text": "Это пример индикатора Candle Patterns, в котором прдукт Candles индикатора Candles Volumes является основной зависимостью данных:",
                     "updated": 1639722462769
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, ana veri bağımlılığı olarak Mum Hacimleri göstergesinin mum ürününü içeren Mum Kalıpları göstergesinden bir örnektir:",
+                    "updated": 1645973111262
                 }
             ]
         },
@@ -322,6 +428,11 @@
                     "language": "RU",
                     "text": "Функция getTimestampElement",
                     "updated": 1639677507588
+                },
+                {
+                    "language": "TR",
+                    "text": "getTimestampElement İşlevi",
+                    "updated": 1645973158887
                 }
             ]
         },
@@ -339,6 +450,11 @@
                     "language": "RU",
                     "text": "Индикаторы могут иметь параметры, влияющие на их расчеты. Эти параметры определяются в конфигурации определения продукта Product Definition, а их значения устанавливаются в конфигурации экземпляра процесса Process Instance. Параметры извлекаются из кода инициализации процедуры Procedure Initialization. Чтобы облегчить это извлечение, мы создадим здесь объект, который будет приниматься из процедуры инициализации со всеми параметрами и их определенными значениями.",
                     "updated": 1639677736261
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler, hesaplamalarını etkileyen parametrelere sahip olabilir. Bu parametreler Ürün Tanımı ( Product Definition ) yapılandırmasında tanımlanır ve değerleri İşlem Eşgörünümü yapılandırmasında ayarlanır. Parametreler, Prosedür Başlatma ( Procedure Initialization ) Kodunda çıkarılır. Bu çıkarımı kolaylaştırmak için burada, tüm parametreler ve tanımlı değerleri ile Prosedür Başlatma'dan erişilecek bir nesne oluşturacağız.",
+                    "updated": 1645973269612
                 }
             ]
         },
@@ -360,6 +476,11 @@
                     "language": "RU",
                     "text": "Переменный объект (Variable Object)",
                     "updated": 1639677770787
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişken Nesne",
+                    "updated": 1645973291606
                 }
             ]
         },
@@ -376,6 +497,11 @@
                     "language": "RU",
                     "text": "Сгенерированный вывод должен быть сохранен как новые свойства объекта переменной, который становится доступным для записи свойств в узле определения записи Record Definition.",
                     "updated": 1639677824227
+                },
+                {
+                    "language": "TR",
+                    "text": "Üretilen çıktı, kayıt tanımlama düğümü altındaki özelliklerin kaydedilmesi için kullanıma sunulan değişken nesnenin yeni özellikleri olarak saklanmalıdır.",
+                    "updated": 1645973313663
                 }
             ]
         },
@@ -392,12 +518,24 @@
                     "language": "RU",
                     "text": "В случае цикла процедуры построения данных переменный объект также может использоваться для хранения и - позже - извлечения информации между различными тактами цикла или даже между различными выполнениями индикаторного процесса. Такая функция недоступна в цикле процедуры расчетов (Calculations Procedure), поскольку объект не сохраняется за пределами каждого цикла в этом контексте.",
                     "updated": 1639678261995
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri oluşturma prosedürü döngüsü durumunda, değişken nesne, farklı döngü döngüleri arasında veya hatta gösterge sürecinin farklı yürütmeleri arasında bilgi depolamak ve daha sonra almak için de kullanılabilir. Nesne bu bağlamda her döngünün ötesinde kalıcı olmadığından, böyle bir özellik hesaplama prosedürü döngüsünde mevcut değildir.",
+                    "updated": 1645973336887
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Multi-Time-Frame-Daily"
+            "text": "Multi-Time-Frame-Daily",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çoklu-Zaman-Çerçeve-Günlük (Multi-Time-Frame-Daily)",
+                    "updated": 1645973356268
+                }
+            ]
         },
         {
             "style": "Text",
@@ -412,6 +550,11 @@
                     "language": "RU",
                     "text": "В периоды времени менее одного часа система позволяет получать доступ к данным за последние 48 часов относительно текущей записи. Если для создания желаемого построения данных требуется более 48 часов данных, то данные должны быть сохранены в переменном объекте для последующего извлечения, как описано выше.",
                     "updated": 1639678535937
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir saatin altındaki zaman dilimlerinde sistem, mevcut kayda göre 48 saat öncesine kadar olan verilere erişime izin verir. İstenen veri oluşturmayı oluşturmak için 48 saatten fazla veri gerekiyorsa, yukarıda açıklandığı gibi veriler daha sonra alınacak değişken nesnede saklanmalıdır.",
+                    "updated": 1645973388804
                 }
             ]
         },
@@ -429,6 +572,11 @@
                     "language": "RU",
                     "text": "Процедуры могут обращаться к данным только за прошедшие 48 часов, считая от времени даты обрабатываемой записи. Например, расчет скользящего среднего, охватывающего 100 периодов, требует временного хранения данных в массиве, поскольку для временного интервала в 45 минут требуется 75 часовых данных.",
                     "updated": 1639721265072
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Prosedürler, işlenmekte olan kaydın tarihinden itibaren yalnızca 48 saat öncesine kadar olan verilere erişebilir. Örneğin, 45 dakikalık zaman çerçevesi 75 saatlik veriye ihtiyaç duyduğundan, 100 dönemi kapsayan hareketli bir ortalamanın hesaplanması, verilerin bir dizide geçici olarak depolanmasını gerektirir.",
+                    "updated": 1645973399900
                 }
             ]
         },
@@ -445,6 +593,11 @@
                     "language": "RU",
                     "text": "Ниже приведен пример кода цикла процедуры, в частности, кода, который вычисляет продут Popular SMA индикатора Simple Moving Average (SMA). Обратите внимание, как вывод, генерируемый функцией calculateSMA, сохраняется в объекте переменной, и как массив, хранящийся в объекте переменной, используется для преодоления 48-часового ограничения на доступ к данным для таймфреймов Multi-Priod-Daily.",
                     "updated": 1639721678638
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, özellikle Basit Hareketli Ortalama ( Simple Moving Average ) (SMA) göstergesinin Popüler SMA'lar ürününü hesaplayan kod olmak üzere bir prosedür döngü kodu örneği verilmiştir. HesaplamaSMA işlevi tarafından üretilen çıktının değişken nesnede nasıl depolandığına ve Değişken nesnede depolanan bir dizinin Çoklu Priod-Günlük zaman çerçevelerinin 48 saatlik veri erişimi sınırlamasının üstesinden gelmek için nasıl kullanıldığına dikkat edin.",
+                    "updated": 1645973442695
                 }
             ]
         },
@@ -467,6 +620,11 @@
                     "language": "RU",
                     "text": "Нерегулярные периоды (Irregular Periods)",
                     "updated": 1639722557754
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzensiz Dönemler",
+                    "updated": 1645973469924
                 }
             ]
         },
@@ -483,6 +641,11 @@
                     "language": "RU",
                     "text": "Иногда не существует однозначного сопоставления периодов зависимости данных с периодами конечного продукта. Например, в случае продукта bollingerChannels, использующего в качестве основной зависимости bollingerBands. В этом случае алгоритм может считывать 1-часовые полосы Боллинджера в качестве входных данных, но результирующий объект может охватывать несколько часов.",
                     "updated": 1639722619765
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen, elde edilen ürünün dönemleri ile veri bağımlılığı dönemlerinin bire bir eşlemesi mevcut değildir. Örneğin, bollingerChannels ürünü söz konusu olduğunda, ana bağımlılık olarak bollingerBands öğesinin kullanılması. Böyle bir durumda, algoritma 1 saatlik bollingerBand'leri girdi olarak okuyabilir, ancak ortaya çıkan nesne birkaç saat sürebilir.",
+                    "updated": 1645973479374
                 }
             ]
         },
@@ -499,6 +662,11 @@
                     "language": "RU",
                     "text": "По умолчанию система переносит запись в коллекцию данных для каждого цикла. Для создания продуктов, которые охватывают несколько периодов основной зависимости, вы должны выполнять это действие из собственного кода.",
                     "updated": 1639723688268
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, sistem her döngü için veri toplamaya bir kayıt gönderir. Ana bağımlılığın birkaç periyodunu kapsayan ürünler oluşturmak için, kendi kodunuzdan baskı yapmanız gerekir.",
+                    "updated": 1645973505270
                 }
             ]
         },
@@ -515,6 +683,11 @@
                     "language": "RU",
                     "text": "Когда система обнаруживает перенос в коде процедурного цикла, она отменяет автоматическое перенос в каждом цикле.",
                     "updated": 1639723664544
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, prosedür döngü kodunda bir push bildirimi algıladığında, her döngüde otomatik push işlemini iptal eder.",
+                    "updated": 1645973514947
                 }
             ]
         },
@@ -531,6 +704,11 @@
                     "language": "RU",
                     "text": "Следующий пример, взятый из цикла процедуры построения данных индикатора Bollinger Channels Object, содержит несколько примеров произвольного использования переносов.",
                     "updated": 1639723579255
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanalları Nesne göstergesinin veri oluşturma prosedürü döngüsünden alınan aşağıdaki örnekte, çeşitli itme kullanımı örnekleri bulunmaktadır.",
+                    "updated": 1645973524422
                 }
             ]
         },
@@ -553,6 +731,11 @@
                     "language": "RU",
                     "text": "Управление неопределенными объектами (Managing Undefined Objects)",
                     "updated": 1639723717529
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımsız Nesneleri Yönetme",
+                    "updated": 1645973577744
                 }
             ]
         },
@@ -569,12 +752,17 @@
                     "language": "RU",
                     "text": "Во многих случаях объекты могут быть неопределенными. Например, первые 199 свечей в коллекции данных, соответствующих 200-периодной скользящей средней, могут быть неопределенными, поскольку процедура построения данных может построить объект только после оценки 200-й свечи.",
                     "updated": 1639723755351
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir çok durumda, nesneler tanımsız olabilir. Örneğin, 200 dönemlik hareketli ortalamaya karşılık gelen veri toplamadaki ilk 199 mum tanımsız olabilir, çünkü veri oluşturma prosedürü nesneyi yalnızca 200. mum değerlendirildikten sonra oluşturabilir.",
+                    "updated": 1645973591357
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Storing undifined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer.",
+            "text": "Storing undefined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer.",
             "translations": [
                 {
                     "language": "DE",
@@ -584,9 +772,15 @@
                 {
                     "language": "RU",
                     "text": "Хранение неопределенных значений свойств крайне нежелательно, так как это, скорее всего, приведет к ошибкам, когда другие попытаются использовать продукты, произведенные индикатором. Как поступать в таких случаях, зависит от разработчика.",
-                    "updated": 1639723785241
+                    "updated": 1647784681799
+                },
+                {
+                    "language": "TR",
+                    "text": "Başkaları gösterge tarafından üretilen ürünleri tüketmeye çalıştığında aşağı yönde hatalara yol açacağından, tanımlanmamış mülk değerlerinin saklanması oldukça istenmeyen bir durumdur. Bu tür durumlarla nasıl başa çıkılacağı geliştiriciye bağlıdır.",
+                    "updated": 1645973604241
                 }
-            ]
+            ],
+            "updated": 1647236335266
         },
         {
             "style": "Text",
@@ -601,6 +795,11 @@
                     "language": "RU",
                     "text": "Приведенный выше пример на Bollinger Channels Object отличается продуманной работой с неопределенными объектами.",
                     "updated": 1639723883623
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki Bollinger Kanalları Nesnesi örneği, tanımsız nesnelerin kasıtlı olarak ele alınmasını içerir.",
+                    "updated": 1645973612909
                 }
             ]
         },
@@ -617,6 +816,11 @@
                     "language": "RU",
                     "text": "В случае 200-периодного скользящего среднего, о котором говорилось выше, разработчик может захотеть произвести произвольную оценку скользящего среднего для первых 199 свечей или просто установить значение нуля для первых 199 свечей. Последнее было выбрано для продукта popularSMA, что можно заметить в коде процедуры инициализации:",
                     "updated": 1639723960686
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda tartışılan 200 dönemlik hareketli ortalama durumunda, geliştirici ilk 199 mum için hareketli ortalamanın keyfi bir tahminini üretmek veya ilk 199 mum için değeri sıfıra ayarlamak isteyebilir. Başlatma prosedürünün kodunda görülebileceği gibi, popülerSMA ürününün seçimi daha sonraydı:",
+                    "updated": 1645973620228
                 }
             ]
         },

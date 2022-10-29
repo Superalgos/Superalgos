@@ -20,8 +20,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri oluşturma prosedürü, çıktı veri kümesinde depolanan özelliklere beslenecek bilgileri işler.",
-                "updated": 1639215023786
+                "text": "Veri oluşturma prosedürü, çıktı veri kümesinde depolanan özelliklerİ besleyecek bilgileri işler.",
+                "updated": 1656932060059
             }
         ]
     },
@@ -43,6 +43,12 @@
                     "language": "RU",
                     "text": "Эта процедура содержит основную логику бота, поскольку она содержит код, который выполняет вычисления, необходимые для создания нового набора данных. Код разделен между инициализацией процедуры и циклом процедуры.",
                     "updated": 1638729725869
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu prosedür, yeni veri setini üretmek için gereken hesaplamaları gerçekleştiren kodu içerdiğinden botun temel mantığını barındırır. Kod, bir prosedür başlatma ve bir prosedür döngüsü arasında bölünmüştür.",
+                    "updated": 1654391603638,
+                    "style": "Text"
                 }
             ]
         }

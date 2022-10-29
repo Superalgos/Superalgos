@@ -15,6 +15,11 @@
                 "updated": 1639254691946
             },
             {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете последствия проведения операции по добыче данных, давайте приступим к делу!",
+                "updated": 1640933612912
+            },
+            {
                 "language": "TR",
                 "text": "Artık bu veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
                 "updated": 1641062954800
@@ -33,6 +38,11 @@
                     "updated": 1639254741699
                 },
                 {
+                    "language": "RU",
+                    "text": "Если вы не выполнили второй урок из этой серии, выберите \" Run All Project Data Tasks\" в меню узла Data Tasks!",
+                    "updated": 1640933635730
+                },
+                {
                     "language": "TR",
                     "text": "Serideki ikinci öğreticiyi yapmadıysanız, Veri Görevleri ( Data Tasks ) düğüm menüsünden \"Tüm Proje Veri Görevlerini Çalıştır ( All Project Data Tasks )\" ı seçin!",
                     "updated": 1641063044508
@@ -47,6 +57,11 @@
                     "language": "DE",
                     "text": "Wenn Sie dieses Lernprogramm nach anderen Lernprogrammen durchführen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
                     "updated": 1639254750312
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучаете этот учебник после изучения других учебников, есть вероятность, что у вас уже есть часть необходимых данных, что может ускорить процесс! В любом случае, нет необходимости ждать, пока добыча данных дойдет до настоящего времени... вы можете продолжать заниматься по этому учебнику!",
+                    "updated": 1640933669134
                 },
                 {
                     "language": "TR",

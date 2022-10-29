@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Вы будете получать этот тип ошибок каждый раз, когда ожидается, что узел Node будет дочерним по отношению к другому узлу, но он не найден. Чтобы избежать ошибок этого типа, добавьте отсутствующий узел как дочерний для узла, на котором возникает ошибка этого типа.",
                 "updated": 1638553091492
+            },
+            {
+                "language": "DE",
+                "text": "Diese Art von Fehlern tritt immer dann auf, wenn ein Node als Kind eines anderen Nodes erwartet wird, aber nicht gefunden wird. Um diese Art von Fehlern zu vermeiden, fügen Sie den fehlenden Node als untergeordnetes Element des Nodes hinzu, bei dem diese Art von Fehler auftaucht.",
+                "updated": 1645478252283
+            },
+            {
+                "language": "TR",
+                "text": "Bir Düğümün ( Node ) başka bir Düğümün ( Node ) alt öğesi olarak beklendiği ancak bulunamadığı her seferinde bu tür hatalar alırsınız. Bu tür hatalardan kaçınmak için eksik Düğümü ( Node ) bu tür bir hatanın göründüğü Düğümün ( Node ) alt öğesi olarak ekleyin.",
+                "updated": 1652296283769
             }
         ]
     },
@@ -22,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1640237576229
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652296361856
                 }
             ]
         }

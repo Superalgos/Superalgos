@@ -27,14 +27,15 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
         TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Error', event)
     }
 
-    function getBotModuleByName(botModuleName) {
-            /* 
-            We will scan the project schema until we find the module that will run the bot
-            botModule with the name provided. 
-            */
-           for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+    function getBotModuleByName(botModuleName, botProject) {
+        /* 
+        We will scan the project schema until we find the module that will run the bot
+        botModule with the name provided. 
+        */
+        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
             let project = PROJECTS_SCHEMA[i]
-            if (project.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
+            if (project.name !== botProject) { continue }
+            if (project.TS === undefined || project.TS.botModules === undefined) { continue }
             for (let j = 0; j < project.TS.botModules.length; j++) {
                 botModuleDefinition = project.TS.botModules[j]
                 if (botModuleDefinition.name === botModuleName) {
@@ -43,4 +44,4 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
             }
         }
     }
- }
+}

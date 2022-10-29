@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел представляет собой один параметр запроса. Для полного определения того, что такое параметр запроса, пожалуйста, смотрите страницу API Query Parameters.",
                 "updated": 1638629037370
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm tek bir sorgu parametresini temsil eder. Sorgu parametresinin ne olduğuna dair tam bir tanım için lütfen API Sorgu Parametreleri sayfasına bakın.",
+                "updated": 1654391398163
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Даже если вы не используете все параметры запроса, предлагаемые для конечной точки. Для полноты картины рекомендуется добавить его на карту и удалить свойство value.",
                     "updated": 1638629079552
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir uç nokta için sunulan her sorgu parametresini kullanmıyor olsanız bile.  Bütünlük adına, haritaya eklemek ve değer özelliğini silmek iyi bir fikirdir.",
+                    "updated": 1654391403924,
+                    "style": "Success"
                 }
             ]
         },
@@ -33,6 +44,12 @@
                     "language": "RU",
                     "text": "Конфигурация API Query Parameter",
                     "updated": 1638629101825
+                },
+                {
+                    "language": "TR",
+                    "text": "API Sorgu Parametresi Yapılandırması",
+                    "updated": 1654391409131,
+                    "style": "Title"
                 }
             ]
         },
@@ -44,6 +61,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638629109290
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654391415215,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -55,6 +78,12 @@
                     "language": "RU",
                     "text": "codeName: Оно должно совпадать с именем параметра запроса, определенным в документации API.",
                     "updated": 1638629123379
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: Bu, API dokümanlarında tanımlanan sorgu parametresinin adıyla eşleşmelidir.",
+                    "updated": 1654391422325,
+                    "style": "List"
                 }
             ]
         },
@@ -66,6 +95,12 @@
                     "language": "RU",
                     "text": "isString: Определите, является ли параметр пути строкой или нет.",
                     "updated": 1638629144731
+                },
+                {
+                    "language": "TR",
+                    "text": "isString: Yol parametresinin bir dize olup olmadığını tanımlar.",
+                    "updated": 1654391428286,
+                    "style": "List"
                 }
             ]
         },
@@ -77,6 +112,12 @@
                     "language": "RU",
                     "text": "isOptional: Определите, является ли этот параметр пути необязательным или нет.",
                     "updated": 1638629155812
+                },
+                {
+                    "language": "TR",
+                    "text": "isOptional: Bu yol parametresinin isteğe bağlı olup olmadığını tanımlar.",
+                    "updated": 1654391434285,
+                    "style": "List"
                 }
             ]
         },
@@ -88,6 +129,12 @@
                     "language": "RU",
                     "text": "description: Определите базовое описание того, что выполняет этот параметр пути.",
                     "updated": 1638629167455
+                },
+                {
+                    "language": "TR",
+                    "text": "Açıklama: Bu yol parametresinin ne yaptığına dair temel bir açıklama tanımlayın.",
+                    "updated": 1654391439744,
+                    "style": "List"
                 }
             ]
         },
@@ -100,6 +147,12 @@
                     "language": "RU",
                     "text": "value: Это значение, которое будет использоваться параметром.",
                     "updated": 1638629181285
+                },
+                {
+                    "language": "TR",
+                    "text": "değer: Parametre tarafından kullanılacak değerdir.",
+                    "updated": 1654391445484,
+                    "style": "List"
                 }
             ]
         },
@@ -112,6 +165,12 @@
                     "language": "RU",
                     "text": "Значение, которое вы вводите в API Map, будет считаться значением по умолчанию. Тот же параметр может быть динамически извлечен из пользовательской системы с помощью свойства replaceBy. Когда используется свойство replaceBy, значение по умолчанию будет перезаписано.",
                     "updated": 1638629220709
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritasına yazdığınız değer varsayılan değer olarak kabul edilecektir. Aynı parametre replaceBy özelliği kullanılarak bir kullanıcının sisteminden dinamik olarak çekilebilir.  replaceBy özelliği kullanıldığında varsayılan değerin üzerine yazılacaktır.",
+                    "updated": 1654391451184,
+                    "style": "Note"
                 }
             ]
         },
@@ -124,6 +183,12 @@
                     "language": "RU",
                     "text": "replaceBy: [Необязательно] Это свойство позволяет указать боту API Fetcher Bot установить значение этого параметра, заменяя текущее значение по умолчанию и используя контекстную информацию, доступную только во время выполнения.",
                     "updated": 1638629270861
+                },
+                {
+                    "language": "TR",
+                    "text": "replaceBy: [İsteğe bağlı] Bu özellik, API Fetcher Bot'a bu parametreye geçerli varsayılanın yerine bir değer ayarlaması ve yalnızca çalışma zamanında kullanılabilen bağlamsal bilgileri kullanması talimatını vermenizi sağlar.",
+                    "updated": 1654391456940,
+                    "style": "List"
                 }
             ]
         },
@@ -136,6 +201,12 @@
                     "language": "RU",
                     "text": "Вот пример конфигурации, устанавливающей для параметра запроса значение false:",
                     "updated": 1638629284976
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte bir sorgu seçeneğini false olarak ayarlayan örnek bir yapılandırma:",
+                    "updated": 1654391463415,
+                    "style": "Text"
                 }
             ]
         },
@@ -146,7 +217,15 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Concept->replaceBy Config Property->How To Use It"
+            "text": "Foundations->Concept->replaceBy Config Property->How To Use It",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Concept->replaceBy Config Property->Nasıl Kullanılır",
+                    "updated": 1654391469321,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

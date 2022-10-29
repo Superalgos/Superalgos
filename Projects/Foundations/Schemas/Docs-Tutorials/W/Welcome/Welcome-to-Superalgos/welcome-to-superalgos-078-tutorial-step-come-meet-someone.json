@@ -33,7 +33,7 @@
             },
             {
                 "language": "RU",
-                "text": "Извините, что оторвал Вас от графиков, но я хотел представить Вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
+                "text": "Извините, что оторвал Вас от графиков, но я хотел представить вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
                 "updated": 1637755743535
             },
             {
@@ -84,7 +84,7 @@
         },
         {
             "style": "Callout",
-            "text": "Take a few minutes to explore the nodes below the execution algorithm, check the formulas and conditions, and see what you can make of them!",
+            "text": "Take a few minutes to explore the nodes downstream from the execution algorithm, check the formulas and conditions, and see what you can make of them!",
             "translations": [
                 {
                     "language": "IT",
@@ -110,15 +110,16 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать!",
-                    "updated": 1637756059992
+                    "text": "Потратьте несколько минут на изучение узлов, расположенных ниже алгоритма выполнения, проверьте формулы и условия и посмотрите, что вы можете из них сделать! ",
+                    "updated": 1662034309760
                 },
                 {
                     "language": "ID",
                     "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
                     "updated": 1640565111657
                 }
-            ]
+            ],
+            "updated": 1649168063557
         }
     ]
 }

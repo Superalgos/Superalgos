@@ -1,0 +1,73 @@
+{
+    "type": "Github Storage",
+    "definition": {
+        "text": "The Github Storage node contains definitions of all public github repositories set up as Open Storage locations on the Superalgos Peer to Peer network for the current User Profile.",
+        "updated": 1643398297750,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Github Depolama düğümü, mevcut Kullanıcı Profili için Superalgos Eşler Arası ağda Açık Depolama konumları olarak ayarlanmış tüm genel github depolarının tanımlarını içerir.",
+                "updated": 1654396019892
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each child Github Storage Container node identifies a particular public github repository as an Open Storage location.",
+            "updated": 1647055343799,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her bir alt Github Depolama Konteyneri düğümü, belirli bir genel github deposunu Açık Depolama konumu olarak tanımlar.",
+                    "updated": 1654396027073,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "In order to be able to upload data to a Github repository, your bots need access to the api token for each repository being used as open storage. These api tokens are stored in a special file call ApiSecrets.json",
+            "updated": 1647056528184,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir Github deposuna veri yükleyebilmek için botlarınızın açık depolama olarak kullanılan her bir deponun api token'ına erişmesi gerekir. Bu api belirteçleri ApiSecrets.json adlı özel bir dosyada saklanır",
+                    "updated": 1654396033489,
+                    "style": "Important"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This file is stored under the My-Secrets directory and needs to have the following structure:",
+            "updated": 1647055701802,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu dosya My-Secrets dizini altında saklanır ve aşağıdaki yapıya sahip olması gerekir:",
+                    "updated": 1654396039344,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"secrets\":  [\n        {\n            \"nodeCodeName\": \"Github-Storage-Conatainer-Luis-Fernando-Molina-My-Social-Trading-Data\",\n            \"apiToken\": \"your_apiToken\"\n        },\n        {\n            \"nodeCodeName\": \"Github-Storage-Conatainer-Luis-Fernando-Molina-My-Trading-Signals\",\n            \"apiToken\": \"your_apiToken\"\n        }\n    ]\n}",
+            "updated": 1647056331765
+        },
+        {
+            "style": "Note",
+            "text": "You need to have an object declaring the api token for each open storage repository you define and plan to use on the peer to peer network. Any repositories that do not have an api token saved will not be accessible for your bots to upload data.",
+            "updated": 1647056655316,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eşler arası ağda tanımladığınız ve kullanmayı planladığınız her açık depolama deposu için api belirtecini bildiren bir nesneye sahip olmanız gerekir. Kaydedilmiş bir api belirteci olmayan herhangi bir depo, botlarınızın veri yüklemesi için erişilebilir olmayacaktır.",
+                    "updated": 1654396046115,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "5",
+    "type": "TS LF Trading Bot Warning - Simulating - Slippage Subtracted",
+    "definition": {
+        "text": "Slippage was calculated based on the Trading Parameters and subtracted from the Order Rate to calculate the Actual Rate. Slippage was subtracted because the order is a Market Sell Order.",
+        "updated": 1611923152009,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Проскальзывание (Slippage) было рассчитано на основе торговых параметров (Trading Parameters) и вычтено из Order Rate для расчета Actual Rate. Проскальзывание было вычтено, поскольку ордер является рыночным ордером на продажу.",
+                "updated": 1645630176537
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Slippage, İşlem Parametrelerine göre hesaplandı ve Gerçek Oranı ( Actual Rate hesaplamak için Emir Oranından ( Order Rate ) çıkarıldı. Emir bir Piyasa Satış Emri ( Market Sell Order ) olduğu için Slippage çıkarıldı.",
+                "updated": 1647171997818
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611923165606,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630182192
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Alım satım botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
+                    "updated": 1647172032398
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Slippage Subtracted",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вычитание проскальзывания",
+                    "updated": 1645630196936
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Slippage Çıkarıldı",
+                    "updated": 1647172060719
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630201891
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647172093840
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630206608
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
+                    "updated": 1647172106678
+                }
+            ]
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Simulating Sync With the Exchange->Actual Rate Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630220923
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha Fazlasını Öğrenin",
+                    "updated": 1647172148964
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630226590
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
+                    "updated": 1647172161669
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Simulating Sync With the Exchange",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
+                    "updated": 1647172187913
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Slippage"
+        }
+    ]
+}

@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "API Map представляет собой сопоставление API, которое может использоваться ботами в Superalgos. Карты API создаются пользователями и передаются как плагины, так что любой другой член сообщества может использовать их со своими ботами.",
                 "updated": 1638625736372
+            },
+            {
+                "language": "TR",
+                "text": "Bir API Haritası, Superalgos içindeki botlar tarafından tüketilebilmesi için bir API'nin eşlenmesini temsil eder. API Haritaları, kullanıcılar tarafından oluşturulur ve Eklentiler olarak paylaşılır, böylece diğer herhangi bir topluluk üyesi onları botlarıyla kullanabilir.",
+                "updated": 1652019189720
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Чтобы создать карту API, необходимо прочитать документацию по API для каждой конечной точки, а также раздел Data Mining. Эти источники предоставят вам всю информацию, необходимую для создания успешной карты API.",
                     "updated": 1638626165824
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir API Haritası oluşturmanın yolu, API'nin her bir uç nokta için belgelerini ve Veri Madenciliği Konusunu okumaktır. Bu kaynaklar, başarılı bir API Haritası oluşturmak için ihtiyacınız olan tüm bilgileri size sağlayacaktır.",
+                    "updated": 1652019198610
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Базовый способ представления карты API - это представление URL-ссылки, необходимой для запроса информации из API, а также макета данных, возвращаемых API. Это означает, что карта API содержит всю информацию, необходимую для запроса данных и дешифрования данных после их возврата.",
                     "updated": 1638625830025
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir API Haritası hakkında düşünmenin temel yolu, API tarafından döndürülen verilerin düzeninin yanı sıra API'den bilgi istemek için gereken URL bağlantısının bir temsilidir. Bu, bir API Haritasının veri istemek ve veri döndürüldükten sonra deşifre etmek için gereken tüm bilgileri tuttuğu anlamına gelir.",
+                    "updated": 1652019206399
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Как используются карты API?",
                     "updated": 1638625862785
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritaları nasıl kullanılır?",
+                    "updated": 1652019217539
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Карты API используются ботами API Data Fetcher Bots для запроса и сохранения данных из API. Для этого пользователю необходимо настроить задачу для запуска бота. Эта настройка выполняется автоматически как часть процедуры Install Market, если в рабочем пространстве Worksapce обнаружены как карта API, так и ее хранилище данных. В рамках этой задачи устанавливается ссылка на карту API.",
                     "updated": 1638626096878
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritaları, API Veri Alıcısı Botları tarafından bir API'den veri istemek ve kaydetmek için kullanılır. Bunu yapmak için kullanıcının botu çalıştırmak için bir görev ayarlaması gerekir. Bu kurulum, Workapce içinde hem bir API Haritası hem de onun veri madeni algılanırsa, Install Market prosedürünün bir parçası olarak otomatik olarak yapılır. Bu Görevin içinden API Haritasına bir referans oluşturulur.",
+                    "updated": 1652019225363
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "RU",
                     "text": "Когда задача Task выполняется, пользовательский интерфейс UI отправляет на сервер задач Task Server все определения внутри карты API, чтобы бот API Data Fetcher Bot мог использовать их для подключения к серверу API, извлечения данных с него и правильной интерпретации ответов.",
                     "updated": 1638626360852
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev çalıştırıldığında, Kullanıcı Arayüzü ( UI ) Görev Sunucusuna ( Task Server ) API Haritası içindeki tüm tanımları gönderir, böylece API Veri Alıcısı Botu ( API Data Fetcher Bot ), API Sunucusuna ( API Server )  bağlanmak, ondan veri almak ve yanıtları doğru bir şekilde yorumlamak için bunları kullanabilir.",
+                    "updated": 1652019386354
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "RU",
                     "text": "Как читать URL-адрес запроса API",
                     "updated": 1638626392091
+                },
+                {
+                    "language": "TR",
+                    "text": "API İstek URL'si Nasıl Okunur",
+                    "updated": 1652019396564
                 }
             ]
         },
@@ -137,6 +172,11 @@
                     "language": "RU",
                     "text": "API, который вы пытаетесь сопоставить, должен иметь задокументированные конечные точки API Endpoints. Если нет, проверьте любые примеры, которые они могут предоставить для запроса данных, и посмотрите, есть ли внутренние папки под основной папкой API Enpoint. Каждая из этих папок представляет собой параметр пути API Path Parameter, который необходимо определить.",
                     "updated": 1638626550400
+                },
+                {
+                    "language": "TR",
+                    "text": "Eşlemeye çalıştığınız API'nin API Uç Noktaları belgelenmiş olmalıdır. Değilse, verilerin nasıl talep edileceğine ilişkin sağlayabilecekleri örnekleri kontrol edin ve API Enpoint'in ana klasörünün altında iç klasörler olup olmadığına bakın. Bu klasörlerin her biri, tanımlanması gereken bir API Yolu Parametresidir ( API Path Parameter ).",
+                    "updated": 1652019431899
                 }
             ]
         },
@@ -153,6 +193,11 @@
                     "language": "RU",
                     "text": "Вот несколько примеров URL-адресов запросов API:",
                     "updated": 1638626596716
+                },
+                {
+                    "language": "TR",
+                    "text": "API istek URL'lerinin bazı örnekleri:",
+                    "updated": 1652019444022
                 }
             ]
         },
@@ -178,6 +223,11 @@
                     "language": "RU",
                     "text": "Разделы URL-адреса запроса API",
                     "updated": 1638626624418
+                },
+                {
+                    "language": "TR",
+                    "text": "API İstek URL'sinin Bölümleri",
+                    "updated": 1652019451976
                 }
             ]
         },
@@ -194,6 +244,11 @@
                     "language": "RU",
                     "text": "Давайте разберем один из этих URL-адресов и определим каждую его часть.",
                     "updated": 1638626638275
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu URL'lerden birini parçalayalım ve her bir parçasını tanımlayalım.",
+                    "updated": 1652019459619
                 }
             ]
         },
@@ -211,6 +266,11 @@
                     "language": "RU",
                     "text": "Internet Protocol: Это раздел в начале практически любой интернет-ссылки, которую вы увидите.",
                     "updated": 1638626706898
+                },
+                {
+                    "language": "TR",
+                    "text": "İnternet Protokolü: Bu, göreceğiniz hemen hemen her internet bağlantısının başındaki bölümdür.",
+                    "updated": 1652019469040
                 }
             ]
         },
@@ -232,6 +292,11 @@
                     "language": "RU",
                     "text": "Вы определяете это с помощью свойства конфигурации протокола в главном узле API Map.",
                     "updated": 1638626740278
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu, ana API Haritası düğümündeki protokol yapılandırma özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019480559
                 }
             ]
         },
@@ -248,6 +313,11 @@
                     "language": "RU",
                     "text": "Root Domain Name: Это раздел URL-адреса перед первой обратной косой чертой:",
                     "updated": 1638626832667
+                },
+                {
+                    "language": "TR",
+                    "text": "Kök Etki Alanı Adı: Bu, URL'nin ilk ters eğik çizgiden önceki bölümüdür:",
+                    "updated": 1652019508491
                 }
             ]
         },
@@ -269,6 +339,11 @@
                     "language": "RU",
                     "text": "Вы определяете это с помощью свойства конфигурации hostName в главном узле API Map.",
                     "updated": 1638626807381
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu, ana API Haritası düğümündeki hostName yapılandırma özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019516531
                 }
             ]
         },
@@ -285,6 +360,11 @@
                     "language": "RU",
                     "text": "API Path: Это раздел, который определяет основной путь к API:",
                     "updated": 1638626826024
+                },
+                {
+                    "language": "TR",
+                    "text": "API Yolu: Bu, API'ye giden ana yolu tanımlayan bölümdür:",
+                    "updated": 1652019524072
                 }
             ]
         },
@@ -306,6 +386,11 @@
                     "language": "RU",
                     "text": "Вы определяете это с помощью свойства конфигурации пути в главном узле API Map.",
                     "updated": 1638626861400
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu, ana API Haritası düğümündeki yol yapılandırma özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019532312
                 }
             ]
         },
@@ -322,6 +407,11 @@
                     "language": "RU",
                     "text": "API Version Number: Это раздел, который определяет версию API, к которой вы делаете запросы.",
                     "updated": 1638626876947
+                },
+                {
+                    "language": "TR",
+                    "text": "API Version Numarası: İstekte bulunduğunuz API sürümünü tanımlayan bölümdür.",
+                    "updated": 1652019551260
                 }
             ]
         },
@@ -350,6 +440,11 @@
                     "language": "RU",
                     "text": "Вы определяете это с помощью свойства конфигурации codeName в узле API Version.",
                     "updated": 1638626916137
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu, API Version düğümündeki codeName yapılandırma özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019578971
                 }
             ]
         },
@@ -367,6 +462,11 @@
                     "language": "RU",
                     "text": "API Endpoint: Это раздел, который сообщает API, какие данные вы хотите запросить.",
                     "updated": 1638626936884
+                },
+                {
+                    "language": "TR",
+                    "text": "API Endpoint: API'ye ne tür veriler talep etmek istediğinizi söyleyen bölümdür.",
+                    "updated": 1652019588925
                 }
             ]
         },
@@ -388,6 +488,11 @@
                     "language": "RU",
                     "text": "Вы определяете это с помощью свойства codeName узла API Endpoint.",
                     "updated": 1638627035603
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu, API Endpoint düğümünün config codeName özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019597850
                 }
             ]
         },
@@ -405,6 +510,11 @@
                     "language": "RU",
                     "text": "Path Parameters: Это оставшиеся участки пути до вопросительного знака, они еще больше сужают данные, которые вы хотите запросить у API. В этом случае мы хотим получить данные о биткойнах:",
                     "updated": 1638627103770
+                },
+                {
+                    "language": "TR",
+                    "text": "Yol Parametreleri: Bunlar, API'den hangi verileri talep etmek istediğinizi daha da daraltan soru işaretinden önceki yolun kalan bölümleridir. Bu durumda bitcoin hakkında veri almak istiyoruz:",
+                    "updated": 1652019605771
                 }
             ]
         },
@@ -426,6 +536,11 @@
                     "language": "RU",
                     "text": "Вы определяете каждый из них с помощью свойства codeName в узле API Path Parameter.",
                     "updated": 1638627166155
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunların her birini API Path Parameter düğümündeki codeName yapılandırma özelliğini kullanarak tanımlarsınız.",
+                    "updated": 1652019614945
                 }
             ]
         },
@@ -443,6 +558,11 @@
                     "language": "RU",
                     "text": "Query Parameters: Это все разделы после вопросительного знака. Они часто используются для объединения количества данных, возвращаемых API, чтобы вы получали только то, что вам интересно:",
                     "updated": 1638627188726
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorgu Parametreleri: Soru işaretinden sonraki tüm bölümlerdir. Genellikle, yalnızca ilgilendiğiniz şeyleri alabilmeniz için API tarafından döndürülen veri miktarını eşleştirmek için kullanılırlar:",
+                    "updated": 1652019622885
                 }
             ]
         },
@@ -463,18 +583,39 @@
                     "language": "RU",
                     "text": "Вы определяете их, используя свойства codeName и value узла API Query Parameter.",
                     "updated": 1638627238395
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunları, API Sorgu Parametresi düğümünün codeName ve value yapılandırma özelliklerini kullanarak tanımlarsınız.",
+                    "updated": 1652019629991
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951793419
+            "updated": 1621951793419,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391281225,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Step By Step",
-            "updated": 1622120722583
+            "updated": 1622120722583,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Veri Madenciliği - API'lerden Veri Getirme->Adım Adım",
+                    "updated": 1654391288300,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -485,12 +626,24 @@
                     "language": "DE",
                     "text": "API Map Konfiguration:",
                     "updated": 1637414725997
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritası Yapılandırması",
+                    "updated": 1652019651201
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652019658971
+                }
+            ]
         },
         {
             "style": "List",
@@ -501,6 +654,11 @@
                     "language": "DE",
                     "text": "Dies muss derselbe Codename sein wie der Codename der Data Mine, damit die Prozedur Install New Market sie ordnungsgemäß mit der API Map Reference node verknüpfen kann.",
                     "updated": 1637414868207
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: Yeni Pazar Kurma prosedürünün bunları API Haritası Referans düğümünde düzgün şekilde bağlaması için bu, Veri Madeni kod adıyla aynı kod adı olmalıdır.",
+                    "updated": 1652019679362
                 }
             ]
         },
@@ -513,6 +671,11 @@
                     "language": "DE",
                     "text": "protocol: das Protokoll, das für den Zugriff auf die API verwendet werden soll. Im Moment entweder http oder https.",
                     "updated": 1637415023731
+                },
+                {
+                    "language": "TR",
+                    "text": "protokol: API'ye erişmek için kullanılacak protokol. Şimdilik ya http ya da https.",
+                    "updated": 1652019689834
                 }
             ]
         },
@@ -525,6 +688,11 @@
                     "language": "DE",
                     "text": "portNumber: der Port, an dem der API-Server lauscht.",
                     "updated": 1637415047128
+                },
+                {
+                    "language": "TR",
+                    "text": "portNumber: API sunucusunun dinlediği bağlantı noktası.",
+                    "updated": 1652019697376
                 }
             ]
         },
@@ -537,6 +705,11 @@
                     "language": "DE",
                     "text": "hostName: der Domain Name oder die IP-Adresse des API Servers.",
                     "updated": 1637415198987
+                },
+                {
+                    "language": "TR",
+                    "text": "hostName: API sunucusunun alan adı veya IP adresi.",
+                    "updated": 1652019703483
                 }
             ]
         },
@@ -549,6 +722,11 @@
                     "language": "DE",
                     "text": "path: der URL Pfad zu dem Ort, an dem sich die API auf dem entfernten Server befindet.",
                     "updated": 1637415193838
+                },
+                {
+                    "language": "TR",
+                    "text": "path: API'nin uzak sunucuda bulunduğu URL yolu.",
+                    "updated": 1652019720716
                 }
             ]
         },
@@ -561,6 +739,11 @@
                     "language": "DE",
                     "text": "millisecondsBetweenCalls: [Optional] Die Anzahl der Millisekunden, die vor dem Aufruf des entfernten Hosts gewartet wird. Dies ist besonders nützlich, wenn es eine Paginierung gibt, so dass es eine Verzögerung gibt, bevor jede Seite angefordert wird.",
                     "updated": 1637415663997
+                },
+                {
+                    "language": "TR",
+                    "text": "milisaniyeBetweenCalls: [İsteğe bağlı] uzak ana bilgisayarı aramadan önce beklenecek milisaniye sayısı. Bu, sayfalandırma varsa özellikle yararlıdır, böylece her sayfayı istemeden önce bir gecikme olur.",
+                    "updated": 1652019728654
                 }
             ]
         },
@@ -572,6 +755,11 @@
                     "language": "DE",
                     "text": "Hier ein Beispiel für eine API Map config:",
                     "updated": 1637415687389
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte örnek bir API Haritası yapılandırması:",
+                    "updated": 1652019736445
                 }
             ]
         },

@@ -1,28 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 512 512"
-   version="1.1"
-   id="svg8"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs12" />
-  <g
-     fill="none"
-     fill-rule="evenodd"
-     id="g6"
-     transform="scale(16)">
-    <circle
-       cx="16"
-       cy="16"
-       r="16"
-       fill="#3c87c7"
-       id="circle2" />
-    <path
-       fill="#ffffff"
-       d="M 15.883,17.19 17.652,19.502 12.5,23 Z M 16,6 18.727,10.474 11.455,23 H 6 Z m 0,9.842 3.636,-2.684 L 26,23 h -4.545 z"
-       id="path4" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 0V512C114.615 512 0 397.385 0 256C0 114.615 114.615 0 256 0Z" fill="#0295AA"/>
+<path d="M256 512V0C397.385 0 512 114.615 512 256C512 397.385 397.385 512 256 512Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 120L96 392H183.28L256 266.74L256 120ZM256 301.487L254.128 299.04L200 392L256 353.978V301.487Z" fill="#E6EAEA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 353.978L282.432 336.032L256 301.487V353.978ZM256 266.74L299.632 191.584L256 120L256 120V266.74ZM314.176 234.528L256 277.472L343.28 392H416L314.176 234.528Z" fill="white"/>
 </svg>

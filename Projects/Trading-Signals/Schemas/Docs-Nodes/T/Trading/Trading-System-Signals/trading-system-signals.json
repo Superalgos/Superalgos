@@ -1,0 +1,21 @@
+{
+    "type": "Trading System Signals",
+    "definition": {
+        "text": "The Trading System Signals node houses the definitions for all Trading System based signals provided by the current Social Trading Bot.",
+        "updated": 1643982618488,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ticaret Sistemi Sinyalleri düğümü, mevcut Sosyal Ticaret Botu tarafından sağlanan tüm Ticaret Sistemi tabanlı sinyallerin tanımlarını barındırır.",
+                "updated": 1654398061731
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982645886
+        }
+    ]
+}

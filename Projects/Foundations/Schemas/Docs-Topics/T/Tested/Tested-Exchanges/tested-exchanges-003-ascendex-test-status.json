@@ -1,0 +1,133 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 3,
+    "type": "Ascendex Test Status",
+    "definition": {
+        "text": "Passed Fetch OHLVCs and Backtesting. Live trading will soon be tested.",
+        "updated": 1616003850379,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пройдено тестирование получение свечей OHLVC и бэктестинг. Живая торговля скоро будет протестирована.",
+                "updated": 1646900664043
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Getirilen OHLVC'ler ve Geriye Dönük Testi Geçildi. Canlı ticaret yakında test edilecektir.",
+                "updated": 1650570731074
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900672588
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650570739513
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003666832,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646900696925
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650570760122
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Market History: 2020-01-01",
+            "updated": 1615204614502,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: с 2020-01-01",
+                    "updated": 1646900711621
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Geçmişi: 2020-01-01",
+                    "updated": 1650570766831
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616003699055,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые возможности: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
+                    "updated": 1646900720663
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
+                    "updated": 1650570778716
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1615205045729,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Добыча необработанных данных может быть медленной из-за ограничений обмена на их API, которые ограничивают количество данных, которые могут быть запрошены через Rest API.",
+                    "updated": 1646900744638
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Rest API aracılığıyla istenebilecek veri sayısını sınırlayan API'lerindeki değişim kısıtlamaları nedeniyle Ham Veri madenciliği yavaş olabilir",
+                    "updated": 1650570792918
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646900754108
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650570804803
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"ascendex\"\n}",
+            "updated": 1615204693035
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

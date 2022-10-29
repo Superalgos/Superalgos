@@ -8,13 +8,31 @@
                 "language": "ES",
                 "text": "Un Bonus Pool asigna tokens para incentivar la participación en los Governance Programs ( los programas de gobernanza). Cada programa que cuenta con un nodo de bonificación de tokens tiene su fondo de bonificación definido en la sección Programas de gobernanza de la jerarquía de Superalgos Pools.. Un bono es un incentivo para participar en el programa dado y su valor se muestra en el nodo Tokens Bonus.",
                 "updated": 1637844463074
+            },
+            {
+                "language": "RU",
+                "text": "Bonus Pool (\"Бонусный пул\") распределяет токены для стимулирования участия в определенных программах управления (Governance Programs). Каждая программа, в которой есть узел Tokens Bonus, имеет свой бонусный пул, определенный в разделе Governance Programs иерархии Superalgos Pools. Бонус - это стимул для участия в данной программе, и его величина отображается в узле Tokens Bonus.",
+                "updated": 1645080297520
+            },
+            {
+                "language": "TR",
+                "text": "Bonus Havuzu, belirli Yönetişim Programlarına katılımı teşvik etmek için token tahsis eder. Jeton Bonusu düğümü içeren her programın Bonus Havuzu, Superalgos Havuzları hiyerarşisinin Yönetişim Programları bölümünde tanımlanmıştır. Bonus, söz konusu programa katılım için bir teşviktir ve değeri Jeton Bonusu düğümünde gösterilir.",
+                "updated": 1654394334075
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654394341026,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

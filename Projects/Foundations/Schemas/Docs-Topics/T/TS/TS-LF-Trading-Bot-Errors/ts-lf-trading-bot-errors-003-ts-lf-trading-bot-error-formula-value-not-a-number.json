@@ -4,41 +4,97 @@
     "type": "TS LF Trading Bot Error - Formula Value Not A Number",
     "definition": {
         "text": "Formulas must always evaluate to a number. When they don't, this error happens.",
-        "updated": 1611926524667
+        "updated": 1611926524667,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Formüller her zaman bir sayı olarak değerlendirilmelidir. Yapmadıklarında, bu hata olur.",
+                "updated": 1647971212383
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the formulas defined in the Trading System. Formulas are expected to return a numeric value.",
-            "updated": 1611926775403
+            "updated": 1611926775403,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS'de çalışırken, LF Ticaret Botu ( LF Trading Bot )  tanımlanan formüllerden birini değerlendirmeye çalışırken bir hatayla karşılaştı. Formüllerin sayısal bir değer döndürmesi beklenir.",
+                    "updated": 1647971376291
+                }
+            ]
         },
         {
             "style": "Error",
             "text": "Formula Value Not A Number",
-            "updated": 1611580236800
+            "updated": 1611580236800,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formül Değeri Sayı Değil.",
+                    "updated": 1647971451837
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Error Info"
+            "text": "Error Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1647971484921
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1647971504897
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611569373599
+            "updated": 1611569373599,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1647971525901
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Node Name",
-            "updated": 1611571361685
+            "updated": 1611571361685,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Adı",
+                    "updated": 1647971542134
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the node's name of the Node most related to this error:",
-            "updated": 1611571455498
+            "updated": 1611571455498,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
+                    "updated": 1648041719161
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -46,12 +102,26 @@
         },
         {
             "style": "Subtitle",
-            "text": "Node Code"
+            "text": "Node Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Kodu",
+                    "updated": 1647971576068
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:",
-            "updated": 1611569545869
+            "updated": 1611569545869,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF Ticaret Bot'ta (LF Trading Bot ) hatayı üreten düğümde depolanan kod aşağıdadır:",
+                    "updated": 1647971711533
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -61,12 +131,26 @@
         {
             "style": "Subtitle",
             "text": "Node Value",
-            "updated": 1611579496738
+            "updated": 1611579496738,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Değeri",
+                    "updated": 1647971738712
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the value of the node at the moment that this error happened at the LF Trading Bot:",
-            "updated": 1611579550831
+            "updated": 1611579550831,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF Ticaret Botun'da (LF Trading Bot )  bu hatanın meydana geldiği andaki düğümün değeri aşağıdadır:",
+                    "updated": 1647971875037
+                }
+            ]
         },
         {
             "style": "Placeholder",

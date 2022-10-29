@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Ok, temanku, ini akhirnya! Aku harap kamu menikmati pertunjukan dan aku berhasil membuat kamu terhubung dengan Superalgos!",
                 "updated": 1640601086057
+            },
+            {
+                "language": "RU",
+                "text": "Итак, мой друг, это все! Надеюсь, тебе понравилось это шоу, и я сумел подсадить тебя на Superalgos!",
+                "updated": 1642774918942
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "ID",
                     "text": "Tidak ada keraguan dalam pikiranku bahwa kamu belum pernah melihat yang seperti Superalgos sebelumnya, bukan?",
                     "updated": 1641093725799
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не сомневаюсь, что вы еще не видели ничего подобного как Superalgos, не так ли?",
+                    "updated": 1642774954571
                 }
             ]
         },
@@ -92,8 +102,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie lernen, wie man Handelssysteme aufbaut!",
-                    "updated": 1634248238358
+                    "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie sich daran machen, zu lernen, wie Sie Ihr erstes Handelssystem aufbauen!",
+                    "updated": 1642152979546
                 },
                 {
                     "language": "TR",
@@ -104,6 +114,11 @@
                     "language": "ID",
                     "text": "Jika kamu siap untuk terus berjalan, temanku Basic Education Tutorial akan melengkapi pemahaman kamu tentang beberapa aspek dasar dari sistem yang perlu kamu kuasai sebelum kamu mulai belajar bagaimana membangun Trading System pertamamu!",
                     "updated": 1640601171460
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы готовы продолжить, мой друг, учебник Basic Education Tutorial завершит ваше понимание некоторых основных аспектов системы, которыми вам необходимо овладеть, прежде чем вы приступите к изучению того, как построить свою первую торговую систему!",
+                    "updated": 1642774993575
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "ID",
                     "text": "Sudah selesai! Klik Next untuk menyelesaikan denganku dan klik Play tutorial berikutnya ketika kamu siap!",
                     "updated": 1640601227039
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы закончили! Нажмите Next, чтобы закончить со мной, и нажмите Play для следующего урока, когда будете готовы!",
+                    "updated": 1642775015956
                 }
             ]
         }

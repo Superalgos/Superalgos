@@ -13,36 +13,54 @@
                 "language": "RU",
                 "text": "Эта книга проведет вас через все, что вам нужно знать о Документах.",
                 "updated": 1637943328593
+            },
+            {
+                "language": "TR",
+                "text": "Bu kitap, Dokümanlar hakkında bilmeniz gereken her şeyde size yol gösterecektir.",
+                "updated": 1646205205659
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Topic->Docs Basics->Read Chapter I to learn the basic concepts; the foundation that will help you understand the commands and styles explained later in the book.",
-            "updated": 1613763974146
+            "text": "I->Foundations->Topic->The Art of Documenting",
+            "updated": 1643049809249
         },
         {
             "style": "Chapter",
-            "text": "II->Foundations->Topic->Docs Commands->The Docs include a powerful command line interface that allows you to quickly fire commands from the search box. Dive into Chapter II to learn the details of each command.",
-            "updated": 1613764005330
+            "text": "II->Foundations->Topic->Docs Basics->Read Chapter I to learn the basic concepts; the foundation that will help you understand the commands and styles explained later in the book.",
+            "updated": 1643049823327
         },
         {
             "style": "Chapter",
-            "text": "III->Foundations->Topic->Docs Commands Errors"
+            "text": "III->Foundations->Topic->Docs Commands->The Docs include a powerful command line interface that allows you to quickly fire commands from the search box. Dive into Chapter II to learn the details of each command.",
+            "updated": 1643049830338
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Docs Commands Messages",
-            "updated": 1609783744261
+            "text": "IV->Foundations->Topic->Docs Commands Errors",
+            "updated": 1643049838714
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Docs Paragraph Styles"
+            "text": "V->Foundations->Topic->Docs Commands Messages",
+            "updated": 1643049845110
         },
         {
             "style": "Chapter",
-            "text": "VI->Foundations->Topic->Docs Context Menu Actions"
+            "text": "VI->Foundations->Topic->Docs Paragraph Styles",
+            "updated": 1643049850626
+        },
+        {
+            "style": "Chapter",
+            "text": "VII->Foundations->Topic->Docs Context Menu Actions",
+            "updated": 1643049856214
+        },
+        {
+            "style": "Chapter",
+            "text": "VIII->Foundations->Topic->The Art of Documenting",
+            "updated": 1643049862167
         }
     ]
 }

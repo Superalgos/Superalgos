@@ -47,6 +47,11 @@ function newFoundationsSideSpace() {
                 sidePanel.index = thisObject.leftTabs.length
 
                 existingTabs.set(key, sidePanel)
+
+                for (let i = 0; i < thisObject.leftTabs.length; i++) {
+                    let tab = thisObject.leftTabs[i]
+                    tab.tabsCount = thisObject.leftTabs.length
+                }
                 break
             }
             case 'right': {
@@ -54,6 +59,11 @@ function newFoundationsSideSpace() {
                 sidePanel.index = thisObject.rightTabs.length
 
                 existingTabs.set(key, sidePanel)
+                
+                for (let i = 0; i < thisObject.rightTabs.length; i++) {
+                    let tab = thisObject.rightTabs[i]
+                    tab.tabsCount = thisObject.rightTabs.length
+                }
                 break
             }
         }

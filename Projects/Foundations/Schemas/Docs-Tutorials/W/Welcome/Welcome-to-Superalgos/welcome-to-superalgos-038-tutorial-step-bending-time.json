@@ -29,19 +29,19 @@
             },
             {
                 "language": "DE",
-                "text": "Ok... vielleicht ist es nicht wirklich wie Raumkrümmung, aber habt Nachsicht mit mir... Du wirst begeistert sein, wie du Zeitmaschinen in jedes beliebige Format bringen kannst.",
-                "updated": 1634206247154,
+                "text": "Ok... vielleicht ist es nicht wirklich wie Biegen, aber habt Nachsicht mit mir... Du wirst es lieben, wie du Zeitmaschinen in das von dir gewünschte Format bringen kannst. ",
+                "updated": 1642151599017,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Tamam,belki zamanı bükmek gibi değil, ama inan bana bu harika birşey... Zaman makinelerini istediğin formatta şekillendirebiliyor olmana bayılacaksın.",
-                "updated": 1636035360393
+                "text": "Tamam... belki aslında bükmek gibi değil ama sabredin... Zaman makinelerini istediğiniz formatta şekillendirmeyi çok seveceksiniz.",
+                "updated": 1644912118443
             },
             {
                 "language": "RU",
-                "text": "Хорошо... Может быть, на самом деле это и не похоже на сгибание, но потерпите.. Вам понравится, как Вы сможете сформировать машины времени в любом желаемом формате.",
-                "updated": 1636201767989
+                "text": " Ладно... может быть, на самом деле это не похоже на сгибание, но потерпите... Вам понравится, как вы можете придать машине времени желаемый формат.",
+                "updated": 1641833349615
             }
         ],
         "updated": 1636911171982
@@ -117,8 +117,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Güzel! Şimdi çerçeveye tıklayın ve çekin!",
-                    "updated": 1636035404981
+                    "text": "Güzel! Şimdi çerçevenin sarı olan kenarını tutun ve çekin !",
+                    "updated": 1644912171441
                 },
                 {
                     "language": "RU",
@@ -157,8 +157,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böylece zaman makinelerini kendi zevkinize veya ihtiyacınıza göre şekillendirebilirsiniz.",
-                    "updated": 1636035425014
+                    "text": "Zaman makinelerini kendi zevkinize veya ihtiyacınıza göre şekillendirebilirsiniz.",
+                    "updated": 1644912179125
                 },
                 {
                     "language": "RU",

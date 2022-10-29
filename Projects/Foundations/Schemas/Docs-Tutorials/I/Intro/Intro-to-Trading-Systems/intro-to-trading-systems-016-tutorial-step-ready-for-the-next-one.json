@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Tebrikler! Artık ticaret ( Trading ) sistemleri hakkında benim kadar çok şey biliyorsun!",
                 "updated": 1640783928972
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляю! Теперь вы знаете о торговых системах столько же, сколько и я! Далее - \"Определение торговой идеи\".",
+                "updated": 1640886497329
             }
         ]
     },
@@ -30,6 +35,16 @@
                     "language": "TR",
                     "text": "Serideki bir sonraki öğretici, ticaret fikirlerinin test edilebilmesi için ticaret fikirlerini resmi bir varsayım haline getirmekle ilgilidir. Bir ticaret fikrini test etmek, bir Ticaret Stratejisi ( Trading Strategy ) oluşturma sürecindeki ilk adımdır!",
                     "updated": 1640784043290
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial dieser Reihe geht es darum, Handelsideen in eine formale Hypothese zu gießen, damit die Handelsidee getestet werden kann. Das Testen einer Handelsidee ist der erste Schritt im Prozess der Entwicklung einer Handelsstrategie!",
+                    "updated": 1641763203364
+                },
+                {
+                  "language": "RU",
+                    "text": "Следующий урок в этой серии посвящен оформлению торговых идей в формальную гипотезу, чтобы торговая идея могла быть протестирована. Тестирование торговой идеи - это первый шаг в процессе построения торговой стратегии!",
+                    "updated": 1640886561215
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonrakinde play'ı seçin!",
                     "updated": 1640784474384
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку Next, чтобы закончить этот урок, и выберите Play в следующем уроке, когда будете готовы!",
+                    "updated": 1640886578422
                 }
             ]
         }

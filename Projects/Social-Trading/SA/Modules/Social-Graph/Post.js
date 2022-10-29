@@ -13,23 +13,21 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     */
     let thisObject = {
         /* Parents Ids */
-        emitterUserProfileId: undefined,
-        targetUserProfileId: undefined,
-        emitterBotProfileId: undefined,
-        targetBotProfileId: undefined,
+        originSocialPersonaId: undefined,
+        targetSocialPersonaId: undefined,
+        originSocialTradingBotId: undefined,
+        targetSocialTradingBotId: undefined,
         /* Unique Keys */
-        emitterPostHash: undefined,
+        originPostHash: undefined,
         targetPostHash: undefined,
         /* Post Unique Properties */
         postType: undefined,
+        fileKeys: undefined, 
         timestamp: undefined,
-        /* Signal Related Properties */
-        signalType: undefined,
-        signalData: undefined,
         /* Maps */
         replies: undefined,
         reactions: undefined,
-        reactionsByProfile: undefined,
+        reactionsBySocialEntity: undefined,
         /* Reaction Functions */
         addReaction: addReaction,
         removeReactions: removeReaction,
@@ -41,22 +39,22 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     return thisObject
 
     function finalize() {
+        thisObject.fileKeys = undefined
         thisObject.replies = undefined
         thisObject.reactions = undefined
-        thisObject.reactionsByProfile = undefined
+        thisObject.reactionsBySocialEntity = undefined
     }
 
     function initialize(
-        emitterUserProfileId,
-        targetUserProfileId,
-        emitterBotProfileId,
-        targetBotProfileId,
-        emitterPostHash,
+        originSocialPersonaId,
+        targetSocialPersonaId,
+        originSocialTradingBotId,
+        targetSocialTradingBotId,
+        originPostHash,
         targetPostHash,
         postType,
         timestamp,
-        signalType,
-        signalData
+        fileKeys
     ) {
         /*
         Maps Initialization
@@ -72,20 +70,19 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
         thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
 
-        thisObject.reactionsByProfile = new Map()
+        thisObject.reactionsBySocialEntity = new Map()
         /*
         Assimilating Parameters
         */
-        thisObject.emitterUserProfileId = emitterUserProfileId
-        thisObject.targetUserProfileId = targetUserProfileId
-        thisObject.emitterBotProfileId = emitterBotProfileId
-        thisObject.targetBotProfileId = targetBotProfileId
-        thisObject.emitterPostHash = emitterPostHash
+        thisObject.originSocialPersonaId = originSocialPersonaId
+        thisObject.targetSocialPersonaId = targetSocialPersonaId
+        thisObject.originSocialTradingBotId = originSocialTradingBotId
+        thisObject.targetSocialTradingBotId = targetSocialTradingBotId
+        thisObject.originPostHash = originPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
-        thisObject.signalType = signalType
-        thisObject.signalData = signalData
+        thisObject.fileKeys = fileKeys
         /*
         Let's find the Target Post
         */
@@ -95,14 +92,14 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST
         ) {
             /*
-            Validate Target User Profile.
+            Validate Target Social Persona.
             */
-            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.targetUserProfileId)
-            if (targetUserProfile === undefined) {
-                throw ('Target User Profile Not Found.')
+            let targetSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
+            if (targetSocialPersona === undefined) {
+                throw ('Target Social Persona Not Found.')
             }
 
-            let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+            let targetPost = targetSocialPersona.posts.get(thisObject.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found.')
@@ -113,16 +110,16 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             if (
                 thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST
             ) {
-                targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+                targetPost.replies.set(thisObject.originPostHash, thisObject.originPostHash)
             }
         }
     }
 
-    function addReaction(reactionType, profileId) {
+    function addReaction(reactionType, socialEntityId) {
         /*
         Remember who reacted
         */
-        thisObject.reactionsByProfile.set(profileId, reactionType)
+        thisObject.reactionsBySocialEntity.set(socialEntityId, reactionType)
         /*
         Increase Counter
         */
@@ -135,11 +132,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(reactionType, reactionCount + 1)
     }
 
-    function removeReaction(reactionType, profileId) {
+    function removeReaction(reactionType, socialEntityId) {
         /*
         Forget who reacted
         */
-        thisObject.reactionsByProfile.delete(profileId)
+        thisObject.reactionsBySocialEntity.delete(socialEntityId)
         /*
         Decrease Counter
         */

@@ -7,28 +7,130 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Frontend is essentially a Javascript web-app running on the browser."
+        "text": "The Frontend is essentially a Javascript web-app running on the browser.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das Frontend ist im Wesentlichen eine Javascript-Webapplikation, die im Browser läuft.",
+                "updated": 1641730035452
+            },
+            {
+                "language": "RU",
+                "text": "Фронтенд - это, по сути, веб-приложение на Javascript, работающее в браузере.",
+                "updated": 1640930357289
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir ön uç, esasen bir tarayıcıda çalışan bir Javascript web uygulamasıdır.",
+                "updated": 1643040318020
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As of today it contains:"
+            "text": "As of today it contains:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bis heute enthält es:",
+                    "updated": 1641730045137
+                },
+                {
+                    "language": "RU",
+                    "text": "На сегодняшний день он содержит:",
+                    "updated": 1640930371605
+                },
+                {
+                    "language": "TR",
+                    "text": "Bugün itibariyle şunları içerir:",
+                    "updated": 1643040343065
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Canvas App: Most of the functionality is here. The name reflects the fact that most of the UI is rendered in an HTML 5 canvas object."
+            "text": "Canvas App: Most of the functionality is here. The name reflects the fact that most of the UI is rendered in an HTML 5 canvas object.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Canvas App: Der größte Teil der Funktionalität befindet sich hier. Der Name spiegelt die Tatsache wider, dass der größte Teil der Benutzeroberfläche in einem HTML 5 Canvas-Objekt gerendert wird.",
+                    "updated": 1641730056815
+                },
+                {
+                    "language": "RU",
+                    "text": "Canvas App: Большая часть функциональности находится здесь. Название отражает тот факт, что большая часть пользовательского интерфейса отображается в объекте canvas HTML 5.",
+                    "updated": 1640931047397
+                },
+                {
+                    "language": "TR",
+                    "text": "Canvas Uygulaması: İşlevselliğin çoğu burada. Ad, kullanıcı arabiriminin çoğunun bir HTML 5 tuval nesnesinde oluşturulduğu gerçeğini yansıtır.",
+                    "updated": 1643040353297
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Files Component Includes the mechanisms to read data files in a way that is suitable for navigating through large datasets while plotting the information in real-time."
+            "text": "Files Component Includes the mechanisms to read data files in a way that is suitable for navigating through large datasets while plotting the information in real-time.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dateikomponente: Enthält die Mechanismen zum Lesen von Datendateien in einer Weise, die für die Navigation durch große Datensätze geeignet ist, während die Informationen in Echtzeit geplottet werden.",
+                    "updated": 1641730064199
+                },
+                {
+                    "language": "RU",
+                    "text": "Files Components: Включает в себя механизмы для чтения файлов данных таким образом, который подходит для навигации по большим наборам данных при построении графиков в режиме реального времени.",
+                    "updated": 1640931032879
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosyalar Bileşeni, bilgileri gerçek zamanlı olarak çizerken, büyük veri kümeleri arasında gezinmeye uygun bir şekilde veri dosyalarını okumaya yönelik mekanizmaları içerir.",
+                    "updated": 1643040363216
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The UI was built entirely in-house. We did not reuse any framework to display the design space or the charts."
+            "text": "The UI was built entirely in-house. We did not reuse any framework to display the design space or the charts.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Benutzeroberfläche wurde vollständig intern entwickelt. Wir haben kein Framework wiederverwendet, um den Designbereich oder die Diagramme anzuzeigen.",
+                    "updated": 1641730083394
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс был полностью разработан собственными силами. Мы не использовали никаких фреймворков для отображения пространства проектирования или графиков.",
+                    "updated": 1640930587254
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kullanıcı arayüzü tamamen kendi bünyesinde geliştirilmiştir. Tasarım alanını veya grafikleri görüntülemek için herhangi bir çerçeve (framework) kullanmadık.",
+                    "updated": 1643040381597
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The UI is tested in Chrome only."
+            "text": "The UI is tested in Chrome only.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Benutzeroberfläche wurde nur in Chrome getestet.",
+                    "updated": 1641730090319
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс протестирован только в Chrome.",
+                    "updated": 1640930597068
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Kullanıcı arayüzü (UI) yalnızca Chrome'da test edilmiştir.",
+                    "updated": 1643040397893
+                }
+            ]
         }
     ]
 }

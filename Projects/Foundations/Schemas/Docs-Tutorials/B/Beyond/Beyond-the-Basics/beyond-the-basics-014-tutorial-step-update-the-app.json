@@ -1,14 +1,14 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 14,
+    "pageNumber": "14",
     "type": "Tutorial Step - Update the App!",
     "definition": {
         "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
+        "updated": 1636914372518,
         "icon": {
             "name": "indicator-process-instance",
             "project": "Foundations"
         },
-        "updated": 1636914372518,
         "translations": [
             {
                 "language": "IT",
@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
-                "updated": 1635148204351
+                "text": "Es ist eine gute Praxis, auf dem neuesten Stand zu sein, bevor man einen Beitrag leistet oder wenn man Fehler jeglicher Art behebt oder meldet!",
+                "updated": 1641741722279
             },
             {
                 "language": "RU",
@@ -42,8 +42,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
-            "updated": 1636914274377,
+            "text": "The App Update Command (Contributors Installation only) fetches the latest version of the software from the upstream repository in the Current Branch!",
+            "updated": 1649176869565,
             "translations": [
                 {
                     "language": "IT",
@@ -59,13 +59,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
-                    "updated": 1635148211414
+                    "text": "Der App-Update-Befehl holt sich die neueste Version der Software aus dem Upstream-Repository im Current Branch! ",
+                    "updated": 1641741748139
                 },
                 {
                     "language": "RU",
-                    "text": "Команда App Update Command извлекает последнюю версию программного обеспечения из репозитория upstream в текущей ветке Current Branch!",
-                    "updated": 1640158999138
+                    "text": "Команда App Update Command получает последнюю версию программного обеспечения из репозитория upstream в текущей ветке!",
+                    "updated": 1661377958451
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama Güncelleme Komutu (yalnızca Katkıda Bulunanların Kurulumu) yazılımın en son sürümünü Geçerli Daldaki yukarı akış deposundan alır!",
+                    "updated": 1654393910447,
+                    "style": "Text"
                 }
             ]
         },
@@ -75,7 +81,8 @@
         },
         {
             "style": "Callout",
-            "text": "Copy and run the command in the search/command box at the far top of the Docs.",
+            "text": "If you are on the Contributors Installation, copy and run the command in the search/command box at the far top of the Docs.",
+            "updated": 1649176921704,
             "translations": [
                 {
                     "language": "IT",
@@ -96,21 +103,20 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Скопируйте и запустите команду в окне поиска/команды в самом верху вкладки Docs.",
-                    "updated": 1640159069819
+                    "text": "Если вы находитесь на установке для вкладчиков, скопируйте и выполните команду в окне поиска/команды в самом верху Docs.",
+                    "updated": 1661379939089
                 },
                 {
                     "language": "TR",
                     "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
                     "updated": 1640554566255
                 }
-            ],
-            "updated": 1635148665427
+            ]
         },
         {
             "style": "Success",
-            "text": "Because you just switched branches, you should already be up to date!",
-            "updated": 1636914400732,
+            "text": "You should be up to date after the switch!",
+            "updated": 1649177004728,
             "translations": [
                 {
                     "language": "IT",
@@ -126,13 +132,13 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
-                    "updated": 1635148282859
+                    "text": "Da Sie gerade die Branche gewechselt haben, sollten Sie bereits auf dem neuesten Stand sein!",
+                    "updated": 1641741763842
                 },
                 {
                     "language": "RU",
-                    "text": "Поскольку вы только что сменили ветку, вы уже должны быть в курсе последних изменений!",
-                    "updated": 1640159174947
+                    "text": "После перехода у вас должна быть актуальная версия",
+                    "updated": 1661378446952
                 },
                 {
                     "language": "TR",

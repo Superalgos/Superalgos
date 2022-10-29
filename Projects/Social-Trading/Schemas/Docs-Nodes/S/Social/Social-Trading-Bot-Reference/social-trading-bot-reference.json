@@ -1,0 +1,19 @@
+{
+    "type": "Social Trading Bot Reference",
+    "definition": {
+        "text": "The Social Trading Bot Reference node stores a reference to a Social Trading Bot stored under a User Profile. ",
+        "updated": 1643984070103
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643984103191
+        },
+        {
+            "style": "Text",
+            "text": "Storing this reference allows the current Trading Bot Instance to send or receive Trading Signals through the Social Trading Bot running on the Superalgos Peer to Peer network.",
+            "updated": 1644029687044
+        }
+    ]
+}

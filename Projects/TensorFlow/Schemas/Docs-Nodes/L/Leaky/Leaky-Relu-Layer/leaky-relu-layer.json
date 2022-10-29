@@ -2,13 +2,38 @@
     "type": "Leaky Relu Layer",
     "definition": {
         "text": "Leaky version of a rectified linear unit.",
-        "updated": 1613216814199
+        "updated": 1613216814199,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Негерметичная версия ректифицированной линейной установки.",
+                "updated": 1645248449607
+            },
+            {
+                "language": "TR",
+                "text": "Doğrultulmuş lineer ünitenin sızdıran versiyonu.",
+                "updated": 1654397286783
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "It allows a small gradient when the unit is not active: ",
-            "updated": 1613216841876
+            "updated": 1613216841876,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Он обеспечивает небольшой уклон, когда устройство не активно:",
+                    "updated": 1645248457231
+                },
+                {
+                    "language": "TR",
+                    "text": "Ünite aktif değilken küçük bir eğime izin verir:",
+                    "updated": 1654397293584,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -16,11 +41,37 @@
         },
         {
             "style": "List",
-            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645248467469
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397299673,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645248474730
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397308313,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

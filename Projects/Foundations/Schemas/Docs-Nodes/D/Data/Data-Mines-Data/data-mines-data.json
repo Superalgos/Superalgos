@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Данные, не зависящие от сессии, относятся к данным, генерируемым датчиками и индикаторами, не связанными с торговыми сессиями.",
                 "updated": 1638730696734
+            },
+            {
+                "language": "TR",
+                "text": "Seans bağımsız veriler, işlem seanslarıyla ilgili olmayan sensörler ve göstergeler tarafından üretilen verileri ifade eder.",
+                "updated": 1654391700640
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Как объясняется на странице сортировки задач, данные добытчиков данных сортируются по бирже, рынку и соответствующему боту-добытчику данных, датчику или индикатору и продукту бота. То есть большинство узлов в этом разделе иерархии играют организационную роль.",
                     "updated": 1638731034927
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevlerin sıralanması sayfasında açıklandığı gibi, veri madeni verileri borsa, piyasa ve ilgili veri madeni, sensör veya gösterge botu ve bot ürününe göre sıralanır. Yani, hiyerarşinin bu bölümündeki düğümlerin çoğu organizasyonel bir rol oynamaktadır.",
+                    "updated": 1654391707384,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "Многие из них требуют ссылок на узлы, которые ограничивают контекст, для которого применимы данные. Например, узел продуктов с рыночными данными должен ссылаться на один из установленных рынков, в частности, на рынок, на котором выполняется операция интеллектуального анализа данных. Эти ссылки помогают другим сущностям понять контекст, которому принадлежат данные.",
                     "updated": 1638731065361
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunların birçoğu, verilerin uygulanabilir olduğu bağlamı sınırlayan düğümlere referanslar gerektirir. Örneğin, market veri ürünleri düğümü, kurulu marketlerden birine, özellikle de veri madenciliği işleminin yürütüldüğü markete referans vermelidir. Bu referanslar, diğer varlıkların verilerin ait olduğu bağlamı anlamasına yardımcı olur.",
+                    "updated": 1656932454504,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Всякий раз, когда вы создаете задачи интеллектуального анализа данных вручную из иерархии Network (в отличие от использования функции рынка установки в узле биржевых рынков иерархии Crypto Ecosystem)",
                     "updated": 1638731183010
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenciliği görevlerini Ağ hiyerarşisi içinden manuel olarak oluşturduğunuzda (Kripto Ekosistemi hiyerarşisinin borsa piyasaları düğümü altındaki piyasa yükle işlevini kullanmanın aksine",
+                    "updated": 1654391718644,
+                    "style": "Text"
                 }
             ]
         }

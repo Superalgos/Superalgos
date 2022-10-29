@@ -2,6 +2,13 @@
     "type": "Trading Bot Instance",
     "menuItems": [
         {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
             "action": "Add UI Object",
             "label": "Add Process Instance",
             "relatedUiObject": "Trading Process Instance",
@@ -17,7 +24,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Bot Reference",
             "relatedUiObject": "Social Trading Bot Reference",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Social-Trading"
         },
         {
             "action": "Delete UI Object",
@@ -30,7 +37,13 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "initialValues": {
+        "config": "{ \n\"waitForSignalsToRunNextLoop\": false \n}"
+    },
     "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
     "level": 3,
     "attachingRules": {
         "compatibleTypes": "->Task->"
@@ -46,6 +59,7 @@
             "name": "socialTradingBotReference",
             "type": "node",
             "childType": "Social Trading Bot Reference",
+            "project": "Social-Trading",
             "autoAdd": false
         }
     ],

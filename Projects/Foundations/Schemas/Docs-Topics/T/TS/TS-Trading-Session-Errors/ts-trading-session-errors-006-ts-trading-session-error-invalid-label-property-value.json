@@ -4,22 +4,70 @@
     "type": "TS Trading Session Error - Invalid Label Property Value",
     "definition": {
         "text": "This property expects you to define the Time Frame in which the Trading Session is going to run. The current value assigned to the property is not recognized as a valid value.",
-        "updated": 1611333049475
+        "updated": 1611333049475,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это свойство позволяет определить таймфрейм, на котором будет работать торговая сессия. Текущее значение, присвоенное свойству, не распознается как допустимое.",
+                "updated": 1645628346161
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu özellik, Ticaret Oturumunun ( Trading Session ) yürütüleceği Zaman Çerçevesini ( Time Frame  ) tanımlamanızı bekler. Özelliğe atanan mevcut değer, geçerli bir değer olarak tanınmadı.",
+                "updated": 1647100143421
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "The value you currently have is invalid. You need to change it and run the Trading Session again.",
-            "updated": 1611333073771
+            "updated": 1611333073771,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значение, которое вы сейчас имеете, недействительно. Вам необходимо изменить его и снова запустить торговую сессию.",
+                    "updated": 1645628356869
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Şu anda sahip olduğunuz değer geçersiz. Bunu değiştirmeniz ve Ticaret Oturumunu yeniden çalıştırmanız gerekir.",
+                    "updated": 1647100182097
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Current Value"
+            "text": "Current Value",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущее значение",
+                    "updated": 1645628363172
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut değer",
+                    "updated": 1647100299028
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The property at the moment has the following value. Note that a value will be shown below only if you received this error, not when you navigate to this error page via other means.",
-            "updated": 1611335162269
+            "updated": 1611335162269,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данный момент свойство имеет следующее значение. Обратите внимание, что значение будет показано ниже только в том случае, если вы получили эту ошибку, а не при переходе на эту страницу ошибки другими способами.",
+                    "updated": 1645628373471
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda mülk aşağıdaki değere sahiptir. Aşağıda, başka yollarla bu hata sayfasına gittiğinizde değil, yalnızca bu hatayı aldıysanız bir değerin gösterileceğini unutmayın.",
+                    "updated": 1647100304986
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -27,7 +75,19 @@
         },
         {
             "style": "Title",
-            "text": "Possible Values"
+            "text": "Possible Values",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645628383567
+                },
+                {
+                    "language": "TR",
+                    "text": "Muhtemel Değerler",
+                    "updated": 1647100321983
+                }
+            ]
         },
         {
             "style": "Json",

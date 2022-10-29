@@ -4,13 +4,37 @@
     "type": "TS Trading Session Error - Key Reference Node Missing",
     "definition": {
         "text": "For a Live Trading Session or a Forward Testing Session you need to provide an Exchange API Key to access your Exchange account. In order to do that you need to add a Key Reference Node which references an Exchange Account Key Node with your keys.",
-        "updated": 1611392529450
+        "updated": 1611392529450,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Для проведения реальной торговой сессии или форвардного тестирования вам необходимо предоставить API-ключ биржи для доступа к вашему биржевому счету. Для этого вам нужно добавить узел Key Reference Node, который ссылается на узел Exchange Account Key Node с вашими ключами.",
+                "updated": 1645628532609
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Ticaret Oturumu ( Live Trading Session ) veya İleriye Yönelik Test ( Forward Testing Session ) Oturumu için, Exchange hesabınıza erişmek için bir Exchange API Anahtarı sağlamanız gerekir. Bunu yapmak için, anahtarlarınızla bir Exchange Hesabı Anahtar ( Exchange Account Key ) Düğümüne başvuran bir Anahtar Referans Düğümü ( Key Reference Node ) eklemeniz gerekir.",
+                "updated": 1647101079392
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "At the Task Node where this error popped up, add a Key Reference Node and reference from it an Exchange Account Key with it. Then you can try to run the Trading Session again.",
-            "updated": 1611392617497
+            "updated": 1611392617497,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В узле Task, где возникла эта ошибка, добавьте узел Key Reference Node и ссылайтесь из него на ключ Exchange Account Key. Затем вы можете попробовать запустить торговую сессию снова.",
+                    "updated": 1645628563812
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Görev Düğümünde ( Task Node ), bir Anahtar Referans Düğümü ( Key Reference Node ) ekleyin ve onunla birlikte bir Exchange Hesabı Anahtarına ( Exchange Account Key ) referans verin. Ardından Ticaret Oturumunu ( Trading Session ) tekrar çalıştırmayı deneyebilirsiniz.",
+                    "updated": 1647101186078
+                }
+            ]
         }
     ]
 }

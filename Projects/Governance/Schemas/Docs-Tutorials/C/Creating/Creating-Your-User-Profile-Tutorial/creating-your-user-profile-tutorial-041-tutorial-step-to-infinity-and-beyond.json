@@ -3,8 +3,8 @@
     "pageNumber": 41,
     "type": "Tutorial Step - To Infinity and Beyond",
     "definition": {
-        "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
-        "updated": 1630604507310,
+        "text": "Under the Governance-Plugins row, you should see your User Profile plugin file listed.",
+        "updated": 1660647880034,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -25,14 +25,19 @@
                 "language": "DE",
                 "text": "Los geht's! Wir werden den Befehl <i>app.contribute</i> verwenden, um Ihr Profil einzureichen.",
                 "updated": 1640082340841
+            },
+            {
+                "language": "TR",
+                "text": "Hadi başlayalım! Profilinizi göndermek için app.contribute komutunu kullanacağız.",
+                "updated": 1645104660981
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Copy the command making sure you replace the placeholder with your Github username, paste it in the search box, and click Enter.",
-            "updated": 1630604654229,
+            "text": "Enter a commit message, like \"First profile submission\", and click the Contribute button!",
+            "updated": 1660647967222,
             "translations": [
                 {
                     "language": "ES",
@@ -49,30 +54,18 @@
                     "language": "DE",
                     "text": "Kopieren Sie den Befehl und ersetzen Sie den Platzhalter durch Ihren Github-Benutzernamen, fügen Sie ihn in das Suchfeld ein und klicken Sie auf Enter.",
                     "updated": 1640082358682
-                }
-            ]
-        },
-        {
-            "style": "Json",
-            "text": "app.contribute User Profile [add your name]",
-            "updated": 1630751329550,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "app.contribute User Profile [добавьте ваше имя профиля]",
-                    "updated": 1639053676246
                 },
                 {
-                    "language": "DE",
-                    "text": "app.contribute User Profile [fügen Sie hier Ihren Github-Benutzer-Namen ein]",
-                    "updated": 1640082452038
+                    "language": "TR",
+                    "text": "Aşağıdaki komutu kopyalayın, arama kutusuna yapıştırın ve \"add your name\" kısmını  Github kullanıcı adınızla değiştirerek Enter'a tıklayın.",
+                    "updated": 1645104765848
                 }
             ]
         },
         {
-            "style": "Text",
-            "text": "If everything is set up correctly, you should see a message stating that your pull request has been submitted. This means that your profile has been sent to the main Superalgos repository and will be automatically merged within a few hours!",
-            "updated": 1630925481560,
+            "style": "Note",
+            "text": "If everything is set up correctly, within a few seconds the plugin file should disappear from the list and you should get a message confirming the contribution was sent. This means that your profile has been sent to the Governance-Plugins repository and will be automatically merged within a few hours!",
+            "updated": 1660648163819,
             "translations": [
                 {
                     "language": "ES",
@@ -89,6 +82,11 @@
                     "language": "DE",
                     "text": "Wenn alles korrekt eingerichtet ist, sollten Sie eine Nachricht sehen, die besagt, dass Ihr Pull Request eingereicht wurde. Dies bedeutet, dass Ihr Profil an das Haupt-Repository von Superalgos gesendet wurde und innerhalb weniger Stunden automatisch zusammengeführt wird!",
                     "updated": 1640082370088
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şey doğru ayarlanmışsa, Pull Request'inizin gönderildiğini belirten bir mesaj görmelisiniz. Bu, profilinizin ana Superalgos deposuna gönderildiği ve birkaç saat içinde otomatik olarak birleştirileceği anlamına gelir!",
+                    "updated": 1645105046961
                 }
             ]
         },

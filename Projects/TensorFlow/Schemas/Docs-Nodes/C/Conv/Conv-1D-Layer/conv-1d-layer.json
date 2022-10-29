@@ -2,12 +2,37 @@
     "type": "Conv 1D Layer",
     "definition": {
         "text": "1D convolution layer (e.g., temporal convolution). This layer creates a convolution kernel that is convolved with the layer input over a single spatial (or temporal) dimension to produce a tensor of outputs.",
-        "updated": 1613218586883
+        "updated": 1613218586883,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Слой свертки 1D (например, временная свертка). Этот слой создает ядро свертки, которое свертывается с входом слоя в одном пространственном (или временном) измерении для получения тензора выходов.",
+                "updated": 1645195992238
+            },
+            {
+                "language": "TR",
+                "text": "1B konvolüsyon katmanı (örneğin, zamansal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisiyle tek bir uzamsal (veya zamansal) boyut üzerinde konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
+                "updated": 1654396780261
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645195997586
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396786249,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

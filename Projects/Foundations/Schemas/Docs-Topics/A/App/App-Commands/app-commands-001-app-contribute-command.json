@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Эта команда позволяет вам вносить свой вклад в проект. Вклад поступает в репозиторий Superalgos через Pull Request из вашего форка Superalgos.",
                 "updated": 1637946978081
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu komut, projede çalışmaya ve katkıda bulunmanıza izin verir. Katkı, Superalgos çatalınızdan bir Çekme Talebi aracılığıyla Superalgos deposuna gider.",
+                "updated": 1644219910533
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "language": "RU",
                     "text": "Эта команда отправит все изменения, внесенные вами, а также в любой файл в папке Superalgos (за исключением папок My-Workspaces, Data-Storage и My-Logs) в вашу ветку на Github.com. Он также отправит их с вашего форка в основной репозиторий Superalgos. Он будет делать это специально из текущей ветви в ветку вкладов, упомянутую в нижнем колонтитуле этой страницы.",
                     "updated": 1637947122767
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komut, Dokümanlar sayfalarında yaptığınız tüm değişiklikleri ve ayrıca Superalgos klasörü içindeki tüm dosyalara (Çalışma Alanlarım, Veri Depolama ve Günlüklerim klasörleri hariç) Github.com'daki çatalınıza gönderir. Ayrıca onları çatalınızdan Ana Superalgos Deposuna gönderecektir. Yani mevcut şubeden bu sayfanın alt bilgisinde belirtilen katkılar şubesine.",
+                    "updated": 1644219956697
                 }
             ]
         },
@@ -66,13 +76,30 @@
                     "language": "RU",
                     "text": "Никогда не используйте папку Superalgos для хранения личных файлов, так как вся папка, за исключением нескольких упомянутых выше исключений, может быть отправлена ​​через Интернет на общедоступный сайт.",
                     "updated": 1637947145035
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Superalgos klasörünüzü asla kişisel dosyalarınızı depolamak için kullanmayın, çünkü tüm klasör ancak yukarıda belirtilen birkaç istisna hariç İnternet üzerinden genel bir siteye gönderilebilir.",
+                    "updated": 1644219998415
                 }
             ]
         },
         {
             "style": "Warning",
             "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
-            "updated": 1638830624336
+            "updated": 1638830624336,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ветка Plugins-Docs является устаревшей. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram.",
+                    "updated": 1641833846299
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Eklentiler-Dokümanlar ( Plugins-Docs ) Dalı GÜNCEL DEĞIL. Tüm katkılar artık geliştirme şubesine gidiyor. Bununla ilgili sorularınız varsa, Telegram gruplarında sormaktan çekinmeyin.",
+                    "updated": 1644220142874
+                }
+            ]
         },
         {
             "style": "Important",
@@ -91,8 +118,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "В большинстве случаев вклады должны поступать из ветки разработки в ветку разработки или из ветви plugins-docs в ветку plugins-docs, если вы ранее не договорились с членами команды, что вы отправите вклад от мастера мастеру.",
-                    "updated": 1637947186101
+                    "text": "В большинстве случаев вклад должен идти из ветки develop в ветку develop, если только вы заранее не договорились с членами команды, что будете посылать вклад из master в master. ",
+                    "updated": 1641833805966
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Çoğu durumda, ekip üyeleriyle Master'dan Master'a bir katkı göndereceğiniz konusunda anlaşmadıysanız, katkılar Develop dalından Develop dalına gitmelidir.",
+                    "updated": 1644220219531
                 }
             ]
         },
@@ -113,8 +145,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Master - это наша стабильная ветка, и очень маловероятно, что мы собираемся объединить туда вклады. Вместо этого ожидается, что все вклады будут направляться в ветки разработки или plugins-docs, где многие пользователи тестируют эту ветку каждый день. Добавленные плагины и документы могут часто попадать в основную ветку. Вклады в ветку разработки поступят в главную ветку в следующем выпуске.",
-                    "updated": 1637947233363
+                    "text": "Master - это наша стабильная ветка, и очень маловероятно, что мы будем производить слияния вкладов туда. Вместо этого, ожидается, что все материалы будут направляться в ветку develop, где многие пользователи ежедневно тестируют эту ветку. Вклад в ветку develop попадет в ветку master в следующем релизе.",
+                    "updated": 1641833965597
+                },
+                {
+                    "language": "TR",
+                    "text": "Master dalı bizim istikrarlı şubemizdir ve orada katkıları birleştirmemiz pek olası değildir. Bunun yerine, tüm katkıların, birçok kullanıcının her gün o dalı test ettiği develop şubesine gitmesi beklenir. Develop dalına yapılan katkılar, bir sonraki sürümde ana dalda birleştitirelecktir.",
+                    "updated": 1644220980244
                 }
             ]
         },
@@ -137,6 +174,11 @@
                     "language": "RU",
                     "text": "Также очень маловероятно, что вклады, поступающие из основной ветки, будут объединены в ветвь разработки, поскольку это обычно может привести к конфликтам слияния.",
                     "updated": 1637947263874
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ayrıca ana daldan gelen katkıların geliştirme dalıyla birleştirilmesi pek olası değildir, çünkü bu genellikle birleştirme çakışmalarına yol açabilir.",
+                    "updated": 1644221017168
                 }
             ]
         },
@@ -158,6 +200,11 @@
                     "language": "RU",
                     "text": "Проверьте нижний колонтитул Документов, чтобы узнать, с какими ветвями вы работаете, прежде чем отправлять свои материалы!",
                     "updated": 1637947301029
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Katkılarınızı göndermeden önce hangi şubelerde çalıştığınızı doğrulamak için Dokümanlar'ın alt bilgisini kontrol edin!",
+                    "updated": 1644221039492
                 }
             ]
         },
@@ -169,6 +216,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1637947314768
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi (Syntax)",
+                    "updated": 1644221122649
                 }
             ]
         },
@@ -185,6 +237,11 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1637947327900
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler (Parameters)",
+                    "updated": 1644221118568
                 }
             ]
         },
@@ -202,6 +259,11 @@
                     "language": "RU",
                     "text": "Message: введите краткое описание того, о чем идет речь. Это необязательно, но приветствуется.",
                     "updated": 1637947380485
+                },
+                {
+                    "language": "TR",
+                    "text": "Mesaj (Message): Katkınızın ne hakkında olduğuna dair kısa bir açıklama girin. İsteğe bağlı ancak takdir edilmektedir.",
+                    "updated": 1644221170697
                 }
             ]
         },
@@ -219,6 +281,11 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1637947389686
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1644221180800
                 }
             ]
         },
@@ -241,6 +308,11 @@
                     "language": "RU",
                     "text": "Для разработчиков",
                     "updated": 1637947411633
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler İçin",
+                    "updated": 1644222211895
                 }
             ]
         },
@@ -258,6 +330,11 @@
                     "language": "RU",
                     "text": "Вот что делают команды:",
                     "updated": 1637947457061
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutun yaptığı şudur:",
+                    "updated": 1644222226768
                 }
             ]
         },
@@ -275,6 +352,11 @@
                     "language": "RU",
                     "text": "git.add: добавляет изменения, которые вы внесли в дополнительные файлы, в коммит git.",
                     "updated": 1637947488950
+                },
+                {
+                    "language": "TR",
+                    "text": "git.add: Katkıda bulunan dosyalara yaptığınız değişiklikleri bir git taahhüdüne ekler.",
+                    "updated": 1644222243024
                 }
             ]
         },
@@ -291,6 +373,11 @@
                     "language": "RU",
                     "text": "git.commit: фиксирует все изменения.",
                     "updated": 1637947507244
+                },
+                {
+                    "language": "TR",
+                    "text": "git.commit: tüm değişiklikleri taahhüt eder.",
+                    "updated": 1644222254373
                 }
             ]
         },
@@ -307,6 +394,11 @@
                     "language": "RU",
                     "text": "git.push: вносит изменения в вашу ветку.",
                     "updated": 1637947595681
+                },
+                {
+                    "language": "TR",
+                    "text": "git.push: değişiklikleri çatalınıza gönderir.",
+                    "updated": 1644222265462
                 }
             ]
         },
@@ -323,6 +415,11 @@
                     "language": "RU",
                     "text": "github.createPullRequest: создает Pull Request в репозитории Superalgos или добавляет коммиты в существующий Pull Request.",
                     "updated": 1637947616979
+                },
+                {
+                    "language": "TR",
+                    "text": "github.createPullRequest: Superalgos deposunda bir Çekme İsteği oluşturur veya mevcut bir Çekme İsteğine taahhütler ekler.",
+                    "updated": 1644222279591
                 }
             ]
         },
@@ -339,6 +436,11 @@
                     "language": "RU",
                     "text": "Авторизация",
                     "updated": 1637947633057
+                },
+                {
+                    "language": "TR",
+                    "text": "Kimlik Doğrulama (Authentication)",
+                    "updated": 1644222312980
                 }
             ]
         },
@@ -356,6 +458,11 @@
                     "language": "RU",
                     "text": "Для правильной работы команды App Contribute требуются две разные аутентификации:",
                     "updated": 1637947658808
+                },
+                {
+                    "language": "TR",
+                    "text": "App Contribute Komutunun düzgün çalışması için iki farklı kimlik doğrulaması gerekir:",
+                    "updated": 1644222358921
                 }
             ]
         },
@@ -373,6 +480,11 @@
                     "language": "RU",
                     "text": "Git Authentication: при первом запуске этой команды Git откроет всплывающее окно, в котором вас попросят ввести учетные данные Github.com. Это случается только один раз. Git будет использовать эти учетные данные для отправки фиксации на ваш форк Superalgos на Github.com.",
                     "updated": 1637947689722
+                },
+                {
+                    "language": "TR",
+                    "text": "Git Kimlik Doğrulaması: Bu komutu ilk çalıştırdığınızda Git, sizden Github.com kimlik bilgilerinizi isteyecek bir açılır pencere açacaktır. Bu sadece bir kez olur. Git, bu kimlik bilgilerini Github.com'da Superalgos çatalınızın taahhüdünü zorlamak için kullanacaktır.",
+                    "updated": 1644222399198
                 }
             ]
         },
@@ -383,14 +495,27 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Github.com Authentication: создание Pull Request - это то, что происходит на Github.com, и для этой операции вам также необходимо пройти авторизацию. Для этого вы должны сгенерировать токен персонального доступа и настроить его в конфигурации узла Github Api в вашей активной рабочей области.",
+                    "text": "Github.com Authentication: создание Pull Request - это то, что происходит на Github.com, и для этой операции вам также необходимо пройти авторизацию. Для этого вы должны сгенерировать токен персонального доступа и настроить его в конфигурации узла Github Api в вашей активной рабочего пространства.",
                     "updated": 1637947765577
+                },
+                {
+                    "language": "TR",
+                    "text": "Github.com Kimlik Doğrulaması: Çekme İsteğinin oluşturulması Github.com'da gerçekleşen bir şeydir ve bu işlem için de kimlik doğrulamanız gerekir. Bunu yapmak için, bir Kişisel Erişim Simgesi (Token) oluşturmanız ve bunu etkin çalışma alanınızdaki Github Api düğüm yapılandırmasında ayarlamanız gerekir.",
+                    "updated": 1644222484287
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "GitHub.com Token"
+            "text": "GitHub.com Token",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "GitHub.com Belirteci",
+                    "updated": 1654393160884,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
@@ -406,17 +531,37 @@
                     "language": "RU",
                     "text": "Создайте токен, перейдя по этой ссылке:",
                     "updated": 1637947797015
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bağlantıyı izleyerek Simgeyi (Token) oluşturun:",
+                    "updated": 1644222548312
                 }
             ]
         },
         {
             "style": "Link",
             "text": "GitHub.com New Token Page->github.com/settings/tokens/new",
-            "updated": 1609944681129
+            "updated": 1609944681129,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "GitHub.com Yeni Belirteç Sayfası->github.com/settings/tokens/new",
+                    "updated": 1654393166272,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Github API Node"
+            "text": "Github API Node",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Github API Düğümü",
+                    "updated": 1644222566645
+                }
+            ]
         },
         {
             "style": "Text",
@@ -432,6 +577,11 @@
                     "language": "RU",
                     "text": "Получив токен, найдите узел API GitHub (его можно найти в документации). Конфигурация выглядит так:",
                     "updated": 1637947829106
+                },
+                {
+                    "language": "TR",
+                    "text": "Simgenizi oluşturdukdan sonra GitHub API düğümünü bulun (Belgelerde arayabilirsiniz). Yapılandırma şöyle görünür:",
+                    "updated": 1644222603665
                 }
             ]
         },
@@ -452,14 +602,26 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы не можете найти узел с помощью поля поиска, возможно, он не существует в активной рабочей области. Иерархия API включена по умолчанию только в рабочее пространство Getting Started («Начало работы»). Вы можете создать новую иерархию API из узла Other Hierarchies в иерархии проекта Superalgos.",
+                    "text": "Если вы не можете найти узел с помощью поля поиска, возможно, он не существует в активном рабочем пространстве. Иерархия API включена по умолчанию только в рабочее пространство Getting Started («Начало работы»). Вы можете создать новую иерархию API из узла Other Hierarchies в иерархии проекта Superalgos.",
                     "updated": 1637947958205
+                },
+                {
+                    "language": "TR",
+                    "text": "Arama kutusunu kullanarak düğümü bulamıyorsanız, etkin çalışma alanında mevcut olmayabilir. APIs hiyerarşisi, varsayılan olarak yalnızca Başlarken çalışma alanına dahil edilir. Temeller Projesi hiyerarşisindeki ( Foundations Project ) Diğer Hiyerarşiler ( Other Hierarchies ) düğümünden yeni bir APIs hiyerarşisi oluşturabilirsiniz.",
+                    "updated": 1644222758113
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler (Properties)",
+                    "updated": 1644222805771
+                }
+            ]
         },
         {
             "style": "List",
@@ -475,6 +637,11 @@
                     "language": "RU",
                     "text": "username: ваше имя пользователя GitHub.com.",
                     "updated": 1637948021453
+                },
+                {
+                    "language": "TR",
+                    "text": "kullanıcı adı (username): GitHub.com kullanıcı adınızı yazın.",
+                    "updated": 1644222844607
                 }
             ]
         },
@@ -492,6 +659,11 @@
                     "language": "RU",
                     "text": "token: вставьте созданный токен.",
                     "updated": 1637948052508
+                },
+                {
+                    "language": "TR",
+                    "text": "Simge (token): Oluşturduğunuz belirteci yapıştırın.",
+                    "updated": 1644222879277
                 }
             ]
         },
@@ -509,6 +681,11 @@
                     "language": "RU",
                     "text": "Вы можете запустить команду в любое время после внесения и сохранения изменений.",
                     "updated": 1637948076224
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Komutu, değişiklikleri yaptıktan ve kaydettikten sonra istediğiniz zaman çalıştırabilirsiniz.",
+                    "updated": 1644222899940
                 }
             ]
         },
@@ -526,6 +703,11 @@
                     "language": "RU",
                     "text": "Устранение проблем с авторизацией",
                     "updated": 1637948109232
+                },
+                {
+                    "language": "TR",
+                    "text": "Kimlik Doğrulama Sorunlarını Giderme",
+                    "updated": 1644222917394
                 }
             ]
         },
@@ -543,6 +725,11 @@
                     "language": "RU",
                     "text": "Некоторые проблемы могут возникнуть, если в вашей ОС установлено более одной установки Git.",
                     "updated": 1637948128618
+                },
+                {
+                    "language": "TR",
+                    "text": "İşletim sisteminizde aktif olan birden fazla Git kurulumunuz olduğunda bazı sorunlar ortaya çıkabilir.",
+                    "updated": 1644222991384
                 }
             ]
         },
@@ -559,6 +746,11 @@
                     "language": "RU",
                     "text": "Например, если вы видите следующий экран аутентификации, это означает, что более старая версия Git пытается справиться с аутентификацией:",
                     "updated": 1637948161857
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, aşağıdaki kimlik doğrulama ekranını görüyorsanız, Git'in eski bir sürümünün kimlik doğrulamayla ilgilenmeye çalıştığı anlamına gelir:",
+                    "updated": 1644222975711
                 }
             ]
         },
@@ -581,6 +773,11 @@
                     "language": "RU",
                     "text": "Текущий экран аутентификации похож на этот:",
                     "updated": 1637948183927
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli kimlik doğrulama ekranı bunun yerine şuna benzer:",
+                    "updated": 1644223005892
                 }
             ]
         },
@@ -603,6 +800,11 @@
                     "language": "RU",
                     "text": "Если вы не установили последнюю версию Git перед установкой Superalgos, то, скорее всего, это причина того, что аутентификация не работает. Требуется последняя версия Git.",
                     "updated": 1637948211168
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Superalgos'u yüklemeden önce Git'in en son sürümünü yüklemediyseniz, kimlik doğrulamanın çalışmamasının nedeni bu olabilir. Git'in en son sürümü gerekli.",
+                    "updated": 1644223028575
                 }
             ]
         },
@@ -620,6 +822,11 @@
                     "language": "RU",
                     "text": "Если вы установили Git и у вас возникла проблема, описанная выше, перезагрузка компьютера может помочь разобраться.",
                     "updated": 1637948235147
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Git'i yüklediyseniz ve yukarıda açıklanan sorunu yaşıyorsanız, bilgisayarınızı yeniden başlatmak işlerin kendiliğinden çözülmesine yardımcı olabilir.",
+                    "updated": 1644223048014
                 }
             ]
         },
@@ -632,6 +839,11 @@
                     "language": "DE",
                     "text": "Linux und macOS",
                     "updated": 1637873000919
+                },
+                {
+                    "language": "TR",
+                    "text": "Linux Ve macOS",
+                    "updated": 1644223056579
                 }
             ]
         },
@@ -649,6 +861,11 @@
                     "language": "RU",
                     "text": "Введите свой личный токен аутентификации (PAT) вместо пароля и нажмите Enter.",
                     "updated": 1637948259055
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Parolanızın yerine kişisel kimlik doğrulama simgenizi (PAT) girin ve enter tuşuna basın.",
+                    "updated": 1644223080134
                 }
             ]
         },
@@ -666,13 +883,26 @@
                     "language": "RU",
                     "text": "Если вы не хотите продолжать вводить свой токен, вы можете использовать git cach для своих учетных данных:",
                     "updated": 1637948285639
+                },
+                {
+                    "language": "TR",
+                    "text": "Simgenizi (Token) girmeye devam etmek istemiyorsanız, kimlik bilgilerinizi git önbelleğe alabilirsiniz:",
+                    "updated": 1644223126310
                 }
             ]
         },
         {
             "style": "Link",
             "text": "How to Cache your Git Credentials->docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git",
-            "updated": 1621085386878
+            "updated": 1621085386878,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Git Kimlik Bilgilerinizi Nasıl Önbelleğe Alırsınız->docs.github.com/tr/github/getting-started-with-github/caching-your-github-credentials-in-git",
+                    "updated": 1654393172084,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Text",

@@ -21,7 +21,7 @@
     ],
     "isTitleAllwaysVisible": true,
     "initialValues": {
-        "config": "{\n\"initialBalance\": 1,\n\"minimumBalance\": 0.5\n}"
+        "config": "{\n\"initialBalance\": 0\n}"
     },
     "addLeftIcons": true,
     "editors": {

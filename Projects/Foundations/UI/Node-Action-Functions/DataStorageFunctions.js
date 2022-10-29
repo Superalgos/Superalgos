@@ -45,10 +45,12 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         we will create a Data Product. In case we find Product Definition Folders, we will recreate that structure
         too, using in this case Data Product Folders.
         */
+        let newUiObjects = []
         let mine = node.payload.referenceParent
         scanBotArray(mine.sensorBots)
         scanBotArray(mine.apiDataFetcherBots)
         scanBotArray(mine.indicatorBots)
+        scanBotArray(mine.studyBots)
         scanBotArray(mine.tradingBots)
         scanBotArray(mine.portfolioBots)
         scanBotArray(mine.learningBots)
@@ -58,7 +60,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Products')
+                let botProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Products', undefined, 'Foundations')
                 botProducts.name = bot.name
                 botProducts.payload.floatingObject.collapseToggle()
 
@@ -72,55 +74,86 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     'Data Product Folder',
                     undefined
                 )
+
+                if (botProducts !== undefined) {
+                    newUiObjects.push(botProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllDataMineProducts(node, rootNodes) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Data Mine') {
                 let dataMineProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dataMineProducts, rootNode)
+                if (dataMineProducts !== undefined) {
+                    newUiObjects.push(dataMineProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllTradingMineProducts(node, rootNodes) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Trading Mine') {
                 let tradingMineProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(tradingMineProducts, rootNode)
+                if (tradingMineProducts !== undefined) {
+                    newUiObjects.push(tradingMineProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllPortfolioMineProducts(node, rootNodes) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Portfolio Mine') {
                 let portfolioMineProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Portfolio Mine Products')
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(portfolioMineProducts, rootNode)
+                if (portfolioMineProducts !== undefined) {
+                    newUiObjects.push(portfolioMineProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllLearningMineProducts(node, rootNodes) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Learning Mine') {
                 let learningMineProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(learningMineProducts, rootNode)
+                if (learningMineProducts !== undefined) {
+                    newUiObjects.push(learningMineProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingTradingSessionReferences(node, rootNodes) {
+        let newUiObjects = []
         let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
@@ -141,13 +174,19 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
-                    createSessionReference(node, session, 'Trading Session Reference')
+                    let sessionReference = createSessionReference(node, session, 'Trading Session Reference')
+                    if (sessionReference !== undefined) {
+                        newUiObjects.push(sessionReference)
+                    }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingPortfolioSessionReferences(node, rootNodes) {
+        let newUiObjects = []
         let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
@@ -164,13 +203,19 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketPortfolioTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
-                    createSessionReference(node, session, 'Portfolio Session Reference')
+                    let sessionReference = createSessionReference(node, session, 'Portfolio Session Reference')
+                    if (sessionReference !== undefined) {
+                        newUiObjects.push(sessionReference)
+                    }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingLearningSessionReferences(node, rootNodes) {
+        let newUiObjects = []
         let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
@@ -187,64 +232,77 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 let marketLearningTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketLearningTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
-                    createSessionReference(node, session, 'Learning Session Reference')
+                    let sessionReference = createSessionReference(node, session, 'Learning Session Reference')
+                    if (sessionReference !== undefined) {
+                        newUiObjects.push(sessionReference)
+                    }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function createSessionReference(node, session, nodeType) {
         let sessionReference = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, nodeType)
         UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(sessionReference, session)
+        return sessionReference
     }
 
     function addMissingMarketDataProducts(node, rootNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Data Products')
+        return addMissingMarketProducts(node, rootNodes, 'Market Data Products')
     }
 
     function addMissingMarketTradingProducts(node, rootNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Trading Products')
+        return addMissingMarketProducts(node, rootNodes, 'Market Trading Products')
     }
 
     function addMissingMarketPortfolioProducts(node, rootNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Portfolio Products')
+        return addMissingMarketProducts(node, rootNodes, 'Market Portfolio Products')
     }
 
     function addMissingMarketLearningProducts(node, rootNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Learning Products')
+        return addMissingMarketProducts(node, rootNodes, 'Market Learning Products')
     }
 
     function addMissingMarketProducts(node, rootNodes, newNodeType) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
         let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
+        let newUiObjects = []
 
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
             if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(marketDataProducts, market)
+                if (marketDataProducts !== undefined) {
+                    newUiObjects.push(marketDataProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingExchangeDataProducts(node, rootNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Data Products')
+        return addMissingExchange(node, rootNodes, 'Exchange Data Products')
     }
 
     function addMissingExchangeTradingProducts(node, rootNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Trading Products')
+        return addMissingExchange(node, rootNodes, 'Exchange Trading Products')
     }
 
     function addMissingExchangePortfolioProducts(node, rootNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Portfolio Products')
+        return addMissingExchange(node, rootNodes, 'Exchange Portfolio Products')
     }
 
     function addMissingExchangeLearningProducts(node, rootNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Learning Products')
+        return addMissingExchange(node, rootNodes, 'Exchange Learning Products')
     }
 
     function addMissingExchange(node, rootNodes, newNodeType) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -256,31 +314,37 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchange = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(exchange, cryptoExchange)
+                            if (exchange !== undefined) {
+                                newUiObjects.push(exchange)
+                            }
                         }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 
 
     function addMissingProjectDataProducts(node, rootNodes) {
-        addMissingProject(node, rootNodes, 'Project Data Products')
+        return addMissingProject(node, rootNodes, 'Project Data Products')
     }
 
     function addMissingProjectTradingProducts(node, rootNodes) {
-        addMissingProject(node, rootNodes, 'Project Trading Products')
+        return addMissingProject(node, rootNodes, 'Project Trading Products')
     }
 
     function addMissingProjectPortfolioProducts(node, rootNodes) {
-        addMissingProject(node, rootNodes, 'Project Portfolio Products')
+        return addMissingProject(node, rootNodes, 'Project Portfolio Products')
     }
 
     function addMissingProjectLearningProducts(node, rootNodes) {
-        addMissingProject(node, rootNodes, 'Project Learning Products')
+        return addMissingProject(node, rootNodes, 'Project Learning Products')
     }
 
     function addMissingProject(node, rootNodes, newNodeType) {
+        let newUiObjects = []
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -296,10 +360,15 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            if (projectTasks !== undefined) {
+                                newUiObjects.push(projectTasks)
+                            }
                         }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 }

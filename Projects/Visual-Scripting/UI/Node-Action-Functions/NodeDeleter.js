@@ -1,7 +1,8 @@
 function newVisualScriptingFunctionLibraryNodeDeleter() {
     let thisObject = {
         deleteWorkspace: deleteWorkspace,
-        deleteUIObject: deleteUIObject
+        deleteUIObject: deleteUIObject,
+        unDeleteUIObject: unDeleteUIObject
     }
 
     return thisObject
@@ -42,11 +43,14 @@ function newVisualScriptingFunctionLibraryNodeDeleter() {
         }
     }
 
-    function deleteUIObject(node, rootNodes) {
+    async function deleteUIObject(node, rootNodes) {
 
         /* First we restore the reference parent to its default state */
-        if (node.payload !== undefined && node.payload.referenceParent !== undefined && node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
-            node.payload.referenceParent.payload.uiObject.isShowing = false
+        if (node.payload !== undefined && node.payload.referenceParent !== undefined) {
+            if (node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
+                node.payload.referenceParent.payload.uiObject.isShowing = false
+                node.payload.referenceParent.payload.referenceChildren.delete(node.id)
+            }
         }
 
         let schemaDocument = getSchemaDocument(node)
@@ -126,7 +130,7 @@ function newVisualScriptingFunctionLibraryNodeDeleter() {
                             }
                         }
                         if (removedFromParent === false) {
-                            console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + schemaDocument.propertyNameAtParent + ') does not match any of the properties of its parent.')
+                            console.log((new Date()).toISOString(), '[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + schemaDocument.propertyNameAtParent + ') does not match any of the properties of its parent.')
                             return false
                         }
                     }
@@ -164,5 +168,44 @@ function newVisualScriptingFunctionLibraryNodeDeleter() {
         node.handle = undefined
         node.payload = undefined
         node.cleaned = true
+    }
+
+    async function unDeleteUIObject(nodeClone, parentNode, chainParent, rootNodes) {
+        let project = nodeClone.project
+        let schemaDocument = getSchemaDocument(nodeClone, project)
+
+        await UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.createUiObjectFromNode(nodeClone, parentNode, chainParent)
+
+        /* if root node, register in rootNodes array */
+        if (schemaDocument.isHierarchyHead === true || schemaDocument.isProjectHead === true) {
+            rootNodes.push(nodeClone)
+        }
+
+        /* register at parent */
+        if (parentNode !== undefined && schemaDocument.isProjectHead !== true) {
+            let childName
+            let parentSchemaDocument = getSchemaDocument(parentNode, parentNode.project)
+            for (let property of parentSchemaDocument.childrenNodesProperties) {
+                childName = (property.childType === nodeClone.type) ? property.name : undefined
+                switch (property.type) {
+                    case 'node': {
+                        if (childName !== undefined) {
+                            parentNode[childName] = nodeClone
+                        }
+                    }
+                        break
+                    case 'array': {
+                        if (childName !== undefined) {
+                            parentNode[schemaDocument.propertyNameAtParent].push(nodeClone)
+                        }
+                    }
+                        break
+                }
+            }
+        }
+
+        /* recreate references */
+        await UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.tryToConnectChildrenWithReferenceParents(nodeClone)
+        UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.registerReferenceParentAtReferenceChildren(nodeClone)
     }
 }

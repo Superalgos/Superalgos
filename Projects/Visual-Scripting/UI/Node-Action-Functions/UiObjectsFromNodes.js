@@ -8,13 +8,16 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
         tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
+        registerReferenceParentAtReferenceChildren: registerReferenceParentAtReferenceChildren,
         createUiObjectFromNode: createUiObjectFromNode,
         addUIObject: addUIObject,
-        addMissingChildren: addMissingChildren
+        addMissingChildren: addMissingChildren,
+        addNodeToMap: addNodeToMap,
+        deleteNodeFromMap: deleteNodeFromMap
     }
 
-    let mapOfReferenceChildren = new Map()
     let mapOfNodes
+    let mapOfReferenceChildren
     let tasksFoundAtWorkspace
     let tradingSessionsFoundAtWorkspace
     let portfolioSessionsFoundAtWorkspace
@@ -27,8 +30,17 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         return mapOfNodes.get(nodeId)
     }
 
+    function addNodeToMap(nodeId, node) {
+        mapOfNodes.set(nodeId, node)
+    }
+
+    function deleteNodeFromMap(nodeId) {
+        mapOfNodes.delete(nodeId)
+    }
+
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
+        mapOfReferenceChildren = new Map()
         tasksFoundAtWorkspace = []
         tradingSessionsFoundAtWorkspace = []
         portfolioSessionsFoundAtWorkspace = []
@@ -145,6 +157,13 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginPositions.pluginFiles.length
                             pluginAllTheseFiles(project.pluginPositions.pluginFiles, 'Positions')
                         }
+                        /*
+                        Network Plugin Types
+                        */
+                        if (project.pluginP2PNetworks !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginP2PNetworks.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginP2PNetworks.pluginFiles, 'P2P-Networks')
+                        }
                     }
                 }
             }
@@ -180,7 +199,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     function onFileReceived(err, text, response) {
 
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            console.log('[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
+                            console.log((new Date()).toISOString(), '[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
 
                             let receivedNode
@@ -188,9 +207,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             try {
                                 receivedNode = JSON.parse(text)
                             } catch (err) {
-                                console.log('[ERROR] pluginAllTheseFiles -> Cannot load plugin ' + pluginFolder + ' ' + name + '. Received an invalid JSON object from the client.')
-                                console.log('[ERROR] pluginAllTheseFiles -> text = ' + text)
-                                console.log('[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> Cannot load plugin ' + pluginFolder + ' ' + name + '. Received an invalid JSON object from the client.')
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> text = ' + text)
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
                                 return
                             }
 
@@ -201,7 +220,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
                                 if (rootNode.id === receivedNode.id) {
-                                    console.log('[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type + '" because they both have the same node.id')
+                                    console.log((new Date()).toISOString(), '[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type + '" because they both have the same node.id')
                                     node.rootNodes.splice(i, 1)
                                     break
                                 }
@@ -267,8 +286,8 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     }
                 }
             }
-            function endLoop() {
-                tryToConnectChildrenWithReferenceParents()
+            async function endLoop() {
+                await tryToConnectChildrenWithReferenceParents()
 
                 if (callBackFunction !== undefined) {
                     callBackFunction() // The recreation of the workspace is complete
@@ -317,31 +336,49 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         tutorialsToPlay = undefined
     }
 
-    function tryToConnectChildrenWithReferenceParents() {
+    async function tryToConnectChildrenWithReferenceParents(topNode) {
         /* We reconstruct here the reference relationships. */
-        for (const [key, node] of mapOfNodes) {
+        let nodes
+        if (topNode === undefined) {
+            nodes = Array.from(mapOfNodes, ([id, node]) => (node))
+        } else {
+            nodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(topNode)
+        }
+        for (const node of nodes) {
 
             if (node.payload === undefined) { continue }
 
             if (node.payload.referenceParent !== undefined) {
+                let referenceParent
                 if (node.payload.referenceParent.cleaned === true) {
-                    node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
+                    //node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
+                    referenceParent = await mapOfNodes.get(node.payload.referenceParent.id)
                     if (node.payload.referenceParent === undefined) {
-                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                        //console.log((new Date()).toISOString(), '[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     continue  // We were referencing a deleted node, so we replace it potentially with a newly created one.
                 } else {
-                    continue  // In this case the reference is already good.
+                    //continue  // In this case the reference is already good.
+                    referenceParent = node.payload.referenceParent
                 }
+                UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, referenceParent)
+                mapOfReferenceChildren.set(node.id, node)
             }
 
             if (node.savedPayload !== undefined) {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
                     // Reestablish based on Id
-                    node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
+                    //node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
+                    let referenceParent = await mapOfNodes.get(node.savedPayload.referenceParent.id)
 
+                    if (referenceParent !== undefined) {
+                        if (referenceParent.cleaned !== true) {
+                            UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, referenceParent)
+                        }
+                        mapOfReferenceChildren.set(node.id, node)
+                    }
                     // if Reestablishment failed now reestablish reference based on saved path
-                    if (node.payload.referenceParent === undefined) {
+                    else {
                         // Gather saved path
                         let rawPath = node.savedPayload.referenceParentCombinedNodePath
                         if (rawPath !== undefined) {
@@ -377,6 +414,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             }
                             if (pathNode !== undefined) {
                                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, pathNode)
+                                mapOfReferenceChildren.set(node.id, node)
                             } else {
                                 //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }
@@ -384,6 +422,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             function getNextNodeFromPath(node, pathName, pathType) {
                                 let schemaDocument = getSchemaDocument(node)
                                 if (schemaDocument === undefined) { return }
+                                if (schemaDocument.childrenNodesProperties === undefined) { return }
                                 let nextNode = undefined
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
 
@@ -414,12 +453,10 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                             break
                                         }
                                     }
-
                                 }
                             }
                         }
                     }
-
                 }
             }
         }
@@ -509,11 +546,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
-            node.type === 'Plugin Trading Systems'  ||
-            node.type === 'Plugin Trading Mines'    ||
-            node.type === 'Plugin Trading Engines'  ||
+            node.type === 'Plugin Trading Systems' ||
+            node.type === 'Plugin Trading Mines' ||
+            node.type === 'Plugin Trading Engines' ||
             node.type === 'Plugin Portfolio Systems' ||
-            node.type === 'Plugin Portfolio Mines'  ||
+            node.type === 'Plugin Portfolio Mines' ||
             node.type === 'Plugin Portfolio Engines' ||
             node.type === 'Plugin Project' ||
             node.type === 'Plugin Learning Systems' ||
@@ -633,6 +670,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
         let parentSchemaDocument
         /* Resolve Initial Values */
+        if ((object.type === 'Task Manager' || object.type === 'Task') && project == 'Portfolio-Management') {
+            object.project = 'Foundations';
+        } else if (object.type === 'Portfolio Bot Instance') {
+            object.project = 'Portfolio-Management';
+        }
         let schemaDocument = getSchemaDocument(object, project)
 
         if (schemaDocument === undefined) {
@@ -796,6 +838,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
     function addMissingChildren(node, rootNodes) {
         let schemaDocument = getSchemaDocument(node)
+        let newUiObjects = []
 
         /* Connect to Parent */
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -811,11 +854,13 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             node.payload.floatingObject.angleToParent = currenAngleToParent
                             //uiObject.payload.floatingObject.angleToParent = currenAngleToParent
                             previousPropertyName = property.name
+                            newUiObjects.push(uiObject)
                         }
                     }
                 }
             }
         }
+        return newUiObjects
     }
 
     function createUiObject(userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
@@ -882,6 +927,16 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
                 if (payload.referenceParent !== undefined) {
                     mapOfReferenceChildren.set(node.id, node)
+                }
+            }
+
+            if (node.savedPayload.referenceChildren !== undefined) {
+                payload.referenceChildren = new Map()
+                for (let referenceChild of node.savedPayload.referenceChildren) {
+                    referenceChild = mapOfNodes.get(referenceChild.id)
+                    if (referenceChild !== undefined) {
+                        payload.referenceChildren.set(referenceChild.id, referenceChild)
+                    }
                 }
             }
         }
@@ -992,6 +1047,27 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 if (node.savedPayload.uiObject.isPlaying === true) {
                     if (tutorialsToPlay !== undefined) { // it might be undefined when you are spawning a tutorial that was playing while backed up
                         tutorialsToPlay.push(node)
+                    }
+                }
+            }
+        }
+    }
+
+    async function registerReferenceParentAtReferenceChildren(topNode) {
+        let nodes
+        if (topNode === undefined) {
+            nodes = Array.from(mapOfNodes, ([id, node]) => (node))
+        } else {
+            nodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(topNode)
+        }
+
+        for (const node of nodes) {
+            if (node.payload !== undefined) {
+                if (node.payload.referenceChildren !== undefined) {
+                    for (let [id, referenceChild] of node.payload.referenceChildren) {
+                        if (referenceChild.cleaned !== true) {
+                            referenceChild.payload.referenceParent = node
+                        }
                     }
                 }
             }

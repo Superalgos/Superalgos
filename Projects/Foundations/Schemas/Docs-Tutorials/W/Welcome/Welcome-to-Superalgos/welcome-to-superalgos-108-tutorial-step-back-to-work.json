@@ -3,8 +3,8 @@
     "pageNumber": 108,
     "type": "Tutorial Step - Back to Work!",
     "definition": {
-        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill!",
-        "updated": 1610648506240,
+        "text": "Superalgos features an in-app, interactive, searchable, editable, and multi-language docs site &mdash; and a built-in command line!",
+        "updated": 1660156022125,
         "icon": {
             "name": "status-dependency",
             "project": "Foundations"
@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Superalgos bietet eine bearbeitbare, mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile! Lernen Sie, diese zu benutzen und Sie werden der Champion sein!",
-                "updated": 1634246238513
+                "text": "Superalgos bietet eine interaktive, durchsuchbare, bearbeitbare und mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile!",
+                "updated": 1660476467812
             },
             {
                 "language": "TR",
@@ -36,14 +36,19 @@
                 "language": "ID",
                 "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya!",
                 "updated": 1640599441676
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos имеет встроенный интерактивный, и доступный для поиска, редактируемый и многоязычный сайт документации - и встроенную командную строку!",
+                "updated": 1662035569296
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
-            "updated": 1616694225866,
+            "style": "Success",
+            "text": "Learn to use the Docs and the Command Line and you'll be the king of the hill!",
+            "updated": 1660156085131,
             "translations": [
                 {
                     "language": "IT",
@@ -59,8 +64,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sie haben bereits einige Dokumentationsseiten im Docs-Panel auf der rechten Seite verwendet, aber das ist nur die Spitze des Eisbergs!",
-                    "updated": 1634245877514
+                    "text": "Lernen Sie, die Dokumentation und die Befehlszeile zu verwenden - schon sind Sie ganz vorn mit dabei!",
+                    "updated": 1660476557704
                 },
                 {
                     "language": "TR",
@@ -71,6 +76,22 @@
                     "language": "ID",
                     "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es!",
                     "updated": 1640599491971
+                },
+                {
+                    "language": "RU",
+                    "text": "Научитесь пользоваться Docs и командной строкой, и вы станете королем холма!",
+                    "updated": 1662035600849
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы уже использовали несколько страниц документации на панели Docs справа, но это только вершина айсберга!",
+                    "updated": 1662035614988
                 }
             ]
         },
@@ -105,13 +126,18 @@
                     "language": "ID",
                     "text": "Ayo kita coba! Cari kata... network.",
                     "updated": 1640599527316
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Найдите слово... network.",
+                    "updated": 1642773752339
                 }
             ]
         },
         {
-            "style": "Success",
-            "text": "Not to brag, but the speed of the search engine rivals the likes of Google ;-)",
-            "updated": 1610651624723,
+            "style": "Note",
+            "text": "Not to brag, but the search engine is fast!",
+            "updated": 1660156175640,
             "translations": [
                 {
                     "language": "IT",
@@ -127,8 +153,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich will nicht prahlen, aber die Geschwindigkeit der Suchmaschine kann mit der von Google mithalten ;-)",
-                    "updated": 1634245908789
+                    "text": "Ich will nicht prahlen, aber die Geschwindigkeit der Suchfunktion ist richtig schnell!",
+                    "updated": 1660476593321
                 },
                 {
                     "language": "TR",
@@ -139,6 +165,11 @@
                     "language": "ID",
                     "text": "Bukan untuk menyombongkan diri, tetapi kecepatan mesin pencari menyaingi mesin pencarian Google ;-)",
                     "updated": 1640599583507
+                },
+                {
+                    "language": "RU",
+                    "text": "Не хочу хвастаться, но поисковая система работает быстро! ",
+                    "updated": 1662035637361
                 }
             ]
         },

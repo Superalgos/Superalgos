@@ -19,6 +19,16 @@
                 "language": "DE",
                 "text": "Wenn die Vermögenswerte, mit denen Sie arbeiten möchten, nicht unter Exchange Assets aufgeführt sind, müssen Sie sie zunächst hinzufügen und konfigurieren.\n",
                 "updated": 1635738895005
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çalışmak istediğiniz varlıklar Exchange Varlıkları ( Exchange Assets ) altında listelenmiyorsa, önce bunları ekleyip yapılandırmanız gerekir.",
+                "updated": 1642085426458
+            },
+            {
+                "language": "RU",
+                "text": "Если активы, с которыми вы хотите работать, не перечислены в разделе Exchange Assets, вы должны сначала добавить и настроить их.",
+                "updated": 1643090228970
             }
         ]
     },
@@ -38,6 +48,16 @@
                     "language": "DE",
                     "text": "In diesem Abschnitt des Tutorials lernen Sie, wie Sie festlegen, mit welchen Vermögenswerte Sie arbeiten möchten.",
                     "updated": 1635739057875
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitimin bu bölümünde, hangi varlıklarla çalışmak istediğinizi tanımlamayı öğreneceksiniz.",
+                    "updated": 1642085440738
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом разделе учебника вы научитесь определять, с какими активами вы хотите работать.",
+                    "updated": 1643090238384
                 }
             ]
         },
@@ -55,6 +75,16 @@
                     "language": "DE",
                     "text": "Jede Börse kann Hunderte von Vermögenswerten auflisten, aber Sie werden wahrscheinlich nur an einigen wenigen interessiert sein. Einige automatisierte Vorgänge können sich auf Ihre Definitionen stützen, daher ist es immer eine gute Idee, sie frei von Gerümpel zu halten.",
                     "updated": 1635739405026
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Her borsa yüzlerce varlık listeleyebilir, ancak yalnızca birkaçıyla ilgilenebilirsiniz. Bazı otomatik işlemler tanımlarınızı besleyebilir, bu nedenle onları diğerlerinden ayrı tutmak her zaman iyi bir fikirdir.",
+                    "updated": 1642085528723
+                },
+                {
+                    "language": "RU",
+                    "text": "На каждой бирже могут быть представлены сотни активов, однако вас, скорее всего, будут интересовать лишь некоторые из них. Некоторые автоматизированные операции могут питаться вашими определениями, поэтому держать их свободными от мусора - всегда хорошая идея.",
+                    "updated": 1643090267732
                 }
             ]
         }

@@ -1,0 +1,201 @@
+{
+    "type": "Signal Context Formula",
+    "definition": {
+        "text": "The Signal Context Formula node allows the signal provider to send additional data surrounding an Outgoing Formula Signal or Outgoing Event Signal.",
+        "updated": 1647057722823,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Signal Context Formula позволяет поставщику сигнала отправлять дополнительные данные, такие как Outgoing Formula Signal или Outgoing Event Signal.",
+                "updated": 1647785506586
+            },
+            {
+                "language": "TR",
+                "text": "Sinyal Bağlamı Formül düğümü, sinyal sağlayıcının Giden Formül Sinyali veya Giden Olay Sinyalini çevreleyen ek veriler göndermesini sağlar.",
+                "updated": 1654397968831
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644030134004
+        },
+        {
+            "style": "Title",
+            "text": "Attaching a Context Object",
+            "updated": 1647057686980,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прикрепление контекстного объекта",
+                    "updated": 1647785541479
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlam Nesnesi Ekleme",
+                    "updated": 1654397975300,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "By defining a Signal Context Formula node. The signal provider can attach a context object that holds additional information to be sent along with the signal data.",
+            "updated": 1647057883359,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определяя узел Signal Context Formula. Поставщик сигнала может присоединить объект контекста, содержащий дополнительную информацию, которая будет отправлена вместе с данными сигнала.",
+                    "updated": 1647785553518
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Sinyal Bağlamı Formülü düğümü tanımlayarak. Sinyal sağlayıcı, sinyal verileriyle birlikte gönderilecek ek bilgileri tutan bir bağlam nesnesi ekleyebilir.",
+                    "updated": 1654397980765,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context of Formula Signal",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formül Sinyalinin Bağlamı",
+                    "updated": 1654397986693,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A standard formula signal sends the result of its associated formula. So for example the resulting Order Rate of an order rate formula. A signal provider can also set up a Signal Context Formula node. This node allows the provider to send additional information coming out of the trading system. This can be values used to help calculate the current formula, values from the Trading Engine or any other available variables.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стандартный сигнал формулы отправляет результат связанной с ней формулы. Например, результирующая ставка ордера по формуле ставки ордера. Провайдер сигналов может также установить узел Signal Context Formula. Этот узел позволяет провайдеру отправлять дополнительную информацию, поступающую из торговой системы. Это могут быть значения, используемые для расчета текущей формулы, значения из торгового движка или любые другие доступные переменные.",
+                    "updated": 1647785580109
+                },
+                {
+                    "language": "TR",
+                    "text": "Standart bir formül sinyali, ilişkili formülün sonucunu gönderir. Örneğin bir sipariş oranı formülünün sonucu olan Sipariş Oranı. Bir sinyal sağlayıcı ayrıca bir Sinyal Bağlamı Formülü düğümü de oluşturabilir. Bu düğüm, sağlayıcının alım satım sisteminden gelen ek bilgileri göndermesine olanak tanır. Bu, mevcut formülün hesaplanmasına yardımcı olmak için kullanılan değerler, Ticaret Motorundan gelen değerler veya mevcut diğer değişkenler olabilir.",
+                    "updated": 1654397993072,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context of Event Signal",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Olay Sinyali Bağlamı",
+                    "updated": 1654397999556,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Events Signals often send simple true and false values. Adding context variables using a Signal Context Formula node allows the signal provider to supply additional information concerning why an event was triggered allowing for far more powerful signals.",
+            "updated": 1647057429306,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы событий часто передают простые значения true и false. Добавление контекстных переменных с помощью узла Signal Context Formula позволяет поставщику сигналов предоставлять дополнительную информацию о том, почему событие было вызвано, что позволяет создавать гораздо более мощные сигналы.",
+                    "updated": 1647785596089
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay Sinyalleri genellikle basit doğru ve yanlış değerler gönderir. Bir Sinyal Bağlamı Formülü düğümü kullanarak bağlam değişkenleri eklemek, sinyal sağlayıcının bir olayın neden tetiklendiğine ilişkin ek bilgiler sağlamasına olanak tanıyarak çok daha güçlü sinyaller elde edilmesini sağlar.",
+                    "updated": 1654398005199,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1644030390795
+        },
+        {
+            "style": "Title",
+            "text": "Available Data",
+            "updated": 1647057646695,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступные данные",
+                    "updated": 1647785627885
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut Veriler",
+                    "updated": 1654398011132,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The provider has access to any of the session parameters active within the system at the time of sending the signal. Key examples include: user defined variables, trading engine values, and all indicator values.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Провайдер имеет доступ к любым параметрам сессии, активным в системе на момент отправки сигнала. Основные примеры: переменные, определяемые пользователем, значения торгового механизма и все значения индикаторов.",
+                    "updated": 1647785643492
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağlayıcı, sinyalin gönderildiği sırada sistem içinde aktif olan oturum parametrelerinden herhangi birine erişebilir. Temel örnekler şunları içerir: kullanıcı tanımlı değişkenler, ticaret motoru değerleri ve tüm gösterge değerleri.",
+                    "updated": 1654398016756,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Signal Context Formula Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Signal Context Formula",
+                    "updated": 1647785670225
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal Bağlamı Formül Yapılandırması",
+                    "updated": 1654398022434,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example",
+            "updated": 1644030374260,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1645253546433
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654398028356,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "let context = {\n    profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,\n    hitFail: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value,\n    roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value\n}\n\ncontext // return the context object",
+            "updated": 1643429104204
+        }
+    ]
+}

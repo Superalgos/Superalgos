@@ -2,13 +2,38 @@
     "type": "Bias Initializer",
     "definition": {
         "text": "Initializer for the bias vector.",
-        "updated": 1613244555001
+        "updated": 1613244555001,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Инициализатор для вектора смещения.",
+                "updated": 1645195743319
+            },
+            {
+                "language": "TR",
+                "text": "Önyargı vektörü için başlatıcı.",
+                "updated": 1654396707948
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613244570066
+            "updated": 1613244570066,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645195749343
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396713482,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Javascript",

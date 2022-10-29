@@ -35,6 +35,7 @@ function newEdgeEditor() {
     let onMouseOverEventSubscriptionId
     let onMouseNotOverEventSubscriptionId
     let onDragStartedEventSubscriptionId
+    let configStyle
 
     let mouse = {
         position: {
@@ -703,14 +704,45 @@ function newEdgeEditor() {
         drawEdge('left')
 
         function drawEdge(edgeType) {
+            /**Here we control the colors of each time machines frame. */
+            let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+            if (chartingSpaceNode !== undefined) {
+                if (chartingSpaceNode.spaceStyle !== undefined) {
+                    configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                } else {
+                    configStyle = undefined
+                }
+            } else {
+                configStyle = undefined
+            }
             if (whereIsMouseOver === edgeType && thisObject.isMouseOver === true) {
                 browserCanvasContext.lineWidth = lineWidth
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+                
+                if (configStyle === undefined || configStyle.onMouseFrameColor === undefined) {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+                } else {
+                    let thisColor = eval(configStyle.onMouseFrameColor)
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+                    browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + OPACITY + ')'
+                }
             } else {
                 browserCanvasContext.lineWidth = lineWidth
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
+                if (configStyle === undefined || configStyle.machineFrameColor === undefined) {
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
+                } else {
+                    let thisColor = eval(configStyle.machineFrameColor)
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
+
+                    // This controls the opacity of the time machine frame.
+                    if (configStyle.machineFrameOpacity !== undefined) {
+                        let thisOpacity = eval(configStyle.machineFrameOpacity)
+                        browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + thisOpacity + ')'
+                    } else {
+                        browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + OPACITY + ')'
+                    }
+                }
             }
             browserCanvasContext.fill()
             browserCanvasContext.stroke()

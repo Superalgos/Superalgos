@@ -3,8 +3,8 @@
     "pageNumber": "4",
     "type": "Plugins-Docs",
     "definition": {
-        "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. Outdated: \"The branch Plugins-Docs is used by contributors of Plugins, documentations or tutorials. This branch in synchronized with Develop and Master everytime a new version is released, and it's purpose is to allow the flow of docs pages, plugins and tutorials into the master branch at a higher rate than changes at the codebase done at the Develop branch. This means that the Master branch might have many updates in between releases.\"",
-        "updated": 1638829995951,
+        "text": "The Plugins-Docs Branch has been deprecated. All contributions now go to the Develop branch.",
+        "updated": 1642956423144,
         "translations": [
             {
                 "language": "ES",
@@ -18,8 +18,13 @@
             },
             {
                 "language": "RU",
-                "text": "Ветка Plugins-Docs является УСТАРЕВШЕЙ. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram. Устарело: \"Ветка Plugins-Docs используется авторами плагинов, документации или учебников. Эта ветка синхронизируется с ветками Develop и Master каждый раз, когда выходит новая версия, и ее цель - позволить потоку страниц документации, плагинов и учебников в ветку Master с большей скоростью, чем изменения в кодовой базе, сделанные в ветке Develop. Это означает, что ветка Master может иметь много обновлений между релизами\".",
-                "updated": 1640353247287
+                "text": "Ветка Plugins-Docs была упразднена. Все материалы теперь направляются в ветку Develop.",
+                "updated": 1647785161188
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Plugins-Docs Branch kullanımdan kaldırıldı. Tüm katkılar artık Geliştirme şubesine gidiyor.",
+                "updated": 1650622486922
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Сотрудники, работающие в этой ветке, согласовывают свои действия здесь:",
                     "updated": 1640353284759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu şubede çalışan katkıda bulunanlar, burada koordine ederler:",
+                    "updated": 1650622535215
                 }
             ]
         },

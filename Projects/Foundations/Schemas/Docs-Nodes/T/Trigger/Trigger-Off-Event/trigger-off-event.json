@@ -12,6 +12,16 @@
                 "language": "RU",
                 "text": "Trigger Off Event (событие выключения) определяет ситуацию, в которой соответствующая стратегия должна быть выключена. Выключенная стратегия освобождает резервный капитал и делает его доступным для других стратегий в торговой системе.",
                 "updated": 1639736651020
+            },
+            {
+                "language": "DE",
+                "text": "Der Trigger Off Event definiert die Situation, in der die entsprechende Strategie ausgeschaltet werden soll. Eine Strategie, die ausgeschaltet wird, setzt das Kapital in der Reserve frei und macht es für andere Strategien im Handelssystem verfügbar.",
+                "updated": 1641648030277
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme kapatma (Trigger Off) olayı, ilgili stratejinin tetikleneceği durumu tanımlar. Bu olay sonucunda tetiklenen bir strateji, sermayeyi rezervde serbest bırakır ve ticaret sistemindeki diğer stratejiler için kullanılabilir hale getirir.",
+                "updated": 1652695367958
             }
         ]
     },
@@ -28,6 +38,16 @@
                     "language": "RU",
                     "text": "В концептуальном плане событие выключения - это механизм, который вы используете для определения ситуации, в которой соответствующая стратегия должна прекратить рассматривать торговую возможность, о которой сигнализирует событие включения. Иными словами, вы используете событие выключения для описания сценария отмены торговой идеи, лежащей в основе стратегии.",
                     "updated": 1639736793351
+                },
+                {
+                    "language": "DE",
+                    "text": "Konzeptionell gesehen ist der Trigger Off Event der Mechanismus, den Sie verwenden, um die Situation zu definieren, in der die entsprechende Strategie aufhören soll, die durch den Trigger On Event signalisierte Handelsmöglichkeit zu berücksichtigen. Das heißt, Sie verwenden den Trigger Off Event, um das Szenario zu beschreiben, in dem die Handelsidee, die der Strategie zugrunde liegt, ungültig wird.",
+                    "updated": 1641648165372
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal terimlerle, Trigger Off olayı, Trigger On olayı tarafından işaret edilen ticaret fırsatını dikkate alarak karşılık gelen stratejinin durması gereken durumu tanımlamak için kullandığınız mekanizmadır. Yani, stratejinin arkasındaki ticaret fikrinin geçersiz kılınmasına ilişkin senaryoyu açıklamak için Trigger Off olayını kullanırsınız.",
+                    "updated": 1652695459796
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "RU",
                     "text": "Когда стратегия включена, возможны только два сценария развития событий. Либо срабатывает событие открытия позиции, что приводит к открытию позиции, либо сначала срабатывает событие закрытия позиции.",
                     "updated": 1639736885955
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald eine Strategie getriggert wird, können nur zwei mögliche Szenarien folgen. Entweder wird der Take Position Event ausgelöst und damit eine Position eröffnet, oder der Trigger Off Event wird zuerst ausgelöst.",
+                    "updated": 1641648219745
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji tetiklendiğinde, yalnızca iki olası senaryo izlenebilir. Ya pozisyon alma olayı tetiklenir, dolayısıyla bir pozisyon alma (Take Position) olayı tetiklenir ya da ilk Trigger Off olayı tetiklenir ve o strateji kapatılır.",
+                    "updated": 1652695722552
                 }
             ]
         },
@@ -50,6 +80,16 @@
                     "language": "RU",
                     "text": "В первом случае стратегия остается включенной до тех пор, пока позиция не будет закрыта. Когда позиция закрывается, стратегия отключается. Во втором случае стратегия срабатывает немедленно.",
                     "updated": 1639736973779
+                },
+                {
+                    "language": "DE",
+                    "text": "Im ersten Fall bleibt die Strategie aktiviert, bis die Position geschlossen wird. Wenn die Position geschlossen wird, wird die Strategie deaktiviert. Im zweiten Szenario wird die Strategie sofort deaktiviert.",
+                    "updated": 1641648279114
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda bahsedilen ilk durumda, alınan pozisyon kapanana kadar strateji devam eder. Pozisyon kapatıldığında, Tr,gger Off olayı ile strateji sonlandırılır. İkinci durumda strateji anında Trigger Off olayı ile kapatılır..",
+                    "updated": 1652695925220
                 }
             ]
         }

@@ -5,13 +5,18 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Node für die offene Ausführung fasst alle execution algorithms (Ausführungsalgorithmen) zusammen, die an der Eröffnung einer Position beteiligt sind.",
-                "updated": 1639571784140
+                "text": "Der Open Execution Node fasst alle execution algorithms (Ausführungsalgorithmen) zusammen, die an der Eröffnung einer Position beteiligt sind.",
+                "updated": 1641668661073
             },
             {
                 "language": "RU",
                 "text": "Узел Open Execution группирует все алгоритмы выполнения, участвующие в процессе открытия позиции.",
                 "updated": 1639838197611
+            },
+            {
+                "language": "TR",
+                "text": "Açık yürütme düğümü, bir pozisyon açma sürecine dahil olan tüm yürütme algoritmalarını gruplar.",
+                "updated": 1654753031328
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Одним из важнейших элементов, составляющих торговый интеллект, является способность контролировать каждый аспект исполнения ордеров, поскольку само исполнение включает в себя стратегические элементы, которые непосредственно влияют на производительность.",
                     "updated": 1639838234028
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım zekasını oluşturan en önemli unsurlardan biri, emir gerçekleştirmenin her yönünü kontrol etme kapasitesidir, çünkü gerçekleştirmenin kendisi performansı doğrudan etkileyen stratejik unsurlar içerir.",
+                    "updated": 1654753052102
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Торговый движок Superalgos разработан как общая инфраструктура, которая позволяет создавать логику исполнения с нуля, с той степенью простоты или сложности, которая может потребоваться.",
                     "updated": 1639838468524
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos ticaret motoru, gerektiği kadar basitlik veya karmaşıklık ile sıfırdan yürütme mantığı oluşturmaya izin veren genel bir altyapı olarak tasarlanmıştır.",
+                    "updated": 1654753080866
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Торговая система разделяет определения логики исполнения по торговым стратегиям. То есть, каждая стратегия в торговой системе может иметь свою логику исполнения.",
                     "updated": 1639838499315
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemi, yürütme mantığının tanımlarını ticaret stratejisine göre ayırır. Yani, bir ticaret sistemindeki her strateji kendi yürütme mantığına sahip olabilir.",
+                    "updated": 1654753103556
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "RU",
                     "text": "Следующий уровень управления приходит в виде алгоритмов исполнения. Каждая стратегия может иметь столько алгоритмов, сколько требуется, и каждый алгоритм может иметь столько инструкций, сколько требуется.",
                     "updated": 1639838637975
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki kontrol katmanı yürütme algoritmaları (Execution Algorithm) şeklinde gelir. Her strateji gerektiği kadar algoritmaya ve her algoritma gerektiği kadar talimata sahip olabilir.",
+                    "updated": 1654753216512
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "RU",
                     "text": "Эта модель позволяет детально управлять порядком, с помощью которого вы можете строить алгоритмы, которые могут взаимодействовать с другими алгоритмами, и так далее.",
                     "updated": 1639838904402
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu model, diğer algoritmalarla etkileşime girebilecek algoritmalar oluşturabileceğiniz emirlerin ayrıntılı kontrolüne olanak tanır.",
+                    "updated": 1654753231866
                 }
             ]
         }

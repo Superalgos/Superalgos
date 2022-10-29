@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Öğretici hiyerarşisi, bir öğretici oluşturan Eğitim Konusu ( Tutorial Topic ) ve Eğitim Adımı  ( Tutorial Step ) düğümlerinin ücretsiz bir düzenlemesini içerir. Ana eğitim düğümü de dahil olmak üzere hiyerarşideki her düğüm, hem Tasarım Alanının ( Design Space ) hem de Grafik Alanının ( Charting Space ) üzerine bindirilebilecek bir HTML sayfasını temsil eder.",
                 "updated": 1639118504076
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία χαρακτηριστικών του οδηγού εκμάθησης περιλαμβάνει μια ελεύθερη διάταξη των κόμβων του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης) που συνθέτουν τον Οδηγό Εκμάθησης. Κάθε κόμβος στην ιεραρχία, συμπεριλαμβανομένου του γονικού εκπαιδευτικού κόμβου, αντιπροσωπεύει μια σελίδα HTML που μπορεί να επικαλύπτεται πάνω από το Design Space (Χώρο Σχεδίασης) και το Charting Space (Χώρο Χαρτογράφησης).",
+                "updated": 1641829121689
             }
         ]
     },
@@ -53,6 +58,16 @@
                     "language": "ES",
                     "text": "Los nodos de la jerarquía se pueden organizar libremente, lo que significa que puede haber tantos temas de tutoriales y pasos de tutoriales como se desee. Los temas del tutorial pueden contener pasos del tutorial, pero también otros temas del tutorial. Esto permite que los temas anidados se utilicen como subtemas.",
                     "updated": 1640105879962
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι στην ιεραρχία μπορούν να τακτοποιηθούν ελεύθερα, πράγμα που σημαίνει ότι μπορεί να υπάρχουν όσα θέματα και βήματα εκμάθησης επιθυμείτε. Τα θέματα εκμάθησης μπορεί να περιέχουν βήματα εκμάθησης αλλά και άλλα θέματα εκμάθησης. Αυτό επιτρέπει στα ένθετα θέματα να χρησιμοποιούνται ως υποθέματα.",
+                    "updated": 1641828948138
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşideki düğümler serbestçe düzenlenebilir, bu da istendiği kadar çok öğretici konusu ve öğretici adımı olabileceği anlamına gelir. Öğretici konular, öğretici adımların yanı sıra diğer eğitim konularını da içerebilir. Bu, yuvalama konularının alt konular olarak kullanılmasına izin verir.",
+                    "updated": 1652014591013
                 }
             ]
         },
@@ -76,6 +91,16 @@
                     "language": "ES",
                     "text": "El sistema, como de costumbre, evalúa la jerarquía en el sentido de las agujas del reloj comenzando desde el nodo a la derecha del nodo Tutorial principal, y va al nodo más profundo de cada rama antes de pasar al siguiente.",
                     "updated": 1640105915190
+                },
+                {
+                    "language": "EL",
+                    "text": "Το σύστημα – ως συνήθως – αξιολογεί την ιεραρχία κατά τη φορά των δεικτών του ρολογιού ξεκινώντας από τον κόμβο στα δεξιά του γονικού κόμβου Εκμάθησης και πηγαίνει στον βαθύτερο κόμβο κάθε κλάδου πριν μεταβεί στον επόμενο.",
+                    "updated": 1641828970425
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem - her zamanki gibi - ana Eğitim düğümünün sağındaki düğümden başlayarak hiyerarşiyi saat yönünde değerlendirir ve bir sonrakine geçmeden önce her dalın en derin düğümüne gider.",
+                    "updated": 1652014609236
                 }
             ]
         },
@@ -99,6 +124,16 @@
                     "language": "ES",
                     "text": "En términos generales, todos los tipos de nodos se comportan de manera similar en el sentido de que cada nodo, independientemente del tipo preciso, representa un paso tutorial en sí mismo. Es decir, todos los nodos, incluido el nodo Tutorial de nivel superior, el nodo Tutorial Topic ( tópico del tutorial) y el nodo Tutorial Step ( del paso del tutorial) puede mostrar una página de contenido como un paso del tutorial. Las diferencias sutiles se señalarán cuando sea apropiado.",
                     "updated": 1640106060056
+                },
+                {
+                    "language": "EL",
+                    "text": "Σε γενικές γραμμές, όλοι οι τύποι κόμβων συμπεριφέρονται παρόμοια με την έννοια ότι κάθε κόμβος, ανεξάρτητα από τον ακριβή τύπο, αντιπροσωπεύει από μόνος του ένα εκπαιδευτικό βήμα. Δηλαδή, όλοι οι κόμβοι, συμπεριλαμβανομένου του κόμβου Εκμάθησης ανώτατου επιπέδου, του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης), ενδέχεται να εμφανίζουν μια σελίδα περιεχομένου ως βήμα στον οδηγό εκμάθησης. Οι λεπτές διαφορές επισημαίνονται όπου χρειάζεται.",
+                    "updated": 1641829010230
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel anlamda, tüm düğüm türleri, kesin türden bağımsız olarak her düğümün kendi başına bir eğitim adımını temsil etmesi anlamında benzer şekilde davranır. Yani, en üst düzey Öğretici düğümü, Öğretici Konu ( Tutorial Topic ) düğümü ve Öğretici Adım ( Tutorial Step ) düğümü dahil tüm düğümler, öğreticide bir adım olarak bir içerik sayfası görüntüleyebilir. Uygun olan yerlerde küçük farklılıklar belirtilecektir.",
+                    "updated": 1652014692910
                 }
             ]
         },
@@ -122,6 +157,16 @@
                     "language": "ES",
                     "text": "La similitud clave entre todos los tipos de nodos en la jerarquía es que todos ellos pueden extraer contenido de la colección de páginas del tutorial en los Documentos. Es decir, cada nodo en la jerarquía apunta a una Página de Documentos, y es esa página en Documentos la que presenta el contenido que se muestra para el paso dado. El puntero se especifica en la configuración de cada nodo (ver la propiedad docs).",
                     "updated": 1640106138431
+                },
+                {
+                    "language": "EL",
+                    "text": "Η βασική ομοιότητα μεταξύ όλων των τύπων κόμβων στην ιεραρχία είναι ότι όλοι μπορούν να αντλούν περιεχόμενο από τη συλλογή σελίδων του Docs Page (Σελίδα Εγγράφων). Δηλαδή, κάθε κόμβος στην ιεραρχία δείχνει σε μια Σελίδα Εγγράφων και είναι αυτή η σελίδα στα Έγγραφα που παρουσιάζει το περιεχόμενο που εμφανίζεται για το συγκεκριμένο βήμα. Ο δείκτης καθορίζεται στη διαμόρφωση κάθε κόμβου (δείτε την ιδιότητα εγγράφων).",
+                    "updated": 1641829040767
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Hiyerarşideki tüm düğüm türleri arasındaki temel benzerlik, hepsinin, öğreticinin Dokümanlar'daki sayfa koleksiyonundan içerik çekebilmesidir. Diğer bir deyişle, hiyerarşideki her düğüm bir Dokümanlar Sayfasına işaret eder ve verilen adım için görüntülenen içeriğin yer aldığı Dokümanlar'daki o sayfadır. İşaretçi, her düğümün yapılandırmasında belirtilir (docs özelliğine bakın).",
+                    "updated": 1652014704284
                 }
             ]
         },
@@ -144,6 +189,11 @@
                     "language": "RU",
                     "text": "Конфигурация Tutorial",
                     "updated": 1638340822415
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitim Yapılandırması",
+                    "updated": 1652014714655
                 }
             ]
         },
@@ -167,6 +217,11 @@
                     "language": "ES",
                     "text": "La configuración de cada nodo en la jerarquía del tutorial determina el contenido y el comportamiento de cada paso. Todos los tipos de nodos comparten la misma configuración básica. Sin embargo, los nodos de Tutorial Step ( paso del tutorial) tiene propiedades extra, descriptas en la página del nodo de Tutorial Step.",
                     "updated": 1640106289444
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici hiyerarşisindeki her düğümün yapılandırması, her adımın içeriğini ve davranışını belirler. Tüm düğüm türleri aynı temel yapılandırmayı paylaşır. Ancak, Eğitim Adımı ( Tutorial Step )  düğümleri, Eğitim Adımı düğüm sayfasında açıklanan ekstra özelliklere sahiptir.",
+                    "updated": 1652014737946
                 }
             ]
         },
@@ -190,6 +245,11 @@
                     "language": "ES",
                     "text": "Las propiedades de configuración que se describen en esta página se aplican a todos los tipos de nodos de la jerarquía.",
                     "updated": 1640106350486
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu sayfada tartışılan yapılandırma özellikleri, hiyerarşideki tüm düğüm türleri için geçerlidir.",
+                    "updated": 1652014747767
                 }
             ]
         },
@@ -213,6 +273,11 @@
                     "language": "ES",
                     "text": "El diseño de la página HTML sigue el diseño de la página asociada en los Documentos, aunque se muestra dentro de los límites de la ventana del tutorial.",
                     "updated": 1640106374526
+                },
+                {
+                    "language": "TR",
+                    "text": "HTML sayfasının düzeni, eğitim penceresinin sınırları içinde görüntülenmesine rağmen, Dokümanlar'daki ilişkili sayfanın düzenini takip eder.",
+                    "updated": 1652014756953
                 }
             ]
         },
@@ -236,6 +301,11 @@
                     "language": "ES",
                     "text": "En otras palabras, puede afectar el diseño del paso en particular escribiendo contenido y aplicando estilos a párrafos individuales en la página de Documentos asociada.( Docs Page).",
                     "updated": 1640106450003
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer bir deyişle, ilgili Dokümanlar Sayfasındaki ( Docs Page ) tek tek paragraflara içerik yazarak ve stiller uygulayarak belirli adımın düzenini etkilersiniz.",
+                    "updated": 1652014804710
                 }
             ]
         },
@@ -259,6 +329,11 @@
                     "language": "ES",
                     "text": "La página HTML presenta un espacio limitado y no admite el desplazamiento. Si se define demasiada información en la página de documentos asociada, el contenido resultante desborda el espacio disponible en la ventana del tutorial. No existe un control del lado del sistema para hacer frente a tales desbordamientos, por lo que depende de usted distribuir la información en varios pasos y mantener cada página dentro de sus límites.",
                     "updated": 1640106510895
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: HTML sayfası sınırlı bir alana sahiptir ve kaydırmayı desteklemez. İlişkili Dokümanlar Sayfasında ( Docs Page ) çok fazla bilgi tanımlanırsa, ortaya çıkan içerik eğitim penceresindeki kullanılabilir alanı aşar. Bu tür taşmalarla başa çıkmak için sistem tarafında bir kontrol yoktur, bu nedenle bilgiyi birden çok adıma yaymak ve her sayfayı kendi sınırları içinde tutmak size kalmıştır.",
+                    "updated": 1652014827699
                 }
             ]
         },
@@ -282,6 +357,11 @@
                     "language": "ES",
                     "text": "Configuration Properties  ( Configuración de las propiedades)",
                     "updated": 1640106531310
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma Özellikleri",
+                    "updated": 1652014838735
                 }
             ]
         },
@@ -294,6 +374,12 @@
                     "language": "ES",
                     "text": "icon   ( ïcono)",
                     "updated": 1640106549094
+                },
+                {
+                    "language": "TR",
+                    "text": "simgesi",
+                    "updated": 1654390514400,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -317,6 +403,11 @@
                     "language": "ES",
                     "text": "El icono de propiedad requiere dos definiciones:",
                     "updated": 1640106564209
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik simgesi iki tanım gerektirir:",
+                    "updated": 1652014850170
                 }
             ]
         },
@@ -339,6 +430,11 @@
                     "language": "ES",
                     "text": "El \"nombre\" del icono sin la extensión;",
                     "updated": 1640106583078
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzantısı olmayan simgenin \"adı\";",
+                    "updated": 1652014861207
                 }
             ]
         },
@@ -361,6 +457,11 @@
                     "language": "ES",
                     "text": "El \"proyecto\" al que pertenece el icono.",
                     "updated": 1640106600070
+                },
+                {
+                    "language": "TR",
+                    "text": "Simgenin ait olduğu \"proje\".",
+                    "updated": 1652014871030
                 }
             ]
         },
@@ -383,6 +484,11 @@
                     "language": "ES",
                     "text": "Para su referencia, los iconos se almacenan en la siguiente ruta:",
                     "updated": 1640106620221
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans olması için simgeler aşağıdaki yolda saklanır:",
+                    "updated": 1652014880451
                 }
             ]
         },
@@ -411,6 +517,11 @@
                     "language": "ES",
                     "text": "Utilice la colección de iconos existente para ilustrar cada paso del tutorial. Estas ilustraciones ayudan a lograr una comunicación más convincente.",
                     "updated": 1640106640088
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Eğitimin her adımını göstermek için mevcut simgeler koleksiyonunu kullanın. Bu çizimler daha çekici bir iletişim kurmaya yardımcı olur.",
+                    "updated": 1652014894553
                 }
             ]
         },
@@ -434,6 +545,11 @@
                     "language": "ES",
                     "text": "Cuando existe la configuración, el icono se coloca dentro de una tabla, al lado del bloque de texto que forma el campo de definición de la página de documentos asociada.(Docs Page.) Cuando no hay icono, la definición ocupa todo el ancho de la página.",
                     "updated": 1640106703771
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma mevcut olduğunda, simge, ilişkili Dokümanlar Sayfasının ( Docs Page ) tanım alanını oluşturan metin bloğu ile yan yana bir tablo içine yerleştirilir. Simge olmadığında, tanım sayfanın tüm genişliğini kaplar.",
+                    "updated": 1652014914792
                 }
             ]
         },
@@ -462,13 +578,25 @@
                     "language": "ES",
                     "text": "La configuración anterior coloca el ícono balance.png del proyecto Superalgos en la tabla de la página de Documentos correspondiente (consulte la propiedad de documentos a continuación).",
                     "updated": 1640106770457
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki yapılandırma, Superalgos projesinin Balance.png simgesini ilgili Dokümanlar sayfasının tablosuna yerleştirir (aşağıdaki dokümanlar özelliğine bakın).",
+                    "updated": 1652014931017
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "position",
-            "updated": 1617635475423
+            "updated": 1617635475423,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "konum",
+                    "updated": 1652014942441
+                }
+            ]
         },
         {
             "style": "Text",
@@ -490,6 +618,11 @@
                     "language": "ES",
                     "text": "La propiedad de posición determina la posición del HTML flotante. Hay tres alternativas ... \"Izquierda\", \"Derecha\", o dejar el campo vacío para colocar la página en el centro de la pantalla.",
                     "updated": 1640106805567
+                },
+                {
+                    "language": "TR",
+                    "text": "Konum özelliği, kayan HTML'nin konumunu belirler. Üç alternatif vardır... \"Sol\", \"Sağ\" veya sayfayı ekranın ortasına yerleştirmek için alanı boş bırakın.",
+                    "updated": 1652014949902
                 }
             ]
         },
@@ -518,13 +651,19 @@
                     "language": "ES",
                     "text": "La configuración anterior coloca el paso del tutorial en el lado izquierdo de la pantalla.",
                     "updated": 1640106823840
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki yapılandırma, eğitim adımını ekranın sol tarafına yerleştirir.",
+                    "updated": 1652014958655
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "slider",
-            "updated": 1617635668767
+            "updated": 1617635668767,
+            "translations": [ ]
         },
         {
             "style": "Text",
@@ -545,6 +684,11 @@
                     "language": "ES",
                     "text": "La propiedad del control deslizante determina la posición del control deslizante horizontal. Hay tres alternativas ... \"toTop\" (\"hacia arriba\"), \"toBottom\" (\"hacia abajo\"), \"toMiddle\"(\"hacia el centro\").",
                     "updated": 1640106929138
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaydırıcı özelliği, yatay kaydırıcının konumunu belirler. Üç alternatif vardır: \"Top\", \"ToBottom\", \"ToMiddle\".",
+                    "updated": 1652014973536
                 }
             ]
         },
@@ -555,7 +699,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "\"slider\": \"toBottom\" // Открывает область графиков",
+                    "text": "\"slider\": \"toBottom\" // Открывает пространство графиков",
                     "updated": 1638342112119
                 }
             ]
@@ -573,7 +717,15 @@
         {
             "style": "Subtitle",
             "text": "pressButton",
-            "updated": 1617635952027
+            "updated": 1617635952027,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "pressButton",
+                    "updated": 1654390534433,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -594,6 +746,11 @@
                     "language": "ES",
                     "text": "La propiedad del  pressButton ( presione botón) le permite \"Detener\" forzosamente el tutorial, ir al paso \"Siguiente\", ir al paso \"Anterior\" o \"Saltar\" un paso. Cuando se carga un paso y se configura una de estas opciones en esta propiedad, la acción se aplica inmediatamente.",
                     "updated": 1640106986609
+                },
+                {
+                    "language": "TR",
+                    "text": "pressButton özelliği, öğreticiyi zorla \"Durdurmanızı\", \"Sonraki\" adıma geçmenizi, \"Önceki\" adıma gitmenizi veya bir adımı \"Atlamanızı\" sağlar. Bu özellikte bir adım yüklendiğinde ve bu seçeneklerden biri yapılandırıldığında, eylem hemen uygulanır.",
+                    "updated": 1652014988139
                 }
             ]
         },
@@ -617,6 +774,11 @@
                     "language": "ES",
                     "text": "Un uso común de esta función es omitir un paso, por ejemplo, un nodo de Tema de Tutorial que se utiliza únicamente con fines organizativos dentro de la jerarquía, por lo que no presenta contenido. Deje el campo vacío para que el paso se reproduzca de la forma habitual.",
                     "updated": 1640107024977
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu özelliğin yaygın bir kullanımı, bir adımı atlamaktır; örneğin, hiyerarşi içinde yalnızca organizasyonel amaçlar için kullanılan bir Eğitim Konusu ( Tutorial Topic ) düğümü, dolayısıyla içerik içermez. Adımın normal şekilde oynanması için alanı boş bırakın.",
+                    "updated": 1652015025370
                 }
             ]
         },
@@ -645,6 +807,11 @@
                     "language": "ES",
                     "text": "La configuración anterior lleva al usuario al siguiente paso del tutorial sin mostrar ningún contenido para el nodo en cuestión.",
                     "updated": 1640107050536
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki yapılandırma, söz konusu düğüm için herhangi bir içerik görüntülemeden kullanıcıyı öğreticideki bir sonraki adıma götürür.",
+                    "updated": 1652015034742
                 }
             ]
         },
@@ -668,13 +835,25 @@
                     "language": "ES",
                     "text": "Puede utilizar el nodo Tutorial Topic solo con fines organizativos, por ejemplo, para organizar la jerarquía de manera que sea fácil de leer y mantener. Los temas con demasiados pasos son más difíciles de tratar más adelante. En otras palabras, puede utilizar un nodo Tutorial Topic  agrupar varios pasos, incluso si no tiene la intención de que el nodo Tutorial Topic muestre ningún contenido. En tales casos, puede utilizar esta propiedad para omitir el paso que no está destinado a la visualización de contenido.",
                     "updated": 1640107174394
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Öğretici Konu ( Tutorial Topic ) düğümlerini yalnızca organizasyonel amaçlarla, örneğin hiyerarşiyi okunması ve bakımı kolay bir şekilde düzenlemek için kullanabilirsiniz. Çok fazla adım içeren konuların daha sonra ele alınması daha zordur. Diğer bir deyişle, Eğitim Konusu düğümünün herhangi bir içeriği görüntülemesini istemeseniz bile, birkaç adımı gruplamak için bir Eğitim Konusu düğümü kullanabilirsiniz. Bu gibi durumlarda, içerik görüntülemeye yönelik olmayan adımı atlamak için bu özelliği kullanabilirsiniz.",
+                    "updated": 1652015065008
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "docs",
-            "updated": 1617636114812
+            "updated": 1617636114812,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "dokümanlar (docs)",
+                    "updated": 1652015161371
+                }
+            ]
         },
         {
             "style": "Text",
@@ -696,6 +875,11 @@
                     "language": "ES",
                     "text": "La propiedad docs se utiliza para señalar la página de tutoriales de documentos que envía contenido al paso del tutorial en particular. La definición requiere el nombre del Proyecto (Project),la categoría de páginas de documento ( Docs Page Category) que siempre es \"Tutorial\" y el nombre completo de la pagina documentos (Docs Page), es decir, el \"tipo\" especificado en el archivo JSON.",
                     "updated": 1640107322735
+                },
+                {
+                    "language": "TR",
+                    "text": "docs özelliği, içeriği belirli eğitim adımına besleyen Dokümanlar Eğitimi Sayfasına işaret etmek için kullanılır. Tanım, Proje adını, her zaman \"Öğretici\" olan Dokümanlar Sayfası Kategorisini ( Docs Page Category ) ve Dokümanlar Sayfasının tam adını, yani JSON dosyasında belirtilen \"tür\"ü gerektirir.",
+                    "updated": 1652015150363
                 }
             ]
         },
@@ -707,7 +891,15 @@
         {
             "style": "Subtitle",
             "text": "controlDocs",
-            "updated": 1617648219190
+            "updated": 1617648219190,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "controlDocs",
+                    "updated": 1654390540323,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -728,6 +920,11 @@
                     "language": "ES",
                     "text": "La propiedad se utiliza para controlar el comportamiento del panel de Documentos. Dentro de  controlDocs, Hay varias propiedades disponibles y todas son opcionales. Repasemos cada uno en detalle.",
                     "updated": 1640107360789
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, Dokümanlar panelinin davranışını kontrol etmek için kullanılır. controlDocs içinde çeşitli özellikler mevcuttur ve bunların tümü isteğe bağlıdır. Her birini ayrıntılı olarak inceleyelim.",
+                    "updated": 1652015172435
                 }
             ]
         },
@@ -751,6 +948,11 @@
                     "language": "ES",
                     "text": "La propiedad del panel puede establecerse en \"Abrir\" o \"Cerrar\". Esta propiedad controla la pestaña que le permite abrir el Panel de Documentos en un paso y cerrarlo en un paso diferente cuando ya no sea necesario.",
                     "updated": 1640107380640
+                },
+                {
+                    "language": "TR",
+                    "text": "Panel özelliği \"Aç\" veya \"Kapat\" olarak ayarlanabilir. Bu özellik, Dokümanlar Panelini tek adımda açmanıza ve artık gerekmediğinde farklı bir adımda kapatmanıza izin veren sekmeyi kontrol eder.",
+                    "updated": 1652015180840
                 }
             ]
         },
@@ -783,6 +985,11 @@
                     "language": "ES",
                     "text": "Si el Panel de Documentos está cerrado, el resto de las propiedades son de alguna manera irrelevantes. Sin embargo, cuando el Panel de Documentos está abierto, el resto de las propiedades controlan lo que se muestra en el Panel de Documentos.",
                     "updated": 1640107438366
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Dokümanlar Paneli kapalıysa, özelliklerin geri kalanı bir şekilde alakasız olur. Ancak, Dokümanlar Paneli açıkken, geri kalan özellikler Dokümanlar Panelinde nelerin görüntüleneceğini kontrol eder.",
+                    "updated": 1652015189930
                 }
             ]
         },
@@ -806,6 +1013,11 @@
                     "language": "ES",
                     "text": "La propiedad  cerrar Edicion deltutorial (closeTutorialEditor) puede activar y desactivar el editor de Documentos. Cuando se establece en falso o cuando no hay una definición, y siempre que no se llame a una página de Documentos específica (ver controlDocs a continuación), el panel de Documentos muestra la página asociada con el paso del tutorial actual en el modo de edición.",
                     "updated": 1640107506201
+                },
+                {
+                    "language": "TR",
+                    "text": "closeTutorialEditor özelliği, Dokümanlar düzenleyicisini açıp kapatabilir. Yanlış olarak ayarlandığında veya tanım olmadığında ve belirli bir Dokümanlar Sayfası çağrılmadığında (aşağıdaki controlDocs'a bakın), Dokümanlar paneli, düzenleme modundaki mevcut eğitim adımıyla ilişkili sayfayı gösterir.",
+                    "updated": 1652015201852
                 }
             ]
         },
@@ -834,6 +1046,11 @@
                     "language": "ES",
                     "text": "Debido a que esta definición se establece en falsa de forma predeterminada, este es el comportamiento habitual. Es decir, de forma predeterminada, cuando se abre el Panel de Documentos mientras se reproduce un paso del tutorial, el Panel de Documentos muestra la Página de Documentos asociada con el paso específico para que la página se pueda editar en ese mismo momento.",
                     "updated": 1640107563456
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu tanım varsayılan olarak false değerine ayarlandığından, olağan davranış budur. Yani, varsayılan olarak, bir eğitim adımı oynatılırken Dokümanlar Paneli açıldığında, Dokümanlar Paneli, sayfanın hemen orada düzenlenebilmesi için ilgili adımla ilişkili Dokümanlar Sayfasını gösterir.",
+                    "updated": 1652015220658
                 }
             ]
         },
@@ -857,6 +1074,11 @@
                     "language": "ES",
                     "text": "Cuando la propiedad closeTutorialEditorse establece en verdadero y no hay ninguna solicitud para abrir una página de Documentos (consulte la propiedad de la página a continuación), el panel de Documentos muestra la página de Documentos que se estaba mostrando en el paso anterior.",
                     "updated": 1640107625049
+                },
+                {
+                    "language": "TR",
+                    "text": "closeTutorialEditor özelliği true olarak ayarlandığında ve bir Dokümanlar sayfası açma isteği olmadığında (aşağıdaki sayfa özelliğine bakın), Dokümanlar paneli önceki adımda hangi Dokümanlar Sayfasının görüntülendiğini gösterir.",
+                    "updated": 1652015231301
                 }
             ]
         },
@@ -885,6 +1107,11 @@
                     "language": "ES",
                     "text": "Es posible que desee cerrar el editor de tutoriales cuando se supone que el usuario debe interactuar con los documentos de un paso al siguiente. Por ejemplo, digamos que el tutorial le indica al usuario que realice una búsqueda y analiza los resultados de la búsqueda en el siguiente paso. En ese caso, querrás que el editor de tutoriales permanezca cerrado, ya que de lo contrario se perdería la búsqueda realizada por el usuario y en su lugar se cargaría la página correspondiente al nuevo paso del tutorial.",
                     "updated": 1640107655145
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcının bir adımdan diğerine Dokümanlar ile etkileşim kurması gerektiğinde eğitici düzenleyiciyi kapatmak isteyebilirsiniz. Örneğin, öğreticinin kullanıcıya bir arama yapması talimatını verdiğini ve sonraki adımda arama sonuçlarını tartıştığını varsayalım. Bu durumda, öğretici düzenleyicinin kapalı kalmasını isteyeceksiniz, aksi takdirde kullanıcı tarafından yapılan arama kaybolacak ve bunun yerine yeni eğitim adımına karşılık gelen sayfa yüklenecektir.",
+                    "updated": 1652015240274
                 }
             ]
         },
@@ -908,6 +1135,11 @@
                     "language": "ES",
                     "text": "La propiedad buscarpágina ( searchPage)  satura la configuración del editor de tutoriales y carga la página de búsqueda de inicio con el cuadro de búsqueda en el centro.",
                     "updated": 1640107724063
+                },
+                {
+                    "language": "TR",
+                    "text": "searchPage özelliği, öğretici düzenleyici ayarlarını aşar ve merkezdeki arama kutusunu içeren ana arama sayfasını yükler.",
+                    "updated": 1652015247718
                 }
             ]
         },
@@ -936,6 +1168,11 @@
                     "language": "ES",
                     "text": "Utilice la configuración anterior cuando desee que el usuario obtenga el cuadro de búsqueda limpio para realizar una búsqueda o ejecutar un comando.",
                     "updated": 1640107748895
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcının arama yapmak veya bir komut çalıştırmak için temiz arama kutusunu almasını istediğinizde yukarıdaki ayarı kullanın.",
+                    "updated": 1652015256954
                 }
             ]
         },
@@ -959,6 +1196,11 @@
                     "language": "ES",
                     "text": "La propiedad de la página es donde se define qué Docs Page debe ser cargadoa Debe especificar el Project, La  categoría de páginas de documento (Docs Page Category), y el \"tipo\", que es el nombre completo de la página. El ancla de propiedad opcional le permite señalar al usuario un párrafo específico en la página con el estilo de ancla de Docs.",
                     "updated": 1640107863999
+                },
+                {
+                    "language": "TR",
+                    "text": "page özelliği, hangi Dokümanlar Sayfasının yüklenmesi gerektiğini tanımladığınız yerdir. Projeyi, Dokümanlar Sayfası Kategorisini ( Docs Page Category ) ve sayfanın tam adı olan \"türü\" belirtmelisiniz. İsteğe bağlı özellik bağlantısı, kullanıcıyı Dokümanlar Bağlantı Stili ( Docs Anchor Style ) ile sayfada belirli bir paragrafa yönlendirmenize olanak tanır.",
+                    "updated": 1652015360628
                 }
             ]
         },
@@ -987,6 +1229,11 @@
                     "language": "ES",
                     "text": "Utilice la configuración anterior cuando desee que el usuario lea una página específica en los Documentos.",
                     "updated": 1640107881154
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcının Dokümanlar'da belirli bir sayfayı okumasını istediğinizde yukarıdaki yapılandırmayı kullanın.",
+                    "updated": 1652015370779
                 }
             ]
         }

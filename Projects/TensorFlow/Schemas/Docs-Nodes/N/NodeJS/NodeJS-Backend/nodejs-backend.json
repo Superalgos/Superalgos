@@ -2,12 +2,37 @@
     "type": "NodeJS Backend",
     "definition": {
         "text": "In the TensorFlow Node.js backend, 'node', the TensorFlow C API is used to accelerate operations. This will use the machine's available hardware acceleration, like CUDA, if available.",
-        "updated": 1613058717641
+        "updated": 1613058717641,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В бэкенде TensorFlow Node.js, \"node\", для ускорения операций используется TensorFlow C API. При этом используется доступное аппаратное ускорение машины, например CUDA, если оно доступно.",
+                "updated": 1645249102502
+            },
+            {
+                "language": "TR",
+                "text": "TensorFlow Node.js arka ucu olan 'node'da, işlemleri hızlandırmak için TensorFlow C API kullanılır. Bu, varsa makinenin CUDA gibi mevcut donanım hızlandırmasını kullanacaktır.",
+                "updated": 1654397370334
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249107815
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397376078,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

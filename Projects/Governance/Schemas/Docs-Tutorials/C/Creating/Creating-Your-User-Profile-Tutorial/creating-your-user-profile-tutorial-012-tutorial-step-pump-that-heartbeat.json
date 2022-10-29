@@ -3,8 +3,8 @@
     "pageNumber": 12,
     "type": "Tutorial Step - Pump that Heartbeat!",
     "definition": {
-        "text": "Now let’s configure the Profile Constructor so that we may later build the profile!",
-        "updated": 1630658339365,
+        "text": "Let’s configure the Profile Constructor to build your profile! Click Configure on the menu and enter your GitHub username!",
+        "updated": 1660585607977,
         "icon": {
             "name": "configuration",
             "project": "Governance"
@@ -35,42 +35,14 @@
     },
     "paragraphs": [
         {
-            "style": "Callout",
-            "text": "Click the configuration option and enter your GitHub username like this:",
-            "updated": 1629553104003,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
-                    "updated": 1630888170425,
-                    "style": "Callout"
-                },
-                {
-                    "language": "TR",
-                    "text": "Yapılandırma seçeneğini tıklayın ve GitHub kullanıcı adınızı şu şekilde girin:",
-                    "updated": 1637242376080
-                },
-                {
-                    "language": "RU",
-                    "text": "Щелкните параметр configure и введите свое имя пользователя GitHub следующим образом:",
-                    "updated": 1639067323180
-                },
-                {
-                    "language": "DE",
-                    "text": "Klicken Sie auf die Konfigurationsoption und geben Sie Ihren GitHub-Benutzernamen wie folgt ein:",
-                    "updated": 1640073114049
-                }
-            ]
-        },
-        {
             "style": "Json",
             "text": "{\n\"githubUsername\": \"My-Awesome-Username\"\n\"mnemonic\": \"\"\n}",
             "updated": 1629706380660
         },
         {
-            "style": "Text",
-            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave the property blank to generate a new address! You will delete this sensitive info later on. The info will not leave your computer and will not be saved to disk.",
-            "updated": 1631547921782,
+            "style": "Success",
+            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave it blank to generate a new address! The info will not leave your computer, will not be saved to disk, and you will delete it before we finish.",
+            "updated": 1660585744897,
             "translations": [
                 {
                     "language": "ES",

@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wissen Sie noch, wie man die Adresse des Knotens extrahiert, damit wir ihn in unserer Formel referenzieren können?",
                 "updated": 1639398302453
+            },
+            {
+                "language": "TR",
+                "text": "Formülümüzde referans verebilmemiz için düğümün adresini nasıl çıkaracağınızı hatırlıyor musunuz?",
+                "updated": 1641746281986
+            },
+            {
+                "language": "RU",
+                "text": "Помните ли вы, как извлечь адрес узла, чтобы мы могли ссылаться на него из нашей формулы?",
+                "updated": 1642779376602
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Rufen Sie das Menü des Knotens auf und klicken Sie auf die Schaltfläche \"Copy Node Path\"!",
                     "updated": 1639398312564
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün menüsüne gidin ve \"Düğüm Yolunu Kopyala\" ( Copy Node Path ) düğmesine tıklayın!",
+                    "updated": 1641746298359
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла и нажмите на кнопку \"Copy Node Path\"!",
+                    "updated": 1642779392706
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Die folgende Zeichenfolge sollte in Ihrer Zwischenablage landen:",
                     "updated": 1639398319418
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki dize panonuza gelmiş olmalıdır:",
+                    "updated": 1641746323334
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующая строка должна оказаться в вашем буфере обмена:",
+                    "updated": 1642779402696
                 }
             ]
         },
@@ -55,6 +85,16 @@
                     "language": "DE",
                     "text": " Hinweis: Schauen Sie sich den Pfad an... sehen Sie, wie sinnvoll er ist?",
                     "updated": 1639398326033
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: yola bir göz atın ... bunun ne kadar yararlı olduğunu görüyor musunuz?",
+                    "updated": 1641746332670
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на путь... видите, какой в нем смысл?",
+                    "updated": 1642779445561
                 }
             ]
         }

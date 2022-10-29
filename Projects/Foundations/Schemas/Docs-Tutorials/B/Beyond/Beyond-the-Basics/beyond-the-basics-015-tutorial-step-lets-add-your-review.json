@@ -81,8 +81,8 @@
         },
         {
             "style": "List",
-            "text": "FIRST: Copy the above command.",
-            "updated": 1610822613784,
+            "text": "FIRST: If you are on the Contributor's Installation, copy the above command.",
+            "updated": 1649177120289,
             "translations": [
                 {
                     "language": "IT",
@@ -103,8 +103,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "ПЕРВОЕ: Скопируйте приведенную выше команду.",
-                    "updated": 1640159446619
+                    "text": "ПЕРВЫЙ: Если вы находитесь на установке вкладчика, скопируйте приведенную выше команду.",
+                    "updated": 1661379915537
                 },
                 {
                     "language": "TR",

@@ -3,40 +3,146 @@
     "pageNumber": "1",
     "type": "Omega One - Overview",
     "definition": {
-        "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node."
+        "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                "updated": 1643524249143
+            },
+            {
+                "language": "DE",
+                "text": "Sie können im oberen Abschnitt der meisten Indikatoren, die Sie unter Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code finden, verschiedene Werte für die verwendeten Perioden festlegen.",
+                "updated": 1645155757800
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Omega Veri Madeni ( Data Mine ) -> Veri Oluşturma Prosedürü ( Data Building Procedure  ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünde bulunan çoğu göstergenin üst kısmında kullanılan dönemler için farklı değerler ayarlayabilirsiniz.",
+                "updated": 1647777511683
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Indicator list:",
-            "updated": 1617873731007
+            "updated": 1617873731007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Список индикаторов:",
+                    "updated": 1643524255533
+                },
+                {
+                    "language": "DE",
+                    "text": "Liste der Indikatoren:",
+                    "updated": 1645155788411
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge listesi:",
+                    "updated": 1647777545236
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Chaikin Oscillator"
+            "text": "Chaikin Oscillator",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Chaikin Osilatörü ( Chaikin Oscillator )",
+                    "updated": 1647777575027
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements."
+            "text": "The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Chaikin Oscillator - это разница между 3-дневной и 10-дневной EMA линии распределения накопления. Как и другие индикаторы импульса, этот индикатор предназначен для предвидения направленных изменений в линии распределения накопления путем измерения импульса, стоящего за движениями.",
+                    "updated": 1643524287379
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Chaikin Oscillator ist die Differenz zwischen den 3-Tages- und 10-Tages-EMAs der Akkumulations-/Verteilungslinie. Wie andere Momentum Indikatoren ist dieser Indikator darauf ausgelegt, Richtungsänderungen der Akkumulations-/Verteilungslinie vorauszusehen, indem er das Momentum hinter den Bewegungen misst.",
+                    "updated": 1645156268639
+                },
+                {
+                    "language": "TR",
+                    "text": "Chaikin Osilatörü ( Chaikin Oscillator ), Birikim Dağıtım Hattının 3 günlük ve 10 günlük EMA'ları arasındaki farktır. Diğer momentum göstergeleri gibi, bu gösterge de hareketlerin arkasındaki momentumu ölçerek Birikim Dağıtım Çizgisindeki yön değişikliklerini tahmin etmek için tasarlanmıştır.",
+                    "updated": 1647777624894
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ARPS Slow & ARPS Fast",
-            "updated": 1617875374428
+            "updated": 1617875374428,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yavaş ARPS ve Hızlı ARPS ( ARPS Slow & ARPS Fast )",
+                    "updated": 1647777661669
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "ARPS - Average Range Percentage Spread measures the amount force of Bull Power and Bear Power. Two separate indicators measuring the same thing, in order to be used either separately or combined.",
-            "updated": 1617957855552
+            "updated": 1617957855552,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS - Average Range Percentage Spread измеряет силу бычьей и медвежьей мощи. Два отдельных индикатора, измеряющих одно и то же, для использования как по отдельности, так и вместе.",
+                    "updated": 1643524329018
+                },
+                {
+                    "language": "DE",
+                    "text": "ARPS - Average Range Percentage Spread misst die Stärke der Bullen- und Bärenpower. Zwei separate Indikatoren, die das Gleiche messen und entweder separat oder kombiniert verwendet werden können.",
+                    "updated": 1645156833526
+                },
+                {
+                    "language": "TR",
+                    "text": "ARPS - Ortalama Aralık Yüzde Yayılımı, Boğa Gücü ve Ayı Gücünün kuvvet miktarını ölçer. Ayrı ayrı veya birleşik olarak kullanılmak üzere aynı şeyi ölçen iki ayrı gösterge.",
+                    "updated": 1647777701069
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Average VS Average"
+            "text": "Average VS Average",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ortalama VS Ortalama ( Average VS Average )",
+                    "updated": 1647777724596
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. Considering price movement, volume and a so called \"open interest\".",
-            "updated": 1617957863133
+            "updated": 1617957863133,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Осциллятор Average VS Average можно использовать для распознавания изменений между быстрой средней и медленной средней. При этом учитывается движение цены, объем и так называемый \"открытый интерес\".",
+                    "updated": 1643524343553
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Average VS Average Oscillator kann verwendet werden, um Veränderungen zwischen einem schnellen und einem langsamen Durchschnitt zu erkennen. Unter Berücksichtigung der Preisbewegung, des Volumens und des so genannten \"Open Interest\".",
+                    "updated": 1645156892867
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat hareketi, hacim ve sözde \"açık faiz\" göz önüne alındığında , Ortalama VS Ortalama Osilatör ( Average VS Average ), hızlı ortalama ve yavaş ortalama arasındaki değişiklikleri tanımak için kullanılabilir. ",
+                    "updated": 1647777801468
+                }
+            ]
         }
     ]
 }

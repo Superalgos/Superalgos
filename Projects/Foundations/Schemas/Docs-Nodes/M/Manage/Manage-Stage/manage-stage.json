@@ -17,6 +17,11 @@
                 "language": "RU",
                 "text": "Стадия управления Manage Stage связана с установкой и управлением целями стоп-лосс и тейк-профит, как для защиты вашего капитала, так и для повышения эффективности вашей торговой системы.",
                 "updated": 1639758290305
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim aşaması, hem sermayenizi korumak hem de ticaret sisteminizin verimliliğini artırmak için zararı durdur ve kârı al hedeflerinin belirlenmesi ve yönetimi ile ilgilenir.",
+                "updated": 1642428344503
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Этот стадия является необязательной. Это означает, что если вы не хотите иметь дело со стоп-лоссами или тейк-профитами в своей стратегии, вы можете просто удалить этот узел, и все будет работать нормально. Если вы удалите этот узел, во время исполнения произойдет следующее: как только позиция сработает, система обнаружит, что стадия управления не определена, и перейдет к ней, открыв стадию закрытия (если она существует, поскольку она также необязательна).",
                     "updated": 1639758414686
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Aşama isteğe bağlıdır. Bunun anlamı, stratejinizde Zarar Durdur (Stop Loss) veya Kâr Al (Take Profit) ile uğraşmak istemiyorsanız, bu düğümü silebilirsiniz, her şey yolunda gitmeye devam edecektir. Bu düğümü kaldırırsanız, poizsyon tetiklenir tetiklenmez, sistem yönetim aşamasının tanımsız olduğunu algılayacak ve eğer tanımlıysa Kapat Aşamasını (Close Stage) açarak bu aşamaya geçecektir. ",
+                    "updated": 1642428971783
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Вот как опциональность выглядит в коде:",
                     "updated": 1639758433696
+                },
+                {
+                    "language": "TR",
+                    "text": "Opsiyonellik kodda şöyle görünür:",
+                    "updated": 1642429398510
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Если и Manage Stage, и Close Stage не определены, произойдет то, что всякий раз, когда стадия Open Stage будет закрыта, вы выйдете из позиции.",
                     "updated": 1639758527509
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem Manage Stage hem de Close Stage tanımsızsa, Open Stage kapandığında, pozisyondan çıkarsınız.",
+                    "updated": 1642429514342
                 }
             ]
         },
@@ -110,6 +130,11 @@
                     "language": "RU",
                     "text": "Концепция управления стадиями",
                     "updated": 1639758558078
+                },
+                {
+                    "language": "TR",
+                    "text": "Manage Stage Konsepti",
+                    "updated": 1642429582893
                 }
             ]
         },
@@ -126,6 +151,11 @@
                     "language": "RU",
                     "text": "Первое и главное правило трейдинга - сохранение капитала, а основная цель - его увеличение.",
                     "updated": 1639758578294
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaretin ilk ve en önemli kuralı sermayeyi korumaktır ve asıl amacı onu artırmaktır.",
+                    "updated": 1642429595800
                 }
             ]
         },
@@ -142,6 +172,11 @@
                     "language": "RU",
                     "text": "Концептуально, позиция - это не мгновенное событие, а событие, которое имеет начало, период созревания и закрытие. Управление позицией происходит на протяжении всего процесса.",
                     "updated": 1639758616056
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak, bir pozisyon anlık bir olay değil, açılışı, olgunlaşma periyodu ve kapanışı olan bir olaydır. Pozisyonun yönetimi süreç boyunca devam eder.",
+                    "updated": 1642429625398
                 }
             ]
         },
@@ -158,6 +193,11 @@
                     "language": "RU",
                     "text": "Концепция управления позицией относится к тому факту, что формулы, определяющие цели тейк-профита и стоп-лосса, могут меняться по мере развития позиции. Типичная ситуация, в которой вы можете захотеть изменить первоначальные формулы тейк-профита и стоп-лосса, - это когда позиция, похоже, развивается в вашу пользу.",
                     "updated": 1639758662177
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon yönetimi kavramı, pozisyon geliştikçe kar al ve zararı durdur hedeflerini belirleyen formüllerin değişebileceği gerçeğini ifade eder. Orijinal kar al ve zararı durdur formüllerinizi değiştirmek isteyebileceğiniz tipik bir durum, pozisyonun sizin lehinize iyi geliştiği zamandır.",
+                    "updated": 1642429845620
                 }
             ]
         },
@@ -174,6 +214,11 @@
                     "language": "RU",
                     "text": "В ваших интересах может быть управление стоп-лоссом, перемещение цели в направлении, которое поможет защитить нереализованную прибыль. Также в ваших интересах может быть перемещение цели тейк-профита для получения большей прибыли, чем ожидалось изначально. Или вы можете установить механизм, который закроет сделку, как только на рынке возникнет определенная ситуация.",
                     "updated": 1639758705522
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedefi gerçekleşmemiş karları korumaya yardımcı olacak yönde hareket ettirerek zararı durdurmayı yönetmek sizin yararınıza olabilir. Ayrıca, başlangıçta beklenenden daha büyük bir kâr elde etmek için kâr al hedefini hareket ettirmek de sizin yararınıza olabilir. Veya belirli bir piyasa durumu gerçekleşir gerçekleşmez ticareti kapatan bir mekanizma kurmak isteyebilirsiniz.",
+                    "updated": 1642429887695
                 }
             ]
         },
@@ -190,6 +235,11 @@
                     "language": "RU",
                     "text": "Управление тейк-профитом и стоп-лоссом осуществляется независимо друг от друга, поэтапно. Поэтому каждая концепция имеет свой набор фаз управления.",
                     "updated": 1639758830081
+                },
+                {
+                    "language": "TR",
+                    "text": "Kar al ve zararı durdur yönetimi, aşamalar halinde birbirinden bağımsız olarak yapılır. Bu nedenle, her kavramın kendi yönetim aşamaları vardır.",
+                    "updated": 1642429901298
                 }
             ]
         },
@@ -206,6 +256,11 @@
                     "language": "RU",
                     "text": "Каждая фаза имеет свою формулу для описания соответствующей цели. Пользователи могут определить ситуации, в которых текущая фаза должна быть отменена и реализована другая фаза со своей формулой.",
                     "updated": 1639758822360
+                },
+                {
+                    "language": "TR",
+                    "text": "Her aşama, ilgili hedefi tanımlamak için kendi formülüne sahiptir. Kullanıcılar, mevcut fazdan vazgeçilip, formülü ile farklı bir fazın uygulanacağı durumları tanımlayabilir.",
+                    "updated": 1642429919125
                 }
             ]
         },
@@ -222,6 +277,11 @@
                     "language": "RU",
                     "text": "Помните, что позиция находится в постоянном развитии, поэтому количество фаз может быть столько, сколько вы посчитаете нужным для вашей конкретной стратегии.",
                     "updated": 1639758879187
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyonun sürekli gelişim halinde olduğunu unutmayın, bu nedenle kendi stratejiniz için uygun gördüğünüz kadar çok aşama olabilir.",
+                    "updated": 1642429932104
                 }
             ]
         },
@@ -233,6 +293,11 @@
                     "language": "DE",
                     "text": "Die Idee, Ziele in Phasen zu verwalten, beruht auf der Vorstellung, dass große Marktbewegungen in der Regel Anhaltspunkte dafür liefern, was als Nächstes kommen könnte. So kann sich beispielsweise eine \"Rallye \"beschleunigen, wenn sich mehr trader (Händler) der Bewegung anschließen. Es können sich erkennbare Muster herausbilden. Anzeichen einer Erschöpfung können erkannt werden.",
                     "updated": 1636667250488
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedefleri aşamalar halinde yönetme fikri, büyük piyasa hareketlerinin bir sonraki adımda neler olabileceğine dair ipuçları sağlama eğiliminde olduğu fikrinden kaynaklanmaktadır. Örneğin, daha fazla tüccar harekete katıldıkça ralliler hızlanabilir. Tanınabilir desenler ortaya çıkabilir. Yorgunluk belirtileri tespit edilebilir.",
+                    "updated": 1642429957522
                 }
             ]
         },
@@ -249,6 +314,11 @@
                     "language": "RU",
                     "text": "Все эти соображения могут повлиять на динамический анализ, проводимый на каждом этапе по мере развития позиции.",
                     "updated": 1639759344142
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bu hususlar, pozisyon geliştikçe her aşamada gerçekleştirilen dinamik analizi besleyebilir.",
+                    "updated": 1642429970607
                 }
             ]
         },
@@ -265,6 +335,11 @@
                     "language": "RU",
                     "text": "После выполнения система проверяет, достигла ли текущая свеча одной из целей. Если - или когда - это происходит, включается стадия закрытия, и начинается осуществление закрытия.",
                     "updated": 1639759531573
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütüldükten sonra, sistem geçerli mumun hedeflerden herhangi birini etiketleyip etiketlemediğini doğrular. Eğer olursa -veya ne zaman olursa-, kapanış aşaması başlar ve kapanış uygulaması başlar.",
+                    "updated": 1642430570428
                 }
             ]
         },
@@ -276,6 +351,11 @@
                     "language": "RU",
                     "text": "Очень важно понимать, что Superalgos не выставляет ордера на закрытие позиции до тех пор, пока не будут достигнуты цели стоп-лосс или тейк-профит. То есть, стоп-лосс и тейк-профит - это не ордера, сидящие на бирже и ожидающие исполнения по определенному курсу. Вместо этого Superalgos отслеживает цели внутри своей системы и размещает ордера на бирже во время цикла исполнения, в котором он обнаруживает, что одна из целей была достигнута.",
                     "updated": 1639759595798
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un zararı durdur veya kârı al hedeflerine ulaşılana kadar bir pozisyonu kapatmak için emir vermediğini anlamak çok önemlidir. Yani zararı durdur ve kar al, borsada bulunan ve belirli bir oranda doldurulmayı bekleyen emirler değildir. Bunun yerine, Superalgos hedefleri dahili olarak takip eder ve hedeflerden birinin vurulduğunu tespit ettiği yürütme döngüsü sırasında emirleri borsaya yerleştirir.",
+                    "updated": 1642430630119
                 }
             ]
         },
@@ -288,6 +368,11 @@
                     "language": "RU",
                     "text": "Такое поведение имеет свои преимущества и недостатки, но оно было разработано таким, как есть, потому что первые перевешивают вторые.",
                     "updated": 1639760653457
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu davranışın avantajları ve dezavantajları vardır, ancak birincisi ikincisine ağır bastığı için böyle tasarlanmıştır.",
+                    "updated": 1642430662434
                 }
             ]
         },
@@ -299,6 +384,11 @@
                     "language": "RU",
                     "text": "Не размещая на бирже ордера стоп или тейк-профит, Superalgos сохраняет в тайне ваши цели и основную стратегию. Это гарантирует, что такая важная часть информации не может быть использована против вас самой биржей или любой третьей стороной, которая может иметь доступ к привилегированной информации.",
                     "updated": 1639760696214
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, borsada stop veya kar al emirleri vermeyerek hedeflerinizi ve altında yatan stratejiyi gizli tutar. Bu, böyle önemli bir bilginin, borsanın kendisi veya ayrıcalıklı bilgilere erişimi olabilecek herhangi bir üçüncü şahıs tarafından aleyhinize kullanılamayacağını garanti eder.",
+                    "updated": 1642431312074
                 }
             ]
         },
@@ -310,6 +400,11 @@
                     "language": "RU",
                     "text": "С другой стороны, отсутствие заблаговременного размещения стоп-приказа иногда может привести к относительно большему проскальзыванию, например, в случаях мощных внезапных движений рынка.",
                     "updated": 1639760727914
+                },
+                {
+                    "language": "TR",
+                    "text": "Öte yandan, önceden stop emri vermemek, örneğin büyük flaş piyasa hareketlerinde bazen nispeten daha fazla kaymaya neden olabilir.",
+                    "updated": 1642431350366
                 }
             ]
         },
@@ -322,6 +417,11 @@
                     "language": "RU",
                     "text": "Тем не менее, поведение системы по умолчанию можно изменить, чтобы избежать риска чрезмерного проскальзывания: установите более жесткие цели стоп-лосса и тейк-профита и разместите лимитные ордера для закрытия позиции.",
                     "updated": 1639760773040
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, nihai aşırı kayma riskinden kaçınmak için sistemin varsayılan davranışı saldırıya uğrayabilir: zararı durdur ve kar hedeflerini daha sıkı alın ve pozisyonu kapatmak için limit emirleri verin.",
+                    "updated": 1642431374632
                 }
             ]
         }

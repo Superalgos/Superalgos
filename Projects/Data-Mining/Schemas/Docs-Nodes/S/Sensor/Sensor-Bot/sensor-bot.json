@@ -13,6 +13,16 @@
                 "language": "RU",
                 "text": "Sensor Bot извлекает необработанные данные из внешних источников, где необходимо закодировать определенный алгоритм извлечения, и сохраняет их в наборе данных, который могут использовать другие боты.",
                 "updated": 1639406692285
+            },
+            {
+                "language": "DE",
+                "text": "Ein Sensor-Bot extrahiert Rohdaten aus externen Quellen, für die ein bestimmter Extraktionsalgorithmus kodiert werden muss, und speichert sie in einem Datensatz, der von anderen Bots genutzt werden kann.",
+                "updated": 1646078905677
+            },
+            {
+                "language": "TR",
+                "text": "Bir sensör botu, belirli bir özel ayıklama algoritmasının kodlanması gereken harici kaynaklardan ham verileri alır ve diğer botların tüketebileceği bir veri kümesinde saklar.",
+                "updated": 1652013796630
             }
         ]
     },
@@ -35,6 +45,16 @@
                     "language": "ES",
                     "text": "Cuando no es necesario codificar un algoritmo en especial, los usuarios de Superalgos ejecutan una API Data Fetcher Bot (Bot de Obtención de Datos), que utiliza un API Map para describir la propia API, así el bot permite obtener datos sin necesidad de codificar un algoritmo en absoluto.",
                     "updated": 1641093316274
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn kein spezieller Algorithmus kodiert werden muss, können Superalgos-Benutzer einen API Data Fetcher Bot einsetzen, der eine API-Map verwendet, um die API selbst zu beschreiben, und der Bot ermöglicht das Abrufen von Daten, ohne dass überhaupt ein Algorithmus kodiert werden muss.",
+                    "updated": 1646078971787
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel bir algoritmanın kodlanmasına gerek olmadığında, Superalgos kullanıcıları API'nin kendisini tanımlamak için bir API Haritası ( API Map ) kullanan bir API Veri Alıcı Botu ( API Data Fetcher Bot ) çalıştırır ve bot, herhangi bir algoritma kodlamasına gerek kalmadan veri alınmasına izin verir.",
+                    "updated": 1652013871684
                 }
             ]
         },
@@ -51,6 +71,16 @@
                     "language": "ES",
                     "text": "Aplicación Actual",
                     "updated": 1641093329047
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktuelle Implementierung",
+                    "updated": 1646078988348
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut Uygulama",
+                    "updated": 1652013881764
                 }
             ]
         },
@@ -68,6 +98,16 @@
                     "language": "ES",
                     "text": "Hasta el momento solo hay dos procesos codificados para el Sensor Bot:",
                     "updated": 1641093340799
+                },
+                {
+                    "language": "DE",
+                    "text": "Bisher sind nur zwei Prozesse für den Sensor Bot kodiert:",
+                    "updated": 1646079005343
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu ana kadar Sensör Botu için kodlanmış sadece iki süreç var:",
+                    "updated": 1652013894837
                 }
             ]
         },
@@ -84,6 +124,16 @@
                     "language": "ES",
                     "text": "Historic-OHLCVs: Específicamente puede obtener velas de 1 minuto de los Exchanges soportados por la librería de código abierto CCXT.",
                     "updated": 1641093346385
+                },
+                {
+                    "language": "DE",
+                    "text": "Historic-OHLCVs: Kann ausschliesslich 1-Minuten-Kerzen von Börsen abrufen, die von der Open-Source-Bibliothek CCXT unterstützt werden.",
+                    "updated": 1646079119994
+                },
+                {
+                    "language": "TR",
+                    "text": "Historic-OHLCVs: CCXT açık kaynak kitaplığı tarafından desteklenen borsalardan özel olarak 1 dakikalık mumlar getirebilir.",
+                    "updated": 1652013925366
                 }
             ]
         },
@@ -100,6 +150,16 @@
                     "language": "ES",
                     "text": "Check Webhooks: Comprueba la información que recibe el cliente proveniente de llamadas Webhook de sistemas externos.",
                     "updated": 1641093386787
+                },
+                {
+                    "language": "DE",
+                    "text": "Check Webhooks: Prüft, ob Informationen von Webhook-Aufrufen aus externen Systemen beim Client angekommen sind.",
+                    "updated": 1646079148549
+                },
+                {
+                    "language": "TR",
+                    "text": "Web kancalarını kontrol et: Harici sistemlerden gelen web kancası çağrılarından istemciye gelen bilgileri kontrol eder.",
+                    "updated": 1652013947388
                 }
             ]
         },
@@ -116,6 +176,16 @@
                     "language": "ES",
                     "text": " Es posible que en el futuro se codifiquen más procesos a medida que el sistema crezca.",
                     "updated": 1641093393820
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das System wächst, können in Zukunft weitere Prozesse kodiert werden.",
+                    "updated": 1646079202618
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem büyüdükçe gelecekte daha fazla süreç kodlanabilir.",
+                    "updated": 1652013961294
                 }
             ]
         },
@@ -137,6 +207,16 @@
                     "language": "ES",
                     "text": "Configuración del Sensor Bot",
                     "updated": 1641093412662
+                },
+                {
+                    "language": "DE",
+                    "text": "Sensor Bot Konfiguration",
+                    "updated": 1646079210171
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör Botu Yapılandırması",
+                    "updated": 1652013970077
                 }
             ]
         },
@@ -154,6 +234,16 @@
                     "language": "ES",
                     "text": "Propiedades",
                     "updated": 1641093423092
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1646079217238
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652013980030
                 }
             ]
         },
@@ -171,6 +261,16 @@
                     "language": "ES",
                     "text": "codeName es el nombre del bot tal y como se utiliza dentro del código del sistema. Este también se utilizará como nombre de la carpeta dentro de la estructura de la carpeta Data-Storage.",
                     "updated": 1641093428757
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name des Bots, wie er im Code des Systems verwendet wird. Dieser Name wird auch als Ordnername in der Data-Storage-Ordnerstruktur verwendet.",
+                    "updated": 1646079245297
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName sistem kodunda kullanılan botun adıdır. Bu, Data-Storage klasör yapısında klasör adı olarak da kullanılacaktır.",
+                    "updated": 1652013993681
                 }
             ]
         }

@@ -2,12 +2,37 @@
     "type": "Sequential layer",
     "definition": {
         "text": "A set of neurons in an Artificial Neural Network with a Sequential Model, that process a set of input features, or the output of those neurons.",
-        "updated": 1613208793464
+        "updated": 1613208793464,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Набор нейронов в искусственной нейронной сети с последовательной моделью, которые обрабатывают набор входных признаков, или выход этих нейронов.",
+                "updated": 1645249890296
+            },
+            {
+                "language": "TR",
+                "text": "Sıralı Modelli bir Yapay Sinir Ağında, bir dizi girdi özelliğini işleyen bir dizi nöron veya bu nöronların çıktısı.",
+                "updated": 1654397589946
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249895086
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397595925,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

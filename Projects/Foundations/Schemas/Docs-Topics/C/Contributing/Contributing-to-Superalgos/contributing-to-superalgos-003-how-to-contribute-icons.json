@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Визуальный интерфейс Superalgos включает в себя сотни иконок, и с каждым релизом требуется все больше и больше иконок по мере развертывания новой функциональности. Разработка иконок - это отличный способ оставить свой след, ведь благодаря этому ваша работа оказывается прямо перед глазами каждого пользователя!",
                 "updated": 1640263639080
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos görsel arayüzünde yüzlerce simge bulunur ve yeni işlevler kullanıma sunulurken her sürümde daha birçok simge gerekir. Simgeler tasarlamak, işinizi doğrudan her kullanıcının önüne koyduğu için izinizi bırakmanın harika bir yoludur!",
+                "updated": 1645291977613
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Указание авторства",
                     "updated": 1640263686377
+                },
+                {
+                    "language": "TR",
+                    "text": "Atıf",
+                    "updated": 1645292019580
                 }
             ]
         },
@@ -55,8 +65,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Оригинальный набор иконок - это пакет для веб-дизайна, созданный Freepik и доступный по адресу:",
+                    "text": "Оригинальный набор иконок - это пакет для веб-проектирования, созданный Freepik и доступный по адресу:",
                     "updated": 1640263708283
+                },
+                {
+                    "language": "TR",
+                    "text": "Orijinal simge seti, Freepik tarafından yapılmış bir web tasarım paketidir ve şu adresten edinilebilir:",
+                    "updated": 1645292039004
                 }
             ]
         },
@@ -77,8 +92,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Остальные части серии выполнены в стиле дизайна, разработанного для оригинального набора.",
+                    "text": "Остальные части серии выполнены в стиле проектирования, разработанного для оригинального набора.",
                     "updated": 1640263726880
+                },
+                {
+                    "language": "TR",
+                    "text": "Serinin geri kalanı, orijinal set için geliştirilen tasarım tarzından ilham alıyor.",
+                    "updated": 1645292050664
                 }
             ]
         },
@@ -97,6 +117,11 @@
                     "language": "RU",
                     "text": "Авторство каждого значка, не входящего в оригинальную серию, можно отследить в истории хранилища.",
                     "updated": 1640263755346
+                },
+                {
+                    "language": "TR",
+                    "text": "Orijinal seride olmayan her bir simgenin yazarlığı, arşivin geçmişinde izlenebilir.",
+                    "updated": 1645292062219
                 }
             ]
         },
@@ -115,6 +140,11 @@
                     "language": "RU",
                     "text": "Согласование",
                     "updated": 1640263774299
+                },
+                {
+                    "language": "TR",
+                    "text": "Koordinasyon",
+                    "updated": 1645292100569
                 }
             ]
         },
@@ -133,6 +163,11 @@
                     "language": "RU",
                     "text": "Присоединяйтесь к следующей группе для согласования работ:",
                     "updated": 1640263798266
+                },
+                {
+                    "language": "TR",
+                    "text": "İşleri koordine etmek için aşağıdaki gruba katılın:",
+                    "updated": 1645292111129
                 }
             ]
         },
@@ -156,6 +191,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, представьтесь и познакомьтесь с группой, которая в настоящее время выполняет эту работу. Основная координационная задача - отслеживать, кто и какую часть работы будет выполнять, чтобы мы не дублировали друг друга.",
                     "updated": 1640263862673
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen kendinizi tanıtın ve şu anda işi yapan gruba ayak uydurun. Ana koordinasyon görevi, çabaları tekrarlamamak için bekleyen çalışmanın hangi bölümünü kimin engelleyeceğini takip etmektir.",
+                    "updated": 1645292142418
                 }
             ]
         },
@@ -172,8 +212,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Краткое описание дизайна",
+                    "text": "Краткое описание проектирования",
                     "updated": 1640263878408
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Özeti",
+                    "updated": 1645292151437
                 }
             ]
         },
@@ -191,6 +236,11 @@
                     "language": "RU",
                     "text": "Цветовая палитра",
                     "updated": 1640263899277
+                },
+                {
+                    "language": "TR",
+                    "text": "Renk paleti",
+                    "updated": 1645292158798
                 }
             ]
         },
@@ -209,6 +259,11 @@
                     "language": "RU",
                     "text": "Мы используем ограниченную палитру, с забавным набором цветов, которые хорошо работают как на черном фоне - в Design Space - так и на белом фоне - в Docs и Charting Space.",
                     "updated": 1640263956388
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem Tasarım Alanında ( Design Space ) siyah bir arka plan üzerinde hem de Dokümanlar ve Grafik Alanında ( Charting Space ) beyaz bir arka plan üzerinde iyi çalışan eğlenceli bir renk seçimiyle kısıtlı bir palet kullanıyoruz.",
+                    "updated": 1645292230260
                 }
             ]
         },
@@ -232,6 +287,11 @@
                     "language": "RU",
                     "text": "Внешний вид и ощущения",
                     "updated": 1640263978149
+                },
+                {
+                    "language": "TR",
+                    "text": "Bak ve hisset",
+                    "updated": 1645292269531
                 }
             ]
         },
@@ -249,6 +309,11 @@
                     "language": "RU",
                     "text": "Superalgos - это большая и довольно сложная система, ориентированная на всевозможные профили пользователей. Конечной целью проекта является массовое использование системы, поэтому Superalgos должен быть доступен широкому кругу пользователей: от профессиональных трейдеров до держателей криптовалют и всего, что между ними.",
                     "updated": 1640264007186
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, her türlü kullanıcı profiline yönelik büyük ve oldukça karmaşık bir sistemdir. Projenin nihai amacı, sistemin kullanımını yaygınlaştırmaktır, bu nedenle Superalgos, profesyonel tüccarlardan kripto sahiplerine ve aradaki her şeye kadar geniş bir kullanıcı tabanına erişilebilir olmalıdır.",
+                    "updated": 1645292299887
                 }
             ]
         },
@@ -266,6 +331,11 @@
                     "language": "RU",
                     "text": "Выбор игривого внешнего вида и ощущения соответствует основной стратегии достижения массовости: геймифицировать пользовательский интерфейс, в том смысле, что построение прибыльных торговых стратегий может быть превращено в стратегическую игру саму по себе.",
                     "updated": 1640264071908
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğlenceli bir görünüm ve his seçimi, kitleselleştirmeyi elde etmek için temel stratejiye yanıt verir: kullanıcı deneyimini oyunlaştırmak, karlı ticaret stratejileri oluşturmanın kendi başına bir strateji oyununa dönüştürülebileceği anlamında.",
+                    "updated": 1645292379240
                 }
             ]
         },
@@ -283,6 +353,11 @@
                     "language": "RU",
                     "text": "Мы предпочитаем отходить от реалистичных или корпоративных стилей и склоняемся к карикатурным, радостным и энергичным идеям.",
                     "updated": 1640264094634
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçekçi veya kurumsal tarzlardan uzaklaşmayı ve bunun yerine karikatürize, neşeli ve canlı fikirlere yönelmeyi seçiyoruz.",
+                    "updated": 1645292409240
                 }
             ]
         },
@@ -300,6 +375,11 @@
                     "language": "RU",
                     "text": "Что нам нравится",
                     "updated": 1640264111403
+                },
+                {
+                    "language": "TR",
+                    "text": "Neleri Seviyoruz",
+                    "updated": 1645292432418
                 }
             ]
         },
@@ -318,13 +398,25 @@
                     "language": "RU",
                     "text": "Ниже приведены примеры иконок, которые нам понравились из существующей партии.",
                     "updated": 1640264126112
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, mevcut toplu iş arasında beğendiğimiz simgelerin örnekleridir",
+                    "updated": 1645292444014
                 }
             ]
         },
         {
             "style": "List",
             "text": "Charting Space",
-            "updated": 1613728551081
+            "updated": 1613728551081,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space )",
+                    "updated": 1645292465705
+                }
+            ]
         },
         {
             "style": "Text",
@@ -338,7 +430,14 @@
         {
             "style": "List",
             "text": "Data Mine",
-            "updated": 1613728625166
+            "updated": 1613728625166,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni ( Data Mine )",
+                    "updated": 1645292486474
+                }
+            ]
         },
         {
             "style": "Png",
@@ -347,7 +446,14 @@
         {
             "style": "List",
             "text": "Crypto Exchange",
-            "updated": 1613728653978
+            "updated": 1613728653978,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kripto Borsası ( Crypto Exchange )",
+                    "updated": 1645292513739
+                }
+            ]
         },
         {
             "style": "Png",
@@ -356,7 +462,14 @@
         {
             "style": "List",
             "text": "Record Property",
-            "updated": 1613728675386
+            "updated": 1613728675386,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıt Özelliği ( Record Property )",
+                    "updated": 1645292545637
+                }
+            ]
         },
         {
             "style": "Png",
@@ -369,7 +482,14 @@
         {
             "style": "List",
             "text": "Trigger On",
-            "updated": 1613728693471
+            "updated": 1613728693471,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tetikleyici Açık ( Trigger On )",
+                    "updated": 1645292596805
+                }
+            ]
         },
         {
             "style": "Png",
@@ -385,6 +505,11 @@
                     "text": "Abstrakte Icons",
                     "updated": 1634039411739,
                     "style": "Title"
+                },
+                {
+                    "language": "TR",
+                    "text": "Soyut Simgeler",
+                    "updated": 1645292616164
                 }
             ]
         },
@@ -397,12 +522,24 @@
                     "text": "Die obige Gruppe enthält Icons, die Ideen darstellen, die direkt oder indirekt an das zugrunde liegende Konzept erinnern, das sie repräsentieren. Icons können jedoch auch abstrakt sein und einen losen oder keinen offensichtlichen Zusammenhang mit dem dargestellten Konzept haben:",
                     "updated": 1634039416461,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki grup, temsil ettikleri temel kavramı doğrudan veya dolaylı olarak hatırlatan fikirleri temsil eden simgeler içerir. Bununla birlikte, simgeler de soyut olabilir ve temsil edilen kavramla gevşek veya açık bir bağlantısı olmayabilir:",
+                    "updated": 1645292639725
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Phase"
+            "text": "Phase",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Faz ( Phase )",
+                    "updated": 1645292671192
+                }
+            ]
         },
         {
             "style": "Png",
@@ -412,7 +549,14 @@
         {
             "style": "List",
             "text": "Situation",
-            "updated": 1613728739163
+            "updated": 1613728739163,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Durum ( Situation )",
+                    "updated": 1645292697570
+                }
+            ]
         },
         {
             "style": "Png",
@@ -421,7 +565,14 @@
         {
             "style": "List",
             "text": "Slippage",
-            "updated": 1613728755871
+            "updated": 1613728755871,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayma ( Slippage )",
+                    "updated": 1645292745803
+                }
+            ]
         },
         {
             "style": "Png",
@@ -430,7 +581,14 @@
         {
             "style": "List",
             "text": "Strategy",
-            "updated": 1613728772189
+            "updated": 1613728772189,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji ( Strategy )",
+                    "updated": 1645292779490
+                }
+            ]
         },
         {
             "style": "Png",
@@ -439,7 +597,14 @@
         {
             "style": "List",
             "text": "Backtesting Session",
-            "updated": 1613728790399
+            "updated": 1613728790399,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geri Test Oturumu ( Backtesting Session )",
+                    "updated": 1645292802886
+                }
+            ]
         },
         {
             "style": "Png",
@@ -460,6 +625,11 @@
                     "language": "RU",
                     "text": "Символические иконки",
                     "updated": 1640264200562
+                },
+                {
+                    "language": "TR",
+                    "text": "Figüratif Simgeler",
+                    "updated": 1645292823875
                 }
             ]
         },
@@ -477,12 +647,24 @@
                     "language": "RU",
                     "text": "Иногда связь между рисунком и представляемым понятием может быть образной, например, когда пиктограмма иллюстрирует альтернативное толкование слова:",
                     "updated": 1640264223467
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen, çizim ile temsil edilen gerçek kavram arasındaki ilişki, örneğin simgenin kelimenin alternatif bir yorumunu gösterdiği durumlarda olduğu gibi, mecazi olabilir:",
+                    "updated": 1645292848009
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Open Stage"
+            "text": "Open Stage",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Açık Sahne ( Open Stage )",
+                    "updated": 1645292867365
+                }
+            ]
         },
         {
             "style": "Png",
@@ -492,7 +674,14 @@
         {
             "style": "List",
             "text": "Close Stage",
-            "updated": 1613728824775
+            "updated": 1613728824775,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Kapat ( Close Stage )",
+                    "updated": 1645292901228
+                }
+            ]
         },
         {
             "style": "Png",
@@ -501,7 +690,14 @@
         {
             "style": "List",
             "text": "Formula",
-            "updated": 1613728843682
+            "updated": 1613728843682,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formül ( Formula )",
+                    "updated": 1645292914602
+                }
+            ]
         },
         {
             "style": "Png",
@@ -510,7 +706,14 @@
         {
             "style": "List",
             "text": "Plotter Module",
-            "updated": 1613728865477
+            "updated": 1613728865477,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çizici modülü ( Plotter Module )",
+                    "updated": 1645292948976
+                }
+            ]
         },
         {
             "style": "Png",
@@ -519,7 +722,14 @@
         {
             "style": "List",
             "text": "Procedure Initialization",
-            "updated": 1613728936433
+            "updated": 1613728936433,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Prosedür Başlangıç ( Procedure Initialization )",
+                    "updated": 1645292976074
+                }
+            ]
         },
         {
             "style": "Png",
@@ -540,6 +750,11 @@
                     "language": "RU",
                     "text": "Советы по оформлению",
                     "updated": 1640264247074
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım İpuçları",
+                    "updated": 1645293154197
                 }
             ]
         },
@@ -557,6 +772,11 @@
                     "language": "RU",
                     "text": "Несколько дизайнерских приемов составляют характер коллекции иконок. Чем больше этих приемов вы используете в своих творениях, тем лучше они будут сочетаться с остальными и находить положительный отклик со стороны пользователей.",
                     "updated": 1640264357608
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç tasarım hilesi, simgeler koleksiyonunun karakterini oluşturur. Kreasyonlarınızda bu hilelerden ne kadar çok kullanırsanız, geri kalanıyla o kadar iyi bütünleşecek ve kullanıcılar arasında yankı uyandıracaktır.",
+                    "updated": 1645293180584
                 }
             ]
         },
@@ -574,6 +794,11 @@
                     "language": "RU",
                     "text": "Разделенные цвета",
                     "updated": 1640264376352
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölünmüş Renkler",
+                    "updated": 1645293188335
                 }
             ]
         },
@@ -591,13 +816,25 @@
                     "language": "RU",
                     "text": "Стилистический ресурс, который мы предпочитаем и который помогает создать глубину и богатство композиции, - это разделение рисунка пополам, придание каждой половине небольшого смещения цвета, использование соседних цветов в палитре на каждой половине:",
                     "updated": 1640264407078
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğimiz ve kompozisyonda derinlik ve zenginlik yaratmaya yardımcı olan stilistik bir kaynak, çizimin yarısını bölmektir, her iki yarıda da paletteki bitişik renkleri kullanarak her yarıya hafif bir renk kayması verir:",
+                    "updated": 1645293209366
                 }
             ]
         },
         {
             "style": "List",
             "text": "Execution Algorithm",
-            "updated": 1613728963145
+            "updated": 1613728963145,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yürütme Algoritması ( Execution Algorithm )",
+                    "updated": 1645293232294
+                }
+            ]
         },
         {
             "style": "Png",
@@ -606,7 +843,14 @@
         {
             "style": "List",
             "text": "Scripts Library",
-            "updated": 1613728981957
+            "updated": 1613728981957,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Komut Dosyaları Kitaplığı ( Scripts Library )",
+                    "updated": 1645293275802
+                }
+            ]
         },
         {
             "style": "Png",
@@ -615,7 +859,14 @@
         {
             "style": "List",
             "text": "Super Action",
-            "updated": 1613728996629
+            "updated": 1613728996629,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süper Aksiyon ( Super Action )",
+                    "updated": 1645293305318
+                }
+            ]
         },
         {
             "style": "Png",
@@ -624,7 +875,14 @@
         {
             "style": "List",
             "text": "Polygon Condition",
-            "updated": 1613729022385
+            "updated": 1613729022385,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çokgen Koşulu ( Polygon Condition )",
+                    "updated": 1645293338628
+                }
+            ]
         },
         {
             "style": "Png",
@@ -633,7 +891,14 @@
         {
             "style": "List",
             "text": "Super Scripts",
-            "updated": 1613729032817
+            "updated": 1613729032817,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süper Komut Dosyaları ( Super Scripts )",
+                    "updated": 1645293362411
+                }
+            ]
         },
         {
             "style": "Png",
@@ -654,6 +919,11 @@
                     "language": "RU",
                     "text": "Нереалистичные пропорции",
                     "updated": 1640264425866
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçekçi Olmayan Oranlar",
+                    "updated": 1645293391762
                 }
             ]
         },
@@ -671,12 +941,24 @@
                     "language": "RU",
                     "text": "Это одна из характеристик мультяшного вида и восприятия:",
                     "updated": 1640264469387
+                },
+                {
+                    "language": "TR",
+                    "text": "Karikatürik görünüm ve hislerin özelliklerinden biridir:",
+                    "updated": 1645293435410
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace"
+            "text": "Workspace",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı ( Workspace )",
+                    "updated": 1645293459233
+                }
+            ]
         },
         {
             "style": "Png",
@@ -714,13 +996,25 @@
                     "language": "RU",
                     "text": "Опять же, еще одна характерная особенность:",
                     "updated": 1640264523273
+                },
+                {
+                    "language": "TR",
+                    "text": "Yine, bir diğer tipik özellik:",
+                    "updated": 1645293494841
                 }
             ]
         },
         {
             "style": "List",
             "text": "Shapes",
-            "updated": 1613729392359
+            "updated": 1613729392359,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Şekiller ( Shapes )",
+                    "updated": 1645293515232
+                }
+            ]
         },
         {
             "style": "Png",
@@ -740,6 +1034,11 @@
                     "language": "RU",
                     "text": "Изюминки",
                     "updated": 1640264615961
+                },
+                {
+                    "language": "TR",
+                    "text": "Öne Çıkanlar",
+                    "updated": 1645293713884
                 }
             ]
         },
@@ -757,13 +1056,25 @@
                     "language": "RU",
                     "text": "Иногда простой рисунок может быть украшен игривым эффектом выделения, который привносит свет в творение. Обратите внимание, как плоский рисунок оживает благодаря простому эффекту отражения света справа.",
                     "updated": 1640264576371
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen, basit bir çizim, yaratıma ışık tutan eğlenceli bir vurgu efekti ile süslenebilir. Sağ taraftaki basit ışık yansıması efekti ile normalde düz bir çizimin nasıl hayata geçtiğine dikkat edin.",
+                    "updated": 1645293737271
                 }
             ]
         },
         {
             "style": "List",
             "text": "Slippage",
-            "updated": 1613729422145
+            "updated": 1613729422145,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayma ( Slippage )",
+                    "updated": 1645293754835
+                }
+            ]
         },
         {
             "style": "Png",
@@ -777,6 +1088,11 @@
                     "language": "RU",
                     "text": "Вырезы",
                     "updated": 1640264790607
+                },
+                {
+                    "language": "TR",
+                    "text": "Kesikler",
+                    "updated": 1645293848446
                 }
             ]
         },
@@ -794,13 +1110,25 @@
                     "language": "RU",
                     "text": "Когда несколько элементов накладываются друг на друга, рисунок может потерять четкость, возможно, из-за ограниченной цветовой палитры. В таких случаях вырез на фоновом объекте, создающий небольшое разделение с объектом переднего плана, может выглядеть круто и помочь визуальному восприятию. Обратите внимание на вырез шириной 20 пт вокруг красной стрелки.",
                     "updated": 1640264780872
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden fazla öğe üst üste geldiğinde, muhtemelen kısıtlı renk paleti nedeniyle çizim netliği kaybedebilir. Bu gibi durumlarda, arka plan nesnesi üzerinde ön plan nesnesiyle hafif bir ayrım oluşturan bir oyuk, havalı görünebilir ve görsel yorumlamaya yardımcı olabilir. Kırmızı ok etrafındaki 20 punto genişliğindeki oyuğa dikkat edin.",
+                    "updated": 1645293858482
                 }
             ]
         },
         {
             "style": "List",
             "text": "Limit Sell Order",
-            "updated": 1613729611399
+            "updated": 1613729611399,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Limit Satış Emri ( Limit Sell Order )",
+                    "updated": 1645293886732
+                }
+            ]
         },
         {
             "style": "Png",
@@ -821,6 +1149,11 @@
                     "language": "RU",
                     "text": "Уровень детализации",
                     "updated": 1640264838094
+                },
+                {
+                    "language": "TR",
+                    "text": "Detay Seviyesi",
+                    "updated": 1645293914795
                 }
             ]
         },
@@ -839,6 +1172,11 @@
                     "language": "RU",
                     "text": "Важно отметить, что пиктограммы должны хорошо работать при использовании в небольших размерах. Слишком высокая детализация может привести к появлению искажений и артефактов при уменьшении размера значка.",
                     "updated": 1640264928478
+                },
+                {
+                    "language": "TR",
+                    "text": "Simgelerin küçük boyutlarda kullanıldığında iyi çalışması gerektiğine dikkat etmek önemlidir. Simgenin boyutu küçültüldüğünde çok fazla ayrıntı takma ad ve yapaylık oluşturabilir.",
+                    "updated": 1645293938614
                 }
             ]
         },
@@ -856,6 +1194,11 @@
                     "language": "RU",
                     "text": "Как правило, старайтесь избегать линий или фигур размером менее 20 pt в оригинальной композиции.",
                     "updated": 1640264948166
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Genel bir kural olarak, orijinal kompozisyonda 20 pt'den küçük çizgilerden veya şekillerden kaçınmaya çalışın.",
+                    "updated": 1645293965706
                 }
             ]
         },
@@ -874,6 +1217,11 @@
                     "language": "RU",
                     "text": "Полный размер и центрирование",
                     "updated": 1640264959659
+                },
+                {
+                    "language": "TR",
+                    "text": "Tam Boy ve Ortalanmış",
+                    "updated": 1645293988293
                 }
             ]
         },
@@ -891,6 +1239,11 @@
                     "language": "RU",
                     "text": "В идеале иконки занимают весь холст либо в горизонтальном, либо в вертикальном измерении, либо в обоих. За исключением случаев, когда это является обязательным требованием, так как любое отклонение от этого стандарта довольно заметно.",
                     "updated": 1640265012098
+                },
+                {
+                    "language": "TR",
+                    "text": "İdeal olarak, simgeler, yatay veya dikey boyutta veya her ikisinde de tüm tuvali kaplar. İstisnalar dışında, bu bir gerekliliktir, çünkü bu standarttan herhangi bir sapma oldukça belirgindir.",
+                    "updated": 1645293998885
                 }
             ]
         },
@@ -908,6 +1261,11 @@
                     "language": "RU",
                     "text": "Технические требования",
                     "updated": 1640265023889
+                },
+                {
+                    "language": "TR",
+                    "text": "Teknik Gereksinimler",
+                    "updated": 1645294012398
                 }
             ]
         },
@@ -925,6 +1283,11 @@
                     "language": "RU",
                     "text": "Иконки создаются и поддерживаются в векторном виде, в формате SVG, но по техническим причинам используются в системе и документации - два основных случая использования - как растровые изображения в формате PNG.",
                     "updated": 1640265067793
+                },
+                {
+                    "language": "TR",
+                    "text": "Simgeler vektörlerde, SVG biçiminde oluşturulur ve korunur, ancak sistem ve belgelerde (mevcut iki ana kullanım durumu) teknik nedenlerle PNG biçiminde raster görüntüler olarak kullanılır.",
+                    "updated": 1645294024046
                 }
             ],
             "updated": 1638486054822
@@ -943,6 +1306,11 @@
                     "language": "RU",
                     "text": "Вы должны предоставить оба типа файлов.",
                     "updated": 1640265080751
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Her iki tür dosyayı da sağlamalısınız.",
+                    "updated": 1645294052008
                 }
             ]
         },
@@ -960,6 +1328,11 @@
                     "language": "RU",
                     "text": "Исходные файлы векторов",
                     "updated": 1640265100019
+                },
+                {
+                    "language": "TR",
+                    "text": "Vektör Kaynak Dosyaları",
+                    "updated": 1645294066568
                 }
             ]
         },
@@ -978,6 +1351,11 @@
                     "language": "RU",
                     "text": "| Criterion | Details |\n| Format | SVG |\n| Width | 512 pt |\n| Height | 512 pt |\n| Extension | svg (строчными) |",
                     "updated": 1640265140726
+                },
+                {
+                    "language": "TR",
+                    "text": "| Kriter | Ayrıntılar |\n| Biçim | SVG |\n| Genişlik | 512 puan |\n| Yükseklik | 512 puan |\n| Uzantı | svg (küçük harf) |",
+                    "updated": 1645294079844
                 }
             ]
         },
@@ -996,6 +1374,11 @@
                     "language": "RU",
                     "text": "Добавьте векторные файлы в папку Icons-SVG-Sources в соответствующем проекте.",
                     "updated": 1640265177252
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: İlgili projenin altındaki Icons-SVG-Sources klasörüne vektör dosyaları ekleyin.",
+                    "updated": 1645294098370
                 }
             ]
         },
@@ -1014,6 +1397,11 @@
                     "language": "RU",
                     "text": "В случае проекта Superalgos исходные файлы SVG организованы во вложенных папках в следующем каталоге:",
                     "updated": 1640265198656
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos projesi durumunda, SVG kaynak dosyaları aşağıdaki dizin altında alt klasörlerde düzenlenir:",
+                    "updated": 1645294117546
                 }
             ]
         },
@@ -1037,6 +1425,11 @@
                     "language": "RU",
                     "text": "| Folder | Description |\n| assets |\n| color-palette | Цветовая палитра |\n| docs-menu | Опции в плавающем меню Docs |\n| exchanges | Криптовалютные биржи |\n| flags | Круглые флаги, используемые для идентификации языков |\n| layers | Типы слоев, представленных в диспетчере слоев (Layer Manager) |\n| menu | Опции в меню узлов |\n| mouse | Графика мыши и клавиатуры, используемая при захвате видео |\n| nodes | Icons of nodes |\n| various | Элементы, которые не подходят к остальным категориям |",
                     "updated": 1640266969509
+                },
+                {
+                    "language": "TR",
+                    "text": "| klasör | Açıklama |\n| varlıklar | Borsalarda listelenen varlıklar |\n| renk paleti | Bir referans renk paleti |\n| dokümanlar menüsü | Kayan Dokümanlar menüsündeki seçenekler |\n| değiş tokuş | Kripto borsaları |\n| bayraklar | Dilleri tanımlamak için kullanılan yuvarlak bayraklar |\n| katmanlar | Katman Yöneticisinde temsil edilen katman türleri |\n| menü | Düğümler menüsündeki seçenekler |\n| fare | Video çekimlerinde kullanılan fare ve klavye grafikleri |\n| düğümler | Düğüm simgeleri |\n| çeşitli | Kategorilerin geri kalanına uymayan ürünler |",
+                    "updated": 1645294132798
                 }
             ]
         },
@@ -1059,6 +1452,11 @@
                     "language": "RU",
                     "text": "Растровые изображения",
                     "updated": 1640266983348
+                },
+                {
+                    "language": "TR",
+                    "text": "Raster Görüntüler",
+                    "updated": 1645294145994
                 }
             ]
         },
@@ -1077,6 +1475,11 @@
                     "language": "RU",
                     "text": "| Criterion | Details |\n| Format | PNG |\n| Application Size | 512 x 512 px |\n| Color Depth | 24 bits (PNG-24) |\n| Transparency | Yes |\n| Interlaced | No |\n| Extension | png (строчными) |",
                     "updated": 1640266996732
+                },
+                {
+                    "language": "TR",
+                    "text": "| Kriter | Ayrıntılar |\n| Biçim | PNG |\n| Uygulama Boyutu | 512 x 512 piksel |\n| Renk Derinliği | 24 bit (PNG-24) |\n| Şeffaflık | Evet |\n| geçmeli | Hayır |\n| Uzantı | png (küçük harf) |",
+                    "updated": 1645294161303
                 }
             ]
         },
@@ -1095,6 +1498,11 @@
                     "language": "RU",
                     "text": "Добавьте все файлы PNG в папку Icons.",
                     "updated": 1640267012946
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Tüm PNG dosyalarını Simgeler klasörüne ekleyin.",
+                    "updated": 1645294176314
                 }
             ]
         },
@@ -1113,6 +1521,11 @@
                     "language": "RU",
                     "text": "Соглашение о присвоении имен",
                     "updated": 1640267072353
+                },
+                {
+                    "language": "TR",
+                    "text": "Adlandırma Kuralı",
+                    "updated": 1645294215849
                 }
             ]
         },
@@ -1131,6 +1544,11 @@
                     "language": "RU",
                     "text": "Файлы наследуют название узла, актива, биржи или того, что представляет иконка, и называются в нижнем регистре, каждое слово отделяется дефисом, и с расширением в нижнем регистре.",
                     "updated": 1640267119420
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosyalar, düğümün, varlığın, değiş tokuşun veya simgenin temsil ettiği her şeyin adını devralır ve küçük harfle, her sözcük bir tire ile ayrılmış ve küçük harf uzantısıyla adlandırılır.",
+                    "updated": 1645294234704
                 }
             ]
         },
@@ -1149,6 +1567,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640267129703
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1645294241505
                 }
             ]
         },
@@ -1167,6 +1590,11 @@
                     "language": "RU",
                     "text": "В случае с узлами файл PNG для узла Managed Take Profit - managed-take-profit.png",
                     "updated": 1640267146780
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler söz konusu olduğunda, Yönetilen Kâr Al düğümünün ( Managed Take Profit  ) PNG dosyası yönetilen-al-kar.png'dir.",
+                    "updated": 1645294311921
                 }
             ]
         },
@@ -1185,6 +1613,11 @@
                     "language": "RU",
                     "text": "В случае с активами имя файла должно быть буквальным именем актива. Например, для Bitcoin это bitcoin.png; для Tether - tether.png; и так далее...",
                     "updated": 1640267185736
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlıklar söz konusu olduğunda, dosyanın adı varlığın gerçek adı olmalıdır. Örneğin, Bitcoin için bitcoin.png'dir; Tether için tether.png'dir; ve bunun gibi...",
+                    "updated": 1645294329300
                 }
             ]
         },
@@ -1203,6 +1636,11 @@
                     "language": "RU",
                     "text": "В случае с биржей, опять же, используется буквальное название биржи, как оно указано в библиотеке CCXT. например, Binance - binance.png.",
                     "updated": 1640267220513
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir değiş tokuş durumunda, yine, CCXT kitaplığında listelendiği gibi, değiş tokuşun değişmez adı kullanılır. örneğin Binance, binance.png'dir.",
+                    "updated": 1645294339199
                 }
             ]
         },

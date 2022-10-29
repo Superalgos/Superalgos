@@ -1,0 +1,71 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 7,
+    "type": "Squeeze Momentum",
+    "definition": {
+        "text": "Show periods when volatility increases or decreases",
+        "updated": 1659619526532
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Squeeze Momentum Indicator",
+            "updated": 1656585906947
+        },
+        {
+            "style": "Text",
+            "text": "According to atas.net, the indicator was created by John Carter. The Squeeze Momentum shows periods when volatility increases or decreases, in other words, when the market goes from the trend into flat movement and vice versa."
+        },
+        {
+            "style": "Text",
+            "text": "The market consolidates 80% of time and only 20% of time it moves in a certain direction. It is true for any time-frame. There is always a breakout after the flat movement (especially if it lasts long enough). Traders like to trade such breakouts very much because these breakouts are often followed by a strong and lengthy trend movement, on which they can make money."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/sqzmom.png"
+        },
+        {
+            "style": "Text",
+            "text": "It is also very important for traders to understand the current market state because different types of trades work differently in the trend and flat."
+        },
+        {
+            "style": "Text",
+            "text": "For example, a trader can confidently buy on a new high during a trend market (how to identify a trend day). However, if he buys on a new high during a flat, he will be losing his capital."
+        },
+        {
+            "style": "Text",
+            "text": "Similarly, it is dangerous to short new highs during an obvious bullish trend. Despite the fact that SM is a technical indicator, it is not lagging and can give a warning about a price reversal."
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is composed with 3 panels in the chart showing Bolling Bands & Keltner Channels value with the relative histogram value.",
+            "updated": 1656586276109
+        },
+        {
+            "style": "Text",
+            "text": "The Squeeze Momentum combines two indicators – Bollinger Bands with 20/2 settings and Keltner channel with 20/1.5 settings – and helps to find consolidation periods, after which a breakout may take place and the trend price movement may start.",
+            "updated": 1656586508360
+        },
+        {
+            "style": "Title",
+            "text": "SQZMOM Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "|Product Variable|Properties |\n|SQZMOM|upperBB, lowerBB, basisBB, upperKC, lowerKC, basisKC|",
+            "updated": 1656586362395
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.sqzmom.lowerBB > chart.at15min.sqzmom.lowerKC"
+        },
+        {
+            "style": "Text",
+            "text": "Check if lower Bollinger Band is greater than the Kelten Channel Band"
+        }
+    ]
+}

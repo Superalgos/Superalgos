@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Конечные точки Endpoints являются важными аспектами взаимодействия с серверными веб-API, поскольку они определяют, где можно получить доступ к ресурсам. Обычно доступ осуществляется через URL-адрес, по которому отправляются HTTP-запросы. Как только эти запросы будут отправлены правильно, API ответит запрошенными данными.",
                 "updated": 1638623872530
+            },
+            {
+                "language": "TR",
+                "text": "Uç noktalar, kaynaklara nereden erişilebileceğini belirttikleri için sunucu tarafı web API'leri ile etkileşimin önemli yönleridir. Genellikle erişim, HTTP isteklerinin gönderildiği bir URL aracılığıyla yapılır. Bu istekler doğru bir şekilde gönderildikten sonra API, istenen verilerle yanıt verecektir.",
+                "updated": 1652018815818
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Как использовать узел Endpoint",
                     "updated": 1638623903002
+                },
+                {
+                    "language": "TR",
+                    "text": "Uç Nokta Düğümü Nasıl Kullanılır",
+                    "updated": 1652018824292
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "RU",
                     "text": "Прочтите документацию API, который вы пытаетесь сопоставить, и определите, какие конечные точки они поддерживают. Оттуда вы можете выбрать, какая конечная точка содержит интересующую вас информацию, и начать ее сопоставление. Далее будет подробное описание того, как это сделать. Кроме того, ознакомтесь со страницей API Map, а также изучите тему Data Mining, чтобы узнать о других важных концепциях, связанных с настройкой карты API.",
                     "updated": 1638624891957
+                },
+                {
+                    "language": "TR",
+                    "text": "Eşlemeye çalıştığınız API'nin belgelerini okuyun ve hangi uç noktaları desteklediklerini belirleyin. Buradan, ilgilendiğiniz bilgileri hangi uç noktanın tuttuğunu seçebilir ve haritalamaya başlayabilirsiniz. Bunun nasıl yapılacağına ilişkin ayrıntılı bir açıklama için lütfen aşağıdaki açıklamayı okuyun. Ek olarak, bir api haritası oluşturmayla ilgili diğer önemli kavramlar için lütfen API Haritası sayfasının yanı sıra Veri Madenciliği konusuna bakın.",
+                    "updated": 1652018831865
                 }
             ]
         },
@@ -64,13 +79,26 @@
                     "language": "RU",
                     "text": "Первая страница темы Data Mining - это Data Mining - Introduction.",
                     "updated": 1638624871759
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Madenciliği konusunun ilk sayfası Veri Madenciliği - Giriş'tir ( Data Mining - Introduction ).",
+                    "updated": 1652018862744
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951345309
+            "updated": 1621951345309,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391256564,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -81,6 +109,11 @@
                     "language": "DE",
                     "text": "API Endpoint Konfiguration",
                     "updated": 1637406560957
+                },
+                {
+                    "language": "TR",
+                    "text": "API Uç Nokta Yapılandırması",
+                    "updated": 1652018885049
                 }
             ]
         },
@@ -92,6 +125,11 @@
                     "language": "DE",
                     "text": "Properties/Eigenschaften:",
                     "updated": 1637406584743
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652018892207
                 }
             ]
         },
@@ -103,6 +141,11 @@
                     "language": "DE",
                     "text": "codeName: Definieren Sie den endpoint, den dieser branch der Map behandeln soll.",
                     "updated": 1637406633445
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: Haritanın bu dalının ele alacağı uç noktayı tanımlayın.",
+                    "updated": 1652018901603
                 }
             ]
         }

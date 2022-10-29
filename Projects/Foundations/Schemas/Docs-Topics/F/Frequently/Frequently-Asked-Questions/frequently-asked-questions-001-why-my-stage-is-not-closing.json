@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Один из самых распространенных вопросов, задаваемых пользователями, заключается в том, почему стадия открытия или закрытия не закрывается после того, как ордер был исполнен.",
                 "updated": 1639761514920
+            },
+            {
+                "language": "DE",
+                "text": "Eine der häufigsten Fragen, die von Benutzern gestellt werden, ist, warum die Open oder Close Stage nicht geschlossen wird, nachdem der Auftrag ausgeführt wurde.",
+                "updated": 1645479246763
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcılar tarafından en sık sorulan sorulardan biri, sipariş doldurulduktan sonra açma veya kapatma aşamasının neden kapanmadığıdır.",
+                "updated": 1654688530531
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "RU",
                     "text": "Короткий ответ: потому что величина Size Filled не достигла значения Size Filled.",
                     "updated": 1639761649231
+                },
+                {
+                    "language": "DE",
+                    "text": "Die kurze Antwort ist, dass die gefüllte Stage Size nicht den Wert der Stage Target Size erreicht hat.",
+                    "updated": 1645479282839
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısa yanıt, Doldurulan Sahne (Size filled) Boyutu Sahne Hedef Boyutu (Target Size) değerine ulaşmadığı içindir.",
+                    "updated": 1654688588138
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "RU",
                     "text": "Есть много причин, почему это может произойти, но все они связаны с синхронизацией между системой и биржей, а также с накоплением пыли в десятичных знаках.",
                     "updated": 1639761733882
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt viele Gründe, warum dies passieren kann, aber alle haben mit der Synchronisierung zwischen dem System und der Börse zu tun und damit, dass sich Dust (engl. \"Staub\": geringe Abweichungen) in den Dezimalstellen ansammelt.",
+                    "updated": 1645479741301
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun olmasının birçok nedeni vardır, ancak bunların hepsinin sistem ve borsa arasındaki senkronizasyonla ve ondalık basamaklarda toz birikmesiyle ilgisi vardır.",
+                    "updated": 1654688615547
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "RU",
                     "text": "Стадия не закрывается",
                     "updated": 1639761771287
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Stage schliesst nicht",
+                    "updated": 1645479437373
+                },
+                {
+                    "language": "TR",
+                    "text": "Sahne Kapanmıyor",
+                    "updated": 1654688630076
                 }
             ]
         },
@@ -63,6 +103,16 @@
                     "language": "RU",
                     "text": "Одна из распространенных проблем, с которой сталкиваются пользователи при работе со стадиями, заключается в том, что они не закрываются после исполнения ордеров. Обычно это происходит потому, что во время торговли, особенно во время реальной торговли, происходит несколько корректировок по стадиям. Причина, по которой стадия не закрывается автоматически, заключается в том, что общее количество исполненных ордеров для всей стадии не достаточно близко к целевому размеру стадии, определенному пользователями. Для того чтобы избежать этой ситуации, существует три конфигурации узла Stage, которые вы можете использовать:",
                     "updated": 1639761882959
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein häufiges Problem, das die Benutzer beim Umgang mit den Stages haben, ist, dass sie nicht geschlossen werden, nachdem ihre Aufträge ausgeführt wurden. Dies liegt in der Regel daran, dass während des Handels mehrere Kursanpassungen vorgenommen werden, insbesondere beim Live-Handel. Der Grund dafür, dass eine Stage nicht automatisch geschlossen wird, liegt darin, dass die Summe der ausgeführten Aufträge für die gesamte Stage nicht nahe genug an der vom Benutzer definierten Stage-Zielgröße liegt. Um diese Situation zu vermeiden, gibt es drei Konfigurationen für den Stage Node, die Sie verwenden können:",
+                    "updated": 1645479494351
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcıların aşamalarla uğraşırken yaşadıkları yaygın sorunlardan biri, siparişlerinin doldurulduktan sonra kapanmamalarıdır. Bu genellikle, alım satım sırasında, özellikle canlı alım satım sırasında meydana gelen oranda birkaç ayarlama olması nedeniyle olur. Bir Aşamanın otomatik olarak kapanmamasının nedeni, tüm aşama için doldurulan toplamın, kullanıcılar tarafından tanımlanan Aşama Hedef (Target Size) Boyutuna yeterince yakın olmamasıdır. Bu durumdan kaçınmak için Stage düğümünde kullanabileceğiniz üç yapılandırma vardır:",
+                    "updated": 1654694165041
                 }
             ]
         },
@@ -74,6 +124,16 @@
                     "language": "RU",
                     "text": "ROUNDING_ERROR_CORRECTION_FACTOR: это настраиваемый коэффициент, который может быть применен к стадии, заполненной во время выполнения, чтобы заставить ее достичь целевой величины Target Size. Значение по умолчанию для этого коэффициента:",
                     "updated": 1639762040608
+                },
+                {
+                    "language": "DE",
+                    "text": "ROUNDING_ERROR_CORRECTION_FACTOR: ist ein konfigurierbarer Faktor, der auf die zur Laufzeit gefüllte Stage angewendet werden kann, um sie zu zwingen, die Stage Target Size zu erreichen. Der Standardwert für diesen Faktor ist:",
+                    "updated": 1645479534480
+                },
+                {
+                    "language": "TR",
+                    "text": "ROUNDING_ERROR_CORRECTION_FACTOR: Aşama Hedef Boyutuna ulaşmaya zorlamak için çalışma zamanında doldurulan aşamaya uygulanabilen yapılandırılabilir bir faktördür. Bu faktör için varsayılan değer:",
+                    "updated": 1654688789649
                 }
             ]
         },
@@ -90,6 +150,16 @@
                     "language": "RU",
                     "text": "Это значение перезаписывается тем, что настроено пользователями на узле Stage в свойстве roundingErrorCorrectionFactor.",
                     "updated": 1639762080821
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Wert wird von dem Wert überschrieben, den der Benutzer am Stage Node unter der Eigenschaft roundingErrorCorrectionFactor konfiguriert.",
+                    "updated": 1645479568891
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu değerin üzerine, roundingErrorCorrectionFactor özelliği altındaki Aşama düğümünde kullanıcıların yapılandırdığı her şey yazılır.",
+                    "updated": 1654688835451
                 }
             ]
         },
@@ -101,6 +171,16 @@
                     "language": "RU",
                     "text": "Значение 1.01 означает, что когда заполненное количество находится на расстоянии 1% от цели, то стадия будет закрыта.",
                     "updated": 1639763518531
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Wert von 1,01 würde bedeuten, dass die Stage geschlossen wird, wenn die erfüllte Menge 1% vom Stage Target entfernt ist.",
+                    "updated": 1645479654086
+                },
+                {
+                    "language": "TR",
+                    "text": "1.01 değeri, Doldurulan miktar Aşama Hedefinden %1 uzaklıkta olduğunda aşamanın kapatılacağı anlamına gelir.",
+                    "updated": 1654688857737
                 }
             ]
         },
@@ -113,6 +193,16 @@
                     "language": "RU",
                     "text": "ABSOLUTE_DUST_IN_BASE_ASSET: это числовое значение, которое представляет собой расстояние, допустимое между Size Filled и Target Side для стадии, измеряемое в базовых активах Base Asset. По умолчанию это значение равно нулю, и вы можете определить его в конфигурации узла Stage с помощью свойства absoluteDustInBaseAsset.",
                     "updated": 1639763655860
+                },
+                {
+                    "language": "DE",
+                    "text": "ABSOLUTE_DUST_IN_BASE_ASSET: ist ein numerischer Wert, der den Abstand zwischen der erfüllten Menge und der Target Side für eine Stage angibt, gemessen in Base Asset. Der Standardwert ist Null, und Sie können ihn in der Konfiguration eines Stage Nodes über die Eigenschaft absoluteDustInBaseAsset definieren.",
+                    "updated": 1645479872377
+                },
+                {
+                    "language": "TR",
+                    "text": "ABSOLUTE_DUST_IN_BASE_ASSET: Bir aşama için Doldurulan Boyut ile Hedef arasında olmasına izin verdiğiniz mesafeyi temsil eden sayısal bir değerdir ve Temel Varlıkta ölçülür. Varsayılan değeri Sıfır'dır ve bunu absoluteDustInBaseAsset özelliğini kullanarak bir Aşama düğümünün yapılandırmasında tanımlayabilirsiniz.",
+                    "updated": 1654688901167
                 }
             ]
         },
@@ -125,6 +215,16 @@
                     "language": "RU",
                     "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: это числовое значение, которое представляет собой расстояние, допустимое между Size Filled и Target Side для стадии, измеряемое в базовых активах Base Asset. По умолчанию это значение равно нулю, и вы можете определить его в конфигурации узла Stage с помощью свойства absoluteDustInQuotedAsset.",
                     "updated": 1639763755147
+                },
+                {
+                    "language": "DE",
+                    "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: ist ein numerischer Wert, der den Abstand zwischen der erfüllten Menge und der Target Side für eine Stage angibt, gemessen in Base Asset. Der Standardwert ist Null, und Sie können ihn in der Konfiguration eines Stage Nodes mit der Eigenschaft absoluteDustInQuotedAsset definieren.",
+                    "updated": 1645479946433
+                },
+                {
+                    "language": "TR",
+                    "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: Temel Varlık cinsinden ölçülen, bir aşama için Doldurulan Boyut ile Hedef arasında olmasına izin verdiğiniz mesafeyi temsil eden sayısal bir değerdir. Varsayılan değeri Sıfır'dır ve bunu absoluteDustInQuotedAsset özelliğini kullanarak bir Aşama düğümünün yapılandırmasında tanımlayabilirsiniz.",
+                    "updated": 1654694179277
                 }
             ]
         },
@@ -137,6 +237,16 @@
                     "language": "RU",
                     "text": "Реализация",
                     "updated": 1639763777340
+                },
+                {
+                    "language": "DE",
+                    "text": "Implementierung",
+                    "updated": 1645479966367
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama",
+                    "updated": 1654689037134
                 }
             ]
         },
@@ -148,6 +258,16 @@
                     "language": "RU",
                     "text": "Здесь вы можете увидеть, как эти параметры реализованы в коде Low Frequency Trading Bot:",
                     "updated": 1639763795071
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier sehen Sie, wie diese Parameter im Code des Low Frequency Trading Bot implementiert sind:",
+                    "updated": 1645480004891
+                },
+                {
+                    "language": "TR",
+                    "text": "Burada, bu parametrelerin Düşük Frekanslı Ticaret Botu kodunda nasıl uygulandığını görebilirsiniz:",
+                    "updated": 1654689057840
                 }
             ]
         },

@@ -16,6 +16,16 @@
                 "language": "RU",
                 "text": "Промойте и повторите процедуру.",
                 "updated": 1640281913276
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Duraklatın ve işlemi tekrarlayın.",
+                "updated": 1645359656288
+            },
+            {
+                "language": "DE",
+                "text": "Spülen und wiederholen.",
+                "updated": 1647164778334
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "language": "RU",
                     "text": "Когда вы обнаружили, что может быть причиной ошибки, остановите все процессы в пользовательском интерфейсе (UI), измените код вашего индикатора и повторно выполните отладку кода.",
                     "updated": 1640281953799
+                },
+                {
+                    "language": "TR",
+                    "text": "Hatanın nedeninin ne olabileceğini tespit ettiğinizde, kullanıcı arayüzündeki tüm işlemleri durdurun, göstergenizin kodunu değiştirin ve kodunuzda yeniden hata ayıklayın.",
+                    "updated": 1645359674273
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Fehlerursache gefunden haben, stoppen Sie alle Prozesse in der UI, ändern Sie den Code für Ihren Indikator und debuggen Sie Ihren Code erneut.",
+                    "updated": 1647164808469
                 }
             ]
         },
@@ -41,6 +61,16 @@
                     "language": "RU",
                     "text": "Используйте операторы \"if/else\" или присвойте значения переменным, которые получают сомнительные значения, и повторно протестируйте индикатор, исключая возможные причины - одну за другой.",
                     "updated": 1640281973719
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: \"if/else\" ifadelerini kullanın veya şüpheli değerler alan değişkenlere değerler atayın ve olası nedenleri birer birer ekarte ederek göstergenizi yeniden test edin.",
+                    "updated": 1645359696198
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie \"if/else\"-Anweisungen oder weisen Sie Variablen, die fragwürdige Werte erhalten, Werte zu und testen Sie Ihren Indikator erneut, um mögliche Ursachen auszuschließen - eine nach der anderen.",
+                    "updated": 1647164828999
                 }
             ]
         }

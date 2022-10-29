@@ -31,7 +31,7 @@ function newDataMiningFunctionLibraryMineFunctions() {
         Output Dataset Folder, and for each Product Definition found we will create a Output Definition
         for each Dataset defined inside the Product Definition.
         */
-        UI.projects.foundations.utilities.folders.asymetricalFolderStructureCloning(
+        let newUiObjects = UI.projects.foundations.utilities.folders.asymetricalFolderStructureCloning(
             node.payload.parentNode.payload.parentNode,
             node,
             'products',
@@ -41,6 +41,8 @@ function newDataMiningFunctionLibraryMineFunctions() {
             'Output Dataset Folder',
             'datasets'
         )
+
+        return newUiObjects
     }
 
     function addAllDataDependencies(node) {
@@ -63,15 +65,19 @@ function newDataMiningFunctionLibraryMineFunctions() {
         Dataset of each Product we will create a Data Dependency. In case we find Product Definition Folders, we will 
         recreate that structure too, using in this case Data Dependency Folders.
         */
+        let newUiObjects = []
         let dataMine = node.payload.referenceParent
         scanBotArray(dataMine.sensorBots)
         scanBotArray(dataMine.apiDataFetcherBots)
         scanBotArray(dataMine.indicatorBots)
+        scanBotArray(dataMine.studyBots)
         scanBotArray(dataMine.tradingBots)
         scanBotArray(dataMine.portfolioBots)
         scanBotArray(dataMine.learningBots)
 
         function scanBotArray(botArray) {
+            if (botArray === undefined) { return }
+            
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
                 let botProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
@@ -87,18 +93,30 @@ function newDataMiningFunctionLibraryMineFunctions() {
                     'Data Dependency Folder',
                     'datasets'
                 )
+
+                if (botProducts !== undefined) {
+                    newUiObjects.push(botProducts)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllDataMineDataDependencies(node, rootNodes) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             
             if (rootNode.type === 'Data Mine') {
                 let dataMineDataDependencies = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dataMineDataDependencies, rootNode)
+                if (dataMineDataDependencies !== undefined) {
+                    newUiObjects.push(dataMineDataDependencies)
+                }
             }
         }
+
+        return newUiObjects
     }
 }

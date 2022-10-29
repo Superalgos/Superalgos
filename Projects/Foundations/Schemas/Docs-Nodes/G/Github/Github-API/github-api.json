@@ -8,6 +8,16 @@
                 "language": "DE",
                 "text": "In dieser Node werden Ihre Github Anmeldedaten(Credentials) gespeichert.",
                 "updated": 1639496666814
+            },
+            {
+                "language": "RU",
+                "text": "В этом узле сохраняются ваши учетные данные Github.",
+                "updated": 1645166643877
+            },
+            {
+                "language": "TR",
+                "text": "Bu Node'da github kimlik bilgileriniz kaydedilir.",
+                "updated": 1654419247181
             }
         ]
     },
@@ -21,6 +31,17 @@
                     "language": "DE",
                     "text": "Sie fügen Ihren Benutzernamen zwischen den Anführungszeichen nach \"username\" : ein. Sie fügen Ihr benutzerdefiniertes Github-Api-Token zwischen den Anführungszeichen nach: \"token\": ein. Diese Anmeldeinformationen werden zum Beispiel für die Aktualisierung Ihrer lokalen branch benötigt.",
                     "updated": 1639496733626
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы добавляете свое имя пользователя в поле \"username\" и добавляете свой пользовательский токен github api в поле \"token\". Эти учетные данные нужны, например, для обновления локальной ветки.",
+                    "updated": 1645166772351
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı adınızı \"kullanıcı adı\" ifadesinden sonraki satırların arasına eklersiniz: . Sonrasındaki tırnak işaretleri arasına özel github api token'ınızı ekliyorsunuz: \"token\": . Bu kimlik bilgileri örneğin yerel şubenizi güncellemek için gereklidir.",
+                    "updated": 1654419254126,
+                    "style": "Text"
                 }
             ]
         }

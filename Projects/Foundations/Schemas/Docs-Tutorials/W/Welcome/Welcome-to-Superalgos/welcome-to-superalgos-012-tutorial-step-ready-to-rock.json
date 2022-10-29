@@ -35,20 +35,20 @@
             },
             {
                 "language": "DE",
-                "text": "Die Data Tasks node steuert alle für diese LAN-Netzwerk node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
-                "updated": 1637873413099,
+                "text": "Die Data Tasks-Node steuert alle für diese LAN-Netzwerk-Node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
+                "updated": 1660417514468,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
-                "updated": 1635611514856,
+                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для узла LAN Network Node.",
+                "updated": 1641803953590,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Veri Görevleri düğümü ( Data Tasks ), bu LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
-                "updated": 1640627348348
+                "text": "Veri Görevleri düğümü, ( Data Tasks ), LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1644849084980
             }
         ],
         "updated": 1636910229969
@@ -131,20 +131,20 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT Market von Binance zu erhalten.",
-                    "updated": 1634162101738,
+                    "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT-Markt von der Börse zu erhalten.",
+                    "updated": 1660417440182,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
-                    "updated": 1635583091531,
+                    "text": "Запуск операции по добыче данных, чтобы получить с биржи данные для рынка BTC/USDT.",
+                    "updated": 1662032424103,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa'dan BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
-                    "updated": 1640627207922
+                    "text": "Borsa'dan BTC/USDT işlem çifti ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1644849324942
                 }
             ],
             "updated": 1640350823953
@@ -185,20 +185,20 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
-                    "updated": 1635583981313
+                    "text": "Запуск сессии бэктестинга (Backtesting Session) с существующей стратегией с открытым исходным кодом.",
+                    "updated": 1662032409538
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
-                    "updated": 1635579517849
+                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri BackTest Oturumu ( Backtesting Session ) çalıştıracağız.",
+                    "updated": 1644849345417
                 }
             ],
             "updated": 1616414607531
         },
         {
             "style": "List",
-            "text": "Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
+            "text": "Run a Live Trading Session with minimal funds, to test other critical aspects of the system.",
             "translations": [
                 {
                     "language": "IT",
@@ -226,14 +226,14 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Führen Sie eine Live Trading Session mit minimalen Mitteln durch, um die kritischen Aspekte des Systems zu testen.",
-                    "updated": 1634162119027,
+                    "text": "Führen Sie eine Live Trading Session mit minimalem Einsatz durch, um die andere wesentliche Aspekte des Systems zu testen.",
+                    "updated": 1660417473886,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
-                    "updated": 1635584028882
+                    "text": "Запуск реальной торговой сессии с минимальными средствами, чтобы протестировать другие важные аспекты системы.",
+                    "updated": 1662032391714
                 },
                 {
                     "language": "TR",
@@ -241,7 +241,7 @@
                     "updated": 1635579557420
                 }
             ],
-            "updated": 1616414612909
+            "updated": 1660142821699
         },
         {
             "style": "Callout",

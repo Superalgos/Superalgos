@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Image позволяет накладывать изображение на диаграммы, контролировать его положение, размер и время визуализации.",
                 "updated": 1638968921862
+            },
+            {
+                "language": "TR",
+                "text": "Görüntü düğümü, grafiklerin üzerine bir görüntü yerleştirilmesine, konumunun, boyutunun ve ne zaman oluşturulacağının kontrol edilmesine olanak tanır.",
+                "updated": 1654419585825
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Главное требование к изображениям - они должны быть в формате png, 24 бита, с прозрачностью, с расширением в нижнем регистре, и квадратными.",
                     "updated": 1638969170053
+                },
+                {
+                    "language": "TR",
+                    "text": "Resimler için en önemli gereksinim, png formatında, 24 bit, şeffaf, düşük harf uzantılı ve kare olmalarıdır.",
+                    "updated": 1654419592492,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,23 +45,44 @@
                     "language": "RU",
                     "text": "Если вы планируете внести свой индикатор, чтобы сообщество могло его использовать, следуйте рекомендациям на странице значков How to Contribute Icons для внесения вкладов, в частности, техническим требованиям.",
                     "updated": 1638969479621
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluğun kullanabilmesi için indikatörünüze katkıda bulunmayı düşünüyorsanız, lütfen katkıda bulunma simgeleri sayfasındaki yönergeleri, özellikle de Teknik Gereksinimleri izleyin.",
+                    "updated": 1654419600988,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
+            "text": "Images must the stored in the following path: Projects/Foundations/Icons/",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Изображения должны храниться по следующему пути: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
-                    "updated": 1638969275843
+                    "text": "Изображения должны храниться по следующему пути: Projects/Foundations/Icons/",
+                    "updated": 1661275549669
+                },
+                {
+                    "language": "TR",
+                    "text": "Görüntüler aşağıdaki yolda saklanmalıdır: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
+                    "updated": 1654419607535,
+                    "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1658985357132
         },
         {
             "style": "Note",
-            "text": "See the configuration for further details."
+            "text": "See the configuration for further details.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Daha fazla ayrıntı için yapılandırmaya bakın.",
+                    "updated": 1654419614568,
+                    "style": "Note"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -58,15 +90,39 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Image"
+            "text": "Configuring Image",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Görüntüyü Yapılandırma",
+                    "updated": 1654419621824,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the image, without the .png extension."
+            "text": "codeName is the name of the image, without the .png extension.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "codeName, .png uzantısı olmadan görüntünün adıdır.",
+                    "updated": 1654419629181,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "size is the size at which the image shall be rendered, in pixels."
+            "text": "size is the size at which the image shall be rendered, in pixels.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "boyut, görüntünün piksel cinsinden işleneceği boyuttur.",
+                    "updated": 1654419635026,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

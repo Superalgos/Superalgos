@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Вы будете получать ошибку этого типа каждый раз, когда узел Node, который, как ожидается, будет ссылаться на какой-либо другой узел, и ссылка не была найдена. Обычно вы можете избежать ошибок такого типа, настроив ожидаемую ссылку.",
                 "updated": 1638552874457
+            },
+            {
+                "language": "DE",
+                "text": "Ein Fehler dieser Art tritt immer dann auf, wenn bei einem Node, von dem erwartet wird, dass er auf einen anderen Node verweist, kein Verweis gefunden wurde. Sie können diese Art von Fehlern normalerweise vermeiden, indem Sie den erwarteten Verweis einrichten.",
+                "updated": 1645478124633
+            },
+            {
+                "language": "TR",
+                "text": "Her seferinde bu tür bir hata alırsınız. Düğüm ( Node ) bunun başka bir düğüme referans vermesi bekleniyor ve hiçbir referans bulunamadı. Beklenen referansı ayarlayarak genellikle bu tür hataları önleyebilirsiniz.",
+                "updated": 1652295989121
             }
         ]
     },
@@ -22,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553042454
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652296353075
                 }
             ]
         }

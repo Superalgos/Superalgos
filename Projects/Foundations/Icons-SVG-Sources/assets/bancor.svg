@@ -1,27 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 512 512"
-   version="1.1"
-   id="svg5347"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs5351" />
-  <g
-     fill="none"
-     id="g5345"
-     transform="scale(16)">
-    <circle
-       cx="16"
-       cy="16"
-       r="16"
-       fill="#000d2b"
-       id="circle5341" />
-    <path
-       fill="#ffffff"
-       d="m 15.92,5.88 -4.518,2.647 4.518,2.648 4.603,-2.648 z m 0.743,14.134 v 5.295 L 22.8,21.808 v -5.296 z m 4.603,-9.822 v 5.296 l -4.604,2.648 V 12.84 Z m -11.082,5.296 4.604,2.648 V 12.84 l -4.604,-2.648 z m 0,7.174 4.604,2.647 v -5.295 l -4.604,-2.647 v 5.294 z"
-       id="path5343" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 0V512C114.615 512 0 397.385 0 256C0 114.615 114.615 0 256 0Z" fill="#365558"/>
+<path d="M256 512V0C397.385 0 512 114.615 512 256C512 397.385 397.385 512 256 512Z" fill="#0295AA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256.059 101.736L254.778 101L182.488 143.351L254.778 185.719L256.059 184.982V101.736ZM236.665 297.093L163 254.726V169.991L236.665 212.359V297.093ZM236.665 411.86L163 369.509V369.492V284.79L236.665 327.141V411.86Z" fill="#E6EAEA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 185.016L328.427 143.352L256 101.703V185.016ZM266.666 411.86V327.141L364.86 271.11V355.845L266.666 411.86ZM266.65 297.094L340.316 254.726V169.991L266.65 212.359V297.094Z" fill="white"/>
 </svg>

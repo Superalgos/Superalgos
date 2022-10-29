@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Yürütme algoritması, borsada sipariş vermek ve yönetmek için kullanılan bir dizi talimattır.",
                 "updated": 1639222248452
+            },
+            {
+                "language": "DE",
+                "text": "Ein Ausführungsalgorithmus (Execution Algorithm) ist ein Satz von Anweisungen, die zur Platzierung und Verwaltung von Aufträgen an der Börse verwendet werden.",
+                "updated": 1641668828160
             }
         ]
     },
@@ -33,6 +38,17 @@
                     "language": "RU",
                     "text": "Любая заданная стратегия может иметь простые или очень сложные требования к исполнению. Чтобы справиться со сложностью, Superalgos позволяет пользователям настраивать столько алгоритмов выполнения, сколько требуется.",
                     "updated": 1638785805848
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Strategie kann einfache oder sehr komplexe Ausführungsanforderungen haben. Um mit der Komplexität umzugehen, erlaubt Superalgos den Benutzern, so viele Ausführungsalgorithmen wie nötig einzurichten.",
+                    "updated": 1641668853883
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir stratejinin basit veya çok karmaşık uygulama gereksinimleri olabilir. Karmaşıklıkla başa çıkmak için Superalgos, kullanıcıların gerektiği kadar çok yürütme algoritması kurmasına olanak tanır.",
+                    "updated": 1654392426778,
+                    "style": "Text"
                 }
             ]
         },
@@ -44,6 +60,17 @@
                     "language": "RU",
                     "text": "Тогда логика в каждом алгоритме может оставаться простой, в то время как совместная работа нескольких алгоритмов может иметь дело с требуемой сложностью.",
                     "updated": 1638785824016
+                },
+                {
+                    "language": "DE",
+                    "text": "Dann kann die Logik in jedem Algorithmus einfach bleiben, während die kombinierte Arbeit mehrerer Algorithmen die erforderliche Komplexität bewältigen kann.",
+                    "updated": 1641668866711
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra, her bir algoritmadaki mantık basit kalabilirken, birden fazla algoritmanın birleşik çalışması gerekli karmaşıklıkla başa çıkabilir.",
+                    "updated": 1654392432651,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +82,16 @@
                     "language": "RU",
                     "text": "Каждому алгоритму может быть назначена часть целевого размера (см. Раздел конфигурации), таким образом, степень участия каждого алгоритма в выполнении определяется этим параметром.",
                     "updated": 1638785855815
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedem Algorithmus kann ein Teil der Zielgröße zugewiesen werden (siehe Abschnitt \"Konfiguration\"), so dass der Umfang der Beteiligung jedes Algorithmus an der Ausführung durch diesen Parameter definiert wird.",
+                    "updated": 1641668881717
+                },
+                {
+                    "language": "TR",
+                    "text": "Her algoritmaya hedef boyutun (Target Rate) bir kısmı atanabilir (yapılandırma bölümüne bakın), böylece her algoritmanın yürütmeye katılımının kapsamı bu parametre ile tanımlanabilir.",
+                    "updated": 1654754405021
                 }
             ]
         },
@@ -66,6 +103,17 @@
                     "language": "RU",
                     "text": "Алгоритм выполнения (Execution Algorithm) - это набор инструкций в том смысле, что ордеры, определенные в каждом алгоритме, сами являются инструкциями. То есть алгоритм выполнения - это набор предопределенных ордеров, которые могут быть созданы или отменены в определенных рыночных ситуациях.",
                     "updated": 1639841395922
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Ausführungsalgorithmus ist ein Satz von Anweisungen in dem Sinne, dass die in jedem Algorithmus definierten Aufträge selbst die Anweisungen sind. Das heißt, ein Ausführungsalgorithmus ist eine Reihe von vordefinierten Aufträgen, die in bestimmten Marktsituationen erstellt oder storniert werden können.",
+                    "updated": 1641668900730
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir yürütme algoritması, her bir algoritmada tanımlanan emirlerin kendilerinin talimatlar olması anlamında bir talimatlar kümesidir. Diğer bir deyişle, bir uygulama algoritması, belirli piyasa durumları göz önüne alındığında oluşturulabilen veya iptal edilebilen önceden tanımlanmış bir dizi emirdir.",
+                    "updated": 1654392444416,
+                    "style": "Text"
                 }
             ]
         },
@@ -82,6 +130,12 @@
                     "language": "RU",
                     "text": "Конфигурация Execution Algorithm",
                     "updated": 1638785949446
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme Algoritması Yapılandırması",
+                    "updated": 1654392450016,
+                    "style": "Title"
                 }
             ]
         },
@@ -93,6 +147,16 @@
                     "language": "RU",
                     "text": "процентOfStageTargetSize - это определение того, какая часть целевого размера всего этапа будет обрабатываться одним конкретным алгоритмом выполнения, выраженное в процентах от общего целевого размера. Возможные значения - это действительные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, алгоритм не будет выполняться.",
                     "updated": 1638785982625
+                },
+                {
+                    "language": "DE",
+                    "text": "percentageOfStageTargetSize ist die Definition, wie viel von der Zielgröße (Target Size) der gesamten Stage von einem bestimmten Ausführungsalgorithmus bearbeitet wird, ausgedrückt als Prozentsatz der gesamten Zielgröße. Mögliche Werte sind reelle Zahlen zwischen 0 und 100, einschließlich der Extremwerte. Wenn Sie den Wert auf 0 setzen, wird der Algorithmus nicht ausgeführt.",
+                    "updated": 1641668982666
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageOfStageTargetSize, tüm aşamanın hedef boyutunun (Target Size) ne kadarının belirli bir yürütme algoritması tarafından ele alınacağının tanımıdır ve toplam hedef boyutun yüzdesi olarak ifade edilir. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, algoritma yürütülmeyecektir.",
+                    "updated": 1654755909073
                 }
             ]
         }

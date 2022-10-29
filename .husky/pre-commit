@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Disabling unit tests until resolution of jest memory issue - https://github.com/facebook/jest/issues/11956
+# if [ "$UNITTESTS" != "false" ]
+# then
+#     npm run unitTest
+# fi

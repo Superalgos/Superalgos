@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Это рабочее пространство включает четыре простые торговые системы Trading Systems с четырьмя соответствующими торговыми задачами в узле Production Trading Tasks в сети Network, так что вы можете легко проверить свой ключ учетной записи биржи Exchange Account Key.",
                 "updated": 1639056597453
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, Exchange Hesap Anahtarınızı ( Exchange Account Key ) kolayca test edebilmeniz için Ağdaki Üretim Ticaret Görevleri ( Production Trading Tasks ) düğümü altında ilgili dört ticaret göreviyle dört basit Ticaret Sistemi ( Trading Systems ) içerir.",
+                "updated": 1644676255262
             }
         ]
     },

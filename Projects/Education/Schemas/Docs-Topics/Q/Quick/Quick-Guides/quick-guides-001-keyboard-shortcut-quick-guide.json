@@ -1,6 +1,6 @@
 {
     "topic": "Quick Guides",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Keyboard Shortcut Quick Guide",
     "definition": {
         "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly. Keyboard Shortcuts improve your Workflow and contain functions like recording GIF`s.\n\n",
@@ -8,13 +8,18 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Superalgos предлагает ряд сочетаний клавиш, чтобы сделать работу с платформой более эффективной и удобной для пользователя.",
-                "updated": 1639554313331
+                "text": "Superalgos предлагает ряд сочетаний клавиш, чтобы сделать работу с платформой более эффективной и удобной. Комбинации клавиш улучшают ваш рабочий процесс и содержат такие функции, как запись GIF`ов.",
+                "updated": 1641834627921
             },
             {
                 "language": "DE",
                 "text": "Superalgos bietet eine Reihe von Tastenkombinationen, um die Arbeit mit der Plattform effizienter und benutzerfreundlicher zu gestalten. Shortcuts (Tastaturkürzel) verbessern Ihren Workflow und enthalten Funktionen wie die Aufnahme von GIFs.",
                 "updated": 1640560205845
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos, platformla çalışmayı daha verimli ve kullanıcı dostu hale getirmek için bir dizi klavye kısayolu sunar. Klavye Kısayolları, İş Akışınızı iyileştirir ve GIF'leri kaydetme gibi işlevleri içerir.",
+                "updated": 1647428524891
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Für alle Mac-Benutzer(Apple PC Betriebssystem) ersetzen Sie bitte Cmd anstelle von Ctrl.",
                     "updated": 1640556810949
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Tüm Mac Kullanıcıları için lütfen Ctrl yerine Cmd yazın.",
+                    "updated": 1647428631871
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Hier finden Sie die aktuelle Liste aller implementierten Tastenkombinationen und Optionen zur Anpassung:",
                     "updated": 1640556842157
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulanan tüm kısayolların ve özelleştirme seçeneklerinin güncel listesi:",
+                    "updated": 1647428650534
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "DE",
                     "text": "Generelle Shortcuts (Tastenkombinationen)",
                     "updated": 1640556861420
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel Kısayollar",
+                    "updated": 1647428660071
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "DE",
                     "text": "Aktuellen Workspace speichern Workspace: Ctrl + Shift + Alt + Key-S",
                     "updated": 1640556891358
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut çalışma alanını kaydet: Ctrl + Shift + Alt + Key-S",
+                    "updated": 1647428684922
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "DE",
                     "text": "Display Reference Connections:(Display Reference Connections) Ctrl + Shift + Alt + Key-R",
                     "updated": 1640556926853
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans Bağlantılarını Göster: Ctrl + Shift + Alt + Key-R",
+                    "updated": 1647428726233
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "DE",
                     "text": "Parent Connections anzeigen: (Display Parent Connections) Ctrl + Shift + Alt + Key-C",
                     "updated": 1640556946706
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst Bağlantıları Görüntüle: Ctrl + Shift + Alt + Key-C",
+                    "updated": 1647428753808
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "DE",
                     "text": "Seitenverhältnis des Diagramms (Chart) anpassen: Ctrl + Shift + Alt + Key-A",
                     "updated": 1640556971370
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik En Boy Oranını Ayarla: Ctrl + Shift + Alt + Key-A",
+                    "updated": 1647428770618
                 }
             ]
         },
@@ -150,6 +190,11 @@
                     "language": "DE",
                     "text": "Kartenmodus umschalten: Ctrl + Shift + Alt + Key-M",
                     "updated": 1640556987451
+                },
+                {
+                    "language": "TR",
+                    "text": "Harita Modunu Aç/Kapat: Ctrl + Shift + Alt + Key-M",
+                    "updated": 1647428790534
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "DE",
                     "text": "Sie können den shortcut für diese allgemeinen Tastenkombinationen ändern, indem Sie die Konfiguration Ihrer Node Space Settings (Raumeinstellungen) unter der Node Design Space (Designbereich) anpassen. Weitere Einzelheiten finden Sie auf der Seite der Node Raumeinstellungen (Space Settings).",
                     "updated": 1640557127612
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Tasarım Alanı ( Design Space ) düğümü altında bulunan Alan Ayarları ( Space Settings ) düğümünüzün yapılandırmasını ayarlayarak bu genel kısayolların kısayol tuşunu değiştirebilirsiniz. Daha fazla ayrıntı için Alan Ayarları ( Space Settings ) düğüm sayfasına bakın.",
+                    "updated": 1647428880380
                 }
             ]
         },
@@ -184,6 +234,11 @@
                     "language": "DE",
                     "text": "Node Manipulation`s Shortcuts",
                     "updated": 1640557142011
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm İşleme Kısayolları",
+                    "updated": 1647428919588
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über eine Node (hovering over Node): Wählen Sie eine Node zum Verschieben Ctrl + Shift + Alt + Key-Z",
                     "updated": 1640559491228
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümün üzerinde gezinirken: Taşımak için bir Düğüm seçin Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1647428942861
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "DE",
                     "text": "Wenn der Mauszeiger über nichts schwebt: Löscht die ausgewählte Node Ctrl + Shift + Alt + Key-Z",
                     "updated": 1640557258817
+                },
+                {
+                    "language": "TR",
+                    "text": "Boşlukta gezinirken: Seçili düğümü temizler Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1647429523558
                 }
             ]
         },
@@ -235,6 +300,11 @@
                     "language": "DE",
                     "text": "Ausgewählte Node an die aktuelle Position des Mauszeigers verschieben: Ctrl + Shift + Alt + Key-X",
                     "updated": 1640557299417
+                },
+                {
+                    "language": "TR",
+                    "text": "Seçilen düğümü Fare İşaretçisinin geçerli konumuna taşı: Ctrl + Shift + Alt + Key-X",
+                    "updated": 1647429549726
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "DE",
                     "text": "Die Node muss angepinnt sein um sie bewegen zu können.",
                     "updated": 1640557341869
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Hareket edebilmek için düğüm ( Node ) sabitlenmelidir.",
+                    "updated": 1647429580700
                 }
             ]
         },
@@ -269,6 +344,11 @@
                     "language": "DE",
                     "text": "Abrufen/Wiederherstellen einer verlorenen/außerhalb der Grenzen liegenden Node: Ctrl + Shift + Alt + Key-K",
                     "updated": 1640557434635
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaybolan/sınır dışı düğümü geri getir: Ctrl + Shift + Alt + Key-K",
+                    "updated": 1647429703740
                 }
             ]
         },
@@ -285,6 +365,11 @@
                     "language": "DE",
                     "text": "Produktivitäts Shortcuts",
                     "updated": 1640557452286
+                },
+                {
+                    "language": "TR",
+                    "text": "üretkenlik kısayolları",
+                    "updated": 1647429739096
                 }
             ]
         },
@@ -302,6 +387,11 @@
                     "language": "DE",
                     "text": "Erfassen Sie ein statisches PNG-Bild: : Ctrl + F8",
                     "updated": 1640557532276
+                },
+                {
+                    "language": "TR",
+                    "text": "Statik bir PNG görüntüsü yakalayın: Ctrl + F8",
+                    "updated": 1647429761146
                 }
             ]
         },
@@ -319,6 +409,11 @@
                     "language": "DE",
                     "text": "Starten Sie die Aufnahme eines GIF-Videos: Ctrl + F9 Drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden.",
                     "updated": 1640557593882
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir GIF videosu çekmeye başlayın: Ctrl + F9, yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın.",
+                    "updated": 1647429785846
                 }
             ]
         },
@@ -335,6 +430,11 @@
                     "language": "DE",
                     "text": "Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
                     "updated": 1640557608192
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yakalama sona erdiğinde, yakalamayı işlemek ve son dosyayı oluşturmak biraz zaman alır.",
+                    "updated": 1647429805897
                 }
             ]
         },
@@ -352,6 +452,11 @@
                     "language": "DE",
                     "text": "Aufnahme eines WEBM-Videos starten: Ctrl + F10 Drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden.",
                     "updated": 1640558089086
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir WEBM videosu çekmeye başlayın: Ctrl + F10, yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın.",
+                    "updated": 1647429818007
                 }
             ]
         },
@@ -368,6 +473,11 @@
                     "language": "DE",
                     "text": "WEBM-Videos werden sofort verarbeitet.",
                     "updated": 1640558110491
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: WEBM videoları anında işlenir.",
+                    "updated": 1647429850028
                 }
             ]
         },
@@ -385,6 +495,11 @@
                     "language": "DE",
                     "text": "Animationsleistung anzeigen: (Display animation performance) Ctrl + Shift + Alt + F11",
                     "updated": 1640558138632
+                },
+                {
+                    "language": "TR",
+                    "text": "Animasyon performansını göster: Ctrl + Shift + Alt + F11",
+                    "updated": 1647429892721
                 }
             ]
         },
@@ -402,6 +517,11 @@
                     "language": "DE",
                     "text": "\"Druckt\" (gibt zurück) das Node Object der aktuellen Node in die Browserkonsole: Ctrl + Shift + Alt + F12",
                     "updated": 1640558211233
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut Düğümün Düğüm Nesnesini tarayıcı konsoluna yazdır: Ctrl + Shift + Alt + F12",
+                    "updated": 1647429931982
                 }
             ]
         },
@@ -419,13 +539,26 @@
                     "language": "DE",
                     "text": "Benutzerdefinierte Shortcuts für Nodes",
                     "updated": 1640558241679
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler için Özel Kısayollar",
+                    "updated": 1647429967375
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Keyboard Shortcuts to Nodes->Custom Node Shortcuts",
-            "updated": 1637691223240
+            "updated": 1637691223240,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Düğümler için Klavye Kısayolları->Özel Düğüm Kısayolları",
+                    "updated": 1654390546465,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "List",
@@ -440,6 +573,11 @@
                     "language": "DE",
                     "text": "Es ist auch möglich, einen benutzerdefinierten Shortcut zu einer beliebigen Node zu erstellen. Bewegen Sie einfach den Mauszeiger über eine Node und drücken Sie Ctrl + Alt + Ihre bevorzugte Taste, um den Shortcut zuzuweisen.",
                     "updated": 1640558401832
+                },
+                {
+                    "language": "TR",
+                    "text": "İstediğiniz herhangi bir düğüme özel bir kısayol ayarlamak da mümkündür. Bir düğümün üzerine gelin ve kısayolu atamak için Ctrl + Alt + tercih ettiğiniz tuşa basın.",
+                    "updated": 1647430001841
                 }
             ]
         },
@@ -456,6 +594,11 @@
                     "language": "DE",
                     "text": "Allgemeine Navigation",
                     "updated": 1640558656173
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel Gezinme",
+                    "updated": 1647430019111
                 }
             ]
         },
@@ -473,6 +616,11 @@
                     "language": "DE",
                     "text": "Auf der Seite: Basic Navigation Seite finden Sie weitere Beschreibungen, wie Sie mit der Maus und der Tastatur im Charting Space und im Design Space navigieren können.",
                     "updated": 1640558785356
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space ) ve Tasarım Alanında ( Design Space ) gezinmek için farenizi ve klavyenizi nasıl kullanacağınıza ilişkin ek açıklamaları Genel Gezinme ( Basic Navigation ) sayfasında bulabilirsiniz.",
+                    "updated": 1647430133756
                 }
             ]
         },
@@ -489,6 +637,11 @@
                     "language": "DE",
                     "text": "Shortcut Fehlerbehebung und Optimierung",
                     "updated": 1640558809456
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayol Sorun Giderme ve İyileştirme",
+                    "updated": 1647430155460
                 }
             ]
         },
@@ -506,6 +659,11 @@
                     "language": "DE",
                     "text": "Wenn eine dieser Tastenkombinationen nicht wie erwartet funktioniert, deaktivieren Sie bitte alle installierten Browser-Erweiterungen, während Sie Superalgos verwenden, da diese die erwartete Funktionalität außer Kraft setzen können.",
                     "updated": 1640558885787
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu klavye kısayollarından herhangi biri beklendiği gibi çalışmıyorsa, beklenen işlevselliği geçersiz kılabileceklerinden Superalgos'u kullanırken lütfen yüklü tarayıcı uzantılarını devre dışı bırakın.",
+                    "updated": 1647430197208
                 }
             ]
         },
@@ -523,6 +681,11 @@
                     "language": "DE",
                     "text": "Außerdem funktionieren viele Tastenkombinationen auch ohne die Verwendung der Alt Taste. Zum Beispiel Ctrl + Shift + Key-S.",
                     "updated": 1640558939123
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Buna ek olarak, birçok kısayol Alt tuşunu kullanmadan da çalışacaktır. Örneğin Ctrl + Shift + Tuş-S.",
+                    "updated": 1647430220803
                 }
             ]
         },
@@ -540,6 +703,11 @@
                     "language": "DE",
                     "text": "Bei bestimmten Betriebssystemen oder Browsern kann das Weglassen der Alt Taste jedoch zu Konflikten mit voreingestellten System Shortcuts führen. Daher funktionieren garantiert nur die Tastenkombinationen, die Alt verwenden. Sie können jedoch nach eigenem Ermessen optimieren!",
                     "updated": 1640559029387
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Ancak, belirli işletim sistemlerinde veya tarayıcılarda Alt tuşunun atlanması, önceden ayarlanmış sistem kısayollarıyla çakışmaya neden olabilir. Bu nedenle, çalışması garanti edilen kısayollar Alt kullananlardır. Ancak uygun gördüğünüz şekilde optimize etmekten çekinmeyin!",
+                    "updated": 1647430270136
                 }
             ]
         },

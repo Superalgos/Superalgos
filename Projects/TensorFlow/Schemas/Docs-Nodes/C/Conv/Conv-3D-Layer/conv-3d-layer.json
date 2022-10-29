@@ -2,12 +2,37 @@
     "type": "Conv 3D Layer",
     "definition": {
         "text": "3D convolution layer (e.g. spatial convolution over volumes). This layer creates a convolution kernel that is convolved with the layer input to produce a tensor of outputs.",
-        "updated": 1613218709328
+        "updated": 1613218709328,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Слой трехмерной свертки (например, пространственная свертка по объемам). Этот слой создает ядро свертки, которое свертывается с входом слоя для получения тензора выходов.",
+                "updated": 1645196193449
+            },
+            {
+                "language": "TR",
+                "text": "3D konvolüsyon katmanı (örneğin hacimler üzerinde uzamsal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisi ile konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
+                "updated": 1654396830560
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645196198346
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396837369,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

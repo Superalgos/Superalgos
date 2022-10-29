@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте этот стиль, чтобы разделить большие области страницы на разные разделы.",
                 "updated": 1638543021864
+            },
+            {
+                "language": "TR",
+                "text": "Bir sayfanın büyük alanlarını farklı bölümlere ayırmak için bu stili kullanın.",
+                "updated": 1652386881805
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638543033845
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652386897015
                 }
             ]
         }

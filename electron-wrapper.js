@@ -1,4 +1,4 @@
-const {app, Menu, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, Menu, BrowserWindow, ipcMain, dialog } = require('electron')
 
 const path = require('path')
 const fs = require('fs')
@@ -26,22 +26,22 @@ function firstRun() {
   }
 
   try {
-    fs.writeFileSync(configPath, '');
+    fs.writeFileSync(configPath, '')
   } catch (error) {
     if (error.code === 'ENOENT') {
       fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/'), {recursive: true});
       return firstRun();
     }
 
-    throw error;
+    throw error
   }
 
-  return true;
-};
+  return true
+}
 
 // iterate in the workspaces folder and get all *Onboarding ones to present in the selection page
 function getWorkspaces() {
-  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Projects/Foundations/Plugins/Workspaces')
+  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Plugins/Foundations/Workspaces')
   const workspaces = []
   try {
     const files = fs.readdirSync(workspacePath)
@@ -81,7 +81,7 @@ function run(workspace) {
   const { fork } = require('child_process')
   platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
 
-  platform.on('message', _ => {
+  platform.on('message', () => {
     openMain(workspace)
     openConsoleWindow()
     if (selectWindow) {selectWindow.close()}
@@ -240,7 +240,9 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) openMain()
 })
 
-function createMainMenus() { 
+function createMainMenus() {
+  let data
+  let modifiers = []
   const mainTemplate = [
     {
       label: 'File',
@@ -304,14 +306,14 @@ function createMainMenus() {
       submenu: [
         {
           label: 'New/Update',
-          click: async() => {
+          click: async () => {
             data = {newUser: ["Governance", "Plugin → Token-Distribution-Superalgos"]}
             mainWindow.webContents.send("fromMaster", data)
           }
         },
         {
           label: 'Save',
-          click: async() => {
+          click: async () => {
             let modifiers = []
             modifiers.push('shift')
             modifiers.push('control')
@@ -322,7 +324,7 @@ function createMainMenus() {
         },
         {
           label: 'Submit',
-          click: async() => {
+          click: async () => {
             data = {submit: ["gov.userProfile"]}
             mainWindow.webContents.send("fromMaster", data)
             mainWindow.webContents.sendInputEvent({type: 'keyDown', modifiers, keyCode: "Enter"})

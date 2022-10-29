@@ -14,12 +14,17 @@
             {
                 "language": "EL",
                 "text": "Για να δημιουργήσετε μια αναφορά, κάντε δεξί κλικ στον πρώτο κόμβο και σύρετέ τον κοντά στον κόμβο προορισμού. Για να αφαιρέσετε μια αναφορά, χρησιμοποιήστε το κουμπί αποσύνδεσης στο μενού.",
-                "updated": 1638980671583
+                "updated": 1641831518856
             },
             {
                 "language": "TR",
                 "text": "Referans, bir düğümdeki bilgilerin diğer düğümlerle ilişkili kurma yoludur, düğümlerin birbirleri ile iletişim kurduğu bir mekanizmadır. Bir düğümün başka bir düğümle referans oluşturma yeteneği, birincinin ikincisinde yer alan bilgilere veya özelliklere erişmesini sağlar.",
                 "updated": 1639721694189
+            },
+            {
+                "language": "DE",
+                "text": "Um eine Referenz herzustellen, klicken Sie mit der rechten Maustaste auf den ersten Knoten und ziehen ihn in die Nähe des Zielknotens. Um eine Referenz zu entfernen, verwenden Sie die Schaltfläche Delink im Menü.",
+                "updated": 1643180204105
             }
         ]
     },
@@ -35,8 +40,13 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Κατεύθυνση",
-                    "updated": 1638977276823
+                    "text": "Direction (Κατεύθυνση)",
+                    "updated": 1641831264696
+                },
+                {
+                    "language": "DE",
+                    "text": "Richtung",
+                    "updated": 1643178762989
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "TR",
                     "text": "Referanslar, referansta yer alan düğümlerin her birine göre bir yön özelliğine sahiptir: referansı oluşturan düğüm giden bir referansı ayarlarken, referansı kabul eden bir gelen referansı ayarlar.",
                     "updated": 1639721717798
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenzen haben eine Richtungseigenschaft in Bezug auf jeden der an der Referenz beteiligten Nodes: Der Node, der die Referenz herstellt, setzt eine ausgehende Referenz, während der Node, der die Referenz akzeptiert, eine eingehende Referenz setzt.",
+                    "updated": 1643178817756
                 }
             ]
         },
@@ -80,6 +95,11 @@
                     "language": "TR",
                     "text": "Örneğin, Geriye Dönük Test Oturumu ( Backtesting Session ), bir Ticaret Sistemi ( Trading System ) ile giden bir referans oluşturur. Bu, Geriye dönük test otuıtumunun stratejiler de dahil olmak üzere tüm ticaret sistemi hiyerarşisindeki bilgilere erişmesini sağlar. Ticaret sistemi düğümünde, aynı referans gelen referans olarak görülür.",
                     "updated": 1639721840641
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel stellt eine Backtesting Session eine ausgehende Referenz zu einem Trading System her. Dies ermöglicht der Sitzung den Zugriff auf die Informationen innerhalb der gesamten Trading-System-Hierarchie, einschließlich der Strategien. Auf der Ebene des Trading-Systems wird die gleiche Referenz als eingehende Referenz betrachtet.",
+                    "updated": 1643178915672
                 }
             ]
         },
@@ -101,6 +121,11 @@
                     "language": "TR",
                     "text": "Bir düğüm yalnızca bir giden referans üretebilir, ancak birkaç gelen referans alabilir.",
                     "updated": 1639721860207
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Node darf nur eine ausgehende Referenz erzeugen, kann aber mehrere eingehende Referenzen aufnehmen.",
+                    "updated": 1643178979063
                 }
             ]
         },
@@ -115,13 +140,18 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Πεδίο εφαρμογής",
-                    "updated": 1638978092874
+                    "text": "Scope (Πεδίο εφαρμογής)",
+                    "updated": 1641831282906
                 },
                 {
                     "language": "TR",
                     "text": "Kapsam",
                     "updated": 1639721877331
+                },
+                {
+                    "language": "DE",
+                    "text": "Geltungsbereich",
+                    "updated": 1643179205457
                 }
             ]
         },
@@ -143,6 +173,11 @@
                     "language": "TR",
                     "text": "Bir hiyerarşi içindeki herhangi bir yapının düğümleri arasında oluşturulan bir referansın, bahsedilen düğüm yapısına göre bir iç referanstır.Benzer şekilde, söz konusu yapının dışında, yani hiyerarşinin farklı bir bölümünde veya başka bir hiyerarşide bir düğümle kurulan bir referansa dış referans denir.",
                     "updated": 1639721964625
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Verweis, der zwischen Nodes einer bestimmten Struktur innerhalb einer Hierarchie hergestellt wird, wird als interner Verweis in Bezug auf die besagte Struktur von Nodes bezeichnet. Entsprechend wird eine Referenz, die mit einem Knoten außerhalb der genannten Struktur, d. h. in einem anderen Teil der Hierarchie oder in einer anderen Hierarchie, hergestellt wird, als externe Referenz bezeichnet.",
+                    "updated": 1643179205457
                 }
             ]
         },
@@ -165,6 +200,11 @@
                     "language": "TR",
                     "text": "Dahili referans örnekleri Veri Madeni ( Data Mine ) ve Kripto Ekosistem ( Crypto Ecosystem ) hiyerarşilerinde bulunabilir. Örneğin, bir Plotter Modülü ( Plotter Module )  içinde böyle bir duruma kısaca bakalım.",
                     "updated": 1639722060706
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für interne Verweise finden sich in den Hierarchien Data Mine und Crypto Ecosystem. Schauen wir uns zum Beispiel kurz einen solchen Fall innerhalb eines Plotter-Moduls an.",
+                    "updated": 1643179401456
                 }
             ]
         },
@@ -187,6 +227,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki video, Shapes düğümünü ve ona bağlı birkaç alt düğümü gösteriyr: bir tarafta, birkaç Poligon ( Polygon ) düğümü; Öte yandan, Grafik Noktaları ( Chart Points ) düğümü.",
                     "updated": 1639722616225
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgende Abbildung zeigt den Shapes Node und mehrere untergeordnete Nodes: einerseits mehrere Polygon Nodes, andererseits den Chart Points Node.",
+                    "updated": 1643179477086
                 }
             ]
         },
@@ -213,6 +258,11 @@
                     "language": "TR",
                     "text": "Polygon altındaki her Vertex'in, grafik noktaları düğümünün altındaki noktalara atıfta bulunduğuna dikkat edin.",
                     "updated": 1639722760063
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Scheitelpunkte (Vertex) unter jedem Polygon auf Punkte unter dem Chart Points Node verweisen.",
+                    "updated": 1643179624807
                 }
             ]
         },
@@ -235,6 +285,11 @@
                     "language": "TR",
                     "text": "Burda, Şekiller düğümünün birkaç dahili referansa sahip olduğunu görüyoruz.",
                     "updated": 1639722858512
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass der Node Shapes mehrere interne Referenzen aufweist.",
+                    "updated": 1643179679721
                 }
             ]
         },
@@ -257,6 +312,11 @@
                     "language": "TR",
                     "text": "Yedekleme, klonlama ve paylaşma işlemleri, referansların özelliklerini farklı şekilde kullanır. Bu özelliklerden en iyi şekilde yararlanabilmeniz için üçünü kapsamlı bir şekilde ele alacağız.",
                     "updated": 1639722919314
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Operationen \"backup\", \"clone\" und \"share\" machen auf unterschiedliche Weise Gebrauch von den Eigenschaften von Referenzen. Wir werden diese drei Operationen ausführlich behandeln, damit Sie das Beste aus diesen Funktionen machen können.",
+                    "updated": 1643179812074
                 }
             ]
         },
@@ -272,13 +332,18 @@
                 },
                 {
                     "language": "EL",
-                    "text": "ΓΡΑΦΙΚΗ ΑΝΑΠΑΡΑΣΤΑΣΗ",
-                    "updated": 1638980546886
+                    "text": "Graphical Representation (Γραφική Αναπαράσταση)",
+                    "updated": 1641831329539
                 },
                 {
                     "language": "TR",
                     "text": "Grafiksel Gösterimi",
                     "updated": 1639723030727
+                },
+                {
+                    "language": "DE",
+                    "text": "Grafische Darstellung",
+                    "updated": 1643179862875
                 }
             ]
         },
@@ -301,6 +366,11 @@
                     "language": "TR",
                     "text": "Referanslar, soluk gri noktalı çizgilerle grafik olarak temsil edilir, ancak varsayılan olarak görünmezler. Fare işaretçisini referansı olan bir düğümün üzerine getirdiğinizde veya aşağıdaki tuş kombinasyonu ile tüm referansların görüntülenmesini etkinleştirdiğinizde referanslar görünür hale gelir:",
                     "updated": 1639723066967
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenzen werden grafisch durch schwache graue gepunktete Linien dargestellt, sind aber standardmäßig nicht sichtbar. Referenzen werden sichtbar, wenn Sie mit dem Mauszeiger auf einen Node zeigen, der eine Referenz hat, oder wenn Sie die Anzeige aller Referenzen mit der folgenden Tastenkombination aktivieren:",
+                    "updated": 1643179997175
                 }
             ]
         },
@@ -327,6 +397,11 @@
                     "language": "TR",
                     "text": "Referansların görünür olması için referansta yer alan her iki noa'nın da görünür olması gerekir.",
                     "updated": 1639723106478
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit Referenzen sichtbar sind, müssen beide an der Referenz beteiligten Nodes sichtbar sein.",
+                    "updated": 1643180077915
                 }
             ]
         },
@@ -346,13 +421,18 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Πώς να δημιουργήσετε και να αφαιρέσετε αναφορές",
-                    "updated": 1638980647826
+                    "text": "How to Estabish and Remove References (Πώς να δημιουργήσετε και να αφαιρέσετε αναφορές)",
+                    "updated": 1641831367416
                 },
                 {
                     "language": "TR",
                     "text": "Referanslar Nasıl Kurulur ve Kaldırılır",
                     "updated": 1639723120906
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie man Referenzen herstellt und entfernt",
+                    "updated": 1643180099309
                 }
             ]
         },

@@ -10,6 +10,11 @@
                     "language": "RU",
                     "text": "Узел создается автоматически при установке новых рынков.",
                     "updated": 1638645041798
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni pazarlar kurulurken düğüm otomatik olarak oluşturulur.",
+                    "updated": 1652796306010
                 }
             ]
         }
@@ -22,6 +27,11 @@
                 "language": "RU",
                 "text": "Узел Bot Layers - это организационное устройство, используемое для группировки слоев, происходящих от конкретного бота.",
                 "updated": 1638645008381
+            },
+            {
+                "language": "TR",
+                "text": "Bot Katmanları düğümü, belirli bir bottan kaynaklanan katmanları gruplamak için kullanılan kurumsal bir cihazdır.",
+                "updated": 1652796293962
             }
         ]
     }

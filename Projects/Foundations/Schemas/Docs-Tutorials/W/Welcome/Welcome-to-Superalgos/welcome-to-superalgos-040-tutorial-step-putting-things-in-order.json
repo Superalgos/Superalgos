@@ -35,12 +35,12 @@
             },
             {
                 "language": "TR",
-                "text": "Tablolara girmeden önce bir şey daha var. Bu alanı nasıl düzene sokacağını bilmelisin!",
-                "updated": 1636035747714
+                "text": "Grafiklere girmeden önce bir şey daha var. Bu alanı nasıl düzene sokacağını bilmelisin!",
+                "updated": 1644913250377
             },
             {
                 "language": "RU",
-                "text": "Еще одна вещь, прежде чем мы погрузимся в графики: Вам необходимо знать, как привести рабочее пространство в порядок.",
+                "text": "Еще одна вещь, прежде чем мы погрузимся в графики: вам необходимо знать, как привести рабочее пространство в порядок.",
                 "updated": 1636203040872
             }
         ]
@@ -76,12 +76,12 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Onlarca çizelge ile çalışmanız gereken zamanar gelecek. Biçimlerini nasıl değiştireceğinizi öğrenmiştik. Şimdi, ihtiyaç duyduğunuz düzenlemeleri oluşturabilmeniz için onları nasıl hareket ettireceğinizi öğrenmeniz gerekiyor. Oldukça kolay:",
-                    "updated": 1636035803888
+                    "text": "Onlarca çizelge ile çalışmanız gereken zamanlar gelecek. Biçimlerini nasıl değiştireceğinizi öğrenmiştik. Şimdi, ihtiyaç duyduğunuz düzenlemeleri oluşturabilmeniz için onları nasıl hareket ettireceğinizi öğrenmeniz gerekiyor. Oldukça kolay:",
+                    "updated": 1644913268664
                 },
                 {
                     "language": "RU",
-                    "text": "Придет время, когда Вы, возможно, будете работать с десятками графиков. Вы уже знаете, как изменить их формат. Теперь необходимо научиться перемещать их так, чтобы Вы могли создавать любые необходимые Вам расположения. Это довольно просто:",
+                    "text": "Придет время, когда Вы, возможно, будете работать с десятками графиков. Вы уже знаете, как изменить их формат. Теперь необходимо научиться перемещать их так, чтобы Вы могли создавать любые необходимые вам расположения. Это довольно просто:",
                     "updated": 1636203598832
                 }
             ],
@@ -118,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Shift 'e basın, sol tıklayın ve sürükleyin!",
-                    "updated": 1636035874767
+                    "text": "Herhangi bir zaman makinesinin üzerine gelere Shift'e basın, sol tıklayın ve sürükleyin!",
+                    "updated": 1644913296848
                 },
                 {
                     "language": "RU",

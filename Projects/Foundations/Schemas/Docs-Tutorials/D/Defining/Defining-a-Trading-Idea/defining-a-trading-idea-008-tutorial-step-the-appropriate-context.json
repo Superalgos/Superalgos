@@ -15,6 +15,11 @@
                 "updated": 1639251726373
             },
             {
+                "language": "RU",
+                "text": "Во-вторых, важно определить общий контекст, на который направлена гипотеза.",
+                "updated": 1640888972280
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Tanımlanması gereken ikinci önemli ölçü, varsayımın hedeflendiği genel bağlamdır.",
                 "updated": 1640866693545
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Nur wenige - wenn überhaupt - auf der technischen Analyse basierende Strategien erzielen in undefinierten Marktsituationen konsistente Ergebnisse.",
                     "updated": 1639251739728
+                },
+                {
+                    "language": "RU",
+                    "text": "Лишь немногие стратегии, основанные на техническом анализе, или вообще никакие, не работают стабильно в неопределенных рыночных ситуациях.",
+                    "updated": 1640888995274
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639251746659
                 },
                 {
+                    "language": "RU",
+                    "text": "Минимально необходимое определение - это определение того, на какие рынки направлена гипотеза: нисходящие, восходящие или боковые.",
+                    "updated": 1640889023401
+                },
+                {
                     "language": "TR",
                     "text": "Gerekli minimum tanım, varsayımınızın düşüş trendlerini mi, yükseliş trendlerini mi yoksa yan yönlü piyasaları mı hedeflediğidir.",
                     "updated": 1640867252493
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Das übliche Hilfsmittel ist eine Multi-Time-Frame-Analyse, die auf einem oder mehreren Indikatoren basiert, die den bestehenden Trend in verschiedenen Zeitrahmen bestimmen, sowie alle anderen Faktoren, die für die spezifische Strategie von Bedeutung sein können, z. B. Volumen oder Volatilität.",
                     "updated": 1639251753848
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычный ресурс - это многотаймфреймовый анализ, основанный на одном или нескольких индикаторах, определяющих существующий тренд на разных таймфреймах, а также любые другие факторы, которые могут иметь значение для конкретной стратегии, например, объем или волатильность.",
+                    "updated": 1640889051373
                 },
                 {
                     "language": "TR",

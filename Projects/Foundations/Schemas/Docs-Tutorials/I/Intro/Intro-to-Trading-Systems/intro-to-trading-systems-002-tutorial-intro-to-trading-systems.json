@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret ( Trading ) sistemleri, ticaret zekasının en büyük kısmınına yoğunlaştırdıkları için sistematik ticaretin kalbi ve ruhudur.",
                 "updated": 1640690643269
+            },
+            {
+                "language": "RU",
+                "text": "Торговые системы - это сердце и душа систематизированной торговли, поскольку в них сосредоточена самая большая часть торгового интеллекта.",
+                "updated": 1640878649264
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Superalgos'ta yerleşik altyapının geri kalanı (veri madenciliği ve görselleştirme, ticaret botu ve ticaret motoru, görsel strateji tasarımcısı ve hata ayıklayıcı) istihbarat pastasında önemli bir hakka sahiptir, ancak bunun tasarımı desteklemek,ticaret sistemlerinin test edilmesi ve konuşlandırılması için geliştirildiğini iddia etmek adil olur!",
                     "updated": 1640691683945
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальная инфраструктура, встроенная в Superalgos - поиск и визуализация данных, торговый бот и торговый движок, визуальный конструктор стратегий и отладчик - все они имеют значительную долю в интеллектуальном пироге, но справедливо будет утверждать, что они были разработаны для поддержки проектирования, тестирования и развертывания торговых систем!",
+                    "updated": 1640878693629
                 }
             ]
         },
@@ -62,10 +72,15 @@
                     "text": "In diesem ersten Tutorial wird erklärt, wie Superalgos ein Trading System anzeigt und behandelt. In den weiteren Tutorials der Serie lernen Sie, wie man sie baut!",
                     "updated": 1639147247333
                 },
-                {
+                 {
                     "language": "TR",
                     "text": "Bu ilk öğretici, Superalgos'un bir Ticaret Sistemini ( Trading System ) nasıl görüntülediğini ve işlediğini açıklar. Serideki diğer öğreticiler size bunları nasıl oluşturacağınızı öğretir!",
                     "updated": 1640692121876
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом первом уроке описывается, как Superalgos рассматривает и обрабатывает торговую систему (Trading System). Остальные уроки в этой серии научат вас, как их создавать!",
+                    "updated": 1640878743357
                 }
             ]
         }

@@ -1,0 +1,22 @@
+{
+    "type": "Trading System Signal",
+    "definition": {
+        "text": "The Trading System Signal node houses the definitions of the main candle sync signal. ",
+        "updated": 1644030935709,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ticaret Sistemi Sinyali düğümü, ana mum senkronizasyon sinyalinin tanımlarını barındırır.",
+                "updated": 1654398041603
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This candle sync signal is the foundation off of which the rest of the signals sent by the current Social Trading Bot is built.",
+            "updated": 1644031016176,
+            "translations": [ ]
+        }
+    ]
+}

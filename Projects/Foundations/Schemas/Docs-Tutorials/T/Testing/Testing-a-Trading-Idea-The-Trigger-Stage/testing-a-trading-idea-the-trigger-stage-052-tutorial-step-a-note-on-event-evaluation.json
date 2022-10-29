@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Ist Ihnen aufgefallen, dass die Bedingungen des Trigger On Event nicht mehr ausgewertet werden, sobald die Trigger Stage aktiv ist?",
                 "updated": 1639388703415
+            },
+            {
+                "language": "TR",
+                "text": "Trigger On Event koşullarının, Trigger Stage 'in aktif hale gelir gelmez artık değerlendirilmediğini fark ettiniz mi?",
+                "updated": 1641662065823
+            },
+            {
+                "language": "RU",
+                "text": "Заметили ли вы, что после того, как стадия срабатывания активна, условия события Trigger On Event больше не проверяются?",
+                "updated": 1642658471518
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "DE",
                     "text": "Das Gegenteil gilt für die Bedingungen des Trigger Off Event: Sie werden nicht ausgewertet, bevor die Stufe aktiv ist. Überzeugen Sie sich selbst!",
                     "updated": 1639388713512
+                },
+                {
+                    "language": "TR",
+                    "text": "Trigger Off Event koşulları için tersi geçerlidir: Sahne aktif olana kadar değerlendirilmezler. Kendiniz görün!",
+                    "updated": 1641662103067
+                },
+                {
+                    "language": "RU",
+                    "text": "Иначе обстоит дело с условиями события Trigger Off Event: они не проверяются до того, как стадия станет активной. Убедитесь в этом сами!",
+                    "updated": 1642658540945
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Der Trading-Bot folgt dem Protokoll, das für Handelssysteme gilt, und wertet nur die Ereignisse aus, die zu einem bestimmten Zeitpunkt erforderlich sind!",
                     "updated": 1639388721386
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu, ticaret sistemleri için geçerli olan protokolü takip eder ve yalnızca belirli bir zamanda gerekli olan olayları değerlendirir!",
+                    "updated": 1641662115371
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот следует протоколу, который регулирует торговые системы, и обрабатывает только те события, которые необходимы в конкретный момент времени!",
+                    "updated": 1642658596679
                 }
             ]
         },
@@ -49,6 +79,16 @@
                     "language": "DE",
                     "text": "Das ist doch logisch, oder? Der Bot ist bestrebt, so effizient wie möglich zu sein und tut nur das, was getan werden muss!",
                     "updated": 1639388729488
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu size göre de mantıklı değil mi? Bot, mümkün olduğu kadar verimli olmayı hedefliyor ve sadece yapılması gerekeni yapıyor!",
+                    "updated": 1641662130841
+                },
+                {
+                    "language": "RU",
+                    "text": "Это логично, верно? Бот стремится быть максимально эффективным и делает только то, что нужно!",
+                    "updated": 1642658625504
                 }
             ]
         }

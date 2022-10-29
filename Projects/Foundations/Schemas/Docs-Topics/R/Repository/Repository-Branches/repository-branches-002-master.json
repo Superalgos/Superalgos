@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Ветка Master - это ветка, в которой находится стабильный код или текущая версия. Это ветка, из которой программное обеспечение устанавливается по умолчанию.",
                 "updated": 1640353048759
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ana dal, kararlı kodun veya geçerli sürümün bulunduğu yerdir. Bu, yazılımın varsayılan olarak yüklendiği daldır.",
+                "updated": 1650621916265
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Пользователи Superalgos, работающие со стабильной версией на Master, обсуждают здесь несколько тем:",
                     "updated": 1640353065387
+                },
+                {
+                    "language": "TR",
+                    "text": "Master'da kararlı sürümü çalıştıran Superalgos kullanıcıları burada çeşitli konuları tartışıyor:",
+                    "updated": 1650621942651
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Когда у них возникают проблемы со стабильной версией в Master, они обращаются за помощью сюда:",
                     "updated": 1640353080781
+                },
+                {
+                    "language": "TR",
+                    "text": "Master'da kararlı sürümle ilgili sorunları olduğunda buradan yardım istiyorlar:",
+                    "updated": 1650621956764
                 }
             ]
         },

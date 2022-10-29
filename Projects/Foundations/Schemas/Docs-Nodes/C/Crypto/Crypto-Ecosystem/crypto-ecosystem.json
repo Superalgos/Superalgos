@@ -17,6 +17,16 @@
                 "language": "TR",
                 "text": "Kripto ekosistemi, borsalar ve pazarlarda dahil olmak üzere kullanıcıların hesaplarını içeren bir hiyerarşidir.",
                 "updated": 1639227788669
+            },
+            {
+                "language": "EL",
+                "text": "Το οικοσύστημα κρυπτογράφησης είναι μια ιεραρχία που περιέχει ορισμούς σχετικά με τρίτα μέρη, συμπεριλαμβανομένων των ανταλλακτηρίων και των αγορών τους, καθώς και λογαριασμούς χρηστών με αυτά τα τρίτα μέρη.",
+                "updated": 1641827578007
+            },
+            {
+                "language": "DE",
+                "text": "Das Crypto Ecosystem ist eine Hierarchie, die Definitionen über Dritte, einschließlich Börsen und deren Märkte, sowie Konten von Nutzern bei diesen Dritten enthält.",
+                "updated": 1641761738996
             }
         ]
     },
@@ -38,6 +48,21 @@
                     "language": "ES",
                     "text": "Sólo existe una jerarquía Crypto Ecosystem. La utilizarás para definir con qué Exchanges y qué Markets deseas operar, así como los detalles de tus cuentas en esos Exchanges.",
                     "updated": 1641153430737
+                },
+                {
+                    "language": "EL",
+                    "text": "Υπάρχει μόνο μία ιεραρχία κρυπτογραφικού οικοσυστημάτος. Θα το χρησιμοποιήσετε για να καθορίσετε με ποιες ανταλλακτήρια και με ποιες αγορές θέλετε να εργαστείτε, καθώς και τις λεπτομέρειες των λογαριασμών σας σε αυτά τα ανταλλακτήρια.",
+                    "updated": 1641827596189
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt nur eine Crypto-Ecosystem-Hierarchie. Sie verwenden sie, um festzulegen, mit welchen Börsen und Märkten Sie arbeiten möchten, und um die Details Ihrer Konten bei diesen Börsen zu definieren.",
+                    "updated": 1641761803930
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca bir kripto ekosistem hiyerarşisi vardır. Hangi borsalar ve hangi pazarlarla çalışmak istediğinizi ve bu borsalardaki hesaplarınızın ayrıntılarını tanımlamak için kullanacaksınız.",
+                    "updated": 1652798957800
                 }
             ]
         }

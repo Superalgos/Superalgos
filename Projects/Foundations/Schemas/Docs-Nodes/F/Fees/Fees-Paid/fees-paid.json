@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Fees paid - это сумма, уплаченная в виде комиссий.",
                 "updated": 1638963664549
+            },
+            {
+                "language": "TR",
+                "text": "Ödenen ücretler, ücret olarak ödenen tutardır.",
+                "updated": 1654419023241
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Биржа явно не указывает, сколько было уплачено в виде комиссионных за данную транзакцию. Вместо этого, когда Superalgos проверяет, был ли заказ заполнен или нет, биржа сообщает только заполненный размер и фактический курс.",
                     "updated": 1638963729275
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa, belirli bir işlem için ücret olarak ne kadar ödendiğini açıkça belirtmez. Bunun yerine, Superalgos bir emrin yerine getirilip getirilmediğini doğruladığında, borsa yalnızca yerine getirilen boyutu ve gerçek oranı bildirir.",
+                    "updated": 1654419031172,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "Биржевые комиссии рассчитываются с использованием параметра структуры комиссий Fee Structure, установленного для торговой сессии. Поэтому важно установить правильные значения для этого параметра.",
                     "updated": 1638963830205
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa ücretleri, işlem seansı için belirlenen ücret yapısı parametresi kullanılarak tahmin edilir. Bu nedenle, bu parametre için doğru değerlerin ayarlanması önemlidir.",
+                    "updated": 1654419041094,
+                    "style": "Success"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Биржи вычитают комиссию из получаемого вами актива. Например, если вы продаете BTC на рынке BTC-USDT, вы получаете USDT, и биржа вычитает комиссию непосредственно из суммы получаемого вами USDT.",
                     "updated": 1638963850679
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsalar, aldığınız varlıktan ücret keser. Örneğin, BTC-USDT piyasasında BTC satıyorsanız, USDT alırsınız ve borsa ücretleri doğrudan aldığınız USDT miktarından düşer.",
+                    "updated": 1654419048623,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Конфигурация Fees Paid",
                     "updated": 1638963872245
+                },
+                {
+                    "language": "TR",
+                    "text": "Ödenen Ücretler Konfigürasyon",
+                    "updated": 1654419054673,
+                    "style": "Title"
                 }
             ]
         },
@@ -74,6 +103,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638963879686
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419060909,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -86,6 +121,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638963888395
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419067144,
+                    "style": "List"
                 }
             ]
         }

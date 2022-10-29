@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Tutorial - The Advanced Stuff!",
     "definition": {
         "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
@@ -34,8 +34,8 @@
             },
             {
                 "language": "RU",
-                "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Сообщество (Community)!",
-                "updated": 1640154207923
+                "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Community!",
+                "updated": 1645269583740
             }
         ]
     },
@@ -75,9 +75,9 @@
             ]
         },
         {
-            "style": "Note",
-            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and help improve the software!",
-            "updated": 1617034994342,
+            "style": "Warning",
+            "text": "This tutorial cover features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
+            "updated": 1649176246476,
             "translations": [
                 {
                     "language": "IT",
@@ -117,6 +117,12 @@
                     "language": "DE",
                     "text": "Übrigens, wenn Du zum Projekt beiträgst, erhältst Du Superalgos (SA) Token! Klicke, um mehr zu erfahren!->superalgos.org/token-overview.shtml",
                     "updated": 1634819622423
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, projeye katkıda bulunmak size Superalgos (SA) jetonları kazandırıyor! Daha fazlasını öğrenmek için tıklayın!->superalgos.org/token-overview.shtml",
+                    "updated": 1654393892890,
+                    "style": "Link"
                 }
             ]
         }

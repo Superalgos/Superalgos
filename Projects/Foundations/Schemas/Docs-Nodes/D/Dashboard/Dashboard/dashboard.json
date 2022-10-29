@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "Ein Dashboard ist eine Sammlung von time machines (Zeitmaschinen), die jeweils eine beliebige Anzahl von charts (Diagrammen) enthalten.",
                 "updated": 1640212354090
+            },
+            {
+                "language": "TR",
+                "text": "Bir gösterge tablosu, her biri herhangi bir sayıda grafik içeren bir zaman makineleri koleksiyonudur.",
+                "updated": 1654391582731
             }
         ]
     },
@@ -38,6 +43,12 @@
                     "language": "DE",
                     "text": "Das Konzept des Dashboards erlaubt es, mehrere Charts gleichzeitig zu konfigurieren, so dass Sie bei Bedarf verschiedene exchanges (Börsen), verschiedene markets (Märkte), verschiedene Zeitrahmen (time frames) oder verschiedene technical studies (technische Studien) konsultieren können, indem Sie sich einfach bewegen und hinein- oder herauszoomen. Sie können die Charts nebeneinander stellen oder sogar übereinander legen, um die Marktbewegungen zu studieren, nach Arbitragemöglichkeiten zu suchen oder sie einfach im Blick zu behalten, wenn Sie bestimmte Marktsituationen analysieren.",
                     "updated": 1640212609713
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge paneli konsepti, aynı anda birden fazla grafiğin yapılandırılmasına olanak tanır, böylece sadece hareket ederek ve yakınlaştırıp uzaklaştırarak farklı borsalara, farklı pazarlara, farklı zaman dilimlerine veya talep üzerine farklı teknik çalışmalara başvurabilirsiniz. Grafikleri yan yana koyabilir, hatta piyasa akışlarını incelemek, arbitraj fırsatları aramak veya belirli piyasa durumlarını analiz ederken bunları göz önünde tutmak için üst üste koyabilirsiniz.",
+                    "updated": 1654391591265,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,6 +65,12 @@
                     "language": "DE",
                     "text": "Im Moment ist die Funktionalität eines Dashboards noch trivial: die Gruppierung von time machines. In Zukunft wird es jedoch verschiedene Funktionen zur Verbesserung der Benutzerfreundlichkeit bieten.",
                     "updated": 1640212712563
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda, bir gösterge panosunun işlevselliği önemsizdir: zaman makinelerini gruplamak. Ancak gelecekte, kullanıcı deneyimini geliştirmek için çeşitli özellikler sunacaktır.",
+                    "updated": 1654391597544,
+                    "style": "Text"
                 }
             ]
         }

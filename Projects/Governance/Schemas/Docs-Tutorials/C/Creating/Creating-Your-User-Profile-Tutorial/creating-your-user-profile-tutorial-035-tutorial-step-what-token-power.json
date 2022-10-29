@@ -25,14 +25,19 @@
                 "language": "DE",
                 "text": "Wenn Sie keine Token in Ihrer Governance Address haben, dann haben Sie auch keine Token Power! Aber mach dir keine Sorgen! Wir werden uns etwas einfallen lassen!",
                 "updated": 1640080875292
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Adresinizde jeton yoksa, jeton gücünüz sıfırdır! Ama endişelenme! Bir şeyler ayarlayacağız!",
+                "updated": 1645101334793
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Whether you have any Token Power or not, notice that there is now 0% of Token Power going into the Onboarding Programs and 100% going into the Community Building Programs! Floodgates closed, the flow goes elsewhere! You can play with percentages too!",
-            "updated": 1630688907038,
+            "text": "Whether you have any Token Power or not, notice that there is now 0% of Token Power going into the Onboarding Programs and 100% going into the Community Building Programs! Floodgates closed, the flow goes elsewhere! You can play with percentages!",
+            "updated": 1660644007628,
             "translations": [
                 {
                     "language": "ES",
@@ -49,13 +54,18 @@
                     "language": "DE",
                     "text": "Ob Sie nun Token Power haben oder nicht, beachten Sie, dass jetzt 0% der Token Power in die Onboarding Programs und 100% in die Community Building Programs fließen! Die Schleusen sind geschlossen, der Strom fließt woanders hin! Sie können auch mit Prozentsätzen spielen!",
                     "updated": 1640080911231
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir Jeton Gücünüz olsun ya da olmasın, artık Başlangıç Programlarına (Onboarding Programs) giden Token Gücünün % 0 ve Topluluk Oluşturma Programlarına (Community Building Programs) giden %100 olduğuna dikkat edin! Sel kapıları kapandı, akış başka yere gidiyor! Bu noktada yüzdelerle oynayarak değiştirbilirsiniz!",
+                    "updated": 1645101455619
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "Now, here's the good news... Because chances are that you have no Token Power to fulfill the third requirement to participate in the Community Building Programs, we are going to delegate some power to all User Profiles in this release! Well take care of that, so forget about it! ",
-            "updated": 1630689031351,
+            "text": "If you have no Token Power yet, join the Superalgos Token Group in Telegram, introduce yourself, let us know you just created your User Profile, and openly ask for some delegated power to use for the Community Building Programs! We'll be happy to send some power your way!",
+            "updated": 1660644061527,
             "translations": [
                 {
                     "language": "ES",
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Jetzt kommt die gute Nachricht... Da die Wahrscheinlichkeit groß ist, dass Sie keine Token Power haben, um die dritte Voraussetzung für die Teilnahme an den Community Building Programs zu erfüllen, werden wir in dieser Version etwas Macht an alle Benutzerprofile delegieren! Wir kümmern uns darum, also vergesst es!",
                     "updated": 1640080927268
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi, işte iyi haber... Topluluk Oluşturma Programlarına katılmak için üçüncü şartı yerine getirmelisiniz. Ancak bunun için Jeton Gücünüz olmadığından, bu sürümde tüm Kullanıcı Profillerine bir miktar yetki vereceğiz!",
+                    "updated": 1645101537497
                 }
             ]
         }

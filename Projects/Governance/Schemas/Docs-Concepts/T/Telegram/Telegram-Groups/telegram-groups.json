@@ -1,13 +1,23 @@
 {
     "type": "Telegram Groups",
     "definition": {
-        "text": "Telegram groups are currently the communication tool for all people who want to participate and organize the project/Governance. No matter if developers, translators, UI/UX designers etc.. Everyone can ask their questions here or discuss with others. Beside the main communication tool Telegram, an discord server exists. Feel free to extend or correct the list.",
-        "updated": 1640219649114,
+        "text": "Telegram groups are currently the communication tool for all people who want to participate and organize the project/Governance. No matter if developers, translators, UI/UX designers etc.. Everyone can ask their questions here or discuss with others. Beside the main communication tool Telegram, an discord server exists. Feel free to extend or correct the list. Always remember your privacy.",
+        "updated": 1641943307280,
         "translations": [
             {
                 "language": "ES",
                 "text": "Los grupos de Telegram son actualmente la herramienta de comunicación para todas las personas que quieran participar y organizar el proyecto / Gobernanza. No importa si son desarrolladores, traductores, diseñadores de UI / UX, etc. Todos pueden hacer sus preguntas aquí o discutir con otros. Además de la principal herramienta de comunicación Telegram, existe un servidor de discord. No dude en ampliar o corregir la lista.",
                 "updated": 1640962548224
+            },
+            {
+                "language": "DE",
+                "text": "Telegram-Gruppen sind derzeit das Kommunikationstool für alle Menschen, die sich am Projekt/Governance beteiligen und es organisieren wollen. Egal ob Entwickler, Übersetzer, UI/UX Designer usw.. Jeder kann hier seine Fragen stellen oder mit anderen diskutieren. Neben dem Hauptkommunikationsmittel Telegram gibt es auch einen Discord-Server. Gerne können Sie die Liste erweitern oder korrigieren. Denke immer an deine Privatsphäre.",
+                "updated": 1641943338733
+            },
+            {
+                "language": "RU",
+                "text": "Группы Telegram в настоящее время являются инструментом коммуникации для всех людей, которые хотят участвовать и организовывать проект/управление. Неважно, разработчики, переводчики, UI/UX дизайнеры и т.д.. Каждый может задать здесь свой вопрос или обсудить его с другими. Помимо основного инструмента общения Telegram, существует сервер discord. Не стесняйтесь расширять или корректировать список. Всегда помните о конфиденциальности.",
+                "updated": 1645083654213
             }
         ]
     },
@@ -21,6 +31,16 @@
                     "language": "ES",
                     "text": "Importante ya que los estafadores siempre están cerca. ¡ Los Moderadores de la comunidad nunca! enviarán Mensaje Privado. Solo te escribirán si les escribes primero. Puede ser que si quieren ayudarte, te digan en grupo que debes escribirles, pero no te escribirán por su cuenta. Una buena herramienta para comprobar si está escribiendo, por ejemplo, el verdadero julian molina es el nombre de usuario. Esto aparece cuando haces clic en su cuenta de telegram a través del nombre de usuario. Allí debería decir: @julianmolina. Si un estafador te ha contactado y te ha dicho que tiene muy buena estrategia o cualquier otra cosa, no hagas lo que te diga, bloquéalo y denúncialo dentro del grupo de telegramas y deja un mensaje en los grupos de superalgos. Nunca revele sus datos de acceso a su billetera, sus monedas o su computadora. ¡Nunca!",
                     "updated": 1640962674952
+                },
+                {
+                    "language": "DE",
+                    "text": "Wichtig, da Betrüger immer in der Nähe sind. Community Mods schreiben dir niemals zuerst eine PM (private Nachricht). Sie werden dir nur schreiben, wenn du ihnen zuerst schreibst. Es kann sein, dass sie dir in einer Gruppe sagen, dass du ihnen schreiben sollst, wenn sie dir helfen wollen, aber sie werden dir nicht von sich aus schreiben. Ein gutes Mittel, um zu überprüfen, ob Sie z.b. mit dem echten Julian Molina schreiben, ist der Benutzername. Dieser wird angezeigt, wenn Sie über den Benutzernamen auf sein Telegrammkonto klicken. Dort sollte es stehen: @julianmolina. Wenn ein Betrüger Sie kontaktiert hat und Ihnen gesagt hat, dass er eine sehr gute Strategie oder irgendetwas anderes hat, tun Sie nicht, was er sagt, blockieren Sie ihn und melden Sie ihn in der Telegrammgruppe und hinterlassen Sie eine Nachricht in den Superalgos-Gruppen. Geben Sie niemals Ihre Zugangsdaten zu Ihrer Wallet, Ihren Tokens oder Ihrem PC heraus. Niemals!",
+                    "updated": 1641943560467
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно, так как мошенники всегда рядом. Модераторы сообщества (Community Mods) - никогда никогда не пишут вам первыми. Они напишут вам, только если вы напишете им первым. Возможно, если они хотят помочь вам, они скажут вам в группе, что вы должны написать им, но они не будут писать вам сами. Хорошим инструментом для проверки, пишете ли вы, например, настоящему Джулиану Молине, является имя пользователя. Оно появляется, когда вы нажимаете на его аккаунт в Telegram через имя пользователя. Там должно быть написано: @julianmolina. Если с вами связался мошенник и сказал, что у него есть очень хорошая стратегия или что-то еще, не делайте того, что он говорит, заблокируйте его и сообщите о нем в группе Telegram и оставьте сообщение в группах Superalgos. Никогда не сообщайте данные доступа к своему кошельку, монетам или компьютеру. Никогда!",
+                    "updated": 1645083750523
                 }
             ]
         },
@@ -33,6 +53,16 @@
                     "language": "ES",
                     "text": "Ahora que sabe que nunca debe compartir sus datos, le explicaré exactamente cómo funciona con los grupos de telegramas. Hay varios grupos de telegramas de Superalgos. Cada grupo de Telegram tiene su propio \"tema\". El grupo oficial de Superlagos con más miembros es el grupo \"Comunidad Superalgos\". Aquí siempre puedes hacer preguntas de cualquier tipo.",
                     "updated": 1640962721080
+                },
+                {
+                    "language": "DE",
+                    "text": "Da Sie nun wissen, dass Sie Ihre Daten niemals weitergeben sollten, werde ich Ihnen genau erklären, wie das mit den Telegram-Gruppen funktioniert. Es gibt mehrere Superalgos-Telegram-Gruppen. Jede Telegram-Gruppe hat ihr eigenes \"Thema\". Die offizielle Superalgos-Gruppe mit den meisten Mitgliedern ist die \"Superalgos Community\" Gruppe. Hier können Sie jederzeit Fragen jeglicher Art stellen.",
+                    "updated": 1641943681617
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда вы знаете, что вы никогда не должны делиться своими данными, я объясню вам, как именно это работает с группами Telegram. Существует несколько групп Telegram компании Superalgos. У каждой группы Telegram есть своя \"тема\". Официальная группа Superlagos с наибольшим количеством участников - это группа \" Superalgos Community\". Здесь вы всегда можете задать любые вопросы.",
+                    "updated": 1645083796438
                 }
             ]
         },
@@ -45,13 +75,35 @@
                     "language": "ES",
                     "text": "Puedes permanecer tan anónimo como quieras en Telegram. No es necesario que revele ningún dato personal.",
                     "updated": 1640962739264
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können bei Telegram so anonym bleiben, wie Sie wollen. Sie müssen keine persönlichen Daten preisgeben.",
+                    "updated": 1641943698992
+                },
+                {
+                    "language": "RU",
+                    "text": "В Telegram вы можете оставаться настолько анонимным, насколько захотите. Вам не нужно раскрывать никаких личных данных.",
+                    "updated": 1645083810592
                 }
             ]
         },
         {
             "style": "Title",
             "text": "General things about Telegram groups and how to work with them:",
-            "updated": 1640217254427
+            "updated": 1640217254427,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Allgemeine Dinge über Telegram-Gruppen und wie man mit ihnen arbeitet:",
+                    "updated": 1641943721970
+                },
+                {
+                    "language": "RU",
+                    "text": "Общие сведения о группах Telegram и о том, как с ними работать:",
+                    "updated": 1645083820102
+                }
+            ]
         },
         {
             "style": "List",
@@ -62,6 +114,16 @@
                     "language": "ES",
                     "text": "Mantente amigable y respetuoso todo el tiempo",
                     "updated": 1640962760960
+                },
+                {
+                    "language": "DE",
+                    "text": "Bleiben Sie die ganze Zeit über freundlich und respektvoll",
+                    "updated": 1641943737825
+                },
+                {
+                    "language": "RU",
+                    "text": "Сохраняйте дружелюбие и уважение на протяжении всего времени",
+                    "updated": 1645083827462
                 }
             ]
         },
@@ -74,6 +136,16 @@
                     "language": "ES",
                     "text": "No dude en preguntar incluso si cree que su pregunta puede sonar inapropiada. Todos comenzamos en el mismo punto",
                     "updated": 1640962810153
+                },
+                {
+                    "language": "DE",
+                    "text": "Fragen Sie ruhig, auch wenn Sie denken, dass Ihre Frage dumm klingen könnte. Wir sind alle am selben Punkt gestartet",
+                    "updated": 1641943769526
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь спрашивать, даже если вам кажется, что ваш вопрос может показаться глупым. Мы все начинали с одного и того же",
+                    "updated": 1645083840191
                 }
             ]
         },
@@ -86,6 +158,16 @@
                     "language": "ES",
                     "text": "Trate de encontrar el grupo correcto para su inquietud.",
                     "updated": 1640962798309
+                },
+                {
+                    "language": "DE",
+                    "text": "Versuchen Sie, die richtige Gruppe für Ihr Anliegen zu finden",
+                    "updated": 1641943781314
+                },
+                {
+                    "language": "RU",
+                    "text": "Постарайтесь найти подходящую группу для решения вашей проблемы",
+                    "updated": 1645083847989
                 }
             ]
         },
@@ -98,18 +180,38 @@
                     "language": "ES",
                     "text": "Si es posible, plantee sus preguntas solo en un grupo",
                     "updated": 1640962826915
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es möglich ist, stellen Sie Ihre Fragen nur in einer Gruppe um das Nachrichtenaufkommen aller Gruppen nicht drastisch zu erhöhen",
+                    "updated": 1641943841512
+                },
+                {
+                    "language": "RU",
+                    "text": "Если это возможно, поместите свои вопросы только в одну группу",
+                    "updated": 1645083855828
                 }
             ]
         },
         {
             "style": "List",
-            "text": "You can later on reference your mentors/user-supporters if you take part in governance.",
-            "updated": 1640220116496,
+            "text": "You can later on reference your mentors/user-supporter if you take part in governance.",
+            "updated": 1641943876059,
             "translations": [
                 {
                     "language": "ES",
                     "text": "Más adelante, puede hacer referencia a sus mentores / usuarios que apoyan si participa en la gobernanza.",
                     "updated": 1640962846503
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können später auf Ihre Mentoren/user-supporter verweisen, wenn Sie an der Governance teilnehmen.",
+                    "updated": 1641943894174
+                },
+                {
+                    "language": "RU",
+                    "text": "В дальнейшем вы сможете ссылаться на своих наставников/помощников, если будете принимать участие в управлении.",
+                    "updated": 1645083867669
                 }
             ]
         },
@@ -122,13 +224,35 @@
                     "language": "ES",
                     "text": "Bienvenidos a la comunidad de Superalgos ;)",
                     "updated": 1640962868256
+                },
+                {
+                    "language": "DE",
+                    "text": "Willkommen in der Superalgos-Gemeinschaft ;)",
+                    "updated": 1641943907407
+                },
+                {
+                    "language": "RU",
+                    "text": "Добро пожаловать в сообщество Superalgos",
+                    "updated": 1645083882824
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Most important Telegram groups shortly explained:",
-            "updated": 1640216707814
+            "updated": 1640216707814,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die wichtigsten Telegram-Gruppen kurz erklärt:",
+                    "updated": 1641943918156
+                },
+                {
+                    "language": "RU",
+                    "text": "Краткое описание наиболее важных групп Telegram:",
+                    "updated": 1645083890706
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -144,6 +268,16 @@
                     "language": "ES",
                     "text": "Este grupo es el grupo oficial de Superalgos-Telegram más grande con más de 1.752 miembros en este momento. Este grupo es un buen comienzo si tiene preguntas o simplemente desea encontrar orientación dentro de la Organización / Proyecto Superalgos.",
                     "updated": 1640962892129
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Gruppe ist die größte offizielle Superalgos Telegramm-Gruppe mit zur Zeit über 1.752 Mitgliedern. Diese Gruppe ist ein guter Start, wenn Sie Fragen haben oder sich einfach nur innerhalb der Superalgos-Organisation/des Superalgos-Projekts orientieren wollen.",
+                    "updated": 1641943966094
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта группа является самой большой официальной группой Superalgos-Telegram, насчитывающей на данный момент более 1752 членов. Эта группа является хорошим началом, если у вас есть вопросы или вы просто хотите найти ориентиры в организации проекта Superalgos.",
+                    "updated": 1645083946440
                 }
             ]
         },
@@ -161,6 +295,16 @@
                     "language": "ES",
                     "text": "En este grupo, puede hacer cualquier pregunta sobre problemas con su instalación. En la actualidad, 459 miembros son personas que saben cómo resolver casi cualquier problema. Si su instalación no funciona o Superalgos no comienza probablemente, solo haga su pregunta en este grupo. No importa lo técnico que sea.",
                     "updated": 1640962914234
+                },
+                {
+                    "language": "DE",
+                    "text": "In dieser Gruppe können Sie alle Fragen zu Problemen mit Ihrer Installation stellen. Unter den zur Zeit 459 Mitgliedern sind Leute, die wissen, wie man fast jedes Problem lösen kann. Wenn Ihre Installation nicht funktioniert oder Superalgos nicht startet, stellen Sie einfach Ihre Frage in dieser Gruppe. Egal wie technisch sie ist.",
+                    "updated": 1641943998450
+                },
+                {
+                    "language": "RU",
+                    "text": "В этой группе вы можете задать любой вопрос, касающийся проблем с вашей установкой. В группе на данный момент 459 участников - это люди, которые знают, как решить практически любую проблему. Если ваша установка не работает или Superalgos не запускается, просто задайте свой вопрос в этой группе. Неважно, насколько он технический.",
+                    "updated": 1645083969366
                 }
             ]
         },
@@ -173,6 +317,16 @@
                     "language": "ES",
                     "text": "Si envía imágenes para facilitar la depuración, anonimice las imágenes en la medida de lo posible y en la medida que desee. No necesitas enviar fotos en absoluto, recuérdalo.",
                     "updated": 1640962936423
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Bilder senden, um die Fehlersuche zu erleichtern, anonymisieren Sie die Bilder so weit wie möglich und so weit wie Sie wollen. Sie brauchen überhaupt keine Bilder zu senden, denken Sie daran.",
+                    "updated": 1641944039367
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы отправляете фотографии для облегчения отладки, анонимизируйте их настолько, насколько это возможно и насколько вы хотите. Вам не обязательно отправлять фотографии вообще, помните об этом.",
+                    "updated": 1645084017998
                 }
             ]
         },
@@ -190,18 +344,47 @@
                     "language": "ES",
                     "text": "En este grupo obtienes actualizaciones periódicas sobre cómo se desarrolla Superalgos. Obtienes información sobre los nuevos artículos publicados en Medium sobre el proyecto y cómo puedes ayudar al proyecto. Siempre es inteligente unirse a este canal de telegramas, ya que se mantiene informado automáticamente sin necesidad de estar en todos los grupos. Piense en este canal como un Newsticker de Superalgos. Este grupo no es para discusión.",
                     "updated": 1640962970340
+                },
+                {
+                    "language": "DE",
+                    "text": "In dieser Gruppe erhalten Sie regelmäßig Updates über die Entwicklung von Superalgos. Sie erhalten Informationen über neue Medium-Artikel, die über das Projekt veröffentlicht werden, und darüber, wie Sie das Projekt unterstützen können. Es ist immer klug, diesem Telegramm-channel beizutreten, denn so bleiben Sie automatisch informiert, ohne in jeder Gruppe sein zu müssen. Stellen Sie sich diesen Kanal wie einen art Superalgos-Newsticker vor. Diese Gruppe ist nicht für Diskussionen gedacht.",
+                    "updated": 1641944087292
+                },
+                {
+                    "language": "RU",
+                    "text": "В этой группе вы получаете регулярные обновления о том, как развивается Superalgos. Вы получаете информацию о новых статьях Medium, опубликованных о проекте, и о том, как вы можете помочь проекту. Присоединиться к этому телеграм-каналу всегда целесообразно, так как вы остаетесь в курсе событий автоматически, без необходимости быть в каждой группе. Думайте об этом канале как о новостной ленте Superalgos. Эта группа не предназначена для обсуждений.",
+                    "updated": 1645084044866
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Below you will find the links to the most important Superalgos groups:",
-            "updated": 1640217840276
+            "updated": 1640217840276,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nachstehend finden Sie die Links zu den wichtigsten Superalgos-Gruppen:",
+                    "updated": 1641944101309
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже вы найдете ссылки на самые важные группы Superalgos:",
+                    "updated": 1645084057794
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Group Name | Telegram Group/Channel link |\n| Superalgos Community | https://t.me/superalgoscommunity |\n| Superalgos Support | https://t.me/superalgossupport |\n| Superalgos Announcements| https://t.me/superalgos |\n| Superalgos Develop | https://t.me/superalgosdevelop |\n| Superalgos Docs | https://t.me/superalgosdocs |\n| Superalgos Translations | https://t.me/superalgostranslations |\n| Superalgos Marketing | https://t.me/superalgosmarketing |\n| Superalgos UX/UI Design | https://t.me/superalgosuxui |\n| Superalgos Data Mining | https://t.me/superalgosdatamining |\n| Superalgos Token | https://t.me/superalgostoken |",
-            "updated": 1640219621965
+            "updated": 1640219621965,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Gruppen Name | Telegram Gruppen/Channel link |\n| Superalgos Community | https://t.me/superalgoscommunity |\n| Superalgos Support | https://t.me/superalgossupport |\n| Superalgos Announcements| https://t.me/superalgos |\n| Superalgos Develop | https://t.me/superalgosdevelop |\n| Superalgos Docs | https://t.me/superalgosdocs |\n| Superalgos Translations | https://t.me/superalgostranslations |\n| Superalgos Marketing | https://t.me/superalgosmarketing |\n| Superalgos UX/UI Design | https://t.me/superalgosuxui |\n| Superalgos Data Mining | https://t.me/superalgosdatamining |\n| Superalgos Token | https://t.me/superalgostoken |",
+                    "updated": 1641944248081
+                }
+            ]
         },
         {
             "style": "Text",
@@ -209,25 +392,54 @@
         },
         {
             "style": "Text",
-            "text": "The links given in the Table will redirect you to the group, where you then can decide if you want to join the group/channel.",
-            "updated": 1640219550646,
+            "text": "The links given in the Table will redirect you to the group/channel, where you then can decide if you want to join the group/channel.",
+            "updated": 1641944134575,
             "translations": [
                 {
                     "language": "ES",
                     "text": "Los enlaces que aparecen en la Tabla lo redireccionarán al grupo, donde luego podrá decidir si desea unirse al grupo / canal.",
                     "updated": 1640963012487
+                },
+                {
+                    "language": "DE",
+                    "text": "Die in der Tabelle angegebenen Links leiten Sie zu der Gruppe/channel weiter, wo Sie dann entscheiden können, ob Sie der Gruppe/dem Kanal beitreten möchten.",
+                    "updated": 1641944157873
+                },
+                {
+                    "language": "RU",
+                    "text": "Ссылки, приведенные в таблице, перенаправят вас в группу/канал, где вы сможете решить, хотите ли вы присоединиться к группе/каналу.",
+                    "updated": 1645084074848
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Non-English Telegram Groups",
-            "updated": 1640218930080
+            "updated": 1640218930080,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nicht Englische Telegram Gruppen",
+                    "updated": 1641944176722
+                },
+                {
+                    "language": "RU",
+                    "text": "Неанглоязычные группы Telegram",
+                    "updated": 1645084085391
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Group topic | Telegram Group link |\n| Superalgos German Group | https://t.me/superalgos_de |\n| Superalgos russian Group | https://t.me/superalgos_ru |\n| Superalgos espanol Group | https://t.me/superalgos_es |\n| Superalgos Turkish group | https://t.me/tr_superalgos |",
-            "updated": 1640219328711
+            "updated": 1640219328711,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Gruppen Thema | Telegram Gruppen link |\n| Superalgos German Group | https://t.me/superalgos_de |\n| Superalgos russian Group | https://t.me/superalgos_ru |\n| Superalgos espanol Group | https://t.me/superalgos_es |\n| Superalgos Turkish group | https://t.me/tr_superalgos |",
+                    "updated": 1641944232688
+                }
+            ]
         },
         {
             "style": "Text",

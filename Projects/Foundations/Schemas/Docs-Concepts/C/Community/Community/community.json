@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Topluluk veya Superalgos Topluluğu, Superalgos projesine katılan, projenin ilerlemesine aktif olarak katkıda bulunan veya Superalgos Ağı'nı pasif olarak kullanan kuruluşlar grubudur.",
-                "updated": 1639233811574
+                "text": "Superalgos Topluluğu, Superalgos projesine katılan, projenin ilerlemesine aktif olarak katkıda bulunan veya Superalgos Ağı'nı kullanan kişi ve kuruluşlar grubudur.",
+                "updated": 1642712440350
             }
         ]
     },
@@ -31,6 +31,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638281111417
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle düğmesine basın. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390899361,
+                    "style": "Text"
                 }
             ]
         }

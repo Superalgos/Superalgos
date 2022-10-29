@@ -1,0 +1,83 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "10",
+    "type": "LWMA",
+    "definition": {
+        "text": "The Linearly Weighted Moving Average (LWMA) is a moving average calculation that more heavily weights recent price data. LWMAs are quicker to react to price changes than the simple moving average (SMA) and the exponential moving average (EMA).",
+        "updated": 1659572527478
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "LWMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia: The most recent price has the highest weighting, and each prior price has progressively less weight. The weights drop in a linear fashion."
+        },
+        {
+            "style": "Text",
+            "text": "Key Takeaways:"
+        },
+        {
+            "style": "List",
+            "text": "Use a linearly weighted moving average in the same way as an SMA or EMA."
+        },
+        {
+            "style": "List",
+            "text": "Use a LWMA to more clearly define the price trend and reversals, provide trade signals based on crossovers, and indicate areas of potential support or resistance."
+        },
+        {
+            "style": "List",
+            "text": "Traders who want a moving average with less lag than an SMA may wish to utilize a LWMA."
+        },
+        {
+            "style": "Link",
+            "text": "Investopedia (LWMA)->//www.investopedia.com/terms/l/linearlyweightedmovingaverage.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-LWMA.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| LWMA | lwma | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"LWMA\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-LWMA-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the LWMA:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.lwma.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

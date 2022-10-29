@@ -1,0 +1,39 @@
+{
+    "type": "Social Trading Bot Reference",
+    "definition": {
+        "text": "This node stores a reference to the Social Trading Bot being used by its parent Trading Bot Instance to send or receive Trading Signals on the Superalgos peer to peer network.",
+        "updated": 1642822544007,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел хранит ссылку на Social Trading Bot, используемого его родительским экземпляром торгового бота для отправки или получения торговых сигналов в одноранговой сети Superalgos.",
+                "updated": 1645182446137
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If a user is sending trading signals, the social trading bot that will be referenced should be set up under the user's profile.",
+            "updated": 1642822646027,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если пользователь посылает торговые сигналы, социальный торговый бот, на которого будет ссылаться пользователь, должен быть настроен в профиле пользователя.",
+                    "updated": 1645182455948
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If the user is receiving signals, then the social trading bot to be referenced will be found under the signal providers user profile.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если пользователь получает сигналы, то социальный торговый бот, на которого нужно ссылаться, будет найден в профиле пользователя, предоставляющего сигналы.",
+                    "updated": 1645182467556
+                }
+            ]
+        }
+    ]
+}

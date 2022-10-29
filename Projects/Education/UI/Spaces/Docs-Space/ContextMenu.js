@@ -100,7 +100,7 @@ function newFoundationsDocsContextMenu() {
 
                 UI.projects.education.spaces.docsSpace.textArea = document.createElement('textarea');
                 UI.projects.education.spaces.docsSpace.textArea.id = "UI.projects.education.spaces.docsSpace.textArea";
-                UI.projects.education.spaces.docsSpace.textArea.spellcheck = false;
+                UI.projects.education.spaces.docsSpace.textArea.spellcheck = true;
                 UI.projects.education.spaces.docsSpace.textArea.className = "docs-text-area" + extraClassName
                 UI.projects.education.spaces.docsSpace.textArea.style.height = selectedParagraphHeight
                 UI.projects.education.spaces.docsSpace.textArea.value = selectedParagraphData

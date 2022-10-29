@@ -19,6 +19,16 @@
                 "language": "DE",
                 "text": "Sie haben die für die Installation des Marktes erforderliche Einrichtung abgeschlossen! Der Rest ist vollständig automatisiert!",
                 "updated": 1636093926793
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Marketi kurmak için gerekli konfigürasyonu tamamladınız! Gerisi tamamen otomatik!",
+                "updated": 1642151003650
+            },
+            {
+                "language": "RU",
+                "text": "Вы завершили настройку, необходимую для установки рынка! Остальное полностью автоматизировано!",
+                "updated": 1643090622827
             }
         ]
     },
@@ -37,6 +47,16 @@
                     "language": "DE",
                     "text": "Klicken Sie auf die Schaltfläche Install Market auf dem Market Knoten, den Sie gerade eingerichtet haben. Jetzt, wo der Market eingerichtet ist, ist die Installation nur noch einen Klick entfernt.",
                     "updated": 1636094308147
+                },
+                {
+                    "language": "TR",
+                    "text": "Kurulumu yeni tamamladığınız Market düğümündeki Market'i (Install Market button) Yükle düğmesini tıklayın. Market kurulduğuna göre, yüklemek sadece bir tık uzağınızda.",
+                    "updated": 1642151142341
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку Install Market (Установить Маркет) на узле Market, который вы только что закончили настраивать. Теперь, когда рынок настроен, установить его можно одним щелчком мыши.",
+                    "updated": 1643090651401
                 }
             ]
         },
@@ -53,6 +73,16 @@
                     "language": "DE",
                     "text": "Die Funktion Install Market richtet viele Datenstrukturen im lokalen Netzwerk Node und im Charting Space ein. Die nächsten Schritte des Tutorials werden Ihnen helfen, sich mit der Installation vertraut zu machen.",
                     "updated": 1636094597272
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Borsayı Yükle işlevi( Install Market), yerel Ağ Düğümünde (local Network Node) ve Grafik Alanında (Charting Space) birçok veri yapısını yapılandırır. Aşağıdaki eğitim adımları, yüklemeye aşina olmanıza yardımcı olacaktır.",
+                    "updated": 1642151362357
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция Install Market устанавливает множество структур данных в локальном узле сети и в пространстве графиков. Следующие несколько шагов в учебнике помогут вам ознакомиться с установкой.",
+                    "updated": 1643090676476
                 }
             ]
         }

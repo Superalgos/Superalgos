@@ -7,16 +7,67 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The animation runs a physics() and a draw() function for each space, allowing each of them to have their own physics engine / rules and render themselves as a top-level layer on the UI."
+        "text": "The animation runs a physics() and a draw() function for each space, allowing each of them to have their own physics engine / rules and render themselves as a top-level layer on the UI.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Animation führt für jeden Raum eine physics()- und eine draw()-Funktion aus, so dass jeder Raum seine eigene Physik-Engine bzw. seine eigenen Regeln hat und sich selbst als oberste Ebene auf der Benutzeroberfläche darstellen kann.",
+                "updated": 1641730326103
+            },
+            {       
+                "language": "RU",
+                "text": "Анимации запускают функции physics() и draw() для каждого пространства, позволяя каждому из них иметь свой собственный физический движок / правила и визуализировать себя как слой верхнего уровня на пользовательском интерфейсе.",
+                "updated": 1640930807995
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Animasyonlar her alan için fizik() ve çizim() işlevlerini çalıştırarak her birinin kendi fizik motoruna/kurallarına sahip olmasına ve kendisini kullanıcı arayüzünde en üst düzey katman olarak oluşturmasına olanak tanır.",
+                "updated": 1643040554579
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "At each frame, the animation calls the physics() function of each space first and, second, the draw() function. Then, it requests a callback from the browser and starts all over again."
+            "text": "At each frame, the animation calls the physics() function of each space first and, second, the draw() function. Then, it requests a callback from the browser and starts all over again.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei jedem Frame ruft die Animation zuerst die physics()-Funktion jedes Raums und anschließend die draw()-Funktion auf. Dann wird ein Callback vom Browser angefordert und alles beginnt von vorne.",
+                    "updated": 1641730335050
+                },
+                {           
+                    "language": "RU",
+                    "text": "На каждом кадре анимация вызывает сначала функцию physics() каждого пространства, а затем функцию draw(). Затем она запрашивает обратный вызов у браузера и начинает все сначала.",
+                    "updated": 1640930831392
+                },
+                {
+                    "language": "TR",
+                    "text": "Her karede, animasyon önce her bir boşluğun fizik() işlevini, ardından da draw() işlevini çağırır. Daha sonra tarayıcıdan bir geri arama ister ve baştan başlar.",
+                    "updated": 1643040566343
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Depending on how many things the user keeps open, both the physics() call or the draw() call may last more or less time. This makes the frames-per-second variable, and a function of the number of things that need to be calculated or rendered on-screen."
+            "text": "Depending on how many things the user keeps open, both the physics() call or the draw() call may last more or less time. This makes the frames-per-second variable, and a function of the number of things that need to be calculated or rendered on-screen.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je nachdem, wie viele Dinge der Benutzer geöffnet hält, kann sowohl der Aufruf von physics() als auch der Aufruf von draw() mehr oder weniger Zeit in Anspruch nehmen. Daher ist die Anzahl der Bilder pro Sekunde variabel und hängt von der Anzahl der Dinge ab, die auf dem Bildschirm berechnet oder gerendert werden müssen.",
+                    "updated": 1641730342702
+                },
+                {
+                    "language": "RU",
+                    "text": "В зависимости от того, сколько объектов пользователь держит открытыми, вызов physics() или draw() может длиться больше или меньше времени. Это делает количество кадров в секунду переменным и зависит от количества того, что нужно рассчитать или отобразить на экране.",
+                    "updated": 1640930866169
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcının kaç tane nesne açtığına bağlı olarak, fizik() veya çizim() çağrısı daha uzun veya daha kısa sürebilir. Bu, saniyedeki kare sayısını değişken yapar ve hesaplanması veya ekranda gösterilmesi gerekenlerin miktarına bağlıdır.",
+                    "updated": 1643040577777
+                }
+            ]
         }
     ]
 }

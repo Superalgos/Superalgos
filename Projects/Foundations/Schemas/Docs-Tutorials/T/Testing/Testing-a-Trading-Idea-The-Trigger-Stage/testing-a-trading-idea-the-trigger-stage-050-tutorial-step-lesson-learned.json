@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": " Im Moment beeinträchtigt uns der Fehler nicht, da die ersten 19 Tage des Datensatzes einem Aufwärtstrend entsprechen! Allerdings ...",
                 "updated": 1639388417211
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Şu anda hata bizi etkilemiyor çünkü veri setinin ilk 19 günü bir yükseliş trendine karşılık geliyor! Ancak...",
+                "updated": 1641661783053
+            },
+            {
+                "language": "RU",
+                "text": "В данный момент ошибка не влияет на нас, потому что первые 19 дней набора данных соответствуют восходящему тренду! Однако...",
+                "updated": 1642657976379
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "... würde er uns betreffen, wenn wir mit Aufwärtstrends arbeiten würden!",
                     "updated": 1639388427688
+                },
+                {
+                    "language": "TR",
+                    "text": "... yükseliş trendleriyle çalışıyor olsaydık bu bizi etkilerdi!",
+                    "updated": 1641661800559
+                },
+                {
+                    "language": "RU",
+                    "text": "... это повлияло бы на нас, если бы мы работали с восходящими трендами!",
+                    "updated": 1642657990763
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Die Fehlersuche, die wir soeben durchgeführt haben, ist für Sie vielleicht selbstverständlich, wenn Sie ein Entwickler sind. Wenn Sie das nicht sind, müssen Sie sich mit ihm vertraut machen, denn Sie werden ihn mit Sicherheit anwenden müssen.",
                     "updated": 1639388435595
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir geliştiriciyseniz, az önce gerçekleştirdiğimiz sorun giderme süreci size doğal gelebilir. Eğer değilseniz, aşina olmalısınız, çünkü kesinlikle kullanmanız gerekecek.",
+                    "updated": 1641661833977
+                },
+                {
+                    "language": "RU",
+                    "text": "Процесс устранения неполадок, который мы только что рассмотрели, может показаться вам естественным, если вы являетесь разработчиком. Если нет, то вы должны ознакомиться с ним, потому что вам обязательно придется его использовать.",
+                    "updated": 1642658031878
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Beim automatisierten Trading müssen viele Informationen wie bei einem Schweizer Uhrwerk zusammenpassen. Sie werden beim Erstellen von Strategien Fehler machen. Gehen Sie mit ihnen um!",
                     "updated": 1639388479624
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Otomatik ticarette, bir çok bilgi bir İsviçre saati gibi birbirine uymak zorundadır. Stratejiler oluştururken hatalar yapacaksınız. Onlarla ilgilen!",
+                    "updated": 1641661847125
+                },
+                {
+                    "language": "RU",
+                    "text": "Автоматизация торговли требует, чтобы множество информации было подогнано друг к другу, как в швейцарских часах. Вы будете делать ошибки при построении стратегий. Придется с этим смириться!",
+                    "updated": 1642658116445
                 }
             ]
         }

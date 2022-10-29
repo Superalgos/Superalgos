@@ -17,13 +17,18 @@
             },
             {
                 "language": "RU",
-                "text": "На узле Data Storage хранятся все важные данные, над созданием которых так усердно работают ваши боты. Считайте, что это ваш личный сундук с сокровищами, полный данных.",
-                "updated": 1639074450030
+                "text": "Узел Data Storage хранит все важные данные, над созданием которых так усердно работают ваши боты. Считайте, что это ваш личный сундук с сокровищами, полный данных.",
+                "updated": 1641833467692
             },
             {
                 "language": "DE",
                 "text": "Der Data Storage Knoten enthält alle wichtigen Daten, die Ihre Bots so fleißig produzieren. Betrachten Sie ihn als Ihre eigene persönliche Schatztruhe voller Daten.",
                 "updated": 1639273936024
+            },
+            {
+                "language": "TR",
+                "text": "Veri Depolama ( Data Storage  ) düğümü, botlarınızın üretmekle meşgul olduğu tüm önemli verileri içerir. Bunu kendi kişisel veri hazineniz olarak düşünün.",
+                "updated": 1642590193443
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Alle Data Products, die Sie in Ihren Diagrammen visualisieren möchten, werden im Knoten Data Storage gespeichert. Lassen Sie uns zunächst ein wenig üben, um herauszufinden, wo die gewünschten Daten gespeichert sind. Erinnern Sie sich daran, dass wir unser Diagramm mit der Candles Data Mine verbinden wollen. Der Zugriff auf diese Produkte ermöglicht uns die Visualisierung von Indikatoren und anderen Market Data.",
                     "updated": 1639274032904
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerinizde görselleştirmek istediğiniz tüm veri ürünleri Veri Deposu ( Data Storage ) düğümünde depolanır. İlk olarak, ihtiyacımız olan verilerin nerede saklandığını bulma alıştırması yapalım.Grafik'imizi veri madeni ile ilişkilendirmek istediğimizi unutmayın. Bu ürünlere erişim, göstergeleri ve diğer piyasa verilerini ( Market Data ) görselleştirmemizi sağlayacaktır.",
+                    "updated": 1642590948800
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Eine großartige Sache an Superalgos ist, dass es eine einheitliche Logik im gesamten System verwendet. Für uns bedeutet das, dass Sie, sobald Sie gelernt haben, ein Diagramm mit einer bestimmten Art von Daten zu verknüpfen, die grundlegenden Schritte kennen, um Ihre Diagramme mit allen gewünschten Daten zu verknüpfen!",
                     "updated": 1639274099800
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Superalgos ile ilgili harika bir şey, sistem genelinde tutarlı mantık kullanmasıdır. Bizim için bu, bir grafiği belirli bir veri türüyle nasıl ilişkilendireceğinizi öğrendikten sonra, grafiklerinizi istediğiniz verilerle ilişkilendirmenin temel adımlarını bildiğiniz anlamına gelir!",
+                    "updated": 1642591047252
                 }
             ]
         }

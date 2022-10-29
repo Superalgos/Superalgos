@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Docs Error - Page Already Exists",
     "definition": {
         "text": "The page you are trying to add already exists.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Страница, которую вы пытаетесь добавить, уже существует.",
                 "updated": 1638530231184
+            },
+            {
+                "language": "TR",
+                "text": "Eklemeye çalıştığınız sayfa zaten var.",
+                "updated": 1652038483992
             }
         ]
     },
@@ -22,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Page Already Exists",
-            "updated": 1609180759921
+            "updated": 1609180759921,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bağlantı Sayfası Zaten Var",
+                    "updated": 1654419898542,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -33,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Seite existiert bereits.",
                     "updated": 1633898447049
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa zaten var.",
+                    "updated": 1652038506274
                 }
             ]
         },
@@ -50,6 +68,11 @@
                     "language": "RU",
                     "text": "Проверьте название страницы документов Docs Page Name, которое вы использовали в команде. Кажется, что страница с таким именем уже существует.",
                     "updated": 1638530309100
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutta kullandığınız Dokümanlar Sayfası Adını ( Docs Page Name ) kontrol edin. Aynı ada sahip bir sayfa zaten var gibi görünüyor.",
+                    "updated": 1652038596217
                 }
             ]
         },
@@ -66,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638530337456
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419907375,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654419914590,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Программа делегирования позволяет вам делегировать полномочия Token Power для расширения возможностей других членов сообщества, давая им более громкий голос в управлении. Полномочия токенов, которые вы делегируете, могут быть использованы получателем в любой программе Governance Program без ограничений.",
                 "updated": 1638992798080
+            },
+            {
+                "language": "TR",
+                "text": "Delegation Program, Topluluğun diğer üyelerini güçlendirmek için Token Gücü'nü devretmenize ve onlara yönetişim konusunda yetki vermenize olanak tanır. Aktardığınız Token Gücü, alıcı tarafından herhangi bir Yönetim Programında herhangi bir kısıtlama olmaksızın kullanılabilir.",
+                "updated": 1645185150599
             }
         ]
     },
@@ -24,7 +29,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus"
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Featuring Tokens Bonus",
+                    "updated": 1654394710431,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -40,6 +53,11 @@
                     "language": "RU",
                     "text": "Когда вы делегируете Voting Power через программу голосования Voting Program, получатель может использовать делегированные полномочия только в рамках программы голосования Voting Program. Вместо этого программа делегирования Delegation Program позволяет вам делегировать полномочия Token Power, которые могут быть использованы получателем в любой программе.",
                     "updated": 1638992977147
+                },
+                {
+                    "language": "TR",
+                    "text": "Oylama Gücünü (Voting Power) Oylama Programı (Voting Program) aracılığıyla devrettiğinizde, alıcı yalnızca Oylama Programında devredilen gücü kullanabilir. Bunun yerine Delegasyon Programı (Delegation Program), alıcı tarafından herhangi bir programda kullanılabilecek Token Gücünü devretmenize izin verir.",
+                    "updated": 1645185261476
                 }
             ]
         },
@@ -56,6 +74,11 @@
                     "language": "RU",
                     "text": "Только 10% Token Power, которую вы вводите в узел User Delegate, достигает профиля пользователя получателя User Profile. Это сделано для предотвращения мошенничества, которое может возникнуть, связанного с циркулярными декларациями, поддельными профилями или торговлей голосами.",
                     "updated": 1638993072446
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Kullanıcı Delegasyon düğümüne (User Delegate )sürdüğünüz Simge Gücünün (Token Power) yalnızca %10'u alıcı Kullanıcı Profiline ulaşır. Bu, sirküler beyanlar, sahte profiller veya oy alım satımı gibi dolandırıcılık davranışlarını caydırmak içindir.",
+                    "updated": 1645185345163
                 }
             ]
         },
@@ -71,6 +94,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638993084194
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645185352911
                 }
             ]
         }

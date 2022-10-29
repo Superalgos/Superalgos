@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Başka bir örneğe göz atalım! Bu BB Top Bounce, üst Bollinger Band ticaret fikrine dayalı bir Ticaret Sistemi ( Trading System ).",
                 "updated": 1640700528996
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим еще один пример! Это BB Top Bounce, торговая система, основанная на торговой идее отскока от верхней полосы Боллинджера.",
+                "updated": 1640885557009
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Ticaret sistemi düğümünü genişletin... Bakalım bize neler öğretecek!",
                     "updated": 1640700549413
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел торговой системы... Давайте посмотрим, чему она может нас научить!",
+                    "updated": 1640885573510
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Söylemiştim! Aynı ticaret sistemi altında dilediğiniz kadar stratejiye sahip olabilirsiniz! Peki... işte buradasın!",
                     "updated": 1640700579767
+                },
+                {
+                    "language": "RU",
+                    "text": "Я же говорил! Вы можете иметь столько стратегий, сколько пожелаете, в рамках одной торговой системы! Ну... вот и все!",
+                    "updated": 1640885589783
                 }
             ],
             "updated": 1640641009638

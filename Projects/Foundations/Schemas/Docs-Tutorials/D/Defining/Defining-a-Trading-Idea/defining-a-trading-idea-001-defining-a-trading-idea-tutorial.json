@@ -1,6 +1,6 @@
 {
     "tutorial": "Defining a Trading Idea",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Defining a Trading Idea Tutorial",
     "definition": {
         "text": "This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
@@ -17,6 +17,11 @@
                 "updated": 1639251150861
             },
             {
+                "language": "RU",
+                "text": "Этот учебник научит вас формулировать проверяемую торговую идею. В некотором смысле это введение в систематический подход к торговле - важнейшую концепцию, которую необходимо усвоить для автоматизации стратегий. Пример, изложенный в этом уроке, в дальнейшем будет использоваться в остальных частях серии.",
+                "updated": 1640887454787
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
                 "updated": 1640858379007
@@ -27,15 +32,44 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617115088230
+            "updated": 1617115088230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640887463797
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393934900,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace."
+            "text": "Workspace: Trading System Design Tutorials Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Ticaret Sistemi Tasarımı Eğitimleri Eklenti Çalışma Alanı.",
+                    "updated": 1654393941299,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654393947007,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

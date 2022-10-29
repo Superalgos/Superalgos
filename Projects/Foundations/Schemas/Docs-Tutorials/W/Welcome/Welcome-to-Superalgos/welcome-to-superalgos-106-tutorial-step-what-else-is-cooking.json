@@ -4,11 +4,11 @@
     "type": "Tutorial Step - What Else Is Cooking?",
     "definition": {
         "icon": {
-            "name": "Crypto-Assets\\ethereum",
+            "name": "Crypto-Assets\\bitcoin",
             "project": "Foundations"
         },
-        "text": "Superalgos is a multi-project platform, and —after TensorFlow— the Ethereum integration is next in line...",
-        "updated": 1616695001060,
+        "text": "The Bitcoin Factory crowdsources computing power from the community to train ML algorithms that predict Bitcoin prices!",
+        "updated": 1660157066315,
         "translations": [
             {
                 "language": "IT",
@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Superalgos ist eine Multi-Projekt-Plattform, und nach TensorFlow ist die Ethereum-Integration die nächste in der Reihe...",
-                "updated": 1634246816998
+                "text": "Die Bitcoin Factory sammelt Rechenkapazität über Crowdsourcing um Machine Learning-Algorithmen zu trainieren, die Bitcoin-Kurse voraussagen!",
+                "updated": 1660477054768
             },
             {
                 "language": "TR",
@@ -36,47 +36,18 @@
                 "language": "ID",
                 "text": "Superalgos adalah platform multi-proyek, dan — setelah TensorFlow — integrasi Ethereum adalah yang berikutnya...",
                 "updated": 1640598195833
+            },
+            {
+                "language": "RU",
+                "text": "Bitcoin Factory привлекает вычислительные мощности сообщества для обучения алгоритмов ML, которые предсказывают цены на биткоин! ",
+                "updated": 1662034564589
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "What does integrating Ethereum mean, you ask? It means that—in future versions—you will be able to:",
-            "updated": 1610719381268,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Che cosa significa integrare Ethereum? Significa che, nelle future versioni, potrai:",
-                    "updated": 1618073374905,
-                    "style": "Text"
-                },
-                {
-                    "language": "ES",
-                    "text": "¿Qué significa integrar Ethereum? Significa que, en versiones futuras, podrás:",
-                    "updated": 1624487553387,
-                    "style": "Text"
-                },
-                {
-                    "language": "DE",
-                    "text": "Was bedeutet die Integration von Ethereum, fragen Sie? Es bedeutet, dass Sie - in zukünftigen Versionen - in der Lage sein werden:",
-                    "updated": 1634246807622
-                },
-                {
-                    "language": "TR",
-                    "text": "Ethereum'u entegre etmek ne anlama geliyor? Bu, gelecekteki sürümlerde şunları yapabileceğiniz anlamına gelir:",
-                    "updated": 1636636318950
-                },
-                {
-                    "language": "ID",
-                    "text": "Apa arti mengintegrasikan Ethereum, Kamu bertanya? Ini berarti bahwa — dalam versi yang akan datang — kamu akan dapat :",
-                    "updated": 1640598245063
-                }
-            ]
-        },
-        {
             "style": "List",
-            "text": "Connect to an Ethereum node right from within Superalgos using the visual interface.",
+            "text": "Mine the Superalgos SA Token by running the Bitcoin Factory ML-Test-Client to contribute computation!",
             "translations": [
                 {
                     "language": "IT",
@@ -92,8 +63,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sich mit einem Ethereum-Knoten direkt von Superalgos aus über die visuelle Schnittstelle verbinden.",
-                    "updated": 1634246794294
+                    "text": "Erhalten Sie das Superalgos SA Token, indem Sie den Bitcoin Factory ML Test-Client ausführen und Rechenkapazität beisteuern!",
+                    "updated": 1660477117518
                 },
                 {
                     "language": "TR",
@@ -104,13 +75,19 @@
                     "language": "ID",
                     "text": "Terhubung ke Ethereum node langsung dari dalam Superalgos menggunakan interface visual.",
                     "updated": 1640598284459
+                },
+                {
+                    "language": "RU",
+                    "text": "Добывайте токен Superalgos SA, запустив ML-Test-Client для Bitcoin Factory, чтобы внести свой вклад в вычисления!",
+                    "updated": 1662034611413
                 }
-            ]
+            ],
+            "updated": 1660158085106
         },
         {
             "style": "List",
-            "text": "Mine blockchain data to access coin and contract information for all Ethereum-based projects, including De-Fi or what have you, visualizing data on the charts, building indicators, and leveraging the rest of the Superalgos infrastructure.",
-            "updated": 1611584299475,
+            "text": "Use the ML predictions and signals as intelligence you may plug into your strategies to find your edge!",
+            "updated": 1660159101605,
             "translations": [
                 {
                     "language": "IT",
@@ -126,8 +103,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Blockchain-Daten zu schürfen, um auf Coin- und Vertragsinformationen für alle Ethereum-basierten Projekte zuzugreifen, einschließlich De-Fi oder was auch immer, Daten in den Charts zu visualisieren, Indikatoren zu erstellen und den Rest der Superalgos-Infrastruktur zu nutzen.",
-                    "updated": 1634246834706
+                    "text": "Verwenden Sie die Machine Learning-Voraussagen und Signale als Datenpunkte in Ihren Handelsstrategien, um daraus Ihren individuellen Vorteil zu entwickeln!",
+                    "updated": 1660479228625
                 },
                 {
                     "language": "TR",
@@ -138,12 +115,17 @@
                     "language": "ID",
                     "text": "Tambang data blockchain untuk mengakses informasi koin dan kontrak untuk semua proyek berbasis Ethereum, termasuk De-Fi atau apa pun yang kamu miliki, memvisualisasikan data pada charts, membangun indikator, dan memanfaatkan sisa infrastruktur Superalgos.",
                     "updated": 1640598383369
+                },
+                {
+                    "language": "RU",
+                    "text": " Используйте прогнозы и сигналы ML в качестве разведданных, которые вы можете включить в свои стратегии, чтобы найти свое преимущество!",
+                    "updated": 1662034639255
                 }
             ]
         },
         {
-            "style": "List",
-            "text": "Use the data to trade by consuming related indicators from within trading systems!",
+            "style": "Text",
+            "text": "To participate, join the Bitcoin Factory team in the",
             "translations": [
                 {
                     "language": "IT",
@@ -159,8 +141,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden!",
-                    "updated": 1634246841374
+                    "text": "Um dabei zu sein, wenden Sie sich an das Bitcoin Factory-Team in dieser Gruppe:",
+                    "updated": 1660479142124
                 },
                 {
                     "language": "TR",
@@ -171,6 +153,33 @@
                     "language": "ID",
                     "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems!",
                     "updated": 1640598452709
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы принять участие, присоединяйтесь к команде Bitcoin Factory",
+                    "updated": 1662034698820
+                }
+            ],
+            "updated": 1660158007047
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Machine Learning Group->te.me/superalgosmachinelearning"
+        },
+        {
+            "style": "Success",
+            "text": "Once the beta phase is over, you will need to hold a certain balance of Superalgos SA Tokens to access Bitcoin Factory predictions, as it's a premium community service.",
+            "updated": 1660157821896,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach Beendigung der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu besitzen, um Bitcoin Factory-Voraussagen zu erhalten. Dabei handelt es sich um einen Premium Community-Service.",
+                    "updated": 1660479331875
+                },
+                {
+                    "language": "RU",
+                    "text": "После завершения бета-фазы вам нужно будет иметь определенный баланс Superalgos SA Tokens, чтобы получить доступ к прогнозам Bitcoin Factory, поскольку это премиум-сервис сообщества.",
+                    "updated": 1662034727340
                 }
             ]
         }

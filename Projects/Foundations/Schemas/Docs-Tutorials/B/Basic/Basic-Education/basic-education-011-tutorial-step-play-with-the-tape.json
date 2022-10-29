@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Lightning Strike Ticaret Sistemi Referans düğümünün ( Trading System Reference Node ) farklı mesafe ayarlarını deneyin! Devam edelim! Bant düğmesine tıklayın!",
                 "updated": 1636749363536
+            },
+            {
+                "language": "RU",
+                "text": "Попробуйте различные настройки расстояния в узле Lightning Strike Trading System Reference! Вперед! Нажмите на кнопку в виде рулетки!",
+                "updated": 1640866617814
+            },
+            {
+                "language": "ID",
+                "text": "Coba pilihan lain pengaturan Distance to Parent dari node Lightning Strike Trading System Reference ! Cobalah! Clik tombol tape-nya!",
+                "updated": 1643473899607
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Oldukça basit, değil mi? Şimdi, ayarladığınız düğümün kendi yavruları olduğunda ne olur ona bakalım.",
                     "updated": 1636749391543
+                },
+                {
+                    "language": "RU",
+                    "text": "Довольно просто, верно? Теперь, что произойдет, если узел, который вы настраиваете, имеет собственное потомство?",
+                    "updated": 1640866634862
+                },
+                {
+                    "language": "ID",
+                    "text": "Cukup mudah, benar? Sekarang, apa yang terjadi ketika node yang kamu sesuaikan memiliki turunannya sendiri?",
+                    "updated": 1643353705305
                 }
             ]
         },
@@ -89,6 +109,16 @@
                     "language": "TR",
                     "text": "Hadi bulalım! İşlem Parametreleri ( Trading Parameters ) düğümünde Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
                     "updated": 1636749475116
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте узнаем! Нажмите кнопку Distance to Parent один раз на узле Trading Parameters!",
+                    "updated": 1640866666986
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita cari tahu! Klik tombol Distance to Parent sekali di node Trading Parameters!",
+                    "updated": 1643353717357
                 }
             ]
         },
@@ -118,6 +148,16 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri düğümünü Geri Test Oturumu (Backtesting Session Node ) düğümünden ayıran mesafeyi artırdığınız için, İşlem Parametreleri ( Trading Parameters ) düğümünün yavruları da orantılı olarak arttı!",
                     "updated": 1636749564919
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы увеличили расстояние, отделяющее узел Trading Parameters от узла Backtesting Session, потомство узла Trading Parameters также пропорционально увеличилось!",
+                    "updated": 1640866688182
+                },
+                {
+                    "language": "ID",
+                    "text": "Karena kamu menambah jarak yang memisahkan node Trading Parameters dari node Backtesting Session, turunan node Trading Parameters juga bertambah secara proporsional!",
+                    "updated": 1643353672230
                 }
             ]
         },

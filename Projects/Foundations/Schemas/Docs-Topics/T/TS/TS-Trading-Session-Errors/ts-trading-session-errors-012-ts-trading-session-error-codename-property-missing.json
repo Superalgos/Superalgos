@@ -4,17 +4,53 @@
     "type": "TS Trading Session Error - Codename Property Missing",
     "definition": {
         "text": "A property called codeName is expected at the Exchange Account Key Node config.",
-        "updated": 1611392953689
+        "updated": 1611392953689,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В конфигурации узла Exchange Account Key Node ожидается свойство под названием codeName.",
+                "updated": 1645628630148
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Exchange Hesabı Anahtar Düğümü ( Exchange Account Key ) yapılandırmasında codeName adlı bir özellik bekleniyor.",
+                "updated": 1647101435975
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Add this property and assign to it the value of your account key taken from the Exchange website.",
-            "updated": 1611393012580
+            "updated": 1611393012580,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте это свойство и присвойте ему значение ключа вашей учетной записи, взятое с сайта биржи.",
+                    "updated": 1645628648031
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu özelliği ekleyin ve buna Exchange web sitesinden alınan hesap anahtarınızın değerini atayın.",
+                    "updated": 1647101472748
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Property Missing"
+            "text": "Property Missing",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие свойста",
+                    "updated": 1645628666415
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksik Özellik ",
+                    "updated": 1647101484667
+                }
+            ]
         },
         {
             "style": "Json",

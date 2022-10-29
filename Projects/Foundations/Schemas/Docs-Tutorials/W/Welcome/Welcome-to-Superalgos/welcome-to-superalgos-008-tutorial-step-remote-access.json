@@ -95,19 +95,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird.",
-                    "updated": 1634168869002,
+                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf einem Einplatinencomputern wie dem Raspberry Pi oder auf einem dedizierten PC auszuführen, den sie beim Live-Trading immer eingeschaltet lassen können. Der Netzwerkknoten Mein Computer LAN stellt den Rechner dar, auf dem der Client ausgeführt wird.",
+                    "updated": 1642149682538,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Многие пользователи предпочитают запускать Client в облаке, на одноплатном устройстве как, например, Raspberry Pi или РС, который они могут оставить включенным в любое время, когда идет торговля в режиме реального времени. My Computer Network Node представляет машину, на которой работает Client.",
-                    "updated": 1635581854422
+                    "text": "Многие пользователи предпочитают запускать Client в облаке, на одноплатном устройстве как, например, Raspberry Pi или выделенном РС, который они могут оставить включенным в любое время, когда идет торговля в режиме реального времени. Узел My Computer представляет машину, на которой работает Client.",
+                    "updated": 1641802303228
                 },
                 {
                     "language": "TR",
-                    "text": "Birçok kullanıcı İstemciyi ( Client ) bulutta, Raspberry Pi gibi makinelerde veya canlı işlem yaparken her zaman açık bırakabilecekleri özel bir bilgisayarda çalıştırmayı tercih eder. Bilgisayarım Ağ Düğümü ( Node ), İstemcinin ( Client ) üzerinde çalıştığı makineyi temsil eder.",
-                    "updated": 1635578604315
+                    "text": "Birçok kullanıcı İstemciyi ( Client ) bulutta, Raspberry Pi gibi makinelerde veya canlı işlem yaparken her zaman açık bırakabilecekleri özel bir bilgisayarda çalıştırmayı tercih eder. \"The My Computer LAN Network Node\", İstemcinin   ( Client ) üzerinde çalıştığı makineyi temsil eder.",
+                    "updated": 1644848366792
                 }
             ],
             "updated": 1636910159513
@@ -149,7 +149,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "На данном этапе Superalgos не гарантирует никакой формы безопасности. Вам следует использовать систему только в контексте местной сети с ограниченным доступом. Если Вы выбрали запустить Client в облаке, Вам необходимо осуществить свою собственную систему безопасности.",
+                    "text": "На данном этапе Superalgos не гарантирует никакой формы безопасности. Вам следует использовать систему только в контексте местной сети с ограниченным доступом. Если Вы выбрали запустить Client в облаке, вам необходимо осуществить свою собственную систему безопасности.",
                     "updated": 1635581868732
                 },
                 {

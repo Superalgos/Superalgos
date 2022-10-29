@@ -2,12 +2,37 @@
     "type": "Bias",
     "definition": {
         "text": "A value indicating how far apart the average of predictions is from the average of labels in the dataset.",
-        "updated": 1613243679048
+        "updated": 1613243679048,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Значение, указывающее, насколько далеко отстоит среднее значение предсказаний от среднего значения меток в наборе данных.",
+                "updated": 1645195695451
+            },
+            {
+                "language": "TR",
+                "text": "Tahminlerin ortalamasının veri kümesindeki etiketlerin ortalamasından ne kadar uzak olduğunu gösteren bir değer.",
+                "updated": 1654396730246
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645195700986
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396736474,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

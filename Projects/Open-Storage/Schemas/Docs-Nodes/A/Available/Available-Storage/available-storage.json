@@ -1,0 +1,71 @@
+{
+    "type": "Available Storage",
+    "definition": {
+        "text": "The Available Storage node stores references to Open Storage locations available for use by the current hierarchy.",
+        "updated": 1643981961354,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kullanılabilir Depolama düğümü, geçerli hiyerarşi tarafından kullanılabilen Açık Depolama konumlarına referansları depolar.",
+                "updated": 1654395924575
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982703770
+        },
+        {
+            "style": "Text",
+            "text": "The main hierarchies that make use of this node are:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu düğümü kullanan ana hiyerarşiler şunlardır:",
+                    "updated": 1654395933353,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Social Trading Bot",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sosyal Ticaret Botu",
+                    "updated": 1654395939700,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Social Persona",
+            "updated": 1643982149657,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sosyal Kişilik",
+                    "updated": 1654395945460,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "More than one open storage location can be defined for a particular bot or personal. This allows for a user to set up redundant locations to ensure uninterrupted availability to the stored data.",
+            "updated": 1647054334041,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Belirli bir bot veya kişisel için birden fazla açık depolama konumu tanımlanabilir. Bu, bir kullanıcının depolanan verilere kesintisiz erişilebilirlik sağlamak için yedek konumlar ayarlamasına olanak tanır.",
+                    "updated": 1654395951186,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

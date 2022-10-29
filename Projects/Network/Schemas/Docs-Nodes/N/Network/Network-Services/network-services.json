@@ -1,0 +1,77 @@
+{
+    "type": "Network Services",
+    "definition": {
+        "text": "The Network Services node defines the load out of the current P2P Network Node.",
+        "updated": 1647061292355,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ağ Hizmetleri düğümü mevcut P2P Ağ Düğümünün yükünü tanımlar.",
+                "updated": 1654395725831
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This allows the user to configure the network node to run particular services. ",
+            "updated": 1647061532122,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, kullanıcının ağ düğümünü belirli hizmetleri çalıştıracak şekilde yapılandırmasına olanak tanır.",
+                    "updated": 1654395733019,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Currently available services are:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Şu anda mevcut olan hizmetler şunlardır:",
+                    "updated": 1654395739723,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Social Graph",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sosyal Grafik",
+                    "updated": 1654395746109,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Signals",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sinyalleri",
+                    "updated": 1654395752023,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Online Workspaces",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çevrimiçi Çalışma Alanları",
+                    "updated": 1654395759481,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

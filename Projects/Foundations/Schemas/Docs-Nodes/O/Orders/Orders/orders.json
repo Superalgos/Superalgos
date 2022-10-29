@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Orders подсчитывает сколько было размещено ордеров (ордера, заявки, заказы и приказы – это одно и то же), в контексте родительского узла.",
                 "updated": 1640177339435
+            },
+            {
+                "language": "TR",
+                "text": "Orders, üst düğüm bağlamında siparişlerin kaç kez verildiğini sayar.",
+                "updated": 1642406300728
             }
         ]
     },
@@ -27,17 +32,38 @@
         {
             "style": "Title",
             "text": "Orders Configuration",
-            "updated": 1609924970845
+            "updated": 1609924970845,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Orders Yapılandırması",
+                    "updated": 1642406321858
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1642406374684
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1642406388890
+                }
+            ]
         }
     ]
 }

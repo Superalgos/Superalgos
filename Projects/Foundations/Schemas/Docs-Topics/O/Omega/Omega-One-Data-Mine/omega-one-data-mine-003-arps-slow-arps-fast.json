@@ -4,13 +4,47 @@
     "type": "ARPS Slow & ARPS Fast",
     "definition": {
         "text": "Measures the average Bull Power and average Bear Power in the average Total Range.",
-        "updated": 1617958264294
+        "updated": 1617958264294,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Измеряет среднюю Bull Power (\"Бычья сила\") и среднюю Bear Power (\"Медвежья сила\") в среднем общем диапазоне.",
+                "updated": 1643524806220
+            },
+            {
+                "language": "DE",
+                "text": "Misst die durchschnittliche Bullenpower und die durchschnittliche Bärenpower in der durchschnittlichen Gesamtspanne.",
+                "updated": 1646026909612
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ortalama Toplam Menzil içindeki ortalama Boğa Gücünü ve ortalama Ayı Gücünü ölçer.",
+                "updated": 1647778528295
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
-            "updated": 1617957983880
+            "updated": 1617957983880,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643524819581
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können im oberen Abschnitt der meisten Indikatoren, die Sie unter Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code Knoten finden, verschiedene Werte für die verwendeten Perioden einstellen.",
+                    "updated": 1646027053357
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Omega Veri Madeni ( Data Mine ) -> Veri Oluşturma Prosedürü ( Data Building Procedure  ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünde bulunan çoğu göstergenin üst kısmında kullanılan dönemler için farklı değerler ayarlayabilirsiniz.",
+                    "updated": 1647778593491
+                }
+            ]
         },
         {
             "style": "Png",
@@ -19,99 +53,473 @@
         {
             "style": "Subtitle",
             "text": "ARPS - Average Range Percentage Spread",
-            "updated": 1617957610783
+            "updated": 1617957610783,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS - Average Range Percentage Spread (средний процентный разброс)",
+                    "updated": 1643524856344
+                },
+                {
+                    "language": "DE",
+                    "text": "ARPS - Durchschnittliche prozentuale Spanne",
+                    "updated": 1646027149758
+                },
+                {
+                    "language": "TR",
+                    "text": "ARPS - Ortalama Aralık Yüzde Yayılımı",
+                    "updated": 1647778633659
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "ARPS Slow and ARPS Fast measures the Average Bull and Average Bear power within a given, configurable range."
+            "text": "ARPS Slow and ARPS Fast measures the Average Bull and Average Bear power within a given, configurable range.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS Slow и ARPS Fast измеряют среднюю бычью и среднюю медвежью силу в заданном, настраиваемом диапазоне.",
+                    "updated": 1643524869021
+                },
+                {
+                    "language": "DE",
+                    "text": "ARPS Slow und ARPS Fast messen die durchschnittliche Bull- und Bear-Leistung innerhalb eines bestimmten, konfigurierbaren Bereichs.",
+                    "updated": 1646027194898
+                },
+                {
+                    "language": "TR",
+                    "text": "ARPS Yavaş ve ARPS Hızlı, belirli bir yapılandırılabilir aralıkta Ortalama Boğa ve Ortalama Ayı gücünü ölçer.",
+                    "updated": 1647778653117
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Two separate indicators that can be used either separately or in combination with others."
+            "text": "Two separate indicators that can be used either separately or in combination with others.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Два отдельных показателя, которые можно использовать как отдельно, так и в сочетании с другими.",
+                    "updated": 1643524877652
+                },
+                {
+                    "language": "DE",
+                    "text": "Zwei separate Indikatoren, die entweder separat oder in Kombination mit anderen verwendet werden können.",
+                    "updated": 1646027235948
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrı ayrı veya başkalarıyla birlikte kullanılabilen iki ayrı gösterge.",
+                    "updated": 1647778664088
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "ARPS follows price action by using a SMA center line, and prints out the bullish power visualised by a blue line, and a red line for bearish power. The distance from the centerline represents the strength of the powers. The greater distance away from the center line, the greater advantage.",
-            "updated": 1617953949590
+            "updated": 1617953949590,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS отслеживает ценовое действие с помощью центральной линии SMA и выводит бычью силу, изображенную синей линией, и красную линию для медвежьей силы. Расстояние от центральной линии отражает силу действия. Чем больше расстояние от центральной линии, тем больше преимущество.",
+                    "updated": 1643524918850
+                },
+                {
+                    "language": "DE",
+                    "text": "ARPS verfolgt das Kursgeschehen anhand einer SMA-Mittellinie und druckt die bullische Kraft, die durch eine blaue Linie dargestellt wird, und eine rote Linie für die bearische Kraft aus. Der Abstand von der Mittellinie stellt die Stärke der Kräfte dar. Je größer der Abstand von der Mittellinie, desto größer der Vorteil.",
+                    "updated": 1646027315786
+                },
+                {
+                    "language": "TR",
+                    "text": "ARPS, bir SMA merkez çizgisi kullanarak fiyat hareketini takip eder ve mavi bir çizgi ile görselleştirilen yükseliş gücünü ve düşüş gücü için kırmızı bir çizgiyi yazdırır. Merkez çizgisinden uzaklık, güçlerin gücünü temsil eder. Merkez çizgisinden uzaklaştıkça daha büyük avantaj elde edilir.",
+                    "updated": 1647778678830
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The distance between the bull and bear lines represents the average total range for the period."
+            "text": "The distance between the bull and bear lines represents the average total range for the period.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расстояние между бычьей и медвежьей линиями представляет собой средний общий диапазон за период.",
+                    "updated": 1643524930457
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Abstand zwischen der Bullen- und der Bärenlinie stellt die durchschnittliche Gesamtspanne für den Zeitraum dar.",
+                    "updated": 1646027354020
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa ve ayı çizgileri arasındaki mesafe, dönem için ortalama toplam aralığı temsil eder.",
+                    "updated": 1647778691052
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Looking at the Plotter Panel will give you the values measured in percentage (%)."
+            "text": "Looking at the Plotter Panel will give you the values measured in percentage (%).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Взглянув на панель плоттера (Plotter Panel), вы увидите значения, измеренные в процентах (%).",
+                    "updated": 1643524950945
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf dem Plotter Panel sehen Sie die Werte in Prozent (%) gemessen.",
+                    "updated": 1646027419389
+                },
+                {
+                    "language": "TR",
+                    "text": "Plotter Paneline ( Plotter Panel ) bakmak size yüzde (%) olarak ölçülen değerleri verecektir.",
+                    "updated": 1647778725641
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How is ARPS calculated?"
+            "text": "How is ARPS calculated?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как рассчитывается ARPS?",
+                    "updated": 1643524958974
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie wird ARPS berechnet?",
+                    "updated": 1646027850799
+                },
+                {
+                    "language": "TR",
+                    "text": "ARPS nasıl hesaplanır?",
+                    "updated": 1647778765183
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All values are being calculated through a SMA function."
+            "text": "All values are being calculated through a SMA function.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все значения рассчитываются через функцию SMA.",
+                    "updated": 1643524968050
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Werte werden über eine SMA Funktion berechnet.",
+                    "updated": 1646027881950
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm değerler bir SMA işlevi aracılığıyla hesaplanmaktadır.",
+                    "updated": 1647778776204
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bull Power is the measured distance between the candle low and candle close, divided the candle range.",
-            "updated": 1617952901003
+            "updated": 1617952901003,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bull Power (Бычья сила) - это измеренное расстояние между минимумом свечи и закрытием свечи, разделенное на диапазон свечи.",
+                    "updated": 1643525029897
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Bullenpower ist der gemessene Abstand zwischen dem Kerzentief und dem Kerzenschluss, geteilt durch die Kerzenbereich.",
+                    "updated": 1646028008756
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Gücü, mumun düşük ve mum kapanışı arasındaki ölçülen mesafedir, mum aralığına bölünür.",
+                    "updated": 1647778812374
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bear Power is the measured distance between the candle high and candle close, divided the candle range.",
-            "updated": 1617952943789
+            "updated": 1617952943789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bear Power (Медвежья сила) - это измеренное расстояние между максимумом свечи и закрытием свечи, разделенное на диапазон свечи.",
+                    "updated": 1643525004302
+                },
+                {
+                    "language": "DE",
+                    "text": "Bear Power ist der gemessene Abstand zwischen dem Kerzenhoch und dem Kerzenschluss, geteilt durch den Kerzenbereich.",
+                    "updated": 1646028049166
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı Gücü, mum yüksekliği ile mum kapanışı arasındaki ölçülen mesafedir, mum aralığına bölünür.",
+                    "updated": 1647778833843
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The average Bull Power and average Bear Power are divided through the Average Total Range for the same given period - Giving the Average Range Spread.",
-            "updated": 1617953325703
+            "updated": 1617953325703,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Среднее значение Bull Power и среднее значение Bear Power делятся на среднее значение Total Range за тот же период - получается средний Range Spread.",
+                    "updated": 1643525049715
+                },
+                {
+                    "language": "DE",
+                    "text": "Die durchschnittliche Bullenpower und die durchschnittliche Bärenpower werden durch die durchschnittliche Gesamtspanne für den gleichen Zeitraum geteilt - das ergibt den durchschnittlichen Bandbreite.",
+                    "updated": 1646028116861
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama Boğa Gücü ve ortalama Ayı Gücü, aynı dönem için Ortalama Toplam Aralık ile bölünür - Ortalama Menzil Yayılımını Vererek.",
+                    "updated": 1647778854410
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "All values are multiplied by 100 to convert it to percentage form (%)."
+            "text": "All values are multiplied by 100 to convert it to percentage form (%).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все значения умножаются на 100, чтобы перевести их в процентную форму (%).",
+                    "updated": 1643525058766
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Werte werden mit 100 multipliziert, um sie in die Prozentform (%) umzuwandeln.",
+                    "updated": 1646028159031
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm değerler 100 ile çarpılarak yüzde biçimine (%) dönüştürülür.",
+                    "updated": 1647778875072
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525070755
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
+                    "updated": 1646028196333
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek üzere girişi değiştirin!",
+                    "updated": 1647778923012
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525082112
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Omega-Indikatoren können verschiedene Periodenwerte verwenden. So ändern Sie die Perioden:",
+                    "updated": 1646028231616
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647778951262
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525093092
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
+                    "updated": 1646028264438
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647779048427
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525098912
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Indicator Bot.",
+                    "updated": 1646028332434
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647779077629
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525109621
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1646028385093
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure  ) -> Prosedür Döngüsü  Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647779128498
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525127186
+                },
+                {
+                    "language": "DE",
+                    "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
+                    "updated": 1647333736675
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin",
+                    "updated": 1647779153143
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643525166302
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den Anfang des Codes erreichen.",
+                    "updated": 1646028496465
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna yerleştirin ve kodun en üstüne ulaşana kadar Yukarı Ok tuşuna basın.",
+                    "updated": 1647779192138
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643525881341
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach \"User defined values\".",
+                    "updated": 1646028539923
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" öğesini arayın.",
+                    "updated": 1647779229158
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643525182480
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie die von Ihnen gewünschten Werte ein.",
+                    "updated": 1646028568361
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647779251078
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запу��тить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643525197767
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
+                    "updated": 1646028704259
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişiklik görmeden önce Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647779298685
+                }
+            ]
         },
         {
             "style": "Png",
@@ -126,22 +534,70 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643525205749
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften & Beispiele",
+                    "updated": 1646029377209
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647779314696
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| ARPS Slow | slowARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
-            "updated": 1617968683265
+            "updated": 1617968683265,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| ARPS Slow | slowARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+                    "updated": 1646029422863
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| ARPS Yavaş | yavaşARPS | ARPS, apsBull, apsBear, SMA, yüzdeARPS, yüzdeApsBull, yüzde apsBear |",
+                    "updated": 1647779330511
+                }
+            ]
         },
         {
             "style": "Javascript",
             "text": "/* EXAMPLES for ARPS Slow */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.slowARPS.previous.apsBull < \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull > \nchart.at01hs.slowARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.slowARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull < \nchart.at01hs.slowARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.slowARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.slowARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.slowARPS.ARPS > 1",
-            "updated": 1617969217661
+            "updated": 1617969217661,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "/* ARPS Yavaş için ÖRNEKLER */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.slowARPS.previous.apsBull < \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull > \nchart.at01hs.slowARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.slowARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull < \nchart.at01hs.slowARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.slowARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.slowARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.slowARPS.ARPS > 1",
+                    "updated": 1647779353410
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| ARPS Fast | fastARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
-            "updated": 1617969400921
+            "updated": 1617969400921,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| ARPS Fast | fastARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+                    "updated": 1646029499698
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| ARPS Hızlı | hızlıARPS | ARPS, apsBull, apsBear, SMA, yüzdeARPS, yüzdeApsBull, yüzde apsBear |",
+                    "updated": 1647779370351
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -151,7 +607,24 @@
         {
             "style": "Subtitle",
             "text": "That Wombo-Combo!",
-            "updated": 1617969861080
+            "updated": 1617969861080,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это Wombo-Combo!",
+                    "updated": 1643525228579
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Wombo-Combo!",
+                    "updated": 1646029543425
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Wombo-Combo!",
+                    "updated": 1647779405422
+                }
+            ]
         },
         {
             "style": "Javascript",

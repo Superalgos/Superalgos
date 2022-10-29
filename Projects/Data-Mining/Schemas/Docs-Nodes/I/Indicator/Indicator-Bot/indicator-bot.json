@@ -48,6 +48,11 @@
                     "language": "ES",
                     "text": "El nodo del Indicator Bot contiene todas las definiciones necesarias para que un Indicator Bot funcione. Las definiciones se dividen entre la definición de procesos y productos. Los procesos son algoritmos que recorren un conjunto de datos de entrada, realizan ciertos cálculos y producen una salida. Los productos son el resultado del trabajo producido por estos algoritmos, en forma de conjuntos de datos elaborados.",
                     "updated": 1641154404880
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge botu düğümü, bir gösterge botunun çalışması için gereken tüm tanımları içerir. Tanımlar, süreçlerin ve ürünlerin tanımı arasında bölünmüştür. İşlemler, bir girdi veri kümesinden geçen, belirli hesaplamaları gerçekleştiren ve bir çıktı üreten algoritmalardır. Ürünler, ayrıntılı veri kümeleri biçiminde bu algoritmalar tarafından üretilen çalışmanın sonucudur.",
+                    "updated": 1652013399055
                 }
             ]
         },
@@ -62,13 +67,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Большая часть поведения, ожидаемого от индикаторного бота, определяется структурой узлов в иерархии и ссылками между узлами в этих определениях. Таким образом, вам не нужно кодировать какие-либо функции, составляющие функциональность инфраструктуры. Зависимости, выходы, структуры данных, последовательности выполнения, и несколько других проблем решаются с помощью определений, воплощенных в структуре узлов, составляющих индикатор, и конфигурируются в визуальной среде пространства дизайна. Кодирование ограничивается фактическими процедурами расчета и построения данных.",
+                    "text": "Большая часть поведения, ожидаемого от индикаторного бота, определяется структурой узлов в иерархии и ссылками между узлами в этих определениях. Таким образом, вам не нужно кодировать какие-либо функции, составляющие функциональность инфраструктуры. Зависимости, выходы, структуры данных, последовательности выполнения, и несколько других проблем решаются с помощью определений, воплощенных в структуре узлов, составляющих индикатор, и конфигурируются в визуальной среде пространства проектирования. Кодирование ограничивается фактическими процедурами расчета и построения данных.",
                     "updated": 1639407239669
                 },
                 {
                     "language": "ES",
                     "text": "La mayor parte del comportamiento que se requiere de un bot indicador está definido por la estructura de los nodos en la jerarquía y las referencias entre los nodos dentro de estas definiciones. Como tal, no es necesario que codifique ninguna de las funciones que componen la funcionalidad de la infraestructura. Las dependencias, las salidas, las estructuras de datos, las secuencias de ejecución y varios otros problemas son manejados por las definiciones plasmadas en la estructura de nodos que componen un indicador, y se configuran en el entorno visual del espacio de diseño. La codificación se limita a los procedimientos reales de cálculo y construcción de datos.",
                     "updated": 1641154559347
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir gösterge botundan beklenen davranışların çoğu, hiyerarşideki düğümlerin yapısı ve bu tanımlar içindeki düğümler arasındaki referanslar tarafından tanımlanır. Böylelikle altyapı fonksiyonelliğini oluşturan fonksiyonların hiçbirini kodlamanıza gerek kalmaz. Bağımlılıklar, çıktılar, veri yapıları, yürütme dizileri ve diğer birçok sorun, bir gösterge oluşturan düğümlerin yapısında yer alan tanımlar tarafından ele alınır ve tasarım alanının görsel ortamında yapılandırılır. Kodlama, gerçek hesaplama ve veri oluşturma prosedürleriyle sınırlıdır.",
+                    "updated": 1652013418280
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "language": "ES",
                     "text": "Configuración del Indicator Bot",
                     "updated": 1641154567825
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu Yapılandırması",
+                    "updated": 1652013432612
                 }
             ]
         },
@@ -112,6 +127,11 @@
                     "language": "ES",
                     "text": "Propiedades",
                     "updated": 1641154573409
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1652013440252
                 }
             ]
         },
@@ -133,6 +153,11 @@
                     "language": "ES",
                     "text": "codeName es el nombre del bot tal y como se utiliza en el código del sistema.",
                     "updated": 1641154594257
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName sistem kodunda kullanılan botun adıdır.",
+                    "updated": 1652013453702
                 }
             ]
         }

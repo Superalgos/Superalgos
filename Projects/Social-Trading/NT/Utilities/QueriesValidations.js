@@ -3,51 +3,68 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
     This module have a few functions that are often needed at Queries Modules.
     */
     let thisObject = {
-        profilesValidations: profilesValidations,
+        socialValidations: socialValidations,
         postValidations: postValidations,
         arrayValidations: arrayValidations
     }
 
     return thisObject
 
-    function profilesValidations(queryReceived, thisObject) {
+    function socialValidations(queryReceived, thisObject) {
         /*
-        Validate User Profile
+        Validate Social Personas
         */
-        if (queryReceived.emitterUserProfileId !== undefined) {
-            thisObject.profile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(queryReceived.emitterUserProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Emitter User Profile Not Found.')
+        if (queryReceived.originSocialPersonaId !== undefined) {
+            thisObject.socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
+            if (thisObject.socialEntity === undefined) {
+                throw ('Origin Social Persona Not Found.')
             }
         }
 
-        if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(queryReceived.targetUserProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Target User Profile Not Found.')
+        if (queryReceived.targetSocialPersonaId !== undefined) {
+            thisObject.socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
+            if (thisObject.socialEntity === undefined) {
+                throw ('Target Social Persona Not Found.')
             }
         }
 
         /*
-        Validate Bot Profile
+        Validate Social Trading Bot
         */
-        if (queryReceived.targetBotProfileId !== undefined) {
-            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Target Bot Profile Not Found.')
+        if (queryReceived.targetSocialTradingBotId !== undefined) {
+            thisObject.socialEntity = thisObject.socialEntity.bots.get(queryReceived.targetSocialTradingBotId)
+            if (thisObject.socialEntity === undefined) {
+                throw ('Target Social Trading Bot Not Found.')
             }
         }
     }
 
     function postValidations(queryReceived, thisObject) {
         /*
-        Validate Post
+        If we have a Social Entity defined, then we will look
+        into the posts of that Social Entity, otherwise we will 
+        look into all posts of any Social Entity.
         */
-        thisObject.post = thisObject.profile.posts.get(queryReceived.targetPostHash)
+        if (
+            queryReceived.targetSocialPersonaId !== undefined ||
+            queryReceived.targetSocialTradingBotId !== undefined
+        ) {
+            thisObject.post = thisObject.socialEntity.posts.get(queryReceived.originPostHash)
 
-        if (thisObject.post === undefined) {
-            throw ('Target Post Not Found.')
-        }
+            if (thisObject.post === undefined) {
+                thisObject.post = thisObject.socialEntity.posts.get(queryReceived.targetPostHash)
+            }
+
+            if (thisObject.post === undefined) {
+                throw ('Target Post Not Found At Target Social Entity.')
+            }
+        } else {
+            thisObject.post = SA.projects.socialTrading.globals.memory.maps.POSTS.get(queryReceived.originPostHash)
+
+            if (thisObject.post === undefined) {
+                throw ('Target Post Not Found Among All The Posts.')
+            }
+        }        
     }
 
     function arrayValidations(queryReceived, thisObject, array) {
@@ -108,6 +125,5 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
 
         thisObject.direction = queryReceived.direction
-
     }
 }

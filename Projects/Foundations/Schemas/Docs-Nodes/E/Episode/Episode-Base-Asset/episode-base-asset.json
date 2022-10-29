@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Episode Base Asset отслеживает эволюцию переменных и показателей, обозначенных в базовом активе Asset, на протяжении всего эпизода.",
                 "updated": 1638774870216
+            },
+            {
+                "language": "TR",
+                "text": "Episode Base Asset düğümü, bölüm boyunca temel varlıkta belirtilen değişkenlerin ve metriklerin gelişimini takip eder.",
+                "updated": 1642364774265
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Узнайте больше о том, как счета для базового актива и котируемого актива хранятся на странице Base Asset and Quoted Asset в разделе документации, посвященном механизму торговли.",
                     "updated": 1638775161805
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel varlık ve kote edilen varlık için hesapların nasıl tutulduğu hakkında daha fazla bilgiyi belgelerin ticaret motoru bölümündeki temel varlık ve kote edilen varlık sayfasında bulabilirsiniz.",
+                    "updated": 1654418919850,
+                    "style": "Note"
                 }
             ]
         }

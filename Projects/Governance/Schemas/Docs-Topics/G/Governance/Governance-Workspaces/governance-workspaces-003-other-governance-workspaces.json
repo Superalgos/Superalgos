@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "El término se refiere a proyectos específicos del Governance Workspaces, a diferencia del principal Token Distribution Superalgos Governance Workspace. Los espacios de trabajo específicos del proyecto tienen un diseño similar, ya que diferentes proyectos suelen tener los mismos tipos de Categorías de Activos, Funciones, Posiciones y Grupos.",
                 "updated": 1640615144989
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu terim, ana Token Dağıtımı Superalgos Yönetişim Çalışma Alanının ( Token Distribution Superalgos Governance Workspace ) aksine projeye özel Yönetim Çalışma Alanlarını ( Governance Workspaces ) ifade eder. Farklı projeler genellikle aynı tür Varlıklar ( Assets ), Özellikler ( Features ), Konumlar ( Positions ) ve Havuzlar ( pools ) kategorilerine sahip olduğundan, projeye özel çalışma alanları benzer bir düzene sahiptir.",
+                "updated": 1646310251694
             }
         ]
     },
@@ -28,22 +33,32 @@
                     "language": "RU",
                     "text": "Профили пользователей",
                     "updated": 1639028832251
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profilleri",
+                    "updated": 1646310271980
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Core Team members only, to keep the workspaces light.",
+            "text": "Founding Team members only, to keep the workspaces light.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Только для команды Core Team, чтобы рабочие места оставались легкими.",
+                    "text": "Только для команды Founding Team, чтобы рабочие места оставались легкими.",
                     "updated": 1639028955776
                 },
                 {
                     "language": "ES",
-                    "text": "Solo miembros del Core Team, para mantener los espacios de trabajo ligeros.",
+                    "text": "Solo miembros del Founding Team, para mantener los espacios de trabajo ligeros.",
                     "updated": 1640615022916
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanlarını hafif tutmak için yalnızca Çekirdek Ekip ( Founding Team ) üyeleri.",
+                    "updated": 1646310312695
                 }
             ]
         },
@@ -55,12 +70,24 @@
                     "language": "RU",
                     "text": "Область определений",
                     "updated": 1639028973206
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımların Kapsamı",
+                    "updated": 1646310322844
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Pools"
+            "text": "Pools",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuzlar",
+                    "updated": 1646310331230
+                }
+            ]
         },
         {
             "style": "List",
@@ -68,13 +95,18 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Иерархия Superalgos Pools (присутствует во всех рабочих областях управления Governance Workspaces для удобства использования)",
+                    "text": "Иерархия Superalgos Pools (присутствует во всех рабочих пространствах управления Governance Workspaces для удобства использования)",
                     "updated": 1639029067732
                 },
                 {
                     "language": "ES",
                     "text": "Jerarquía Superalgos Pools  (presente en todos los Governance Workspaces por razones de usabilidad).",
                     "updated": 1640614984704
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Havuzları ( Superalgos Pools ) hiyerarşisi (kullanılabilirlik nedenleriyle tüm Yönetim Çalışma Alanlarında ( Governance Workspaces ) bulunur).",
+                    "updated": 1646311481181
                 }
             ]
         },
@@ -92,6 +124,11 @@
                     "language": "ES",
                     "text": "Un proyecto específico de jerarquía Pools (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) definiendo poolspara las principales áreas del software, incluyendo pools para activos , funciones, posiciones, correcciones de errores y mejoras.",
                     "updated": 1640614918499
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlıklar, özellikler, konumlar, hata düzeltmeleri ve geliştirmeler için havuzlar da dahil olmak üzere yazılımın ana alanlarına yönelik havuzları tanımlayan projeye özgü Havuz hiyerarşisi (örneğin, Temel Proje veya Eğitim Projesi).",
+                    "updated": 1646311551722
                 }
             ]
         },
@@ -109,12 +146,24 @@
                     "language": "ES",
                     "text": "Un proyecto específico de jerarquía Pools para activos (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) proporcionando una definición m��s granular de varios poolspara varias categorías de activos, como interfaz de usuario, servidor de tareas, esquemas de aplicaciones, código personalizado, educación, multimedia y complementos.",
                     "updated": 1640614838539
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir projeye özel Havuzları hiyerarşi Varlıklarının veya Eğitim-Proje (örneğin, Vakıflar-Proje -), varlıkların çeşitli kategoriler gibi kullanıcı arayüzü, görev sunucusu, uygulama şemaları, özel kod, eğitim, çoklu ortam ve eklentileri için çeşitli havuzlar daha ayrıntılı bir tanım sağlayan varlıklar için.",
+                    "updated": 1646311627613
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Positions"
+            "text": "Positions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyonlar",
+                    "updated": 1646311639810
+                }
+            ]
         },
         {
             "style": "List",
@@ -129,12 +178,24 @@
                     "language": "ES",
                     "text": "Un proyecto específico de jerarquía Positions (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) definiendo posiciones como el desarrollador líder del proyecto o los cazadores de errores.",
                     "updated": 1640614671742
+                },
+                {
+                    "language": "TR",
+                    "text": "Projenin baş geliştiricisi veya hata avcıları gibi pozisyonları ( Positions ) tanımlayan projeye özel Pozisyonlar hiyerarşisi (örneğin Temel-Proje veya Eğitim-Proje).",
+                    "updated": 1646311680498
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1646311699215
+                }
+            ]
         },
         {
             "style": "List",
@@ -149,12 +210,24 @@
                     "language": "ES",
                     "text": "Un proyecto específico de jerarquía Features (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) generalmente definiendo características específicas del proyecto.",
                     "updated": 1640614711617
+                },
+                {
+                    "language": "TR",
+                    "text": "Genellikle projeye özgü özellikleri ( Features ) tanımlayan projeye özgü Özellikler hiyerarşisi (örneğin, Temel-Proje veya Eğitim-Proje).",
+                    "updated": 1646311724782
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Assets"
+            "text": "Assets",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlıklar",
+                    "updated": 1646311733104
+                }
+            ]
         },
         {
             "style": "Text",
@@ -169,44 +242,106 @@
                     "language": "ES",
                     "text": "Varios proyectos específicos de jerarquías Assets  definiendo múltiples categorías de activos, como:",
                     "updated": 1640614513545
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler gibi birden çok varlık ( Assets ) kategorisini tanımlayan projeye özgü birkaç Varlık hiyerarşisi:",
+                    "updated": 1646311792854
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Client,"
+            "text": "Client,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemci ( Client ),",
+                    "updated": 1646311812156
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "UI,"
+            "text": "UI,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Ara Yüzü ( UI ),",
+                    "updated": 1646311831397
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "TS,"
+            "text": "TS,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395486355,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Plugins,",
-            "updated": 1630581417046
+            "updated": 1630581417046,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eklentiler ( Plugins ),",
+                    "updated": 1646311857443
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Images,",
-            "updated": 1630581424128
+            "updated": 1630581424128,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Görüntüler,",
+                    "updated": 1646311876489
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs,",
-            "updated": 1630581447409
+            "updated": 1630581447409,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar,",
+                    "updated": 1646311905074
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "App Schemas,"
+            "text": "App Schemas,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uygulama Şemaları,",
+                    "updated": 1646311908465
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Custom Code",
-            "updated": 1630581460500
+            "updated": 1630581460500,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özel kod",
+                    "updated": 1646311916470
+                }
+            ]
         }
     ]
 }

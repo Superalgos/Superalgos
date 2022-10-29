@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "\"Der Zeitrahmen \" Time Frame \" der Trading-Session bestimmt, wie oft der Trading-Bot tut, was er tut!",
                 "updated": 1639418462057
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret seansının zaman çerçevesi ( Time Frame ), ticaret botunun yaptığı şeyi ne sıklıkta yapacağını belirler!",
+                "updated": 1641802309302
+            },
+            {
+                "language": "RU",
+                "text": "Таймфрейм торговой сессии определяет, как часто торговый бот делает то, что он делает!",
+                "updated": 1642944127180
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Lesen Sie diese Seite über den Zeitrahmen sorgfältig durch!",
                     "updated": 1639418470216
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman çerçevesi hakkında bu sayfayı dikkatlice okuyun!",
+                    "updated": 1641802321790
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте эту страницу о таймфрейме (Time Frame)!",
+                    "updated": 1642944184415
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "In einem der nächsten Tutorials werde ich Ihnen einen Trick zeigen, mit dem Sie diesen negativen Aspekt der Backtesting-Sitzungen in einem anderen Zeitrahmen als in den Live-Sitzungen umgehen können.",
                     "updated": 1639418477088
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Sonraki eğitimlerden birinde, geriye dönük test oturumlarının bu olumsuz yönünü canlı oturumlardan farklı bir zaman diliminde aşmak için kullanabileceğiniz bir numara göstereceğim.",
+                    "updated": 1641802331029
+                },
+                {
+                    "language": "RU",
+                    "text": "В одном из следующих уроков я расскажу вам, как преодолеть этот негативный аспект проведения бэктестинга на таймфрейме, отличном от реального времени.",
+                    "updated": 1642944227384
                 }
             ]
         }

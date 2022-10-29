@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 11,
+    "pageNumber": "11",
     "type": "Docs Error - Changes Not Saved",
     "definition": {
         "text": "It was not possible to save your changes.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Не удалось сохранить изменения.",
                 "updated": 1638530091545
+            },
+            {
+                "language": "TR",
+                "text": "Değişikliklerinizi kaydetmek mümkün değil.",
+                "updated": 1652039023844
             }
         ]
     },
@@ -22,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Changes Not Saved",
-            "updated": 1609180176593
+            "updated": 1609180176593,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Değişiklikleri Kaydedilmedi",
+                    "updated": 1654419879104,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -33,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Änderungen konnten nicht gespeichert werden. Es gab ein oder mehrere Probleme beim Speichern Ihrer Änderungen.",
                     "updated": 1633898160319
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişiklikler kaydedilemedi. Değişiklikleriniz kaydedilirken bir veya daha fazla sorun oluştu.",
+                    "updated": 1652038274646
                 }
             ]
         },
@@ -50,6 +68,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, проверьте клиентскую консоль Client Console, чтобы увидеть, есть ли зарегистрированные ошибки. Вы также можете проверить консоль браузера Browser Console.",
                     "updated": 1638530147092
+                },
+                {
+                    "language": "TR",
+                    "text": "Günlüğe kaydedilen hatalar olup olmadığını görmek için lütfen İstemci ( Client ) Konsolunu kontrol edin. Tarayıcı Konsolunu da kontrol edebilirsiniz.",
+                    "updated": 1652038358207
                 }
             ]
         },
@@ -66,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638530164486
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419885394,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Save Command"
+            "text": "Docs Save Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Kaydet Komutu",
+                    "updated": 1654419891844,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

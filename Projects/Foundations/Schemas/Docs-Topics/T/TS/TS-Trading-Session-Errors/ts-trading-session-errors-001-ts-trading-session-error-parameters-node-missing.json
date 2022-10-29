@@ -4,13 +4,37 @@
     "type": "TS Trading Session Error - Parameters Node Missing",
     "definition": {
         "text": "The Backtesting Session, Live Trading Session, Paper Trading Session and Forward Testing Session nodes are expected to have a child of type Trading Parameters, and in this case it could not be found.",
-        "updated": 1611322334493
+        "updated": 1611322334493,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы Backtesting Session, Live Trading Session, Paper Trading Session и Forward Testing Session должны иметь дочерний элемент типа Trading Parameters, а в данном случае его не удалось найти.",
+                "updated": 1645628048285
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Geriye Dönük Test Oturumu ( Backtesting Session ), Canlı Alım Satım Oturumu ( Live Trading Session ), Kağıt Alım Satım Oturumu ( Paper Trading Session ) ve İleriye Yönelik Test Oturumu ( Forward Testing Session ) düğümlerinin Ticaret Parametreleri ( Trading Parameters ) türünde bir alt öğeye sahip olması beklenir ve bu durumda bulunamadı.",
+                "updated": 1647096951033
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "To fix this, add a Trading Parameters child and try again.",
-            "updated": 1611322031139
+            "updated": 1611322031139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы исправить это, добавьте дочерний элемент Trading Parameters и повторите попытку.",
+                    "updated": 1645628058797
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunu düzeltmek için bir Ticaret Parametreleri ( Trading Parameters ) alt öğesi ekleyin ve tekrar deneyin.",
+                    "updated": 1647097000591
+                }
+            ]
         }
     ]
 }

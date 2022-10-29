@@ -2,12 +2,37 @@
     "type": "Input Features",
     "definition": {
         "text": "Features are input variables used in making predictions.",
-        "updated": 1613297817985
+        "updated": 1613297817985,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Input Features - это входные переменные, используемые при составлении прогнозов.",
+                "updated": 1645248139326
+            },
+            {
+                "language": "TR",
+                "text": "Özellikler, tahminlerin yapılmasında kullanılan girdi değişkenleridir.",
+                "updated": 1654397179140
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248144454
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397185239,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

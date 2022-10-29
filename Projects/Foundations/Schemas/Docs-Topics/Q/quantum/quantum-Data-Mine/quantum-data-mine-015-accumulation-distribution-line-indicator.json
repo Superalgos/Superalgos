@@ -1,0 +1,79 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 15,
+    "type": "Accumulation Distribution Line Indicator",
+    "definition": {
+        "text": "The Accumulation Distribution Line was created by Marc Chaikin to determine the flow of money into or out of a security.",
+        "updated": 1651227770438
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Accumulation Distribution Line the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, the Accumulation Distribution Line is a cumulative indicator that uses volume and price to assess whether a stock is being accumulated or distributed. The A/D measure seeks to identify divergences between the stock price and the volume flow.",
+            "updated": 1651227684422
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "Gauges supply and demand of an asset or security by looking at where the price closed within the period's range and then multiplying that by volume.",
+            "updated": 1651227691615
+        },
+        {
+            "style": "List",
+            "text": "Is cumulative, meaning one period's value is added or subtracted from the last.",
+            "updated": 1651227697577
+        },
+        {
+            "style": "List",
+            "text": "A rising A/D line helps confirm a rising price trend, while a falling A/D line helps confirm a price downtrend.",
+            "updated": 1651227706848
+        },
+        {
+            "style": "Link",
+            "text": "Accumulation Distribution (investopedia)->www.investopedia.com/terms/a/accumulationdistribution.asp"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator also includes a smoothed signal line to help identify potential trend changes. The value and signal are then combined to show the overall trend when viewing on the charts."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-adl-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Accumulation Distribution Line can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"ADL\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-adl-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Accumulation Distribution Line Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| ADL | adl | value, signal |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the value crosses the signal line upwards:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.adl.value > chart.at15min.adl.signal"
+        }
+    ]
+}

@@ -4,18 +4,49 @@
     "type": "Messari API Map and Mine",
     "definition": {
         "text": "This API Map and Data Mine tap into the Messari API to pull news and coin metrics about the current base asset.",
-        "updated": 1623016371114
+        "updated": 1623016371114,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эти API Map и Data Mine подключаются к API Messari для получения новостей и показателей монет о текущем базовом активе.",
+                "updated": 1643527198072
+            },
+            {
+                "language": "TR",
+                "text": "Bu API Haritası ( API Map ) ve Veri Madeni ( Data Mine ), mevcut temel varlık hakkında haberleri ve madeni para ölçümlerini almak için Messari API'sinden yararlanır.",
+                "updated": 1650624524691
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Maintainers: @luis_fernando_molina (Telegram), @harrellbm (Telegram, and Discord).",
-            "updated": 1623016338199
+            "updated": 1623016338199,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основные редакторы: @luis_fernando_molina (Telegram), @harrellbm (Telegram, and Discord).",
+                    "updated": 1643527240575
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Additional collaborators are welcome!",
-            "updated": 1623015909039
+            "updated": 1623015909039,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приветствуются дополнительные соавторы!",
+                    "updated": 1643527252947
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ek ortak çalışanlar kabul edilir!",
+                    "updated": 1650624544450
+                }
+            ]
         }
     ]
 }

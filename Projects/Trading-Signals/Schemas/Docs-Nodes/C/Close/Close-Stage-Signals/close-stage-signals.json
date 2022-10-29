@@ -1,0 +1,21 @@
+{
+    "type": "Close Stage Signals",
+    "definition": {
+        "text": "The Close Stage Signals node houses the definitions for all the individual signal elements coming out of the signal provider's Close Stage.",
+        "updated": 1644033765720,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kapanış Aşaması Sinyalleri düğümü, sinyal sağlayıcının Kapanış Aşamasından çıkan tüm bireysel sinyal öğelerinin tanımlarını barındırır.",
+                "updated": 1654397656877
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644033779342
+        }
+    ]
+}

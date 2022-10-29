@@ -3,12 +3,12 @@
     "pageNumber": 13,
     "type": "Tutorial Step - Oh so Shiny",
     "definition": {
-        "text": "We are almost there. Now click <i>Build Profile</i> and watch the magic happen. That’s right, you just created your profile!",
+        "text": "We are almost there! To finish the process, you need to click the right button on the Profile Constructor node!",
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
         },
-        "updated": 1630658421560,
+        "updated": 1660641883460,
         "translations": [
             {
                 "language": "ES",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "TR",
-                "text": "Neredeyse geldik. Şimdi Profil Oluştur'a ( Build Profile ) tıklayın ve sihrin gerçekleşmesini izleyin. Evet, profilinizi yeni oluşturdunuz!",
-                "updated": 1637242566507
+                "text": "Neredeyse geldik. Şimdi Profil Oluştur'a (Build Profile) tıklayın ve sihrin gerçekleşmesini izleyin. Evet, profilinizi yeni oluşturdunuz!",
+                "updated": 1644578242594
             },
             {
                 "language": "RU",
@@ -35,9 +35,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "While we didn’t have to break a sweat making your profile, some pretty amazing things happened behind the scenes. ",
-            "updated": 1629553522636,
+            "style": "Callout",
+            "text": "If you are creating a new wallet, click the Build Profile and New Wallet button.</br></br>If you are linking an existing wallet, click the Build Profile with Mnemonic button.",
+            "updated": 1660641803806,
             "translations": [
                 {
                     "language": "ES",
@@ -63,6 +63,11 @@
             ]
         },
         {
+            "style": "Text",
+            "text": "Done! Now, this is what happened behind the scenes...",
+            "updated": 1660641960414
+        },
+        {
             "style": "Note",
             "text": "The constructor just generated your user profile, and either linked your address or created a unique SA Token Governance Address.",
             "updated": 1630599816232,
@@ -75,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Constructor, kullanıcı profilinizi oluşturdu, adresinizi bağladı ve benzersiz bir SA Token Yönetim Adresi ( Governance Addrss ) oluşturdu.",
-                    "updated": 1637243124914
+                    "text": "Constructor, kullanıcı profilinizi oluşturdu, adresinizi bağladı ve benzersiz bir SA Token Yönetim Adresi ( Governance Address ) oluşturdu.",
+                    "updated": 1644578254449
                 },
                 {
                     "language": "RU",

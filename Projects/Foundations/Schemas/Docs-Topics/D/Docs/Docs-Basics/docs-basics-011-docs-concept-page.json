@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории концепций охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
                 "updated": 1638464758495
+            },
+            {
+                "language": "TR",
+                "text": "Kavramlar, hiyerarşide düğüm olarak temsil edilmeyen kavramlar veya fikirlerdir. Kavram kategorisindeki sayfalar, tek bir sayfada açıklanabilecek kavramları veya fikirleri kapsar. Yani, kavramlar tek bir sayfada kapsamlı bir şekilde ele alınabilecek kavramlardır.",
+                "updated": 1652646187285
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Страница концепции самодостаточна.",
                     "updated": 1638464785371
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kavramın sayfası bağımsızdır.",
+                    "updated": 1652646217858
                 }
             ]
         }

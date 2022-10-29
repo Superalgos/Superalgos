@@ -1,21 +1,44 @@
 {
     "topic": "Alligator Data Mine",
-    "pageNumber": 1,
-    "type": "Alliagor by @BlaaSwe",
+    "pageNumber": "1",
+    "type": "Alligator by @BlaaSwe",
     "definition": {
         "text": "This data mine consists of the Williams Alligator indicator",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu veri madeni Williams Alligator göstergesinden oluşmaktadır",
+                "updated": 1654392675567
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Alligator",
-            "updated": 1611661332955
+            "updated": 1611661332955,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Timsah",
+                    "updated": 1654392681155,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The alligator indicator uses three smoothed moving averages (SMA), but instead of the ordinary SMA for this one uses EMA for the lips.",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Timsah göstergesi üç düzleştirilmiş hareketli ortalama (SMA) kullanır, ancak bunun için sıradan SMA yerine dudaklar için EMA kullanır.",
+                    "updated": 1654392686751,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Png",
@@ -24,19 +47,51 @@
         },
         {
             "style": "Text",
-            "text": "Standard Parameters:"
+            "text": "Standard Parameters:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Standart Parametreler:",
+                    "updated": 1654392692369,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Lips: EMA 5"
+            "text": "Lips: EMA 5",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dudaklar: EMA 5",
+                    "updated": 1654392698125,
+                    "style": "List"
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Teeth: SMA 9"
-        },		
-		{
+            "text": "Teeth: SMA 9",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dişler: SMA 9",
+                    "updated": 1654392703584,
+                    "style": "List"
+                }
+            ]
+        },
+        {
             "style": "List",
-            "text": "Jaw: SMA 13"
+            "text": "Jaw: SMA 13",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çene: SMA 13",
+                    "updated": 1654392708911,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

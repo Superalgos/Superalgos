@@ -133,6 +133,11 @@
             ]
         },
         {
+            "style": "List",
+            "text": "apiQueryResponse identifies which API Query Response to use in creating this record property. For example you can specify a successful response (200) or too many requests response (429) allowing you to store different properties based on the response of the api. This setting is also important to define if you are using automation to connect the record property's API Response Field Reference nodes. ",
+            "updated": 1653139095936
+        },
+        {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Data Aggregation",
             "updated": 1622336877604

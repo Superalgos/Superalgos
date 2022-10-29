@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Versuchen wir eine differenziertere Analyse anhand der Elemente, die wir bei unserem Rundgang durch den Testzeitraum beobachtet haben.",
                 "updated": 1639419011541
+            },
+            {
+                "language": "TR",
+                "text": "Test dönemi turumuz sırasında gözlemlediğimiz unsurlara dayalı farklı bir analiz deneyelim.",
+                "updated": 1641809959212
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем провести более тонкий анализ, используя элементы, наблюдаемые во время нашей экскурсии по тестируемому периоду.",
+                "updated": 1642945685468
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Potenzielle Treffer: Zwei der sieben fehlgeschlagenen Trades hätten ein Treffer sein können oder zumindest den Break-even erreicht, wenn wir den Handel früher beendet hätten, entweder durch einen Trailing Stop Loss, eine teilweise Gewinnmitnahme oder eine andere geeignete Risikomanagementstrategie.",
                     "updated": 1639419020478
+                },
+                {
+                    "language": "TR",
+                    "text": "Potansiyel isabetler(Potential hits): Yedi başarısızlıktan ikisi isabet alabilirdi veya en azından ticareti yönetmiş olsaydık ve daha önce, takip eden bir stop loss, kısmi kar alma veya başka bir uygun risk yönetimi stratejisi ile çıkış yapmış olsaydık.",
+                    "updated": 1641810567020
+                },
+                {
+                    "language": "RU",
+                    "text": "Потенциальные удачи: Две из семи неудачных сделок могли бы стать удачными или, по крайней мере, безубыточными, если бы мы управляли сделкой и вышли из нее раньше, либо с помощью трейлинг-стоп-лосса, частичной фиксации прибыли или любой другой подходящей стратегии управления рисками.",
+                    "updated": 1642945745617
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Handel einstellen: Einer der Fehlschläge wäre wahrscheinlich vermeidbar gewesen, wenn wir in die Ereignisbedingungen für die Positionsübernahme eine grundlegende Volatilitätshüllkurve eingebaut hätten.",
                     "updated": 1639419028320
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlemi Durdurun(Halt trading): Pozisyon alma olay koşullarına temel bir volatilite zarfı yerleştirmiş olsaydık, başarısızlıklardan biri muhtemelen önlenebilirdi.",
+                    "updated": 1641810614345
+                },
+                {
+                    "language": "RU",
+                    "text": "Прекращение торговли: Одной из неудач можно было бы избежать, если бы мы включили базовый критерий волатильности в условия события открытия позиции.",
+                    "updated": 1642945804357
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Dann hätten wir noch 4 Fehlschläge, vielleicht einen Break-even und 3 Treffer mit einem Gewinnpotenzial von 100 %. Ist diese Nuance für Sie interessant?",
                     "updated": 1639419036444
+                },
+                {
+                    "language": "TR",
+                    "text": "O zaman %100 kar potansiyeli olan 4 başarısızlık, belki başabaş ve 3 isabetimiz olurdu. Bu nüans sizin için ilginç mi?",
+                    "updated": 1641810702444
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, у нас останется 4 провала, возможно, один безубыток, и 3 успеха с потенциальной 100% прибылью. Подходит ли вам этот нюанс?",
+                    "updated": 1642945832341
                 }
             ]
         }

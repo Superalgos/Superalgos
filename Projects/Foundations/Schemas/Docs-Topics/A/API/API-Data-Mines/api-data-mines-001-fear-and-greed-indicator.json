@@ -1,0 +1,89 @@
+{
+    "topic": "API Data Mines",
+    "pageNumber": 1,
+    "type": "Fear And Greed Indicator",
+    "definition": {
+        "text": "The Fear and Greed Indicator, or sentiment index is a tool used to gauge the sentiments of BTC, and therefore the cryptocurrency market as a whole.",
+        "updated": 1658280238190
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Fear and Greed on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Fear and Greed indicator sources it's data through the Alternative.me website's API."
+        },
+        {
+            "style": "Text",
+            "text": "The website sources it's data from the following sources to visualize a meaningful progress in sentiment change of the crypto market:",
+            "updated": 1658280263036
+        },
+        {
+            "style": "List",
+            "text": "Volatility: (25%) Measures the current volatility and max drawdowns of bitcoin and compares it with the corresponding average values of the last 30 and 90 days. An unusual rise in volatility is a sign of a fearful market.",
+            "updated": 1658278901381
+        },
+        {
+            "style": "List",
+            "text": "Market Momentum/Volume: (25%) Measures the current volume and market momentum (comparison with the last 30/90 day average values) and put those two values together. Generally, high buying volumes in a positive market on a daily basis, we conclude that the market acts overly greedy / too bullish.",
+            "updated": 1658278959049
+        },
+        {
+            "style": "List",
+            "text": "Social Media: (15%) While our reddit sentiment analysis is still not in the live index (using market-related key words in the text processing algorithm), our twitter analysis is running. There, we gather and count posts on various hashtags for each coin (publicly, we show only those for Bitcoin) and check how fast and how many interactions they receive in certain time frames). A unusual high interaction rate results in a grown public interest in the coin and in our eyes, corresponds to a greedy market behaviour.",
+            "updated": 1658279003947
+        },
+        {
+            "style": "List",
+            "text": "Surveys: (15%) Surveys are paused and not used currently.",
+            "updated": 1658279026213
+        },
+        {
+            "style": "List",
+            "text": "Dominance: (10%) The dominance of a coin resembles the market cap share of the whole crypto market. Especially for Bitcoin, we think that a rise in Bitcoin dominance is caused by a fear of (and thus a reduction of) too speculative alt-coin investments, since Bitcoin is becoming more and more the safe haven of crypto. On the other side, when Bitcoin dominance shrinks, people are getting more greedy by investing in more risky alt-coins, dreaming of their chance in next big bull run. Anyhow, analyzing the dominance for a coin other than Bitcoin, you could argue the other way round, since more interest in an alt-coin may conclude a bullish/greedy behaviour for that specific coin.",
+            "updated": 1658279044559
+        },
+        {
+            "style": "List",
+            "text": "Trends: (10%) Google Trends data is used for various Bitcoin related search queries, The relevance of change of search volumes and recommended other currently popular searches. For example, if you check Google Trends for \"Bitcoin\", you can't get much information from the search volume. But currently, you can see that there is a +1,550% rise of the query \"bitcoin price manipulation\" in the box of related search queries (as of 05/29/2018). This is clearly a sign of fear in the market, and we use that for our index.",
+            "updated": 1658280272483
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/api-fearandgreed.png"
+        },
+        {
+            "style": "Text",
+            "text": "The API updates its data once every 24 hours, and therefore the data is only available in this timeframe."
+        },
+        {
+            "style": "Text",
+            "text": "To install this indicator, both the data mine and API map needs to be installed.",
+            "updated": 1658280313596
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Products & Properties",
+            "updated": 1658280202403
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Fear and Greed | Fear-And-Greed-Indicator | value, value_classification |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "An example to access the data is as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.Fear-And-Greed-Indicator.value    // returns an integer\nchart.at24hs.Fear-And-Greed-Indicator.value_classification    // returns a string, eg: \"Extreme Fear\", \"Neutral\", \"Greed\"",
+            "updated": 1658280533119
+        }
+    ]
+}

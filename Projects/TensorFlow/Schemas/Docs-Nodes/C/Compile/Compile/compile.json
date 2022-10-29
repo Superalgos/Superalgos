@@ -2,12 +2,37 @@
     "type": "Compile",
     "definition": {
         "text": "Configures and prepares the model for training and evaluation. Compiling outfits the model with an optimizer, loss, and/or metrics.",
-        "updated": 1615895514544
+        "updated": 1615895514544,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Настраивает и подготавливает модель к обучению и оценке. Компиляция оснащает модель оптимизатором, потерями и/или показателями.",
+                "updated": 1645195959735
+            },
+            {
+                "language": "TR",
+                "text": "Modeli eğitim ve değerlendirme için yapılandırır ve hazırlar. Modeli bir optimize edici, kayıp ve/veya metriklerle derleyerek uygun hale getirir.",
+                "updated": 1654396767251
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645195965219
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396774307,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

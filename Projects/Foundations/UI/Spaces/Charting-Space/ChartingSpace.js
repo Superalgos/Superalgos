@@ -38,6 +38,7 @@ function newFoundationsChartingSpace() {
     let canvasBrowserResizedEventSubscriptionId
     let timeMachinesMap
     let syncWithDesignerLoop
+    let configStyle
 
     const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
 
@@ -461,7 +462,28 @@ function newFoundationsChartingSpace() {
 
         browserCanvasContext.beginPath()
         browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        
+        
+            if (configStyle === undefined || configStyle.backgroundColor === undefined) {
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+            } else {
+                let backgroundColor = eval(configStyle.backgroundColor)
+                browserCanvasContext.fillStyle = 'rgba(' + backgroundColor + ', ' + opacity + ')'
+            }
+    
+        
         browserCanvasContext.closePath()
         browserCanvasContext.fill()
     }

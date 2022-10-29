@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Вызовы API приводят к ответам. В этом узле вы можете определить, как ваша карта будет интерпретировать различные ответы API.",
                 "updated": 1638629809185
+            },
+            {
+                "language": "TR",
+                "text": "API çağrıları yanıtlar üretir. Bu düğüm altında, haritanızın API'den gelen farklı yanıtları nasıl yorumlayacağını tanımlayabilirsiniz.",
+                "updated": 1652021955072
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Для одной конечной API Endpoint сервер API может иметь разные возможные ответы. Каждый тип ответа отличается друг от друга кодом ответа / статусом.",
                     "updated": 1638629862353
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek bir API Uç Noktası ( API Endpoint  ) için bir API Sunucusunun ( API Server ) farklı olası yanıtları olabilir. Her yanıt türü, yanıt kodu/durumu ile birbirinden ayrılır.",
+                    "updated": 1652022027347
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "RU",
                     "text": "Вот несколько распространенных примеров: 200 означает успешный ответ, 404 означает, что страница не найдена и 429 означает превышение лимита скорости API.",
                     "updated": 1638629878876
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Birkaç yaygın örnek: 200 başarılı yanıt anlamına gelir, 404 sayfa bulunamadı anlamına gelir ve 429 api hız sınırı aşıldı anlamına gelir.",
+                    "updated": 1652022038349
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Каждый дочерний элемент этого узла будет обрабатывать другой код / ​​статус ответа от сервера API. Пользователи должны добавить как минимум наиболее распространенный код ответа (200), чтобы начать тестирование этой конечной точки API. После этого рекомендуется добавить все остальные коды ответов, в противном случае бот API Data Fetcher Bot остановится при получении необработанного кода ответа.",
                     "updated": 1638629954280
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümün her çocuğu, API Sunucusundan ( API Server ) farklı bir yanıt kodunu/durumunu işleyecektir. Bu API Uç Noktasını test etmeye başlamak için kullanıcıların en azından en yaygın yanıt kodunu (200) eklemesi gerekir. Bundan sonra, diğer tüm yanıt kodlarını da eklemeniz önerilir, aksi takdirde, işlenmeyen bir yanıt kodu alındığında API Veri Alıcısı Botu ( API Data Fetcher Bot ) duracaktır.",
+                    "updated": 1652022168688
                 }
             ]
         }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел позволяет пользователям ссылаться на API Data Field из свойства Record Property. Другими словами, он позволяет связать каждый фрагмент данных, который пользователь хочет сохранить локально, с полем в API Map, которое будет хранить данные во время выполнения.",
                 "updated": 1638630539146
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, kullanıcıların bir Kayıt Özelliğinden ( Record Property ) bir API Veri Alanına başvurmasına izin verir. Başka bir deyişle, kullanıcının yerel olarak kaydedilmesini istediği her bir veri parçasını, çalışma zamanında verileri tutacak olan API Haritasındaki ( API Map ) alana bağlamaya izin verir.",
+                "updated": 1652022548483
             }
         ]
     },
@@ -21,19 +26,30 @@
                     "language": "RU",
                     "text": "После создания вам необходимо указать API Data Field.",
                     "updated": 1638630567160
+                },
+                {
+                    "language": "TR",
+                    "text": "Oluşturulduktan sonra bir API Veri Alanına başvurmanız gerekir.",
+                    "updated": 1652022558638
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "All references originating at the same Record Definition must be to API Data Field s living at the same API Endpoint.",
+            "text": "All references originating at the same Record Definition must be to API Data Fields living at the same API Endpoint.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Все ссылки, происходящие из одного и того же Record Definition, должны относиться к полям API Data Field, находящимся в одной конечной точке API Endpoint.",
-                    "updated": 1638630640726
+                    "text": "Все ссылки, исходящие из одного и того же Record Definition, должны относиться к API Data Fields, живущим в одной и той же конечной точке API.",
+                    "updated": 1661275289820
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Aynı Kayıt Tanımından ( Record Definition ) kaynaklanan tüm referanslar, aynı API Uç Noktasında ( API Endpoint ) yaşayan API Veri Alanına olmalıdır.",
+                    "updated": 1652022619980
                 }
-            ]
+            ],
+            "updated": 1652772276957
         },
         {
             "style": "Title",
@@ -43,6 +59,11 @@
                     "language": "RU",
                     "text": "Конфигурация Record Property",
                     "updated": 1638630663178
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik Yapılandırmasını Kaydet",
+                    "updated": 1652022627302
                 }
             ]
         },
@@ -54,6 +75,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638630672214
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652022633130
                 }
             ]
         },
@@ -66,6 +92,11 @@
                     "language": "RU",
                     "text": "nodePath - это свойство, которое требуется, когда указанное поле API Response Field не находится под объектом Data Root в структуре ответа.",
                     "updated": 1638630719045
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: nodePath, başvurulan API Yanıt Alanı ( API Response Field  ) yanıt yapısındaki Veri Kökü nesnesinin altında olmadığında gerekli olan bir özelliktir.",
+                    "updated": 1652022675027
                 }
             ]
         },
@@ -77,6 +108,11 @@
                     "language": "RU",
                     "text": "Ответ от сервера API может включать данные некоторого типа заголовка и фактические запрошенные данные. Поскольку ответ представляет собой объект JSON, фактические данные могут находиться где-нибудь в структуре этого объекта. Узел API Response Schema имеет свойство nodePath, которое позволяет пользователям объявлять путь к фактическим запрошенным данным, чтобы перейти к информации, подобной заголовку. Мы называем поле ответа API Response Field, в котором хранятся данные, корнем данных Data Root.",
                     "updated": 1638630860912
+                },
+                {
+                    "language": "TR",
+                    "text": "API Sunucusundan gelen yanıt, bazı başlık türlerini ve istenen gerçek verileri içerebilir. Yanıt bir JSON nesnesi olduğundan, gerçek veriler o nesnenin yapısı içinde bir yerde bulunabilir. API Yanıt Şeması düğümünde, üstbilgi benzeri bilgileri atlamak için kullanıcıların istenen gerçek verilere giden yolu bildirmelerine olanak tanıyan bir nodePath özelliği vardır. Verilerin tutulduğu API Yanıt Alanına Veri Kökü diyoruz.",
+                    "updated": 1652022684440
                 }
             ]
         },
@@ -89,6 +125,11 @@
                     "language": "RU",
                     "text": "Чтобы извлечь отдельные значения для каждого свойства Record Property, бот API Data Fetcher Bot должен динамически обнаруживать nodePath для каждого свойства Record Property в структуре данных ответа API Response Schema и может это делать, пока указанное поле ответа Response Field находится в корне данных Data Root. Для автоматического обнаружения nodePath он использует nodePath схемы ответа API для определения местоположения корня данных, а затем следует ссылке из узла ссылки на поле ответа API на поле ответа API и поднимается вверх, пока не достигнет схемы ответа API. Поднимаясь вверх, он обнаруживает nodePath, в котором ему нужно получить значение из структуры данных ответа. Вот как это работает.",
                     "updated": 1638631120866
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Kayıt Özelliği için ayrı değerler çıkarmak için, API Veri Alıcısı Botunun yanıt veri yapısındaki her Kayıt Özelliği için nodePath'i dinamik olarak keşfetmesi gerekir ve başvurulan API Yanıt Alanı Veri Kökü altında olduğu sürece bunu yapabilir. nodePath'i otomatik olarak keşfetmek için Veri Kökünü bulmak için API Yanıt Şeması düğüm Yolu'nu kullanır ve ardından API Yanıt Alanı Referans düğümünden API Yanıt Alanına olan referansı takip eder ve API Yanıt Şemasına ulaşana kadar yukarı tırmanır. Yukarı tırmanırken, yanıt veri yapısından değeri alması gereken nodePath'i keşfeder. Bu böyle çalışır.",
+                    "updated": 1652022698314
                 }
             ]
         },
@@ -101,6 +142,11 @@
                     "language": "RU",
                     "text": "Когда указанный API Response Field выходит за пределы области Data Root, процесс не может автоматически обнаружить этот путь, и пользователям необходимо вручную определить nodePath (от API Response Schema к API Response Field, содержащему значение) и установите его в этом свойстве. Это происходит, например, когда API Response Field является частью заголовка ответа сервера API.",
                     "updated": 1638631329811
+                },
+                {
+                    "language": "TR",
+                    "text": "Başvurulan API Yanıt Alanı, Veri Kökünün kapsamı dışında olduğunda, süreç bu yolu otomatik olarak keşfedemez ve kullanıcıların nodePath'i (API Yanıt Şemasından değeri tutan API Yanıt Alanına) manuel olarak tanımlamasına ihtiyaç duyar ve bu özellikte ayarlayın. Bu, örneğin API Yanıt Alanı, API Sunucusu yanıtının başlığının bir parçası olduğunda gerçekleşir.",
+                    "updated": 1652022708470
                 }
             ]
         },

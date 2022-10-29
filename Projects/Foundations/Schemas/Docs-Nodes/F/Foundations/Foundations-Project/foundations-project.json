@@ -10,13 +10,18 @@
             },
             {
                 "language": "EL",
-                "text": "Η ιεραρχία Foundations Project διέπει τα περιουσιακά στοιχεία που σχετίζονται με το Superalgos. Στην τρέχουσα κατάστασή του, εξυπηρετεί το σκοπό της αναπαραγωγής ιεραρχιών.",
-                "updated": 1639090054011
+                "text": "Η ιεραρχία Foundations Project (Θεμέλια Έργου) διέπει τα στοιχεία που σχετίζονται με το Superalgos. Στην τρέχουσα κατάστασή του, εξυπηρετεί το σκοπό της αναπαραγωγής ιεραρχιών.",
+                "updated": 1641827378581
             },
             {
                 "language": "DE",
                 "text": "Die Hierarchie des  Foundations Projekts regelt die Vermögenswerte, die sich auf Superalgos beziehen. In ihrem derzeitigen Zustand dient sie dem Zweck, Hierarchien zu erzeugen.",
                 "updated": 1640089727334
+            },
+            {
+                "language": "TR",
+                "text": "Vakıflar Projesi hiyerarşisi Superalgos ile ilgili varlıkları yönetir. Mevcut haliyle, hiyerarşileri ortaya çıkarma amacına hizmet eder.",
+                "updated": 1654419227606
             }
         ]
     },
@@ -43,6 +48,12 @@
                     "language": "DE",
                     "text": "Superalgos ist eine Multiprojekt-Plattform, d.h. andere Krypto-Projekte können integriert werden. In diesem Zusammenhang gibt es auch projektspezifische Hierarchien.",
                     "updated": 1640089762291
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos çok projeli bir platformdur, yani diğer kripto projeleri entegre edilebilir. Bu bağlamda projeye özgü hiyerarşiler mevcuttur.",
+                    "updated": 1654419233961,
+                    "style": "Text"
                 }
             ]
         },
@@ -64,6 +75,12 @@
                     "language": "DE",
                     "text": "Eine Krypto-Projekt-Integration (crypto-project integration) bedeutet, dass Superalgos-Benutzer in der Lage sein werden, sich von Superalgos aus mit Blockchain Nodes zu verbinden und die Blockchain Daten dem Rest der Superalgos Infrastruktur zugänglich zu machen. Die Nutzer werden in der Lage sein, die Daten der Node zu schürfen, Indikatoren zu erstellen, sie innerhalb von trading systems zu verwenden und Blockchain Informationen in den Charts zu visualisieren - neben anderen Dingen.",
                     "updated": 1640089838753
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kripto-proje entegrasyonu, Superalgos kullanıcılarının Superalgos içinden blok zinciri düğümlerine bağlanabileceği ve blok zinciri verilerini Superalgos altyapısının geri kalanına açabileceği anlamına gelir. Kullanıcılar düğümün verilerini çıkarabilecek, göstergeler oluşturabilecek, bunları ticaret sistemleri içinden kullanabilecek ve diğer şeylerin yanı sıra blok zinciri bilgilerini grafiklerde görselleştirebilecek&mdash;ler.",
+                    "updated": 1654419240826,
+                    "style": "Text"
                 }
             ]
         }

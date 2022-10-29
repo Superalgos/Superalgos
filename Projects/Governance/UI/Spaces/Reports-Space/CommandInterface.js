@@ -89,8 +89,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -98,8 +98,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */
@@ -217,6 +217,11 @@ function newGovernanceReportsCommmandInterface() {
             /*
             Transform the result array into table records.
             */
+            let contractAddressDict = {}
+            let treasuryAccountDict = {}
+            let contractABIDict = {}
+            let decimalFactorDict = {}
+
             for (let j = 0; j < userProfiles.length; j++) {
                 let userProfile = userProfiles[j]
 
@@ -225,11 +230,22 @@ function newGovernanceReportsCommmandInterface() {
                 if (userProfile.tokensMined.payload === undefined) { continue }
                 if (userProfile.tokensMined.payload.tokensMined === undefined) { continue }
 
+                let payoutChainDetails = getUserPayoutChainDetails(userProfile)
+                if (payoutChainDetails === undefined) {
+                    console.log((new Date()).toISOString(), '[ERROR] Unable to determine payout chain for user ' + userProfile.name)
+                    continue
+                } else {
+                    contractAddressDict[payoutChainDetails['chain']] = payoutChainDetails['contractAddress']
+                    treasuryAccountDict[payoutChainDetails['chain']] = payoutChainDetails['treasuryAccountAddress']
+                    contractABIDict[payoutChainDetails['chain']] = payoutChainDetails['ABI']
+                    decimalFactorDict[payoutChainDetails['chain']] = payoutChainDetails['decimalFactor']
+                }
+
                 let payment = {
                     "userProfile": userProfile.name,
-                    "from": UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS,
+                    "chain": payoutChainDetails['chain'],
                     "to": userProfile.payload.blockchainAccount,
-                    "amount": (userProfile.tokensMined.payload.tokensMined.total | 0) * UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+                    "amount": (userProfile.tokensMined.payload.tokensMined.total | 0) * payoutChainDetails['decimalFactor']
                 }
 
                 paymentsArray.push(payment)
@@ -242,8 +258,10 @@ function newGovernanceReportsCommmandInterface() {
 
             let params = {
                 method: 'payContributors',
-                contractAddress: UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS,
-                contractAbi: UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ABI,
+                contractAddressDict: contractAddressDict,
+                treasuryAccountDict: treasuryAccountDict,
+                contractABIDict: contractABIDict,
+                decimalFactorDict: decimalFactorDict,
                 paymentsArray: paymentsArray,
                 mnemonic: mnemonic
             }
@@ -256,8 +274,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -265,8 +283,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */
@@ -283,6 +301,19 @@ function newGovernanceReportsCommmandInterface() {
                         response.docs.placeholder
                     )
                 }
+            }
+
+            function getUserPayoutChainDetails(userProfile) {
+                let payoutChainDetails = undefined
+                if (userProfile === undefined) {
+                    return payoutChainDetails
+                }
+
+                /* This function will return details for the user-chosen governance reward payout chain in the future. As of now, it always returns the default fallback. */
+//                if (payoutChainDetails === undefined) {
+                payoutChainDetails = UI.projects.governance.utilities.chains.getDefaultPayoutChainDetails()
+//                }
+                return payoutChainDetails
             }
         }
     }

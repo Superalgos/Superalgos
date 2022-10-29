@@ -2,17 +2,55 @@
     "type": "Softmax Layer",
     "definition": {
         "text": "Softmax activation layer. A function that provides probabilities for each possible class in a multi-class classification model. The probabilities add up to exactly 1.0. For example, softmax might determine that the probability of a particular image being a dog at 0.9, a cat at 0.08, and a horse at 0.02.",
-        "updated": 1613217104730
+        "updated": 1613217104730,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Активационный слой Softmax. Функция, которая обеспечивает вероятности для каждого возможного класса в многоклассовой модели классификации. Вероятности складываются в точности до 1,0. Например, Softmax может определить, что вероятность того, что конкретное изображение является собакой, составляет 0,9, кошкой - 0,08, а лошадью - 0,02.",
+                "updated": 1645249950104
+            },
+            {
+                "language": "TR",
+                "text": "Softmax aktivasyon katmanı. Çok sınıflı bir sınıflandırma modelinde her olası sınıf için olasılıklar sağlayan bir işlev. Olasılıklar tam olarak 1,0'a toplanır. Örneğin, softmax belirli bir görüntünün köpek olma olasılığını 0,9, kedi olma olasılığını 0,08 ve at olma olasılığını 0,02 olarak belirleyebilir.",
+                "updated": 1654397601654
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
-            "updated": 1613217039070
+            "updated": 1613217039070,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645249957588
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397607284,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645249963555
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397612829,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

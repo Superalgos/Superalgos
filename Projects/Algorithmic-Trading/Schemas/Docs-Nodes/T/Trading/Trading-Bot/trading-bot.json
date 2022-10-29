@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak sunulan veri kümelerine dayanan bir bilgisayar programıdır ve bir taraftan tam bir ticaret simülasyonu oluşturmak için bir Ticaret Sisteminde ( Trading System ) tanımlanan ticaret mantığını uygularken (işlemleri, stratejilerin yürütülmesi, koşulların doğrulanmasını vb. içeren çıktı veri kümeleri) ve diğer taraftan, bir ileri test veya canlı ticaret oturumu sırasında emirlerin yürütülmesini yönetir",
                 "updated": 1639144490011
+            },
+            {
+                "language": "DE",
+                "text": "Ein Trading-Bot ist ein Computerprogramm, das auf der Grundlage von Datensätzen, die von anderen Bots (Counting Sensors, Indikatoren und sogar anderen Trading-Bots) bereitgestellt werden, die in einem Trading System definierte Handelslogik anwendet, um einerseits eine vollständige Handelssimulation zu generieren (Ausgabe von Datensätzen, die Trades, die Wirkung von Strategien, die Validierung von Bedingungen usw. enthalten) und andererseits die Ausführung von Aufträgen während einer Forward-Testing- oder Live-Trading-Sitzung zu verwalten.",
+                "updated": 1641763067086
             }
         ]
     },
@@ -39,6 +44,16 @@
                     "language": "ES",
                     "text": "En Superalgos, un Trading Bot es un programa informático diseñado para aprovechar la infraestructura de Superalgos y proporcionar funciones de trading inteligente a los usuarios que desarrollan, prueban y despliegan Trading System. Como tal, un Trading Bot no incorpora una lógica de trading en sí mismo. Lo que hace es ejecutar la lógica definida en los Trading System.",
                     "updated": 1641156095039
+                },
+                {
+                    "language": "DE",
+                    "text": "In Superalgos ist ein Trading-Bot ein Computerprogramm, das entwickelt wurde, um die Superalgos-Infrastruktur zu nutzen, um Benutzern, die Trading-Systeme aufbauen, testen und einsetzen, intelligente Handelsfunktionen zu bieten. Ein Trading-Bot verfügt also nicht über eine eigene Handelslogik. Stattdessen führt er die in Handelssystemen definierte Logik aus.",
+                    "updated": 1641763210733
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta bir ticaret botu, ticaret sistemleri oluşturan, test eden ve dağıtan kullanıcılara akıllı ticaret özellikleri sağlamak için Superalgos altyapısından yararlanmak üzere tasarlanmış bir bilgisayar programıdır. Bu nedenle, bir ticaret botunun kendi içinde ticaret mantığı yoktur. Bunun yerine, ticaret sistemlerinde tanımlanan mantığı yürütür.",
+                    "updated": 1651948482520
                 }
             ]
         },
@@ -55,6 +70,16 @@
                     "language": "ES",
                     "text": "En otras palabras, cuando los usuarios de Superalgos definen los Trading System y las estrategias de trading que contienen, no están construyendo un bot de trading. Más bien, están definiendo un conjunto de instrucciones que un bot de trading interpretará y ejecutará.",
                     "updated": 1641156163821
+                },
+                {
+                    "language": "DE",
+                    "text": "Anders ausgedrückt: Wenn Superalgos-Benutzer Handelssysteme und die darin enthaltenen Handelsstrategien definieren, bauen sie keinen Trading-Bot auf. Stattdessen definieren sie eine Reihe von Anweisungen, die dann von einem Trading-Bot interpretiert und ausgeführt werden.",
+                    "updated": 1641763219830
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Superalgos kullanıcıları ticaret sistemlerini ve içindeki ticaret stratejilerini tanımladıklarında, bir ticaret botu oluşturmuyorlar. Bunun yerine, bir ticaret botunun daha sonra yorumlayacağı ve uygulayacağı bir dizi talimat tanımlıyorlar.",
+                    "updated": 1651948554255
                 }
             ]
         },
@@ -71,11 +96,21 @@
                     "language": "ES",
                     "text": "Los Trading Bot tienen acceso a cada parte de la infraestructura construida en Superalgos. Una de las secciones más destacadas de la infraestructura relevante para los Trading Bot son las propias Trading Mine. Los Trading Bot pueden ser elementos de software bastante complejos. Por nombrar dos de las características más destacadas: el bot necesita tener en cuenta múltiples dimensiones de información y necesita ser altamente fiable, ya que su actividad implica transacciones monetarias.",
                     "updated": 1641156264017
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Bots haben Zugang zu jedem Teil der Infrastruktur von Superalgos. Einer der wichtigsten Teile der Infrastruktur, die für Trading Bots relevant sind, sind die Trading Mines selbst. Trading Bots können recht komplexe Software sein. Um zwei der herausragendsten Merkmale zu nennen: Der Bot muss mehrere Informationsdimensionen berücksichtigen und sehr zuverlässig sein, da seine Tätigkeit monetäre Transaktionen beinhaltet.",
+                    "updated": 1641763235298
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botları, Super algos'ta yerleşik her altyapı parçasına erişebilir. Ticaret botlarıyla ilgili altyapının dikkat çekici bölümlerinden biri de maden ticaretidir. Ticaret botları oldukça karmaşık yazılım parçaları olabilir. En belirgin iki özelliği saymak gerekirse: botun, faaliyeti parasal işlemler gerektirdiğinden, birden fazla bilgi boyutunu dikkate alması ve son derece güvenilir olması gerekir.",
+                    "updated": 1651948647615
                 }
             ]
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "Trading mines make building trading bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators.",
             "translations": [
                 {
@@ -87,17 +122,23 @@
                     "language": "ES",
                     "text": "Las Trading Mines hacen que la construcción de Trading Bots sea una labor más sencilla, proporcionando un entorno para producir definiciones segmentadas para los procesos y productos de los bots, al igual que las Data Mines lo hacen para los sensores e indicadores.",
                     "updated": 1641156335613
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Mines erleichtern die Entwicklung von Trading Bots, indem sie einen Rahmen für die Erstellung unterteilter Definitionen für die Prozesse und Produkte der Bots bieten, \u00E4hnlich wie Data Mines es für Sensoren und Indikatoren tun.",
+                    "updated": 1641763250336
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret madenleri, tıpkı veri madenlerinin sensörler ve göstergeler için yaptığı gibi, botların süreçleri ve ürünleri için bölümlere ayrılmış tanımlar üretmek ve bir çerçeve sağlayarak ticaret botları oluşturmayı daha erişilebilir hale getirir.",
+                    "updated": 1651948753845
                 }
             ]
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Trading Bot Configuration",
-            "updated": 1609861438022,
+            "style": "Warning",
+            "text": "When editing process dependencies (status and data), you should stop/start any running tasks (trading/backtesting) in order for changes to become effective",
+            "updated": 1655560207172,
             "translations": [
                 {
                     "language": "RU",
@@ -108,6 +149,16 @@
                     "language": "ES",
                     "text": "Conmfiguración del Trading Bot",
                     "updated": 1641156355024
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Bot Konfiguration",
+                    "updated": 1641762996169
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Botu Yapılandırması",
+                    "updated": 1651948768674
                 }
             ]
         }

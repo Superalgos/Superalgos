@@ -3,13 +3,13 @@ name: Publish stand-alone documentation
 on: 
   push:
     branches:
-      - master
+      - feature/exporting-docs
 
 jobs:
   build:
     name: Build documentation
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [16.x]

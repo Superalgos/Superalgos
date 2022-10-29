@@ -42,6 +42,10 @@ async function runRoot() {
   let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
   global.env = ENVIRONMENT_MODULE
 
+  if(process.argv.length > 2) {
+    global.env.PATH_TO_PAGES_DIR = process.argv[2]
+  }
+
   /*
   First thing is to load the project schema file.
   */

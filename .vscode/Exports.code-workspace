@@ -1,6 +1,9 @@
 {
 	"folders": [
 		{
+			"path": "/home/pi/trading/Superalgos/.github"
+		},
+		{
 			"path": "/home/pi/trading/Superalgos/pages"
 		},
 		{
@@ -21,6 +24,9 @@
 			"name": "Debug exports",
 			"cwd": "/home/pi/trading/Superalgos/",
 			"program": "export-docs.js",
+			"args": [
+				"_site"
+			],
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"

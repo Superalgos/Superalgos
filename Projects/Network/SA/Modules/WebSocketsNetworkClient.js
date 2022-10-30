@@ -106,13 +106,15 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     return
                 }
 
-                /* This function awaits a heartbeat from the server every 30 seconds + 3 seconds grace and re-initializes if not received. Prevents hidden connection drops. Ensure timeout matches with WebSocketsInterface.js */
+                /* This function awaits a heartbeat from the server every 30 seconds + 15 seconds grace and re-initializes if not received. Prevents hidden connection drops. Ensure timeout matches with WebSocketsInterface.js
+                Longer grace period is required due to large Bitcoin Factory files being transferred, this blocking the connection for the ping for a little while. 
+                */
                 function heartbeat() {
                     clearTimeout(socket.pingTimeout)
                     socket.pingTimeout = setTimeout(() => {
                         console.log((new Date()).toISOString(), '[INFO] No Websockets heartbeat received from server, re-initializing connection...')
                         socket.terminate()
-                    }, 30000 + 3000)
+                    }, 30000 + 15000)
                 }
 
             } catch (err) {

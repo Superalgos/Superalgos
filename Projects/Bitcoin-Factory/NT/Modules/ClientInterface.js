@@ -17,6 +17,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     let statsByNetworkClients = new Map()
     let activeTestServerOperators = new Set()
     let activeForecasterOperators = new Set()
+    const MAXAGEMINUTES = 2
     let stats = {
 
     }
@@ -291,7 +292,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
                     function checkExpiration(requestToServer) {
                         let now = (new Date()).valueOf()
-                        if (now - requestToServer.timestamp < 2 * 60 * 1000) {
+                        if (now - requestToServer.timestamp < MAXAGEMINUTES * 60 * 1000) {
                             let response = {
                                 result: 'Ok',
                                 message: 'Request Found.',
@@ -327,18 +328,32 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     
     /* Statistics & Maintenance functions to be executed once a minute */
     function statsMaintenance() {
+        /* Call memory handling function */
         maintainMemoryStorage()
-        /*  Commenting this block for now not to have the log too verbose, move to dashboard later
-
+        
+        /* Output stats about connected test server and forecaster operators */
         let testServerList
         let forecasterList
         if (activeTestServerOperators.size === 0) { testServerList = "none" } else { testServerList = Array.from(activeTestServerOperators).join(', ') }
         if (activeForecasterOperators.size === 0) { forecasterList = "none" } else { forecasterList = Array.from(activeForecasterOperators).join(', ') }
         console.log((new Date()).toISOString(), '[INFO] Active Test Server Operators: ', testServerList)
         console.log((new Date()).toISOString(), '[INFO] Active Forecaster Operators: ', forecasterList)
-        */
         activeTestServerOperators.clear()
         activeForecasterOperators.clear()
+
+        /* Delete all messages older than 2 minutes from the network node queue */
+        let purgeCounter = 0
+        for (let i = 0; i < requestsToServer.length; i++) {
+            let requestToServer = requestsToServer[i]
+            let now = (new Date()).valueOf()
+            if (now - requestToServer.timestamp >= MAXAGEMINUTES * 60 * 1000) {
+                purgeCounter++
+                responseFunctions.delete(requestToServer.queryReceived.messageId)
+            }
+        }
+        if (purgeCounter > 0) {
+            console.log((new Date()).toISOString(), '[INFO] Deleted', purgeCounter, 'messages older than ' + MAXAGEMINUTES + ' minutes from the queue.')
+        }
     }
 
     /**Here we add the message we are handling to memory for the dashboard to later access. */

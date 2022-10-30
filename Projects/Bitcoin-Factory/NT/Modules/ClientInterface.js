@@ -348,6 +348,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let now = (new Date()).valueOf()
             if (now - requestToServer.timestamp >= MAXAGEMINUTES * 60 * 1000) {
                 purgeCounter++
+                requestsToServer.splice(i, 1)
                 responseFunctions.delete(requestToServer.queryReceived.messageId)
             }
         }

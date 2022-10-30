@@ -24,6 +24,16 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkNodeReference",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Node Reference",
+            "relatedUiObject": "P2P Network Node Reference",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "networkServices",
             "actionFunction": "payload.executeAction",
             "label": "Add Network Services",
@@ -67,6 +77,13 @@
             "name": "p2pNetworkReference",
             "type": "node",
             "childType": "P2P Network Reference",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "p2pNetworkNodeReference",
+            "type": "node",
+            "childType": "P2P Network Node Reference",
             "project": "Network",
             "autoAdd": true
         },

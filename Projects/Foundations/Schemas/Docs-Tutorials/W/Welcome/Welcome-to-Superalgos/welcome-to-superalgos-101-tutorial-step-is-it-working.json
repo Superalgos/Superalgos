@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il modo più sicuro per verificare che tutto sta andando bene è andare su Binance e controllare la cronologia degli ordini BTC/USDT.",
-                "updated": 1618071697384,
+                "text": "Il modo inequivocabile per verificare se le cose stanno funzionando bene è accedere all'Exchange e controllare la cronologia degli ordini per BTC/USDT.",
+                "updated": 1666394302684,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "İşlerin yolunda gidip gitmediğini doğrulamanın kesin yolu Binance'de oturum açmak ve BTC/USDT için sipariş geçmişinizi kontrol etmektir.",
-                "updated": 1636577853845
+                "text": "İşlerin yolunda gidip gitmediğini doğrulamanın kesin yolu borsaya giriş yapmak ve BTC/USDT için sipariş geçmişinizi kontrol etmektir.",
+                "updated": 1666065963618
             },
             {
                 "language": "ID",
@@ -51,8 +51,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai su Binance e controlla costa sta succedendo!",
-                    "updated": 1618071709908,
+                    "text": "Vai all'interfaccia web dell'Exchange e dai un'occhiata a cosa sta succedendo!",
+                    "updated": 1666394349412,
                     "style": "Callout"
                 },
                 {
@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Binance'e gidin ve neler olduğuna bir bakın!",
-                    "updated": 1636577874188
+                    "text": "Borsa hesabınıza gidin ve neler olup bittiğine bir göz atın! ",
+                    "updated": 1666066096405
                 },
                 {
                     "language": "ID",

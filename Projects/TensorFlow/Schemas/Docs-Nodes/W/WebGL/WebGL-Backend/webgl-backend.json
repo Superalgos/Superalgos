@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Бэкенд WebGL, \"webgl\", в настоящее время является самым мощным бэкендом для браузера. Этот бэкенд в 100 раз быстрее, чем бэкенд ванильного процессора. Тензоры хранятся в виде текстур WebGL, а математические операции реализуются в шейдерах WebGL.",
                 "updated": 1645252778909
+            },
+            {
+                "language": "TR",
+                "text": "WebGL Arka Uç, 'webgl', şu anda tarayıcı için en güçlü Arka (Backend) Uçtur. Bu arka uç, Vanilla CPU arka ucundan 100 kata kadar daha hızlıdır. Tensörler WebGL dokuları olarak depolanır ve matematiksel işlemler WebGL gölgelendiricilerinde uygulanır.",
+                "updated": 1666693843033
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645252818215
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1666693874773
                 }
             ]
         }

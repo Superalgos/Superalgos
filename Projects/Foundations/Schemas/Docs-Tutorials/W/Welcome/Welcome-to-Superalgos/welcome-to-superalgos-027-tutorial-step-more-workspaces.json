@@ -45,8 +45,8 @@
             },
             {
                 "language": "NL",
-                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het tabblad links.",
-                "updated": 1636978436604
+                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
+                "updated": 1666614769872
             }
         ],
         "updated": 1629803469668
@@ -172,8 +172,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Open nu het  Worspaces tabblad links en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
-                    "updated": 1636978846518
+                    "text": "Maak het Workspaces tabblad links open en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
+                    "updated": 1666614929403
                 }
             ],
             "updated": 1629803460646

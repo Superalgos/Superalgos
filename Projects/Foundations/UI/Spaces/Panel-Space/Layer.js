@@ -666,8 +666,6 @@ function newLayer() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
-            } else {
-                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -698,10 +696,12 @@ function newLayer() {
         if (configStyle === undefined || configStyle.indicatorDropDownPanelOpacity === undefined) {
             const thisOpacity = 0.75
             params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
         } else {
             const thisOpacity = eval(configStyle.indicatorDropDownPanelOpacity)
             params.opacity = thisOpacity
-        }
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+    }
 
         // Here we set the top and bottom border color for the indicator drop down panel.
         if (configStyle === undefined || configStyle.indicatorDropDownPanelBorderColor === undefined) {
@@ -748,7 +748,6 @@ function newLayer() {
             label3FontSize = 9
         }
 
-        // This controls the text color of the largest font size in the drop down indicator layers panels.
         if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel1Color === undefined) {
             UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
         } else {
@@ -772,6 +771,9 @@ function newLayer() {
             UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container, thisColor)
         }
 
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)
         drawProgressBar(dailyFileProgressBar, 2, -46 + 18)

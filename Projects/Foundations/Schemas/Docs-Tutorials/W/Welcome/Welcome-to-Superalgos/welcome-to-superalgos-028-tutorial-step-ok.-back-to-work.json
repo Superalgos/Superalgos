@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem şiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
-                    "updated": 1644909758082
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem çiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1665962753944
                 },
                 {
                     "language": "NL",
@@ -186,8 +186,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De Exchange Data Tasks en Market Data Tasks nodes controleren alle taken in de bijbehorende exchange en markt.",
-                    "updated": 1636979270117
+                    "text": "De Exchange Data Tasks en Market Data Tasks knooppunten controleren alle taken in de bijbehorende exchange en markt.",
+                    "updated": 1666615507258
                 }
             ]
         },

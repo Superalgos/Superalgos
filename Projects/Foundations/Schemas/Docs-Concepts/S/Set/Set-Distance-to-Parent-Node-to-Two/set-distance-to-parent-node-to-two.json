@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел заблокирован на двукратном расстоянии.",
                 "updated": 1638297464994
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm mesafenin 2 katına kilitlenir.",
+                "updated": 1666966636281
             }
         ]
     },

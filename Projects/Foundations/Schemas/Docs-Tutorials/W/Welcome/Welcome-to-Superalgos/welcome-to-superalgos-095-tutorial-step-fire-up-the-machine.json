@@ -50,8 +50,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Seleziona Run All Project Data Tasks dal menù.",
-                    "updated": 1618071069199,
+                    "text": "Seleziona \"Run All Project Data Tasks\" dal menù.",
+                    "updated": 1666393729686,
                     "style": "Callout"
                 },
                 {
@@ -67,8 +67,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Menüden Tüm Proje Veri Görevlerini ( Run All Project Data Tasks ) Çalıştır'ı seçin.",
-                    "updated": 1636571851561
+                    "text": "Menüden ''Tüm Proje Veri Görevlerini Çalıştır''ı ( Run All Project Data Tasks ) seçin.",
+                    "updated": 1666065735195
                 },
                 {
                     "language": "ID",

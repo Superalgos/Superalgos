@@ -30,8 +30,8 @@
             },
             {
                 "language": "FR",
-                "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
-                "updated": 1623950198517,
+                "text": "Lorsque vous exécutez le client, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs!",
+                "updated": 1666252552932,
                 "style": "Definition"
             },
             {

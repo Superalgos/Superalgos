@@ -25,6 +25,11 @@
                 "text": "Varsayılan initialBalance, borsa tarafından desteklenen minimum işlem boyutu olan 10 USDT olarak ayarlanmıştır.",
                 "updated": 1654394269371,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "De standaard initialBalance is ingesteld op 10 USDT, wat de minimale transactiegrootte is die door het handelsplatform wordt ondersteund.",
+                "updated": 1667126410082
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "text": "initialBalance, Oturum Kotalı Varlığının yapılandırmasında tanımlanır. Kontrol edin ve değiştirmek isteyip istemediğinize kendiniz karar verin!",
                     "updated": 1654394275763,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De initialBalance wordt gedefinieerd in de configuratie van de Session Quoted Asset. Bekijk het en beslis zelf of je het wilt veranderen!",
+                    "updated": 1667126429906
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "text": "Bu öğreticiyi tamamlamak için yapılandırmayı değiştirmenize gerek yoktur, ancak isterseniz bunu yapmakta özgürsünüz!",
                     "updated": 1654394281467,
                     "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is niet nodig om de configuratie te wijzigen om deze handleiding te voltooien, maar je bent vrij om dit te doen als je dat wilt!",
+                    "updated": 1667126461180
                 }
             ]
         }

@@ -1,0 +1,45 @@
+{
+    "topic": "Color Vision Deficiency Charting Space Themes",
+    "pageNumber": "1",
+    "type": "hod",
+    "definition": {
+        "text": "Goddess of Blind NOX Color Vision Deficiency theme created by drcryptokiller",
+        "updated": 1667156697055
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1667156744279
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @drcryptokiller"
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/drcryptokiller"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/drcryptokiller"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/blind-theme-hod.png"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.LIGHT_GREY\",\n    \"candleUpColor\": \"UI_COLOR.WHITE\",\n    \"candleDownColor\": \"UI_COLOR.BLACK\",\n    \"candleSideColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.SILVER\",\n    \"panelBackgroundOpacity\": \"0.75\",\n    \"panelNameColor\": \"UI_COLOR.WHITE\",\n    \"panelExchangeMarketName\": \"UI_COLOR.BLACK\",\n    \"timeMachineNameColor\": \"UI_COLOR.BLACK\",\n    \"onMouseFrameColor\": \"UI_COLOR.BLACK\",\n    \"machineFrameColor\": \"UI_COLOR.WHITE\",\n    \"machineFrameOpacity\": \"0.75\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.WHITE\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.WHITE\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.WHITE\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.WHITE\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.WHITE\",\n    \"indicatorDropDownPanelOpacity\": \"0.75\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel1Color\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel2Color\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel3Color\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.GREY\",\n    \"indicatorLayersPanelOpacity\": \"0.75\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.WHITE\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.75\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarOpacity\": \"0.75\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n    \"minCursorSize\": \"10\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1667156836211
+        }
+    ]
+}

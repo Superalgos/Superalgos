@@ -59,7 +59,7 @@ exports.documentationExporter = function() {
 
     function initialize() {
         paragraphMap = new Map()
-        dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html'))
+        dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
         document = dom.window.document
     }
 

@@ -1,5 +1,7 @@
 runRoot()
 
+const EXPORT_DOCS_DIR = './Exports/Docs'
+
 async function runRoot() {
   /*
   Setting up external dependencies.
@@ -29,11 +31,12 @@ async function runRoot() {
   global.ED = {
     DEFAULT_LANGUAGE: 'EN',
     menuLabelsMap: new Map(),
-    exporter: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
-    utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
-    designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
-    strings: require('./Exports/Docs/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
-    indexFile: './Exports/Docs/index.html'
+    exporter: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationExporter').documentationExporter(),
+    utilities: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
+    designSpace: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
+    strings: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
+    indexFile: EXPORT_DOCS_DIR + '/index.html',
+    baseIndexFile: EXPORT_DOCS_DIR + '/index.html'
   }
 
 
@@ -41,7 +44,8 @@ async function runRoot() {
   let ENVIRONMENT = require('./Environment.js')
   let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
   global.env = ENVIRONMENT_MODULE
-
+  global.env.EXPORT_DOCS_DIR  = EXPORT_DOCS_DIR
+  
   if(process.argv.length > 2) {
     global.env.PATH_TO_PAGES_DIR = process.argv[2]
     global.env.REMOTE_DOCS_DIR = process.argv[3] || process.argv[2]
@@ -62,7 +66,7 @@ async function runRoot() {
   run()
 
   async function run() {
-    ED.app = require('./Exports/Docs/ExportDocumentationApp.js').newExportDocumentationApp()
+    ED.app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
     console.log('Superalgos documentation is exporting!')
     await ED.app.run()
     console.log('Superalgos documentation has exported!')

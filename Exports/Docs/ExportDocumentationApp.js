@@ -372,25 +372,31 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
             const homePage = global.env.PATH_TO_PAGES_DIR + '/index.html'
 
-            const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html'))
+            const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
             dom.window.document.getElementById('docs-content-div').innerHTML = HTML
             SA.nodeModules.fs.writeFileSync(homePage, dom.serialize())
         }
 
         function setSourceFileLinks() {
-            const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html'))
+            const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.baseIndexFile))
 
-            const docs = dom.window.document.createElement("link")
+            const docs = dom.window.document.createElement('link')
             docs.type = 'text/css'
             docs.rel = 'stylesheet'
             docs.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/docs.css'
             dom.window.document.getElementsByTagName('head')[0].appendChild(docs)
             
-            const fonts = dom.window.document.createElement("link")
+            const fonts = dom.window.document.createElement('link')
             fonts.type = 'text/css'
             fonts.rel = 'stylesheet'
             fonts.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/font-awasome.css'
             dom.window.document.getElementsByTagName('head')[0].appendChild(fonts)
+
+            // adding this to the bottom of the <body> as not sure if jsdom supports `defer` tag
+            const actionScripts = dom.window.document.createElement('script')
+            actionScripts.type = 'text/javascript'
+            actionScripts.src = '/' + global.env.REMOTE_DOCS_DIR + '/js/action-scripts.js'
+            dom.window.document.getElementsByTagName('body')[0].appendChild(actionScripts)
 
             SA.nodeModules.fs.writeFileSync(ED.indexFile, dom.serialize())
         }

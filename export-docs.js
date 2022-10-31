@@ -66,5 +66,9 @@ async function runRoot() {
     console.log('Superalgos documentation is exporting!')
     await ED.app.run()
     console.log('Superalgos documentation has exported!')
+
+    const robots = `User-agent: *\nDisallow: /`
+    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
+
   }
 }

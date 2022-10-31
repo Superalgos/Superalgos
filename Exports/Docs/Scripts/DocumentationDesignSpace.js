@@ -94,13 +94,13 @@ exports.documentationDesignSpace = function() {
         }
 
         async function copyCustomJsScripts() {
-            const baseDir = global.env.EXPORT_DOCS_DIR + '/js'
-            const files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(baseDir, (f) => res(f)))
+            const baseDir = global.env.EXPORT_DOCS_DIR + '/'
+            const files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(baseDir + 'js', (f) => res(f)))
             files.forEach(file => {
                 let fileParts = file.replaceAll('\\','/').split('/')
                 const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
                 const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-                copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
+                copyFile(baseDir + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
             })
         }
 

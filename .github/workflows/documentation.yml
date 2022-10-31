@@ -23,7 +23,7 @@ jobs:
     - run: npm ci
     - name: Preparation
       id: prep
-      run: node export-docs _site
+      run: node export-docs _site Superalgos
     - name: Build artifact
       uses: actions/upload-pages-artifact@v1
 

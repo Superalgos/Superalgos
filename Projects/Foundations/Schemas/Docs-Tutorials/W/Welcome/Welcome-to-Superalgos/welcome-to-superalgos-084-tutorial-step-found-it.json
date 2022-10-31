@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Таким образом, Trading Engine делает каждый бит информации, обработанной Trading Bot, доступным для торговых систем.",
                 "updated": 1642769333026
+            },
+            {
+                "language": "NL",
+                "text": "Dit is hoe de Trading Engine elk stukje informatie dat door de Trading Bot wordt verwerkt, beschikbaar maakt voor handelssystemen.",
+                "updated": 1667128540621
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "К каждой части данных существует путь, и, зная этот путь, вы можете получить доступ к данным из любой формулы (Formula) или условия (Condition) в торговой стратегии. Давайте проведем быструю проверку:",
                     "updated": 1642769415127
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is een pad naar elk stukje gegeven en door het pad te kennen, heeft u toegang tot de gegevens vanuit elke Formula of Condition in een Trading Strategy. Laten we een snelle controle uitvoeren:",
+                    "updated": 1667128606185
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Зайдите в меню узла Exit Target Rate слева и нажмите \"Copy node path\". Теперь откройте внешний текстовый редактор и вставьте то, что вы скопировали.",
                     "updated": 1642769438898
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het menu van het Exit Target Rate knooppunt aan de linkerkant en klik op \"Copy node path\". Open nu een externe tekstverwerker en plak wat u heeft gekopieerd.",
+                    "updated": 1667125163690
                 }
             ],
             "updated": 1636911911813
@@ -156,6 +171,11 @@
                     "language": "RU",
                     "text": "Хорошо! Вот как формулы и условия получают доступ к информации... А как насчет людей?",
                     "updated": 1642769453309
+                },
+                {
+                    "language": "NL",
+                    "text": "OK! Dit is hoe formules en voorwaarden toegang krijgen tot de informatie... Hoe zit het met mensen?",
+                    "updated": 1667125181913
                 }
             ]
         }

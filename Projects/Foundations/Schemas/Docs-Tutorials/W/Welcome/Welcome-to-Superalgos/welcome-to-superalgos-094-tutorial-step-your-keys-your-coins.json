@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Здесь вы настраиваете ключ вашего биржевого счета для реальной торговой сессии торговой системы Lightning Strike.",
                 "updated": 1642770933436
+            },
+            {
+                "language": "NL",
+                "text": "Hier configureert u uw Exchange Account Key voor de Live Trading Session van het Lightning Strike Trading System.",
+                "updated": 1667127105045
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Зайдите в конфигурацию и внимательно введите API Pubilic Key и секретный ключ API.",
                     "updated": 1642770944562
+                },
+                {
+                    "language": "NL",
+                    "text": "Open de configuratie en voer zorgvuldig de API Pubilic Key en de geheime API-sleutel in.",
+                    "updated": 1667127125244
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "RU",
                     "text": "Сначала удалите текстовую строку по умолчанию для каждого параметра, чтобы не перепутать посторонние символы с ключами.",
                     "updated": 1642770958877
+                },
+                {
+                    "language": "NL",
+                    "text": "<i>Verwijder</i> eerst de standaard tekst voor elke parameter, zodat er geen vreemd teken aan de API Key wordt toegevoegd.",
+                    "updated": 1667127215091
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "RU",
                     "text": "Exchange Account Key хранится в файле User Workspace в незашифрованном виде. Он используется для аутентификации на бирже. Он никогда не отправляется и не хранится в другом месте. Не делитесь этим рабочим пространством, пока не научитесь делать это безопасно в следующем уроке.",
                     "updated": 1642770993025
+                },
+                {
+                    "language": "NL",
+                    "text": "De Exchange Account Key wordt onversleuteld opgeslagen in het User Workspace bestand. Het wordt gebruikt om te authenticeren met het handelsplatform. Het wordt nooit ergens anders heen verzonden of opgeslagen. Deel deze werkruimte pas als u in de volgende handleiding leert hoe u dit veilig kunt doen.",
+                    "updated": 1667127313887
                 }
             ]
         }

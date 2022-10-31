@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Присоединяйтесь к новому серверу Discord или оригинальным группам Telegram! Нажмите на группу, чтобы получить ссылку на панели Docs. ",
                 "updated": 1662035801992
+            },
+            {
+                "language": "NL",
+                "text": "Word lid van de nieuwe Discord Server of de originele Telegram-groepen! Klik op een groep om de link in het deelvenster Documenten te krijgen.",
+                "updated": 1667138261316
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "IT",
                     "text": "Discord Server — Il server è nuovo, quindi meno attivo!",
                     "updated": 1666395348028
+                },
+                {
+                    "language": "NL",
+                    "text": "Discord Server — De server is nieuw, dus minder actief!",
+                    "updated": 1667138282667
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "IT",
                     "text": "Announcements Channel — Ricevi prima le notizie ufficiali!",
                     "updated": 1666395375693
+                },
+                {
+                    "language": "NL",
+                    "text": "Announcements Channel — Ontvang eerst officieel nieuws!",
+                    "updated": 1667138295259
                 }
             ]
         },
@@ -132,6 +147,11 @@
                     "language": "IT",
                     "text": "Community Group — Parliamo di Superalgo!",
                     "updated": 1666395402263
+                },
+                {
+                    "language": "NL",
+                    "text": "Community Group — Laten we het hebben over Superalgos!",
+                    "updated": 1667138308403
                 }
             ]
         },
@@ -164,6 +184,11 @@
                     "language": "IT",
                     "text": "Develop Group — Incontra altri sviluppatori!",
                     "updated": 1666395420058
+                },
+                {
+                    "language": "NL",
+                    "text": "Develop Group — Ontmoet andere ontwikkelaars!",
+                    "updated": 1667138321723
                 }
             ]
         },
@@ -196,6 +221,11 @@
                     "language": "IT",
                     "text": "Support Group — Hai bisogno di aiuto per iniziare?",
                     "updated": 1666395444392
+                },
+                {
+                    "language": "NL",
+                    "text": "Support Group — Hulp nodig om aan de slag te gaan?",
+                    "updated": 1667138334651
                 }
             ]
         },
@@ -228,6 +258,11 @@
                     "language": "IT",
                     "text": "Token Group — Parliamo di Governance e token!",
                     "updated": 1666395468882
+                },
+                {
+                    "language": "NL",
+                    "text": "Token Group — Laten we praten over bestuur en het token!",
+                    "updated": 1667138349461
                 }
             ]
         },
@@ -245,6 +280,11 @@
                     "language": "IT",
                     "text": "Machine Learning Group — Unisciti alla Bitcoin Factory!",
                     "updated": 1666395482870
+                },
+                {
+                    "language": "NL",
+                    "text": "Machine Learning Group — Word lid van de Bitcoin Factory!",
+                    "updated": 1667138370189
                 }
             ]
         },
@@ -261,6 +301,11 @@
                     "language": "IT",
                     "text": "Trading Group — Aiuta a testare i segnali di trading!",
                     "updated": 1666395547612
+                },
+                {
+                    "language": "NL",
+                    "text": "Trading Group — Help handelssignalen te testen!",
+                    "updated": 1667138382923
                 }
             ]
         },
@@ -293,6 +338,11 @@
                     "language": "IT",
                     "text": "UX-UI Group — Sai progettare?",
                     "updated": 1666395572999
+                },
+                {
+                    "language": "NL",
+                    "text": "UX-UI Group — Kun jij ontwerpen?",
+                    "updated": 1667138395092
                 }
             ]
         },
@@ -325,6 +375,11 @@
                     "language": "IT",
                     "text": "Docs Group — Aiutaci a migliorare la documentazione!",
                     "updated": 1666395595568
+                },
+                {
+                    "language": "NL",
+                    "text": "Docs Group — Helpt ons de Documenten te verbeteren!",
+                    "updated": 1667138408255
                 }
             ]
         }

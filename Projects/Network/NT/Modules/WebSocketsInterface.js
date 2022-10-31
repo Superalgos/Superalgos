@@ -59,7 +59,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.on('pong', heartbeat)
                 const interval = setInterval(function ping() {
                     if (caller.socket.isAlive === false) {
-                        console.log((new Date()).toISOString(), '[INFO] Server could not confirm client to be alive, re-initializing Websockets connection for user ', caller.userProfile.name)
+                        console.log((new Date()).toISOString(), '[INFO] Server could not confirm client to be alive, terminating Websockets connection for user ', caller.userProfile.name)
                         return caller.socket.terminate()
                     }
                     /* console.log((new Date()).toISOString(), '[DEBUG] Server-side heartbeat triggered for ', caller.userProfile.name, caller.socket.id) */

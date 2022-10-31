@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Давайте рассмотрим еще один пример, чтобы понятие постоянного цикла обратной связи стало понятнее, прежде чем мы двинемся дальше!",
                 "updated": 1642769647449
+            },
+            {
+                "language": "NL",
+                "text": "Laten we een ander voorbeeld bekijken om het idee van de constante feedback cyclus te laten bezinken voordat we verder gaan!",
+                "updated": 1667125514898
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Это структура данных, в которой хранится информация о лимитных ордерах на покупку.",
                     "updated": 1642769659606
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is de gegevensstructuur waarin informatie over limiet aankooporders wordt bewaard.",
+                    "updated": 1667125539168
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Перейдите в менеджер слоев Trading Engine на графиках (второй счетчик слева). Прокрутите вниз и включите слой Limit Buy Orders. Теперь проведите указателем мыши по нескольким ордерам на покупку и проверьте эффект на узлах в пространстве проектирования.",
                     "updated": 1642769679451
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de lagenmanager van de Trading Engine in de grafieken (de tweede geteld van links). Scroll naar beneden en schakel de laag Limit Buy Orders in. Veeg nu met de muisaanwijzer over enkele kooporders en controleer het effect op de knooppunten in de ontwerpruimte.",
+                    "updated": 1667125594145
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "RU",
                     "text": "Можете ли вы представить себе последствия такого уровня контроля над данными, которыми управляет торговый бот?",
                     "updated": 1642769694731
+                },
+                {
+                    "language": "NL",
+                    "text": "Kunt u zich de implicaties voorstellen van het hebben van dit niveau van controle over de gegevens die worden beheerd door de handelsbot?",
+                    "updated": 1667125616895
                 }
             ]
         }

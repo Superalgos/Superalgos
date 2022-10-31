@@ -19,20 +19,19 @@
 	"settings": {},
 	"launch": {
 		"version": "0.2.0",
-		"configurations": [
-		{
+		"configurations": [{
 			"name": "Debug exports",
 			"cwd": "/home/pi/trading/Superalgos/",
 			"program": "export-docs.js",
 			"args": [
-				"_site"
+				"_site",
+				"sa-docs"
 			],
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
 			"type": "node"
-		}
-		]
+		}]
 	}
 }

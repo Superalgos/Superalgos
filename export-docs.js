@@ -33,7 +33,7 @@ async function runRoot() {
     utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
     designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
     strings: require('./Exports/Docs/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
-    indexFile: SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html')
+    indexFile: './Exports/Docs/index.html'
   }
 
 
@@ -44,6 +44,7 @@ async function runRoot() {
 
   if(process.argv.length > 2) {
     global.env.PATH_TO_PAGES_DIR = process.argv[2]
+    global.env.REMOTE_DOCS_DIR = process.argv[3] || process.argv[2]
   }
 
   /*
@@ -62,7 +63,8 @@ async function runRoot() {
 
   async function run() {
     ED.app = require('./Exports/Docs/ExportDocumentationApp.js').newExportDocumentationApp()
-    await ED.app.run()
     console.log('Superalgos documentation is exporting!')
+    await ED.app.run()
+    console.log('Superalgos documentation has exported!')
   }
 }

@@ -29,7 +29,8 @@ exports.documentationExporter = function() {
         render: render,
         initialize: initialize,
         finalize: finalize,
-        write: write
+        write: write,
+        normaliseInternalLink: normaliseInternalLink
     }
 
     // Should read this from JSON config
@@ -58,18 +59,18 @@ exports.documentationExporter = function() {
 
     function initialize() {
         paragraphMap = new Map()
-        dom = new SA.nodeModules.jsDom(ED.indexFile)
+        dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html'))
         document = dom.window.document
     }
 
     function write() {
-        // TODO: write document to file before finalizing
-        const filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'
+        let filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         const fileName = thisObject.currentDocumentBeingRendered.type + '.html'
-
-        SA.nodeModules.fs.writeFileSync(filePath + fileName, dom.serialize())
+        filePath = filePath + fileName
+        SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
+        return filePath
     }
 
     function finalize() {
@@ -168,7 +169,7 @@ exports.documentationExporter = function() {
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
+            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + normaliseInternalLink('Images/superalgos-logo.png') + '" width=200></div>'
             HTML = HTML + '<div class="docs-search-results-box">'
             HTML = HTML + '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
             HTML = HTML + '</div>'
@@ -2055,7 +2056,8 @@ exports.documentationExporter = function() {
          * @returns string
          */
         function generateUnstyledLink(category, pageType, content) {
-            return `<a href="/${thisObject.currentLanguageCode}/${thisObject.currentDocumentBeingRendered.project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}"> ${content} </a>`
+            const link = normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }
 
@@ -2239,7 +2241,7 @@ exports.documentationExporter = function() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
+        HTML = HTML + '<img src="' + normaliseInternalLink('Images/superalgos-logo-white.png') + '" width="200 px">'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
@@ -2249,7 +2251,8 @@ exports.documentationExporter = function() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            return `<a style="float: right; display: inline-block;" href="/${thisObject.currentLanguageCode}/${project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}">${content}</a>`
+            const link = normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            return '<a style="float: right; display: inline-block;" href="' + link + '">' + content +' </a>'
         }
 
         /**
@@ -2258,15 +2261,30 @@ exports.documentationExporter = function() {
          * @param {string} language
          */
         function generateLanguageLink(key, language) {
-            let link = `/${key.toLowerCase()}/index.html`
+            let link = normaliseInternalLink(key.toLowerCase() + '/index.html')
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = `/${key.toLowerCase()}/${thisObject.currentDocumentBeingRendered.project}/${thisObject.currentDocumentBeingRendered.category}/${thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND')}`
+                link = normaliseInternalLink(key.toLowerCase() + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND'))
             }
-            let HTML = `<a href="${link}"><img src="Images/Languages/${key}.png" title="${language}" class="docs-footer-language`
+            let HTML = '<a href="' + link +'"><img src="' + normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
             if (thisObject.currentLanguageCode === key) { 
                 HTML = HTML + '-selected'
             } 
             return  HTML + '"></a>'
         }
+    }
+
+    /**
+     * adds the global remote directory root to all internal links
+     * @param {string} link 
+     * @return {string}
+     */
+    function normaliseInternalLink(link) {
+        if(link.indexOf('/') === 0) {
+            link = link.substring(1)
+        }
+        if(link.indexOf(global.env.PATH_TO_PAGES_DIR) === 0) {
+            link = link.substring(global.env.PATH_TO_PAGES_DIR.length+1)
+        }
+        return '/' + global.env.REMOTE_DOCS_DIR + '/' + link
     }
 }

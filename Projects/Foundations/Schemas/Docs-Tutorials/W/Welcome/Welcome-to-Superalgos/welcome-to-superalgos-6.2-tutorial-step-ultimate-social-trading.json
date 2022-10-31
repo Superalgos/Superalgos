@@ -34,6 +34,11 @@
                 "language": "IT",
                 "text": "Puoi usare la piattaforma Superalgos per produrre intelligenza sofisticata, ma puoi anche usarla per copiare le operazioni di altri utenti!",
                 "updated": 1666392252904
+            },
+            {
+                "language": "NL",
+                "text": "U kunt het Superalgos-platform gebruiken om geavanceerde informatie te produceren, maar u kunt het ook gebruiken om andermans transacties te kopiëren!",
+                "updated": 1667136705025
             }
         ]
     },
@@ -67,6 +72,11 @@
                     "language": "IT",
                     "text": "I trader Algo ricevono premi Superalgos SA Token per la produzione e la trasmissione di segnali di trading.",
                     "updated": 1666392325067
+                },
+                {
+                    "language": "NL",
+                    "text": "Algo-handelaren ontvangen Superalgos SA Token beloningen voor het produceren en uitzenden van handelssignalen.",
+                    "updated": 1667136763769
                 }
             ]
         },
@@ -99,6 +109,11 @@
                     "language": "IT",
                     "text": "Puoi ricevere i segnali e copiare automaticamente i professionisti utilizzando la stessa piattaforma!",
                     "updated": 1666392345842
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt de signalen ontvangen en de pro's automatisch kopiëren met hetzelfde platform!",
+                    "updated": 1667136757321
                 }
             ]
         },
@@ -131,6 +146,11 @@
                     "language": "IT",
                     "text": "Per partecipare al lavoro di beta testing, unisciti a",
                     "updated": 1666392403723
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deel te nemen aan de open bèta-testinspanningen, sluit je aan bij de",
+                    "updated": 1667136782560
                 }
             ]
         },
@@ -158,13 +178,25 @@
                     "language": "IT",
                     "text": "I primi segnali sono già operativi! Per accedere a questo servizio di community premium, dovrai possedere un certo saldo di token Superalgos SA.",
                     "updated": 1666392461290
+                },
+                {
+                    "language": "NL",
+                    "text": "De eerste paar signalen zijn nu live! U moet een bepaald saldo aan Superalgos SA-tokens hebben om toegang te krijgen tot deze premium community-service.",
+                    "updated": 1667136978216
                 }
             ]
         },
         {
             "style": "Link",
             "text": "Learn how to follow signals with Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
-            "updated": 1665735471005
+            "updated": 1665735471005,
+            "translations": [
+                {
+                    "language": "NL",
+                    "text": "Leer hoe u signalen kunt volgen met Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+                    "updated": 1667137018184
+                }
+            ]
         }
     ]
 }

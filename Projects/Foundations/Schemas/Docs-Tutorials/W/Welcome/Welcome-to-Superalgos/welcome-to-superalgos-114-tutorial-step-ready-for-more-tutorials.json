@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Не хочу хвастаться, но я не могу не подчеркнуть, как важно, чтобы все учебники были доступны, прежде чем вы решитесь на самостоятельную работу!",
                 "updated": 1642774629261
+            },
+            {
+                "language": "NL",
+                "text": "Niet om op te scheppen, maar ik kan niet genoeg benadrukken hoe belangrijk het is dat je alle handleidingen je eigen maakt voordat je er alleen voor gaat!",
+                "updated": 1667139097400
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Система обширна и охватывает сложные вопросы. В первые дни работы с Superalgos рекомендуется заниматься в одиночку только тем, кто любит биться головой о стену!",
                     "updated": 1642774650427
+                },
+                {
+                    "language": "NL",
+                    "text": "Het systeem is omvangrijk en omvat complexe zaken. Solo gaan in je eerste dagen met Superalgos is alleen aan te raden voor mensen die graag met hun hoofd tegen de muur lopen!",
+                    "updated": 1667139125692
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Книга First Steps Tutorials, расположенная справа от вас, содержит все подробности о том, как лучше всего потратить свое время на изучение Superalgos.",
                     "updated": 1642774666905
+                },
+                {
+                    "language": "NL",
+                    "text": "Het boek First Step Tutorials aan uw rechterkant biedt alle details over de beste manier om uw tijd te investeren in het leren van Superalgos.",
+                    "updated": 1667139161448
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "RU",
                     "text": "Прежде чем вы закончите, я оставлю вам следующий лучший учебник из этой серии!",
                     "updated": 1642774749825
+                },
+                {
+                    "language": "NL",
+                    "text": "Voordat je klaar bent, zal ik je achterlaten met de volgende beste handleiding in de serie!",
+                    "updated": 1667139184948
                 }
             ]
         }

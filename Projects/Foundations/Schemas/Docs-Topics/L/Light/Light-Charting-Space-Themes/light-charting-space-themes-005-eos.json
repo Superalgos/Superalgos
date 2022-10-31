@@ -1,0 +1,45 @@
+{
+    "topic": "Light Charting Space Themes",
+    "pageNumber": "5",
+    "type": "eos",
+    "definition": {
+        "text": "Goddess of Dawn EOS Light Charting theme created by drcryptokiller",
+        "updated": 1667161158442
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1667161186289
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @drcryptokiller"
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/drcryptokiller"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/drcryptokiller"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/light-theme-eos.png"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.LIGHT\",\n    \"candleUpColor\": \"UI_COLOR.NEON_GREEN\",\n    \"candleDownColor\": \"UI_COLOR.TRUE_RED\",\n    \"candleUpBorderColor\": \"UI_COLOR.NEON_GREEN\",\n    \"candleDownBorderColor\": \"UI_COLOR.TRUE_RED\",\n    \"panelcandleUpColor\": \"UI_COLOR.NEON_GREEN\",\n    \"panelcandleDownColor\": \"UI_COLOR.TRUE_RED\",\n    \"candleSideColor\": \"UI_COLOR.BLACK\",\n    \"candleSideBorderColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundOpacity\": \"1,5\",\n    \"panelNameColor\": \"UI_COLOR.MANGO_TANGO\",\n    \"panelExchangeMarketName\": \"UI_COLOR.BLACK\",\n    \"timeMachineNameColor\": \"UI_COLOR.BLACK\",\n    \"onMouseFrameColor\": \"UI_COLOR.MANGO_TANGO\",\n    \"machineFrameColor\": \"UI_COLOR.WHITE\",\n    \"machineFrameOpacity\": \"1\",\n    \"timeScalePanelColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"rateScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelOpacity\": \"0.28\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.WHITE\",\n    \"indicatorDropDownPanelLabel1\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel2\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel3\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"indicatorLayersPanelOpacity\": \"0.75\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.BLACK\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.GREY\",\n    \"indicatorFrameBackgroundOpacity\": \"0.50\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.MDA_PURPLE\",\n    \"indicatorPanelTopBarOpacity\": \"0.50\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n    \"minCursorSize\": \"10\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1667161238246
+        }
+    ]
+}

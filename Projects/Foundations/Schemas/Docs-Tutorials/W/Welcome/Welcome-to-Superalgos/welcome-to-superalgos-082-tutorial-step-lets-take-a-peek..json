@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Прежде чем мы покинем торговую систему, давайте вкратце рассмотрим один из этих ордеров и посмотрим, что может вызвать интерес.",
                 "updated": 1642769049916
+            },
+            {
+                "language": "NL",
+                "text": "Laten we, voordat we het handelssysteem verlaten, even een van deze orders bekijken en kijken wat van belang kan zijn.",
+                "updated": 1667128140793
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Разверните Profit 0.6 и проверьте формулу узла Order Rate.",
                     "updated": 1642769073928
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw Profit 0.6 uit en controleer de formule van het knooppunt Order Rate.",
+                    "updated": 1667128179212
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "RU",
                     "text": "Давайте сосредоточимся на этой загадочной части формулы:",
                     "updated": 1642769086685
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we ons concentreren op dit mysterieuze stukje van de formule:",
+                    "updated": 1667128209073
                 }
             ]
         },
@@ -161,6 +176,11 @@
                     "language": "RU",
                     "text": "Формула получает значение Exit Target Rate, определенное в другом месте. Не будем заострять внимание на том, какой может быть эта целевая ставка. Вместо этого рассмотрим механизм, с помощью которого торговая система может получить доступ к информации, обрабатываемой торговым ботом.",
                     "updated": 1642769189322
+                },
+                {
+                    "language": "NL",
+                    "text": "De formule haalt de waarde van de Exit Target Rate op, die elders is gedefinieerd. Laten we ons niet concentreren op wat dit streefpercentage kan zijn. Laten we in plaats daarvan eens kijken naar het mechanisme waarmee een Trading System toegang kan hebben tot informatie die door de Trading Bot wordt verwerkt.",
+                    "updated": 1667128273552
                 }
             ]
         }

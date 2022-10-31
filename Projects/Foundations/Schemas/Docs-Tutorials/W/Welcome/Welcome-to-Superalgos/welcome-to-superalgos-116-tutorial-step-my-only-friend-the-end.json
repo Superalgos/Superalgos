@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Итак, мой друг, это все! Надеюсь, тебе понравилось это шоу, и я сумел подсадить тебя на Superalgos!",
                 "updated": 1642774918942
+            },
+            {
+                "language": "NL",
+                "text": "Oké, mijn vriend, dit is het einde! Ik hoop dat je genoten hebt van de show en dat ik erin geslaagd ben je verslaafd te maken aan Superalgos!",
+                "updated": 1667139427477
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "RU",
                     "text": "Я не сомневаюсь, что вы еще не видели ничего подобного как Superalgos, не так ли?",
                     "updated": 1642774954571
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik twijfel er niet aan dat je nog nooit zoiets als Superalgos hebt gezien, toch?",
+                    "updated": 1667139441424
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "RU",
                     "text": "Если вы готовы продолжить, мой друг, учебник Basic Education Tutorial завершит ваше понимание некоторых основных аспектов системы, которыми вам необходимо овладеть, прежде чем вы приступите к изучению того, как построить свою первую торговую систему!",
                     "updated": 1642774993575
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je klaar bent om door te gaan, zal mijn vriend de Basic Education Tutorial je kennis van enkele basisaspecten van het systeem bijspijkeren. Welke je onder de knie moet krijgen, voordat je begint te leren hoe je je eerste Trading System kunt bouwen!",
+                    "updated": 1667139615574
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "RU",
                     "text": "Мы закончили! Нажмите Next, чтобы закончить со мной, и нажмите Play для следующего урока, когда будете готовы!",
                     "updated": 1642775015956
+                },
+                {
+                    "language": "NL",
+                    "text": "We zijn klaar! Klik op Next om mij af te sluiten en klik wanneer je klaar bent, op Play voor de volgende handleiding !",
+                    "updated": 1667139735895
                 }
             ]
         }

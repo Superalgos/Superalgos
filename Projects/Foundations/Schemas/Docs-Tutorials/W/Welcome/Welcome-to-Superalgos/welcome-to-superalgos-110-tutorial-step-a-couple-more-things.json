@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Вы узнаете больше о Docs в других руководствах. А сейчас я покажу вам еще несколько вещей, прежде чем мы запустим живую торговую сессию! ",
                 "updated": 1662035681001
+            },
+            {
+                "language": "NL",
+                "text": "U leert meer over de Docs in andere handleidingen. Nu zal ik je nog een paar dingen laten zien voordat we een Live Trading Session houden!",
+                "updated": 1667138002106
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Я расскажу вам о некоторых премиальных услугах, над которыми сейчас работает Сообщество!",
                     "updated": 1662035709702
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je een korte introductie geven over enkele premium services waar de Community momenteel aan werkt!",
+                    "updated": 1667138024500
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Я также хочу сообщить вам, что если вы цените то, что мы делаем, вы можете помочь!",
                     "updated": 1662035727854
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik wil je ook laten weten dat - als je waardeert wat we doen - je kunt helpen!",
+                    "updated": 1667138043692
                 }
             ]
         },
@@ -137,6 +152,11 @@
                     "language": "RU",
                     "text": "Десятки тысяч часов упорного труда ушли на создание Superalgos и доведение его до нынешнего состояния. Я надеюсь, что вы сможете уделить пару минут своего времени, чтобы отблагодарить их, и я буду рад подсказать вам, с чего начать! Давайте продолжим!",
                     "updated": 1662035748856
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn tienduizenden uren hard werk gestoken in het bouwen van Superalgos en het in de huidige staat brengen ervan. Ik hoop dat je een paar minuten van je tijd kunt nemen om iets terug te doen, en ik vertel je graag waar je moet beginnen! Laten we ermee aan de slag gaan!",
+                    "updated": 1667138066450
                 }
             ]
         }

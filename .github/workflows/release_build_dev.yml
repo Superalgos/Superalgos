@@ -1,6 +1,10 @@
 name: Nightly develop Binaries
 
-on: {}
+on:
+  schedule:
+    - cron:  '20 3 * * *'
+
+  workflow_dispatch:
 
 jobs:
   create-release:

@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fissa il nodo che sposterai, così da poterlo lasciare in qualunque momento quando avrai bisogno di aprire il design space per cercare direzioni.",
-                    "updated": 1619501872996,
+                    "text": "Fissa il nodo che sposterai attraverso lo spazio di progettazione, in modo che rimanga dove lo lasci cadere!",
+                    "updated": 1666638912033,
                     "style": "List"
                 },
                 {
@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
-                    "updated": 1639558424076
+                    "text": "Taşıyacağınız düğümü tasarım alanı boyunca sabitleyin, böylece bıraktığınız yerde kalacaktır!",
+                    "updated": 1666103508666
                 },
                 {
                     "language": "RU",
@@ -130,8 +130,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Usa Ctrl / Cmd + tasti freccia per trascinare il nodo attraverso lo schermo dopo averci cliccato sopra. Tieni premuti i tasti e il nodo volerà!",
-                    "updated": 1619501949818,
+                    "text": "Fare clic sul pulsante \"Save node to be moved\" sul nodo che vuoi spostare.",
+                    "updated": 1666639012740,
                     "style": "List"
                 },
                 {
@@ -147,8 +147,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
-                    "updated": 1639558498078
+                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın. Taşımak istediğiniz düğümün üzerindeki \"Taşınacak düğümü kaydet\" düğmesine tıklayın.",
+                    "updated": 1666103626627
                 },
                 {
                     "language": "RU",
@@ -187,6 +187,11 @@
                     "text": "Uzaklaştırmak için tasarım alanı haritasını kullanın ve seyahat etmek istediğiniz düğümün yakınına tıklayın.",
                     "updated": 1654393826620,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Usa la mappa dello spazio di progettazione per ridurre lo zoom e fai clic vicino al nodo verso il quale desideri spostarti.",
+                    "updated": 1666639048273
                 }
             ]
         },
@@ -215,6 +220,11 @@
                     "text": "\"Kaydedilen düğümü konuma yapıştır\" seçeneğine tıkladığınızda kaydettiğiniz düğüm sihirli bir şekilde bulunduğunuz düğümün üzerinde belirecektir!",
                     "updated": 1654393832697,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Clicca su \"Snap saved node to postion\" e il nodo che hai salvato apparirà magicamente sopra il nodo in cui ti trovi!",
+                    "updated": 1666639078071
                 }
             ]
         },
@@ -242,6 +252,11 @@
                     "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra pimi çıkarın.",
                     "updated": 1654393838746,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Una volta stabilito il riferimento, rimuovi il pin con cui hai fissato il nodo in modo che torni al suo posto.",
+                    "updated": 1666639163813
                 }
             ]
         }

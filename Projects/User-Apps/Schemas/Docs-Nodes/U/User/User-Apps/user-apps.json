@@ -2,7 +2,14 @@
     "type": "User Apps",
     "definition": {
         "text": "The User Apps hierarchy holds the definitions of all apps associated with the current User Profile.",
-        "updated": 1643077357942
+        "updated": 1643077357942,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kullanıcı Uygulamaları hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm uygulamaların tanımlarını içerir.",
+                "updated": 1666687445615
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,6 +25,11 @@
                     "language": "RU",
                     "text": "Эти приложения используются для доступа к одноранговой сети Superalgos.",
                     "updated": 1645254021386
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu uygulamalar Superalgos eşler arası bağlantıya erişmek için kullanılır.",
+                    "updated": 1666687531742
                 }
             ]
         },

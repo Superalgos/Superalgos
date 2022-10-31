@@ -354,13 +354,13 @@
  {"meanNetWorth": 721.2464292834837, "stdNetWorth": 271.8523338823371, "minNetWorth": 248.60280285744497, "maxNetWorth": 1264.2342365877673, "stdQuoteAsset": 193.18343367092214, "minQuoteAsset": 4.0065377572671893e-10, "maxQuoteAsset": 1161.3969522280302, "stdBaseAsset": 0.005149471273320009, "minBaseAsset": 0.0, "maxBaseAsset": 0.0284320291802237, "meanNetWorthAtEnd": 260.82332674553476, "stdNetWorthAtEnd": 0.0, "minNetWorthAtEnd": 260.82332674553476, "maxNetWorthAtEnd": 260.82332674553476}
 */                                
                                 let endingTimestamp = (new Date()).valueOf()
-                                processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000          
+                                processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000          
                                 processExecutionResult.pythonScriptName = nextTestCase.pythonScriptName                                                  
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Enlapsed Time: ' + timeUnits(processExecutionResult.enlapsedTime * 1000) + ' ')
+                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
                                 console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
                                 console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
                                 console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount)
+                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Next Action/Amount/Limit: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount+ ' / ' + processExecutionResult["2"].current_action.limit)
                             } catch (err) {
                                 console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
                                 console.log('The data that can not be parsed is = ' + fileContent)
@@ -379,8 +379,8 @@
                             console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
 
                             let endingTimestamp = (new Date()).valueOf()
-                            processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                            console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+                            processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                            console.log('Elapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.elapsedTime * 1000).toISOString().substr(11, 8)) + ' ')
                         } catch (err) {
                             console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
                             console.log('The data that can not be parsed is = ' + cleanedData)

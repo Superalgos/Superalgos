@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел принимает прорезь по окружности вокруг своего родительского узла. В графическом изображении значка оранжевая точка представляет родительский узел, а синие точки представляют узлы, использующие определенный стиль размещения.",
                 "updated": 1638297645578
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm, ana düğümünün çevresindeki bir yuvayı benimser. Simgenin grafiğinde turuncu nokta ana düğümü, mavi noktalar ise belirli düzenleme stilini benimseyen düğümü temsil eder.",
+                "updated": 1666905719117
             }
         ]
     },

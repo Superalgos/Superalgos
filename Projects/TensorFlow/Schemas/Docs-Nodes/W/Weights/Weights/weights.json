@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Начальные значения веса слоя.",
                 "updated": 1645084358783
+            },
+            {
+                "language": "TR",
+                "text": "Katmanın ilk ağırlık değerleri.",
+                "updated": 1666692669769
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645252838182
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1666692689144
                 }
             ]
         }

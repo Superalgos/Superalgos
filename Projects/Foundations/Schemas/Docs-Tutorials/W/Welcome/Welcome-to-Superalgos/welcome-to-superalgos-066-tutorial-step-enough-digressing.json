@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Kami akan menjalankan Backtesting Session dengan sekumpulan parameter yang telah dikonfigurasi sebelumnya sehingga kamu dapat melihat sekilas cara kerja simulasi yang ada.",
                 "updated": 1639747175560
+            },
+            {
+                "language": "NL",
+                "text": "We zullen een Backtesting Session uitvoeren met een aantal vooraf geconfigureerde parameters, zodat u een snelle blik kunt werpen op hoe simulaties werken.",
+                "updated": 1666875029384
             }
         ]
     },
@@ -68,8 +73,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Tading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
-                    "updated": 1636118809271
+                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Trading System ) referansı vardır.  Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
+                    "updated": 1665957821581
                 },
                 {
                     "language": "RU",
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Seperti yang kamu lihat di sebelah kanan, trading session memiliki referensi ke Trading System. Artinya, Trading Bot akan menerapkan aturan sistem trading yang direferensikan untuk mengambil keputusan. Ada juga referensi ke Trading Engine, subjek yang memiliki chapter tersendiri, jadi aku akan membiarkannya untuk nanti!",
                     "updated": 1639747323161
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals u rechts kunt zien, heeft een handelssessie een verwijzing naar een Trading System. Dat wil zeggen dat de Trading Bot de regels van het trading system waarnaar wordt verwezen zal toepassen om beslissingen te nemen. Er is ook een verwijzing naar een Trading Engine, een onderwerp dat een eigen hoofdstuk waard is, dus dit laat ik voor later!",
+                    "updated": 1666875133792
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "trading session dipengaruhi oleh beberapa parameter. Lihat sekilas konfigurasi mereka dengan memilih Konfigurasi pada menu!",
                     "updated": 1639747356806
+                },
+                {
+                    "language": "NL",
+                    "text": "De handelssessie wordt beïnvloed door verschillende parameters. Bekijk snel hun configuraties en selecteer Configure in het menu!",
+                    "updated": 1666875175135
                 }
             ]
         }

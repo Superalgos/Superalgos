@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Пункт меню - это каждый из пунктов, перечисленных в меню любого данного узла Node.",
                 "updated": 1638285784117
+            },
+            {
+                "language": "TR",
+                "text": "Bir Menü Öğesi, herhangi bir Düğümün ( Node ) menüsünde listelenen öğelerin her biridir.\n",
+                "updated": 1666711645742
             }
         ]
     },

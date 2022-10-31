@@ -46,8 +46,8 @@
             },
             {
                 "language": "NL",
-                "text": "Als er iets mis gaat—zoals het verwijderen of de configuratie van een node veranderen—en je komt er niet meer uit...",
-                "updated": 1636977985207
+                "text": "Als er iets mis gaat—zoals het verwijderen van een knooppunt of de configuratie veranderen—en je komt er niet meer uit...",
+                "updated": 1666614444492
             }
         ]
     },
@@ -93,8 +93,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "... start je simpelweg opnieuw met de originele Getting Started Tutorials Plugin Workspace!",
-                    "updated": 1636978022861
+                    "text": ".. u kunt gemakkelijk opnieuw beginnen met de originele Getting Started Tutorials Plugin Workspace of de Partner Exchange-werkruimte die u mogelijk gebruikt!",
+                    "updated": 1666614531205
                 }
             ],
             "updated": 1640358082476
@@ -140,8 +140,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "in zo'n geval open je de tab aan de linkerkant, scroll en zoek de Getting Started Tutorials plugin, en klik er op! De originele Plugin Workspace zal laden en de tutorial zal herstarten vanaf het begin.",
-                    "updated": 1636978208217
+                    "text": "In zo'n geval open je gewoon het tabblad aan de linkerkant, scroll, zoek de werkruimte en klik erop! De originele Plugin Workspace wordt geladen en de tutorial zal weer verschijnen, vers vanaf het begin!",
+                    "updated": 1666614635676
                 }
             ],
             "updated": 1640358203586
@@ -165,19 +165,19 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Подключаемые рабочие пространства (Plugin Workspaces) поставляются вместе с системой. Позже вы научитесь создавать и свои собственные!",
-                    "updated": 1641809388018,
+                    "text": "Вы также можете использовать меню Workspaces в левом верхнем углу экрана!",
+                    "updated": 1665737088812,
                     "style": "Success"
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz!",
-                    "updated": 1640627696169
+                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz! Ayrıca ekranın sol üst köşesindeki çalışma alanı (Workspaces) menüsünü de kullanabilirsiniz.",
+                    "updated": 1665963815175
                 },
                 {
                     "language": "NL",
-                    "text": "Plugin Workspaces horen bij het systeem, laten we eens kijken of je ze eigen kan maken of zelfs nieuwe kan creëeren!",
-                    "updated": 1636978365070
+                    "text": "U kunt ook het Workspaces menu in de linkerbovenhoek van het scherm gebruiken!",
+                    "updated": 1666614691684
                 },
                 {
                     "language": "ID",

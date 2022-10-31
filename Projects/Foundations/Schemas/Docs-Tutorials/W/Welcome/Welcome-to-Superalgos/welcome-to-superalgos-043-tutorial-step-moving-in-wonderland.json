@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Итак, наконец-то, Вы находитесь внутри диаграммы. Первое, что Вым захочется сделать  - это осмотреться и узнать, что эти диаграммы могут сделать для Вас.",
                 "updated": 1636205299823
+            },
+            {
+                "language": "NL",
+                "text": "U bevindt zich dus eindelijk in een grafiek. Het eerste dat u wilt doen, is rondlopen en ontdekken wat deze grafieken voor u kunnen doen.",
+                "updated": 1666700113409
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "В заключении процесса! Как и в пространстве проектирования, когда Вы находитесь внутри машины времени, Вы перемещаетесь с помощью мыши и клавиатуры. Как это происходит:",
                     "updated": 1636205706347
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we daarmee aan de slag gaan! Net als in de ontwerpruimte - in een time machine- beweeg je met je muis en je toetsenbord. Dit is hoe:",
+                    "updated": 1666700147331
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "С помощью мыши: щелкните левой кнопкой мыши и перетащите. С помощью клавиатуры: используйте клавиши со стрелками ← → ↑ ↓.",
                     "updated": 1636205526304
+                },
+                {
+                    "language": "NL",
+                    "text": "Met de muis, klik met de linkermuisknop en sleep. Of gebruik op het toetsenbord de pijltjestoetsen: ← → ↑ ↓",
+                    "updated": 1666700191754
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "RU",
                     "text": "Что? Это не работает? У Вас все еще заморожен график как на видео в следующем шаге? Не беспокойтесь! Я знаю, что происходит.",
                     "updated": 1636205608008
+                },
+                {
+                    "language": "NL",
+                    "text": "Wat? Het werkt niet? Zit je vast met een bevroren grafiek? Zoals in de video over de volgende stap? Maak je geen zorgen! Ik weet wat er aan de hand is...",
+                    "updated": 1666700223682
                 }
             ]
         }

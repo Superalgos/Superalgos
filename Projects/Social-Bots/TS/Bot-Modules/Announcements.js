@@ -48,23 +48,7 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
             // set defaults, protect against empty configurations or missing values
             let onEnter = true
             let onExit = false
-            let intervalComplete = false
-            let intervalRunning = false
-            if (announcement.config.onInterval !== undefined) {
-                // Only start set interval on first run 
-                if (intervalRunning === false) {
-                    setInterval(
-                        // Set to true after interval
-                        function () {
-                            intervalComplete = true
-                        },
-                        announcement.config.onInterval
-                    )
-                    intervalRunning = true
-                    onEnter = false
-                    onExit = false
-                }
-            }
+
             if (announcement.config.onEnter !== undefined) {
                 onEnter = announcement.config.onEnter
             }
@@ -74,11 +58,9 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
                     onEnter = false
                 }
             }
+
             if ((status === 'Open' && onEnter) || (status === 'Closed' && onExit)) {
                 canAnnounce = true
-            } else if (intervalComplete === true) {
-                canAnnounce = true
-                intervalComplete = false // start interval over
             } else {
                 canAnnounce = false
             }
@@ -128,9 +110,19 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
                     }
                     if (errorMessage == undefined) { text = formulaValue }
                 }
-
+                
                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {
-                    TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
+                    if (announcement.config.delay !== undefined) {
+                        // figure out how to keep messages from stacking
+                        setTimeout(
+                            function () {
+                                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
+                            },
+                            announcement.config.delay
+                        )
+                    } else {
+                        TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
+                    }
                     tradingSystem.announcements.push([announcement.id, text])
                 } else {
 

@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Мы еще не рассказали о многих вещах, например, о том, как проводить Live Trading Session! Мы сделаем это, не волнуйтесь!",
                 "updated": 1662034443853
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn heel veel dingen die we nog niet hebben behandeld, zoals het starten van een Live Trading Session! We komen er wel, geen zorgen!",
+                "updated": 1667136072355
             }
         ],
         "updated": 1660155665756
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Я уверен, что у вас все еще есть масса вопросов... Как мне создавать свои собственные стратегии? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram или Twitter? Как получить данные из других API?",
                     "updated": 1662034359006
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik weet zeker dat je nog heel veel vragen hebt... Hoe bouw ik mijn eigen strategieën? Hoe bouw ik een indicator? Hoe zet ik een trading farm in? Hoe kan ik integreren met TradingView? Hoe stel ik Telegram- of Twitter-aankondigingen in? Hoe haal ik gegevens op uit andere APIs?",
+                    "updated": 1667136125387
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "IT",
                     "text": "Ci sono altri tutorial e oltre 1500 pagine di documentazione che coprono tutte le tue domande!",
                     "updated": 1666391182472
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn handleidingen en meer dan 1500 pagina's met documentatie die al uw vragen behandelen!",
+                    "updated": 1667136174143
                 }
             ]
         },
@@ -125,6 +140,11 @@
                     "language": "IT",
                     "text": "Quindi diamo un'occhiata al sistema di documentazione integrato prima di passare ad altre cose!",
                     "updated": 1666391207835
+                },
+                {
+                    "language": "NL",
+                    "text": "Dus laten we eens kijken naar het ingebouwde documentatiesysteem voordat we verder gaan met andere dingen!",
+                    "updated": 1667136196273
                 }
             ]
         }

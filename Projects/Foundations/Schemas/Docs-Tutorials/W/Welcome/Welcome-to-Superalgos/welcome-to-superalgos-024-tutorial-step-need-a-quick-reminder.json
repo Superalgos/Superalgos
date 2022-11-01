@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "Bu noktada, muhtemelen hipokampüsünüzden taşıyorum! Ama merak etmeyin... önceki herhangi bir adıma geri dönebilirsiniz!",
                 "updated": 1635952703561
+            },
+            {
+                "language": "FR",
+                "text": "A ce stade, je suis probablement en train de faire fumer votre cerveau ! Mais ne vous inquiétez pas... vous pouvez revenir à n'importe quelle étape précédente !",
+                "updated": 1667205283458
             }
         ]
     },
@@ -97,6 +102,11 @@
                     "language": "TR",
                     "text": "Bu konulardan biri hakkında bir hatırlatmaya ihtiyacınız olursa, herhangi bir Eğitim Konusunu veya Eğitim Adımını tekrar oynatabilirsiniz.",
                     "updated": 1644908363400
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous avez besoin d'un rappel sur l'un de ces sujets, vous pouvez rejouer n'importe quel Tutorial ou étape du Tutorial.",
+                    "updated": 1667205330776
                 }
             ],
             "updated": 1636910771339
@@ -119,6 +129,11 @@
                     "language": "NL",
                     "text": "U kunt mij vinden in de linkerbenedenhoek van de ontwerpruimte, blader door de hiërarchie van onderwerpen en stappen en klik op een van hen op Play. Onderwerpen zijn met de klok mee gerangschikt, beginnend vanaf de rechterkant van het hoofd Tutorial knooppunt.",
                     "updated": 1666614153326
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez me trouver dans le coin inférieur gauche de l'espace de conception, parcourir la hiérarchie des sujets et des étapes, et cliquer sur Play sur l'un d'entre eux. Les sujets sont disposés dans le sens des aiguilles d'une montre, en partant de la droite du nœud principal du Tutorial.",
+                    "updated": 1667205383606
                 }
             ]
         },
@@ -167,6 +182,11 @@
                     "language": "TR",
                     "text": "\"Hızlı Bir Hatırlatıcıya mı ihtiyacınız var?\" Bu adımı aşağıdaki \"Tutorials\" başlığı altında bulun. Ardından Durdur'a tıklayın ve söz konusu Eğitim Adımında ( Tutorial Step ) Oynat'a tıklayarak yeniden başlatın!",
                     "updated": 1644908584946
+                },
+                {
+                    "language": "FR",
+                    "text": "\"Besoin d'un rappel rapide ?\" Trouvez cette étape dans la rubrique \"Tutoriels et aide\" ci-dessous. Cliquez ensuite sur Stop, et redémarrez en cliquant sur Play sur l'étape du tutoriel en question !",
+                    "updated": 1667205405413
                 }
             ]
         }

@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Bitcoin Factory привлекает вычислительные мощности сообщества для обучения алгоритмов ML, которые предсказывают цены на биткоин! ",
                 "updated": 1662034564589
+            },
+            {
+                "language": "NL",
+                "text": "De Bitcoin Factory crowdsourcet rekenkracht van de gemeenschap om ML-algoritmen te trainen die Bitcoin-prijzen voorspellen!",
+                "updated": 1667136429066
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "RU",
                     "text": "Добывайте токен Superalgos SA, запустив ML-Test-Client для Bitcoin Factory, чтобы внести свой вклад в вычисления!",
                     "updated": 1662034611413
+                },
+                {
+                    "language": "NL",
+                    "text": "Mine de Superalgos SA Token door de Bitcoin Factory ML-Test-Client uit te voeren om bij te dragen aan de berekening!",
+                    "updated": 1667136490906
                 }
             ],
             "updated": 1660158085106
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": " Используйте прогнозы и сигналы ML в качестве разведданных, которые вы можете включить в свои стратегии, чтобы найти свое преимущество!",
                     "updated": 1662034639255
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de ML-voorspellingen en signalen als intelligentie die u kunt gebruiken bij uw strategieën om uw voordeel te behalen!",
+                    "updated": 1667136541769
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "RU",
                     "text": "Чтобы принять участие, присоединяйтесь к команде Bitcoin Factory",
                     "updated": 1662034698820
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deel te nemen, sluit je aan bij het Bitcoin Factory-team in de",
+                    "updated": 1667136567981
                 }
             ],
             "updated": 1660158007047
@@ -185,6 +205,11 @@
                     "language": "IT",
                     "text": "Una volta terminata la fase beta, dovrai mantenere un certo saldo di token Superalgos SA per accedere alle previsioni di Bitcoin Factory, poiché è un servizio di community premium.",
                     "updated": 1666392147802
+                },
+                {
+                    "language": "NL",
+                    "text": "Zodra de bètafase voorbij is, moet u een bepaald saldo van Superalgos SA-tokens hebben om toegang te krijgen tot Bitcoin Factory-voorspellingen, omdat het een premium community-service is.",
+                    "updated": 1667136591937
                 }
             ]
         }

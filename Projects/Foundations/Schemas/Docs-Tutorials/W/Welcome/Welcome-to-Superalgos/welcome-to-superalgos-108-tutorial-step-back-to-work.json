@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Superalgos имеет встроенный интерактивный, и доступный для поиска, редактируемый и многоязычный сайт документации - и встроенную командную строку!",
                 "updated": 1662035569296
+            },
+            {
+                "language": "NL",
+                "text": "Superalgos heeft een in-app, interactieve, doorzoekbare, bewerkbare en meertalige documenten site - en een ingebouwde command line!",
+                "updated": 1667137569152
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Научитесь пользоваться Docs и командной строкой, и вы станете королем холма!",
                     "updated": 1662035600849
+                },
+                {
+                    "language": "NL",
+                    "text": "Leer de Docs en de Command Line te gebruiken en je zult de koning te rijk zijn!",
+                    "updated": 1667137560558
                 }
             ]
         },
@@ -97,6 +107,11 @@
                     "language": "IT",
                     "text": "Hai già utilizzato un paio di pagine di documentazione nel pannello Documenti a destra, ma questa è solo la punta dell'iceberg!",
                     "updated": 1666391721369
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt al een aantal documentatiepagina's gebruikt in het deelvenster Docs aan de rechterkant, maar dat is nog maar het topje van de ijsberg!",
+                    "updated": 1667137616262
                 }
             ]
         },
@@ -136,6 +151,11 @@
                     "language": "RU",
                     "text": "Давайте попробуем! Найдите слово... network.",
                     "updated": 1642773752339
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het proberen! Zoek naar het woord... network.",
+                    "updated": 1667137634972
                 }
             ]
         },
@@ -175,6 +195,11 @@
                     "language": "RU",
                     "text": "Не хочу хвастаться, но поисковая система работает быстро! ",
                     "updated": 1662035637361
+                },
+                {
+                    "language": "NL",
+                    "text": "Niet om op te scheppen, maar de zoekmachine is snel!",
+                    "updated": 1667137649890
                 }
             ]
         },

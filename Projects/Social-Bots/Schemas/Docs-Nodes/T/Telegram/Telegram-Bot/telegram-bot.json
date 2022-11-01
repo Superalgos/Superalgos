@@ -124,9 +124,9 @@
             "updated": 1618223916419
         },
         {
-            "style": "Text",
-            "text": "The chatId parameter is provided by the Telegram Bot @myidbot using the /getgroupid command. It is a negative 9 digit numeric number. It should be entered without quotes.",
-            "updated": 1618224061206,
+            "style": "Note",
+            "text": "Once you create your bot make sure to start it and add it to the group you wish to send messages to.",
+            "updated": 1665711951798,
             "translations": [
                 {
                     "language": "DE",
@@ -146,6 +146,10 @@
                     "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "The chatId parameter is provided by the Telegram Bot @myidbot using the /getgroupid command. It is a negative 9 digit numeric number. It should be entered without quotes."
         },
         {
             "style": "Text",

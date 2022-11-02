@@ -29,8 +29,7 @@ exports.documentationExporter = function() {
         render: render,
         initialize: initialize,
         finalize: finalize,
-        write: write,
-        normaliseInternalLink: normaliseInternalLink
+        write: write
     }
 
     // Should read this from JSON config
@@ -169,7 +168,7 @@ exports.documentationExporter = function() {
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + normaliseInternalLink('Images/superalgos-logo.png') + '" width=200></div>'
+            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink('Images/superalgos-logo.png') + '" width=200></div>'
             HTML = HTML + '<div class="docs-search-results-box">'
             HTML = HTML + '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
             HTML = HTML + '</div>'
@@ -304,8 +303,8 @@ exports.documentationExporter = function() {
                     }
                 }
 
-                let definitionText = ED.utilities.getTextBasedOnLanguage(docsSchemaDocument.definition)
-                definitionText = definitionText + ED.utilities.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
+                let definitionText = ED.utilities.getTextBasedOnLanguage(docsSchemaDocument.definition, thisObject.currentLanguageCode)
+                definitionText = definitionText + ED.utilities.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition, thisObject.currentLanguageCode)
 
                 /* We will test if we can draw an image here or not*/
                 let testElement
@@ -1533,13 +1532,13 @@ exports.documentationExporter = function() {
                         prefix = ''
                         role = ''
                         key = key + '-text'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addCodeToCamelCase(innerHTML)
                         innerHTML = ED.utilities.addCodeToWhiteList(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Title': {
@@ -1547,8 +1546,8 @@ exports.documentationExporter = function() {
                         prefix = ''
                         role = ''
                         key = key + '-title'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Subtitle': {
@@ -1556,8 +1555,8 @@ exports.documentationExporter = function() {
                         prefix = ''
                         role = ''
                         key = key + '-subtitle'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Note': {
@@ -1565,11 +1564,11 @@ exports.documentationExporter = function() {
                         prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                         role = 'role="alert"'
                         key = key + '-note'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Success': {
@@ -1577,11 +1576,11 @@ exports.documentationExporter = function() {
                         prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                         role = 'role="alert"'
                         key = key + '-success'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Important': {
@@ -1589,11 +1588,11 @@ exports.documentationExporter = function() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                         role = 'role="alert"'
                         key = key + '-important'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Warning': {
@@ -1601,11 +1600,11 @@ exports.documentationExporter = function() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Error': {
@@ -1613,9 +1612,9 @@ exports.documentationExporter = function() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Error:</b>'
                         role = 'role="alert"'
                         key = key + '-error'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Callout': {
@@ -1623,11 +1622,11 @@ exports.documentationExporter = function() {
                         prefix = ''
                         role = ''
                         key = key + '-callout'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Summary': {
@@ -1635,11 +1634,11 @@ exports.documentationExporter = function() {
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Section': {
@@ -1647,9 +1646,9 @@ exports.documentationExporter = function() {
                         prefix = ''
                         role = ''
                         key = key + '-section'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'List': {
@@ -1658,22 +1657,22 @@ exports.documentationExporter = function() {
                         sufix = '</li></ul>'
                         role = ''
                         key = key + '-list'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addCodeToCamelCase(innerHTML)
                         innerHTML = ED.utilities.addBold(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
                     case 'Table': {
                         styleClass = ''
                         prefix = '<table class="docs-info-table">'
-                        sufix = '</table>' + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
+                        sufix = '</table>' + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         role = ''
                         key = key + '-table'
-                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = ED.utilities.parseTable(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
@@ -1694,7 +1693,7 @@ exports.documentationExporter = function() {
                         sufix = ''
                         role = ''
                         key = key + '-link'
-                        innerHTML = ED.utilities.parseLink(ED.utilities.getTextBasedOnLanguage(paragraph))
+                        innerHTML = ED.utilities.parseLink(ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode))
                         break
                     }
                     case 'Youtube': {
@@ -2056,7 +2055,7 @@ exports.documentationExporter = function() {
          * @returns string
          */
         function generateUnstyledLink(category, pageType, content) {
-            const link = normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
             return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }
@@ -2241,7 +2240,7 @@ exports.documentationExporter = function() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<img src="' + normaliseInternalLink('Images/superalgos-logo-white.png') + '" width="200 px">'
+        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink('Images/superalgos-logo-white.png') + '" width="200 px">'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
@@ -2251,7 +2250,7 @@ exports.documentationExporter = function() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            const link = normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
             return '<a style="float: right; display: inline-block;" href="' + link + '">' + content +' </a>'
         }
 
@@ -2261,30 +2260,15 @@ exports.documentationExporter = function() {
          * @param {string} language
          */
         function generateLanguageLink(key, language) {
-            let link = normaliseInternalLink(key.toLowerCase() + '/index.html')
+            let link = ED.utilities.normaliseInternalLink(key.toLowerCase() + '/index.html')
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = normaliseInternalLink(key.toLowerCase() + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND'))
+                link = ED.utilities.normaliseInternalLink(key.toLowerCase() + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND'))
             }
-            let HTML = '<a href="' + link +'"><img src="' + normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
+            let HTML = '<a href="' + link +'"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
             if (thisObject.currentLanguageCode === key) { 
                 HTML = HTML + '-selected'
             } 
             return  HTML + '"></a>'
         }
-    }
-
-    /**
-     * adds the global remote directory root to all internal links
-     * @param {string} link 
-     * @return {string}
-     */
-    function normaliseInternalLink(link) {
-        if(link.indexOf('/') === 0) {
-            link = link.substring(1)
-        }
-        if(link.indexOf(global.env.PATH_TO_PAGES_DIR) === 0) {
-            link = link.substring(global.env.PATH_TO_PAGES_DIR.length+1)
-        }
-        return '/' + global.env.REMOTE_DOCS_DIR + '/' + link
     }
 }

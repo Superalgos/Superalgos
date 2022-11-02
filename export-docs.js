@@ -31,7 +31,6 @@ async function runRoot() {
   global.ED = {
     DEFAULT_LANGUAGE: 'EN',
     menuLabelsMap: new Map(),
-    exporter: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationExporter').documentationExporter(),
     utilities: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
     designSpace: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
     strings: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),

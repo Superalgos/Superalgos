@@ -7,7 +7,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
     return thisObject
 
     async function run() {
-        ED.exporter.currentLanguageCode = ED.DEFAULT_LANGUAGE
         setSourceFileLinks()
         const completed = await convertProjectsToSchemas()
             .then(ED.designSpace.initialize)
@@ -63,7 +62,8 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         docsTopicSchema: [],
                         docsTutorialSchema: [],
                         docsReviewSchema: [],
-                        docsBookSchema: []
+                        docsBookSchema: [],
+                        workspaceSchema: []
                     },
                     map: {
                         appSchema: new Map(),
@@ -72,7 +72,8 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         docsTopicSchema: new Map(),
                         docsTutorialSchema: new Map(),
                         docsReviewSchema: new Map(),
-                        docsBookSchema: new Map()
+                        docsBookSchema: new Map(),
+                        workspaceSchema: new Map()
                     }
                 }
                 let project = PROJECTS_SCHEMA[i].name
@@ -183,6 +184,20 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 }
             }
 
+            function addWorkspaceSchema(schema, schemas) {
+                try {
+                    schemas.array.workspaceSchema = JSON.parse(schema)
+
+                    for(let j = 0; j < schemas.array.workspaceSchema.length; j++) {
+                        let schemaDocument = schemas.array.workspaceSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.workspaceSchema.set(key, schemaDocument)
+                    }
+                } catch(err) {
+                    console.log(err.stack)
+                }
+            }
+
         }
 
         function setUpMenuItemsMap() {
@@ -207,25 +222,28 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             }
         }
 
-        function triggerPageRendering() {
-            const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book', 'Workspace']
+        function triggerPageRendering() {   
+            const exporter = require('./Scripts/DocumentationExporter')
+            const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
             const filePaths = []
             for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                 let project = PROJECTS_SCHEMA[i].name
-                let appSchemaTypes = SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()
-                categories.forEach(category => {
-                    for(let type of appSchemaTypes) {
-                        ED.exporter.currentDocumentBeingRendered = {
+                for(let j = 0; j < categories.length; j++) {
+                    const category = categories[j]
+                    for(let type of SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()) {
+                        const exportProcess = exporter.documentationExporter()
+                        exportProcess.currentLanguageCode = ED.DEFAULT_LANGUAGE
+                        exportProcess.currentDocumentBeingRendered = {
                             project,
                             category,
                             type
                         }
-                        ED.exporter.initialize()
-                        ED.exporter.render()
-                        filePaths.push(ED.exporter.write())
-                        ED.exporter.finalize()
+                        exportProcess.initialize()
+                        exportProcess.render()
+                        filePaths.push(exportProcess.write())
+                        exportProcess.finalize()
                     }
-                })
+                }
             }
             return filePaths
         }
@@ -362,7 +380,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         HTML = HTML + '</ul></li>'
                     }
                     else {
-                        HTML = HTML + '<li><a href="' + ED.exporter.normaliseInternalLink(link) + '">' + key + '</a></li>'
+                        HTML = HTML + '<li><a href="' + ED.utilities.normaliseInternalLink(link) + '">' + key + '</a></li>'
                     }
                 }
             }
@@ -371,10 +389,16 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             HTML = HTML + '</ul>'
 
             const homePage = global.env.PATH_TO_PAGES_DIR + '/index.html'
-
-            const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
-            dom.window.document.getElementById('docs-content-div').innerHTML = HTML
-            SA.nodeModules.fs.writeFileSync(homePage, dom.serialize())
+            try {
+                const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
+                dom.window.document.getElementById('docs-content-div').innerHTML = HTML
+                SA.nodeModules.fs.writeFileSync(homePage, dom.serialize())
+                return true
+            }
+            catch(error) {
+                console.error(error)
+                return false
+            }
         }
 
         function setSourceFileLinks() {

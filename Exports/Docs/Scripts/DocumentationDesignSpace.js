@@ -181,7 +181,7 @@ exports.documentationDesignSpace = function() {
 
         function asImageNode(doc) {
             const img = doc.createElement('img')
-            img.src = ED.exporter.normaliseInternalLink(image.src.replaceAll('\\','/'))
+            img.src = ED.utilities.normaliseInternalLink(image.src.replaceAll('\\','/'))
             img.alt = image.fileName.replaceAll('\\','/')
             return img
         }

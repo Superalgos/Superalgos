@@ -22,7 +22,8 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         addItalics: addItalics,
         addToolTips: addToolTips,
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
-        nodeBranchToArray: nodeBranchToArray
+        nodeBranchToArray: nodeBranchToArray,
+        normaliseInternalLink: normaliseInternalLink
     }
 
     const TAGGING_STRING_SEPARATOR = '~>'
@@ -88,7 +89,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         return array
     }
 
-    function addWarningIfTranslationIsOutdated(paragraph) {
+    function addWarningIfTranslationIsOutdated(paragraph, currentLanguageCode) {
         if (paragraph === undefined) { return '' }
         if (paragraph.updated === undefined) { return '' }
         if (paragraph.translations === undefined) { return '' }
@@ -96,7 +97,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
-            if (translation.language === ED.exporter.currentLanguageCode) {
+            if (translation.language === currentLanguageCode) {
                 if (paragraph.updated <= translation.updated) {
                     return ''
                 } else {
@@ -107,36 +108,31 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         return ''
     }
 
-    function getTextBasedOnLanguage(paragraph) {
+    function getTextBasedOnLanguage(paragraph, currentLanguageCode) {
         if (paragraph === undefined) { return }
         if (paragraph.translations === undefined) { return paragraph.text }
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === ED.exporter.currentLanguageCode) { return translation.text }
+            if (translation.language === currentLanguageCode) { return translation.text }
         }
         return paragraph.text
     }
 
-    function setTextBasedOnLanguage(paragraph, text) {
-        if (ED.exporter.currentLanguageCode === ED.DEFAULT_LANGUAGE) {
+    function setTextBasedOnLanguage(paragraph, text, currentLanguageCode) {
+        if (currentLanguageCode === ED.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
-
-                /* This will make the Client to save this in a file overwriting the previous version*/
-                ED.exporter.docsSchemaDocument.updated = true
-
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
-
             }
-            return
+            return true
         } else {
             /*
             We will avoid setting up a new language if the text is
             the same as the text at the default language.
             */
             if (paragraph.text === text) {
-                return
+                return true
             }
         }
         if (paragraph.translations === undefined) {
@@ -144,28 +140,21 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === ED.exporter.currentLanguageCode) {
+            if (translation.language === currentLanguageCode) {
                 if (translation.text !== text) {
-
-                    /* This will make the Client to save this in a file overwriting the previous version*/
-                    ED.exporter.docsSchemaDocument.updated = true
-
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
                 }
-                return
+                return true
             }
         }
         let translation = {
-            language: ED.exporter.currentLanguageCode,
+            language: currentLanguageCode,
             text: text,
             updated: (new Date()).valueOf()
         }
         paragraph.translations.push(translation)
-
-        /* This will make the Client to save this in a file overwriting the previous version*/
-        ED.exporter.docsSchemaDocument.updated = true
-        return
+        return true
     }
 
     function parseGIF(text) {
@@ -773,5 +762,20 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
                 }
             }
         }
+    }
+    
+    /**
+     * adds the global remote directory root to all internal links
+     * @param {string} link 
+     * @return {string}
+     */
+     function normaliseInternalLink(link) {
+        if(link.indexOf('/') === 0) {
+            link = link.substring(1)
+        }
+        if(link.indexOf(global.env.PATH_TO_PAGES_DIR) === 0) {
+            link = link.substring(global.env.PATH_TO_PAGES_DIR.length+1)
+        }
+        return '/' + global.env.REMOTE_DOCS_DIR + '/' + link
     }
 }

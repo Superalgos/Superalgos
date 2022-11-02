@@ -3,17 +3,17 @@
     "pageNumber": 113,
     "type": "Tutorial Step - Beware of Impersonators!",
     "definition": {
-        "text": "Superalgos Admins, the Founding Team, and Community Mods will never contact you directly unless you contact them first!",
+        "text": "The Founding Team and Community Mods will never contact you directly unless you contact them first!",
         "icon": {
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
-        "updated": 1617608574624,
+        "updated": 1665735602540,
         "translations": [
             {
                 "language": "IT",
-                "text": "Gli admin di Superalgos non ti contatteranno mai direttamente, a meno che non li contatti tu per primo.",
-                "updated": 1618074109290,
+                "text": "Il team dei fondatori e i moderatori della community non ti contatteranno mai direttamente a meno che tu non li contatti prima!",
+                "updated": 1666395944280,
                 "style": "Definition"
             },
             {
@@ -39,8 +39,13 @@
             },
             {
                 "language": "RU",
-                "text": "Администраторы Superalgos, основная команда (Founding Team) и модераторы сообщества (Community Mods) никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
-                "updated": 1642774566147
+                "text": "Команды Founding Team и Community Mods никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
+                "updated": 1665737230190
+            },
+            {
+                "language": "NL",
+                "text": "Het Founding Team en de Community Mods zullen nooit rechtstreeks contact met je opnemen, tenzij je eerst contact met hen opneemt!",
+                "updated": 1667138896825
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Мошенники затаились! Остерегайтесь! Не новость, что группы, связанные с торговлей, привлекают всевозможных мошенников, и мы знаем, что они связываются с людьми в наших группах, пытаясь использовать всевозможные уловки. Мы никогда не попросим у вас ключи API, монеты или наличные. Более того, мы никогда не будем просить вас доверять нам в чем-либо! Мы хотим пояснить, что если кто-то обращается к вам напрямую, утверждая, что работает с проектом или для него, то это мошенничество. Пожалуйста, сообщайте о мошенниках в группе сообщества, чтобы их могли забанить, и чтобы повысить осведомленность о проблеме, но также блокируйте их и сообщайте о них в Telegram, если такая возможность доступна.",
                     "updated": 1642774613419
+                },
+                {
+                    "language": "NL",
+                    "text": "Oplichters liggen op de loer! Pas op! Het is geen nieuws dat handels gerelateerde groepen allerlei oplichters aantrekken, en we zijn ons ervan bewust dat ze contact opnemen met mensen in onze groepen en allerlei trucs proberen. We zullen u nooit om API-sleutels, cryptomunten of contant geld vragen. Sterker nog, we zullen je nooit vragen om ons op welke manier dan ook te vertrouwen! We willen duidelijk maken dat als iemand rechtstreeks contact met u opneemt en beweert met of voor het project te werken, dit oplichterij is. Rapporteer oplichters in de Community groep zodat ze kunnen worden verbannen en om het bewustzijn van het probleem te vergroten, maar blokkeer ze ook en meld ze aan Telegram als de optie beschikbaar is.",
+                    "updated": 1667139001242
                 }
             ]
         }

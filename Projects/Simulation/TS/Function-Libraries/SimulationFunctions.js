@@ -220,7 +220,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Check for the signal that would allow us to syncronize the simulation
             loop with the simulation loop of the bot sending us signals.
             */
-            const MAX_RETRIES = 9000
+            const MAX_RETRIES = 15000
             const DELAY_BETWEEN_RETRIES = 10
             let retries = 0
 

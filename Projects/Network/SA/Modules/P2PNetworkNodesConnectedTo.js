@@ -30,7 +30,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
     function finalize() {
         thisObject.peers = undefined
-        clearInterval(intervalIdConnectToPeers)
+        clearTimeout(intervalIdConnectToPeers)
         clearInterval(intervalIdCheckConnectedToPeers)
     }
 
@@ -43,14 +43,13 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     ) {
 
         thisObject.peers = []
-
         connectToPeers()
-        intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY)
         intervalIdCheckConnectedToPeers = setInterval(checkConnectedPeers, HEALTH_CHECK_DELAY)
 
         async function connectToPeers() {
 
             if (thisObject.peers.length >= maxOutgoingPeers) {
+                intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
                 return
             }
 
@@ -118,6 +117,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     }
                 }
             }
+
+            /* Reschedule execution after connectToPeers() execution finalizes. Not using intervals here to avoid duplicate connections. */
+            intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
         }
 
         function checkConnectedPeers() {

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "При выборе параметра «Размораживание» соединения размораживаются. Если вы щелкнете по опции разморозить узел и этот узел не изменит своего статуса, это может быть связано с тем, что более высокий узел в иерархии все еще заморожен.",
                 "updated": 1638299985769
+            },
+            {
+                "language": "TR",
+                "text": "Dondurmayı çöz seçeneğine tıklandığında bağlantılar çözülür. Bir düğümün çözme seçeneğine tıkladığınızda düğümün durumu değişmiyorsa, bunun nedeni hiyerarşideki daha yüksek bir düğümün hala donmuş olması olabilir.",
+                "updated": 1666869962320
             }
         ]
     },

@@ -33,11 +33,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let caller = thisObject.networkClients[i]
                 let diff = Math.trunc((now - caller.timestamp) / 60 / 1000)
-                if (diff > 2) {
+                if (diff > 30) {
                     caller.socket.close()
-
-                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
-                    return
+                    console.log((new Date()).toISOString(), '[INFO] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
                 }
             }
         }
@@ -710,12 +708,19 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         */
         try {
             const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
-            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size 
-            const DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
+            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size
+            let DELAY_BETWEEN_USER_PROFILES = 1000 // milliseconds
+            if (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS >= 60) {
+                DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
+            }
             let lastUserProfileId
+            let accumulatedDelay = 0
+            let positionInQueue = 0
+            let queueSize = thisObject.networkClients.length
 
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
+                positionInQueue = i + 1
                 /*
                 It is possible that many connections belong to the same user profile. When that happens, they are all together 
                 in succession because the networkClients array is ordered by the amount of tokens, which in general 
@@ -729,15 +734,32 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     lastUserProfileId !== networkClient.userProfile.id &&
                     DELAY_BETWEEN_USER_PROFILES <= MAX_DELAY_FOR_ZERO_RANKING
                 ) {
+                    accumulatedDelay = accumulatedDelay + DELAY_BETWEEN_USER_PROFILES
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
                 }
                 lastUserProfileId = networkClient.userProfile.id
+                socketMessage.rankingStats = {
+                    accumulatedDelay:accumulatedDelay,
+                    positionInQueue: positionInQueue,
+                    queueSize: queueSize
+                }
                 /*
                 Here we are ready to send the signal...
                 */
                 networkClient.socket.send(JSON.stringify(socketMessage))
 
-                console.log((new Date()).toISOString(), '[INFO] Signal sent to User Profile: ' + networkClient.userProfile.name)
+                /* Obtain Signal Identifier */
+               let signalId
+                try {
+                    let messagePayload = JSON.parse(socketMessage.payload)
+                    messagePayload = JSON.parse(messagePayload.signalMessage)
+                    signalId = messagePayload.signalId
+                    signalId = signalId.split(/[-]+/).shift()
+                } catch(err) {
+                    signalId = '<unknown>'
+                }
+
+                console.log((new Date()).toISOString(), '[INFO] Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
             }
             return true
         } catch (err) {

@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Apakah kamu melihat bullets hijau dengan huruf L di tengah? Itulah limit order beli yang aku maksud.",
                 "updated": 1639748865441
+            },
+            {
+                "language": "NL",
+                "text": "Zie je de groene bolletjes met een L in het midden? Dat zijn de limiet aankooporders die ik noemde.",
+                "updated": 1666878118349
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Perhatikan bagaimana pesanan dilakukan setiap menit dan dibatalkan sebelum pesanan baru dilakukan. Apakah kamu mengenali simbol untuk pembatalan pesanan? Ini adalah bullet yang lebih kecil dan lebih gelap dengan garis horizontal putih di tengahnya!",
                     "updated": 1639748921691
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe elke minuut een bestelling wordt geplaatst en wordt geannuleerd voordat een nieuwe bestelling wordt geplaatst. Herken je het symbool voor de annulering van de bestelling? Het is de kleinere, donkere cirkel met een witte horizontale streep in het midden!",
+                    "updated": 1666878191215
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Perhatikan knife falling pada 00:21 AM! Harga turun jauh di bawah tingkat pesanan terbatas, oleh karena itu, pesanan dipenuhi! Itulah yang ditunjukkan yang lebih besar — ​​terisi — oleh bullet hijau!",
                     "updated": 1639749027127
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat het mes om 00:21 uur valt! De prijs zakte ruim onder de prijs van de limietorder, dus de order werd uitgevoerd! Dat is wat de grotere - gevulde - groene cirkel aangeeft!",
+                    "updated": 1666878241957
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "text": "Yani. . sonra ne olacak?",
                     "updated": 1654394249645,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Dus... wat gebeurt er daarna?",
+                    "updated": 1666878265541
                 }
             ]
         }

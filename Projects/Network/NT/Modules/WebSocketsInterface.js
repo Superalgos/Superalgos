@@ -54,6 +54,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
                 caller.socket.on('close', onConnectionClosed)
 
+                /* Active bi-directional heartbeat of the websockets connection to detect and handle hidden connection drops */
+                caller.socket.isAlive = true
+                caller.socket.on('pong', heartbeat)
+                const interval = setInterval(function ping() {
+                    if (caller.socket.isAlive === false) {
+                        console.log((new Date()).toISOString(), '[INFO] Server could not confirm client to be alive, terminating Websockets connection for user ', caller.userProfile.name)
+                        return caller.socket.terminate()
+                    }
+                    /* console.log((new Date()).toISOString(), '[DEBUG] Server-side heartbeat triggered for ', caller.userProfile.name, caller.socket.id) */
+                    caller.socket.isAlive = false
+                    caller.socket.ping()
+                }, 30000)
+
                 let calledTimestamp = (new Date()).valueOf()
 
                 caller.socket.on('message', onMenssage)
@@ -62,7 +75,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     thisObject.socketInterfaces.onMenssage(message, caller, calledTimestamp)
                 }
 
+                function heartbeat() {
+                    caller.socket.isAlive = true
+                    /* console.log((new Date()).toISOString(), '[DEBUG] Incoming Pong received for ', caller.userProfile.name, caller.socket.id) */
+                }
+
                 function onConnectionClosed() {
+                    clearInterval(interval)
                     let socketId = this.id
                     thisObject.socketInterfaces.onConnectionClosed(socketId)
                 }

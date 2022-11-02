@@ -9,7 +9,14 @@
         {
             "style": "Title",
             "text": "Author",
-            "updated": 1661949616257
+            "updated": 1661949616257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yaratıcı",
+                    "updated": 1666641709428
+                }
+            ]
         },
         {
             "style": "Text",
@@ -26,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Images"
+            "text": "Images",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ekran Görüntüsü",
+                    "updated": 1666641725596
+                }
+            ]
         },
         {
             "style": "Png",
@@ -35,7 +49,14 @@
         },
         {
             "style": "Title",
-            "text": "Space Style Node Config"
+            "text": "Space Style Node Config",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Space Style Konfigürasyonu",
+                    "updated": 1666641742742
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -1,11 +1,26 @@
 exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
 
     let thisObject = {
+        taskHearBeat: taskHearBeat,
         taskError: taskError,
         getBotModuleByName: getBotModuleByName,
     }
 
     return thisObject
+
+    function taskHearBeat(status) {
+
+        let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.id
+
+        /* The heartbeat event is raised at the event handler of the instance of this task, created at the TS. */
+        let event = {
+            seconds: (new Date()).getSeconds(),
+            status: status
+        }
+        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Heartbeat', event)
+        console.log((new Date()).toISOString(), '[INFO] taskHearBeat -> status = ' + status)
+
+    }
 
     function taskError(node, errorMessage, docs) {
         let event

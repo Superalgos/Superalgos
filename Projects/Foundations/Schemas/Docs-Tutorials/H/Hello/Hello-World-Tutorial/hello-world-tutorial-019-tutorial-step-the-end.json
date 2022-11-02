@@ -41,7 +41,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now that you have seen how fast and easy is to deploy simple strategies in SA, I leave you with some hints you can explore.",
+            "text": "Now that you have seen how fast and easy it is to deploy simple strategies in SA, I leave you with some hints you can explore.",
             "updated": 1614270919320,
             "translations": [
                 {
@@ -107,7 +107,7 @@
         },
         {
             "style": "Text",
-            "text": "Or you can modify the SL so to have a trailing one istead of being fixed.",
+            "text": "Or you can modify the SL so to have a trailing one instead of being fixed.",
             "translations": [
                 {
                     "language": "DE",

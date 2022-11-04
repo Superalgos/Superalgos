@@ -107,9 +107,9 @@ async function runRoot() {
    function buildIndexPage(projects, categories) {
     let html = '<div>'
     for(let i = 0; i < projects.length; i++) {
-        html += '<div>' + projects[i]
+        html += '<div class="docs-definition-floating-cells"><h3>' + projects[i] + '</h3>'
         for(let j = 0; j < categories.length; j++) {
-          html += '<div class="docs-definition-floating-cells"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
+          html += '<div class="docs-definition-floating-links"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
         }
         html += '</div>'
     }

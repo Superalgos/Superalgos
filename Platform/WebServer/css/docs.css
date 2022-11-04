@@ -104,6 +104,11 @@ margin-right: 20px;
     float: left
 }
 
+.docs-definition-floating-links {
+    min-width: 125px;
+    float: left
+}
+
 .docs-definition-text {
 display: table-cell;
 vertical-align: middle;

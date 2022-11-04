@@ -85,6 +85,9 @@ async function runRoot() {
   }
 
   buildIndexPage(projectSchemaNames, categories)
+  
+  const robots = `User-agent: *\nDisallow: /`
+  SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
 
   /**
    * @param {{project: string, category: string}}
@@ -95,10 +98,6 @@ async function runRoot() {
     info('Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' is exporting!')
     const count = await ED.app.run(projectCategory)
     return 'Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' has exported ' + count + ' docs'
-    
-    // const robots = `User-agent: *\nDisallow: /`
-    // SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
-
   }
 
   /**

@@ -1,21 +1,31 @@
+const {info, warn} = require('./Logger').logger
 exports.documentationDesignSpace = function() {
     let thisObject = {
-        iconsByProjectAndName: undefined,
-        iconsByProjectAndType: undefined,
         getIconByProjectAndName: getIconByProjectAndName,
         getIconByProjectAndType: getIconByProjectAndType,
         getIconByExternalSource: getIconByExternalSource,
-        makeVisible: makeVisible,
-        makeInvisible: makeInvisible,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
-    thisObject.iconsByProjectAndName = new Map()
-    thisObject.iconsByProjectAndType = new Map()
+    let internal = {
+        iconsByProjectAndName: undefined,
+        iconsByProjectAndType: undefined,
+    }
 
     return thisObject
 
-    async function initialize() {
+    function finalize() {
+        info('finalizing design space')
+        internal = undefined
+    }
+
+    async function initialize(project) {
+        info('initializing design space')
+        internal = {
+            iconsByProjectAndName: new Map(),
+            iconsByProjectAndType: new Map()
+        }
 
         await copyWebServerData()
         await copyCustomJsScripts()
@@ -30,7 +40,7 @@ exports.documentationDesignSpace = function() {
             loadImage(project, path)
         }
 
-        buildIconByProjectAndTypeMap()
+        buildIconByProjectAndTypeMap(project)
 
         return 'loaded ' + imageLoadedCounter + ' image' + (imageLoadedCounter == 1 ? '' : 's')
 
@@ -61,7 +71,7 @@ exports.documentationDesignSpace = function() {
             copyFile(from, to, image.fileName)
 
             let key = project + '-' + name.substring(0, name.length - 4)
-            thisObject.iconsByProjectAndName.set(key, image)
+            internal.iconsByProjectAndName.set(key, image)
             
         }
 
@@ -104,29 +114,25 @@ exports.documentationDesignSpace = function() {
             })
         }
 
-        function buildIconByProjectAndTypeMap() {
+        function buildIconByProjectAndTypeMap(project) {
             /* Take types-icons relationships defined at the schema */
-            for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
+            addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
+            addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
+            addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
+            addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
 
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
-
-                function addSchemaTypes(schema) {
-                    for(let j = 0; j < schema.length; j++) {
-                        let schemaDocument = schema[j]
-                        let iconName = schemaDocument.icon
-                        if(iconName === undefined) {
-                            iconName = schemaDocument.type.toLowerCase()
-                            iconName = iconName.split(" ").join("-")
-                        }
-                        let icon = thisObject.getIconByProjectAndName(project, iconName)
-                        if(icon !== undefined) {
-                            let key = project + '-' + schemaDocument.type
-                            thisObject.iconsByProjectAndType.set(key, icon)
-                        }
+            function addSchemaTypes(schema) {
+                for(let j = 0; j < schema.length; j++) {
+                    let schemaDocument = schema[j]
+                    let iconName = schemaDocument.icon
+                    if(iconName === undefined) {
+                        iconName = schemaDocument.type.toLowerCase()
+                        iconName = iconName.split(" ").join("-")
+                    }
+                    let icon = getIconByProjectAndName(project, iconName)
+                    if(icon !== undefined) {
+                        let key = project + '-' + schemaDocument.type
+                        internal.iconsByProjectAndType.set(key, icon)
                     }
                 }
             }
@@ -134,11 +140,11 @@ exports.documentationDesignSpace = function() {
     }
 
     function getIconByProjectAndName(project, name) {
-        return thisObject.iconsByProjectAndName.get(project + '-' + name)
+        return internal.iconsByProjectAndName.get(project + '-' + name)
     }
 
     function getIconByProjectAndType(project, type) {
-        return thisObject.iconsByProjectAndType.get(project + '-' + type)
+        return internal.iconsByProjectAndType.get(project + '-' + type)
     }
 
     // TODO: review for potential download during build process
@@ -147,7 +153,7 @@ exports.documentationDesignSpace = function() {
         let image
         let key = project + '-' + url
 
-        image = thisObject.iconsByProjectAndName.get(key)
+        image = internal.iconsByProjectAndName.get(key)
 
         if(image === undefined) {
 
@@ -155,18 +161,10 @@ exports.documentationDesignSpace = function() {
             image.src = url
 
             let key = project + '-' + image.src
-            thisObject.iconsByProjectAndName.set(key, image)
+            internal.iconsByProjectAndName.set(key, image)
         }
 
         return image
-    }
-
-    function makeVisible() {
-        visible = true
-    }
-
-    function makeInvisible() {
-        visible = false
     }
 
     function Image() {

@@ -1,3 +1,4 @@
+const {info, warn} = require('./Exports/Docs/Scripts/Logger').logger
 runRoot()
 
 async function runRoot() {
@@ -43,7 +44,7 @@ async function runRoot() {
   let ENVIRONMENT = require('./Environment.js')
   let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
   global.env = ENVIRONMENT_MODULE
-  global.env.EXPORT_DOCS_DIR  = EXPORT_DOCS_DIR
+  global.env.EXPORT_DOCS_DIR = EXPORT_DOCS_DIR
 
   if(process.argv.length > 2) {
     global.env.PATH_TO_PAGES_DIR = process.argv[2]
@@ -54,24 +55,75 @@ async function runRoot() {
   First thing is to load the project schema file.
   */
   global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
-  global.SCHEMAS_BY_PROJECT = new Map()
 
   /*
   Version Management
   */
   SA.version = require('./package.json').version
 
+  let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name)
+  const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
+  // let projectSchemaCategoryList = projectSchemaNames.reduce((a, project) => {
+  //   for(let i = 0; i < categories.length; i++) {
+  //     a.push({
+  //       project,
+  //       category: categories[i]
+  //     })
+  //   }
+  //   return a
+  // }, [])
 
-  run()
 
-  async function run() {
+  for(let i = 0; i < projectSchemaNames.length; i++) {
+    for(let j = 0; j < categories.length; j++) {
+      const result = await run({
+        project: projectSchemaNames[i],
+        category: categories[j]
+      })
+      info(result)
+    }
+  }
+
+  buildIndexPage(projectSchemaNames, categories)
+
+  /**
+   * @param {{project: string, category: string}}
+   */
+  async function run(projectCategory) {
+    global.SCHEMAS_BY_PROJECT = new Map()
     ED.app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
-    console.log('Superalgos documentation is exporting!')
-    await ED.app.run()
-    console.log('Superalgos documentation has exported!')
-
-    const robots = `User-agent: *\nDisallow: /`
-    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
+    info('Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' is exporting!')
+    const count = await ED.app.run(projectCategory)
+    return 'Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' has exported ' + count + ' docs'
+    
+    // const robots = `User-agent: *\nDisallow: /`
+    // SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
 
   }
+
+  /**
+   * @param {string} project
+   * @param {string[]} categories
+   */
+   function buildIndexPage(projects, categories) {
+    let html = '<div>'
+    for(let i = 0; i < projects.length; i++) {
+        html += '<div>' + projects[i]
+        for(let j = 0; j < categories.length; j++) {
+          html += '<div><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
+        }
+        html += '</div>'
+    }
+    html += '</div>'
+
+    const destination = global.env.PATH_TO_PAGES_DIR + '/index.html'
+    try {
+        const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
+        dom.window.document.getElementById('docs-content-div').innerHTML = html
+        SA.nodeModules.fs.writeFileSync(destination, dom.serialize())
+    }
+    catch(error) {
+        console.error(error)
+    }
+}
 }

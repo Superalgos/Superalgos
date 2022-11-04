@@ -512,13 +512,13 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         return changedText
     }
 
-    function addToolTips(text, excludedType) {
+    function addToolTips(text, excludedType, project) {
 
         const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip" id="tooltip-container" data-tippy-content="DEFINITION">TYPE_LABEL</div>'
         const LINK_ONLY_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''
-        text = tagDefinedTypes(text, excludedType)
+        text = tagDefinedTypes(text, excludedType, project)
         let splittedText = text.split(TAGGING_STRING_SEPARATOR)
 
         for (let i = 0; i < splittedText.length; i = i + 2) {
@@ -532,7 +532,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
             let splittedTaggedText = taggedText.split('|')
             let category = splittedTaggedText[0]
             let type = splittedTaggedText[1]
-            let project = splittedTaggedText[2]
+            // let project = splittedTaggedText[2] TODO: maybe want to validate this tag is for the correct project
 
             /*
             We will search across all DOC SCHEMAS
@@ -540,8 +540,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
             let found = false
             let docsSchemaDocument
 
-            for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
-                let project = PROJECTS_SCHEMA[j].name
+            for (let j = 0; j < 1; j++) {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (docsSchemaDocument !== undefined) {
                     found = true
@@ -601,7 +600,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
     }
 
     /* Private Functions follow */
-    function tagDefinedTypes(text, excludedType) {
+    function tagDefinedTypes(text, excludedType, project) {
         const MAX_NUMBER_OF_WORDS = 10
         text = text.trim()
         let cleanText = text.replace(/'/g, ' AMPERSAND ') // escaping ampersands, separating them from other words
@@ -645,31 +644,27 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
             let found = false
 
             for (let j = MAX_NUMBER_OF_WORDS - 1; j >= 0; j--) {
-                for (let p = 0; p < PROJECTS_SCHEMA.length; p++) {
-                    let project = PROJECTS_SCHEMA[p].name
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema, 'Node')
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema, 'Concept')
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema, 'Topic')
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema, 'Tutorial')
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema, 'Review')
+                searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema, 'Book')
 
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema, 'Node')
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema, 'Concept')
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema, 'Topic')
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema, 'Tutorial')
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema, 'Review')
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema, 'Book')
+                function searchInSchema(docSchema, category) {
+                    if (found === true) { return }
 
-                    function searchInSchema(docSchema, category) {
-                        if (found === true) { return }
-
-                        if (docSchema.get(cleanPhrases[j]) !== undefined) {
-                            if (cleanPhrases[j] !== excludedType) {
-                                taggedText = taggedText + phrases[j].replace(
-                                    cleanPhrases[j],
-                                    TAGGING_STRING_SEPARATOR + category + '|' + cleanPhrases[j] + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                            } else {
-                                taggedText = taggedText + phrases[j] + ' '
-                            }
-                            i = i + j
-                            found = true
-                            return
+                    if (docSchema.get(cleanPhrases[j]) !== undefined) {
+                        if (cleanPhrases[j] !== excludedType) {
+                            taggedText = taggedText + phrases[j].replace(
+                                cleanPhrases[j],
+                                TAGGING_STRING_SEPARATOR + category + '|' + cleanPhrases[j] + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                        } else {
+                            taggedText = taggedText + phrases[j] + ' '
                         }
+                        i = i + j
+                        found = true
+                        return
                     }
                 }
             }

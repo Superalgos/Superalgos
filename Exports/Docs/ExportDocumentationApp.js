@@ -1,3 +1,6 @@
+const path = require('path')
+
+const {info, warn} = require('./Scripts/Logger').logger
 exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     let thisObject = {
@@ -6,22 +9,30 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     return thisObject
 
-    async function run() {
+    async function run({project, category}) {
+        info('starting source file moving')
         setSourceFileLinks()
-        const completed = await convertProjectsToSchemas()
-            .then(ED.designSpace.initialize)
-            .then(setUpMenuItemsMap)
-            .then(triggerPageRendering)
-            .then(buildSiteIndexArray)
 
-        if(completed) {
-            console.log('page creation competed')
-        }
-        else {
-            console.log('page creation failed')
-        }
+        info('starting async project conversion')
+        const completed = await convertProjectsToSchemas(project)
+            .then(() => ED.designSpace.initialize(project))
+            .then(() => setUpMenuItemsMap(project))
+            .then(() => triggerPageRendering(project, category))
+            .then((filePaths) => filePaths.length > 0 ? buildIndexPage(filePaths) : 0)
+            .then((count) => {
+                ED.designSpace.finalize()
+                return count
+            })
 
-        async function convertProjectsToSchemas() {
+        return completed
+        // if(completed.length > 0) {
+        //     info('page creation competed')
+        // }
+        // else {
+        //     info('page creation failed')
+        // }
+
+        async function convertProjectsToSchemas(project) {
             let schemaTypes = [
                 {
                     name: 'AppSchema',
@@ -53,37 +64,34 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 }
             ]
 
-            for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let schemas = {
-                    array: {
-                        appSchema: [],
-                        docsNodeSchema: [],
-                        docsConceptSchema: [],
-                        docsTopicSchema: [],
-                        docsTutorialSchema: [],
-                        docsReviewSchema: [],
-                        docsBookSchema: [],
-                        workspaceSchema: []
-                    },
-                    map: {
-                        appSchema: new Map(),
-                        docsNodeSchema: new Map(),
-                        docsConceptSchema: new Map(),
-                        docsTopicSchema: new Map(),
-                        docsTutorialSchema: new Map(),
-                        docsReviewSchema: new Map(),
-                        docsBookSchema: new Map(),
-                        workspaceSchema: new Map()
-                    }
+            let schemas = {
+                array: {
+                    appSchema: [],
+                    docsNodeSchema: [],
+                    docsConceptSchema: [],
+                    docsTopicSchema: [],
+                    docsTutorialSchema: [],
+                    docsReviewSchema: [],
+                    docsBookSchema: [],
+                    workspaceSchema: []
+                },
+                map: {
+                    appSchema: new Map(),
+                    docsNodeSchema: new Map(),
+                    docsConceptSchema: new Map(),
+                    docsTopicSchema: new Map(),
+                    docsTutorialSchema: new Map(),
+                    docsReviewSchema: new Map(),
+                    docsBookSchema: new Map(),
+                    workspaceSchema: new Map()
                 }
-                let project = PROJECTS_SCHEMA[i].name
-                SCHEMAS_BY_PROJECT.set(project, schemas)
+            }
+            SCHEMAS_BY_PROJECT.set(project, schemas)
 
-                for(let j = 0; j < schemaTypes.length; j++) {
-                    let schemaType = schemaTypes[j]
-                    let schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
-                    schemaType.callback(schema, schemas)
-                }
+            for(let j = 0; j < schemaTypes.length; j++) {
+                let schemaType = schemaTypes[j]
+                let schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
+                schemaType.callback(schema, schemas)
             }
 
             function addAppSchema(schema, schemas) {
@@ -96,7 +104,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.appSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -110,7 +118,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsNodeSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -124,7 +132,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsConceptSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -138,7 +146,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsTopicSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -152,7 +160,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsTutorialSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -166,7 +174,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsReviewSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -180,7 +188,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.docsBookSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
@@ -194,58 +202,69 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         schemas.map.workspaceSchema.set(key, schemaDocument)
                     }
                 } catch(err) {
-                    console.log(err.stack)
+                    console.error(err)
                 }
             }
 
         }
 
-        function setUpMenuItemsMap() {
+        function setUpMenuItemsMap(project) {
+            info('iterating schema project map for menu items')
             /*
             Here we will put put all the menu item labels of all nodes at all
             app schemas into a single map, that will allow us to know when a phrase
             is a label of a menu and then change its style.
             */
-            for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
-                let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
+            let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
 
-                for(let j = 0; j < appSchemaArray.length; j++) {
-                    let docsSchemaDocument = appSchemaArray[j]
+            for(let j = 0; j < appSchemaArray.length; j++) {
+                let docsSchemaDocument = appSchemaArray[j]
 
-                    if(docsSchemaDocument.menuItems === undefined) {continue}
-                    for(let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
-                        let menuItem = docsSchemaDocument.menuItems[k]
-                        ED.menuLabelsMap.set(menuItem.label, true)
-                    }
+                if(docsSchemaDocument.menuItems === undefined) {continue}
+                for(let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
+                    let menuItem = docsSchemaDocument.menuItems[k]
+                    ED.menuLabelsMap.set(menuItem.label, true)
                 }
             }
         }
 
-        function triggerPageRendering() {   
+        function triggerPageRendering(project, category) {
+            info('preparing for page transfer rendering')
             const exporter = require('./Scripts/DocumentationExporter')
-            const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
             const filePaths = []
-            for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
-                for(let j = 0; j < categories.length; j++) {
-                    const category = categories[j]
-                    for(let type of SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()) {
-                        const exportProcess = exporter.documentationExporter()
-                        exportProcess.currentLanguageCode = ED.DEFAULT_LANGUAGE
-                        exportProcess.currentDocumentBeingRendered = {
-                            project,
-                            category,
-                            type
-                        }
-                        exportProcess.initialize()
-                        exportProcess.render()
-                        filePaths.push(exportProcess.write())
-                        exportProcess.finalize()
-                    }
+            for(let type of SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()) {
+                info('render       -> ' + project + ' -> ' + category + ' -> ' + type)
+                const exportProcess = exporter.documentationExporter()
+                exportProcess.currentLanguageCode = ED.DEFAULT_LANGUAGE
+                exportProcess.currentDocumentBeingRendered = {
+                    project,
+                    category,
+                    type
                 }
+
+                info('initializing -> ' + project + ' -> ' + category + ' -> ' + type)
+                exportProcess.initialize()
+
+                info('rendering    -> ' + project + ' -> ' + category + ' -> ' + type)
+                exportProcess.render()
+
+                info('writing      -> ' + project + ' -> ' + category + ' -> ' + type)
+                filePaths.push(exportProcess.write())
+
+                info('finalizing   -> ' + project + ' -> ' + category + ' -> ' + type)
+                exportProcess.finalize()
             }
             return filePaths
+        }
+
+        /**
+         * 
+         * @param {string[]} filePaths 
+         */
+        function writeIndexFile(filePaths) {
+            SA.nodeModules.jsDom
+            let docsContentDiv = document.getElementById('docs-content-div')
+            docsContentDiv.innerHTML = HTML + addFooter()
         }
 
         async function sendSchema(filePath, schemaType) {
@@ -337,7 +356,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         try {
                             schemaDocument = JSON.parse(fileContent)
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                            warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                             continue
                         }
                         schemaArray.push(schemaDocument)
@@ -346,60 +365,95 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 }
             } catch(err) {
                 if(err.message.indexOf('no such file or directory') < 0) {
-                    console.log('Could not send Schema:', filePath, schemaType)
-                    console.log(err.stack)
+                    warn('Could not send Schema:', filePath, schemaType)
+                    console.error(err)
                 }
                 return []
             }
         }
 
         /**
-         * 
-         * @param {string[]} filePaths
-         * @return {{
-         *   name: string,
-         *   children: [],
-         *   link: string
-         * }} 
+         * @param {string} filePaths
+         * @return {number} 
          */
-        function buildSiteIndexArray(filePaths) {
-            let HTML = ''
-            var keyPairs = {}
-            filePaths.forEach(function(path) {
-                path.split('/').reduce(function(r, e) {
-                    return r[e] || (r[e] = {})
-                }, keyPairs)
-            })
-
-            function iterateObjectKeys(obj, parent) {
-                for(let key of Object.keys(obj)) {
-                    const link = parent + '/' + key
-                    if(Object.keys(obj[key]).length > 0) {
-                        HTML = HTML + '<li>' + (key == global.env.PATH_TO_PAGES_DIR ? '' : key) + '<ul>'
-                        iterateObjectKeys(obj[key], link)
-                        HTML = HTML + '</ul></li>'
-                    }
-                    else {
-                        HTML = HTML + '<li><a href="' + ED.utilities.normaliseInternalLink(link) + '">' + key + '</a></li>'
-                    }
+        function buildIndexPage(filePaths) {
+            const files = filePaths.map(path => {
+                const splittedPath = path.split('/')
+                const name = splittedPath.pop()
+                return {
+                    path,
+                    name
                 }
+            })
+            let html = '<div>'
+            for(let i = 0; i < files.length; i++) {
+                html += '<div><a href="' + files[i].path + '">' + files[i].name + '</a></div>'
             }
-            HTML = HTML + '<ul>'
-            iterateObjectKeys(keyPairs, '')
-            HTML = HTML + '</ul>'
+            html += '</div>'
 
-            const homePage = global.env.PATH_TO_PAGES_DIR + '/index.html'
+            let firstPath = filePaths[0].split('/')
+            if(firstPath[0] == global.env.PATH_TO_PAGES_DIR) {
+                firstPath = firstPath.slice(1)
+            }
+            const destination = global.env.PATH_TO_PAGES_DIR + '/' + (firstPath.slice(0,firstPath.length-1).join('/')) + '/index.html'
             try {
                 const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
-                dom.window.document.getElementById('docs-content-div').innerHTML = HTML
-                SA.nodeModules.fs.writeFileSync(homePage, dom.serialize())
-                return true
+                dom.window.document.getElementById('docs-content-div').innerHTML = html
+                SA.nodeModules.fs.writeFileSync(destination, dom.serialize())
             }
             catch(error) {
                 console.error(error)
-                return false
             }
+            return files.length
         }
+
+        // /**
+        //  * 
+        //  * @param {string[]} filePaths
+        //  * @return {{
+        //  *   name: string,
+        //  *   children: [],
+        //  *   link: string
+        //  * }} 
+        //  */
+        // function buildSiteIndexArray(filePaths) {
+        //     let HTML = ''
+        //     var keyPairs = {}
+        //     filePaths.forEach(function(path) {
+        //         path.split('/').reduce(function(r, e) {
+        //             return r[e] || (r[e] = {})
+        //         }, keyPairs)
+        //     })
+
+        //     function iterateObjectKeys(obj, parent) {
+        //         for(let key of Object.keys(obj)) {
+        //             const link = parent + '/' + key
+        //             if(Object.keys(obj[key]).length > 0) {
+        //                 HTML = HTML + '<li>' + (key == global.env.PATH_TO_PAGES_DIR ? '' : key) + '<ul>'
+        //                 iterateObjectKeys(obj[key], link)
+        //                 HTML = HTML + '</ul></li>'
+        //             }
+        //             else {
+        //                 HTML = HTML + '<li><a href="' + ED.utilities.normaliseInternalLink(link) + '">' + key + '</a></li>'
+        //             }
+        //         }
+        //     }
+        //     HTML = HTML + '<ul>'
+        //     iterateObjectKeys(keyPairs, '')
+        //     HTML = HTML + '</ul>'
+
+        //     const homePage = global.env.PATH_TO_PAGES_DIR + '/index.html'
+        //     try {
+        //         const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
+        //         dom.window.document.getElementById('docs-content-div').innerHTML = HTML
+        //         SA.nodeModules.fs.writeFileSync(homePage, dom.serialize())
+        //         return true
+        //     }
+        //     catch(error) {
+        //         console.error(error)
+        //         return false
+        //     }
+        // }
 
         function setSourceFileLinks() {
             const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.baseIndexFile))

@@ -320,7 +320,7 @@ exports.documentationExporter = function() {
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
                 if ((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
-                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</div>'
+                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
 
@@ -334,7 +334,7 @@ exports.documentationExporter = function() {
                     definitionImagesArray.push(imageItem)
 
                     HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</strong></div>'
+                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</strong></div>'
                     HTML = HTML + '</div>'
                 }
 
@@ -1065,7 +1065,7 @@ exports.documentationExporter = function() {
 
                         let name = ED.utilities.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + ED.utilities.addToolTips(name, thisObject.currentDocumentBeingRendered.type) + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + ED.utilities.addToolTips(name, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1142,7 +1142,7 @@ exports.documentationExporter = function() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
                         }
                     }
                 }
@@ -1201,7 +1201,7 @@ exports.documentationExporter = function() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
                         }
                     }
                 }
@@ -1537,7 +1537,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.addCodeToWhiteList(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1567,7 +1567,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1579,7 +1579,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1591,7 +1591,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1603,7 +1603,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1613,7 +1613,7 @@ exports.documentationExporter = function() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1625,7 +1625,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1637,7 +1637,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1647,7 +1647,7 @@ exports.documentationExporter = function() {
                         role = ''
                         key = key + '-section'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1662,7 +1662,7 @@ exports.documentationExporter = function() {
                         innerHTML = ED.utilities.addBold(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, thisObject.currentLanguageCode)
                         break
                     }
@@ -1673,7 +1673,7 @@ exports.documentationExporter = function() {
                         role = ''
                         key = key + '-table'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, thisObject.currentLanguageCode)
-                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
                         innerHTML = ED.utilities.parseTable(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         break
@@ -1853,7 +1853,7 @@ exports.documentationExporter = function() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + ED.utilities.addToolTips(schemaDocument.type, thisObject.currentDocumentBeingRendered.type) + '</td></tr></table>'
+                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + ED.utilities.addToolTips(schemaDocument.type, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 

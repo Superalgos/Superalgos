@@ -110,7 +110,7 @@ async function runRoot() {
     for(let i = 0; i < projects.length; i++) {
         html += '<div>' + projects[i]
         for(let j = 0; j < categories.length; j++) {
-          html += '<div><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
+          html += '<div class="docs-definition-floating-cells"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
         }
         html += '</div>'
     }

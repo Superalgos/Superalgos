@@ -29,7 +29,7 @@
       </Tabs>
     </div>
     <div  class="row col-12">
-      <span v-if="getTimestamp !== ''">Last update: {{ getTimestamp }}</span>
+      <div class="col-6" v-if="getTimestamp !== ''">Last update: {{ getTimestamp }}</div><div class="col-6" v-if="host !== ''">Runnning on: {{ host }}</div>
     </div>    
   </div>
 </template>
@@ -51,6 +51,7 @@
         dashboardIcon: dashboardIcon,
         serverObj: [],
         forecasterObj: [],    
+        host: location.host.split(':')[0]
       }
     },
     computed: {
@@ -80,26 +81,115 @@
         let Forecasterdata = this.getForecaster()
         let TotalForecasterCases = 0
         let AssignedForecasterCases = 0
+        let OutdatedForecasterCases = 0
+
+        let ForecasterBestModel = []
 
         if ((Forecasterdata !== undefined) && (Forecasterdata[0] !== undefined)) {
           TotalForecasterCases = Forecasterdata[0].length
+          OutdatedForecasterCases = TotalForecasterCases
+
           for(let item of Forecasterdata[0]) {
             if (item.assignedTimestamp !== undefined &&
-                item.enlapsedHours == undefined) AssignedForecasterCases++
+                item.status !== 'Forecasted') AssignedForecasterCases++
+            let mtf = item.mainTimeFrame.split('-')
+
+            let mtfMinutes = mtf[1] === 'hs' ? Number(mtf[0])*60 : Number(mtf[0]) 
+
+            if ((item.status === 'Forecasted') &&
+              (new Date() - new Date(item.timestamp)) < 1000 * 60 * mtfMinutes) {
+                OutdatedForecasterCases--
+                ForecasterBestModel[ForecasterBestModel.length] = []
+                ForecasterBestModel[ForecasterBestModel.length-1]['ID'] = item.id
+                ForecasterBestModel[ForecasterBestModel.length-1]['ratio_validate'] = Number(item.ratio_validate)
+                ForecasterBestModel[ForecasterBestModel.length-1]['action'] = []
+                ForecasterBestModel[ForecasterBestModel.length-1]['action']['type'] = item.predictions.type
+                switch (item.predictions.type) {
+                  case 0:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Buy Long @ Market"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = ""
+                    break;
+
+                  case 1:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Sell Long @ Market"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = ""
+                    break;
+
+                  case 2:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Buy Long @ Limit"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = item.predictions.limit + " %"
+                    break;
+
+                  case 3:                                                            
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Sell Long @ Limit"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = item.predictions.limit + " %"
+                    break;
+
+                  case 4:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Buy Short @ Market"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = ""
+                    break;
+
+                  case 5:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Sell Short @ Market"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = ""
+                    break;
+
+                  case 6:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Buy Short @ Limit"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = item.predictions.limit + " %"
+                    break;
+
+                  case 7:
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['desc'] = "Sell Short @ Limit"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['amount'] = item.predictions.amount + " %"
+                    ForecasterBestModel[ForecasterBestModel.length-1]['action']['limit'] = item.predictions.limit + " %"
+                    break;
+
+                  default:                                                            
+                }
+                ForecasterBestModel[ForecasterBestModel.length-1]['validUntil'] = new Date(item.timestamp+1000 * 60 * mtfMinutes).toUTCString()
+            }
           }
         }
         let html = '<div class="row">'
-        html += '<div class="col-6">'
+        html += '<div class="col-4">'
         html += "<p>Number of total Testcases: "+TotalTestCases+"</p>" 
         html += "<p>Number of calculated Testcases: "+DoneCases+"</p>" 
         html += "<p>Number of assigned but unfinished Testcases: "+AssignedCases+"</p>" 
         html += "<p>Number of participating Users: "+ParticipatingUsers.length+"</p>" 
         html += "<p>Average Calculation Time (hs): "+(SumCalcTime/DoneCases).toFixed(2)+"</p>" 
         html += '</div>'
-        html += '<div class="col-6">'
+        html += '<div class="col-4">'
         html += '<p>Number of Forecast Cases: '+TotalForecasterCases+'</p>'
         html += '<p>Number of assigned but unfinished Forecast Cases: '+AssignedForecasterCases+'</p>'
+        html += '<p>Number of outdated Forecast Cases: '+OutdatedForecasterCases+'</p>'
         html += '</div>'
+        html += '<div class="col-4">'
+        if (ForecasterBestModel.length > 0) {   
+          ForecasterBestModel.forEach((model) =>  {
+            html += '<div class="row col-12">'
+            html += '<span>Model ID: '+model['ID']+'</span>'
+            html += '<span>Validation Ratio: '+model['ratio_validate']+'</span>'
+            html += '<span>Prediction '+model['action']['desc'] +'<br><ul>'
+              html += '<li>Action: '+model['action']['type'] +'</li>'
+              html += '<li>Amount: '+model['action']['amount'] +'</li>'
+              html += '<li>Limit: '+model['action']['limit'] +'</li>'
+            html += '</ul></span>'
+            html += '<span>Valid Until: '+model['validUntil'] +'<br><br></span>'
+            html += '</div>'
+          })
+        } else {
+          html += '<p>No Prediction</p>'
+        }
+        html += '</div>'        
         html += '</div>'
         return html
       },
@@ -158,7 +248,7 @@
             for (let param in item.parameters) {
               if (item.parameters[param] == 'OFF') delete item.parameters[param]
             }
-            console.log("item: ",item.parameters)
+            //console.log("item: ",item.parameters)
             res.push(item)
           }
           return res
@@ -199,6 +289,9 @@
             if (item.forcastedCandle !== undefined && item.forcastedCandle.close == undefined) {
               item.forcastedCandle = 'N/A'
             }
+            if (item.assignedTimestamp !== undefined) {
+              item.assignedTimestamp = new Date(item.assignedTimestamp).toUTCString() 
+            } 
             if (item.timestamp !== undefined) {
               item.timestamp = new Date(item.timestamp).toUTCString() 
             }                   

@@ -2055,7 +2055,7 @@ exports.documentationExporter = function() {
          * @returns string
          */
         function generateUnstyledLink(category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
             return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }
@@ -2250,7 +2250,7 @@ exports.documentationExporter = function() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink('/' + thisObject.currentLanguageCode + '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
             return '<a style="float: right; display: inline-block;" href="' + link + '">' + content +' </a>'
         }
 
@@ -2260,9 +2260,9 @@ exports.documentationExporter = function() {
          * @param {string} language
          */
         function generateLanguageLink(key, language) {
-            let link = ED.utilities.normaliseInternalLink(key.toLowerCase() + '/index.html')
+            let link = ED.utilities.normaliseInternalLink('index.html') //key.toLowerCase() + '/index.html') // TODO: add language support
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = ED.utilities.normaliseInternalLink(key.toLowerCase() + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND'))
+                link = ED.utilities.normaliseInternalLink(/*key.toLowerCase() + '/' +*/ thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND') + '.html')
             }
             let HTML = '<a href="' + link +'"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
             if (thisObject.currentLanguageCode === key) { 

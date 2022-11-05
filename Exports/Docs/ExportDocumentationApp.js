@@ -9,36 +9,43 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
     
     let schemaTypes = [
         {
+            category: 'App-Schema',
             name: 'AppSchema',
             key:  'appSchema',
             folder: 'App-Schema'
         },
         {
+            category: 'Node', 
             name: 'DocsNodeSchema',
             key:  'docsNodeSchema',
             folder: 'Docs-Nodes'
         },
         {
+            category: 'Concept', 
             name: 'DocsConceptSchema',
             key:  'docsConceptSchema',
             folder: 'Docs-Concepts'
         },
         {
+            category: 'Tutorial', 
             name: 'DocsTopicSchema',
             key:  'docsTopicSchema',
             folder: 'Docs-Topics'
         },
         {
+            category: 'Topic',
             name: 'DocsTutorialSchema',
             key:  'docsTutorialSchema',
             folder: 'Docs-Tutorials'
         },
         {
+            category:  'Review',
             name: 'DocsReviewSchema',
             key:  'docsReviewSchema',
             folder: 'Docs-Reviews'
         },
         {
+            category:  'Book',
             name: 'DocsBookSchema',
             key:  'docsBookSchema',
             folder: 'Docs-Books'
@@ -161,7 +168,9 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             info('preparing for page transfer rendering')
             const exporter = require('./Scripts/DocumentationExporter')
             const filePaths = []
-            for(let type of SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()) {
+            const key = schemaTypes.filter( t => t.category == category)[0].key
+            const schemaKeys = SCHEMAS_BY_PROJECT.get(project).map[key].keys()
+            for(let type of schemaKeys) {
                 info('render       -> ' + project + ' -> ' + category + ' -> ' + type)
                 const exportProcess = exporter.documentationExporter()
                 exportProcess.currentLanguageCode = ED.DEFAULT_LANGUAGE

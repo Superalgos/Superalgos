@@ -62,29 +62,25 @@ async function runRoot() {
   SA.version = require('./package.json').version
 
   let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name)
-  const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
-  // let projectSchemaCategoryList = projectSchemaNames.reduce((a, project) => {
-  //   for(let i = 0; i < categories.length; i++) {
-  //     a.push({
-  //       project,
-  //       category: categories[i]
-  //     })
-  //   }
-  //   return a
-  // }, [])
+  const categories = ['App-Schema', 'Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
 
-
+  const results = []
   for(let i = 0; i < projectSchemaNames.length; i++) {
     for(let j = 0; j < categories.length; j++) {
       const result = await run({
         project: projectSchemaNames[i],
         category: categories[j]
       })
-      info(result)
+      info(result.log)
+      results.push({
+        count: result.count,
+        project: result.project,
+        category: result.category
+      })
     }
   }
 
-  buildIndexPage(projectSchemaNames, categories)
+  buildIndexPage(projectSchemaNames, categories, results)
   
   const robots = `User-agent: *\nDisallow: /`
   SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
@@ -97,19 +93,34 @@ async function runRoot() {
     ED.app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
     info('Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' is exporting!')
     const count = await ED.app.run(projectCategory)
-    return 'Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' has exported ' + count + ' docs'
+    return {
+      log: 'Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' has exported ' + count + ' docs',
+      count,
+      project: projectCategory.project,
+      category: projectCategory.category
+    }
   }
 
   /**
    * @param {string} project
    * @param {string[]} categories
+   * @param {{
+   *    count: number,
+   *    project: string,
+   *    category: string
+   *  }[]} results
    */
-   function buildIndexPage(projects, categories) {
+   function buildIndexPage(projects, categories, results) {
     let html = '<div>'
     for(let i = 0; i < projects.length; i++) {
         html += '<div class="docs-definition-floating-cells"><h3>' + projects[i] + '</h3>'
         for(let j = 0; j < categories.length; j++) {
-          html += '<div class="docs-definition-floating-links"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
+          if(results.find(r => r.project == projects[i] && r.category == categories[j]).count > 0) {
+            html += '<div class="docs-definition-floating-links"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
+          } 
+          else {
+            html += '<div class="docs-definition-floating-links">' + categories[j] + '&lt;&lt;Nothing to see here&gt;&gt;</div>'
+          }
         }
         html += '</div>'
     }

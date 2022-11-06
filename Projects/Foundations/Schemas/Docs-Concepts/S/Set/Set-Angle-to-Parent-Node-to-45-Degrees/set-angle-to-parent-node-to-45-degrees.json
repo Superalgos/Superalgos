@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Прорезь симметрии вокруг родительского узла ограничена 45 градусами, а линия соединения остается оранжевой.",
                 "updated": 1638296831418
+            },
+            {
+                "language": "TR",
+                "text": "Simetrinin ana düğümü etrafındaki yuvası 45 derece ile sınırlıdır ve bağlantı çizgisi turuncu kalır.",
+                "updated": 1666967932435
             }
         ]
     },

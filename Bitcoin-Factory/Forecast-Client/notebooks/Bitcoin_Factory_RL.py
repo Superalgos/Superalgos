@@ -2,8 +2,6 @@
 # coding: utf-8
 
 import random
-import gym
-from gym import spaces
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -12,11 +10,9 @@ import os, sys, time, platform, subprocess
 import math
 import json
 from typing import Dict, List, Optional, Union
-import ray
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
-from tabulate import tabulate
 import tensorflow as tf
 
 def import_install_packages(package):
@@ -31,9 +27,23 @@ def import_install_packages(package):
         subprocess.call([sys.executable, "-m", "pip", "install", package])
 
 import_install_packages('string')
-import string #the reimport is needed by ray, to recognize the dependencies (the own import_install_packages isnt enough for ray)
+import string
 import_install_packages('packaging')
 from packaging.version import parse as parse_version
+
+import_install_packages('quantstats')
+import quantstats
+quantstats.extend_pandas()
+
+import_install_packages('gym')
+import gym
+from gym import spaces
+
+import_install_packages('ray[all]')
+import ray
+
+import_install_packages('tabulate')
+from tabulate import tabulate
 
 print("""Python version: %s
 Platform: %s
@@ -77,7 +87,7 @@ location: str = "/tf/notebooks/"
 instructions_file: str = "instructions.csv"
 run_forcast: bool = False
 res_dir: str = location + "/ray_results/"
-RESUME = False # Resume training from the last checkpoint if any exists  [True, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
+RESUME = False # Resume training from the last checkpoint if any exists  [True, False, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
 
 if os.path.isfile(location+instructions_file): #Forecaster
     run_forecast = True
@@ -137,6 +147,7 @@ if {'TIMESTEPS_TO_TRAIN'}.issubset(parameters.columns):
     OBSERVATION_WINDOW_SIZE = parameters['OBSERVATION_WINDOW_SIZE'][0]
     INITIAL_QUOTE_ASSET = parameters['INITIAL_QUOTE_ASSET'][0]
     INITIAL_BASE_ASSET = parameters['INITIAL_BASE_ASSET'][0]
+    INITIAL_BASE_ASSET_SHORT = 0
     TRADING_FEE = parameters['TRADING_FEE'][0]
     ENV_VERSION = parameters['ENV_VERSION'][0]
     ENV_NAME =  parameters['ENV_NAME'][0]
@@ -160,6 +171,7 @@ else:
     OBSERVATION_WINDOW_SIZE = int(parameters.values[2][5])
     INITIAL_QUOTE_ASSET = int(parameters.values[2][6])
     INITIAL_BASE_ASSET = int(parameters.values[2][7])
+    INITIAL_BASE_ASSET_SHORT = 0
     TRADING_FEE = float(parameters.values[2][8])
     ENV_NAME =  str(parameters.values[2][9])
     ENV_VERSION = int(parameters.values[2][10])
@@ -178,13 +190,16 @@ else:
 
 
 MIN_TRADE_SIZE = INITIAL_QUOTE_ASSET / 10 # should be moved into SA TestServer config
+MAX_LOSS_FACTOR = 0.5
 
 print(f'TIMESTEPS_TO_TRAIN: {TIMESTEPS_TO_TRAIN}\n')
 print(f'OBSERVATION_WINDOW_SIZE: {OBSERVATION_WINDOW_SIZE}\n')
 print(f'INITIAL_QUOTE_ASSET: {INITIAL_QUOTE_ASSET}\n')
 print(f'INITIAL_BASE_ASSET: {INITIAL_BASE_ASSET}\n')
+print(f'INITIAL_BASE_ASSET_SHORT: {INITIAL_BASE_ASSET_SHORT}\n')
 print(f'TRADING_FEE: {TRADING_FEE}\n')
 print(f'MIN_TRADE_SIZE: {MIN_TRADE_SIZE}\n')
+print(f'MAX_LOSS_FACTOR: {MAX_LOSS_FACTOR}\n')
 
 def prepare_data(df):
     # renaming column labels as we wish, regardless what test server sends, hopefully he will maintain position
@@ -298,18 +313,18 @@ class SimpleTradingEnv(gym.Env):
         # NOT USED ANYMORE, KEPT FOR REFERENCE
         # self.obs_shape = ((OBSERVATION_WINDOW_SIZE * self.features.shape[1] + 3),) 
 
-        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 3 (quote_asset, base_asset, net_worth)
-        self.obs_shape = (OBSERVATION_WINDOW_SIZE, self.features.shape[1] + 3)
+        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 4 (quote_asset, base_asset, base_asset_short, net_worth)
+        self.obs_shape = (self.window_size, self.features.shape[1] + 4)
 
         # Action space
         #self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([3.0, 1.0]), dtype=np.float32)
-        self.action_space = spaces.MultiDiscrete([3, 100])
+        self.action_space = spaces.MultiDiscrete([9, 4, 20])
         # Observation space
         self.observation_space = spaces.Box(low=-1, high=1, shape=self.obs_shape, dtype=np.float32)
 
         # Initialize the episode environment
 
-        self._start_candle = OBSERVATION_WINDOW_SIZE # We assume that the first observation is not the first row of the dataframe, in order to avoid the case where there are no calculated indicators.
+        self._start_candle = self.window_size # We assume that the first observation is not the first row of the dataframe, in order to avoid the case where there are no calculated indicators.
         self._end_candle = len(self.features) - 1
         self._trading_fee = config.get("trading_fee")
 
@@ -340,8 +355,10 @@ class SimpleTradingEnv(gym.Env):
         self._done = False
         self._current_candle = self._start_candle
         self._quote_asset = INITIAL_QUOTE_ASSET
-        self._base_asset = INITIAL_BASE_ASSET 
+        self._base_asset = INITIAL_BASE_ASSET
+        self._base_asset_short = INITIAL_BASE_ASSET_SHORT
         self._net_worth = INITIAL_QUOTE_ASSET # at the begining our net worth is the initial quote asset
+        self._net_worth_at_begin = INITIAL_QUOTE_ASSET # at the begining our net worth is the initial quote asset
         self._previous_net_worth = INITIAL_QUOTE_ASSET # at the begining our previous net worth is the initial quote asset
         self._total_reward_accumulated = 0.
         self._extra_reward = 0.
@@ -362,11 +379,11 @@ class SimpleTradingEnv(gym.Env):
         current_price = random.uniform(
             self.df_normal.loc[self._current_candle, "low"], self.df_normal.loc[self._current_candle, "high"])
 
-
         action_type = action[0]
-        amount = action[1] / 100
+        amount = ( action[1] + 1 ) * 0.25  #[0.25, 0.5 ... 1.0]
+        limit = ( action[2] * 0.01 ) + 0.9 # limit factor 0.9, 0.91 ... 1.1
         
-        if action_type == 0: # Buy Long
+        if action_type == 0: # Buy Long Market
             # Buy % assets
             # Determine the maximum amount of quote asset that can be bought
             available_amount_to_buy_with = self._quote_asset / current_price
@@ -382,7 +399,7 @@ class SimpleTradingEnv(gym.Env):
             # Add to trade history the amount bought if greater than 0
             if assets_bought > 0:
                 self._buy_trades += 1
-                self.trade_history.append({'step': self._current_candle, 'type': 'BuyLong', 'amount': assets_bought, 'price': current_price, 'total' : assets_bought * current_price, 'percent_amount': action[1]})
+                self.trade_history.append({'step': self._current_candle, 'type': 'BuyLong', 'subtype': 'Market', 'amount': assets_bought, 'price': current_price, 'total' : assets_bought * current_price, 'percent_amount': amount*100})
                 pos = self._get_position('BTC')
                 if pos != None:
                     pos['amount'] += assets_bought
@@ -392,7 +409,7 @@ class SimpleTradingEnv(gym.Env):
                     pos_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
                     self.positions.append({'id': pos_id, 'asset': 'BTC', 'type': 'Long', 'amount': assets_bought, 'entry_price': current_price, 'total' : assets_bought * current_price})
 
-        elif action_type == 1: # Sell Long
+        elif action_type == 1: # Sell Long Market
             # Sell % assets
             # Determine the amount of base asset that can be sold
             amount_to_sell = self._base_asset * amount if self._base_asset * amount * current_price > MIN_TRADE_SIZE else 0
@@ -415,19 +432,198 @@ class SimpleTradingEnv(gym.Env):
                 profit = amount_to_sell * ( current_price - pos['entry_price'] - self._trading_fee * ( current_price + pos['entry_price'] ) )
                 self._extra_reward += profit 
 
-                self.trade_history.append({'step': self._current_candle, 'type': 'SellLong', 'amount': amount_to_sell, 'price': current_price, 'total' : received_quote_asset, 'percent_amount': action[1], 'profit': profit})
+                self.trade_history.append({'step': self._current_candle, 'type': 'SellLong', 'subtype': 'Market', 'amount': amount_to_sell, 'price': current_price, 'total' : received_quote_asset, 'percent_amount': amount*100, 'profit': profit})
+
+        elif action_type == 2: # Buy Long Limit
+            limit_price = self.df_normal.loc[self._current_candle-1,"close"] * limit
+            if limit_price > self.df_normal.loc[self._current_candle, "low"]:
+                if limit_price < self.df_normal.loc[self._current_candle, "high"]:
+                    available_amount_to_buy_with = self._quote_asset / limit_price
+                    assets_bought = available_amount_to_buy_with * amount if self._quote_asset * amount > MIN_TRADE_SIZE else 0
+                    # Update the quote asset balance
+                    self._quote_asset -= assets_bought * limit_price
+                    # Update the base asset
+                    self._base_asset += assets_bought
+                    # substract trading fee from base asset based on the amount bought
+                    self._base_asset -= self._trading_fee * assets_bought
+
+                    # Add to trade history the amount bought if greater than 0
+                    if assets_bought > 0:
+                        self._buy_trades += 1
+                        self.trade_history.append({'step': self._current_candle, 'type': 'BuyLong', 'subtype': 'Limit', 'amount': assets_bought, 'price': limit_price, 'total' : assets_bought * limit_price, 'percent_amount': amount*100})
+                        pos = self._get_position('BTC')
+                        if pos != None:
+                            pos['amount'] += assets_bought
+                            pos['entry_price'] = (pos['total'] + assets_bought * limit_price)/pos['amount']
+                            pos['total'] = pos['amount'] * limit_price
+                        else:
+                            pos_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+                            self.positions.append({'id': pos_id, 'asset': 'BTC', 'type': 'Long', 'amount': assets_bought, 'entry_price': limit_price, 'total' : assets_bought * limit_price})
+
+        elif action_type == 3: # Sell Long Limit
+            limit_price = self.df_normal.loc[self._current_candle-1,"close"] * limit
+            if limit_price < self.df_normal.loc[self._current_candle, "high"]:
+                if limit_price > self.df_normal.loc[self._current_candle, "low"]:
+                    amount_to_sell = self._base_asset * amount if self._base_asset * amount * limit_price > MIN_TRADE_SIZE else 0
+                    received_quote_asset = amount_to_sell * limit_price
+                    # Update the quote asset
+                    self._quote_asset += received_quote_asset
+                    # Update the base asset
+                    self._base_asset -= amount_to_sell
+                    
+                    # substract trading fee from quote asset based on the amount sold
+                    self._quote_asset -= self._trading_fee * received_quote_asset
+
+                    # Add to trade history the amount sold if greater than 0
+                    if amount_to_sell > 0:
+                        self._sell_trades += 1                
+                        pos = self._get_position('BTC')
+                        pos['amount'] -= amount_to_sell
+                        pos['total'] = pos['amount'] * limit_price                
+
+                        profit = amount_to_sell * ( limit_price - pos['entry_price'] - self._trading_fee * ( limit_price + pos['entry_price'] ) )
+                        self._extra_reward += profit 
+
+                        self.trade_history.append({'step': self._current_candle, 'type': 'SellLong', 'subtype': 'Limit', 'amount': amount_to_sell, 'price': limit_price, 'total' : received_quote_asset, 'percent_amount': amount*100, 'profit': profit})
+
+        elif action_type == 4: # Buy Short Market
+            available_amount_to_buy_with = self._quote_asset / current_price 
+            short_assets_bought = available_amount_to_buy_with * amount if self._quote_asset * amount > MIN_TRADE_SIZE else 0
+            # Update the quote asset balance
+            self._quote_asset -= short_assets_bought * current_price            
+            # Update the base asset
+            self._base_asset_short += short_assets_bought
+            # substract trading fee from base asset based on the amount bought
+            self._base_asset_short -= self._trading_fee * short_assets_bought
+            
+            # Add to trade history the amount bought if greater than 0
+            if short_assets_bought > 0:
+                self.trade_history.append({'step': self._current_candle, 'type': 'BuyShort', 'subtype': 'Market', 'amount': short_assets_bought, 'price': current_price, 'total' : short_assets_bought * current_price, 'percent_amount': amount*100})
+                pos = self._get_position('BTC','Short')
+                if pos != None:
+                    pos['amount'] += short_assets_bought * (1 - self._trading_fee)
+                    pos['entry_price'] = (pos['total'] + short_assets_bought * (1 - self._trading_fee) * current_price)/pos['amount']
+                    pos['total'] = pos['amount'] * current_price
+                else:
+                    pos_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+                    self.positions.append({'id': pos_id, 'asset': 'BTC', 'type': 'Short', 'amount': short_assets_bought * (1 - self._trading_fee), 'entry_price': current_price, 'total' : short_assets_bought * current_price * (1 - self._trading_fee)})
+                    
+        elif action_type == 5: # Sell Short Market
+            # Sell % assets
+            # Determine the amount of base asset that can be sold
+            amount_to_sell = self._base_asset_short * amount if self._base_asset_short * amount * current_price > MIN_TRADE_SIZE else 0
+            
+            
+            received_quote_asset = amount_to_sell * current_price
+
+            # Update the base asset
+            self._base_asset_short -= amount_to_sell
+            
+            # substract trading fee from quote asset based on the amount sold
+            self._quote_asset -= self._trading_fee * received_quote_asset
+
+            # Add to trade history the amount sold if greater than 0
+            if amount_to_sell > 0:
+                pos = self._get_position('BTC','Short')
+                pos['amount'] -= amount_to_sell
+                pos['total'] = pos['amount'] * current_price                
+
+                profit = amount_to_sell * ( pos['entry_price'] - current_price  - self._trading_fee * ( current_price + pos['entry_price'] ) )
+
+                self.trade_history.append({'step': self._current_candle, 'type': 'SellShort', 'subtype': 'Market', 'amount': amount_to_sell, 'price': current_price, 'total' : received_quote_asset, 'percent_amount': action[1]*10, 'profit': profit})
+                
+                # Update the quote asset
+                self._quote_asset += amount_to_sell * ( 2 * pos['entry_price'] - current_price) 
+                
+                self._extra_reward += profit 
+
+        elif action_type == 6: # Buy Short Limit
+            limit_price = self.df_normal.loc[self._current_candle-1,"close"] * limit
+            if limit_price > self.df_normal.loc[self._current_candle, "low"]:
+                if limit_price < self.df_normal.loc[self._current_candle, "high"]:
+
+                    available_amount_to_buy_with = self._quote_asset / limit_price 
+                    short_assets_bought = available_amount_to_buy_with * amount if self._quote_asset * amount > MIN_TRADE_SIZE else 0
+                    # Update the quote asset balance
+                    self._quote_asset -= short_assets_bought * limit_price            
+                    # Update the base asset
+                    self._base_asset_short += short_assets_bought
+                    # substract trading fee from base asset based on the amount bought
+                    self._base_asset_short -= self._trading_fee * short_assets_bought
+                    
+                    # Add to trade history the amount bought if greater than 0
+                    if short_assets_bought > 0:
+                        self.trade_history.append({'step': self._current_candle, 'type': 'BuyShort', 'subtype': 'Limit', 'amount': short_assets_bought, 'price': limit_price, 'total' : short_assets_bought * limit_price, 'percent_amount': amount*100})
+                        pos = self._get_position('BTC','Short')
+                        if pos != None:
+                            pos['amount'] += short_assets_bought * (1 - self._trading_fee)
+                            pos['entry_price'] = (pos['total'] + short_assets_bought * (1 - self._trading_fee) * limit_price)/pos['amount']
+                            pos['total'] = pos['amount'] * limit_price
+                        else:
+                            pos_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+                            self.positions.append({'id': pos_id, 'asset': 'BTC', 'type': 'Short', 'amount': short_assets_bought * (1 - self._trading_fee), 'entry_price': limit_price, 'total' : short_assets_bought * limit_price * (1 - self._trading_fee)})
+                    
+        elif action_type == 7: # Sell Short Limit
+            limit_price = self.df_normal.loc[self._current_candle-1,"close"] * limit
+            if limit_price > self.df_normal.loc[self._current_candle, "low"]:
+                if limit_price < self.df_normal.loc[self._current_candle, "high"]:
+
+                    amount_to_sell = self._base_asset_short * amount if self._base_asset_short * amount * limit_price > MIN_TRADE_SIZE else 0
+                    
+                    received_quote_asset = amount_to_sell * limit_price
+
+                    # Update the base asset
+                    self._base_asset_short -= amount_to_sell
+                    
+                    # substract trading fee from quote asset based on the amount sold
+                    self._quote_asset -= self._trading_fee * received_quote_asset
+
+                    # Add to trade history the amount sold if greater than 0
+                    if amount_to_sell > 0:
+                        pos = self._get_position('BTC','Short')
+                        pos['amount'] -= amount_to_sell
+                        pos['total'] = pos['amount'] * limit_price                
+
+                        profit = amount_to_sell * ( pos['entry_price'] - limit_price  - self._trading_fee * ( limit_price + pos['entry_price'] ) )
+
+                        self.trade_history.append({'step': self._current_candle, 'type': 'SellShort', 'subtype': 'Limit', 'amount': amount_to_sell, 'price': limit_price, 'total' : received_quote_asset, 'percent_amount': action[1]*10, 'profit': profit})
+                        
+                        # Update the quote asset
+                        self._quote_asset += amount_to_sell * ( 2 * pos['entry_price'] - limit_price) 
+                        
+                        self._extra_reward += profit                 
 
         else:
-            # Hold
-            #self.trade_history.append({'step': self._current_candle, 'type': 'Hold', 'amount': '0', 'price': current_price, 'total' : 0, 'percent_amount': action[1]})
+            # Hold ( action_type == 8 )
+            #self.trade_history.append({'step': self._current_candle, 'type': 'Hold', 'amount': '0', 'price': current_price, 'total' : 0, 'percent_amount': amount*100})
             pass
 
-
-        self.portfolio_history.append({'step': self._current_candle, 'base_asset': self._base_asset, 'quote_asset': self._quote_asset, 'current_price': current_price, 'net_worth' : self._net_worth})
+        current_short_pos_value = self._base_asset_short * ( 2 * self._get_position('BTC','Short')['entry_price'] - current_price) if self._get_position('BTC','Short') != None else 0 
 
         # Update the current net worth
-        self._net_worth = self._base_asset * current_price + self._quote_asset
+        self._net_worth = self._base_asset * current_price + self._quote_asset + current_short_pos_value
 
+        self.portfolio_history.append({'step': self._current_candle, 'base_asset': self._base_asset, 'base_asset_short': self._base_asset_short, 'quote_asset': self._quote_asset, 'current_price': current_price, 'net_worth' : self._net_worth})
+
+        self._extra_reward += 0.1 # small extra reward for every finished candle
+        """
+        print("#######################")
+        print('step: ' + str(self._current_candle))
+        print('current_price: ' +str(current_price))
+        print('quote_asset: ' + str(self._quote_asset))
+        print('base_asset: ' + str(self._base_asset))
+        print('base_asset_short: ' + str(self._base_asset_short))
+        print('current_short_pos_value: ' + str(current_short_pos_value))
+        print('net_worth: ' + str(self._net_worth))
+        print("------------------------")
+        print('action_type: ' + str(action_type))
+        print('amount: ' + str(amount))
+        print('limit: ' + str(limit))
+        pos = self._get_position('BTC','Short')
+        if ( pos != None):
+            print("------------------------")
+            print('short pos amount: ' + str(pos['amount']) + ' / entry price: ' + str(pos['entry_price']) + ' total value: ' + str(pos['total']))
+        """
 
     def step(self, action):
         """
@@ -437,10 +633,16 @@ class SimpleTradingEnv(gym.Env):
         self._take_action(action)
 
         # Calculate reward comparing the current net worth with the previous net worth
-        #reward = self._net_worth - self._previous_net_worth
-        reward = self._extra_reward
+        reward = self._net_worth - self._previous_net_worth
+        #reward = self._extra_reward
 
         self._total_reward_accumulated += reward
+        """
+        print('reward: ' + str(reward))
+        print('reward_accumulated: ' + str(self._total_reward_accumulated))
+        print("#######################")
+        print("\n")
+        """
 
         # Update the previous net worth to be the current net worth after the reward has been applied
         self._previous_net_worth = self._net_worth
@@ -452,6 +654,7 @@ class SimpleTradingEnv(gym.Env):
             net_worth = self._net_worth,
             quote_asset = self._quote_asset,
             base_asset = self._base_asset,
+            base_asset_short = self._base_asset_short,
             last_action_type = self.trade_history[-1]['type'] if len(self.trade_history) > 0 else None,
             last_action_amount = self.trade_history[-1]['amount'] if len(self.trade_history) > 0 else None,
             current_step = self._current_candle,
@@ -463,20 +666,19 @@ class SimpleTradingEnv(gym.Env):
         self._current_candle += 1
 
         # Update observation history
-        self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+        self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
-        self._done = self._net_worth <= 0 or self._current_candle >= (len(
-            self.df_normal.loc[:, 'open'].values) - 30)# We assume that the last observation is not the last row of the dataframe, in order to avoid the case where there are no calculated indicators.
+        self._done = self._net_worth <= self._net_worth_at_begin * MAX_LOSS_FACTOR or self._current_candle >= self._end_candle #(len(self.df_normal.loc[:, 'open'].values) - 30)# We assume that the last observation is not the last row of the dataframe, in order to avoid the case where there are no calculated indicators.
 
         if self._done:
-            buy_and_hold_result = INITIAL_QUOTE_ASSET *  self.df_normal.loc[self._current_candle,"close"] / self.df_normal.loc[OBSERVATION_WINDOW_SIZE,"close"]
+            buy_and_hold_result = INITIAL_QUOTE_ASSET *  self.df_normal.loc[self._current_candle,"close"] / self.df_normal.loc[self.window_size,"close"]
 
             if(len(self.trade_history) == 0):
                 print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without trades. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)
             elif (next((sub for sub in self.trade_history if sub['type'] == 'SellLong'), None) == None):
                 print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without a complete round of buy AND sell for long. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)            
-          #  elif (next((sub for sub in self.trade_history if sub['type'] == 'SellShort'), None) == None):
-           #     print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without a complete round of buy AND sell for short. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)
+            elif (next((sub for sub in self.trade_history if sub['type'] == 'SellShort'), None) == None):
+                print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without a complete round of buy AND sell for short. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)
             else:
                 print(self.mode,': I have finished the episode (',self._current_candle,' Candles) with ',len(self.trade_history),' trades. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)        
         return obs, reward, self._done, info
@@ -542,7 +744,7 @@ class SimpleTradingEnv(gym.Env):
 
     def _initial_obs_data(self):
         for i in range(self.window_size - len(self._obs_env_history)):
-            self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+            self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
     def _get_position(self,asset,posType="Long"):
         if len(self.positions) > 0:
@@ -582,8 +784,8 @@ def find_optimal_resource_allocation(available_cpu, available_gpu):
     # If we don't have GPU available, we allocate enough CPU cores for stepping the env (workers) while having enough for training maintaing a ratio of around 3 workers with 1 CPU to 1 driver CPU
     else:
         # according to the benchmark, we should allocate more workers, each with 1 cpu, letting the rest for the driver
-        num_workers = int(math.floor((available_cpu  * 75) / 100))
-        num_cpu_for_driver = available_cpu - num_workers
+        num_workers = min(int(math.floor((available_cpu  * 75) / 100)),4)
+        num_cpu_for_driver = max(available_cpu - num_workers,2)
         return {
             'num_workers': num_workers,
             'num_cpus_per_worker': 1, # this should be enough for stepping an env at once
@@ -693,7 +895,7 @@ class MyCallbacks(DefaultCallbacks):
 ppo_trainer_config = {
         "env": training_env_key, # Ray will automatically create multiple environments and vectorize them if needed
         "horizon": len(X_train_scaled) - 30,
-        "log_level": "WARN", #or INFO
+        "log_level": "WARN", #or INFO DEBUG
         "framework": "tf",
         #"eager_tracing": True,
         "ignore_worker_failures": True, 
@@ -777,6 +979,21 @@ class CustomReporter(ProgressReporter):
         else:
             self._start_time = timestamp
 
+def print_quantstats_full_report(portfolio_history, df_normal, filename='dqn_quantstats'):
+    #net_worth = pd.DataFrame(portfolio_history["net_worth"])#, orient='index')
+    #net_worth = performance['net_worth'].iloc[window_size:]
+    returns = portfolio_history["net_worth"].pct_change().iloc[1:]
+    #returns = net_worth.pct_change().iloc[1:]
+    benchmark=df_normal['close'].pct_change().iloc[1:]
+
+    # WARNING! The dates are fake and default parameters are used!
+    returns.index = pd.date_range(start=df_normal['date'].iloc[1], freq='1H', periods=returns.size)
+    benchmark.index = pd.date_range(start=df_normal['date'].iloc[1], freq='1H', periods=benchmark.size)
+
+    quantstats.reports.full(returns)
+    #quantstats.reports.html(returns, benchmark=df_normal['close'].iloc[1:], output=True, download_filename=res_dir + filename + '.html')
+    quantstats.reports.html(returns, benchmark=benchmark, output=True, download_filename=res_dir + filename + '.html')
+
 # Printing a custom text to let Superalgos know that we are in a RL scenario
 sys.stdout.write('RL_SCENARIO')
 sys.stdout.write('\n')
@@ -793,18 +1010,20 @@ analysis = tune.run(
     },
     config=ppo_trainer_config,
     num_samples=1,  # Have one sample for each hyperparameter combination. You can have more to average out randomness.
-    keep_checkpoints_num=30,  # Keep the last X checkpoints
+    keep_checkpoints_num=5,  # Keep the last X checkpoints
     checkpoint_freq=5,  # Checkpoint every X iterations (save the model)
     checkpoint_at_end=True, # Whether to checkpoint at the end of the experiment regardless of the checkpoint_freq
     verbose=1,
     local_dir=res_dir,  # Local directory to store checkpoints and results, we are using tmp folder until we move the notebook to a docker instance and we can use the same directory across all instances, no matter the underlying OS
-    progress_reporter=CustomReporter(max_report_frequency=10,location=location),
+    progress_reporter=CustomReporter(max_report_frequency=60,location=location),
     fail_fast=True,
     resume=RESUME
 )
 
 # Evaluate trained model restoring it from checkpoint
+print("Search for best Trial")
 best_trial = analysis.get_best_trial(metric="episode_reward_mean", mode="max", scope="all") 
+print("Search for best Checkpoint")
 best_checkpoint = analysis.get_best_checkpoint(best_trial, metric="episode_reward_mean")
 
 try:
@@ -813,7 +1032,27 @@ except:
     pass
 
 agent = ppo.PPOTrainer(config=ppo_trainer_config)
-agent.restore(best_checkpoint)
+try:
+    agent.restore(best_checkpoint)
+except ValueError as e:
+    print("The input data size doesnt fit the trained model network input size") #this may happen for the reforecaster, if the Test-Server did change its config, without renaming the Test-Server
+    print("ValueError error: {0}".format(e))
+    print(e)
+    from shutil import rmtree
+    rmtree(res_dir)
+    print("deleted old result dir: " + res_dir)
+    print("You can now run the script again")
+    raise
+except:
+    print("An unexpected error occurred")
+    raise
+
+#policy = agent.get_policy()
+#model = policy.model # ray.rllib.models.tf.complex_input_net.ComplexInputNetwork 
+#model.flatten[0] #ray.rllib.models.tf.fcnet.FullyConnectedNetwork https://github.com/ray-project/ray/blob/master/rllib/models/tf/fcnet.py
+#model.flatten[0].base_model.summary()
+#model.post_fc_stack # ray.rllib.models.tf.fcnet.FullyConnectedNetwork
+#model.post_fc_stack.base_model.summary()
 
 json_dict = {}
 episodes_to_run = 2
@@ -876,10 +1115,12 @@ for iter, env in enumerate(envs):
     json_dict_env['stdNetWorthAtEnd'] = np.std(net_worths_at_end)
     json_dict_env['minNetWorthAtEnd'] = np.min(net_worths_at_end)
     json_dict_env['maxNetWorthAtEnd'] = np.max(net_worths_at_end)
-    json_dict_env['current_action'] = {"type": int(last_actions[-1][0]), "amount":int(last_actions[-1][1])}
+    json_dict_env['current_action'] = {"type": int(last_actions[-1][0]), "amount": int((last_actions[-1][1]+ 1) * 25), "limit": int(last_actions[-1][2]+90)}
 
     print(f"NetWorthAtBegin / meanNetWorthAtEnd : {json_dict_env['NetWorthAtBegin']} / {json_dict_env['meanNetWorthAtEnd']}")
     json_dict[iter] = json_dict_env
+
+    print_quantstats_full_report(portfolio_history=pd.DataFrame(r3), df_normal=pd.DataFrame(r4), filename='QS_'+str(iter)+'')
 
 
 # Write the results to JSON file to be picked up by Superalgos
@@ -902,7 +1143,6 @@ pd_portfolio_history_2 = pd.DataFrame(portfolio_history[2])
 pd_join_0 = pd.merge(pd_trade_history_0, pd_portfolio_history_0, how='right', left_on = 'step', right_on = 'step')
 pd_join_1 = pd.merge(pd_trade_history_1, pd_portfolio_history_1, how='right', left_on = 'step', right_on = 'step')
 pd_join_2 = pd.merge(pd_trade_history_2, pd_portfolio_history_2, how='right', left_on = 'step', right_on = 'step')
-pd_join_2[:].tail(20)
 
 tic = "BTC train"
 plt.figure(figsize=[15,9]);

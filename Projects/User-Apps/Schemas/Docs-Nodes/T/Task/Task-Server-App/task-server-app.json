@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Task Server App позволяет пользователю определить идентификатор для сервера задач.",
                 "updated": 1645253875643
+            },
+            {
+                "language": "TR",
+                "text": "Görev Sunucusu Uygulaması düğümü, bir kullanıcının Görev Sunucusu (Task Server) için bir kimlik tanımlamasına izin verir.",
+                "updated": 1666688184049
             }
         ]
     },
@@ -15,7 +20,14 @@
         {
             "style": "Block",
             "text": "Content",
-            "updated": 1643078288954
+            "updated": 1643078288954,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir görev sunucusu için kimlik tanımlamak, mevcut Kullanıcı Profilinin (USer Profile) Superalgos Platformunun bir örneğini Superalgos Eşler Arası Ağına bağlamasını sağlar.",
+                    "updated": 1666688314644
+                }
+            ]
         },
         {
             "style": "Text",
@@ -25,6 +37,11 @@
                     "language": "RU",
                     "text": "Определение идентификатора для сервера задач позволяет текущему профилю пользователя подключить экземпляр платформы Superalgos к одноранговой сети Superalgos.",
                     "updated": 1645253883937
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir görev sunucusu için kimlik tanımlamak, mevcut Kullanıcı Profiline (User Profile) ait Superalgos Platformunun bir örneğini, Superalgos Eşler Arası Ağa bağlar.",
+                    "updated": 1666688649228
                 }
             ]
         },
@@ -36,6 +53,11 @@
                     "language": "RU",
                     "text": "Это достигается путем создания учетной записи (Signing Account).",
                     "updated": 1645253955715
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, bir İmzalama Hesabı (Signing Account) oluşturulmasıyla sağlanır.",
+                    "updated": 1666688739217
                 }
             ]
         },
@@ -51,6 +73,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1645253961521
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1666688789633
                 }
             ]
         },
@@ -62,6 +89,11 @@
                     "language": "RU",
                     "text": "codeName: Это свойство определяет выбранное имя для приложения сервера задач пользователя.",
                     "updated": 1645253967137
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: Bu özellik, bir Kullanıcının görev sunucusu uygulaması için seçilen adı tanımlar.",
+                    "updated": 1666688828704
                 }
             ]
         }

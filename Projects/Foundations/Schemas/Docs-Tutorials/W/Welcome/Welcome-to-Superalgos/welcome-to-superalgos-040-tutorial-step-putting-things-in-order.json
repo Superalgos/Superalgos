@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Еще одна вещь, прежде чем мы погрузимся в графики: вам необходимо знать, как привести рабочее пространство в порядок.",
                 "updated": 1636203040872
+            },
+            {
+                "language": "NL",
+                "text": "Nog één ding voordat we in de grafieken duiken. Je moet weten hoe je het huis op orde brengt!",
+                "updated": 1666699373988
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Придет время, когда Вы, возможно, будете работать с десятками графиков. Вы уже знаете, как изменить их формат. Теперь необходимо научиться перемещать их так, чтобы Вы могли создавать любые необходимые вам расположения. Это довольно просто:",
                     "updated": 1636203598832
+                },
+                {
+                    "language": "NL",
+                    "text": "Er komt een tijd dat je misschien met tientallen grafieken gaat werken. U weet al hoe u hun formaat kunt wijzigen. Nu moet je leren hoe je ze kunt verplaatsen, zodat je alle aanpassingen kunt maken die je nodig hebt. Het is vrij eenvoudig:",
+                    "updated": 1666699424383
                 }
             ],
             "updated": 1616416902513
@@ -125,6 +135,11 @@
                     "language": "RU",
                     "text": "Нажмите Shift, щелкните левой кнопокй мыши и перетащите!",
                     "updated": 1636203698066
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk op <kbd>Shift</kbd>, klik met de linkermuisknop en sleep!",
+                    "updated": 1666699465956
                 }
             ]
         },
@@ -165,6 +180,11 @@
                     "language": "RU",
                     "text": "Я полагаю, что мы рассмотрели все о том, как управлять пространством для построенрия графиков. Пришло время погрузиться в диаграммы!",
                     "updated": 1636203782409
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik geloof dat we alles hebben besproken over het beheren van de grafiek omgeving. Het is tijd om in de grafieken te duiken!",
+                    "updated": 1666699544611
                 }
             ]
         }

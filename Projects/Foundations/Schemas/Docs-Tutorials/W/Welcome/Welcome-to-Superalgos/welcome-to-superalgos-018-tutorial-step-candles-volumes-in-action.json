@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "Sensör botu işini bitirir bitirmez göstergeler çalışmaya başlayacak!",
                 "updated": 1635944180619
+            },
+            {
+                "language": "FR",
+                "text": "Et oui ! Les indicateurs commenceront à fonctionner dès que le sensor bot aura terminé son travail !",
+                "updated": 1667203904119
             }
         ]
     },
@@ -83,8 +88,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Je bekijkt het proces van de Candles Volumes. Ze veranderd de één-minuut candles die de sensor bot download van de exchange in candles voor alle tijdkaders.",
-                    "updated": 1634457056780,
+                    "text": "Je bekijkt het proces van de Candles Volumes. Ze veranderd de één-minuut candles die de sensor bot download van het handelsplatform in candles voor alle tijdkaders.",
+                    "updated": 1666613085242,
                     "style": "Text"
                 },
                 {
@@ -97,6 +102,11 @@
                     "language": "TR",
                     "text": "Mum Hacimlerini (Candles Volumes) sürçlerini izliyorsunuz. Sensör botunun borsadan indirdiği bir dakikalık mumları \"tüm zaman dilimleri\" için mumlara dönüştürüyor.",
                     "updated": 1644850380103
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous êtes en train de regarder le processus de Candles Volumes. Elle transforme les bougies d'une minute que le Sensor Bot télécharge de l'exchange en bougies pour toutes les périodes de temps.",
+                    "updated": 1667203965553
                 }
             ]
         },
@@ -145,6 +155,11 @@
                     "language": "TR",
                     "text": "Bitirdikten sonra ne olacak?",
                     "updated": 1635944274935
+                },
+                {
+                    "language": "FR",
+                    "text": "Que se passe-t-il après qu'il ait fini ?",
+                    "updated": 1667203992335
                 }
             ]
         },
@@ -192,6 +207,11 @@
                     "language": "TR",
                     "text": "Diğer botların işlerini bitirmeleri için Candles Volumes'e ihtiyaçları var, böylece kendi işlerini yapmaya başlayabilirler. Bir botun tüm zaman dilimleri için 20 dönemlik Basit Hareketli Ortalama ( Simple Moving Average ) hesaplaması gerektiğini hayal edin. SMA hesaplaması için girdi olarak Candles Volumes tarafından üretilen Veri Ürünü'ne ( Data Product ) ihtiyacı var. Böyle bir ihtiyaca Veri Bağımlılığı ( Data Dependency) diyoruz.",
                     "updated": 1635944420387
+                },
+                {
+                    "language": "FR",
+                    "text": "D'autres bots ont besoin que Candles Volumes ai terminé son travail pour qu'ils puissent commencer à faire le leur. Imaginons qu'un robot doive calculer une moyenne mobile simple sur 20 périodes pour toutes les périodes de temps. Il a besoin du Data Product produit par Candles Volumes comme entrée pour le calcul de la SMA. Nous appelons ce besoin une dépendance de données ou Data Dependency en anglais.",
+                    "updated": 1667204169984
                 }
             ]
         }

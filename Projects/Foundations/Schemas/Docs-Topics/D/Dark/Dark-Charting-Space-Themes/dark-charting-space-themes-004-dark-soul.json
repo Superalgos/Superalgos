@@ -1,0 +1,53 @@
+{
+    "topic": "Dark Charting Space Themes",
+    "pageNumber": "4",
+    "type": "Dark Soul",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1666716906259
+        },
+        {
+            "style": "Text",
+            "text": "The Author of this theme is @prepheadrus",
+            "updated": 1666717007661
+        },
+        {
+            "style": "Text",
+            "text": "Github: https://github.com/prepheadrus"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram: t.me/Soligann"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/dark-theme-dark-soul-prepheadrus.png"
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.DARK\",\n    \"candleUpColor\": \"UI_COLOR.LIGHT\",\n    \"candleUpBorderColor\": \"UI_COLOR.WHITE\",\n    \"candleDownBorderColor\": \"UI_COLOR.TRUE_RED\",\n    \"candleDownColor\": \"UI_COLOR.TRUE_RED\",\n    \"candleSideColor\": \"UI_COLOR.GREY\",\n    \"panelBackgroundColor\": \"UI_COLOR.DARK\",\n    \"panelBackgroundOpacity\": \"0.1\",\n    \"panelNameColor\": \"UI_COLOR.LIGHT\",\n    \"panelExchangeMarketName\": \"UI_COLOR.DARK\",\n    \"timeMachineNameColor\": \"UI_COLOR.LIGHT\",\n    \"onMouseFrameColor\": \"UI_COLOR.TRUE_GREEN\",\n    \"machineFrameColor\": \"UI_COLOR.DARK\",\n    \"machineFrameOpacity\": \"0.5\",\n    \"timeScalePanelColor\": \"UI_COLOR.DARK\",\n    \"timeScaleDateColor\": \"UI_COLOR.LIGHT\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.LIGHT\",\n    \"rateScalePanelColor\": \"UI_COLOR.DARK\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.LIGHT\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.LIGHT\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.DARK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.LIGHT\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.LIGHT\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.DARK\",\n    \"indicatorDropDownPanelOpacity\": \"0.6\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.DARK\",\n    \"indicatorDropDownPanelLabel1Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorDropDownPanelLabel2Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorDropDownPanelLabel3Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.LIGHT\",\n    \"indicatorLayersPanelOpacity\": \"0.2\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.DARK\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.LIGHT\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.LIGHT\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.LIGHT\",\n    \"indicatorFrameBackgroundOpacity\": \"0.6\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.LIGHT\",\n    \"indicatorPanelTopBarOpacity\": \"0.20\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.BLACK\",\n    \"minCursorSize\": \"10\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1666720148447
+        },
+        {
+            "style": "Title",
+            "text": ""
+        }
+    ]
+}

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Server Apps содержит определения всех серверных приложений, связанных с текущим профилем пользователя.",
                 "updated": 1645253807935
+            },
+            {
+                "language": "TR",
+                "text": "Sunucu Uygulamaları hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm sunucu uygulamalarının tanımlarını tutar.",
+                "updated": 1666691653998
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Серверные приложения используются для доступа к сети Superalgos Peer to Peer через среду, подобную серверу.",
                     "updated": 1645253815514
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik Sunucu uygulamaları, ortam gibi bir sunucu aracılığıyla Superalgos eşler arası ağa erişmek için kullanılır.",
+                    "updated": 1666691637266
                 }
             ]
         },
@@ -36,17 +46,36 @@
                     "language": "RU",
                     "text": "В настоящее время доступны два основных серверных приложения:",
                     "updated": 1645253822948
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda mevcut olan iki ana sunucu uygulaması şunlardır:",
+                    "updated": 1666691680156
                 }
             ]
         },
         {
             "style": "List",
             "text": "Task Server App",
-            "updated": 1643077781826
+            "updated": 1643077781826,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Task Server App (Görev Sunucusu Uygulaması)",
+                    "updated": 1666691716865
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Social Trading Server App"
+            "text": "Social Trading Server App",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Social Trading Server App (Sosyal Ticaret Sunucusu Uygulaması)",
+                    "updated": 1666691738854
+                }
+            ]
         },
         {
             "style": "Text",

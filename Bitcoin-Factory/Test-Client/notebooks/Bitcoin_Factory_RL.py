@@ -2,8 +2,6 @@
 # coding: utf-8
 
 import random
-import gym
-from gym import spaces
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -12,11 +10,9 @@ import os, sys, time, platform, subprocess
 import math
 import json
 from typing import Dict, List, Optional, Union
-import ray
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
-from tabulate import tabulate
 import tensorflow as tf
 
 def import_install_packages(package):
@@ -38,6 +34,16 @@ from packaging.version import parse as parse_version
 import_install_packages('quantstats')
 import quantstats
 quantstats.extend_pandas()
+
+import_install_packages('gym')
+import gym
+from gym import spaces
+
+import_install_packages('ray[all]')
+import ray
+
+import_install_packages('tabulate')
+from tabulate import tabulate
 
 print("""Python version: %s
 Platform: %s
@@ -307,8 +313,8 @@ class SimpleTradingEnv(gym.Env):
         # NOT USED ANYMORE, KEPT FOR REFERENCE
         # self.obs_shape = ((OBSERVATION_WINDOW_SIZE * self.features.shape[1] + 3),) 
 
-        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 3 (quote_asset, base_asset, net_worth)
-        self.obs_shape = (self.window_size, self.features.shape[1] + 3)
+        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 3 (quote_asset, base_asset, base_asset_short, net_worth)
+        self.obs_shape = (self.window_size, self.features.shape[1] + 4)
 
         # Action space
         #self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([3.0, 1.0]), dtype=np.float32)
@@ -660,7 +666,7 @@ class SimpleTradingEnv(gym.Env):
         self._current_candle += 1
 
         # Update observation history
-        self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+        self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
         self._done = self._net_worth <= self._net_worth_at_begin * MAX_LOSS_FACTOR or self._current_candle >= self._end_candle #(len(self.df_normal.loc[:, 'open'].values) - 30)# We assume that the last observation is not the last row of the dataframe, in order to avoid the case where there are no calculated indicators.
 
@@ -738,7 +744,7 @@ class SimpleTradingEnv(gym.Env):
 
     def _initial_obs_data(self):
         for i in range(self.window_size - len(self._obs_env_history)):
-            self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+            self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
     def _get_position(self,asset,posType="Long"):
         if len(self.positions) > 0:
@@ -778,8 +784,8 @@ def find_optimal_resource_allocation(available_cpu, available_gpu):
     # If we don't have GPU available, we allocate enough CPU cores for stepping the env (workers) while having enough for training maintaing a ratio of around 3 workers with 1 CPU to 1 driver CPU
     else:
         # according to the benchmark, we should allocate more workers, each with 1 cpu, letting the rest for the driver
-        num_workers = int(math.floor((available_cpu  * 75) / 100))
-        num_cpu_for_driver = available_cpu - num_workers
+        num_workers = min(int(math.floor((available_cpu  * 75) / 100)),4)
+        num_cpu_for_driver = max(available_cpu - num_workers,2)
         return {
             'num_workers': num_workers,
             'num_cpus_per_worker': 1, # this should be enough for stepping an env at once
@@ -1026,10 +1032,27 @@ except:
     pass
 
 agent = ppo.PPOTrainer(config=ppo_trainer_config)
-agent.restore(best_checkpoint)
+try:
+    agent.restore(best_checkpoint)
+except ValueError as e:
+    print("The input data size doesnt fit the trained model network input size") #this may happen for the reforecaster, if the Test-Server did change its config, without renaming the Test-Server
+    print("ValueError error: {0}".format(e))
+    print(e)
+    from shutil import rmtree
+    rmtree(res_dir)
+    print("deleted old result dir: " + res_dir)
+    print("You can now run the script again")
+    raise
+except:
+    print("An unexpected error occurred")
+    raise
 
 #policy = agent.get_policy()
-#model = policy.model #complexinputmodel 
+#model = policy.model # ray.rllib.models.tf.complex_input_net.ComplexInputNetwork 
+#model.flatten[0] #ray.rllib.models.tf.fcnet.FullyConnectedNetwork https://github.com/ray-project/ray/blob/master/rllib/models/tf/fcnet.py
+#model.flatten[0].base_model.summary()
+#model.post_fc_stack # ray.rllib.models.tf.fcnet.FullyConnectedNetwork
+#model.post_fc_stack.base_model.summary()
 
 json_dict = {}
 episodes_to_run = 2

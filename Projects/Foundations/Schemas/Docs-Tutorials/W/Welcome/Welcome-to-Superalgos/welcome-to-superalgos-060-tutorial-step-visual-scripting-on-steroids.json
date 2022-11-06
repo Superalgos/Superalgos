@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Berbicara tentang pembangunan blok, kita sekarang berada dalam batas-batas Masters Data Mine. Di sebelah kiri, definisi salah satu bot yang kamu kirim untuk mining  beberapa menit yang lalu.",
                 "updated": 1639709000796
+            },
+            {
+                "language": "NL",
+                "text": "Over het bouwen van blokken gesproken, we bevinden ons nu binnen de grenzen van de Masters Data Mine. Links van je, zie je de definitie van een van de bots die je minuten geleden aan het minen hebt gezet.",
+                "updated": 1666788217273
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Hampir mirip dengan definisi Charting Space yang mirip Lego, bot akan ditentukan pada visual environment.",
                     "updated": 1639709076112
+                },
+                {
+                    "language": "NL",
+                    "text": "Net als bij de Lego-achtige definities van de Charting Space, zijn bots te gedefinieerd in een visuele omgeving.",
+                    "updated": 1666788244598
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Semua developers diminta mengcoding agar mendapatkan Data Building Procedure yang actual.",
                     "updated": 1639709197859
+                },
+                {
+                    "language": "NL",
+                    "text": "Het enige dat ontwikkelaars hoeven te programmeren, is de feitelijke Data Building Procedure.",
+                    "updated": 1666788289279
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "ID",
                     "text": "Segala sesuatu yang lain didefinisikan pada visual setting: proses dengan dependensinya, output dan sebagainya, serta produk, dengan definisi record dan datasetnya, dll.",
                     "updated": 1639709617027
+                },
+                {
+                    "language": "NL",
+                    "text": "Al het andere wordt gedefinieerd op een visuele instelling: processen met hun afhankelijkheden, outputs enzovoort, en producten, met hun record- en datasetdefinities, enz.",
+                    "updated": 1666788332280
                 }
             ]
         }

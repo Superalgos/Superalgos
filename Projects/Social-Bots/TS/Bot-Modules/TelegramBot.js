@@ -44,7 +44,7 @@ exports.newSocialBotsBotModulesTelegramBot = function newSocialBotsBotModulesTel
                     thisObject.telegramAPI = thisObject.telegramBot.telegram
 
                     const message = "Telegram bot is starting. For assistance type /help."
-                    thisObject.telegramAPI.sendMessage(thisObject.chatId, message)
+                    thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError('[WARN] initialize -> Telegram API error -> err = ' + err.stack))
                 })
 
 

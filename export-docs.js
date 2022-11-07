@@ -62,8 +62,8 @@ async function runRoot() {
     */
     SA.version = require('./package.json').version
 
-    let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name)
-    const categories = ['App-Schema', 'Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book']
+    let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name).sort()
+    const categories = ED.schemas.schemaTypes.map(t => t.category).sort()
 
     const results = []
     for(let i = 0; i < projectSchemaNames.length; i++) {

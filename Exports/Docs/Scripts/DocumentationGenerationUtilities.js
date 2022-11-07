@@ -1,6 +1,5 @@
 exports.documentGenerationUtilities = function documentGenerationUtilities() {
     let thisObject = {
-        convertProjectsToSchemas: convertProjectsToSchemas,
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
         getTextBasedOnLanguage: getTextBasedOnLanguage,
@@ -24,7 +23,8 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         addToolTips: addToolTips,
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
         nodeBranchToArray: nodeBranchToArray,
-        normaliseInternalLink: normaliseInternalLink
+        normaliseInternalLink: normaliseInternalLink,
+        normaliseStringForLink: normaliseStringForLink
     }
 
     const TAGGING_STRING_SEPARATOR = '~>'
@@ -761,7 +761,9 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
     }
     
     /**
-     * adds the global remote directory root to all internal links
+     * adds the global remote directory root to all internal links.
+     * 
+     * Adds '.html' suffix is no siffix is provided
      * @param {string} link 
      * @return {string}
      */
@@ -772,6 +774,18 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         if(link.indexOf(global.env.PATH_TO_PAGES_DIR) === 0) {
             link = link.substring(global.env.PATH_TO_PAGES_DIR.length+1)
         }
+        if(!/\.[a-z]{3,4}/.test(link)) {
+            link += '.html'
+        }
         return '/' + global.env.REMOTE_DOCS_DIR + '/' + link
+    }
+
+    /**
+     * 
+     * @param {string} value 
+     * @returns {string}
+     */
+    function normaliseStringForLink(value) {
+        return value.replace(/[^a-z0-9\.\/]/gi, '-').toLowerCase()
     }
 }

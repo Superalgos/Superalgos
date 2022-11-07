@@ -69,7 +69,7 @@ exports.documentationExporter = function documentationExporter() {
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         const fileName = thisObject.currentDocumentBeingRendered.type + '.html'
-        filePath = filePath + fileName
+        filePath = filePath + ED.utilities.normaliseStringForLink(fileName)
         SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
         return filePath
     }
@@ -484,7 +484,7 @@ exports.documentationExporter = function documentationExporter() {
                                 editableParagraphIndex++
                                 const result = await addChapterIndex(paragraph.text)
                                 if(result.html !== undefined) {
-                                    contentHTML = contentHTML + r.html
+                                    contentHTML = contentHTML + result.html
                                 }
                                 if(result.error !== undefined) {
                                     paragraph = {
@@ -641,6 +641,7 @@ exports.documentationExporter = function documentationExporter() {
                             return {error: 'Property ' + propertyName + ' not found at the placeholder object. This means that within the info received, this information is not available.'}
                         }
                     }
+                    return {}
                 }
 
                 /**
@@ -2188,7 +2189,7 @@ exports.documentationExporter = function documentationExporter() {
          * @returns {string} 
          */
         function generateUnstyledLink(category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + ED.utilities.normaliseStringForLink(pageType))
             return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }
@@ -2358,7 +2359,7 @@ exports.documentationExporter = function documentationExporter() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
+            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + project + '/' + category + '/' + ED.utilities.normaliseStringForLink(pageType))
             return '<a style="float: right; display: inline-block;" href="' + link + '">' + content + ' </a>'
         }
 
@@ -2370,7 +2371,7 @@ exports.documentationExporter = function documentationExporter() {
         function generateLanguageLink(key, language) {
             let link = ED.utilities.normaliseInternalLink('index.html') //key.toLowerCase() + '/index.html') // TODO: add language support
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = ED.utilities.normaliseInternalLink(/*key.toLowerCase() + '/' +*/ thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND') + '.html')
+                link = ED.utilities.normaliseInternalLink(/*key.toLowerCase() + '/' +*/ thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + '.html')
             }
             let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
             if(thisObject.currentLanguageCode === key) {

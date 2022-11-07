@@ -32,6 +32,7 @@ async function runRoot() {
     global.ED = {
         DEFAULT_LANGUAGE: 'EN',
         menuLabelsMap: new Map(),
+        schemas: require(EXPORT_DOCS_DIR + '/Scripts/SchemaGeneration').schemaGeneration(),
         utilities: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
         designSpace: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
         strings: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
@@ -119,7 +120,7 @@ async function runRoot() {
                     html += '<div class="docs-definition-floating-links"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
                 }
                 else {
-                    html += '<div class="docs-definition-floating-links">' + categories[j] + '&lt;&lt;Nothing to see here&gt;&gt;</div>'
+                    html += '<div class="docs-definition-floating-links">' + categories[j] + '</div>'
                 }
             }
             html += '</div>'

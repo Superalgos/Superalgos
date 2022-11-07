@@ -1,5 +1,6 @@
 exports.documentGenerationUtilities = function documentGenerationUtilities() {
     let thisObject = {
+        convertProjectsToSchemas: convertProjectsToSchemas,
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
         getTextBasedOnLanguage: getTextBasedOnLanguage,

@@ -6,51 +6,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
     let thisObject = {
         run: run
     }
-    
-    let schemaTypes = [
-        {
-            category: 'App-Schema',
-            name: 'AppSchema',
-            key:  'appSchema',
-            folder: 'App-Schema'
-        },
-        {
-            category: 'Node', 
-            name: 'DocsNodeSchema',
-            key:  'docsNodeSchema',
-            folder: 'Docs-Nodes'
-        },
-        {
-            category: 'Concept', 
-            name: 'DocsConceptSchema',
-            key:  'docsConceptSchema',
-            folder: 'Docs-Concepts'
-        },
-        {
-            category: 'Tutorial', 
-            name: 'DocsTopicSchema',
-            key:  'docsTopicSchema',
-            folder: 'Docs-Topics'
-        },
-        {
-            category: 'Topic',
-            name: 'DocsTutorialSchema',
-            key:  'docsTutorialSchema',
-            folder: 'Docs-Tutorials'
-        },
-        {
-            category:  'Review',
-            name: 'DocsReviewSchema',
-            key:  'docsReviewSchema',
-            folder: 'Docs-Reviews'
-        },
-        {
-            category:  'Book',
-            name: 'DocsBookSchema',
-            key:  'docsBookSchema',
-            folder: 'Docs-Books'
-        }
-    ]
 
     return thisObject
 
@@ -59,7 +14,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
         setSourceFileLinks()
 
         info('starting async project conversion')
-        const completed = await convertProjectsToSchemas(project)
+        const completed = await ED.schemas.convertProjectsToSchemas(project)
             .then(() => ED.designSpace.initialize(project))
             .then(() => setUpMenuItemsMap(project))
             .then(() => triggerPageRendering(project, category))
@@ -70,79 +25,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             })
             
         return completed
-
-        async function convertProjectsToSchemas(project) {
-            let schemas = {
-                array: {
-                    appSchema: [],
-                    docsNodeSchema: [],
-                    docsConceptSchema: [],
-                    docsTopicSchema: [],
-                    docsTutorialSchema: [],
-                    docsReviewSchema: [],
-                    docsBookSchema: [],
-                    workspaceSchema: []
-                },
-                map: {
-                    appSchema: new Map(),
-                    docsNodeSchema: new Map(),
-                    docsConceptSchema: new Map(),
-                    docsTopicSchema: new Map(),
-                    docsTutorialSchema: new Map(),
-                    docsReviewSchema: new Map(),
-                    docsBookSchema: new Map(),
-                    workspaceSchema: new Map()
-                }
-            }
-            SCHEMAS_BY_PROJECT.set(project, schemas)
-
-            for(let j = 0; j < schemaTypes.length; j++) {
-                let schemaType = schemaTypes[j]
-                let schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType)
-                process(schema, schemas, schemaType.key)
-            }
-
-            /**
-             * 
-             * @param {string} schema 
-             * @param {{
-             *   array: {
-             *     appSchema: [],
-             *     docsNodeSchema: [],
-             *     docsConceptSchema: [],
-             *     docsTopicSchema: [],
-             *     docsTutorialSchema: [],
-             *     docsReviewSchema: [],
-             *     docsBookSchema: [],
-             *     workspaceSchema: []
-             *   },
-             *   map: {
-             *     appSchema: new Map(),
-             *     docsNodeSchema: new Map(),
-             *     docsConceptSchema: new Map(),
-             *     docsTopicSchema: new Map(),
-             *     docsTutorialSchema: new Map(),
-             *     docsReviewSchema: new Map(),
-             *     docsBookSchema: new Map(),
-             *     workspaceSchema: new Map()
-             *   }
-             * }} schemas 
-             * @param {string} schemaKey 
-             */
-            function process(schema, schemas, schemaKey) {
-                try {
-                    schemas.array[schemaKey] = JSON.parse(schema)
-
-                    for(let j = 0; j < schemas.array[schemaKey].length; j++) {
-                        let schemaDocument = schemas.array[schemaKey][j]
-                        let key = schemaDocument.type
-                        schemas.map[schemaKey].set(key, schemaDocument)
-                    }
-                } catch(err) {
-                    console.error(err)
-                }
-            }
-        }
 
         function setUpMenuItemsMap(project) {
             info('iterating schema project map for menu items')
@@ -168,7 +50,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             info('preparing for page transfer rendering')
             const exporter = require('./Scripts/DocumentationExporter')
             const filePaths = []
-            const key = schemaTypes.filter( t => t.category == category)[0].key
+            const key = ED.schemas.schemaTypes.find( t => t.category == category).key
             const schemaKeys = SCHEMAS_BY_PROJECT.get(project).map[key].keys()
             for(let type of schemaKeys) {
                 info('render       -> ' + project + ' -> ' + category + ' -> ' + type)
@@ -193,97 +75,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 exportProcess.finalize()
             }
             return filePaths
-        }
-
-        /**
-         * @param {string} filePath
-         * @param {{
-         *   name: string,
-         *   key: string,
-         *   folder: string
-         * }} schemaType
-         */
-        async function sendSchema(filePath, schemaType) {
-            let fs = SA.nodeModules.fs
-            try {
-                const files = await getAllFilesInDirectoryAndSubdirectories(filePath + schemaType.folder)
-                return onFilesReady(files)
-
-                /**
-                 * 
-                 * @param {string} dir 
-                 * @returns {Promise<string[]>}
-                 */
-                async function getAllFilesInDirectoryAndSubdirectories(dir) {
-                    const {promisify} = SA.nodeModules.util
-                    const {resolve} = SA.nodeModules.path;
-                    const fs = SA.nodeModules.fs;
-                    const readdir = promisify(fs.readdir);
-                    const stat = promisify(fs.stat);
-
-                    return await new Promise(res => getFiles(dir)
-                        .then(files => {
-                            let splittedDir = dir.split('/')
-                            let lastFolder = splittedDir[splittedDir.length - 2]
-                            let pathAndNames = []
-                            for(let i = 0; i < files.length; i++) {
-                                let file = files[i]
-                                let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
-                                pathName = pathName.substring(1, pathName.length)
-                                pathAndNames.push(pathName)
-                            }
-                            res(pathAndNames)
-                        })
-                        .catch(e => {
-                            res([])
-                        }))
-
-                    async function getFiles(dir) {
-                        const subdirs = await readdir(dir);
-                        const files = await Promise.all(subdirs.map(async (subdir) => {
-                            const res = resolve(dir, subdir);
-                            return (await stat(res)).isDirectory() ? getFiles(res) : res;
-                        }));
-                        return files.reduce((a, f) => a.concat(f), []);
-                    }
-                }
-
-                /**
-                 * 
-                 * @param {string[]} files 
-                 * @returns {string}
-                 */
-                function onFilesReady(files) {
-
-                    let schemaArray = []
-                    for(let k = 0; k < files.length; k++) {
-                        let name = files[k]
-                        let nameSplitted = name.split(schemaType.folder)
-                        let fileName = nameSplitted[1]
-                        for(let i = 0; i < 10; i++) {
-                            fileName = fileName.replace('\\', '/')
-                        }
-                        let fileToRead = filePath + schemaType.folder + fileName
-
-                        let fileContent = fs.readFileSync(fileToRead)
-                        let schemaDocument
-                        try {
-                            schemaDocument = JSON.parse(fileContent)
-                        } catch(err) {
-                            warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                            continue
-                        }
-                        schemaArray.push(schemaDocument)
-                    }
-                    return JSON.stringify(schemaArray)
-                }
-            } catch(err) {
-                if(err.message.indexOf('no such file or directory') < 0) {
-                    warn('Could not send Schema:', filePath, schemaType.name)
-                    console.error(err)
-                }
-                return []
-            }
         }
 
         /**

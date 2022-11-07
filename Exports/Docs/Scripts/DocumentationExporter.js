@@ -1,4 +1,4 @@
-exports.documentationExporter = function() {
+exports.documentationExporter = function documentationExporter() {
     let thisObject = {
         docsSchemaDocument: undefined,
         /**
@@ -86,7 +86,7 @@ exports.documentationExporter = function() {
         buildHtmlPage()
 
         function getSchemaDocument() {
-            switch (thisObject.currentDocumentBeingRendered.category) {
+            switch(thisObject.currentDocumentBeingRendered.category) {
                 case 'Node': {
                     thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsNodeSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
@@ -117,7 +117,7 @@ exports.documentationExporter = function() {
                 }
             }
 
-            if (thisObject.docsSchemaDocument === undefined) {
+            if(thisObject.docsSchemaDocument === undefined) {
                 // Use the New Node Template
                 let template = {
                     updated: true,
@@ -131,7 +131,7 @@ exports.documentationExporter = function() {
                     ]
                 }
 
-                switch (thisObject.currentDocumentBeingRendered.category) {
+                switch(thisObject.currentDocumentBeingRendered.category) {
                     case 'Node': {
                         SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).array.docsNodeSchema.push(template)
                         SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsNodeSchema.set(thisObject.currentDocumentBeingRendered.type, template)
@@ -152,7 +152,7 @@ exports.documentationExporter = function() {
                 thisObject.docsSchemaDocument = template
             }
             /* When for any reason the schema document does not have a paragraphs array */
-            if (thisObject.docsSchemaDocument.paragraphs === undefined) {
+            if(thisObject.docsSchemaDocument.paragraphs === undefined) {
                 thisObject.docsSchemaDocument.paragraphs = []
             }
         }
@@ -215,7 +215,7 @@ exports.documentationExporter = function() {
             addImages()
 
             function generateNavigationAndTableOfContents() {
-                if (thisObject.currentDocumentBeingRendered.category === 'Topic') {
+                if(thisObject.currentDocumentBeingRendered.category === 'Topic') {
 
                     orderedTopicPageIndexArray = ED.utilities.buildOrderedPageIndex(
                         thisObject.currentDocumentBeingRendered.project,
@@ -242,7 +242,7 @@ exports.documentationExporter = function() {
                     HTML = HTML + '</div>'  // END Container for Topic Navigation
                 }
 
-                if (thisObject.currentDocumentBeingRendered.category === 'Tutorial') {
+                if(thisObject.currentDocumentBeingRendered.category === 'Tutorial') {
 
                     orderedTutorialPageIndexArray = ED.utilities.buildOrderedPageIndex(
                         thisObject.currentDocumentBeingRendered.project,
@@ -268,7 +268,7 @@ exports.documentationExporter = function() {
                     HTML = HTML + '</div>'  // END Container for Tutorial Navigation
                 }
 
-                if (thisObject.currentDocumentBeingRendered.category === 'Review') {
+                if(thisObject.currentDocumentBeingRendered.category === 'Review') {
 
                     orderedReviewPageIndexArray = ED.utilities.buildOrderedPageIndex(
                         thisObject.currentDocumentBeingRendered.project,
@@ -296,7 +296,7 @@ exports.documentationExporter = function() {
             }
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
-                if (docsSchemaDocument.definition === undefined) {
+                if(docsSchemaDocument.definition === undefined) {
                     docsSchemaDocument.definition = {
                         text: "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode."
                     }
@@ -307,7 +307,7 @@ exports.documentationExporter = function() {
 
                 /* We will test if we can draw an image here or not*/
                 let testElement
-                if (docsSchemaDocument.definition.icon !== undefined) {
+                if(docsSchemaDocument.definition.icon !== undefined) {
                     testElement = ED.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
                 } else {
                     testElement = ED.designSpace.getIconByProjectAndType(project, type)
@@ -318,7 +318,7 @@ exports.documentationExporter = function() {
                 each node will have an icon. For the rest only if we could load an 
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
-                if ((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
+                if((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
                     HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
@@ -340,11 +340,11 @@ exports.documentationExporter = function() {
             }
 
             function generateTopicPreviousAndNextPageNavigation() {
-                for (let i = 0; i < orderedTopicPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedTopicPageIndexArray.length; i++) {
                     let arrayItem = orderedTopicPageIndexArray[i]
 
-                    if (thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateTopicsNavigationLinks(orderedTopicPageIndexArray[i - 1], orderedTopicPageIndexArray[i + 1], 'Topic')
+                    if(thisObject.docsSchemaDocument.type === arrayItem.type) {
+                        generateNavigationLinks(orderedTopicPageIndexArray[i - 1], orderedTopicPageIndexArray[i + 1], 'Topic')
                         return
                     }
                 }
@@ -356,7 +356,7 @@ exports.documentationExporter = function() {
                 the documents that share the same key that the document we are rendering now.
                 With the info on those picked document we will build the index.
                 */
-                for (let i = 0; i < orderedTopicPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedTopicPageIndexArray.length; i++) {
                     let arrayItem = orderedTopicPageIndexArray[i]
                     autoGeneratedParagraphIndex++
                     HTML = HTML + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Topic', arrayItem.type, arrayItem.type)}</p>`
@@ -365,11 +365,11 @@ exports.documentationExporter = function() {
             }
 
             function generateTutorialPreviousAndNextPageNavigation() {
-                for (let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
 
-                    if (thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateTopicsNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Tutorial')
+                    if(thisObject.docsSchemaDocument.type === arrayItem.type) {
+                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Tutorial')
                         return
                     }
                 }
@@ -381,7 +381,7 @@ exports.documentationExporter = function() {
                 the documents that share the same key that the document we are rendering now. 
                 With the info on those picked document we will build the index.
                 */
-                for (let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
                     autoGeneratedParagraphIndex++
                     HTML = HTML + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Tutorial', arrayItem.type, arrayItem.type)}</p>`
@@ -389,11 +389,11 @@ exports.documentationExporter = function() {
             }
 
             function generateReviewPreviousAndNextPageNavigation() {
-                for (let i = 0; i < orderedReviewPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedReviewPageIndexArray.length; i++) {
                     let arrayItem = orderedReviewPageIndexArray[i]
 
-                    if (thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateTopicsNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Review')
+                    if(thisObject.docsSchemaDocument.type === arrayItem.type) {
+                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Review')
                         return
                     }
                 }
@@ -405,7 +405,7 @@ exports.documentationExporter = function() {
                 the documents that share the same key that the document we are rendering now.
                 With the info on those picked document we will build the index.
                 */
-                for (let i = 0; i < orderedReviewPageIndexArray.length; i++) {
+                for(let i = 0; i < orderedReviewPageIndexArray.length; i++) {
                     let arrayItem = orderedReviewPageIndexArray[i]
                     autoGeneratedParagraphIndex++
                     HTML = HTML + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Review', arrayItem.type, arrayItem.type)}</p>`
@@ -414,17 +414,17 @@ exports.documentationExporter = function() {
 
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'
-                if (thisObject.docsSchemaDocument.paragraphs !== undefined) {
-                    for (let i = 0; i < thisObject.docsSchemaDocument.paragraphs.length; i++) {
+                if(thisObject.docsSchemaDocument.paragraphs !== undefined) {
+                    for(let i = 0; i < thisObject.docsSchemaDocument.paragraphs.length; i++) {
                         let key = 'editable-paragraph-' + editableParagraphIndex
                         let paragraph = thisObject.docsSchemaDocument.paragraphs[i]
 
-                        switch (paragraph.style) {
+                        switch(paragraph.style) {
                             case "Include": {
                                 renderParagraph(paragraph, key)
                                 editableParagraphIndex++
                                 let error = addIncludedParagraphs(paragraph.text)
-                                if (error !== undefined) {
+                                if(error !== undefined) {
                                     paragraph = {
                                         style: "Error",
                                         text: error
@@ -439,7 +439,7 @@ exports.documentationExporter = function() {
                                 renderParagraph(paragraph, key)
                                 editableParagraphIndex++
                                 let result = addPlaceholdedParagraph(paragraph.text)
-                                if (result !== undefined) {
+                                if(result !== undefined) {
                                     paragraph = {
                                         style: "Note",
                                         text: result
@@ -454,7 +454,7 @@ exports.documentationExporter = function() {
                                 renderParagraph(paragraph, key)
                                 editableParagraphIndex++
                                 let error = addChapterIndex(paragraph.text)
-                                if (error !== undefined) {
+                                if(error !== undefined) {
                                     paragraph = {
                                         style: "Error",
                                         text: error
@@ -472,7 +472,7 @@ exports.documentationExporter = function() {
                         }
                     }
                 }
-                if (thisObject.currentDocumentBeingRendered.category === 'Node') {
+                if(thisObject.currentDocumentBeingRendered.category === 'Node') {
                     autoGeneratedHtml()
                 }
                 HTML = HTML + '</div>' // Content Ends
@@ -484,17 +484,17 @@ exports.documentationExporter = function() {
                     let type = splittedIncludeText[2]
                     let block
                     let definition = false
-                    if (splittedIncludeText[3] === 'Definition') {
+                    if(splittedIncludeText[3] === 'Definition') {
                         definition = true
                     } else {
                         block = splittedIncludeText[3]
                     }
                     let includedSchemaDocument
 
-                    if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                    if(SCHEMAS_BY_PROJECT.get(project) === undefined) {
                         return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include blocks from a page. This error message will disappear as soon as you fix the problem.'
                     }
-                    switch (category) {
+                    switch(category) {
                         case 'Node': {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                             break
@@ -522,35 +522,35 @@ exports.documentationExporter = function() {
                         default:
                             return 'Category (' + category + ') is not valid. Use Node, Concept, Topic, Review or Book instead.'
                     }
-                    if (includedSchemaDocument === undefined) {
+                    if(includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project
                     }
-                    if (includedSchemaDocument.paragraphs === undefined) {
+                    if(includedSchemaDocument.paragraphs === undefined) {
                         return 'Schema Document found, but without paragraphs.'
                     }
 
-                    if (definition === true) {
+                    if(definition === true) {
                         addDefinitionTable(includedSchemaDocument, 'definition-included-', category, project, type)
                     } else {
                         let blockFound = false
-                        for (let i = 0; i < includedSchemaDocument.paragraphs.length; i++) {
+                        for(let i = 0; i < includedSchemaDocument.paragraphs.length; i++) {
 
                             let key = 'included-paragraph-' + autoGeneratedParagraphIndex
                             let paragraph = includedSchemaDocument.paragraphs[i]
 
-                            if (blockFound === false) {
-                                if (paragraph.style === "Block" && paragraph.text === block) {
+                            if(blockFound === false) {
+                                if(paragraph.style === "Block" && paragraph.text === block) {
                                     blockFound = true
                                 }
                             } else {
-                                if (paragraph.style === "Block") {
+                                if(paragraph.style === "Block") {
                                     return // Expected return without errors
                                 }
-                                if (paragraph.style === "Include") {
+                                if(paragraph.style === "Include") {
                                     renderParagraph(paragraph, key)
                                     autoGeneratedParagraphIndex++
                                     let error = addIncludedParagraphs(paragraph.text)
-                                    if (error !== undefined) {
+                                    if(error !== undefined) {
                                         paragraph = {
                                             style: "Error",
                                             text: error
@@ -565,17 +565,17 @@ exports.documentationExporter = function() {
                                 }
                             }
                         }
-                        if (blockFound === false) {
+                        if(blockFound === false) {
                             return 'Block <i>' + block + '</i> not found.'
                         }
                     }
                 }
 
                 function addPlaceholdedParagraph(propertyName) {
-                    if (thisObject.currentDocumentBeingRendered.placeholder !== undefined) {
+                    if(thisObject.currentDocumentBeingRendered.placeholder !== undefined) {
                         let placeholder = thisObject.currentDocumentBeingRendered.placeholder[propertyName]
 
-                        if (placeholder !== undefined) {
+                        if(placeholder !== undefined) {
                             let paragraph = {
                                 style: placeholder.style,
                                 text: placeholder.text
@@ -599,19 +599,19 @@ exports.documentationExporter = function() {
                     let introText = splittedChapterText[4]
 
 
-                    if (project === undefined || category === undefined || chapterNumber === undefined || chapterName === undefined) {
+                    if(project === undefined || category === undefined || chapterNumber === undefined || chapterName === undefined) {
                         return 'Chapter paragraph style Syntax Error. Some of the required parameters are undefined. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                     }
 
-                    if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                    if(SCHEMAS_BY_PROJECT.get(project) === undefined) {
                         return 'Chapter paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                     }
 
-                    if (category !== 'Topic' && category !== 'Tutorial' && category !== 'Review') {
+                    if(category !== 'Topic' && category !== 'Tutorial' && category !== 'Review') {
                         return 'Category must be either Topic, Tutorial or Review. Found: <i>' + category + '</i>'
                     }
 
-                    switch (category) {
+                    switch(category) {
                         case 'Topic': {
                             orderedTopicPageIndexArray = ED.utilities.buildOrderedPageIndex(
                                 thisObject.currentDocumentBeingRendered.project,
@@ -619,7 +619,7 @@ exports.documentationExporter = function() {
                                 chapterName
                             )
 
-                            if (orderedTopicPageIndexArray.length === 0) {
+                            if(orderedTopicPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Topic <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
@@ -631,7 +631,7 @@ exports.documentationExporter = function() {
                                 chapterName
                             )
 
-                            if (orderedTutorialPageIndexArray.length === 0) {
+                            if(orderedTutorialPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Tutorial <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
@@ -643,7 +643,7 @@ exports.documentationExporter = function() {
                                 chapterName
                             )
 
-                            if (orderedReviewPageIndexArray.length === 0) {
+                            if(orderedReviewPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Review <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
@@ -663,7 +663,7 @@ exports.documentationExporter = function() {
                     autoGeneratedParagraphIndex++
                     HTML = HTML + '</h2>'
 
-                    if (introText !== undefined) {
+                    if(introText !== undefined) {
                         let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
                         paragraph = {
                             style: "Text",
@@ -677,7 +677,7 @@ exports.documentationExporter = function() {
 
                     HTML = HTML + '<h3>Table of Contents</h3>'
 
-                    switch (category) {
+                    switch(category) {
                         case 'Topic': {
                             generateTopicMultiPageIndex()
                             break
@@ -701,7 +701,7 @@ exports.documentationExporter = function() {
                 addDefinitionImage()
                 addHierarchyImages()
 
-                if (thisObject.currentDocumentBeingRendered.category === 'Node') {
+                if(thisObject.currentDocumentBeingRendered.category === 'Node') {
                     addMenuItemsImages()
                     addChildrenNodesPropertiesImages()
                     addAttachingAndReferencingRulesImages()
@@ -710,11 +710,11 @@ exports.documentationExporter = function() {
 
                 function addDefinitionImage() {
 
-                    for (let i = 0; i < definitionImagesArray.length; i++) {
+                    for(let i = 0; i < definitionImagesArray.length; i++) {
                         let imageItem = definitionImagesArray[i]
                         let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
                         let imageElement
-                        if (appSchemaDocument !== undefined && appSchemaDocument.icon === undefined) {
+                        if(appSchemaDocument !== undefined && appSchemaDocument.icon === undefined) {
                             /* 
                             We are checking this because there is a possibility that a different icon is specified
                             for this Node Type, in that case we would override the default that is that the icon name is
@@ -722,22 +722,22 @@ exports.documentationExporter = function() {
                             */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
-                            if (imageElement === undefined) {
+                            if(imageElement === undefined) {
                                 console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
                             }
                         } else {
-                            if (imageItem.icon === undefined) {
+                            if(imageItem.icon === undefined) {
                                 /* This is the default behaviours */
                                 imageElement = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
-                                if (imageElement === undefined) {
+                                if(imageElement === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
                                 imageElement = ED.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
-                                if (imageElement === undefined) {
+                                if(imageElement === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
@@ -753,29 +753,29 @@ exports.documentationExporter = function() {
                 }
 
                 function addHierarchyImages() {
-                    for (let i = 0; i < hierarchyImagesArray.length; i++) {
+                    for(let i = 0; i < hierarchyImagesArray.length; i++) {
                         let imageItem = hierarchyImagesArray[i]
                         let collectionImage
 
-                        if (imageItem.name === undefined) {
+                        if(imageItem.name === undefined) {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
-                            if (appSchemaDocument.icon === undefined) {
+                            if(appSchemaDocument.icon === undefined) {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                                 collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
-                                if (collectionImage === undefined) {
+                                if(collectionImage === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 collectionImage = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
-                                if (collectionImage === undefined) {
+                                if(collectionImage === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
                             collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
-                            if (collectionImage === undefined) {
+                            if(collectionImage === undefined) {
                                 console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
                             }
@@ -783,13 +783,13 @@ exports.documentationExporter = function() {
 
                         let imageElement = collectionImage.asImageNode(document)
 
-                        if (imageItem.size !== undefined) {
+                        if(imageItem.size !== undefined) {
                             imageElement.width = imageItem.size
                             imageElement.height = imageItem.size
                         }
 
                         let hierarchyImageDiv = document.getElementById(imageItem.div)
-                        if (hierarchyImageDiv) { // The lower part of the table is filled with spaces that were added to the array but not to the HTML, we can ignore them.
+                        if(hierarchyImageDiv) { // The lower part of the table is filled with spaces that were added to the array but not to the HTML, we can ignore them.
                             hierarchyImageDiv.appendChild(imageElement)
 
                         }
@@ -799,7 +799,7 @@ exports.documentationExporter = function() {
                 function addProjectImage() {
                     let imageName = thisObject.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
                     let imageElement = ED.designSpace.getIconByProjectAndName(thisObject.currentDocumentBeingRendered.project, imageName)
-                    if (imageElement !== undefined) {
+                    if(imageElement !== undefined) {
                         imageElement = imageElement.asImageNode(document)
                         imageElement.width = "50"
                         imageElement.height = "50"
@@ -811,13 +811,13 @@ exports.documentationExporter = function() {
                 }
 
                 function addMenuItemsImages() {
-                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) {
                         return
                     }
-                    for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
+                    for(let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon(appSchemaDocument.menuItems[i].relatedUiObjectProject, appSchemaDocument.menuItems[i].actionProject)
-                        if (collectionImage === undefined) {
+                        if(collectionImage === undefined) {
                             continue
                         }
                         let imageElement = collectionImage.asImageNode(document)
@@ -830,20 +830,20 @@ exports.documentationExporter = function() {
 
                         function getIcon(relatedUiObjectProject, actionProject) {
                             let project
-                            if (menuItem.relatedUiObject !== undefined) {
-                                if (relatedUiObjectProject !== undefined) {
+                            if(menuItem.relatedUiObject !== undefined) {
+                                if(relatedUiObjectProject !== undefined) {
                                     project = relatedUiObjectProject
                                 } else {
                                     project = thisObject.currentDocumentBeingRendered.project
                                 }
                                 return ED.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
                             } else {
-                                if (actionProject !== undefined) {
+                                if(actionProject !== undefined) {
                                     project = actionProject
                                 } else {
                                     project = thisObject.currentDocumentBeingRendered.project
                                 }
-                                if (menuItem.iconPathOn !== undefined) {
+                                if(menuItem.iconPathOn !== undefined) {
                                     return ED.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
                                 } else {
                                     return ED.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
@@ -854,13 +854,13 @@ exports.documentationExporter = function() {
                 }
 
                 function addChildrenNodesPropertiesImages() {
-                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) {
                         return
                     }
-                    for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
+                    for(let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
                         let collectionImage = getIcon()
-                        if (collectionImage === undefined) {
+                        if(collectionImage === undefined) {
                             continue
                         }
                         let imageElement = collectionImage.asImageNode(document)
@@ -872,7 +872,7 @@ exports.documentationExporter = function() {
                         parentElement.replaceChild(imageElement, dummyImage)
 
                         function getIcon() {
-                            if (childrenNodesProperty.project !== undefined) {
+                            if(childrenNodesProperty.project !== undefined) {
                                 return ED.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
                                 return ED.designSpace.getIconByProjectAndType(thisObject.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
@@ -882,40 +882,40 @@ exports.documentationExporter = function() {
                 }
 
                 function addAttachingAndReferencingRulesImages() {
-                    if (appSchemaDocument === undefined) {
+                    if(appSchemaDocument === undefined) {
                         return
                     }
 
-                    if (appSchemaDocument.attachingRules !== undefined) {
-                        if (appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
+                    if(appSchemaDocument.attachingRules !== undefined) {
+                        if(appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
                             let splittedTypes = appSchemaDocument.attachingRules.compatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
                         }
-                        if (appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
+                        if(appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
                             let splittedTypes = appSchemaDocument.attachingRules.incompatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'attaching-rules-incompatible-types')
                         }
                     }
-                    if (appSchemaDocument.referencingRules !== undefined) {
-                        if (appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
+                    if(appSchemaDocument.referencingRules !== undefined) {
+                        if(appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
                             let splittedTypes = appSchemaDocument.referencingRules.compatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'referencing-rules-compatible-types')
                         }
-                        if (appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
+                        if(appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
                             let splittedTypes = appSchemaDocument.referencingRules.incompatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'referencing-rules-incompatible-types')
                         }
                     }
 
                     function imageForTheseNodes(nodeList, additionToKey) {
-                        for (let i = 0; i < nodeList.length; i++) {
+                        for(let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") {
+                            if(listItem === "") {
                                 continue
                             }
 
                             let collectionImage = getIcon()
-                            if (collectionImage === undefined) {
+                            if(collectionImage === undefined) {
                                 continue
                             }
                             let imageElement = collectionImage.asImageNode(document)
@@ -928,7 +928,7 @@ exports.documentationExporter = function() {
 
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
-                                if (splittedListItem.length === 1) {
+                                if(splittedListItem.length === 1) {
                                     return ED.designSpace.getIconByProjectAndType(thisObject.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
@@ -941,11 +941,11 @@ exports.documentationExporter = function() {
                 }
 
                 function addConfigurationImages() {
-                    if (appSchemaDocument === undefined) {
+                    if(appSchemaDocument === undefined) {
                         return
                     }
                     let configImageElementArray = document.getElementsByClassName('docs-configuration-property-image')
-                    if (configImageElementArray === undefined) {
+                    if(configImageElementArray === undefined) {
                         return
                     }
 
@@ -954,15 +954,15 @@ exports.documentationExporter = function() {
                     we will be shrinking the array.
                     */
                     let imageArray = []
-                    for (let i = 0; i < configImageElementArray.length; i++) {
+                    for(let i = 0; i < configImageElementArray.length; i++) {
                         let dummyImage = configImageElementArray[i]
                         imageArray.push(dummyImage)
                     }
-                    for (let i = 0; i < imageArray.length; i++) {
+                    for(let i = 0; i < imageArray.length; i++) {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
                         let collectionImage = ED.designSpace.getIconByProjectAndName('Foundations', 'configuration')
-                        if (collectionImage === undefined) {
+                        if(collectionImage === undefined) {
                             continue
                         }
                         let imageElement = collectionImage.asImageNode(document)
@@ -988,7 +988,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined || appSchemaDocument.menuItems.length === 0) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined || appSchemaDocument.menuItems.length === 0) {
                         return
                     }
 
@@ -1004,7 +1004,7 @@ exports.documentationExporter = function() {
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
-                    for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
+                    for(let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
 
                         HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element"><img>' + menuItem.label + '</button>'
@@ -1017,7 +1017,7 @@ exports.documentationExporter = function() {
                         renderParagraph(paragraph, key)
                         autoGeneratedParagraphIndex++
 
-                        for (const property in menuItem) {
+                        for(const property in menuItem) {
                             paragraph = {
                                 style: "List",
                                 text: property + ": " + menuItem[property]
@@ -1043,7 +1043,7 @@ exports.documentationExporter = function() {
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
 
-                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined || appSchemaDocument.childrenNodesProperties.length === 0) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined || appSchemaDocument.childrenNodesProperties.length === 0) {
                         return
                     }
 
@@ -1059,7 +1059,7 @@ exports.documentationExporter = function() {
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
-                    for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
+                    for(let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
                         let name = ED.utilities.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
@@ -1074,7 +1074,7 @@ exports.documentationExporter = function() {
                         renderParagraph(paragraph, key)
                         autoGeneratedParagraphIndex++
 
-                        for (const property in childrenNodesProperty) {
+                        for(const property in childrenNodesProperty) {
                             paragraph = {
                                 style: "List",
                                 text: property + ": " + childrenNodesProperty[property]
@@ -1093,7 +1093,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || (appSchemaDocument.attachingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
+                    if(appSchemaDocument === undefined || (appSchemaDocument.attachingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
                         return
                     }
 
@@ -1110,8 +1110,8 @@ exports.documentationExporter = function() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.attachingRules !== undefined) {
-                        if (appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
+                    if(appSchemaDocument.attachingRules !== undefined) {
+                        if(appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Compatible Types:"
@@ -1122,7 +1122,7 @@ exports.documentationExporter = function() {
                             let splittedTypes = appSchemaDocument.attachingRules.compatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
                         }
-                        if (appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
+                        if(appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Incompatible Types:"
@@ -1136,9 +1136,9 @@ exports.documentationExporter = function() {
                     }
 
                     function listAllTheseNodes(nodeList, additionToKey) {
-                        for (let i = 0; i < nodeList.length; i++) {
+                        for(let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") {
+                            if(listItem === "") {
                                 continue
                             }
                             HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
@@ -1152,7 +1152,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || (appSchemaDocument.referencingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
+                    if(appSchemaDocument === undefined || (appSchemaDocument.referencingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
                         return
                     }
 
@@ -1169,8 +1169,8 @@ exports.documentationExporter = function() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.referencingRules !== undefined) {
-                        if (appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
+                    if(appSchemaDocument.referencingRules !== undefined) {
+                        if(appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Compatible Types:"
@@ -1181,7 +1181,7 @@ exports.documentationExporter = function() {
                             let splittedTypes = appSchemaDocument.referencingRules.compatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'referencing-rules-compatible-types')
                         }
-                        if (appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
+                        if(appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Incompatible Types:"
@@ -1195,9 +1195,9 @@ exports.documentationExporter = function() {
                     }
 
                     function listAllTheseNodes(nodeList, additionToKey) {
-                        for (let i = 0; i < nodeList.length; i++) {
+                        for(let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") {
+                            if(listItem === "") {
                                 continue
                             }
                             HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
@@ -1211,7 +1211,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.config !== true) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.config !== true) {
                         return
                     }
                     paragraph = {
@@ -1221,7 +1221,7 @@ exports.documentationExporter = function() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.config === undefined) {
+                    if(appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.config === undefined) {
                         return
                     }
 
@@ -1259,27 +1259,27 @@ exports.documentationExporter = function() {
                     /* First Step: get an array of all the nodes in the workspace of this type */
                     let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
-                    for (let i = 0; i < rootNodes.length; i++) {
+                    for(let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
-                        if (rootNode !== null) {
+                        if(rootNode !== null) {
                             let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
                     /* Second Step: create a map with all the properties used in configurations of this node type */
                     let propertyMap = new Map()
-                    for (let i = 0; i < allNodesFound.length; i++) {
+                    for(let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
                         let config = {}
-                        try { config = JSON.parse(node.config) } catch(e) {}
-                        for (const property in config) {
+                        try {config = JSON.parse(node.config)} catch(e) { }
+                        for(const property in config) {
                             let value = JSON.stringify(config[property], undefined, 4)
                             let valueArray = propertyMap.get(property)
-                            if (valueArray === undefined) {
+                            if(valueArray === undefined) {
                                 propertyMap.set(property, [value])
                             } else {
-                                if (valueArray.includes(value) === false) {
-                                    if (valueArray.length <= 10) {
+                                if(valueArray.includes(value) === false) {
+                                    if(valueArray.length <= 10) {
                                         valueArray.push(value)
                                     }
                                 }
@@ -1296,7 +1296,7 @@ exports.documentationExporter = function() {
                         HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element"><img class="docs-configuration-property-image">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
-                        for (let i = 0; i < valueArray.length; i++) {
+                        for(let i = 0; i < valueArray.length; i++) {
                             let value = valueArray[i]
 
                             paragraph = {
@@ -1317,7 +1317,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.code !== true) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.code !== true) {
                         return
                     }
                     paragraph = {
@@ -1333,7 +1333,7 @@ exports.documentationExporter = function() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
+                    if(appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
                         return
                     }
 
@@ -1376,9 +1376,9 @@ exports.documentationExporter = function() {
                     /* First Step: get an array of all the nodes in the workspace of this type */
                     let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
-                    for (let i = 0; i < rootNodes.length; i++) {
+                    for(let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
-                        if (rootNode !== null) {
+                        if(rootNode !== null) {
                             let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
@@ -1388,7 +1388,7 @@ exports.documentationExporter = function() {
                     without repeating them.
                     */
                     let codeMap = new Map()
-                    for (let i = 0; i < allNodesFound.length; i++) {
+                    for(let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
                         codeMap.set(node.code, node.code)
                     }
@@ -1397,7 +1397,7 @@ exports.documentationExporter = function() {
                     codeMap.forEach(displayProperty)
 
                     function displayProperty(code, mapKey, map) {
-                        if (exampleCounter > 10) {
+                        if(exampleCounter > 10) {
                             return
                         }
                         HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
@@ -1420,7 +1420,7 @@ exports.documentationExporter = function() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.formula !== true) {
+                    if(appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.formula !== true) {
                         return
                     }
                     paragraph = {
@@ -1436,7 +1436,7 @@ exports.documentationExporter = function() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
+                    if(appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
                         return
                     }
 
@@ -1479,9 +1479,9 @@ exports.documentationExporter = function() {
                     /* First Step: get an array of all the nodes in the workspace of this type */
                     let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
-                    for (let i = 0; i < rootNodes.length; i++) {
+                    for(let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
-                        if (rootNode !== null) {
+                        if(rootNode !== null) {
                             let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
@@ -1491,7 +1491,7 @@ exports.documentationExporter = function() {
                     without repeating them.
                     */
                     let codeMap = new Map()
-                    for (let i = 0; i < allNodesFound.length; i++) {
+                    for(let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
                         codeMap.set(node.code, node.code)
                     }
@@ -1500,7 +1500,7 @@ exports.documentationExporter = function() {
                     codeMap.forEach(displayProperty)
 
                     function displayProperty(code, mapKey, map) {
-                        if (exampleCounter > 10) {
+                        if(exampleCounter > 10) {
                             return
                         }
                         HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
@@ -1525,7 +1525,7 @@ exports.documentationExporter = function() {
                 let sufix = ''
                 let role = ''
 
-                switch (paragraph.style) {
+                switch(paragraph.style) {
                     case 'Text': {
                         styleClass = ''
                         prefix = ''
@@ -1806,20 +1806,21 @@ exports.documentationExporter = function() {
                 let type = splittedParams[1]
                 let levels = splittedParams[2]
 
+                // TODO: if schema is not in the map then call need to the convertProjectsToSchemas(project) function to add it
                 appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
-                if (appSchemaDocument === undefined) {
+                if(appSchemaDocument === undefined) {
                     return
                 }
-                if (isNaN(levels) === true) {
+                if(isNaN(levels) === true) {
                     return
                 }
-                if (levels > MAX_COLUMNS) {
+                if(levels > MAX_COLUMNS) {
                     return
                 }
 
                 let contentMatrix = []
 
-                for (let i = 0; i < MAX_ROWS; i++) {
+                for(let i = 0; i < MAX_ROWS; i++) {
                     contentMatrix.push(['', '', '', '', '', '', '', ''])
                 }
 
@@ -1837,7 +1838,7 @@ exports.documentationExporter = function() {
 
                 function scanHierarchy(schemaDocument, project, currentColumn, lastChild) {
 
-                    if (schemaDocument === undefined) {
+                    if(schemaDocument === undefined) {
                         return
                     }
 
@@ -1856,33 +1857,33 @@ exports.documentationExporter = function() {
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 
-                    if (lastChild === true) {
+                    if(lastChild === true) {
                         matrixRow[currentColumn - 1] = ELBOW
                     }
-                    if (lastChild === false) {
+                    if(lastChild === false) {
                         matrixRow[currentColumn - 1] = FORK
                     }
 
-                    if (schemaDocument.childrenNodesProperties === undefined) {
+                    if(schemaDocument.childrenNodesProperties === undefined) {
                         return
                     }
 
-                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    for(let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
                         let childProject = project
-                        if (property.project !== undefined) {
+                        if(property.project !== undefined) {
                             childProject = property.project
                         }
                         let childType = property.childType
                         let childSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(childType)
 
-                        if (i === schemaDocument.childrenNodesProperties.length - 1) {
+                        if(i === schemaDocument.childrenNodesProperties.length - 1) {
                             lastChild = true
                         } else {
                             lastChild = false
                         }
 
-                        if (currentColumn + 1 < levels) {
+                        if(currentColumn + 1 < levels) {
                             scanHierarchy(childSchemaDocument, childProject, currentColumn + 1, lastChild)
                         }
                     }
@@ -1892,10 +1893,10 @@ exports.documentationExporter = function() {
                     /*
                     Fill the empty spaces
                     */
-                    for (let i = 0; i < contentMatrix.length; i++) {
+                    for(let i = 0; i < contentMatrix.length; i++) {
                         let matrixRow = contentMatrix[i]
-                        for (let j = 0; j < matrixRow.length; j++) {
-                            if (matrixRow[j] === '') {
+                        for(let j = 0; j < matrixRow.length; j++) {
+                            if(matrixRow[j] === '') {
                                 matrixRow[j] = SPACE
                             }
                         }
@@ -1906,12 +1907,12 @@ exports.documentationExporter = function() {
                     /*
                     Now we will scan the Matrix to put the lines of the hierarchy.
                     */
-                    for (let i = 0; i < contentMatrix.length; i++) {
+                    for(let i = 0; i < contentMatrix.length; i++) {
                         let matrixRow = contentMatrix[i]
                         let previousRow = contentMatrix[i - 1]
-                        for (let j = 0; j < matrixRow.length; j++) {
-                            if (previousRow && matrixRow[j] === SPACE) {
-                                if (previousRow[j] === FORK || previousRow[j] === LINE) {
+                        for(let j = 0; j < matrixRow.length; j++) {
+                            if(previousRow && matrixRow[j] === SPACE) {
+                                if(previousRow[j] === FORK || previousRow[j] === LINE) {
                                     matrixRow[j] = LINE
                                 }
                             }
@@ -1923,16 +1924,16 @@ exports.documentationExporter = function() {
                     /*
                     Add Image Containers
                     */
-                    for (let i = 0; i < contentMatrix.length; i++) {
+                    for(let i = 0; i < contentMatrix.length; i++) {
                         let matrixRow = contentMatrix[i]
-                        for (let j = 0; j < matrixRow.length; j++) {
+                        for(let j = 0; j < matrixRow.length; j++) {
 
                             let imageItem = {
                                 div: 'hierarchy-image-div-' + hierarchyImagesArray.length,
                                 project: 'Foundations'
                             }
 
-                            switch (matrixRow[j]) {
+                            switch(matrixRow[j]) {
                                 case LINE: {
                                     imageItem.name = 'tree-connector-line'
                                     matrixRow[j] = generateMatrixRow(imageItem.div)
@@ -1972,11 +1973,11 @@ exports.documentationExporter = function() {
                     Add HTML
                     */
                     let oddRow = false
-                    for (let i = 0; i < currentRow + 1; i++) {
+                    for(let i = 0; i < currentRow + 1; i++) {
                         let matrixRow = contentMatrix[i]
 
                         let rowClass
-                        if (oddRow === false) {
+                        if(oddRow === false) {
                             oddRow = true
                             rowClass = ''
                         } else {
@@ -1985,7 +1986,7 @@ exports.documentationExporter = function() {
                         }
 
                         HTML = HTML + '<tr ' + rowClass + '>'
-                        for (let j = 0; j < matrixRow.length; j++) {
+                        for(let j = 0; j < matrixRow.length; j++) {
                             HTML = HTML + '<td class="docs-hierarchy-table-cell"><center>'
                             HTML = HTML + matrixRow[j]
                             HTML = HTML + '</center></td>'
@@ -1997,19 +1998,26 @@ exports.documentationExporter = function() {
 
             /**
              * 
-             * @param previousPage 
-             * @param nextPage 
-             * @param category string
+             * @param {{
+             *   topic: string?, 
+             *   tutorial:string?
+             * }?} previousPage
+             * @param {{
+             *   topic: string?, 
+             *   tutorial:string?
+             * }?} nextPage
+             * @param {string} category
              * @returns 
              */
-            function generateTopicsNavigationLinks(previousPage, nextPage, category) {
-                HTML = HTML + '<div class="docs-topic-navigation"><div>'
-                if (previousPage !== undefined) {
-                    HTML = HTML + previousPaginationLinkBuilder(category, previousPage.topic)
+            function generateNavigationLinks(previousPage, nextPage, category) {
+                const type = category.toLowerCase()
+                HTML = HTML + '<div class="docs-' + type + '-navigation"><div>'
+                if(previousPage !== undefined) {
+                    HTML = HTML + previousPaginationLinkBuilder(category, previousPage[type])
                 }
                 HTML = HTML + '</div><div>'
-                if (nextPage !== undefined) {
-                    HTML = HTML + nextPaginationLinkBuilder(category, previousPage.topic)
+                if(nextPage !== undefined) {
+                    HTML = HTML + nextPaginationLinkBuilder(category, nextPage[type])
                 }
                 HTML = HTML + '</div></div>'
             }
@@ -2017,9 +2025,9 @@ exports.documentationExporter = function() {
 
         /**
          * 
-         * @param category {string}
-         * @param pageType {string}
-         * @returns string
+         * @param {string} category
+         * @param {string} pageType
+         * @returns {string}
          */
         function previousPaginationLinkBuilder(category, pageType) {
             return paginationLinkBuilder(category, pageType, 'Previous')
@@ -2027,9 +2035,9 @@ exports.documentationExporter = function() {
 
         /**
          * 
-         * @param category {string}
-         * @param pageType {string}
-         * @returns string
+         * @param {string} category
+         * @param {string} pageType
+         * @returns {string}
          */
         function nextPaginationLinkBuilder(category, pageType) {
             return paginationLinkBuilder(category, pageType, 'Previous')
@@ -2037,21 +2045,21 @@ exports.documentationExporter = function() {
 
         /**
          * 
-         * @param category {string}
-         * @param pageType {string}
-         * @param content {string}
-         * @returns string
+         * @param {string} category
+         * @param {string} pageType
+         * @param {string} content
+         * @returns {string}
          */
         function paginationLinkBuilder(category, pageType, content) {
             return `${generateUnstyledLink(category, pageType, content)}<br/> ${pageType}`
         }
-        
+
         /**
          * 
-         * @param category {string}
-         * @param pageType {string}
-         * @param content {string}
-         * @returns string
+         * @param {string} category
+         * @param {string} pageType
+         * @param {string} content
+         * @returns {string} 
          */
         function generateUnstyledLink(category, pageType, content) {
             const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
@@ -2072,14 +2080,14 @@ exports.documentationExporter = function() {
 
         HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
 
-        if (thisObject.currentDocumentBeingRendered !== undefined) {
+        if(thisObject.currentDocumentBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="sharePage()"><button>SHARE</button></span>'
         }
         HTML = HTML + '<span style="float: right; display: inline-block;" onClick="scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if (previousDocumentBeingRendered !== undefined) {
+        if(previousDocumentBeingRendered !== undefined) {
             HTML = HTML + generateFooterBookLink(previousDocumentBeingRendered.project, previousDocumentBeingRendered.category, previousDocumentBeingRendered.type, 'BACK')
         }
-        if (thisObject.currentBookBeingRendered !== undefined) {
+        if(thisObject.currentBookBeingRendered !== undefined) {
             HTML = HTML + generateFooterBookLink(thisObject.currentBookBeingRendered.project, thisObject.currentBookBeingRendered.category, thisObject.currentBookBeingRendered.type, 'TO BOOK')
         }
 
@@ -2120,7 +2128,7 @@ exports.documentationExporter = function() {
         /**
          * Iterate over the available languages and add links for each
          */
-        for( let key in languagePack ) {
+        for(let key in languagePack) {
             HTML = HTML + generateLanguageLink(key, languagePack[key])
         }
 
@@ -2225,7 +2233,7 @@ exports.documentationExporter = function() {
 
         function generateFooterBookLink(project, category, pageType, content) {
             const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + project + '/' + category + '/' + pageType.replace(/'/g, 'AMPERSAND'))
-            return '<a style="float: right; display: inline-block;" href="' + link + '">' + content +' </a>'
+            return '<a style="float: right; display: inline-block;" href="' + link + '">' + content + ' </a>'
         }
 
         /**
@@ -2238,11 +2246,11 @@ exports.documentationExporter = function() {
             if(thisObject.currentDocumentBeingRendered !== undefined) {
                 link = ED.utilities.normaliseInternalLink(/*key.toLowerCase() + '/' +*/ thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND') + '.html')
             }
-            let HTML = '<a href="' + link +'"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
-            if (thisObject.currentLanguageCode === key) { 
+            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
+            if(thisObject.currentLanguageCode === key) {
                 HTML = HTML + '-selected'
-            } 
-            return  HTML + '"></a>'
+            }
+            return HTML + '"></a>'
         }
     }
 }

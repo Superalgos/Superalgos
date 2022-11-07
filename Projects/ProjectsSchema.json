@@ -1690,6 +1690,14 @@
             ]
         },
         "SA": {
+            "functionLibraries": [
+                {
+                    "name": "Profile Token Power",
+                    "propertyName": "profileTokenPower",
+                    "functionName": "newGovernanceFunctionLibraryProfileTokenPower",
+                    "fileName": "ProfileTokenPower.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Signing Accounts",

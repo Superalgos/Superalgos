@@ -184,7 +184,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
             console.log((new Date()).toISOString(), '[INFO] Updating wallet balances for each User Profile.')
             console.log('')
-            for (let i = 0; i < userProfiles.length; i++) {
+            
+            for (let i = 0; i < 5; i++) { /* ### DEVELOPMENT CHANGE, REMOVE THIS! ### */
+            /* for (let i = 0; i < userProfiles.length; i++) { */
                 let userProfile = userProfiles[i][1]
                 let signatureObject = userProfile.config.signature
                 let web3 = new SA.nodeModules.web3()
@@ -197,6 +199,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 for (const chain of activeChains) {
                     userProfile.balance = userProfile.balance + await getProfileBalance(chain, userProfile.blockchainAccount)
                 }
+                if (userProfile.payload === undefined ) {
+                    userProfile.payload = {}
+                }
+                userProfile.payload.blockchainTokens = userProfile.balance
+            
                 console.log((new Date()).toISOString(), '[INFO] Accumulated Balance of Address: ' + userProfile.blockchainAccount + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfile.balance))
 
                 loadSigningAccounts()
@@ -349,6 +356,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     }
                 }
             }
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
         }
 
         function calculateProfileRankings() {

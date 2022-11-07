@@ -46,7 +46,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             }
         }
 
-        function triggerPageRendering(project, category) {
+        async function triggerPageRendering(project, category) {
             info('preparing for page transfer rendering')
             const exporter = require('./Scripts/DocumentationExporter')
             const filePaths = []
@@ -66,13 +66,13 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 exportProcess.initialize()
 
                 info('rendering    -> ' + project + ' -> ' + category + ' -> ' + type)
-                exportProcess.render()
-
-                info('writing      -> ' + project + ' -> ' + category + ' -> ' + type)
-                filePaths.push(exportProcess.write())
-
-                info('finalizing   -> ' + project + ' -> ' + category + ' -> ' + type)
-                exportProcess.finalize()
+                await exportProcess.render().then(() => {  
+                    info('writing      -> ' + project + ' -> ' + category + ' -> ' + type)
+                    filePaths.push(exportProcess.write())
+                    
+                    info('finalizing   -> ' + project + ' -> ' + category + ' -> ' + type)
+                    exportProcess.finalize()
+                })
             }
             return filePaths
         }

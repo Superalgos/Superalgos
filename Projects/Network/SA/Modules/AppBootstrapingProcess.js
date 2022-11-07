@@ -198,6 +198,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     userProfile.balance = userProfile.balance + await getProfileBalance(chain, userProfile.blockchainAccount)
                 }
                 console.log((new Date()).toISOString(), '[INFO] Accumulated Balance of Address: ' + userProfile.blockchainAccount + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfile.balance))
+                let percentage = (((i + 1) / userProfiles.length) * 100).toFixed(1)
+                TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Synchronising User Profiles, " + percentage + "% (" + (i + 1) + " of " + userProfiles.length + ")", false)
 
                 loadSigningAccounts()
                 loadStorageContainers()

@@ -65,14 +65,14 @@
     "workbox-webpack-plugin": "^6.5.4",
     "ws": "^8.4.0",
     "bootstrap": "*",
-    "bootstrap-vue": "*"    
+    "bootstrap-vue": "*"
   },
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
-    "electron": "^6.1.12",
+    "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",

@@ -65,8 +65,12 @@ async function runRoot() {
     let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name).sort()
     const categories = ED.schemas.schemaTypes.map(t => t.category).sort()
 
+    info( 'Source files'.padEnd(20) + ' -> preparing index template')
+    setSourceFileLinks()
+
     const results = []
     for(let i = 0; i < projectSchemaNames.length; i++) {
+        await ED.designSpace.copyProjectAssets(projectSchemaNames[i])
         for(let j = 0; j < categories.length; j++) {
             const result = await run({
                 project: projectSchemaNames[i],
@@ -80,6 +84,9 @@ async function runRoot() {
             })
         }
     }
+        
+    await ED.designSpace.copyWebServerData()
+    await ED.designSpace.copyCustomJsScripts()
 
     buildIndexPage(projectSchemaNames, categories, results)
 
@@ -91,14 +98,42 @@ async function runRoot() {
      */
     async function run(projectCategory) {
         global.SCHEMAS_BY_PROJECT = new Map()
-        ED.app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
-        info('Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' is exporting!')
-        const count = await ED.app.run(projectCategory)
+        const app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
+
+        info('Exporting'.padEnd(20) + ' -> ' + projectCategory.project + ' -> ' + projectCategory.category)
+        const count = await ED.schemas.convertProjectsToSchemas(projectCategory.project)
+            .then(() => ED.designSpace.initialize(projectCategory.project))
+            .then(() => setUpMenuItemsMap(projectCategory.project))
+            .then(() => app.run(projectCategory))
+            .then((c) => {
+                ED.designSpace.finalize(projectCategory.project)
+                return c
+            })
         return {
-            log: 'Superalgos documentation ' + projectCategory.project + '/' + projectCategory.category + ' has exported ' + count + ' docs',
+            log: 'Exported'.padEnd(20) + ' -> ' + projectCategory.project + ' -> ' + projectCategory.category + ' completed ' + count + ' docs',
             count,
             project: projectCategory.project,
             category: projectCategory.category
+        }
+
+        function setUpMenuItemsMap(project) {
+            info( 'Menu items'.padEnd(20) + ' -> iterating schema project map')
+            /*
+            Here we will put put all the menu item labels of all nodes at all
+            app schemas into a single map, that will allow us to know when a phrase
+            is a label of a menu and then change its style.
+            */
+            let appSchemaArray = global.SCHEMAS_BY_PROJECT.get(project).array.appSchema
+
+            for(let j = 0; j < appSchemaArray.length; j++) {
+                const docsSchemaDocument = appSchemaArray[j]
+
+                if(docsSchemaDocument.menuItems === undefined) {continue}
+                for(let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
+                    const menuItem = docsSchemaDocument.menuItems[k]
+                    ED.menuLabelsMap.set(menuItem.label, true)
+                }
+            }
         }
     }
 
@@ -136,5 +171,29 @@ async function runRoot() {
         catch(error) {
             console.error(error)
         }
+    }
+
+    function setSourceFileLinks() {
+        const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.baseIndexFile))
+
+        const docs = dom.window.document.createElement('link')
+        docs.type = 'text/css'
+        docs.rel = 'stylesheet'
+        docs.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/docs.css'
+        dom.window.document.getElementsByTagName('head')[0].appendChild(docs)
+        
+        const fonts = dom.window.document.createElement('link')
+        fonts.type = 'text/css'
+        fonts.rel = 'stylesheet'
+        fonts.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/font-awasome.css'
+        dom.window.document.getElementsByTagName('head')[0].appendChild(fonts)
+
+        // adding this to the bottom of the <body> as not sure if jsdom supports `defer` tag
+        const actionScripts = dom.window.document.createElement('script')
+        actionScripts.type = 'text/javascript'
+        actionScripts.src = '/' + global.env.REMOTE_DOCS_DIR + '/js/action-scripts.js'
+        dom.window.document.getElementsByTagName('body')[0].appendChild(actionScripts)
+
+        SA.nodeModules.fs.writeFileSync(ED.indexFile, dom.serialize())
     }
 }

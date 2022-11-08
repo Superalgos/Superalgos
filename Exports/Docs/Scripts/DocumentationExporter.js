@@ -532,32 +532,36 @@ exports.documentationExporter = function documentationExporter() {
                     }
                     let includedSchemaDocument
 
-                    if(SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                    let projectSchema = SCHEMAS_BY_PROJECT.get(project)
+                    if(projectSchema === undefined) {
+                        projectSchema = await ED.schemas.convertProjectsToSchemas(project).then(() => SCHEMAS_BY_PROJECT.get(project))
+                    }
+                    if(projectSchema === undefined) {
                         return {error: 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include blocks from a page. This error message will disappear as soon as you fix the problem.'}
                     }
                     switch(category) {
                         case 'Node': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsNodeSchema.get(type)
                             break
                         }
                         case 'Concept': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsConceptSchema.get(type)
                             break
                         }
                         case 'Topic': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsTopicSchema.get(type)
                             break
                         }
                         case 'Tutorial': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsTutorialSchema.get(type)
                             break
                         }
                         case 'Review': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsReviewSchema.get(type)
                             break
                         }
                         case 'Book': {
-                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+                            includedSchemaDocument = projectSchema.map.docsBookSchema.get(type)
                             break
                         }
                         default:
@@ -665,7 +669,11 @@ exports.documentationExporter = function documentationExporter() {
                         return {error: 'Chapter paragraph style Syntax Error. Some of the required parameters are undefined. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'}
                     }
 
-                    if(SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                    let projectSchema = SCHEMAS_BY_PROJECT.get(project)
+                    if(projectSchema === undefined) {
+                        projectSchema = await ED.schemas.convertProjectsToSchemas(project).then(() => SCHEMAS_BY_PROJECT.get(project))
+                    }
+                    if(projectSchema === undefined) {
                         return {error: 'Chapter paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'}
                     }
 

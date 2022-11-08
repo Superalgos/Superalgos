@@ -1,3 +1,5 @@
+const {debug, error, warn} = require('./Logger').logger
+
 exports.schemaGeneration = function schemaGeneration() {
     const thisObject = {
         convertProjectsToSchemas: convertProjectsToSchemas,
@@ -76,7 +78,9 @@ exports.schemaGeneration = function schemaGeneration() {
 
         for(let j = 0; j < thisObject.schemaTypes.length; j++) {
             const schemaType = thisObject.schemaTypes[j]
-            const schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType)
+            const path = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
+            debug('retrieving schema ' + schemaType + ' from ' + path)
+            const schema = await sendSchema(path, schemaType)
             process(schema, schemas, schemaType.key)
         }
 
@@ -110,14 +114,14 @@ exports.schemaGeneration = function schemaGeneration() {
         function process(schema, schemas, schemaKey) {
             try {
                 schemas.array[schemaKey] = JSON.parse(schema)
-
+                debug('processing ' + schemas.array[schemaKey].length + 'schemas for ' + schemaKey)
                 for(let j = 0; j < schemas.array[schemaKey].length; j++) {
                     const schemaDocument = schemas.array[schemaKey][j]
                     const key = schemaDocument.type
                     schemas.map[schemaKey].set(key, schemaDocument)
                 }
             } catch(err) {
-                console.error(err)
+                error(err)
             }
         }
         /**
@@ -205,7 +209,7 @@ exports.schemaGeneration = function schemaGeneration() {
             } catch(err) {
                 if(err.message.indexOf('no such file or directory') < 0) {
                     warn('Could not send Schema:', filePath, schemaType.name)
-                    console.error(err)
+                    error(err)
                 }
                 return []
             }

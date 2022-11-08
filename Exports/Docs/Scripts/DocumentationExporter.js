@@ -169,7 +169,7 @@ exports.documentationExporter = function documentationExporter() {
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink('Images/superalgos-logo.png') + '" width=200></div>'
+            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></div>'
             HTML = HTML + '<div class="docs-search-results-box">'
             HTML = HTML + '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
             HTML = HTML + '</div>'
@@ -2137,14 +2137,13 @@ exports.documentationExporter = function documentationExporter() {
              * @returns 
              */
             function generateNavigationLinks(previousPage, nextPage, category) {
-                const type = category.toLowerCase()
-                HTML = HTML + '<div class="docs-' + type + '-navigation"><div>'
+                HTML = HTML + '<div class="docs-topic-navigation"><div>'
                 if(previousPage !== undefined) {
-                    HTML = HTML + previousPaginationLinkBuilder(category, previousPage[type])
+                    HTML = HTML + previousPaginationLinkBuilder(category, previousPage.type)
                 }
                 HTML = HTML + '</div><div>'
                 if(nextPage !== undefined) {
-                    HTML = HTML + nextPaginationLinkBuilder(category, nextPage[type])
+                    HTML = HTML + nextPaginationLinkBuilder(category, nextPage.type)
                 }
                 HTML = HTML + '</div></div>'
             }
@@ -2167,7 +2166,7 @@ exports.documentationExporter = function documentationExporter() {
          * @returns {string}
          */
         function nextPaginationLinkBuilder(category, pageType) {
-            return paginationLinkBuilder(category, pageType, 'Previous')
+            return paginationLinkBuilder(category, pageType, 'Next')
         }
 
         /**
@@ -2189,7 +2188,7 @@ exports.documentationExporter = function documentationExporter() {
          * @returns {string} 
          */
         function generateUnstyledLink(category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + thisObject.currentDocumentBeingRendered.project + '/' + category + '/' + ED.utilities.normaliseStringForLink(pageType))
+            const link = ED.utilities.normaliseInternalLink([/*thisObject.currentLanguageCode, */ thisObject.currentDocumentBeingRendered.project, category, ED.utilities.normaliseStringForLink(pageType)])
             return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }
@@ -2349,7 +2348,7 @@ exports.documentationExporter = function documentationExporter() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink('Images/superalgos-logo-white.png') + '" width="200 px">'
+        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink(['Images','superalgos-logo-white.png']) + '" width="200 px">'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
@@ -2359,7 +2358,7 @@ exports.documentationExporter = function documentationExporter() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink(/*'/' + thisObject.currentLanguageCode +*/ '/' + project + '/' + category + '/' + ED.utilities.normaliseStringForLink(pageType))
+            const link = ED.utilities.normaliseInternalLink([/*thisObject.currentLanguageCode,*/ project, category, ED.utilities.normaliseStringForLink(pageType)])
             return '<a style="float: right; display: inline-block;" href="' + link + '">' + content + ' </a>'
         }
 
@@ -2369,11 +2368,11 @@ exports.documentationExporter = function documentationExporter() {
          * @param {string} language
          */
         function generateLanguageLink(key, language) {
-            let link = ED.utilities.normaliseInternalLink('index.html') //key.toLowerCase() + '/index.html') // TODO: add language support
+            let link = ED.utilities.normaliseInternalLink(['index.html']) //key.toLowerCase() + '/index.html') // TODO: add language support
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = ED.utilities.normaliseInternalLink(/*key.toLowerCase() + '/' +*/ thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + '.html')
+                link = ED.utilities.normaliseInternalLink([/*key.toLowerCase(),*/ thisObject.currentDocumentBeingRendered.project, thisObject.currentDocumentBeingRendered.category, ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + '.html'])
             }
-            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink('Images/Languages/' + key + '.png') + '" title="' + language + '" class="docs-footer-language'
+            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink(['Images','Languages', key + '.png']) + '" title="' + language + '" class="docs-footer-language'
             if(thisObject.currentLanguageCode === key) {
                 HTML = HTML + '-selected'
             }

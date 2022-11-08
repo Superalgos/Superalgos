@@ -92,7 +92,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             })
             let html = '<div>'
             for(let i = 0; i < files.length; i++) {
-                html += '<div class="docs-definition-floating-cells"><a href="' + ED.utilities.normaliseInternalLink(files[i].path) + '">' + files[i].name + '</a></div>'
+                html += '<div class="docs-definition-floating-cells"><a href="' + ED.utilities.normaliseInternalLink(files[i].path.split('/')) + '">' + files[i].name + '</a></div>'
             }
             html += '</div>'
 

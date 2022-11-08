@@ -1,9 +1,17 @@
 exports.logger = {
+    debug: function debug(message) {
+        if(process.env.Environment !== undefined && process.env.Environment == 'development') {
+            log('[DEBUG] ' + message)
+        }
+    },
     info: function info(message) {
-        log('[INFO] ' + message)
+        log('[INFO]  ' + message)
     },
     warn: function warn(message) {
-        log('[WARN] ' + message)
+        log('[WARN]  ' + message)
+    },
+    error: function error(err) {
+        console.error((new Date()).toISOString(), err)
     }
 }
 

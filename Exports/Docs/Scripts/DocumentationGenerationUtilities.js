@@ -255,7 +255,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         let HTML = ''
         let splittedText = text.split('->')
         if (splittedText.length < 1) { return }
-        HTML = '<a  params="' + text + '" href="http://' + splittedText[1] + '" target="_" class="docs-external-link">' + splittedText[0] + '</a>'
+        HTML = '<a  params="' + text + '" href="https://' + splittedText[1] + '" target="_" class="docs-external-link">' + splittedText[0] + '</a>'
         return HTML
     }
 
@@ -764,20 +764,23 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      * adds the global remote directory root to all internal links.
      * 
      * Adds '.html' suffix is no siffix is provided
-     * @param {string} link 
+     * @param {string[]} routeParts 
      * @return {string}
      */
-     function normaliseInternalLink(link) {
-        if(link.indexOf('/') === 0) {
-            link = link.substring(1)
+     function normaliseInternalLink(routeParts) {
+        if(routeParts.length == 0) {
+            return '/' + global.env.REMOTE_DOCS_DIR + '/index.html'
         }
-        if(link.indexOf(global.env.PATH_TO_PAGES_DIR) === 0) {
-            link = link.substring(global.env.PATH_TO_PAGES_DIR.length+1)
+        if(routeParts[0] === global.env.PATH_TO_PAGES_DIR) {
+            routeParts.splice(0, 1)
         }
-        if(!/\.[a-z]{3,4}/.test(link)) {
-            link += '.html'
+        if(!/\.[a-z]{3,4}/.test(routeParts[routeParts.length-1])) {
+            return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/') + '.html'
+
         }
-        return '/' + global.env.REMOTE_DOCS_DIR + '/' + link
+        else {
+            return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/')
+        }
     }
 
     /**

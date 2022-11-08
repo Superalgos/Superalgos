@@ -1,8 +1,6 @@
 exports.logger = {
     debug: function debug(message) {
-        if(process.env.Environment !== undefined && process.env.Environment == 'development') {
-            log('[DEBUG] ' + message)
-        }
+        // log('[DEBUG] ' + message)
     },
     info: function info(message) {
         log('[INFO]  ' + message)

@@ -29,6 +29,7 @@ exports.documentationDesignSpace = function() {
 
         await copyWebServerData()
         await copyCustomJsScripts()
+        await copyProjectAssets(project)
 
         const iconsArray = await new Promise(res => SA.projects.foundations.utilities.icons.retrieveIcons(x => res(x)))
 
@@ -90,7 +91,6 @@ exports.documentationDesignSpace = function() {
         }
 
         async function copyWebServerData() {
-            //TOD: transfer css, Fonts, Images
             const base = global.env.PATH_TO_PLATFORM + '/WebServer/'
             const transferDirectories = ['css', 'Fonts', 'Images']
             const filesTasks = transferDirectories.map( dir => new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + dir, (f) => res(f))))
@@ -112,6 +112,55 @@ exports.documentationDesignSpace = function() {
                 const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
                 copyFile(baseDir + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
             })
+        }
+
+        /**
+         * 
+         * @param {string} project 
+         * @returns {Promise<void>}
+         */
+        async function copyProjectAssets(project) {
+            const assetDirectories = ['PNGs', 'GIFs']
+            for(let i = 0; i < assetDirectories.length; i++) {
+                await copyAssetDirectory(project, assetDirectories[i])
+            }
+
+            async function copyAssetDirectory(project, assetDirectory) {
+                const base = global.env.PATH_TO_PROJECTS + '/' + project + '/'
+                const files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + assetDirectory, (f) => res(f)))
+                files.forEach(file => {
+                    let fileParts = file.replaceAll('\\','/').split('/')
+                    const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
+                    const {from, to} = generateTransferDirectories(base, project, assetDirectory, fileParts)
+                    copyFile(from, to, fileName)
+                })
+
+                /**
+                 * 
+                 * @param {string} base 
+                 * @param {string} project 
+                 * @param {string} assetDirectory 
+                 * @param {string[]} fileParts 
+                 * @returns {{
+                 *   from: string,
+                 *   to: string
+                 * }}
+                 */
+                function generateTransferDirectories(base, project, assetDirectory, fileParts) {
+                    const result = {
+                        from: base + fileParts.join('/') + '/',
+                        to: global.env.PATH_TO_PAGES_DIR + '/'
+                    }
+                    if(fileParts.length === 0) {
+                        return result
+                    }
+                    if(fileParts[0] === assetDirectory) {
+                        fileParts = fileParts.slice(1)
+                    }
+                    result.to += [assetDirectory, project].concat(fileParts).join('/') + '/'
+                    return result
+                }
+            }
         }
 
         function buildIconByProjectAndTypeMap(project) {
@@ -179,7 +228,7 @@ exports.documentationDesignSpace = function() {
 
         function asImageNode(doc) {
             const img = doc.createElement('img')
-            img.src = ED.utilities.normaliseInternalLink(image.src.replaceAll('\\','/'))
+            img.src = ED.utilities.normaliseInternalLink(image.src.replaceAll('\\','/').split('/'))
             img.alt = image.fileName.replaceAll('\\','/')
             return img
         }

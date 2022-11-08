@@ -1,4 +1,4 @@
-const {info} = require('./Logger').logger
+const {info, warn} = require('./Logger').logger
 
 exports.documentationExporter = function documentationExporter() {
     let thisObject = {
@@ -786,7 +786,7 @@ exports.documentationExporter = function documentationExporter() {
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if(imageElement === undefined) {
-                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                warn('Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
                             }
                         } else {
@@ -794,14 +794,14 @@ exports.documentationExporter = function documentationExporter() {
                                 /* This is the default behaviours */
                                 imageElement = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if(imageElement === undefined) {
-                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    warn('Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
                                 imageElement = ED.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if(imageElement === undefined) {
-                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    warn('Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             }
@@ -826,20 +826,20 @@ exports.documentationExporter = function documentationExporter() {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                                 collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if(collectionImage === undefined) {
-                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    warn('Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 collectionImage = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if(collectionImage === undefined) {
-                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    warn('Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
                             collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if(collectionImage === undefined) {
-                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                warn('Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
                             }
                         }
@@ -1834,7 +1834,7 @@ exports.documentationExporter = function documentationExporter() {
                         sufix = ''
                         role = ''
                         key = key + '-gif'
-                        innerHTML = ED.utilities.parseGIF(paragraph.text)
+                        innerHTML = ED.utilities.parseGIF(ED.utilities.normaliseInternalLink(paragraph.text.split('/')))
                         break
                     }
                     case 'Png': {
@@ -1843,7 +1843,7 @@ exports.documentationExporter = function documentationExporter() {
                         sufix = ''
                         role = ''
                         key = key + '-png'
-                        innerHTML = ED.utilities.parsePNG(paragraph.text)
+                        innerHTML = ED.utilities.parsePNG(ED.utilities.normaliseInternalLink(paragraph.text.split('/')))
                         break
                     }
                     case 'Javascript': {

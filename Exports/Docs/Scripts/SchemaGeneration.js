@@ -76,10 +76,11 @@ exports.schemaGeneration = function schemaGeneration() {
         }
         SCHEMAS_BY_PROJECT.set(project, schemas)
 
+        const path = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
+        debug('retrieving schemas from ' + path)
         for(let j = 0; j < thisObject.schemaTypes.length; j++) {
             const schemaType = thisObject.schemaTypes[j]
-            const path = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
-            debug('retrieving schema ' + schemaType + ' from ' + path)
+            debug('retrieving schema from ' + schemaType.folder)
             const schema = await sendSchema(path, schemaType)
             process(schema, schemas, schemaType.key)
         }
@@ -114,7 +115,7 @@ exports.schemaGeneration = function schemaGeneration() {
         function process(schema, schemas, schemaKey) {
             try {
                 schemas.array[schemaKey] = JSON.parse(schema)
-                debug('processing ' + schemas.array[schemaKey].length + 'schemas for ' + schemaKey)
+                debug('processing ' + schemas.array[schemaKey].length + ' schemas for ' + schemaKey)
                 for(let j = 0; j < schemas.array[schemaKey].length; j++) {
                     const schemaDocument = schemas.array[schemaKey][j]
                     const key = schemaDocument.type

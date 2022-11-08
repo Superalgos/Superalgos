@@ -1,6 +1,4 @@
-const path = require('path')
-
-const {info, warn} = require('./Scripts/Logger').logger
+const {info} = require('./Scripts/Logger').logger
 exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     let thisObject = {
@@ -107,7 +105,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 SA.nodeModules.fs.writeFileSync(destination, dom.serialize())
             }
             catch(error) {
-                console.error(error)
+                error(error)
             }
             return files.length
         }

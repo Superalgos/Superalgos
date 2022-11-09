@@ -292,14 +292,15 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| RSI-Div | rsiDiv | status, strength, divPerc |",
+            "text": "| Product Name | Product Variable | Properties |\n| RsiDiv | rsiDiv | status, strength, divPerc |",
             "translations": [
                 {
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| RSI-Div | rsiDiv | status, strength, divPerc |",
                     "updated": 1647002989169
                 }
-            ]
+            ],
+            "updated": 1667786359335
         },
         {
             "style": "List",
@@ -323,7 +324,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "strength: возвращает строку со следующими возможными значениями: weak (\"слабый\"), medium (\"средний\"), strong (\"сильный\").",
+                    "text": "strength: возвращает строку со следующими возможными значениями: weak (\"слабый\"), medium (\"средний\"), strong (\"сильны��\").",
                     "updated": 1647356842718
                 },
                 {

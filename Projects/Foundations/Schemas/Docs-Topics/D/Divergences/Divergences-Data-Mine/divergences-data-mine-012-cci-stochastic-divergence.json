@@ -88,8 +88,8 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| Cci-Stoch | CciStoch | cci, value|\n| cci-Stoch-Div | cci-stoch-Div | status, strength, divPerc |",
-            "updated": 1649651265823
+            "text": "| Product Name | Product Variable | Properties |\n| CciStoch | CciStoch | cci, value|\n| cciStochDiv | cciStochDiv | status, strength, divPerc |",
+            "updated": 1667785870770
         },
         {
             "style": "List",
@@ -109,15 +109,18 @@
         },
         {
             "style": "Javascript",
-            "text": "chart.at01hs.cci-stoch-Div.status == \"bullish\""
+            "text": "chart.at01hs.cciStochDiv.status == \"bullish\"",
+            "updated": 1667786491327
         },
         {
             "style": "Javascript",
-            "text": "chart.at15min.cci-stoch-Div.strength == \"strong\""
+            "text": "chart.at15min.cciStochDiv.strength == \"strong\"",
+            "updated": 1667786498543
         },
         {
             "style": "Javascript",
-            "text": "chart.at15min.cci-stoch-Div.divPerc > 20"
+            "text": "chart.at15min.cciStochDiv.divPerc > 20",
+            "updated": 1667786505144
         },
         {
             "style": "Text",

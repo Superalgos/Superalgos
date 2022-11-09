@@ -66,7 +66,7 @@ exports.documentationDesignSpace = function() {
                 from = from + pathParts.join('/') + '/'
                 to = to +  pathParts.join('/') + '/'
             }
-            image.src = to
+            image.src = to + image.fileName
 
             if(project === iconProject) {
                 copyFile(from, to, image.fileName)

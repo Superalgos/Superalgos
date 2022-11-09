@@ -9,14 +9,8 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     async function run({project, category}) {
         info('Project conversion'.padEnd(20) + ' -> ' + project + ' -> ' + category + ' -> START')
-        const completed = await triggerPageRendering(project, category)
+        return await triggerPageRendering(project, category)
             .then((filePaths) => filePaths.length > 0 ? buildIndexPage(filePaths) : 0)
-            .then((count) => {
-                ED.designSpace.finalize(project)
-                return count
-            })
-            
-        return completed
 
         async function triggerPageRendering(project, category) {
             info('Page rendering'.padEnd(20) + ' -> preparing')

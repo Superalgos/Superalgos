@@ -277,8 +277,8 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| kvo-Div | kvoDiv | status, strength, divPerc |",
-            "updated": 1646113220653,
+            "text": "| Product Name | Product Variable | Properties |\n| kvoDiv | kvoDiv | status, strength, divPerc |",
+            "updated": 1667785843250,
             "translations": [
                 {
                     "language": "TR",

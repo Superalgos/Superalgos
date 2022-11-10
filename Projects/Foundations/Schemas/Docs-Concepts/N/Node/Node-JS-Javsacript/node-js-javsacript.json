@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Задача в Superalgos выполняется в Node.js, а это означает, что условия и формулы, которые вы пишете в своей торговой системе Trading System, должны соответствовать синтаксису Javascript для Node.js.",
                 "updated": 1638286331533
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'taki bir Görev ( Task ) Node JS'de çalışır, bu da Ticaret Sisteminizde ( Trading System ) yazdığınız Koşulların ve Formüllerin Node JS sözdizimi için Javascript ile uyumlu olması gerektiği anlamına gelir.\n",
+                "updated": 1666725402236
             }
         ]
     },

@@ -34,7 +34,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Pair",
+            "relatedUiObject": "Install Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
         },
@@ -44,7 +44,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Pair",
+            "relatedUiObject": "Uninstall Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
         },

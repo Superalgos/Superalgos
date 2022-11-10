@@ -36,9 +36,35 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
         switch (callerRole) {
             case 'Network Client': {
                 thisObject.p2pNodesToConnect = []
+                
+                let connectOnlyRequestedToP2pNode = false
+                let connectOnlyToP2pNode
+
+                /*
+                We will check the p2pNetworkClient node located at this task for a specified network node to connect this task to.
+                If a specific network node is requested then it will be the only available network node to that task.
+                */
+                if (p2pNetworkClientNode !== undefined) {
+                    if (p2pNetworkClientNode.p2pNetworkNodeReference !== undefined) {
+                        if (p2pNetworkClientNode.p2pNetworkNodeReference.referenceParent !== undefined) {
+                            if (p2pNetworkClientNode.p2pNetworkNodeReference.referenceParent.id !== undefined) {
+                                connectOnlyToP2pNode = p2pNetworkClientNode.p2pNetworkNodeReference.referenceParent
+                                connectOnlyRequestedToP2pNode = true
+                            }
+                        }
+                        }
+                    }
+                else {
+                    console.log('[ERROR] The P2P Network Client node is required at each task. Please add the node and try again.')
+                }
 
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+
+                    // If we have a defined network node profile to connect to we will only check that profile.
+                    if (connectOnlyRequestedToP2pNode) {
+                        if (p2pNetworkNode.node.id !== connectOnlyToP2pNode.id) { continue }
+                    }
 
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent === undefined) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }
@@ -64,7 +90,7 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                     let clientMinimunBalance = p2pNetworkNode.node.config.clientMinimunBalance | 0
                     if (userProfileBalance < clientMinimunBalance) {
                         console.log('')
-                        console.log((new Date()).toISOString(), '[INFO] Network Client User Profile ' + userProfileCodeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileBalance) + ' while the Minimun Balance Required to connect to the Network Node "' + p2pNetworkNode.userProfile.config.codeName + '/' + p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance) + '. If you want to be able to connect to this Network Node you will need to earn or buy more SA tokens and try again.')
+                        console.log((new Date()).toISOString(), '[INFO] Network Client User Profile ' + userProfileCodeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileBalance) + ' while the Minimum Balance Required to connect to the Network Node "' + p2pNetworkNode.userProfile.config.codeName + '/' + p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance) + '. If you want to be able to connect to this Network Node you will need to earn or buy more SA tokens and try again.')
                         console.log('')
                         continue
                     }
@@ -72,7 +98,7 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                     checkForPermissions(p2pNetworkNode)
                 }
 
-                console.log((new Date()).toISOString(), '[INFO] These are the P2P Network Nodes we can connect to: all nodes that do not have the network services and network interfaces defined required by the Network Client were filtered out. Network nodes that requires a minimun User Profile Balance than the one you have also been filtered out.')
+                console.log((new Date()).toISOString(), '[INFO] These are the P2P Network Nodes we can connect to: all nodes that do not have the network services and network interfaces defined required by the Network Client were filtered out. Network nodes that require a higher minimum User Profile Balance than the one you have also were filtered out.')
                 console.log('')
                 for (let i = 0; i < thisObject.p2pNodesToConnect.length; i++) {
                     console.log(i + ' - ' + thisObject.p2pNodesToConnect[i].userProfile.config.codeName + ' - ' + thisObject.p2pNodesToConnect[i].node.config.codeName)

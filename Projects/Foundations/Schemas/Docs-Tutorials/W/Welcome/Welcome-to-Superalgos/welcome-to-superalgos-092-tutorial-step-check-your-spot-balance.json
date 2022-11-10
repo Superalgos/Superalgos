@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Прежде чем запустить торговую сессию, убедитесь, что у вас есть достаточный спотовый баланс USDT на бирже!",
                 "updated": 1642770642070
+            },
+            {
+                "language": "NL",
+                "text": "Voordat u de Live Trading Session uitvoert, moet u ervoor zorgen dat u voldoende USDT-spotsaldo op het handelsplatform heeft!",
+                "updated": 1667126549046
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Посмотрите на свой баланс на бирже и обеспечьте достаточное количество USDT для сессии!",
                     "updated": 1642770663587
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk je saldo op het handelsplatform en zorg voor voldoende USDT voor de sessie!",
+                    "updated": 1667126576886
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Торговый бот разместит один лимитный ордер для initialBalance и отменит его в следующую минуту, если он не будет заполнен, как объяснялось ранее.",
                     "updated": 1642770684092
+                },
+                {
+                    "language": "NL",
+                    "text": "De Trading Bot plaatst één limietorder voor het initialBalance en annuleert het de volgende minuut als het niet wordt ingevuld, zoals eerder uitgelegd.",
+                    "updated": 1667126613343
                 }
             ]
         },
@@ -127,8 +142,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Continua il tutorial anche se non sei pronto al live trading. Imparerai altri trucchi utili prima della fine.",
-                    "updated": 1618070434600,
+                    "text": "Continua anche se non sei pronto per fare trading! È importante perché ci sono altre cose da imparare nel tutorial!",
+                    "updated": 1666393360949,
                     "style": "Note"
                 },
                 {
@@ -156,6 +171,11 @@
                     "language": "RU",
                     "text": "Продолжайте, даже если вы еще не готовы торговать! Это важно, потому что в учебнике есть еще много интересного!",
                     "updated": 1642770698237
+                },
+                {
+                    "language": "NL",
+                    "text": "Blijf doorgaan, zelfs als u nog niet klaar bent om te handelen! Het is belangrijk omdat er meer dingen te leren zijn in deze handleiding!",
+                    "updated": 1667126655701
                 }
             ]
         }

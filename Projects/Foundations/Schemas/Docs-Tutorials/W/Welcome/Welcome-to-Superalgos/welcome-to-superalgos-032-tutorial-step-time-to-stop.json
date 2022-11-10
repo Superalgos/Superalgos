@@ -45,8 +45,13 @@
             },
             {
                 "language": "NL",
-                "text": "We gaan nog niet een Live Trading Session starten, dus heeft het geen zin om data mining te blijven uitvoeren.",
-                "updated": 1638779733396
+                "text": "We gaan nog geen Live Trading Session starten, dus het heeft geen zin om onze datamining draaiende te houden.",
+                "updated": 1666616132991
+            },
+            {
+                "language": "FR",
+                "text": "Nous n'allons pas encore lancer une session de trading en direct, il n'y a donc aucun intérêt à maintenir notre minage de données en cours.",
+                "updated": 1667987677704
             }
         ],
         "updated": 1640265234059
@@ -95,6 +100,11 @@
                     "language": "NL",
                     "text": "Twee belangrijke situaties om Data Tasks uit te voeren:",
                     "updated": 1638780094753
+                },
+                {
+                    "language": "FR",
+                    "text": "Il existe deux raisons principales pour miner des données:",
+                    "updated": 1667987743364
                 }
             ]
         },
@@ -141,6 +151,11 @@
                     "language": "NL",
                     "text": "Om historische data te verwerken: je wilt een tijdsperiode voor een Market verwerken om een Backtesting Session te draaien, of om nieuwe indicators te verwerken.",
                     "updated": 1638780213369
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour analyser les données historiques: vous souhaitez traiter une période d'un marché donné pour exécuter une session de backtesting ou pour traiter de nouveaux indicateurs.",
+                    "updated": 1667987895330
                 }
             ]
         },
@@ -185,8 +200,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Om een live sessie te draaien: Een live sessie zoals een Paper Trading Session, Forward Testing Session, of Live Trading Session, hebben een een live market feed nodig.",
-                    "updated": 1638780229514
+                    "text": "Om een live sessie te draaien: Verschillende live sessie zoals een Paper Trading Session, Forward Testing Session, of Live Trading Session, hebben actuele markt gegevens nodig.",
+                    "updated": 1666616226456
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour exécuter une session en direct : les sessions en direct peuvent être de différents types, telles que le Paper Trading Session, la Forward Testing Session et la Live Trading Session, ont toutes besoin d'un flux de marché en direct.",
+                    "updated": 1667988002478
                 }
             ]
         },
@@ -230,8 +250,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. We stoppen de taken vanuit een andere node dan we ze starten!",
-                    "updated": 1638780188048
+                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. Merk op dat je de taken vanuit een andere node kan stoppen dan welke we gebruikt hebben ze te starten!",
+                    "updated": 1666616307543
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque tous les processus sont à jour, sélectionnez \"Stop All Tasks\" dans le nœud Market Data Tasks. Notez que nous pouvons arrêter les tâches à partir d'un nœud différent de celui que nous avons utilisé pour les démarrer !",
+                    "updated": 1667988053679
                 }
             ],
             "updated": 1622197433719

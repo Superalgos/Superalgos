@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Mengapa level naik dan turun? Ada sesuatu yang belum aku katakan kepadamu, karena aku khawatir itu akan membuat kamu kebingungan!",
                 "updated": 1640563934168
+            },
+            {
+                "language": "NL",
+                "text": "Waarom springen niveaus op en neer? Er is iets dat ik je nog niet heb verteld, want ik ben bang dat het je versteld zal doen staan!",
+                "updated": 1666879285313
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Bot melacak semua level support aktif sejak awal dataset, tetapi hanya menunjukkan kepada kamu lima level yang paling dekat dengan harga saat ini.",
                     "updated": 1640564010745
+                },
+                {
+                    "language": "NL",
+                    "text": "De bot houdt alle ondersteuningsniveaus in leven sinds het begin van de dataset, maar toont u alleen de vijf niveaus die het dichtst bij de huidige prijs liggen.",
+                    "updated": 1666879312170
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "Melacak informasi untuk seluruh rentang dataset—yang dapat dihitung bertahun-tahun—adalah nilai luar biasa dari data mining, dan hal-hal yang tidak dapat kamu hitung dengan fungsi, secara cepat. Plotter yang terkait dengan Indicator Bot secara dinamis menunjukkan lima level dukungan yang paling dekat dengan harga karena itu adalah level yang relevan untuk konteksnya, dan begitulah cara plotter dibangun!",
                     "updated": 1640564257307
+                },
+                {
+                    "language": "NL",
+                    "text": "Het bijhouden van informatie voor de hele periode van de dataset - die jaren kan bevatten - is de buitengewone waarde van datamining, en het soort dingen dat je niet meteen met een functie zou kunnen berekenen. De Plotter welke is gekoppeld aan de Indicator Bot toont dynamisch de vijf ondersteuningsniveaus die het dichtst bij de prijs liggen, omdat dit de relevante niveaus zijn voor de context, en zo is de plotter opgebouwd!",
+                    "updated": 1666879415866
                 }
             ]
         }

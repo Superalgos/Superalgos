@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Люди могут получить доступ к этой информации, используя классный трюк, который заставляет пространство диаграмм взаимодействовать с пространством проектирования!",
                 "updated": 1642769480612
+            },
+            {
+                "language": "NL",
+                "text": "Mensen kunnen toegang krijgen tot deze informatie door een coole truc te gebruiken die ervoor zorgt dat de grafiekruimte interageert met de ontwerpruimte!",
+                "updated": 1667125252947
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Чтобы использовать этот трюк, я просто сделал следующее:",
                     "updated": 1642769496764
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deze truc te gebruiken, deed ik het volgende:",
+                    "updated": 1667125278411
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Разделите экран пополам, потянув ползунок вверх, чтобы мы могли видеть оба пространства одновременно.",
                     "updated": 1642769512294
+                },
+                {
+                    "language": "NL",
+                    "text": "Splits het scherm in tweeën en trek de schuifregelaar omhoog zodat we beide ruimtes tegelijkertijd kunnen zien.",
+                    "updated": 1667125290506
                 }
             ]
         },
@@ -156,6 +171,11 @@
                     "language": "RU",
                     "text": "Включите слой Current Position в менеджере слоев Trading Engine. Я выбрал этот слой, потому что он соответствует этой секции иерархии... tradingEngine.tradingCurrent.position, помните?",
                     "updated": 1642769542948
+                },
+                {
+                    "language": "NL",
+                    "text": "Schakel de laag Current Position in de laagmanager van de Trading Engine in. Ik heb deze laag gekozen omdat deze overeenkomt met dit gedeelte van de hiërarchie... tradingEngine.tradingCurrent.position, weet je nog?",
+                    "updated": 1667125361083
                 }
             ]
         },
@@ -194,6 +214,11 @@
                     "language": "RU",
                     "text": "Теперь проведите указателем мыши по свечам, по которым занята позиция, и посмотрите, что происходит на узлах слева...",
                     "updated": 1642769561252
+                },
+                {
+                    "language": "NL",
+                    "text": "Schuif nu de muisaanwijzer over de kaarsen waarop de positie wordt ingenomen en kijk wat er gebeurt op de knooppunten aan de linkerkant...",
+                    "updated": 1667125396763
                 }
             ]
         }

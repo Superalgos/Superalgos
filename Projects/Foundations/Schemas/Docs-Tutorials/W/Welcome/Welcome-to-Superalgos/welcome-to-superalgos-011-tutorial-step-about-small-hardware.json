@@ -30,8 +30,8 @@
             },
             {
                 "language": "FR",
-                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
-                "updated": 1623959646265,
+                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de trading, il faut disposer de puissance pour effectuer un travail actif!",
+                "updated": 1666253596587,
                 "style": "Definition"
             },
             {
@@ -143,8 +143,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Nous recommandons vivement d'apprendre Superalgos en l'exécutant dans une machine de puissance commune. Si vous remarquez que votre petite machine est trop lente pendant ce tutoriel, envisagez d'utiliser du matériel de meilleurs capacité, jusqu'à ce que vous appreniez le système, construisiez vos premières stratégies. et soyez prêt à vous déployer. Sinon, cela peut être frustrant.",
-                    "updated": 1623960113019,
+                    "text": "Nous recommandons vivement d'apprendre Superalgos en l'exécutant sur une machine de puissance correcte. Si vous remarquez que votre machine est trop lente pendant ce tutoriel, envisagez d'utiliser du matériel de meilleure capacité, jusqu'à ce que vous appreniez le système, construisiez vos premières stratégies et soyez prêt à déployer. Sinon, cela peut être frustrant.",
+                    "updated": 1666253689926,
                     "style": "Success"
                 },
                 {

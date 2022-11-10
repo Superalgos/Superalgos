@@ -26,6 +26,16 @@
                 "text": "Bu adım, bir videoyu tam ekran modunda oynatacaktır.",
                 "updated": 1654394244115,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1666787160645
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape jouera une vidéo en mode plein écran.",
+                "updated": 1668069707228
             }
         ]
     },

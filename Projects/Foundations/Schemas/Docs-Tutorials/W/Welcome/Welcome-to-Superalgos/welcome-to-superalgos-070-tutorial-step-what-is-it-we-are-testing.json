@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Kita telah menjalankan backtest tetapi kita belum membahas Trading System yang kita uji! Mari kita pergi melalui dasar-dasar!",
                 "updated": 1639748602660
+            },
+            {
+                "language": "NL",
+                "text": "We hebben een backtest uitgevoerd, maar we hebben het Trading System dat we aan het testen zijn niet besproken! Laten we de basis doornemen!",
+                "updated": 1666876245924
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "trading idea adalah membeli \"the falling knife\" dan menjual \"rebound\". Strategi menempatkan Limit Buy Order pada jarak di bawah harga. Jika pesanan tidak dipenuhi pada menit berikutnya, pesanan dibatalkan dan pesanan baru ditempatkan, berpotensi pada tingkat yang disesuaikan. Jika harga turun tiba-tiba, kemungkinan order akan terisi. Jika itu terjadi, maka strategi mencoba menjual dengan harga lebih tinggi.",
                     "updated": 1639748809480
+                },
+                {
+                    "language": "NL",
+                    "text": "Het handelsidee is \"het vallende mes\" kopen en \"de rebound\" verkopen. De strategie plaatst een Limit Buy Order op een afstand onder de prijs. Als de bestelling de volgende minuut niet is gevuld, wordt de bestelling geannuleerd en wordt een nieuwe bestelling geplaatst, mogelijk tegen een aangepaste prijs. Als de prijs plotseling daalt, is de kans groot dat de order wordt gevuld. Als dat gebeurt, probeert de strategie tegen een hogere prijs te verkopen.",
+                    "updated": 1666876348643
                 }
             ]
         },
@@ -123,6 +133,11 @@
                     "language": "ID",
                     "text": "Mari kita tidak membahas manfaat dari trading idea tetapi implementasinya. Ini hanya demo untuk memamerkan kapasitas Trading Bot, bukan strateginya sendiri.",
                     "updated": 1639748659157
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het niet hebben over de kwaliteit van de strategie, maar over de implementatie. Dit is slechts een demo om de capaciteiten van de Trading Bot te laten zien, niet de strategie op zich.",
+                    "updated": 1666876453651
                 }
             ]
         }

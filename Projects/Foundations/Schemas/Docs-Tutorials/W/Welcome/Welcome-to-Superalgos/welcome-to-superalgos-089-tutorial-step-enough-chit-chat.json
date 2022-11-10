@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Ладно, друг мой... Пришло время для настоящего дела! Готов ли ты к небольшой реальной торговой сессии (Live Trading Session)?",
                 "updated": 1642769755730
+            },
+            {
+                "language": "NL",
+                "text": "Ok, mijn vriend... Het is tijd voor het echte werk! Ben je klaar voor een kleine Live Trading Session?",
+                "updated": 1667125871872
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Я помогу вам выполнить три основных требования:",
                     "updated": 1642769779975
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik help je met de drie belangrijkste vereisten:",
+                    "updated": 1667125886328
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Проверьте свои параметры, в частности, решите, сколько капитала вы хотите выделить на сессию.",
                     "updated": 1642769796252
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer met name uw parameters en bepaal hoeveel kapitaal u aan de sessie wilt toewijzen.",
+                    "updated": 1667125903899
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "RU",
                     "text": "Настройте ключ учетной записи биржи (\"Exchange Account Key\"), чтобы приложение могло получить доступ к вашей учетной записи на бирже.",
                     "updated": 1642769821837
+                },
+                {
+                    "language": "NL",
+                    "text": "Stel een Exchange Account Key in zodat de app toegang heeft tot uw account op het handelsplatform.",
+                    "updated": 1667125943050
                 }
             ]
         },
@@ -165,8 +185,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Garantisci un live data feed: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
-                    "updated": 1618068565912,
+                    "text": "Garantisci un feed di dati continuo dal vivo: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
+                    "updated": 1666393257776,
                     "style": "List"
                 },
                 {
@@ -194,6 +214,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что живой поток данных, т.е. операция по поиску данных с индикаторами, которые требуются торговой системе, работает и обновляется.",
                     "updated": 1642769863710
+                },
+                {
+                    "language": "NL",
+                    "text": "Zorg voor een live datafeed, dat wil zeggen dat de datamining-operatie met de door het Trading System vereiste indicatoren actief en up-to-date moet zijn.",
+                    "updated": 1667125979184
                 }
             ]
         },
@@ -204,8 +229,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se per un qualunque motivo non sei pronto a fare live trading, non preccuparti! Prosegui pure.",
-                    "updated": 1618068597799,
+                    "text": "Se non sei pronto per fare un po' di trading dal vivo per qualsiasi motivo, non preoccuparti, continua. Almeno imparerai come funzionano le cose!",
+                    "updated": 1666392783419,
                     "style": "Note"
                 },
                 {
@@ -233,6 +258,11 @@
                     "language": "RU",
                     "text": "Если вы по каким-то причинам не готовы к реальной торговле, не волнуйтесь, просто продолжайте. Вы, по крайней мере, узнаете, как все работает!",
                     "updated": 1642769880588
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je om welke reden dan ook niet klaar bent om live te handelen, maak je dan geen zorgen, ga gewoon door. Je leert in ieder geval hoe dingen werken!",
+                    "updated": 1667125995919
                 }
             ]
         }

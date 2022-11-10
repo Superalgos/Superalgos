@@ -79,20 +79,28 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             console.table(parametersIsON)
 
             let combinations = []
+            let length_LEARNING_RATE = (parametersRanges.LEARNING_RATE != undefined ? parametersRanges.LEARNING_RATE.length : 1) 
+            let length_OBSERVATION_WINDOW_SIZE = (parametersRanges.OBSERVATION_WINDOW_SIZE != undefined ? parametersRanges.OBSERVATION_WINDOW_SIZE.length : 1) 
             for (let k = 0; k < parametersRanges.LIST_OF_ASSETS.length; k++) {
                 for (let l = 0; l < parametersRanges.LIST_OF_TIMEFRAMES.length; l++) {
-                    for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
-                        let combination = []
-                        //Increasing or decreasing depending on which direction
-                        for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
-                            let key = parametersIsON[j]
-                            let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
-                            combination.push(parameter)
-                        }
-                        combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
-                        combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
-                        combinations.push(combination);
-                    }        
+                    for (let m = 0; m < length_LEARNING_RATE; m++) {                        
+                        for (let n = 0; n < length_OBSERVATION_WINDOW_SIZE; n++) {                        
+                            for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                                let combination = []
+                                //Increasing or decreasing depending on which direction
+                                for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                                    let key = parametersIsON[j]
+                                    let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                                    combination.push(parameter)
+                                }
+                                combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
+                                combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
+                                if (parametersRanges.LEARNING_RATE != undefined) combination.push({ key: 'LEARNING_RATE', value: parametersRanges.LEARNING_RATE[m] })
+                                if (parametersRanges.OBSERVATION_WINDOW_SIZE != undefined) combination.push({ key: 'OBSERVATION_WINDOW_SIZE', value: parametersRanges.OBSERVATION_WINDOW_SIZE[n] })
+                                combinations.push(combination);
+                            }
+                        }        
+                    }
                 }
             }
             return combinations
@@ -378,9 +386,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return
             }
             testCase.status = 'Tested'
-            testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
-            testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
-            testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
+            testCase.elapsedSeconds = testResult.elapsedTime.toFixed(0)
+            testCase.elapsedMinutes = (testResult.elapsedTime / 60).toFixed(2)
+            testCase.elapsedHours = (testResult.elapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
             testCase.pythonScriptName = testResult.pythonScriptName
             testCase.testedByProfile = userProfile
@@ -397,13 +405,13 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             //RL      
             } else if (testResult["0"] != undefined) {
                 testCase.predictions = testResult["2"].current_action
-                testCase.ratio_train = testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin
-                testCase.ratio_test = testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin
-                testCase.ratio_validate = testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin
+                testCase.ratio_train = (testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin).toFixed(2)
+                testCase.ratio_test = (testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin).toFixed(2)
+                testCase.ratio_validate = (testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin).toFixed(2)
                 
-                testCase.std_train = testResult["0"].stdNetWorthAtEnd
-                testCase.std_test = testResult["1"].stdNetWorthAtEnd
-                testCase.std_validate = testResult["2"].stdNetWorthAtEnd
+                testCase.std_train = (testResult["0"].stdNetWorthAtEnd / testResult["0"].NetWorthAtBegin).toFixed(4)
+                testCase.std_test = (testResult["1"].stdNetWorthAtEnd / testResult["1"].NetWorthAtBegin).toFixed(4)
+                testCase.std_validate = (testResult["2"].stdNetWorthAtEnd / testResult["2"].NetWorthAtBegin).toFixed(4)
             }
 
             let logQueue = []

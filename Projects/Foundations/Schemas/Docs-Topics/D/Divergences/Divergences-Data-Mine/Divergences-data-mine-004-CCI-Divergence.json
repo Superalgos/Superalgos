@@ -277,14 +277,15 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| CCI-Div | cciDiv | status, strength, divPerc |",
+            "text": "| Product Name | Product Variable | Properties |\n| CciDiv | cciDiv | status, strength, divPerc |",
             "translations": [
                 {
                     "language": "TR",
                     "text": "|  Ürün Adı | Ürün Değişkeni | Özellikler |\n| CCI-Div | cciDiv | durum, güç, divPerc |",
                     "updated": 1647716999522
                 }
-            ]
+            ],
+            "updated": 1667785800257
         },
         {
             "style": "List",

@@ -82,8 +82,8 @@
                         let handler = eventListeners.get(key)
                         if (handler) {
                             handler.callBack(message)
-                        } else {
-                            console.log(`${(new Date()).toISOString()} [ERROR] handler not found in eventListeners. key = ${key}`)
+                        //} else {
+                        //    console.log(`${(new Date()).toISOString()} [ERROR] handler not found in eventListeners. key = ${key}`)
                         }
                         return
                     }
@@ -92,8 +92,8 @@
                         let handler = responseWaiters.get(message.callerId)
                         if (handler) {
                             handler(message)
-                        } else {
-                            console.log(`${(new Date()).toISOString()} [ERROR] handler not found in responseWaiters. message.callerId = ${message.callerId}`)
+                        //} else {
+                        //    console.log(`${(new Date()).toISOString()} [ERROR] handler not found in responseWaiters. message.callerId = ${message.callerId}`)
                         }
                         return
                     }

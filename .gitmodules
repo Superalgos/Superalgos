@@ -1,0 +1,27 @@
+[submodule "Governance"]
+	path = Plugins/Governance
+	url = https://github.com/Superalgos/Governance-Plugins
+[submodule "Foundations"]
+	path = Plugins/Foundations
+	url = https://github.com/Superalgos/Foundations-Plugins
+[submodule "Algorithmic-Trading"]
+	path = Plugins/Algorithmic-Trading
+	url = https://github.com/Superalgos/Algorithmic-Trading-Plugins
+[submodule "TensorFlow"]
+	path = Plugins/TensorFlow
+	url = https://github.com/Superalgos/TensorFlow-Plugins
+[submodule "Trading-Signals"]
+	path = Plugins/Trading-Signals
+	url = https://github.com/Superalgos/Trading-Signals-Plugins
+[submodule "Portfolio-Management"]
+	path = Plugins/Portfolio-Management
+	url = https://github.com/Superalgos/Portfolio-Management-Plugins
+[submodule "Machine-Learning"]
+	path = Plugins/Machine-Learning
+	url = https://github.com/Superalgos/Machine-Learning-Plugins
+[submodule "Data-Mining"]
+	path = Plugins/Data-Mining
+	url = https://github.com/Superalgos/Data-Mining-Plugins
+[submodule "Network"]
+	path = Plugins/Network
+	url = https://github.com/Superalgos/Network-Plugins

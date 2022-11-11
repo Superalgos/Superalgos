@@ -79,11 +79,7 @@ function manageApps() {
           // remove app name
           appDef.shift()
 
-          console.log('we have multiple apps')
-          console.log( appName, appDef)
-
           appStartProfiles(appName, appDef)
-          
         } 
       }
 
@@ -93,7 +89,7 @@ function manageApps() {
         for (let i = 4; i < process.argv.length; i++) {
           appArguments += ' ' + process.argv[i]
         }
-        console.log('this is arguments', appArguments)
+
         appStartProfiles(process.argv[3], appArguments)
       }
 
@@ -170,5 +166,3 @@ function appStartProfiles(app, arguments) {
 }
 
 manageApps()
-// figure out how to disconnect after all stuff is run
-pm2.disconnect()

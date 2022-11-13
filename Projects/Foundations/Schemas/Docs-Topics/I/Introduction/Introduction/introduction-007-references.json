@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Um eine Referenz herzustellen, klicken Sie mit der rechten Maustaste auf den ersten Knoten und ziehen ihn in die Nähe des Zielknotens. Um eine Referenz zu entfernen, verwenden Sie die Schaltfläche Delink im Menü.",
                 "updated": 1643180204105
+            },
+            {
+                "language": "NL",
+                "text": "Om een referentie vast te stellen, klikt u met de rechtermuisknop op het eerste knooppunt en sleept u het naar het doelknooppunt. Gebruik de delink knop in het menu om een referentie te verwijderen.",
+                "updated": 1668338997266
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "DE",
                     "text": "Referenzen haben eine Richtungseigenschaft in Bezug auf jeden der an der Referenz beteiligten Nodes: Der Node, der die Referenz herstellt, setzt eine ausgehende Referenz, während der Node, der die Referenz akzeptiert, eine eingehende Referenz setzt.",
                     "updated": 1643178817756
+                },
+                {
+                    "language": "NL",
+                    "text": "Referenties hebben een richtingseigenschap met betrekking tot elk van de knooppunten die bij de referentie betrokken zijn: het knooppunt dat de referentie tot stand brengt, stelt een uitgaande referentie in, terwijl degene die de referentie accepteert een inkomende referentie instelt.",
+                    "updated": 1668338647809
                 }
             ]
         },
@@ -100,6 +110,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel stellt eine Backtesting Session eine ausgehende Referenz zu einem Trading System her. Dies ermöglicht der Sitzung den Zugriff auf die Informationen innerhalb der gesamten Trading-System-Hierarchie, einschließlich der Strategien. Auf der Ebene des Trading-Systems wird die gleiche Referenz als eingehende Referenz betrachtet.",
                     "updated": 1643178915672
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Backtesting Session brengt bijvoorbeeld een uitgaande referentie tot stand met een Trading System. Hierdoor heeft de sessie toegang tot de informatie binnen de hele hiërarchie van het handelssysteem, inclusief strategieën. Op het niveau van het handelssysteem wordt dezelfde referentie gezien als een inkomende referentie.",
+                    "updated": 1668338688023
                 }
             ]
         },
@@ -126,6 +141,11 @@
                     "language": "DE",
                     "text": "Ein Node darf nur eine ausgehende Referenz erzeugen, kann aber mehrere eingehende Referenzen aufnehmen.",
                     "updated": 1643178979063
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt kan slechts één uitgaande referentie produceren, maar het kan meerdere inkomende referenties accepteren.",
+                    "updated": 1668338720701
                 }
             ]
         },
@@ -178,6 +198,11 @@
                     "language": "DE",
                     "text": "Ein Verweis, der zwischen Nodes einer bestimmten Struktur innerhalb einer Hierarchie hergestellt wird, wird als interner Verweis in Bezug auf die besagte Struktur von Nodes bezeichnet. Entsprechend wird eine Referenz, die mit einem Knoten außerhalb der genannten Struktur, d. h. in einem anderen Teil der Hierarchie oder in einer anderen Hierarchie, hergestellt wird, als externe Referenz bezeichnet.",
                     "updated": 1643179205457
+                },
+                {
+                    "language": "NL",
+                    "text": "Een referentie die tot stand wordt gebracht tussen knooppunten van een bepaalde structuur binnen een hiërarchie wordt een interne referentie genoemd met betrekking tot de genoemde structuur van knooppunten. Evenzo wordt een referentie die tot stand is gebracht met een knooppunt buiten de genoemde structuur, dat wil zeggen in een ander deel van de hiërarchie of in een andere hiërarchie, een externe referentie genoemd.",
+                    "updated": 1668338752770
                 }
             ]
         },
@@ -205,6 +230,11 @@
                     "language": "DE",
                     "text": "Beispiele für interne Verweise finden sich in den Hierarchien Data Mine und Crypto Ecosystem. Schauen wir uns zum Beispiel kurz einen solchen Fall innerhalb eines Plotter-Moduls an.",
                     "updated": 1643179401456
+                },
+                {
+                    "language": "NL",
+                    "text": "Voorbeelden van interne verwijzingen zijn te vinden in de hiërarchieën Data Mine en Crypto Ecosystem. Laten we bijvoorbeeld kort kijken naar een dergelijk geval binnen een Plotter Module.",
+                    "updated": 1668338783386
                 }
             ]
         },
@@ -232,6 +262,11 @@
                     "language": "DE",
                     "text": "Die folgende Abbildung zeigt den Shapes Node und mehrere untergeordnete Nodes: einerseits mehrere Polygon Nodes, andererseits den Chart Points Node.",
                     "updated": 1643179477086
+                },
+                {
+                    "language": "NL",
+                    "text": "De onderstaande opname toont het Shapes knooppunt en verschillende sub-knooppunten: aan de ene kant verschillende Polygoon knooppunten; aan de andere kant, het knooppunt Chart Points.",
+                    "updated": 1668338832753
                 }
             ]
         },
@@ -263,6 +298,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass die Scheitelpunkte (Vertex) unter jedem Polygon auf Punkte unter dem Chart Points Node verweisen.",
                     "updated": 1643179624807
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat hoekpunten onder elke polygoon verwijzen naar punten onder het knooppunt van chart points.",
+                    "updated": 1668338862641
                 }
             ]
         },
@@ -290,6 +330,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass der Node Shapes mehrere interne Referenzen aufweist.",
                     "updated": 1643179679721
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit betekent dat het knooppunt Shapes verschillende interne referenties heeft.",
+                    "updated": 1668338879168
                 }
             ]
         },
@@ -317,6 +362,11 @@
                     "language": "DE",
                     "text": "Die Operationen \"backup\", \"clone\" und \"share\" machen auf unterschiedliche Weise Gebrauch von den Eigenschaften von Referenzen. Wir werden diese drei Operationen ausführlich behandeln, damit Sie das Beste aus diesen Funktionen machen können.",
                     "updated": 1643179812074
+                },
+                {
+                    "language": "NL",
+                    "text": "De back-up-, kloon- en deelbewerkingen maken verschillend gebruik van de eigenschappen van referenties. We zullen deze drie uitgebreid behandelen, zodat u het meeste uit deze functies kunt halen.",
+                    "updated": 1668338901977
                 }
             ]
         },
@@ -371,6 +421,11 @@
                     "language": "DE",
                     "text": "Referenzen werden grafisch durch schwache graue gepunktete Linien dargestellt, sind aber standardmäßig nicht sichtbar. Referenzen werden sichtbar, wenn Sie mit dem Mauszeiger auf einen Node zeigen, der eine Referenz hat, oder wenn Sie die Anzeige aller Referenzen mit der folgenden Tastenkombination aktivieren:",
                     "updated": 1643179997175
+                },
+                {
+                    "language": "NL",
+                    "text": "Verwijzingen worden grafisch weergegeven met vage grijze stippellijnen, maar zijn standaard niet zichtbaar. Referenties worden zichtbaar wanneer u de muisaanwijzer op een knooppunt houdt dat een referentie heeft, of wanneer u de weergave van alle referenties activeert met de volgende toetsencombinatie:",
+                    "updated": 1668338930529
                 }
             ]
         },
@@ -402,6 +457,11 @@
                     "language": "DE",
                     "text": "Damit Referenzen sichtbar sind, müssen beide an der Referenz beteiligten Nodes sichtbar sein.",
                     "updated": 1643180077915
+                },
+                {
+                    "language": "NL",
+                    "text": "Om referenties zichtbaar te maken, moeten beide knooppunten die bij de referentie betrokken zijn, zichtbaar zijn.",
+                    "updated": 1668338949493
                 }
             ]
         },
@@ -433,6 +493,11 @@
                     "language": "DE",
                     "text": "Wie man Referenzen herstellt und entfernt",
                     "updated": 1643180099309
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe referenties tot stand te brengen en te verwijderen",
+                    "updated": 1668338965915
                 }
             ]
         },

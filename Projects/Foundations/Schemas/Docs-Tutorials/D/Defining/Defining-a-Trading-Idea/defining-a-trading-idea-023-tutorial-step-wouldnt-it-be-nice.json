@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Summary: Özet: Trend zaten belirlendikten sonra bir düşüşün devamını tahmin edebilmek ne kadar havalı olurdu?",
                 "updated": 1640949310633
+            },
+            {
+                "language": "ES",
+                "text": "¿Cómo de genial sería ser capaz de predecir la continuación de una caída una vez que la tendencia ya está establecida?",
+                "updated": 1668192466008
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İyi kurulmuş bir trendin tersine döneceğini tahmin etmek çok zor bir iştir. Az önce 10 Nisan için yaptığımız analiz iyi bir örnek: 1H ve 4H zaman dilimlerindeki kırılma orta vadede bir trendin tersine dönmesini işaret ederken, uzun vadeli trend bozulmadan kaldı.",
                     "updated": 1640948801348
+                },
+                {
+                    "language": "ES",
+                    "text": "Predecir el cambio de una tendencia bien establecida es una tarea muy complicada. El análisis que acabamos de hacer para el 10 de abril es un buen ejemplo: aunque la ruptura en los marcos temporales 1H y 4H marcó un cambio de tendencia a medio plazo, la tendencia a largo plazo se mantuvo intacta.",
+                    "updated": 1668192875405
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Ticarete daha güvenli bir yaklaşım, halihazırda kurulmuş olan bir trendin devamını tahmin etmektir!     Kural 8'i hatırlıyor musun? Bollinger Bantlarının dışındaki kapanışlar başlangıçta devam sinyalleridir!",
                     "updated": 1640949333106
+                },
+                {
+                    "language": "ES",
+                    "text": "Un enfoque más seguro para operar es predecir la continuación de una tendencia que ya está establecida.¿Recuerda la regla 8? Los cierres fuera de las bandas de Bollinger son inicialmente señales de continuación.",
+                    "updated": 1668192804879
                 }
             ]
         }

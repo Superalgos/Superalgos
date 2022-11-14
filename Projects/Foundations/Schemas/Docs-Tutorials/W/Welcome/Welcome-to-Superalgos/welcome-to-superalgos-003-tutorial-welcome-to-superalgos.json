@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu llegada y enseñarte lo básico.",
-                "updated": 1613594456875,
+                "text": "¡Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu incorporación y enseñarte todo lo básico!",
+                "updated": 1667507185163,
                 "style": "Definition"
             },
             {
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Te pondré en marcha, te mostraré las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas geniales que Superalgos puede hacer por ti.",
-                    "updated": 1613594557989,
+                    "text": "Te enseñaré los primeros pasos, las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas interesantes que Superalgos puede hacer por ti. ",
+                    "updated": 1667507266748,
                     "style": "Text"
                 },
                 {
@@ -124,8 +124,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los tutoriales son la mejor manera de comenzar en Superalgos. Empezar de otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías recorrer todos los tutoriales antes de intentar poner en marcha tus estrategias!",
-                    "updated": 1618431788534,
+                    "text": "Los tutoriales son la herramienta definitiva para iniciarse en Superalgos. Empezar con Superalgos de cualquier otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías hacer todos los tutoriales antes de intentar implementar tus propias ideas! ",
+                    "updated": 1667507315761,
                     "style": "Callout"
                 },
                 {

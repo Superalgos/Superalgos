@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Şimdiye kadar, tüm işlemler %100 olmalıdır. Gidip grafikler üzerinde biraz çalışabilmemiz için verilerin hazır olmasına ihtiyacımız var!",
                 "updated": 1640869840820
+            },
+            {
+                "language": "ES",
+                "text": "En este momento, todos los procesos deberían estar al 100%. Necesitamos que los datos estén listos para poder ir a trabajar en los gráficos.",
+                "updated": 1668189996012
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını görün. Hepsi %100 ise, veri madenciliğini durdurun!",
                     "updated": 1640869956806
+                },
+                {
+                    "language": "ES",
+                    "text": "Revisa todos los procesos y comprueba si están al 100%. Si todos lo están, ¡pare el Data Tasks Node!",
+                    "updated": 1668190211896
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Devam etmeden önce tüm işlemlerin %100 işaretine ulaşmasını bekleyin!",
                     "updated": 1640870047711
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Espere hasta que todos los procesos estén al 100% antes de continuar!",
+                    "updated": 1668190115448
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": " İpucu: Bir sonraki adımda Bollinger Bantlarını kontrol etmek için grafiklere gidiyoruz, böylece test edeceğimiz ticaret fikrini tartışabiliriz!",
                     "updated": 1640870153849
+                },
+                {
+                    "language": "ES",
+                    "text": "En el siguiente paso vamos a los gráficos y miraremos las Bandas de Bollinger para poder discutir la idea de trading que vamos a probar.",
+                    "updated": 1668190165911
                 }
             ]
         }

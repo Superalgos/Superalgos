@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Katakanlah kamu ingin menguji strategi dengan set parameter yang berbeda, sehingga kamu mengambil cadangan dari node Trading Parameters!",
                 "updated": 1644516038588
+            },
+            {
+                "language": "NL",
+                "text": "Stel dat u een strategie met verschillende sets parameters wilt testen, dus u maakt een back-up van het knooppunt Trading Parameters!",
+                "updated": 1668337495857
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Cobalah cadangkan! Sekarang kamu memiliki cadangan semua Trading Parameters, Kamu dapat mengubah salah satu dari mereka mengetahui bahwa kamu selalu dapat kembali ke cadanganmu! Jika kamu menggunakan Chrome, hasil cadangan terlihat di sudut kiri bawah jendela browser.",
                     "updated": 1644516179151
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga je gang en neem de back-up! Nu u een back-up hebt van alle Trading Parameters, kunt u ze allemaal wijzigen, wetende dat u altijd terug kunt naar uw back-up! Als u Chrome gebruikt, moet de back-up zichtbaar zijn in de linkerbenedenhoek van het browservenster.",
+                    "updated": 1668337537681
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Sekarang seret file cadangan dan letakkan di Design Space! Begitulah cara kamu mengembalikan hasil cadanganmu!",
                     "updated": 1644516227078
+                },
+                {
+                    "language": "NL",
+                    "text": "Sleep nu het back-upbestand en zet het neer in de Design Space! Zo herstel je een back-up!",
+                    "updated": 1668337564741
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Mudah bukan? Pada step berikutnya, aku akan menunjukkan kepadamu bagaimana kembali ke versi aslinya!",
                     "updated": 1644516298490
+                },
+                {
+                    "language": "NL",
+                    "text": "Makkelijk toch? In de volgende stap laat ik je zien hoe je de originele versie weer kunt gebruiken!",
+                    "updated": 1668337583673
                 }
             ]
         }

@@ -1727,10 +1727,10 @@ exports.documentationExporter = function documentationExporter() {
                     return await renderParagraphForTranslation(paragraph, key, ED.DEFAULT_LANGUAGE)
                 }
                 let html = ''
-                /* Add translation options if available */
-                if(paragraph.translations !== undefined) {
-                    html += addTranslationIcons(paragraph.translations)
-                }
+                // /* Add translation options if available */
+                // if(paragraph.translations !== undefined) {
+                //     html += addTranslationIcons(paragraph.translations)
+                // }
                 const translations = [ED.DEFAULT_LANGUAGE].concat(paragraph.translations.map(t => t.language))
                 for(let i = 0; i < translations.length; i++) {
                     html += await renderParagraphForTranslation(paragraph, key, translations[i])

@@ -62,7 +62,7 @@ async function runRoot() {
     */
     SA.version = require('./package.json').version
 
-    let projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name).sort()
+    const projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name).sort()
     const categories = ED.schemas.schemaTypes.map(t => t.category).sort()
 
     info( 'Source files'.padEnd(20) + ' -> preparing index template')

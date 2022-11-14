@@ -1,3 +1,37 @@
+/**
+ * @typedef {{
+ *   language: string,
+ *   text: string
+ * }} Translation
+ * 
+ * @typedef {{
+ *   text: string,
+ *   translations: Translation[]
+ * }} Definition
+ * 
+ * @typedef {{
+ *   project: string,
+ *   type: string,
+ *   category: string,
+ *   nodeId: string,
+ *   placeholder: {
+ *     [key: string]: string
+ *   }
+ * }} Document
+ * 
+ * @typedef {{
+ *   style: string,
+ *   text: string,
+ *   translations: Translation[]
+ * }} Paragraph
+ * 
+ * @typedef {{
+ *   definition: Definition,
+ *   type: string,
+ *   paragraphs: Paragraph[]
+ * }} SchemaDocument
+ */
+
 exports.documentGenerationUtilities = function documentGenerationUtilities() {
     let thisObject = {
         buildOrderedPageIndex: buildOrderedPageIndex,
@@ -109,9 +143,15 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         return ''
     }
 
+    /**
+     * 
+     * @param {Paragraph} paragraph 
+     * @param {string} currentLanguageCode 
+     * @returns 
+     */
     function getTextBasedOnLanguage(paragraph, currentLanguageCode) {
         if (paragraph === undefined) { return }
-        if (paragraph.translations === undefined) { return paragraph.text }
+        if (paragraph.translations === undefined || currentLanguageCode === undefined) { return paragraph.text }
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]

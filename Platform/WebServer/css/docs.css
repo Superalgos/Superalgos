@@ -368,6 +368,10 @@ width: 100%;
 box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 .docs-section {
 font-size:120%;
 padding: 200px;

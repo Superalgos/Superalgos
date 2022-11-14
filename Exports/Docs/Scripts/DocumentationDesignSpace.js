@@ -208,15 +208,15 @@ exports.documentationDesignSpace = function() {
         const transferDirectories = ['Fonts', 'Images']
         const filesTasks = transferDirectories.map( dir => new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + dir, (f) => res(f))))
         const files = (await Promise.all(filesTasks)).flat()
-        info('Design space'.padEnd(29) + ' -> transfering -> fonts and images')
+        info('Design space'.padEnd(20) + ' -> transfering -> fonts and images')
         files.forEach(file => {
             let fileParts = file.replaceAll('\\','/').split('/')
             const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
             const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
             copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
         })
-        info('Design space'.padEnd(29) + ' -> transfering -> css')
-        const cssFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + CSS, (f) => res(f)))
+        info('Design space'.padEnd(20) + ' -> transfering -> css')
+        const cssFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + 'css', (f) => res(f)))
         cssFiles.filter((f) => f.indexOf('docs.css') > 0 || f.indexOf('font-awasome.css') > 0)
             .forEach(file => {
                 let fileParts = file.replaceAll('\\','/').split('/')

@@ -25,13 +25,11 @@ exports.documentationDesignSpace = function() {
     }
 
     async function initialize(project) {
-        info('Design space'.padEnd(20) + ' -> ' + project + ' -> initializing' )
+        info('Design space'.padEnd(20) + ' -> ' + project + ' -> initializing project assets' )
         internal = {
             iconsByProjectAndName: new Map(),
             iconsByProjectAndType: new Map()
         }
-
-        await copyProjectAssets(project)
 
         const iconsArray = await new Promise(res => SA.projects.foundations.utilities.icons.retrieveIcons(x => res(x)))
 

@@ -1,0 +1,23 @@
+.docs-definition-floating-cells {
+    background-color: white;
+    vertical-align: middle;
+    margin: 0 10px 20px;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    padding: 10px;
+    display: table;
+    min-width: 300px;
+    box-sizing: border-box;
+    border-collapse: separate;
+    border-spacing: 10px;
+    float: left
+}
+
+.docs-definition-floating-links {
+    min-width: 125px;
+    float: left
+}
+
+.hidden {
+    display: none;
+}

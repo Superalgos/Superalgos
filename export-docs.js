@@ -87,6 +87,7 @@ async function runRoot() {
         
     await ED.designSpace.copyWebServerData()
     await ED.designSpace.copyCustomJsScripts()
+    await ED.designSpace.copyCustomCssScripts()
 
     buildIndexPage(projectSchemaNames, categories, results)
 
@@ -181,6 +182,12 @@ async function runRoot() {
         docs.rel = 'stylesheet'
         docs.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/docs.css'
         dom.window.document.getElementsByTagName('head')[0].appendChild(docs)
+
+        const docsStatic = dom.window.document.createElement('link')
+        docsStatic.type = 'text/css'
+        docsStatic.rel = 'stylesheet'
+        docsStatic.href = '/' + global.env.REMOTE_DOCS_DIR + '/css/docs-static.css'
+        dom.window.document.getElementsByTagName('head')[0].appendChild(docsStatic)
         
         const fonts = dom.window.document.createElement('link')
         fonts.type = 'text/css'

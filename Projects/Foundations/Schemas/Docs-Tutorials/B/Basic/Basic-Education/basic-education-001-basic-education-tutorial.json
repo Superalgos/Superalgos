@@ -31,6 +31,11 @@
                 "language": "ID",
                 "text": "Tutorial ini melengkapi informasi yang disampaikan dalam Welcome to Superalgos Tutorial, dengan fokus pada Nodes Menu, Backups, Clones dan Shares, Plugins, Workspaces, References, dan banyak lagi.",
                 "updated": 1641092905709
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie is een aanvulling op de informatie in de Welcome to Superalgos Tutorial, met de nadruk op het Nodes Menu, Backups, Clones en Shares, Plugins, Workspaces, References en meer.",
+                "updated": 1668333601433
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393814930,
                     "style": "Title"
+                },
+                {
+                    "language": "NL",
+                    "text": "Over deze zelfstudie",
+                    "updated": 1668333588321
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı: Başlarken Eklenti Çalışma Alanı. (Getting Started Tutorials )",
                     "updated": 1636699919271
+                },
+                {
+                    "language": "NL",
+                    "text": "Workspace: Aan de slag Plugin Workspace.",
+                    "updated": 1668333649599
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "language": "TR",
                     "text": "İlgilenen: @julianmolina (Telegram).",
                     "updated": 1636699969845
+                },
+                {
+                    "language": "NL",
+                    "text": "Onderhouder: @julianmolina (Telegram).",
+                    "updated": 1668333666589
                 }
             ]
         }

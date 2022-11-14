@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Coba pilihan lain pengaturan Distance to Parent dari node Lightning Strike Trading System Reference ! Cobalah! Clik tombol tape-nya!",
                 "updated": 1643473899607
+            },
+            {
+                "language": "NL",
+                "text": "Probeer de verschillende afstandsinstellingen van het Lightning Strike Trading System Reference knooppunt! Doe Maar! Klik op de tape-knop!",
+                "updated": 1668336095301
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Cukup mudah, benar? Sekarang, apa yang terjadi ketika node yang kamu sesuaikan memiliki turunannya sendiri?",
                     "updated": 1643353705305
+                },
+                {
+                    "language": "NL",
+                    "text": "Vrij eenvoudig, toch? Wat gebeurt er als het knooppunt dat u aanpast, zelf sub-knooppunten heeft?",
+                    "updated": 1668336125708
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Mari kita cari tahu! Klik tombol Distance to Parent sekali di node Trading Parameters!",
                     "updated": 1643353717357
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het uitzoeken! Klik eenmaal op de knop Distance to Parent op het knooppunt Trading Parameters!",
+                    "updated": 1668336179730
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Karena kamu menambah jarak yang memisahkan node Trading Parameters dari node Backtesting Session, turunan node Trading Parameters juga bertambah secara proporsional!",
                     "updated": 1643353672230
+                },
+                {
+                    "language": "NL",
+                    "text": "Omdat u de afstand tussen het knooppunt Trading Parameters en het knooppunt Backtesting Session hebt vergroot, namen de sub-knooppunten van het knooppunt Trading Parameters ook proportioneel toe!",
+                    "updated": 1668336231913
                 }
             ]
         },

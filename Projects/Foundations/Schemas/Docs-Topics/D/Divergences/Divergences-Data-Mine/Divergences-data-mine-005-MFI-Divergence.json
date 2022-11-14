@@ -276,14 +276,15 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| MFI-Div | mfiDiv | status, strength, divPerc |",
+            "text": "| Product Name | Product Variable | Properties |\n| MfiDiv | mfiDiv | status, strength, divPerc |",
             "translations": [
                 {
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler  |\n| MFI-Div | mfiDiv | durum, güç, divPerc |",
                     "updated": 1647717478039
                 }
-            ]
+            ],
+            "updated": 1667785812929
         },
         {
             "style": "List",

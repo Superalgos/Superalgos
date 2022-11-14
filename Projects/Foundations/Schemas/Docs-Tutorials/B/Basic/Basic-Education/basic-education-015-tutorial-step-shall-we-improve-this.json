@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Jika kamu bereksperimen dengan fitur ini, kamu akan melihat bahwa perilaku masing-masing pengaturan tidak jelas atau dapat diprediksi.",
                 "updated": 1644514987929
+            },
+            {
+                "language": "NL",
+                "text": "Als je met deze functie experimenteert, zul je merken dat het gedrag van elk van de instellingen niet duidelijk of voorspelbaar is.",
+                "updated": 1668336729353
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Implementasi fitur ini saat tidak optimal sekarang, dan perilaku beberapa opsi sulit diprediksi. Jika kamu seorang developer, ini mungkin merupakan peluang besar untukmu ikut serta pada kode yang ada dan membawa fitur ini ke kondisi yang lebih dapat digunakan!",
                     "updated": 1644515128068
+                },
+                {
+                    "language": "NL",
+                    "text": "De huidige implementatie van deze functie is niet optimaal en het gedrag van sommige opties is moeilijk te voorspellen. Als u een ontwikkelaar bent, kan dit een geweldige kans zijn om de bestaande code te verbeteren en deze functie naar een meer bruikbare staat te brengen!",
+                    "updated": 1668336798521
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Jangan ragu untuk mencoba fitur ini, tetapi kemungkinan besar kamu ingin kembali ke pengaturan awal!",
                     "updated": 1644514785088
+                },
+                {
+                    "language": "NL",
+                    "text": "Voel je vrij om deze functie te proberen, maar je zult waarschijnlijk terug willen naar de standaardinstelling!",
+                    "updated": 1668336748593
                 }
             ]
         }

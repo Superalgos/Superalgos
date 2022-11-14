@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Sekarang kita perlu menempelkan cadangan node Trading Parameters ke Backtesting Session. Bagaimana kita melakukannya?",
                 "updated": 1644516835119
+            },
+            {
+                "language": "NL",
+                "text": "Nu moeten we de back-up van het knooppunt Trading Parameters koppelen aan de Backtesting Session. Hoe doen we dat?",
+                "updated": 1668338104139
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Klik kanan pada node Trading Parameters dan tarik lebih dekat ke node  Backtesting Session! Lepaskan ketika kamu melihat cincin oranye di sekitar node  Backtesting Session!",
                     "updated": 1644516930065
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik met de rechtermuisknop op het knooppunt Trading Parameters en trek het dichter bij het knooppunt Backtesting session! Laat los wanneer u een oranje ring rond het knooppunt Backtesting Session ziet!",
+                    "updated": 1668338153436
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Itu dia! Cadangan node Trading Parameters dipulihkan dan digunakan kembali.",
                     "updated": 1644517021415
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is het! De back-up van het knooppunt Trading Parameters is hersteld en weer in gebruik.",
+                    "updated": 1668338176053
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Diperhatikan bahwa kamu dapat menghapus node Trading Parameters kedua jika diinginkan, atau kamu dapat menyimpannya di samping untuk digunakan nanti.",
                     "updated": 1644517081487
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat u desgewenst de tweede Trading Parameters knooppunten kunt verwijderen, of dat u deze aan de zijkant kunt bewaren voor later gebruik.",
+                    "updated": 1668338206539
                 }
             ]
         }

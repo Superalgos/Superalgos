@@ -48,6 +48,11 @@
                 "language": "NL",
                 "text": "Als er iets mis gaat—zoals het verwijderen van een knooppunt of de configuratie veranderen—en je komt er niet meer uit...",
                 "updated": 1666614444492
+            },
+            {
+                "language": "FR",
+                "text": "Si vous avez cassé quelque chose, comme la suppression d'un nœud ou la modification d'une configuration, et que vous ne savez pas comment gérer le résultat...",
+                "updated": 1667986424284
             }
         ]
     },
@@ -95,6 +100,11 @@
                     "language": "NL",
                     "text": ".. u kunt gemakkelijk opnieuw beginnen met de originele Getting Started Tutorials Plugin Workspace of de Partner Exchange-werkruimte die u mogelijk gebruikt!",
                     "updated": 1666614531205
+                },
+                {
+                    "language": "FR",
+                    "text": "... vous pouvez facilement recommencer à partir de l'espace de travail original Getting Started Tutorials Plugin Workspace  ou de l'espace de travail de l'échange de partenaires que vous utilisez peut-être !",
+                    "updated": 1667986479697
                 }
             ],
             "updated": 1640358082476
@@ -142,6 +152,11 @@
                     "language": "NL",
                     "text": "In zo'n geval open je gewoon het tabblad aan de linkerkant, scroll, zoek de werkruimte en klik erop! De originele Plugin Workspace wordt geladen en de tutorial zal weer verschijnen, vers vanaf het begin!",
                     "updated": 1666614635676
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans ce cas, il suffit de tirer l'onglet sur le côté gauche, de faire défiler, de trouver l'espace de travail et de cliquer dessus ! L'espace de travail original du plugin se chargera et le tutoriel s'affichera à nouveau, depuis le début !",
+                    "updated": 1667986508998
                 }
             ],
             "updated": 1640358203586
@@ -183,6 +198,11 @@
                     "language": "ID",
                     "text": "Plugin Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
                     "updated": 1639744717855
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez également utiliser le menu Workspaces dans le coin supérieur gauche de l'écran !",
+                    "updated": 1667986547710
                 }
             ]
         }

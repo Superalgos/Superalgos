@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node!",
                 "updated": 1641094441266
+            },
+            {
+                "language": "NL",
+                "text": "De linkerkant van het menu van een knooppunt is voor de meeste knooppunten hetzelfde. De rechterkant is echter specifiek voor het type knooppunt!",
+                "updated": 1668334093695
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Mari kita perhatikan sisi kiri!",
                     "updated": 1641094461776
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we de linkerkant eens goed bekijken!",
+                    "updated": 1668334106496
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Design Space berfungsi di bawah paradigma workspace yang mengatur diri sendiri di mana node cenderung menemukan tempat mereka dipandu oleh properti pengaturan tertentu yang dapat kamu kontrol dari menu node.",
                     "updated": 1641094540436
+                },
+                {
+                    "language": "NL",
+                    "text": "De ontwerpruimte functioneert onder het paradigma van een zelforganiserende werkruimte waarin knooppunten de neiging hebben om hun plaats te vinden, begeleid door bepaalde instellingen die u vanuit het menu van het knooppunt kunt regelen.",
+                    "updated": 1668334152870
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Klik tombol pin di sudut kiri atas Session Base Asset node. Sekarang seret node itu dan lepaskan! Sekarang seret dan lepaskan node lain tanpa menyematkannya. Lihat perbedaannya?",
                     "updated": 1641094609476
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de pin-knop in de linkerbovenhoek van het Session Base Asset knooppunt. Sleep nu het knooppunt weg en laat het los! Sleep nu een ander knooppunt en laat het los zonder het vast te pinnen. Zie het verschil?",
+                    "updated": 1668334190435
                 }
             ]
         }

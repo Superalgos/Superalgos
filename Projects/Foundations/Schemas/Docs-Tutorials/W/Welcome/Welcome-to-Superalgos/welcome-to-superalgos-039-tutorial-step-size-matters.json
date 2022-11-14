@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Hoe zit het met het vormgeven van de time machine naar de exacte beeldverhouding van uw scherm?",
                 "updated": 1666699195764
+            },
+            {
+                "language": "FR",
+                "text": "Pourquoi ne pas adapter la time machine au format exact de votre écran ?",
+                "updated": 1668068374855
             }
         ]
     },
@@ -94,6 +99,11 @@
                     "language": "NL",
                     "text": "Het afstemmen van de beeldverhouding van uw time machines op de beeldverhouding van uw scherm is cruciaal om ervoor te zorgen dat grafieken goed op uw scherm passen terwijl u inzoomt!",
                     "updated": 1666699226580
+                },
+                {
+                    "language": "FR",
+                    "text": "Faire correspondre le rapport hauteur/largeur de vos time machine à celui de votre écran est crucial pour que les graphiques s'adaptent parfaitement à votre écran tout en zoomant !",
+                    "updated": 1668068407955
                 }
             ]
         },
@@ -140,6 +150,11 @@
                     "language": "NL",
                     "text": "Richt je muis op een van de time machines en druk op Ctrl + Shift + Alt + Key-A.",
                     "updated": 1666699261421
+                },
+                {
+                    "language": "FR",
+                    "text": "Dirigez votre souris sur l'une des machines à remonter le temps et appuyez sur Ctrl + Shift + Alt + Key-A.",
+                    "updated": 1668068422311
                 }
             ]
         },
@@ -186,6 +201,11 @@
                     "language": "NL",
                     "text": "Op een Mac: Ctrl + Shift + Cmd + Key-A.",
                     "updated": 1666699272980
+                },
+                {
+                    "language": "FR",
+                    "text": "Sur Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1668068428808
                 }
             ]
         },
@@ -209,6 +229,11 @@
                     "language": "NL",
                     "text": "Doe hetzelfde met de andere grafiek en laat de twee time machines voortaan overeenkomen met de beeldverhouding van je scherm!",
                     "updated": 1666699299533
+                },
+                {
+                    "language": "FR",
+                    "text": "Faites de même avec l'autre graphique, et laissez les deux time machines s'adapter au ratio d'aspect de votre écran à partir de maintenant !",
+                    "updated": 1668068453301
                 }
             ]
         }

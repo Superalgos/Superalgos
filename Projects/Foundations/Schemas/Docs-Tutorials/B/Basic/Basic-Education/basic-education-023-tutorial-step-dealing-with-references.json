@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "References adalah bagaimana sebuah node dapat memperoleh informasi tentang node lain yang tidak terkait. Ini adalah konsep penting jadi benar-benar harus diperhatikan!",
                 "updated": 1644947567774
+            },
+            {
+                "language": "NL",
+                "text": "References geven aan hoe een knooppunt informatie kan verkrijgen over een ander knooppunt dat verder geen verband houdt. Dit is een cruciaal concept, dus let op!",
+                "updated": 1668340906744
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Baca halaman ini dengan cermat! Jika kamu bukan developer, Kamu mungkin ingin membacanya dua kali sampai benar-benar paham!",
                     "updated": 1644947618882
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees deze pagina goed door! Als je geen ontwikkelaar bent, wil je het misschien twee keer lezen totdat het tot je doordringt!",
+                    "updated": 1668340925616
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Singkatnya, references miliki...",
                     "updated": 1644947651386
+                },
+                {
+                    "language": "NL",
+                    "text": "Kortom, referenties hebben...",
+                    "updated": 1668340937552
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Direction: keluaran atau masukan,",
                     "updated": 1644947673116
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>een richting</b>: uitgaand of inkomend,",
+                    "updated": 1668340965400
                 }
             ]
         },
@@ -197,6 +217,11 @@
                     "language": "ID",
                     "text": "Scope: internal atau eksternal.",
                     "updated": 1644947703276
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>en een scope</b>: intern of extern.",
+                    "updated": 1668340983764
                 }
             ]
         },
@@ -236,6 +261,11 @@
                     "language": "ID",
                     "text": "Konsep selanjutnya — ruang lingkup referensi — sangat penting untuk memahami perbedaan antara Backups dan Clones.",
                     "updated": 1644947731155
+                },
+                {
+                    "language": "NL",
+                    "text": "Het latere concept - de reikwijdte van een referentie - is cruciaal om de verschillen tussen Backups en Clones te begrijpen.",
+                    "updated": 1668341013295
                 }
             ]
         }

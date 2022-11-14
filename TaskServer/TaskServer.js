@@ -85,9 +85,9 @@ exports.newTaskServer = function newTaskServer() {
             try {
                 initializeProjectDefinitionNode()
                 setupTradingSignals()
+                setupTaskHeartbeats()
                 await setupOpenStorage()
                 await setupP2PNetworkClient()
-                setupTaskHeartbeats()
                 startProcesses()
 
                 function initializeProjectDefinitionNode() {
@@ -201,6 +201,8 @@ exports.newTaskServer = function newTaskServer() {
                     /*
                     Here is where we do initialize the Network Client.
                     */
+                    TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Synchronising User Profiles", false)
+
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.type,

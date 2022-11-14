@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Perhatikan bagaimana kamu mengubah pengaturan Angle to Parent pada saudaranya yang berbeda dan masing-masing dari mereka bereaksi terhadap pengaturan baru secara independen dari lainnya!",
                 "updated": 1643473666384
+            },
+            {
+                "language": "NL",
+                "text": "Merk op hoe u de instelling Angle to Parent de verschillende sub-knooppunten heeft gewijzigd en elk van hen reageerde onafhankelijk van de rest op de nieuwe instelling!",
+                "updated": 1668335546731
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu mengontrol posisi setiap node dari node menu. Tidak pada node parent atau saudaranya akan mempengaruhi posisinya... simpan untuk pengecualian ini:",
                     "updated": 1643337481989
+                },
+                {
+                    "language": "NL",
+                    "text": "U bepaalt de positie van elk knooppunt vanuit het menu van het knooppunt. Niet het bovenliggende knooppunt, geen enkel sub-knooppunt kan de positie beïnvloeden ... behalve deze coole uitzondering:",
+                    "updated": 1668335597969
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Buka Sesi  Lightning Strike Backtesting Session dan pilih Add Missing Children dari sisi kanan menu!",
                     "updated": 1643337417067
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de Lightning Strike Backtesting sessie en selecteer <i>Add Missing Children</i> aan de rechterkant van het menu!",
+                    "updated": 1668335652286
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Perhatikan bagaimana node Social Bots mewarisi pengaturan Angle to Parent dari saudara terdekatnya!",
                     "updated": 1643337468265
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe het knooppunt Social Bots de instelling Angle to Parent heeft geërfd van zijn naaste sub-knooppunt!",
+                    "updated": 1668335717733
                 }
             ]
         },

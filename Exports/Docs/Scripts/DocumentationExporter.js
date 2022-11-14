@@ -195,11 +195,6 @@ exports.documentationExporter = function documentationExporter() {
             /* Title */
             let titleLabel = thisObject.docsSchemaDocument.type
             HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
-            
-            /* Add translation options if available */
-            if(thisObject.docsSchemaDocument.definition.translations !== undefined) {
-                HTML = HTML + addTranslationIcons(thisObject.docsSchemaDocument.definition.translations)
-            }
 
             HTML = HTML + addDefinitionTable(thisObject.docsSchemaDocument.definition, 'definition-editable-', thisObject.currentDocumentBeingRendered.category, thisObject.currentDocumentBeingRendered.project, thisObject.currentDocumentBeingRendered.type)
 
@@ -343,12 +338,16 @@ exports.documentationExporter = function documentationExporter() {
                 if(definition.translations === undefined || definition.translations.length === 0) {
                     return addDefinitionTableForLanguage(definition, idPrefix, category, project, type, 0, ED.DEFAULT_LANGUAGE)
                 }
-                const definitions = []
+                let html = ''
+                /* Add translation options if available */
+                if(definition.translations !== undefined) {
+                    html += addTranslationIcons(definition.translations)
+                }
                 const translations = [ED.DEFAULT_LANGUAGE].concat(definition.translations.map(t => t.language))
                 for(let i = 0; i < translations.length; i++) {
-                    definitions.push(addDefinitionTableForLanguage(definition, idPrefix, category, project, type, i, translations[i]))
+                    html += addDefinitionTableForLanguage(definition, idPrefix, category, project, type, i, translations[i])
                 }
-                return definitions.join('')
+                return html
             }
             
             /**
@@ -1727,12 +1726,16 @@ exports.documentationExporter = function documentationExporter() {
                 if(paragraph.translations === undefined || paragraph.translations.length === 0) {
                     return await renderParagraphForTranslation(paragraph, key, ED.DEFAULT_LANGUAGE)
                 }
-                const paragraphs = []
+                const html = ''
+                /* Add translation options if available */
+                if(paragraph.translations !== undefined) {
+                    html += addTranslationIcons(paragraph.translations)
+                }
                 const translations = [ED.DEFAULT_LANGUAGE].concat(paragraph.translations.map(t => t.language))
                 for(let i = 0; i < translations.length; i++) {
-                    paragraphs.push(await renderParagraphForTranslation(paragraph, key, translations[i]))
+                    html += await renderParagraphForTranslation(paragraph, key, translations[i])
                 }
-                return paragraphs.join('')
+                return html
             }
 
             /**

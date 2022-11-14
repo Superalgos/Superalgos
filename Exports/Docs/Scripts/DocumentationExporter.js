@@ -2013,8 +2013,8 @@ exports.documentationExporter = function documentationExporter() {
                 paragraphMap.set(key, paragraph)
 
                 const languageClass = language + '-translation translation' + (language != ED.DEFAULT_LANGUAGE ? ' hidden' : '')
-
-                return '<p class="' + languageClass + '"><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                // class="' + languageClass + '" class="' + languageClass + '"
+                return '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
             }
 
             // function hightlightEmbeddedCode() {

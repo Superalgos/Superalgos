@@ -238,7 +238,7 @@ exports.documentationExporter = function documentationExporter() {
                 const translationKeys = [ED.DEFAULT_LANGUAGE].concat(translations.map(t => t.language))
                 for(let i = 0; i < translationKeys.length; i++) {
                     const key = translationKeys[i]
-                    html = html + '<span class="translation-options" language="' + key + '"><img src="' + ED.utilities.normaliseInternalLink(['Images','Languages', key + '.png']) + '" title="' + languagePack[key] + '" class="docs-footer-language"/></span>'
+                    html = html + '<span class="translation-options" language="' + key + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + languagePack[key] + '" class="docs-footer-language"/></span>'
                 }
                 return html + '</div>'
             }
@@ -349,7 +349,7 @@ exports.documentationExporter = function documentationExporter() {
                 }
                 return html
             }
-            
+
             /**
              * 
              * @param {Definition} definition 
@@ -508,12 +508,6 @@ exports.documentationExporter = function documentationExporter() {
                         let key = 'editable-paragraph-' + editableParagraphIndex
                         let paragraph = thisObject.docsSchemaDocument.paragraphs[i]
 
-                        if(paragraph.translations === undefined) {
-                            paragraph.translations = ['EN']
-                        } 
-                        else {
-                            paragraph.translations.unshift('EN')
-                        }
                         switch(paragraph.style) {
                             case "Include": {
                                 contentHTML = contentHTML + await renderParagraph(paragraph, key)
@@ -1747,14 +1741,13 @@ exports.documentationExporter = function documentationExporter() {
              */
             async function renderParagraphForTranslation(paragraph, key, language) {
                 let innerHTML
-                let styleClass = ''
+                let styleClassList = []
                 let prefix = ''
                 let sufix = ''
                 let role = ''
 
                 switch(paragraph.style) {
                     case 'Text': {
-                        styleClass = ''
                         prefix = ''
                         role = ''
                         key = key + '-text'
@@ -1768,7 +1761,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Title': {
-                        styleClass = 'class="docs-h3"'
+                        styleClassList.push('docs-h3')
                         prefix = ''
                         role = ''
                         key = key + '-title'
@@ -1777,7 +1770,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Subtitle': {
-                        styleClass = 'class="docs-h4"'
+                        styleClassList.push('docs-h4')
                         prefix = ''
                         role = ''
                         key = key + '-subtitle'
@@ -1786,7 +1779,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Note': {
-                        styleClass = 'class="docs-font-small docs-alert-note"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-alert-note')
                         prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                         role = 'role="alert"'
                         key = key + '-note'
@@ -1798,7 +1792,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Success': {
-                        styleClass = 'class="docs-font-small docs-alert-success"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-alert-success')
                         prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                         role = 'role="alert"'
                         key = key + '-success'
@@ -1810,7 +1805,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Important': {
-                        styleClass = 'class="docs-font-small docs-alert-important"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-alert-important')
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                         role = 'role="alert"'
                         key = key + '-important'
@@ -1822,7 +1818,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Warning': {
-                        styleClass = 'class="docs-font-small docs-alert-warning"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-alert-warning')
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
@@ -1834,7 +1831,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Error': {
-                        styleClass = 'class="docs-font-small docs-alert-error"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-alert-error')
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Error:</b>'
                         role = 'role="alert"'
                         key = key + '-error'
@@ -1844,7 +1842,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Callout': {
-                        styleClass = 'class="docs-font-small docs-callout"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-callout')
                         prefix = ''
                         role = ''
                         key = key + '-callout'
@@ -1856,7 +1855,8 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Summary': {
-                        styleClass = 'class="docs-font-small docs-summary"'
+                        styleClassList.push('docs-font-small')
+                        styleClassList.push('docs-summary')
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
@@ -1868,7 +1868,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Section': {
-                        styleClass = 'class="docs-section"'
+                        styleClassList.push('docs-section')
                         prefix = ''
                         role = ''
                         key = key + '-section'
@@ -1878,7 +1878,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'List': {
-                        styleClass = ''
                         prefix = '<ul><li>'
                         sufix = '</li></ul>'
                         role = ''
@@ -1893,7 +1892,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Table': {
-                        styleClass = ''
                         prefix = '<table class="docs-info-table">'
                         sufix = '</table>' + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         role = ''
@@ -1905,7 +1903,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Hierarchy': {
-                        styleClass = ''
                         prefix = '<table class="docs-hierarchy-table" params="' + paragraph.text + '">'
                         sufix = '</table>'
                         role = ''
@@ -1914,7 +1911,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Link': {
-                        styleClass = ''
                         prefix = ''
                         sufix = ''
                         role = ''
@@ -1923,7 +1919,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Youtube': {
-                        styleClass = ''
                         prefix = ''
                         sufix = ''
                         role = ''
@@ -1932,7 +1927,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Gif': {
-                        styleClass = ''
                         prefix = ''
                         sufix = ''
                         role = ''
@@ -1941,7 +1935,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Png': {
-                        styleClass = ''
                         prefix = ''
                         sufix = ''
                         role = ''
@@ -1950,7 +1943,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Javascript': {
-                        styleClass = ''
                         prefix = '<pre><code class="language-javascript">'
                         sufix = '</code></pre>'
                         role = ''
@@ -1959,7 +1951,6 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Json': {
-                        styleClass = ''
                         prefix = '<pre><code class="language-json">'
                         sufix = '</code></pre>'
                         role = ''
@@ -1968,7 +1959,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Anchor': {
-                        styleClass = 'class="docs-hidden-anchor"'
+                        styleClassList.push('docs-hidden-anchor')
                         prefix = '<div id="' + 'docs-anchor-' + paragraph.text.toLowerCase().replaceAll(' ', '-') + '">'
                         sufix = '</div>'
                         role = ''
@@ -1977,7 +1968,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Block': {
-                        styleClass = 'class="docs-hidden-block"'
+                        styleClassList.push('docs-hidden-block')
                         prefix = ''
                         role = ''
                         key = key + '-block'
@@ -1985,7 +1976,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Include': {
-                        styleClass = 'class="docs-hidden-include"'
+                        styleClassList.push('docs-hidden-include')
                         prefix = ''
                         role = ''
                         key = key + '-include'
@@ -1993,7 +1984,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Placeholder': {
-                        styleClass = 'class="docs-hidden-placeholder"'
+                        styleClassList.push('docs-hidden-placeholder')
                         prefix = ''
                         role = ''
                         key = key + '-placeholder'
@@ -2001,7 +1992,7 @@ exports.documentationExporter = function documentationExporter() {
                         break
                     }
                     case 'Chapter': {
-                        styleClass = 'class="docs-chapter"'
+                        styleClassList.push('docs-chapter')
                         prefix = ''
                         role = ''
                         key = key + '-chapter'
@@ -2012,9 +2003,13 @@ exports.documentationExporter = function documentationExporter() {
 
                 paragraphMap.set(key, paragraph)
 
-                const languageClass = language + '-translation translation' + (language != ED.DEFAULT_LANGUAGE ? ' hidden' : '')
+                styleClassList.push(language + '-translation')
+                styleClassList.push('translation')
+                if(language != ED.DEFAULT_LANGUAGE) {
+                    styleClassList.push('hidden')
+                }
                 // class="' + languageClass + '" class="' + languageClass + '"
-                return '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                return '<p><div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
             }
 
             // function hightlightEmbeddedCode() {
@@ -2470,7 +2465,7 @@ exports.documentationExporter = function documentationExporter() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink(['Images','superalgos-logo-white.png']) + '" width="200 px">'
+        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo-white.png']) + '" width="200 px">'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
@@ -2494,7 +2489,7 @@ exports.documentationExporter = function documentationExporter() {
             if(thisObject.currentDocumentBeingRendered !== undefined) {
                 link = ED.utilities.normaliseInternalLink([thisObject.currentDocumentBeingRendered.project, thisObject.currentDocumentBeingRendered.category, ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + '.html'])
             }
-            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink(['Images','Languages', key + '.png']) + '" title="' + language + '" class="docs-footer-language'
+            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + language + '" class="docs-footer-language'
             if(thisObject.currentLanguageCode === key) {
                 HTML = HTML + '-selected'
             }

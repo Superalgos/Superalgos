@@ -238,8 +238,9 @@ exports.documentationExporter = function documentationExporter() {
              */
             function addTranslationIcons() {
                 let html = '<div id="docs-translation-list"><span class="docs-language-selection">Available translations on this page:</span>'
-                for(let i = 0; i < translationLanguages.length; i++) {
-                    const key = translationLanguages[i]
+                let languages = [...new Set(translationLanguages)]
+                for(let i = 0; i < languages.length; i++) {
+                    const key = languages[i]
                     const value = languagePack[key]
                     if(value === undefined) {
                         error('Translation'.padEnd(20) + ' -> Missing language option for translation')

@@ -12,7 +12,7 @@
             </div>
         </Drawer>
         <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
-        <router-view class="dashboard-view" :incomingData="incomingDataObj"></router-view>
+        <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
     </div>
 </template>
 
@@ -29,6 +29,7 @@
                 logo: logo,
                 background: background,
                 isActive: false,
+                timestampObj: '',
             };
         },
         computed: {
@@ -54,8 +55,10 @@
         },
         // Spin up websocket client on app mount
         mounted: function () {
-            let socket = new WebSocket("ws://localhost:18043/");
+            //open a server socket, so that the platform process can send data to the UI
+            let socket = new WebSocket("ws://"+ location.host.split(':')[0]+":18043/");
 
+            //announce this socket to the platform process
             socket.onopen = () => {
                 let message = (new Date()).toISOString() + "|*|UI|*|Startup|*|UI now connected via Websocket";
                 socket.send(message);
@@ -66,14 +69,19 @@
                 // update the UI. Anytime a variable is updated from here the UI will follow
                 //console.log("recieved data", event);
                 let messageArray = event.data.toString().split("|*|");
-                /* let timestamp = messageArray[0]; First argument is timestamp */
+                let timestamp = messageArray[0]; //First argument is timestamp 
+                this.timestampObj = timestamp
                 let dataKey = messageArray[1]; // second is the data key assocated with the incoming data
-                let dataContent = JSON.parse(messageArray[2]); // Third is an array of objects holding data
-                this.incomingDataObj[dataKey] = dataContent;
+                try {
+                    let dataContent = JSON.parse(messageArray[2]); // Third is an array of objects holding data
+                    this.incomingDataObj[dataKey] = dataContent;
+                } catch (err) {
+                    console.log((new Date()).toISOString(),'[ERROR] {App.vue} Error Parsing JSON Msg: ' + messageArray[2] + '. Error = ' + err.stack)
+                }
             };
 
             socket.onclose = (event) => {
-                console.log("wesocket connection closed", event);
+                console.log((new Date()).toISOString(),'[ERROR] {App.vue} websocket connection closed', event);
             };
         },
     }

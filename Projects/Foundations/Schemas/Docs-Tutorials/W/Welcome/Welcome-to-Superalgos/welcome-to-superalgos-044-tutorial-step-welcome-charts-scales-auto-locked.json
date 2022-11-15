@@ -26,6 +26,16 @@
                 "language": "TR",
                 "text": "Bu videoda ne olduğunu görebilirsin.",
                 "updated": 1636093306641
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1666700270073
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape va lire une vidéo en mode plein écran.",
+                "updated": 1668069001857
             }
         ]
     },

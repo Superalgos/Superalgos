@@ -609,6 +609,17 @@
 
                 function addToOnScreenCandles(candle) {
 
+                    let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+                        if (chartingSpaceNode !== undefined) {
+                            if (chartingSpaceNode.spaceStyle !== undefined) {
+                                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                            } else {
+                                configStyle = undefined
+                            }
+                        } else {
+                            configStyle = undefined
+                        }
+
                     /* Contributing to Auto-Scale*/
                     coordinateSystem.reportYValue(candle.max)
                     coordinateSystem.reportYValue(candle.min)
@@ -639,14 +650,31 @@
                 browserCanvasContext.closePath();
 
                 if (lowResolution === false) {
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                    browserCanvasContext.fill();
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
-                    browserCanvasContext.lineWidth = 1;
-                    browserCanvasContext.setLineDash([]) // Resets Line Dash
-                    browserCanvasContext.stroke();
+                    // Here we add user defined candle stick color and border line width. (optional)
+                    if (configStyle === undefined || configStyle.candleStickColor === undefined) {
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
+                        browserCanvasContext.fill();
 
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
+                        browserCanvasContext.lineWidth = 1;
+                        browserCanvasContext.setLineDash([]) // Resets Line Dash
+                        browserCanvasContext.stroke();
+                    } else {
+                        let stickColor = eval(configStyle.candleStickColor)
+                        browserCanvasContext.fillStyle = 'rgba(' + stickColor + ', 1)';
+                        browserCanvasContext.fill();
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
+
+                        if (configStyle.candleBorderLineWidth === undefined) {
+                            browserCanvasContext.lineWidth = 1;
+                        } else {
+                            candleBorderLineWidth = eval(configStyle.candleBorderLineWidth)
+                            browserCanvasContext.lineWidth = candleBorderLineWidth;
+                        }
+                        browserCanvasContext.setLineDash([]) // Resets Line Dash
+                        browserCanvasContext.stroke();
+                    }
                 }
 
                 /* The stick at the mouse candle */

@@ -30,7 +30,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
-            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles schedulled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
+            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles scheduled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
             console.log('')
         }
     }
@@ -198,6 +198,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     userProfile.balance = userProfile.balance + await getProfileBalance(chain, userProfile.blockchainAccount)
                 }
                 console.log((new Date()).toISOString(), '[INFO] Accumulated Balance of Address: ' + userProfile.blockchainAccount + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfile.balance))
+
+                /* If the Network Bootstrapping process has been launched from the Task Server we can report the status to the Task (so it doesn't look like the Run button does nothing as the profiles are synchronising) */
+                if (global.TS !== undefined) {
+                    let percentage = (((i + 1) / userProfiles.length) * 100).toFixed(1)
+                    TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Synchronising User Profiles, " + percentage + "% (" + (i + 1) + " of " + userProfiles.length + ")", false)
+                }
 
                 loadSigningAccounts()
                 loadStorageContainers()

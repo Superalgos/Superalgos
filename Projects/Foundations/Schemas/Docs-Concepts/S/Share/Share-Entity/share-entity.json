@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Скачивает файл JSON, содержащий информацию, аналогичную резервной копии. Единственное отличие состоит в том, что здесь нет никакой личной информации. Это особенно важно, чтобы вы случайно не передали конфиденциальную информацию, например ключи API. Всегда используйте эту функцию, когда собираетесь поделиться работой. Не делитесь своими резервными копиями.\nЗагруженный файл называется Share, за которым следует имя объекта, которым вы делитесь.",
                 "updated": 1638297917852
+            },
+            {
+                "language": "TR",
+                "text": "Yedeklemeye benzer bilgiler içeren bir JSON dosyası indirir. Tek fark, hiçbir kişisel bilginin dahil edilmemesidir. Bu, API anahtarlarınız gibi hassas bilgileri yanlışlıkla paylaşmamanız için özellikle önemlidir. İş paylaşmak istediğinizde her zaman bu işlevi kullanın. Yedeklerinizi paylaşmayın. İndirilen dosyanın adı Paylaşım (Share)'dır ve ardından paylaştığınız varlığın adı gelir.",
+                "updated": 1666903176326
             }
         ]
     },

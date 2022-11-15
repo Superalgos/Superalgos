@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? No problem...",
-                "updated": 1614893061080,
+                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? Nessun problema... prova questo trucco!",
+                "updated": 1666390282402,
                 "style": "Definition"
             },
             {
@@ -42,6 +42,16 @@
                 "language": "RU",
                 "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
                 "updated": 1636204552263
+            },
+            {
+                "language": "NL",
+                "text": "Ik weet! Als u inzoomt op een willekeurige plek, is het onwaarschijnlijk dat de grafiek in verhouding van uw scherm wordt geplaatst, toch? Geen zorgen... probeer deze truc!",
+                "updated": 1666699799907
+            },
+            {
+                "language": "FR",
+                "text": "Je sais ! Il est peu probable que le fait de zoomer à un endroit aléatoire ne positionne pas la chart au bon endroit de votre écran, n'est-ce pas ? Ne vous inquiétez pas... essayez cette astuce !",
+                "updated": 1668068775328
             }
         ],
         "updated": 1616417516192
@@ -79,6 +89,21 @@
                     "language": "RU",
                     "text": "Отрегулируйте соотношение сторон: наведите курсор мыши на график сеансов тестирования (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
                     "updated": 1636204626786
+                },
+                {
+                    "language": "IT",
+                    "text": "Regola le proporzioni: punta il mouse sul grafico della sessione di backtesting (quello in alto) e premi Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-A</kbd>",
+                    "updated": 1666390318690
+                },
+                {
+                    "language": "NL",
+                    "text": "Pas de beeldverhouding aan: wijs met uw muis naar de Backtesting Session Chart (die bovenaan) en druk op <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Key-A</kbd>",
+                    "updated": 1666699907091
+                },
+                {
+                    "language": "FR",
+                    "text": "Ajustez le ratio d'aspect : Pointez votre souris sur le graphique de la session de backtesting (celui du haut) et appuyez sur Ctrl + Shift + Alt + Key-A",
+                    "updated": 1668068802852
                 }
             ]
         },
@@ -113,6 +138,21 @@
                     "language": "RU",
                     "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
                     "updated": 1636204795612
+                },
+                {
+                    "language": "IT",
+                    "text": "Rimpicciolisci: usa la rotellina del mouse per andare alla posizione di rimpicciolimento più lontana; solo da questa posizione il prossimo comando funzionerà!",
+                    "updated": 1666390389684
+                },
+                {
+                    "language": "NL",
+                    "text": "Uitzoomen: gebruik het muiswiel om naar de verste uitzoompositie te gaan; alleen vanuit deze positie zal het volgende commando werken!",
+                    "updated": 1666699941850
+                },
+                {
+                    "language": "FR",
+                    "text": "Zoom arrière : utilisez la molette de la souris pour atteindre la position de zoom arrière la plus éloignée ; ce n'est qu'à partir de cette position que la commande suivante fonctionnera !",
+                    "updated": 1668068822173
                 }
             ]
         },
@@ -153,6 +193,16 @@
                     "language": "RU",
                     "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
                     "updated": 1636204908775
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik eenmaal: dit centreert de grafiek en brengt u naar een bepaald zoomniveau; er blijft een marge over de naam en het tabblad van het diagram in de linkerbovenhoek zichtbaar te houden.",
+                    "updated": 1666700012138
+                },
+                {
+                    "language": "FR",
+                    "text": "Double-cliquez une fois : cela centre le graphique et vous permet d'accéder à un certain niveau de zoom ; une marge est laissée pour que le nom et l'onglet du graphique s'affichent dans le coin supérieur gauche.",
+                    "updated": 1668068838984
                 }
             ],
             "updated": 1616418234728
@@ -163,8 +213,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai un altro doppio click: questo ti trasporterà dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e farne emergere i layer.",
-                    "updated": 1618647548231,
+                    "text": "Fai un altro doppio click: questo ti trasporterà ulteriormente dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e far emergere i Layer Managers.",
+                    "updated": 1666390442830,
                     "style": "List"
                 },
                 {
@@ -194,6 +244,16 @@
                     "language": "RU",
                     "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме, к уровню масштабирвания, при котором диаграмма идеально соответствует экрану и появятся Layer Managers.",
                     "updated": 1636204981598
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik nogmaals: hiermee gaat u verder in de grafiek, naar het zoomniveau waarop de grafiek perfect op het scherm past en Layer Managers tevoorschijn komen.",
+                    "updated": 1666700044985
+                },
+                {
+                    "language": "FR",
+                    "text": "Double-cliquez à nouveau : cela vous amène plus loin dans le graphique, au niveau de zoom dans lequel le graphique s'adapte parfaitement à l'écran et où les gestionnaires de couches apparaissent.",
+                    "updated": 1668068856581
                 }
             ],
             "updated": 1622198926988

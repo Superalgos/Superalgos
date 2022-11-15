@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Apri il menù del nodo Trading Parameters in uso (quello attaccato al nodo Backtesting Session) e clicca il pulsante Detach Node. Il nodo si separerà dalla gerarchia, e potrai metterlo da parte!",
-                    "updated": 1619466659809,
+                    "text": "Apri il menù del nodo Trading Parameters in uso - quello attaccato al nodo Backtesting Session- e clicca due volte il pulsante Detach Node. Il nodo si separerà dalla gerarchia! Ora puoi muoverlo di lato.",
+                    "updated": 1666638463081,
                     "style": "Callout"
                 },
                 {

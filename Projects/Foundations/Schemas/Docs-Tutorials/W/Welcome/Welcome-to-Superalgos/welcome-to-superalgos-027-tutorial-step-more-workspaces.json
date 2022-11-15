@@ -45,8 +45,13 @@
             },
             {
                 "language": "NL",
-                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het tabblad links.",
-                "updated": 1636978436604
+                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
+                "updated": 1666614769872
+            },
+            {
+                "language": "FR",
+                "text": "Les Plugin Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
+                "updated": 1667986626783
             }
         ],
         "updated": 1629803469668
@@ -95,6 +100,11 @@
                     "language": "NL",
                     "text": "Workspaces slaan alle informatie op met betrekking tot de data structuren in de werkruimte. ",
                     "updated": 1636978555492
+                },
+                {
+                    "language": "FR",
+                    "text": "Les Workspaces enregistrent toutes les informations relatives aux structures de données qui sont incluses dans l'espace de travail.",
+                    "updated": 1667986696978
                 }
             ]
         },
@@ -129,6 +139,11 @@
                     "language": "NL",
                     "text": "Laten we met een kopie deze Plugin Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
                     "updated": 1636978713661
+                },
+                {
+                    "language": "FR",
+                    "text": "Créons une copie de ce Plugin Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
+                    "updated": 1667986754674
                 }
             ]
         },
@@ -172,8 +187,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Open nu het  Worspaces tabblad links en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
-                    "updated": 1636978846518
+                    "text": "Maak het Workspaces tabblad links open en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
+                    "updated": 1666614929403
+                },
+                {
+                    "language": "FR",
+                    "text": "Maintenant, ouvrez l'onglet Workspaces sur la gauche, faites défiler jusqu'en bas, et trouvez le seul espace de travail avec un fond violet ! C'est votre espace de travail ! Mais pas besoin de cliquer dessus !",
+                    "updated": 1667986790239
                 }
             ],
             "updated": 1629803460646

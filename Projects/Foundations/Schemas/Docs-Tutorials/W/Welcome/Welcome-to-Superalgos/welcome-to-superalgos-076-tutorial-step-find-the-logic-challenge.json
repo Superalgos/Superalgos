@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Sekarang setelah kamu mengetahui cara kerja indikator, dapatkah kamu menemukan hubungan antara buy orders dan support levels?",
                 "updated": 1640564328050
+            },
+            {
+                "language": "NL",
+                "text": "Nu u weet hoe de indicator werkt, kunt u de relatie tussen kooporders en ondersteuningsniveaus vinden?",
+                "updated": 1666879495400
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Luangkan waktu untuk menjelajahi periode waktu yang diuji untuk mencari petunjuk tentang bagaimana level support menentukan tingkat Limit Buy Order!",
                     "updated": 1640564365008
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd om de geteste periode te verkennen en zoek naar aanwijzingen over hoe ondersteuningsniveaus de snelheid van de Limit Buy Order bepalen!",
+                    "updated": 1666879530872
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Sangat menyenangkan memperhatikan bagaimana level baru terbentuk saat harga berubah arah, dan bagaimana level yang sudah terbuat berubah warna saat harga memantul darinya.",
                     "updated": 1640564455282
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is leuk om te zien hoe nieuwe niveaus worden gevormd wanneer de prijs van richting verandert, en hoe een vastgesteld niveau van kleur verandert wanneer de prijs erop stuitert.",
+                    "updated": 1666879560128
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "ID",
                     "text": "Tapi triknya terletak pada menghitung level di atas order!",
                     "updated": 1640564478555
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar de truc ligt in het tellen van niveaus boven de order!",
+                    "updated": 1666879594128
                 }
             ]
         }

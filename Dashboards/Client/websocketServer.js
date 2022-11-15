@@ -27,9 +27,9 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                     console.log('[INFO] New Websocket Connection.')
                 }
 
-                socket.on('message', onMenssage)
+                socket.on('message', onMessage)
 
-                function onMenssage(message) {
+                function onMessage(message) {
                     // Here is where all messages will be received through the websocket
             
                     try {
@@ -71,6 +71,8 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                     if (UISocket !== undefined) {
                                         let message = timestamp + '|*|' + dataKey + '|*|' + JSON.stringify(dataContent)
                                         UISocket.send(message)
+                                    } else {
+                                        console.log((new Date()).toISOString(), '[Error] Dashboard App -> UI not connected -> can not forward data')
                                     }
                                 }
                                 catch (err) {
@@ -93,7 +95,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                         }
 
                     } catch (err) {
-                        console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMenssage. err = ' + err.stack)
+                        console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMessage. err = ' + err.stack)
                     }
                 }
             }

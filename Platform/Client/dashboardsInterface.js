@@ -40,8 +40,9 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
                 setUpWebSocketClient(url)
 
             } else if (response.event.isRunning === false) {
-                console.log('')
-                console.log(response.event.message)
+                //Skip websocket client initalization
+                //console.log('')
+                //console.log(response.event.message)
 
             } else {
                 console.log('[ERROR] Something went wrong running the Dashboard App Interface: ', response)

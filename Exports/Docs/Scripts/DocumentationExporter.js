@@ -652,7 +652,7 @@ exports.documentationExporter = function documentationExporter() {
                     }
 
                     if(definition === true) {
-                        html = html + await addDefinitionTable(includedSchemaDocument, 'definition-included-', category, project, type)
+                        html = html + await addDefinitionTable(includedSchemaDocument.definition, 'definition-included-', category, project, type)
                     } else {
                         let blockFound = false
                         for(let i = 0; i < includedSchemaDocument.paragraphs.length; i++) {

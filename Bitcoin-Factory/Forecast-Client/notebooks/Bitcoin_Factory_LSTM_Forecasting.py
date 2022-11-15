@@ -213,7 +213,7 @@ if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
     model.compile(loss='mae', optimizer='adam')
 
 # We print this output so that the caller program can get the results in a JSON object.
-print('{')
+#print('{')
 
 # ## Fit the Model
 # This is the actual process of training the neural network.
@@ -314,7 +314,7 @@ diff = diff.astype('float32')
 
 # Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle.
 
-print('"predictions": ', json.dumps(inv_yhat[-1], cls=NumpyArrayEncoder))
+print('{"predictions": ', json.dumps(inv_yhat[-1], cls=NumpyArrayEncoder))
 
 print(',"errorRMSE": %.3f' % rmse)
 print('}')

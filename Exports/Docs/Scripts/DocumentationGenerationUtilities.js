@@ -562,8 +562,8 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      */
     async function addToolTips(text, excludedType, project) {
 
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip" id="tooltip-container" data-tippy-content="DEFINITION">TYPE_LABEL</div>'
-        const LINK_ONLY_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
+        const TOOL_TIP_HTML = '<a href="LINK" class="docs-tooltip" data-tippy-content="DEFINITION">TYPE_LABEL</a>'
+        const LINK_ONLY_HTML = '<a href="LINK" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></a>'
 
         let resultingText = ''
 
@@ -622,19 +622,16 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
             }
 
             let definition = getTextBasedOnLanguage(docsSchemaDocument.definition)
+            let link = normaliseInternalLink([taggedProject, category, normaliseStringForLink(type)])
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
-                    .replace('CATEGORY', category)
-                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
-                    .replace('PROJECT', taggedProject)
+                    .replace('LINK', link)
                     .replace('TYPE_LABEL', type)
 
                 resultingText = resultingText + firstPart + tooltip
             } else {
                 let tooltip = TOOL_TIP_HTML
-                    .replace('CATEGORY', category)
-                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
-                    .replace('PROJECT', taggedProject)
+                    .replace('LINK', link)
                     .replace('TYPE_LABEL', type)
                     .replace('DEFINITION', definition)
 

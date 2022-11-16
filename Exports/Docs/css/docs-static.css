@@ -25,3 +25,8 @@
 .docs-chapter {
     display: none;
 }
+
+.docs-tooltip {
+    color: inherit;
+    text-decoration: none;
+}

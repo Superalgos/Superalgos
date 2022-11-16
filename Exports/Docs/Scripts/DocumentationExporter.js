@@ -238,7 +238,7 @@ exports.documentationExporter = function documentationExporter() {
              * Builds the list of available translations from the class list that is created while writing out the content
              */
             function addTranslationIcons() {
-                let html = '<div id="docs-translation-list"><span class="docs-language-selection">Available translations on this page:</span>'
+                let html = '<div id="docs-translation-list"><div class="docs-language-selection"><span>Available translations on this page:</span></br><span>This is a community project and not all sections will have been translated, this is where you can help and earn rewards!</span></div>'
                 let languages = [...new Set(translationLanguages)]
                 for(let i = 0; i < languages.length; i++) {
                     const key = languages[i]

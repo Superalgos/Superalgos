@@ -45,3 +45,7 @@ function toggleTranlationGroups(selector) {
         return found
     }
 }
+
+tippy('.docs-tooltip',{
+    theme: "superalgos"
+})

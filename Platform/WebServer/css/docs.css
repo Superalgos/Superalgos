@@ -29,7 +29,7 @@ background-color: #365558;
 line-height: 160%;
 border-top: 5px solid #0295aa;
 margin: 80px 0 0 0;
-padding: 30 0 20 0px;
+padding: 30px 0 20px 0px;
 caret-color: transparent;
 }
 
@@ -295,7 +295,7 @@ box-sizing: border-box;
 
 .docs-topic-index {
 background-color:white;
-padding: 25 20px;
+padding: 25px 20px;
 margin: 40px 0 0 0;
 border: 1px solid rgba(49, 112, 143, .2);
 border-left-width: 5px;

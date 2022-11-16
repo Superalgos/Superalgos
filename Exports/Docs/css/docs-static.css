@@ -1,3 +1,8 @@
+.docs-topic-index {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .docs-definition-floating-cells {
     background-color: white;
     vertical-align: middle;

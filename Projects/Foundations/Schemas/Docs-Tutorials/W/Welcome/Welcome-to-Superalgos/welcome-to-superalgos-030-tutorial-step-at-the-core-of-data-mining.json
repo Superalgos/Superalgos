@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "El núcleo de una operación de minería de datos son los bots ejecutando tareas. Un bot  controla una tarea y un Task Manager  puede controlar varias tareas.",
-                "updated": 1624326081038,
+                "text": "El núcleo de una operación de minería de datos son los bots ejecutando tareas. Un bot controla una tarea y un Task Manager puede controlar varias tareas.",
+                "updated": 1668638271202,
                 "style": "Definition"
             },
             {
@@ -75,8 +75,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Has aprendido sobre seis dispositivos que puedes usar para controlar cada bot en su operación de minería de datos. En el nivel más alto, el Data Task controla todos los bots de minería de datos en el Network.",
-                    "updated": 1624377223817,
+                    "text": "A estas alturas usted ha aprendido sobre seis diferentes dispositivos que usted puede usar para controlar cada bot en su operación de minería de datos. En el nivel más alto, el nodo de Data Tasks controla todos los bots de minería de datos en el LAN Network Node.",
+                    "updated": 1668638315825,
                     "style": "Text"
                 },
                 {
@@ -125,8 +125,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hablaremos de los nodos del Network en un minuto...",
-                    "updated": 1624326257421,
+                    "text": "Hablaremos de los nodos de red en un minuto...",
+                    "updated": 1668638429920,
                     "style": "Callout"
                 },
                 {

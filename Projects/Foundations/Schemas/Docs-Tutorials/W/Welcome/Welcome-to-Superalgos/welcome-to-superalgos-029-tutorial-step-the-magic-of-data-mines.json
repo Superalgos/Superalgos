@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Dentro de cada mercado, la operacion es organizada por el Data Mine. Superalgos se conecta con varias minas de datos open-source. Cada una con multiples indicadores.",
-                "updated": 1624229041162,
+                "text": "Dentro de cada mercado, la operación es organizada por el Data Mine. Superalgos se conecta con varias minas de datos Open-Source. Cada una con múltiples indicadores.",
+                "updated": 1668638186821,
                 "style": "Definition"
             },
             {
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Imaginate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
-                    "updated": 1624230668446,
+                    "text": "Imagínate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
+                    "updated": 1668638206480,
                     "style": "Text"
                 },
                 {
@@ -125,7 +125,7 @@
                 {
                     "language": "ES",
                     "text": "¡Si tienes conocimientos básicos de Javascript puedes crear indicadores tú también! ¡Si contribuyes un Data Mine, ganaras la moneda de Superalgos (SA)!",
-                    "updated": 1624231304105,
+                    "updated": 1668638227796,
                     "style": "Callout"
                 },
                 {

@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
-                "updated": 1625872662394,
+                "text": "Los Plugins Workspaces que se envían con el sistema presentan un fondo negro en la pestaña de Workspaces de la izquierda.",
+                "updated": 1668635196192,
                 "style": "Definition"
             },
             {
@@ -76,8 +76,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En cuanto inició el interfaz de usuario por primera vez, se cargó el espacio de Getting Started Tutorials y Plugin Workspace. Se guardó un nuevo User Workspace después de 60 segundos en la carpeta My-Workspaces.",
-                    "updated": 1624492978440,
+                    "text": "Los Workspaces guardan toda la información relativa a las estructuras de datos que se incluyen en él.",
+                    "updated": 1668635341219,
                     "style": "Text"
                 },
                 {
@@ -115,8 +115,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Workspace se guarda automáticamente cada minuto. Antes de cerrar el navegador, y manualmente con Ctrl + Shift + Key-S",
-                    "updated": 1625872986091,
+                    "text": "Vamos a crear una copia de este Plugin Workspace y hacerla tuya. Pulsa la siguiente combinación de teclas: Ctrl + Shift + Key-S",
+                    "updated": 1668635926337,
                     "style": "Callout"
                 },
                 {
@@ -165,8 +165,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los cambios en los Plugins Workspaces no persisten en el plugin sino en el User Workspace.",
-                    "updated": 1624493291791,
+                    "text": "Ahora abre la pestaña de Workspaces de la izquierda, desplázate hasta el final y encuentra el único Workspace con fondo morado. ¡Ese es tu Workspace! Pero no hace falta que hagas clic en él.",
+                    "updated": 1668637714296,
                     "style": "Important"
                 },
                 {

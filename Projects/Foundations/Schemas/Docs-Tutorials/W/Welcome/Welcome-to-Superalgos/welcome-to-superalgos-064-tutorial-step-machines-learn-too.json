@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System!",
-                    "updated": 1625883974828,
+                    "text": "La integración aprovecha el resto de la infraestructura de Superalgos para que pueda utilizar sus conjuntos de datos para entrenar algoritmos de ML y utilizar los modelos resultantes desde los Trading System.",
+                    "updated": 1668640661719,
                     "style": "Note"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": " ¡Echa un vistazo a la Machine Learning Demo Plugin Workspace!",
-                    "updated": 1624416262760,
+                    "text": "Únete al grupo de desarrollo de Superalgos si quieres ayudar a terminar y probar la integración.",
+                    "updated": 1668640699311,
                     "style": "Success"
                 },
                 {

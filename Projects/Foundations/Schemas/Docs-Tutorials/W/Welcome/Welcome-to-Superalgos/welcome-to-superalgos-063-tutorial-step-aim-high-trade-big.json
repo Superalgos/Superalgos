@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "De eso se trata el nodo Network. Lo que haz visto hasta ahora se ejecuta en una sola máquina. Pero...",
-                    "updated": 1624415210197,
+                    "text": "De eso se trata el LAN Network Node. Lo que has visto hasta ahora se ejecuta en una sola máquina. Pero...",
+                    "updated": 1668640437566,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones inteligentes y escalables. ¡Cualquier máquina que ejecute la GUI puede controlar el trabajo!",
-                    "updated": 1624415389550,
+                    "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones escalables: ¡cualquier máquina que ejecute la interfaz de usuario puede controlar la nave!",
+                    "updated": 1668640520348,
                     "style": "Callout"
                 },
                 {
@@ -150,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede configurar una red con algunos Raspberry Pi, un centro de datos de grado industrial o cualquier cosa entre medio.",
-                    "updated": 1624415501921,
+                    "text": "Puedes montar una red con unas pocas Raspberry Pi, un centro de datos de nivel industrial o cualquier cosa entre medias.",
+                    "updated": 1668640554187,
                     "style": "Text"
                 },
                 {

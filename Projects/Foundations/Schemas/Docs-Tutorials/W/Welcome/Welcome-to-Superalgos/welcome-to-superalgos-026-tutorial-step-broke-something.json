@@ -75,8 +75,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace!",
-                    "updated": 1624292407924,
+                    "text": "... puedes volver a empezar fácilmente con el espacio de trabajo original de los tutoriales de introducción (Getting Started Tutorials Plugin Workspace) o con el espacio de trabajo del intercambio de socios que estés utilizando (Partner Exchange Workspace).",
+                    "updated": 1668634948497,
                     "style": "Callout"
                 },
                 {
@@ -127,8 +127,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Todo lo que tienes que hacer es tirar de la pestaña de la izquierda de la pantalla y hacer clic en Getting-Started plugin workspace.",
-                    "updated": 1618438234984,
+                    "text": "En tal caso, sólo tienes que tirar de la pestaña de la izquierda, desplazarte, encontrar el Workspace y hacer clic en él. El Plugin Workspace original del se cargará y el tutorial se mostrará de nuevo, recién iniciado.",
+                    "updated": 1668634961085,
                     "style": "Text"
                 },
                 {
@@ -168,8 +168,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Plugin Workspaces son los primeros en la lista con un fondo negro. Luego viene la lista de espacios de trabajo de usuarios, sobre un fondo violeta.",
-                    "updated": 1624292101033,
+                    "text": "También puede utilizar el menú de Workspaces situado en la esquina superior izquierda de la pantalla.",
+                    "updated": 1668634983080,
                     "style": "Success"
                 },
                 {

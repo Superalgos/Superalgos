@@ -70,8 +70,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Adjust the aspect ratio: apunta al gráfico Backtesting Session (está en la parte superior) y presiona Ctrl + Shift + Key-A",
-                    "updated": 1627304634273,
+                    "text": "Ajuste de relación de aspecto: Apunte con el ratón al gráfico de la sesión de Backtesting (el de arriba) y pulse Ctrl + Shift + Alt + Key-A",
+                    "updated": 1668639230180,
                     "style": "List"
                 },
                 {
@@ -119,8 +119,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
-                    "updated": 1624403987866,
+                    "text": "Alejar: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
+                    "updated": 1668639273917,
                     "style": "List"
                 },
                 {
@@ -136,7 +136,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
+                    "text": "Уменьшение масштаба: используйте колесико мыши, чтоб�� перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
                     "updated": 1636204795612
                 },
                 {
@@ -174,8 +174,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Double-click once: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
-                    "updated": 1624384580827,
+                    "text": "Doble clic una vez: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
+                    "updated": 1668639289175,
                     "style": "List"
                 },
                 {
@@ -225,8 +225,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Double-click again: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
-                    "updated": 1624404060794,
+                    "text": "Haga doble clic de nuevo: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
+                    "updated": 1668639316003,
                     "style": "List"
                 },
                 {

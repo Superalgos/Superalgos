@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Sağdaki öğretici, ticaret sistemleri tasarlamakla ilgili serinin bir sonraki öğreticisi. Devam elim mi?\n",
                 "updated": 1640953504830
+            },
+            {
+                "language": "ES",
+                "text": "El tutorial de la derecha es el siguiente de la serie sobre el diseño de sistemas de trading. ¿Continuamos?",
+                "updated": 1668194163913
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Serideki bir sonraki öğretici, test edilebilmesi için yeni bulduğumuz fikirleri bir Ticaret Sisteminde ( Trading System ) uygulamakla ilgilidir.",
                     "updated": 1640953541935
+                },
+                {
+                    "language": "ES",
+                    "text": "El siguiente tutorial de la serie trata sobre la implementación de las ideas que acabamos de concebir en un sistema de trading (Trading System) para poder probarlas.",
+                    "updated": 1668194200867
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonraki öğreticide Oynat'ı seçin!",
                     "updated": 1640953581708
+                },
+                {
+                    "language": "ES",
+                    "text": "Haga clic en Next para terminar este tutorial, y seleccione Play en el siguiente cuando esté listo.",
+                    "updated": 1668194246533
                 }
             ]
         }

@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "El repositorio de Superalgos presenta tres ramas principales: master, develop, y el que estamos buscando, plugins-docs.",
-                "updated": 1628121680964,
+                "text": "El repositorio de Superalgos presenta dos ramas principales: Master y Develop.",
+                "updated": 1667508718420,
                 "style": "Definition"
             },
             {
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Master Branch: Es la versión estable del software. ¡Nunca envíes contribuciones a esta rama!",
-                    "updated": 1628121827428,
+                    "text": "Master Branch: contiene la versión estable del software. ¡Nunca envíes contribuciones a esta rama! ",
+                    "updated": 1667508817851,
                     "style": "List"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Develop Branch: Presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten al código base.",
-                    "updated": 1628121811043,
+                    "text": "Develop Branch: presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten a la base de código, traducciones, mejoras en los Docs, Tutoriales y Plugins como Data Mine, Trading System, etc.",
+                    "updated": 1667508980371,
                     "style": "List"
                 },
                 {
@@ -144,6 +144,11 @@
                     "language": "RU",
                     "text": "Если вы не используете установку Contributors, проигнорируйте инструкции по переключению ветвей на следующих нескольких шагах. Просто нажмите кнопку Далее, чтобы продолжить.",
                     "updated": 1662032297873
+                },
+                {
+                    "language": "ES",
+                    "text": "Ignore las instrucciones para cambiar de rama de los siguientes pasos si no está utilizando la instalación de Contributors. Simplemente haga clic en Siguiente para continuar.",
+                    "updated": 1667509026793
                 }
             ]
         }

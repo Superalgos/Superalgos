@@ -181,6 +181,7 @@ exports.documentationExporter = function documentationExporter() {
             let orderedReviewPageIndexArray = []
             let HTML = ''
             const translationListPlaceholder = '%%TRANSLATION_ICONS%%'
+            const translationGroupDiv = '<div class="translation-group">'
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + '<div class="docs-search-results-header">'
@@ -352,7 +353,7 @@ exports.documentationExporter = function documentationExporter() {
                     translationLanguages.push(ED.DEFAULT_LANGUAGE)
                     return await addDefinitionTableForLanguage(definition, idPrefix, category, project, type, 0, ED.DEFAULT_LANGUAGE)
                 }
-                let html = '<div class="translation-group">'
+                let html = translationGroupDiv
                 const translations = [ED.DEFAULT_LANGUAGE].concat(definition.translations.map(t => t.language))
                 for(let i = 0; i < translations.length; i++) {
                     translationLanguages.push(translations[i])
@@ -1738,11 +1739,12 @@ exports.documentationExporter = function documentationExporter() {
                 //     html += addTranslationIcons(paragraph.translations)
                 // }
                 const translations = [ED.DEFAULT_LANGUAGE].concat(paragraph.translations.map(t => t.language))
+                html += translationGroupDiv
                 for(let i = 0; i < translations.length; i++) {
                     translationLanguages.push(translations[i])
                     html += await renderParagraphForTranslation(paragraph, key, translations[i], true)
                 }
-                return html
+                return html + '</div>'
             }
 
             /**

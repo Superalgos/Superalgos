@@ -1,4 +1,4 @@
-const {info} = require('./Scripts/Logger').logger
+const {info, error} = require('./Scripts/Logger').logger
 exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     let thisObject = {
@@ -58,14 +58,10 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             })
             let html = '<div>'
             for(let i = 0; i < files.length; i++) {
-                html += '<div class="docs-definition-floating-cells"><a href="' + ED.utilities.normaliseInternalLink(files[i].path.split('/')) + '">' + files[i].name + '</a></div>'
+                html += '<div class="docs-definition-floating-cells"><a href="' + ED.utilities.normaliseInternalLink(trimLocalPath(files[i].path)) + '">' + files[i].name + '</a></div>'
             }
             html += '</div>'
-
-            let firstPath = filePaths[0].split('/')
-            if(firstPath[0] == global.env.PATH_TO_PAGES_DIR) {
-                firstPath = firstPath.slice(1)
-            }
+            const firstPath = trimLocalPath(filePaths[0])
             const destination = global.env.PATH_TO_PAGES_DIR + '/' + (firstPath.slice(0,firstPath.length-1).join('/')) + '/index.html'
             try {
                 const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
@@ -76,6 +72,15 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                 error(error)
             }
             return files.length
+
+            /**
+             * removes the local folder directory for correct browser linking
+             * @param {string} filePath 
+             * @returns {string}
+             */
+            function trimLocalPath(filePath) {
+                return filePath.indexOf(global.env.PATH_TO_PAGES_DIR) == 0 ? filePath.slice(global.env.PATH_TO_PAGES_DIR.length+1).split('/') : filePath.splice('/')
+            }
         }
     }
 }

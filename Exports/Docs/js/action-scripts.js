@@ -12,24 +12,36 @@ for (let i = 0; i < collapsibleElementsArray.length; i++) {
     })
 }
 
-let translationsButtons = document.getElementsByClassName('translation-options')
-let languageClasses = []
+const translationsButtons = document.getElementsByClassName('translation-options')
+const languageClasses = []
 for (let i = 0; i < translationsButtons.length; i++) {
-    let ele = translationsButtons[i]
-    let matchingClass = ele.getAttribute('language') + '-translation'
+    const ele = translationsButtons[i]
+    const language = ele.getAttribute('language')
     ele.addEventListener('click', function toggleLanguage() {
-        toggleTranlations(matchingClass)
+        toggleTranlationGroups(language)
     })
 }
 
-function toggleTranlations(selector) {
-    let translations = document.getElementsByClassName('translation')
-    for(let i = 0; i < translations.length; i++) {
-        if(translations[i].classList.contains(selector)) {
-            translations[i].classList.remove('hidden')
+function toggleTranlationGroups(selector) {
+    const translationGroups = document.getElementsByClassName('translation-group')
+    for(let i = 0; i < translationGroups.length; i++) {
+        if(!toggleTranlationChildren(translationGroups[i].children, selector)) {
+            toggleTranlationChildren(translationGroups[i].children, 'EN')
         }
-        else {
-            translations[i].classList.add('hidden')
+    }
+
+    function toggleTranlationChildren(children, selector) {
+        let found = false
+        for(let i = 0; i < children.length; i++) {
+            const child = children[i]
+            if(child.getAttribute('language') == selector) {
+                child.classList.remove('hidden')
+                found = true
+            }
+            else {
+                child.classList.add('hidden')
+            }
         }
+        return found
     }
 }

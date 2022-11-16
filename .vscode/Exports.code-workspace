@@ -4,7 +4,7 @@
 			"path": "/home/pi/trading/Superalgos/.github"
 		},
 		{
-			"path": "/home/pi/trading/Superalgos/_site"
+			"path": "/home/pi/trading/Superalgos/My-Data-Storage"
 		},
 		{
 			"path": "/home/pi/trading/Superalgos/Exports"
@@ -24,7 +24,7 @@
 			"cwd": "/home/pi/trading/Superalgos/",
 			"program": "export-docs.js",
 			"args": [
-				"_site",
+				"My-Data-Storage/_site",
 				"sa-docs"
 			],
 			"request": "launch",

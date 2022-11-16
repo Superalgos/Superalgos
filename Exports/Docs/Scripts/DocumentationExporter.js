@@ -1,4 +1,4 @@
-const {info, warn} = require('./Logger').logger
+const {info, warn, error} = require('./Logger').logger
 
 /**
  * @typedef {{
@@ -352,13 +352,13 @@ exports.documentationExporter = function documentationExporter() {
                     translationLanguages.push(ED.DEFAULT_LANGUAGE)
                     return await addDefinitionTableForLanguage(definition, idPrefix, category, project, type, 0, ED.DEFAULT_LANGUAGE)
                 }
-                let html = ''
+                let html = '<div class="translation-group">'
                 const translations = [ED.DEFAULT_LANGUAGE].concat(definition.translations.map(t => t.language))
                 for(let i = 0; i < translations.length; i++) {
                     translationLanguages.push(translations[i])
                     html += await addDefinitionTableForLanguage(definition, idPrefix, category, project, type, i, translations[i])
                 }
-                return html
+                return html + '</div>'
             }
 
             /**
@@ -396,11 +396,11 @@ exports.documentationExporter = function documentationExporter() {
                 each node will have an icon. For the rest only if we could load an 
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
-                const languageClass = language + '-translation translation' + (language != ED.DEFAULT_LANGUAGE ? ' hidden' : '')
+                const hidden = language != ED.DEFAULT_LANGUAGE ? 'hidden' : ''
                 if((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
-                    html = html + '<div id="definition-summary-editable-paragraph-' + count + '" class="docs-summary ' + languageClass + '"><b>Summary:</b> ' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</div>'
+                    html = html + '<div id="definition-summary-editable-paragraph-' + count + '" class="docs-summary ' + hidden + '" language="' + language + '"><b>Summary:</b> ' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</div>'
                 } else {
-                    html = html + '<div class="docs-definition-table ' + languageClass + '">'
+                    html = html + '<div class="docs-definition-table ' + hidden + '" language="' + language + '">'
 
                     let imageItem = {
                         div: 'definition-image-div-' + definitionImagesArray.length,
@@ -2025,7 +2025,7 @@ exports.documentationExporter = function documentationExporter() {
                     }
                 }
                 // class="' + languageClass + '" class="' + languageClass + '"
-                return '<p><div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                return '<div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + '><p>' + prefix + ' ' + innerHTML + sufix + '</p></div>'
             }
 
             // function hightlightEmbeddedCode() {

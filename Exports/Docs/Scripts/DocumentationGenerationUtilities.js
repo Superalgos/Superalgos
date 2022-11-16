@@ -815,15 +815,22 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
         if(routeParts.length == 0) {
             return '/' + global.env.REMOTE_DOCS_DIR + '/index.html'
         }
-        if(routeParts[0] === global.env.PATH_TO_PAGES_DIR) {
-            routeParts.splice(0, 1)
-        }
+        routeParts = trimLocalPath(routeParts.join('/'))
         if(!/\.[a-z]{3,4}/.test(routeParts[routeParts.length-1])) {
             return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/') + '.html'
 
         }
         else {
             return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/')
+        }
+
+        /**
+         * removes the local folder directory for correct browser linking
+         * @param {string} filePath 
+         * @returns {string}
+         */
+         function trimLocalPath(filePath) {
+            return filePath.indexOf(global.env.PATH_TO_PAGES_DIR) == 0 ? filePath.slice(global.env.PATH_TO_PAGES_DIR.length+1).split('/') : filePath.split('/')
         }
     }
 

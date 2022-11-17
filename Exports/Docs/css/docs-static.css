@@ -1,5 +1,20 @@
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+.docs-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .docs-topic-index {
     padding-top: 0;
+}
+
+.docs-topic-index a {
+    text-decoration: none;
 }
 
 .docs-definition-floating-cells {
@@ -33,4 +48,70 @@
 .docs-tooltip {
     color: inherit;
     text-decoration: none;
+}
+
+.docs-footer-cell .button {
+    border: 1px outset #e6eaea;
+    border-radius: 20px;
+    background-color: transparent;
+    color: e6eaea;
+    padding: 10px;
+    margin: 0 0 0 10px;
+}
+
+.docs-page-link {
+    display: inline-block;
+    border-right: 1px solid black;
+    padding: 12px;
+}
+
+.docs-page-link:last-child {
+    border-right: none;
+}
+
+.docs-page-link > a, .docs-page-link > a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+#docs-nav-div {
+    width: 100%;
+    background-color: #365558;
+    color: #e6eaea;
+    border-bottom: 5px solid #0295aa;
+}
+
+#docs-footer-div {
+    width: 100%;
+    background-color: #365558;
+    color: #e6eaea;
+    border-top: 5px solid #0295aa;
+    margin-top: 80px;
+}
+
+.docs-nav {
+    width: 100%;
+    background-color: #365558;
+    color: #e6eaea;
+    margin: 0 auto 10px;
+    max-width: 1200px;
+    padding-bottom: 15px;
+}
+
+.docs-nav a {
+    color: #ffd1a9;
+}
+
+.docs-nav a.active {
+    background-color: inherit;
+    color: #e6eaea;
+}
+
+.docs-node-html-footer-container {
+    border-top: none;
+    margin: 0;
+}
+
+#docs-content-div {
+    padding-top: 30px;
 }

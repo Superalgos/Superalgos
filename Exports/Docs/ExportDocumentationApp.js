@@ -43,6 +43,7 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
             return filePaths
         }
 
+        // TODO: remove section in favour of rendering from json file
         /**
          * @param {string} filePaths
          * @return {number} 

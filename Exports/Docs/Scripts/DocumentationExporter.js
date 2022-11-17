@@ -82,8 +82,14 @@ exports.documentationExporter = function documentationExporter() {
         let filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
-        const fileName = thisObject.currentDocumentBeingRendered.type + '.html'
-        filePath = filePath + ED.utilities.normaliseStringForLink(fileName)
+        
+        let fileName = thisObject.currentDocumentBeingRendered.type + '.html'
+        fileName = ED.utilities.normaliseStringForLink(fileName)
+        filePath = filePath + fileName
+
+        ED.pageGlobals.addNavigation(dom.window.document, thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + fileName)
+        ED.pageGlobals.addFooter(dom.window.document)        
+
         SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
         return filePath
     }
@@ -217,7 +223,7 @@ exports.documentationExporter = function documentationExporter() {
             Here we inject the HTML we built into the DOM at the Docs Space Div.
             */
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML
             // Create tooltip objects for all the elements
             // tippy('#tooltip-container', {
             //     theme: "superalgos"
@@ -2325,193 +2331,6 @@ exports.documentationExporter = function documentationExporter() {
         function generateUnstyledLink(category, pageType, content) {
             const link = ED.utilities.normaliseInternalLink([thisObject.currentDocumentBeingRendered.project, category, ED.utilities.normaliseStringForLink(pageType)])
             return '<a href="' + link + '"> ' + content + ' </a>'
-        }
-    }
-
-    function addFooter() {
-
-        let HTML = ''
-
-        HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
-
-        // Buttons Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
-
-        if(thisObject.currentDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="sharePage()"><button>SHARE</button></span>'
-        }
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if(previousDocumentBeingRendered !== undefined) {
-            HTML = HTML + generateFooterBookLink(previousDocumentBeingRendered.project, previousDocumentBeingRendered.category, previousDocumentBeingRendered.type, 'BACK')
-        }
-        if(thisObject.currentBookBeingRendered !== undefined) {
-            HTML = HTML + generateFooterBookLink(thisObject.currentBookBeingRendered.project, thisObject.currentBookBeingRendered.category, thisObject.currentBookBeingRendered.type, 'TO BOOK')
-        }
-
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Reviews', 'REVIEWS')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Community Data Mines', 'DATA MINES')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'First Steps Tutorials', 'TUTORIALS')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'User Manual', 'USER MANUAL')
-
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        // Language Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Multi-language Docs</h4>'
-        HTML = HTML + 'We produce the original Docs in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'Click on your preferred language:<br/>'
-
-        /**
-         * Iterate over the available languages and add links for each
-         */
-        for(let key in languagePack) {
-            HTML = HTML + generateLanguageLink(key, languagePack[key])
-        }
-
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Contribute Translations</h4>'
-        HTML = HTML + 'Earn tokens by helping translate the Docs and tutorials to your native language! Search the Docs for How to Contribute Translations and join the Superalgos Docs Group to coordinate with other contributors...'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        // GitHub Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Manage Your Superalgos Setup and Contributions!</h3>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        // Community Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Meet the Community and the Team!</h3>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Join the Conversation</h4>'
-        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels and a new <a href="https://forum.superalgos.org/" target="_blank">Community Forum</a>.</p>'
-        HTML = HTML + '<p>The community is a lot more active in the original Telegram groups listed on the right.</p>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Telegram Groups</h4>'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" target="_blank">Community</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgossupport" target="_blank">Technical Support</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" target="_blank">Developers</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosdatamining" target="_blank">Data Mining</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosmachinelearning" target="_blank">Machine Learning</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosdocs" target="_blank">Docs/Education</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosuxui" target="_blank">UX/UI Design</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosmarketing" target="_blank">Marketing</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgostoken" target="_blank">Token</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgostrading" target="_blank">Trading</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgoscollaborations" target="_blank">Collaborations</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgoscodebase" target="_blank">Codebase Learning</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosnontechusers" target="_blank">Non-Tech Users</a></li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Non-English Telegram Groups</h4>'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos_es" target="_blank">Spanish</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos_ru" target="_blank">Russian</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/tr_superalgos" target="_blank">Turkish</a></li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos_de" target="_blank">German</a></li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '<h4>Other Resources</h4>'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos" target="_blank">Official Announcements</a></li>'
-        HTML = HTML + '<li><a href="https://superalgos.org" target="_blank">Features and Functionality</a></li>'
-        HTML = HTML + '<li><a href="https://github.com/Superalgos/Superalgos" target="_blank">Main Github Repository</a></li>'
-        HTML = HTML + '<li><a href="https://www.youtube.com/c/superalgos" target="_blank">Subscribe in YouTube</a></li>'
-        HTML = HTML + '<li><a href="https://twitter.com/superalgos" target="_blank">Follow us on Twitter</a></li>'
-        HTML = HTML + '<li><a href="https://www.facebook.com/superalgos" target="_blank">Connect on Facebook</a></li>'
-        HTML = HTML + '<li><a href="https://medium.com/Superalgos/" target="_blank">Read the Blog</a></li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo-white.png']) + '" width="200 px">'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>' // Container Ends
-
-        return HTML
-
-        function generateFooterBookLink(project, category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink([project, category, ED.utilities.normaliseStringForLink(pageType)])
-            return '<a style="float: right; display: inline-block;" href="' + link + '">' + content + ' </a>'
-        }
-
-        /**
-         * 
-         * @param {string} key
-         * @param {string} language
-         */
-        function generateLanguageLink(key, language) {
-            let link = ED.utilities.normaliseInternalLink(['index.html'])
-            if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = ED.utilities.normaliseInternalLink([thisObject.currentDocumentBeingRendered.project, thisObject.currentDocumentBeingRendered.category, ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + '.html'])
-            }
-            let HTML = '<a href="' + link + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + language + '" class="docs-footer-language'
-            if(thisObject.currentLanguageCode === key) {
-                HTML = HTML + '-selected'
-            }
-            return HTML + '"></a>'
         }
     }
 }

@@ -36,8 +36,10 @@ async function runRoot() {
         utilities: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
         designSpace: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
         strings: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
+        pageGlobals: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationPageGlobals').documentationPageGlobals(),
         indexFile: EXPORT_DOCS_DIR + '/index.html',
-        baseIndexFile: EXPORT_DOCS_DIR + '/index_base.html'
+        baseIndexFile: EXPORT_DOCS_DIR + '/index_base.html',
+        siteIndexData: require(EXPORT_DOCS_DIR + '/site-index.json')
     }
 
 
@@ -89,7 +91,7 @@ async function runRoot() {
     await ED.designSpace.copyCustomJsScripts()
     await ED.designSpace.copyCustomCssScripts()
 
-    buildIndexPage(projectSchemaNames, categories, results)
+    buildIndexPage()
 
     const robots = `User-agent: *\nDisallow: /`
     SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
@@ -139,29 +141,11 @@ async function runRoot() {
     }
 
     /**
-     * @param {string} project
-     * @param {string[]} categories
-     * @param {{
-     *    count: number,
-     *    project: string,
-     *    category: string
-     *  }[]} results
+     * Renders an index page
      */
-    function buildIndexPage(projects, categories, results) {
-        let html = '<div>'
-        for(let i = 0; i < projects.length; i++) {
-            html += '<div class="docs-definition-floating-cells"><h3>' + projects[i] + '</h3>'
-            for(let j = 0; j < categories.length; j++) {
-                if(results.find(r => r.project == projects[i] && r.category == categories[j]).count > 0) {
-                    html += '<div class="docs-definition-floating-links"><a href="' + projects[i] + '/' + categories[j] + '/index.html">' + categories[j] + '</a></div>'
-                }
-                else {
-                    html += '<div class="docs-definition-floating-links">' + categories[j] + '</div>'
-                }
-            }
-            html += '</div>'
-        }
-        html += '</div>'
+    function buildIndexPage() {
+        let html = '<div class="docs-home">'
+        html += '<div class="docs-index-page">' + ED.pageGlobals.buildPage(ED.siteIndexData.page, 0) + '</div>'
 
         const destination = global.env.PATH_TO_PAGES_DIR + '/index.html'
         try {

@@ -1,5 +1,5 @@
 const {info, warn, error} = require('./Logger').logger
-exports.documentationDesignSpace = function() {
+exports.documentationDesignSpace = function documentationDesignSpace() {
     let thisObject = {
         getIconByProjectAndName: getIconByProjectAndName,
         getIconByProjectAndType: getIconByProjectAndType,

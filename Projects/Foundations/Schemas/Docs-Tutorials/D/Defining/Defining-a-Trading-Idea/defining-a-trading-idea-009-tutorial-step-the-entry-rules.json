@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Tanımlanacak üçüncü husus, stratejiyi tetikleme ve pozisyon alma kurallarıdır.",
                 "updated": 1640867430097
+            },
+            {
+                "language": "ES",
+                "text": "El tercer aspecto que hay que definir son las reglas para activar la estrategia y tomar una posición.",
+                "updated": 1668189190406
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Çoğu zaman, stratejiyi tetikleyecek kurallar, bağlamın analizinden türetilir. Örneğin, belirli bir yöntemle belirli bir eğilim tespit edildiğinde stratejinin aktif olmasını istersiniz.",
                     "updated": 1640867458806
+                },
+                {
+                    "language": "ES",
+                    "text": "Muchas veces, las reglas para activar la estrategia se derivan del análisis del contexto. Por ejemplo, se desea que la estrategia se active cuando se detecta una tendencia específica por algún método concreto.",
+                    "updated": 1668189231637
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bir pozisyon alma kuralları genellikle sinyal ve sinyal onayı olarak adlandırılır.",
                     "updated": 1640867496258
+                },
+                {
+                    "language": "ES",
+                    "text": "Las reglas para tomar una posición suelen denominarse señal y confirmación de la señal.",
+                    "updated": 1668189245307
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Bu kurallar, bir pozisyona ne zaman girileceğini belirleyen belirli olayın açıklamasıdır. Örneğin, iki belirli çizginin çaprazlanması veya belirli bir göstergede belirli bir değer.",
                     "updated": 1640867528994
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas reglas son la descripción del evento específico que determina cuándo entrar en una posición. Por ejemplo, el cruce de dos líneas específicas, o un determinado valor en un indicador específico.",
+                    "updated": 1668189265922
                 }
             ]
         }

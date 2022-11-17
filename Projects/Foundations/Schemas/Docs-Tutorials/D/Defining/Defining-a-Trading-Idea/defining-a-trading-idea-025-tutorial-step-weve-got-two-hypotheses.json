@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
                 "updated": 1640949719690
+            },
+            {
+                "language": "ES",
+                "text": "Recuperemos nuestra hipótesis anterior e ideemos una nueva para las observaciones más recientes.",
+                "updated": 1668193080527
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Varsayım 1: Günlük grafikte bir yükseliş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü, ara trendde bir tersine dönüşü öngörebilir.",
                     "updated": 1640949950526
+                },
+                {
+                    "language": "ES",
+                    "text": "Hipótesis 1: En el contexto de una tendencia alcista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir una inversión de la tendencia intermedia.",
+                    "updated": 1668193124428
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Varsayım 2: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü düşüş trendinin hızlanmasını öngörebilir.",
                     "updated": 1640949976880
+                },
+                {
+                    "language": "ES",
+                    "text": "Hipótesis 2: En el contexto de una tendencia bajista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir una aceleración de la tendencia bajista.",
+                    "updated": 1668193155013
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Bu ikisini iki farklı ticaret fikrinin özü olarak düşünebiliriz! Ama hepsi bu kadar değil, değil mi?",
                     "updated": 1640950094991
+                },
+                {
+                    "language": "ES",
+                    "text": "Podemos pensar en estos dos como el núcleo de dos ideas de trading diferentes. Pero eso no es todo, ¿verdad?",
+                    "updated": 1668193176194
                 }
             ]
         }

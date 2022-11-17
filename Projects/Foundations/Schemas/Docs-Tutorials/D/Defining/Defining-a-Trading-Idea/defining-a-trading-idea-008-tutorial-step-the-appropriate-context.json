@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Tanımlanması gereken ikinci önemli ölçü, varsayımın hedeflendiği genel bağlamdır.",
                 "updated": 1640866693545
+            },
+            {
+                "language": "ES",
+                "text": "La segunda dimensión importante que hay que definir es el contexto general al que se dirige la hipótesis.",
+                "updated": 1668188981988
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Teknik analize dayalı stratejiler, tanımlanmamış piyasa durumlarında tutarlı bir şekilde performans gösterir.",
                     "updated": 1640867069015
+                },
+                {
+                    "language": "ES",
+                    "text": "Pocas estrategias basadas en el análisis técnico, si es que hay alguna, funcionan de forma consistente en situaciones de mercado no definidas.",
+                    "updated": 1668189007571
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Gerekli minimum tanım, varsayımınızın düşüş trendlerini mi, yükseliş trendlerini mi yoksa yan yönlü piyasaları mı hedeflediğidir.",
                     "updated": 1640867252493
+                },
+                {
+                    "language": "ES",
+                    "text": "La definición mínima requerida es si la hipótesis se apunta a las tendencias bajistas, a las tendencias alcistas o a los mercados laterales.",
+                    "updated": 1668189046273
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Olağan kaynak, mevcut eğilimin farklı zaman dilimlerinde ne olduğunu belirleyen bir veya daha fazla göstergeye ve belirli strateji için önemli olabilecek diğer faktörlere (örneğin hacim veya oynaklık) dayanan çok zaman çerçeveli bir analizdir.",
                     "updated": 1640867331944
+                },
+                {
+                    "language": "ES",
+                    "text": "El recurso habitual es un análisis multitemporal basado en uno o varios indicadores que determinan cuál es la tendencia existente en diferentes marcos temporales, y cualquier otro factor que pueda ser importante para la estrategia concreta, por ejemplo, el volumen o la volatilidad.",
+                    "updated": 1668189128865
                 }
             ]
         }

@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés. Advertencia!!! Los documentos de Superalgos y de otros proyectos integrados están escritos originariamente en Inglés. El sistema permite a los usuarios buscar y navegar en páginas en toros idiomas también , siempre que algunos usuarios hayan contribuido con las correspondientes traduccciones. Por favor actualice esta traucción.",
-                "updated": 1633180141328,
+                "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuido traducciones de los artículos existentes escritos en el idioma por defecto que es el Inglés. \nAdvertencia!!! Los documentos de Superalgos y de otros proyectos integrados están escritos originariamente en Inglés. El sistema permite a los usuarios buscar y navegar en páginas en otros idiomas también, siempre que algunos usuarios hayan contribuido con las correspondientes traducciones.",
+                "updated": 1667505095147,
                 "style": "Definition"
             },
             {
@@ -32,8 +32,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es importante notar que por mas que uno seleccione un idioma, el contenido se mostrará en ingles en cada sitio donde todavía no ha sido traducido. El sistema permite a cualquier usuario contribuir traducciones con una granularidad a nivel de párrafos. Esto significa que si una página cualquiera pudiera tener todos, algunos o nigún párrafo traducido. Esto solo depende de cuales hayan sido traducidos previamente por miembros de la comunidad.",
-                    "updated": 1609831884941,
+                    "text": "Es importante destacar que por más que uno seleccione un idioma, el contenido se mostrará en inglés en cada sitio donde todavía no ha sido traducido. El sistema permite a cualquier usuario contribuir traducciones con una granularidad a nivel de párrafos. Esto significa que una página puede tener todos, algunos o ningún párrafo traducido. Esto solo depende de cuales hayan sido traducidos previamente por miembros de la comunidad. El inglés se considera el idioma por defecto. Cuando se cambia de idioma, el sistema intentará mostrar el contenido en el nuevo idioma. Sin embargo, si la traducción aún no está disponible, muestra la versión en inglés en su lugar.",
+                    "updated": 1667505404838,
                     "style": "Text"
                 },
                 {
@@ -63,6 +63,11 @@
                     "text": "Düğüm türleri, değişken adları, Dokümanlar'daki sayfaların başlığı ve Superalgos'un birkaç öğesi daha, söz konusu öğelerin benzersiz tanımlayıcıları oldukları için çevrilmeyebilir. Bunları her zaman İngilizce olarak alacaksınız.",
                     "updated": 1654393582374,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los tipos de Node, los nombres de las variables, el título de las páginas en los Docs, y algunos elementos más de Superalgos no pueden ser traducidos, ya que son identificadores únicos de dichos elementos. Siempre los tendrás en inglés.",
+                    "updated": 1667505483658
                 }
             ]
         },
@@ -80,6 +85,11 @@
                     "text": "Çevirilere katkıda bulunmak istiyorsanız, Çevirilere Nasıl Katkıda Bulunulur sayfasını okuyun.",
                     "updated": 1654393589169,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si desea contribuir con traducciones, lea la página How to Contribute Translations .",
+                    "updated": 1667505539197
                 }
             ]
         },
@@ -90,8 +100,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para cambiar de un idioma a otro se debe usar los links en el pie de cada página.",
-                    "updated": 1609831898619,
+                    "text": "Para cambiar de un idioma a otro los usuarios pueden cambiar de idioma mediante los enlaces/banderas que aparecen en el pie de cada página de Docs",
+                    "updated": 1667505658107,
                     "style": "Success"
                 },
                 {
@@ -122,6 +132,11 @@
                     "text": "Dokümanlara yalnızca dil İngilizce olarak ayarlandığında sayfa ekleyebilir veya silebilirsiniz. Çeviri için çevirmek istediğiniz dili seçmeniz gerekir. (Bu durumda ispanyolca)",
                     "updated": 1654393601784,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sólo se permite añadir o eliminar páginas en los Docs cuando el idioma está configurado en inglés. Para la traducción tienes que seleccionar el idioma al que quieres traducir. (En este caso Español)",
+                    "updated": 1667505761755
                 }
             ]
         }

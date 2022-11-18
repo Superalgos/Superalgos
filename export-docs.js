@@ -80,6 +80,15 @@ async function runRoot() {
         global.SCHEMAS_BY_PROJECT.set(projectSchemaNames[i], schemas)
     }
     
+    global.PROJECT_ICONS = {
+        byName: new Map(),
+        byType: new Map()
+    }
+
+    for(let i = 0; i < projectSchemaNames.length; i++) {
+        await ED.designSpace.initialize(projectSchemaNames[i])
+    }
+
     const results = []
     for(let i = 0; i < projectSchemaNames.length; i++) {
         await ED.designSpace.copyProjectAssets(projectSchemaNames[i])
@@ -117,13 +126,9 @@ async function runRoot() {
 
         info('Exporting'.padEnd(20) + ' -> ' + projectCategory.project + ' -> ' + projectCategory.category)
         const count = await ED.schemas.convertProjectsToSchemas(projectCategory.project)
-            .then(() => ED.designSpace.initialize(projectCategory.project))
             .then(() => setUpMenuItemsMap(projectCategory.project))
             .then(() => app.run(projectCategory))
-            .then((c) => {
-                ED.designSpace.finalize(projectCategory.project)
-                return c
-            })
+            
         return {
             log: 'Exported'.padEnd(20) + ' -> ' + projectCategory.project + ' -> ' + projectCategory.category + ' completed ' + count + ' docs',
             count,

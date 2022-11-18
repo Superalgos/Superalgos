@@ -32,7 +32,16 @@ const {info, warn, error} = require('./Logger').logger
  *   type: string,
  *   paragraphs: Paragraph[]
  * }} SchemaDocument
+ * 
+ * @typedef {{
+ *   canDrawIcon: boolean,
+ *   src: string,
+ *   fileName: string,
+ *   asImageNode: (any) => any
+ * }} Image
+ * 
  */
+
 
 exports.documentationExporter = function documentationExporter() {
     let thisObject = {
@@ -961,6 +970,7 @@ exports.documentationExporter = function documentationExporter() {
                     if(appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) {
                         return
                     }
+                    // TODO: inspect missing images
                     for(let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon(appSchemaDocument.menuItems[i].relatedUiObjectProject, appSchemaDocument.menuItems[i].actionProject)
@@ -975,6 +985,12 @@ exports.documentationExporter = function documentationExporter() {
                         let dummyImage = parentElement.childNodes[0]
                         parentElement.replaceChild(imageElement, dummyImage)
 
+                        /**
+                         * 
+                         * @param {string} relatedUiObjectProject 
+                         * @param {string} actionProject 
+                         * @returns {Image}
+                         */
                         function getIcon(relatedUiObjectProject, actionProject) {
                             let project
                             if(menuItem.relatedUiObject !== undefined) {

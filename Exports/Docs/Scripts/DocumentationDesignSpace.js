@@ -1,4 +1,14 @@
 const {info, warn, error} = require('./Logger').logger
+
+/**
+ * @typedef {{
+ *   canDrawIcon: boolean,
+ *   src: string,
+ *   fileName: string,
+ *   asImageNode: (any) => any
+ * }} Image
+ */
+
 exports.documentationDesignSpace = function documentationDesignSpace() {
     let thisObject = {
         getIconByProjectAndName: getIconByProjectAndName,
@@ -13,24 +23,15 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
         copyFavicon: copyFavicon
     }
 
-    let internal = {
-        iconsByProjectAndName: undefined,
-        iconsByProjectAndType: undefined,
-    }
-
     return thisObject
 
     function finalize(project) {
         info('Design space'.padEnd(20) + ' -> ' + project + ' -> finalizing')
-        internal = undefined
+        // internal = undefined
     }
 
     async function initialize(project) {
         info('Design space'.padEnd(20) + ' -> ' + project + ' -> initializing project assets' )
-        internal = {
-            iconsByProjectAndName: new Map(),
-            iconsByProjectAndType: new Map()
-        }
 
         const iconsArray = await new Promise(res => SA.projects.foundations.utilities.icons.retrieveIcons(x => res(x)))
 
@@ -73,8 +74,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
             }
 
             let key = iconProject + '-' + image.fileName.substring(0, image.fileName.length - 4)
-            internal.iconsByProjectAndName.set(key, image)
-            
+            PROJECT_ICONS.byName.set(key, image)
         }
         
         function buildIconByProjectAndTypeMap(project) {
@@ -95,28 +95,45 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
                     let icon = getIconByProjectAndName(project, iconName)
                     if(icon !== undefined) {
                         let key = project + '-' + schemaDocument.type
-                        internal.iconsByProjectAndType.set(key, icon)
+                        PROJECT_ICONS.byType.set(key, icon)
                     }
                 }
             }
         }
     }
     
+    /**
+     * 
+     * @param {string} project 
+     * @param {string} url 
+     * @returns {Image}
+     */
     function getIconByProjectAndName(project, name) {
-        return internal.iconsByProjectAndName.get(project + '-' + name)
+        return PROJECT_ICONS.byName.get(project + '-' + name)
     }
     
+    /**
+     * 
+     * @param {string} project 
+     * @param {string} url 
+     * @returns {Image}
+     */
     function getIconByProjectAndType(project, type) {
-        return internal.iconsByProjectAndType.get(project + '-' + type)
+        return PROJECT_ICONS.byType.get(project + '-' + type)
     }
     
-    // TODO: review for potential download during build process
+    /**
+     * 
+     * @param {string} project 
+     * @param {string} url 
+     * @returns {Image}
+     */
     function getIconByExternalSource(project, url) {
         
         let image
         let key = project + '-' + url
         
-        image = internal.iconsByProjectAndName.get(key)
+        image = PROJECT_ICONS.byName.get(key)
         
         if(image === undefined) {
             
@@ -124,7 +141,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
             image.src = url
             
             let key = project + '-' + image.src
-            internal.iconsByProjectAndName.set(key, image)
+            PROJECT_ICONS.byName.set(key, image)
         }
         
         return image

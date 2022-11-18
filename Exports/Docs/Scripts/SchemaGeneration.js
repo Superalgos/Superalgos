@@ -74,7 +74,7 @@ exports.schemaGeneration = function schemaGeneration() {
                 workspaceSchema: new Map()
             }
         }
-        SCHEMAS_BY_PROJECT.set(project, schemas)
+        // SCHEMAS_BY_PROJECT.set(project, schemas)
 
         const path = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
         debug('retrieving schemas from ' + path)
@@ -84,6 +84,8 @@ exports.schemaGeneration = function schemaGeneration() {
             const schema = await sendSchema(path, schemaType)
             process(schema, schemas, schemaType.key)
         }
+
+        return schemas
 
         /**
          * 

@@ -66,16 +66,20 @@ async function runRoot() {
 
     const projectSchemaNames = global.PROJECTS_SCHEMA
         .map(project => project.name)
-        /* .filter( x => x === 'Foundations') Debugging only */
         .sort()
-        const categories = ED.schemas.schemaTypes
+    const categories = ED.schemas.schemaTypes
         .map(t => t.category)
-        /* .filter( x => x === 'Topic') Debugging only */
         .sort()
 
     info( 'Source files'.padEnd(20) + ' -> preparing index template')
     setSourceFileLinks()
 
+    global.SCHEMAS_BY_PROJECT = new Map()
+    for(let i = 0; i < projectSchemaNames.length; i++) {
+        const schemas = await ED.schemas.convertProjectsToSchemas(projectSchemaNames[i])
+        global.SCHEMAS_BY_PROJECT.set(projectSchemaNames[i], schemas)
+    }
+    
     const results = []
     for(let i = 0; i < projectSchemaNames.length; i++) {
         await ED.designSpace.copyProjectAssets(projectSchemaNames[i])
@@ -109,7 +113,6 @@ async function runRoot() {
      * @param {{project: string, category: string}}
      */
     async function run(projectCategory) {
-        global.SCHEMAS_BY_PROJECT = new Map()
         const app = require(EXPORT_DOCS_DIR + '/ExportDocumentationApp.js').newExportDocumentationApp()
 
         info('Exporting'.padEnd(20) + ' -> ' + projectCategory.project + ' -> ' + projectCategory.category)

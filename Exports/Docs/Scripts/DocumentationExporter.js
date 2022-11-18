@@ -397,7 +397,7 @@ exports.documentationExporter = function documentationExporter() {
                 */
                 const hidden = language != ED.DEFAULT_LANGUAGE ? 'hidden' : ''
                 if((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
-                    html = html + '<div id="definition-summary-editable-paragraph-' + count + '" class="docs-summary ' + hidden + '" language="' + language + '"><b>Summary:</b> ' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</div>'
+                    html = html + '<div id="definition-summary-editable-paragraph-' + count + '" class="docs-summary ' + hidden + '" language="' + language + '"><b>Summary:</b> ' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</div>'
                 } else {
                     html = html + '<div class="docs-definition-table ' + hidden + '" language="' + language + '">'
 
@@ -411,7 +411,7 @@ exports.documentationExporter = function documentationExporter() {
                     definitionImagesArray.push(imageItem)
 
                     html = html + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                    html = html + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</strong></div>'
+                    html = html + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + await ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</strong></div>'
                     html = html + '</div>'
                 }
                 return html
@@ -1222,7 +1222,7 @@ exports.documentationExporter = function documentationExporter() {
 
                         let name = ED.utilities.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
-                        html = html + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + await ED.utilities.addToolTips(name, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
+                        html = html + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + await ED.utilities.addToolTips(name, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         html = html + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1307,7 +1307,7 @@ exports.documentationExporter = function documentationExporter() {
                             if(listItem === "") {
                                 continue
                             }
-                            lHtml = lHtml + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + await ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
+                            lHtml = lHtml + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + await ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         }
                         return lHtml
                     }
@@ -1374,7 +1374,7 @@ exports.documentationExporter = function documentationExporter() {
                             if(listItem === "") {
                                 continue
                             }
-                            lHtml = lHtml + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + await ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</button>'
+                            lHtml = lHtml + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + await ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         }
                         return lHtml
                     }
@@ -1770,7 +1770,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.addCodeToWhiteList(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1801,7 +1801,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1814,7 +1814,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1827,7 +1827,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1840,7 +1840,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1851,7 +1851,7 @@ exports.documentationExporter = function documentationExporter() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1864,7 +1864,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1877,7 +1877,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1887,7 +1887,7 @@ exports.documentationExporter = function documentationExporter() {
                         role = ''
                         key = key + '-section'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1901,7 +1901,7 @@ exports.documentationExporter = function documentationExporter() {
                         innerHTML = ED.utilities.addBold(innerHTML)
                         innerHTML = ED.utilities.addKeyboard(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph, language)
                         break
                     }
@@ -1911,7 +1911,7 @@ exports.documentationExporter = function documentationExporter() {
                         role = ''
                         key = key + '-table'
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
-                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project)
+                        innerHTML = await ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
                         innerHTML = ED.utilities.parseTable(innerHTML)
                         innerHTML = ED.utilities.addItalics(innerHTML)
                         break
@@ -2107,7 +2107,7 @@ exports.documentationExporter = function documentationExporter() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + await ED.utilities.addToolTips(schemaDocument.type, thisObject.currentDocumentBeingRendered.type, thisObject.currentDocumentBeingRendered.project) + '</td></tr></table>'
+                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + await ED.utilities.addToolTips(schemaDocument.type, thisObject.currentDocumentBeingRendered.type) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 

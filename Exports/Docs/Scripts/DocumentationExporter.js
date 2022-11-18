@@ -508,7 +508,7 @@ exports.documentationExporter = function documentationExporter() {
             }
 
             /**
-             * @returns {Promise<string>} message for logging when complete
+             * @returns {Promise<string>} HTML as a string
              */
             async function addContent() {
                 let contentHTML = '<div id="docs-content">'
@@ -1728,8 +1728,8 @@ exports.documentationExporter = function documentationExporter() {
              * @returns {Promise<string>}
              */
             async function renderParagraph(paragraph, key, addTranslations) {
-                if(!!addTranslations || paragraph.translations === undefined || paragraph.translations.length === 0) {
-                    return await renderParagraphForTranslation(paragraph, key, false)
+                if(addTranslations === undefined || !addTranslations || paragraph.translations === undefined || paragraph.translations.length === 0) {
+                    return await renderParagraphForTranslation(paragraph, key, ED.DEFAULT_LANGUAGE, false)
                 }
                 let html = ''
                 // /* Add translation options if available */
@@ -2025,7 +2025,7 @@ exports.documentationExporter = function documentationExporter() {
                     }
                 }
                 // class="' + languageClass + '" class="' + languageClass + '"
-                return '<div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + '><p>' + prefix + ' ' + innerHTML + sufix + '</p></div>'
+                return '<div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + ' language="' + language + '"><p>' + prefix + ' ' + innerHTML + sufix + '</p></div>'
             }
 
             // function hightlightEmbeddedCode() {

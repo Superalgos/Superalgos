@@ -64,8 +64,14 @@ async function runRoot() {
     */
     SA.version = require('./package.json').version
 
-    const projectSchemaNames = global.PROJECTS_SCHEMA.map(project => project.name).sort()
-    const categories = ED.schemas.schemaTypes.map(t => t.category).sort()
+    const projectSchemaNames = global.PROJECTS_SCHEMA
+        .map(project => project.name)
+        /* .filter( x => x === 'Foundations') Debugging only */
+        .sort()
+        const categories = ED.schemas.schemaTypes
+        .map(t => t.category)
+        /* .filter( x => x === 'Topic') Debugging only */
+        .sort()
 
     info( 'Source files'.padEnd(20) + ' -> preparing index template')
     setSourceFileLinks()
@@ -86,7 +92,8 @@ async function runRoot() {
             })
         }
     }
-    info('Built ' + results.length + ' page' + results.length === 1 ? '' : 's')
+    total = results.reduce( (t,r) => t + r.count, 0)
+    info('Built ' + total + ' page' + (total != 1 ? 's' : ''))
 
     await ED.designSpace.copyWebServerData()
     await ED.designSpace.copyCustomJsScripts()

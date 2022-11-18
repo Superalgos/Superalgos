@@ -9,7 +9,8 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
         copyWebServerData: copyWebServerData,
         copyCustomJsScripts: copyCustomJsScripts,
         copyCustomCssScripts: copyCustomCssScripts,
-        copyProjectAssets: copyProjectAssets
+        copyProjectAssets: copyProjectAssets,
+        copyFavicon: copyFavicon
     }
 
     let internal = {
@@ -252,6 +253,11 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
             const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
             copyFile(baseDir + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
         })
+    }
+
+    function copyFavicon() {
+        const fileName = 'favicon.ico'
+        copyFile(global.env.EXPORT_DOCS_DIR + '/img/', global.env.PATH_TO_PAGES_DIR + '/', fileName) 
     }
 
     /**

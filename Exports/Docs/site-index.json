@@ -1,5 +1,5 @@
 {
-    "note": "This document organises the static site index. The order of the children will be reflected on the documentation home page and is designed to help quide users through their learning journey.",
+    "notes": "This document is here to help quide users through their Superalgos learning journey.",
     "page": {
         "title": "Books",
         "link": ["index.html"],

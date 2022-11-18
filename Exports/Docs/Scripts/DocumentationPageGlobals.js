@@ -3,6 +3,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
     let thisObject = {
         addFooter: addFooter,
         addNavigation: addNavigation,
+        addSearch: addSearch,
         buildPage: buildPage
     }
 
@@ -20,10 +21,10 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
 
         let html = '<div class="docs-page-link depth-' + depth + '">'
         if(depth == 0) {
-            html += '<h3>' + page.title + '</h3>'
+            // html += '<h3>' + page.title + '</h3>'
         }
         else {
-            const classList = []
+            const classList = ['button']
             if(currentDocumentLink !== undefined && page.link.join('/').indexOf(currentDocumentLink) >= 0) {
                 classList.push('active')
             }
@@ -181,5 +182,19 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
     function addNavigation(document, currentDocumentLink) {
         let html = '<div class="docs-page"><div class="docs-nav">' + buildPage(ED.siteIndexData.page, 0, currentDocumentLink) + '</div></div>'
         document.getElementById('docs-nav-div').innerHTML = html
+    }
+
+    /**
+     * Adds the search bar to the HTML document
+     * @param {*} document 
+     */
+    function addSearch(document) {
+        let html = '<div class="docs-search-results-header">'
+        html += '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></div>'
+        html += '<div class="docs-search-results-box">'
+        html += '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+        html += '</div>'
+        html += '</div>'
+        document.getElementById('docs-search-results-div').innerHTML = html
     }
 }

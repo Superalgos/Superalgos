@@ -88,7 +88,8 @@ exports.documentationExporter = function documentationExporter() {
         filePath = filePath + fileName
 
         ED.pageGlobals.addNavigation(dom.window.document, thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + fileName)
-        ED.pageGlobals.addFooter(dom.window.document)        
+        ED.pageGlobals.addSearch(dom.window.document)
+        ED.pageGlobals.addFooter(dom.window.document)
 
         SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
         return filePath
@@ -188,15 +189,6 @@ exports.documentationExporter = function documentationExporter() {
             let HTML = ''
             const translationListPlaceholder = '%%TRANSLATION_ICONS%%'
             const translationGroupDiv = '<div class="translation-group">'
-
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></div>'
-            HTML = HTML + '<div class="docs-search-results-box">'
-            HTML = HTML + '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-            HTML = HTML + '</div>'
-            HTML = HTML + '</div>'
-            HTML = HTML + '</section>'
 
             HTML = HTML + '<div id="docs-common-style-container-div" class="docs-common-style-container">' // Common Style Container Starts
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickable Container Starts

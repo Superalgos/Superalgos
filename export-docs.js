@@ -86,10 +86,12 @@ async function runRoot() {
             })
         }
     }
-        
+    info('Built ' + results.length + ' page' + results.length === 1 ? '' : 's')
+
     await ED.designSpace.copyWebServerData()
     await ED.designSpace.copyCustomJsScripts()
     await ED.designSpace.copyCustomCssScripts()
+    await ED.designSpace.copyFavicon()
 
     buildIndexPage()
 
@@ -145,12 +147,14 @@ async function runRoot() {
      */
     function buildIndexPage() {
         let html = '<div class="docs-home">'
-        html += '<div class="docs-index-page">' + ED.pageGlobals.buildPage(ED.siteIndexData.page, 0) + '</div>'
-
+        html += '<div class="docs-index-page docs-font-normal">' + ED.siteIndexData.notes + '</div>'
         const destination = global.env.PATH_TO_PAGES_DIR + '/index.html'
         try {
             const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
             dom.window.document.getElementById('docs-content-div').innerHTML = html
+            ED.pageGlobals.addNavigation(dom.window.document, 'index.html')
+            ED.pageGlobals.addSearch(dom.window.document)
+            ED.pageGlobals.addFooter(dom.window.document)
             SA.nodeModules.fs.writeFileSync(destination, dom.serialize())
         }
         catch(error) {
@@ -160,6 +164,12 @@ async function runRoot() {
 
     function setSourceFileLinks() {
         const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.baseIndexFile))
+        
+        const favicon = dom.window.document.createElement('link')
+        favicon.type = 'image/x-icon'
+        favicon.rel = 'icon'
+        favicon.href = '/' + global.env.REMOTE_DOCS_DIR + '/favicon.ico'
+        dom.window.document.getElementsByTagName('head')[0].appendChild(favicon)
 
         const docs = dom.window.document.createElement('link')
         docs.type = 'text/css'

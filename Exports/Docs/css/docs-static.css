@@ -50,23 +50,19 @@ body {
     text-decoration: none;
 }
 
-.docs-footer-cell .button {
+.docs-nav .button, .docs-footer-cell .button {
     border: 1px outset #e6eaea;
     border-radius: 20px;
     background-color: transparent;
     color: e6eaea;
-    padding: 10px;
+    padding: 10px 10px 11px;
     margin: 0 0 0 10px;
+    text-transform: capitalize;
 }
 
 .docs-page-link {
     display: inline-block;
-    border-right: 1px solid black;
     padding: 12px;
-}
-
-.docs-page-link:last-child {
-    border-right: none;
 }
 
 .docs-page-link > a, .docs-page-link > a:visited {
@@ -95,10 +91,10 @@ body {
     color: #e6eaea;
     margin: 0 auto 10px;
     max-width: 1200px;
-    padding-bottom: 15px;
+    padding: 20px 0 15px;
 }
 
-.docs-nav a {
+.docs-nav a, .docs-nav a:visited {
     color: #ffd1a9;
 }
 
@@ -110,8 +106,4 @@ body {
 .docs-node-html-footer-container {
     border-top: none;
     margin: 0;
-}
-
-#docs-content-div {
-    padding-top: 30px;
 }

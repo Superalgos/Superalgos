@@ -71,7 +71,7 @@ async function runRoot() {
         .map(t => t.category)
         .sort()
 
-    info( 'Source files'.padEnd(20) + ' -> preparing index template')
+    info('Source files'.padEnd(20) + ' -> preparing index template')
     setSourceFileLinks()
 
     global.SCHEMAS_BY_PROJECT = new Map()
@@ -117,6 +117,10 @@ async function runRoot() {
 
     const robots = `User-agent: *\nDisallow: /`
     SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
+
+    info('SearchEngine'.padEnd(20) + ' -> starting search engine indexing')
+    require('./Exports/Docs/Scripts/SearchEngine').docsSearchEngine().setUpSearchEngine()
+    info('SearchEngine'.padEnd(20) + ' -> completed search engine indexing')
 
     /**
      * @param {{project: string, category: string}}

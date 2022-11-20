@@ -2041,7 +2041,7 @@ exports.documentationExporter = function documentationExporter() {
                     }
                 }
                 // class="' + languageClass + '" class="' + languageClass + '"
-                return '<div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + ' language="' + language + '"><p>' + prefix + ' ' + innerHTML + sufix + '</p></div>'
+                return '<div id="' + key + '" class="' + styleClassList.join(' ') + '" ' + role + ' language="' + language + '">' + prefix + ' ' + innerHTML + sufix + '</div>'
             }
 
             // function hightlightEmbeddedCode() {

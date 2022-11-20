@@ -9,6 +9,10 @@ body {
     margin: 0 auto;
 }
 
+#docs-content-div {
+    margin: 0 25px;
+}
+
 .docs-topic-index {
     padding-top: 0;
 }

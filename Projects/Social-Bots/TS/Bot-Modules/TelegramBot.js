@@ -40,6 +40,10 @@ exports.newSocialBotsBotModulesTelegramBot = function (processIndex) {
             }
 
             thisObject.telegramBot.launch()
+                .catch(err => {
+                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[ERROR] initialize -> Telegram API launch error -> err = " + err.stack)
+                })
 
             thisObject.telegramAPI = thisObject.telegramBot.telegram
 

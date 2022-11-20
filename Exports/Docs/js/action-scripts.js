@@ -24,17 +24,17 @@ for (let i = 0; i < translationsButtons.length; i++) {
 
 function toggleTranlationGroups(selector) {
     const translationGroups = document.getElementsByClassName('translation-group')
-    for(let i = 0; i < translationGroups.length; i++) {
-        if(!toggleTranlationChildren(translationGroups[i].children, selector)) {
+    for (let i = 0; i < translationGroups.length; i++) {
+        if (!toggleTranlationChildren(translationGroups[i].children, selector)) {
             toggleTranlationChildren(translationGroups[i].children, 'EN')
         }
     }
 
     function toggleTranlationChildren(children, selector) {
         let found = false
-        for(let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             const child = children[i]
-            if(child.getAttribute('language') == selector) {
+            if (child.getAttribute('language') == selector) {
                 child.classList.remove('hidden')
                 found = true
             }
@@ -46,6 +46,6 @@ function toggleTranlationGroups(selector) {
     }
 }
 
-tippy('.docs-tooltip',{
+tippy('.docs-tooltip', {
     theme: "superalgos"
 })

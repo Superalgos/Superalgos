@@ -26,9 +26,10 @@ exports.docsSearchEngine = function docsSearchEngine() {
     function setUpSearchEngine() {
         const schemaTypes = ED.schemas.schemaTypes
 
-        let docsIndex = []
-
+        const filePaths = []
+        
         for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+            let docsIndex = []
             const project = PROJECTS_SCHEMA[j].name
             info('SearchEngine'.padEnd(20) + ' -> ' + project + ' -> indexing')
             
@@ -51,6 +52,11 @@ exports.docsSearchEngine = function docsSearchEngine() {
 
             info('SearchEngine'.padEnd(20) + ' -> ' + project + ' -> indexing completed')
 
+            SA.projects.foundations.utilities.filesAndDirectories.createNewDir(global.env.PATH_TO_PAGES_DIR + '/' + project)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/' + project + '/search.json', JSON.stringify(docsIndex))
+            filePaths.push('/' + global.env.REMOTE_DOCS_DIR + '/' + project + '/search.json')
+            
+            info('SearchEngine'.padEnd(20) + ' -> ' + project + ' -> indexing saved')
 
             function extractTextContentFromSchemaDocs(docsSchemaDocument) {
                 if (docsSchemaDocument === undefined) {
@@ -115,6 +121,17 @@ exports.docsSearchEngine = function docsSearchEngine() {
             }
         }
 
-        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/search.json', JSON.stringify(docsIndex))
+        updateSearchJsWithProjectFiles(filePaths)
+    }
+
+    /**
+     * 
+     * @param {string[]} files 
+     */
+    function updateSearchJsWithProjectFiles(files) {
+        jsFileLocation = ED.searchJs.replace(global.env.EXPORT_DOCS_DIR, global.env.PATH_TO_PAGES_DIR)
+        let searchJsFile = SA.nodeModules.fs.readFileSync(jsFileLocation, 'utf8')
+        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files))
+        SA.nodeModules.fs.writeFileSync(jsFileLocation, searchJsFile)
     }
 }

@@ -39,7 +39,8 @@ async function runRoot() {
         pageGlobals: require(EXPORT_DOCS_DIR + '/Scripts/DocumentationPageGlobals').documentationPageGlobals(),
         indexFile: EXPORT_DOCS_DIR + '/index.html',
         baseIndexFile: EXPORT_DOCS_DIR + '/index_base.html',
-        siteIndexData: require(EXPORT_DOCS_DIR + '/site-index.json')
+        siteIndexData: require(EXPORT_DOCS_DIR + '/site-index.json'),
+        searchJs: EXPORT_DOCS_DIR + '/js/search.js'
     }
 
 
@@ -112,15 +113,17 @@ async function runRoot() {
     await ED.designSpace.copyCustomJsScripts()
     await ED.designSpace.copyCustomCssScripts()
     await ED.designSpace.copyFavicon()
-
+    
     buildIndexPage()
-
-    const robots = `User-agent: *\nDisallow: /`
-    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
-
+    
     info('SearchEngine'.padEnd(20) + ' -> starting search engine indexing')
     require('./Exports/Docs/Scripts/SearchEngine').docsSearchEngine().setUpSearchEngine()
     info('SearchEngine'.padEnd(20) + ' -> completed search engine indexing')
+
+    
+    const robots = `User-agent: *\nDisallow: /`
+    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
+
 
     /**
      * @param {{project: string, category: string}}
@@ -213,6 +216,16 @@ async function runRoot() {
         actionScripts.type = 'text/javascript'
         actionScripts.src = '/' + global.env.REMOTE_DOCS_DIR + '/js/action-scripts.js'
         dom.window.document.getElementsByTagName('body')[0].appendChild(actionScripts)
+        
+        const flexSearch = dom.window.document.createElement('script')
+        flexSearch.type = 'text/javascript'
+        flexSearch.src = '/' + global.env.REMOTE_DOCS_DIR + '/js/flexsearch.bundle.js'
+        dom.window.document.getElementsByTagName('body')[0].appendChild(flexSearch)
+
+        const search = dom.window.document.createElement('script')
+        search.type = 'text/javascript'
+        search.src = '/' + global.env.REMOTE_DOCS_DIR + '/js/search.js'
+        dom.window.document.getElementsByTagName('body')[0].appendChild(search)
 
         SA.nodeModules.fs.writeFileSync(ED.indexFile, dom.serialize())
     }

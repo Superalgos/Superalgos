@@ -240,6 +240,15 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
                 const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
                 copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName)
             })
+        info('Design space'.padEnd(20) + ' -> transfering -> js')
+        const jsFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + 'externalScripts', (f) => res(f)))
+        jsFiles.filter((f) => f.indexOf('flexsearch.bundle.js') > 0)
+            .forEach(file => {
+                let fileParts = file.replaceAll('\\','/').split('/')
+                const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
+                const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
+                copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath.replace('externalScripts', 'js'), fileName)
+            })
     }
 
     /**

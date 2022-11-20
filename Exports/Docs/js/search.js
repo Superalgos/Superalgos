@@ -37,4 +37,8 @@ function nextProject(i) {
     }
 }
 
-nextProject(0)
+document.getElementById('enable-search').addEventListener('click', () => {
+    nextProject(0)
+    document.getElementById('enable-search').classList.toggle('hidden')
+    document.getElementById('search-input').classList.toggle('hidden')
+})

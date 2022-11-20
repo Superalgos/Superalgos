@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Bollinger Gruplarına bir göz atalım! Henüz açık değilse, Masters katman yöneticisinde Bollinger Bantları katmanını bulun.",
                 "updated": 1640870342350
+            },
+            {
+                "language": "IT",
+                "text": "Diamo un'occhiata alle Bande di Bollinger! Se non è già attivo, trova il layer Bollinger Bands nel gestore layer Masters.",
+                "updated": 1668619824421
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Gösterge, merkezde 20 dönemlik hareketli bir ortalamaya sahiptir. Üstte hareketli ortalamanın üzerinde iki standart sapma bulunan bir çizgiye sahiptir. Bu hatta üst bant diyoruz. Ayrıca hareketli ortalamanın iki standart sapma çizgisine sahiptir. Buna alt bant diyoruz. Bollinger Grupları.",
                     "updated": 1640871715867
+                },
+                {
+                    "language": "IT",
+                    "text": "L'indicatore presenta una media mobile a 20 periodi al centro. Presenta una linea in alto situata due deviazioni standard sopra la media mobile. Chiamiamo questa linea la banda superiore. E presenta anche una linea due deviazioni standard al di sotto della media mobile. Chiamiamo questa la banda inferiore. Insieme, sono le Bande di Bollinger.",
+                    "updated": 1668619862819
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Fiyatın üst ve alt bantlardan yanlara doğru nasıl sıçradığına dikkat edin. Bazen daha yüksek veya daha düşük bant sınırlarının dışına çıkabilir, ancak çoğu zaman bantların aralığında kalır.",
                     "updated": 1640871777739
+                },
+                {
+                    "language": "IT",
+                    "text": "Nota come le fasce di prezzo rimbalzano lateralmente sulle bande superiore e inferiore. A volte può uscire dai confini delle bande, sia superiori che inferiori, ma la maggior parte delle volte rimane all'interno della gamma delle bande.",
+                    "updated": 1668619887398
                 }
             ]
         }

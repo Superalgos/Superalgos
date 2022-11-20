@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Summary: Özet: Trend zaten belirlendikten sonra bir düşüşün devamını tahmin edebilmek ne kadar havalı olurdu?",
                 "updated": 1640949310633
+            },
+            {
+                "language": "IT",
+                "text": "Quanto sarebbe bello poter prevedere la continuazione di una recessione una volta che la tendenza è già stabilita?",
+                "updated": 1668620979700
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İyi kurulmuş bir trendin tersine döneceğini tahmin etmek çok zor bir iştir. Az önce 10 Nisan için yaptığımız analiz iyi bir örnek: 1H ve 4H zaman dilimlerindeki kırılma orta vadede bir trendin tersine dönmesini işaret ederken, uzun vadeli trend bozulmadan kaldı.",
                     "updated": 1640948801348
+                },
+                {
+                    "language": "IT",
+                    "text": "Prevedere l'inversione di una tendenza consolidata è un compito molto complicato. L'analisi che abbiamo appena fatto per il 10 aprile è un buon esempio: mentre la rottura nei time frame 1H e 4H ha segnato un'inversione di tendenza a medio termine, la tendenza a lungo termine è rimasta intatta.",
+                    "updated": 1668620999809
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Ticarete daha güvenli bir yaklaşım, halihazırda kurulmuş olan bir trendin devamını tahmin etmektir!     Kural 8'i hatırlıyor musun? Bollinger Bantlarının dışındaki kapanışlar başlangıçta devam sinyalleridir!",
                     "updated": 1640949333106
+                },
+                {
+                    "language": "IT",
+                    "text": "Un approccio più sicuro al trading prevede la continuazione di un trend già stabilito! Ricordi la regola 8? Le chiusure al di fuori delle bande di Bollinger sono inizialmente segnali di continuazione!",
+                    "updated": 1668621031830
                 }
             ]
         }

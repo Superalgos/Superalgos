@@ -29,6 +29,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Stratejisi ( Trading Strategy ) oluşturmadan önce, net ve test edilebilir bir ticaret fikri bulmanız gerekir.",
                 "updated": 1640858579634
+            },
+            {
+                "language": "IT",
+                "text": "Prima di poter costruire una Trading Strategy, devi prima avere un'idea di trading chiara e verificabile.",
+                "updated": 1668617999397
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "TR",
                     "text": "Bir ticaret fikri, bir ticaret stratejisinin habercisidir. Eksiksiz bir strateji, bir pozisyonu alma, yönetme ve pozisyondan çıkma kurallarını içerirken, bir ticaret fikri sadece bu konulardan ilkiyle ilgilenir.",
                     "updated": 1640858655481
+                },
+                {
+                    "language": "IT",
+                    "text": "Un'idea di trading è il precursore di una strategia di trading. Mentre una strategia completa comporta le regole per prendere, gestire ed uscire da una posizione, un'idea di trading riguarda solo la prima di queste questioni.",
+                    "updated": 1668618073466
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "TR",
                     "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir!",
                     "updated": 1640858741535
+                },
+                {
+                    "language": "IT",
+                    "text": "Testare un'idea di trading prima di impegnarsi a costruire una strategia completa è l'approccio logico perché la gestione e l'uscita dalle entrate fallite non è ciò a cui dovresti mirare!",
+                    "updated": 1668618100870
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "TR",
                     "text": "Bu eğitim, daha sonra test edilebilecek bir ticaret fikrinin nasıl düzgün bir şekilde formüle edileceğini açıklar.",
                     "updated": 1640858782623
+                },
+                {
+                    "language": "IT",
+                    "text": "Questo tutorial spiega come formulare correttamente un'idea di trading che potrebbe essere successivamente testata.",
+                    "updated": 1668618117300
                 }
             ]
         }

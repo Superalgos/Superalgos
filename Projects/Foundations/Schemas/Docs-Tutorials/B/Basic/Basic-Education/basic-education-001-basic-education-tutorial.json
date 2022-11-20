@@ -36,6 +36,11 @@
                 "language": "NL",
                 "text": "Deze zelfstudie is een aanvulling op de informatie in de Welcome to Superalgos Tutorial, met de nadruk op het Nodes Menu, Backups, Clones en Shares, Plugins, Workspaces, References en meer.",
                 "updated": 1668333601433
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial completa le informazioni fornite nel file Welcome to Superalgos Tutorial, focalizzandosi su Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, e molto di più.",
+                "updated": 1668543405080
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "NL",
                     "text": "Over deze zelfstudie",
                     "updated": 1668333588321
+                },
+                {
+                    "language": "IT",
+                    "text": "Riguardo questo tutorial",
+                    "updated": 1668543435431
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "NL",
                     "text": "Workspace: Aan de slag Plugin Workspace.",
                     "updated": 1668333649599
+                },
+                {
+                    "language": "IT",
+                    "text": "Workspace: Cominciamo: Plugin Workspace.",
+                    "updated": 1668543475895
                 }
             ]
         },

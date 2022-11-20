@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bollinger Bantlarını gördünüz ve onları nasıl okuyacağınızı biliyorsunuz... Bir strateji oluşturmak için bir ticaret fikri düşünebilir misiniz?",
                 "updated": 1640947506140
+            },
+            {
+                "language": "IT",
+                "text": "Hai visto le Bande di Bollinger e sai come leggerle... Ti viene in mente un'idea di trading con cui costruire una strategia?",
+                "updated": 1668620019108
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bu çizelgede birkaç dakika dolaşın ve bir şeyler bulabilecek misiniz bir bakın!",
                     "updated": 1640947545847
+                },
+                {
+                    "language": "IT",
+                    "text": "Prenditi qualche minuto in giro per questo grafico e vedi se riesci a trovare qualcosa!",
+                    "updated": 1668620035809
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Göstergeler genellikle ticaret fikirlerini matematiksel olarak tanımlamak için analistler ve trader'lar tarafından oluşturulur.",
                     "updated": 1640947566429
+                },
+                {
+                    "language": "IT",
+                    "text": "Gli indicatori sono generalmente costruiti da analisti e trader per descrivere matematicamente idee di trading.",
+                    "updated": 1668620054935
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Daha sonra tartışacağımız fikir, kırılmalarla ilgili! Ancak bu, bu göstergeyi kullanan dört veya beş popüler fikirden yalnızca biri!",
                     "updated": 1640947587516
+                },
+                {
+                    "language": "IT",
+                    "text": "L'idea che discuteremo dopo ha a che fare con i breakout! Ma questa è solo una delle quattro o cinque idee popolari che utilizzano questo indicatore!",
+                    "updated": 1668620076578
                 }
             ]
         }

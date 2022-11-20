@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
                 "updated": 1640949719690
+            },
+            {
+                "language": "IT",
+                "text": "Recuperiamo la nostra ipotesi precedente e ne inventiamo una nuova per le osservazioni più recenti!",
+                "updated": 1668621309900
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Varsayım 1: Günlük grafikte bir yükseliş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü, ara trendde bir tersine dönüşü öngörebilir.",
                     "updated": 1640949950526
+                },
+                {
+                    "language": "IT",
+                    "text": "Ipotesi 1: Nel contesto di un trend rialzista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H potrebbe prevedere un'inversione del trend intermedio.",
+                    "updated": 1668621323251
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Varsayım 2: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü düşüş trendinin hızlanmasını öngörebilir.",
                     "updated": 1640949976880
+                },
+                {
+                    "language": "IT",
+                    "text": "Ipotesi 2: nel contesto di un trend ribassista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H può prevedere un'accelerazione del trend ribassista.",
+                    "updated": 1668621336811
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Bu ikisini iki farklı ticaret fikrinin özü olarak düşünebiliriz! Ama hepsi bu kadar değil, değil mi?",
                     "updated": 1640950094991
+                },
+                {
+                    "language": "IT",
+                    "text": "Potremmo pensare a questi due come al nucleo di due diverse idee di trading! Ma non è tutto, giusto?",
+                    "updated": 1668621365974
                 }
             ]
         }

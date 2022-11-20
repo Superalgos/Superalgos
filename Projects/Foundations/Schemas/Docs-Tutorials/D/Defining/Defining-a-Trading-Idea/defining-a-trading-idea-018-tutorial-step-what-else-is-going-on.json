@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: 1H grafiğindeki grupların bu dağılımından sonra neler olduğunu not ettik... Piyasada başka neler oluyor?",
                 "updated": 1640947793962
+            },
+            {
+                "language": "IT",
+                "text": "Abbiamo appena preso nota di quello che è successo dopo questa ripartizione delle bande nella classifica 1H... Cos'altro sta succedendo con il mercato?",
+                "updated": 1668620223961
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Birkaç mum öncesi fiyat hareketine bir bakın!",
                     "updated": 1640947810515
+                },
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata all'azione dei prezzi qualche candela prima!",
+                    "updated": 1668620242070
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Kontrol Ettiğimizden önce iki arıza vardı, biri 9 Nisan'da saat 12'de, diğeri 7 Nisan'da saat 21'de. Her iki arıza da, mumların alt banttan çok daha düşük kapanması anlamında önemliydi. Ancak, her iki durumda da fiyat bantlara geri döndü.",
                     "updated": 1640947826988
+                },
+                {
+                    "language": "IT",
+                    "text": "Ci sono stati due breakdown precedenti a quello che abbiamo verificato, uno il 9 aprile alle 12 e prima ancora un altro il 7 aprile alle 21. Entrambi i breakdown sono stati significativi, nel senso che le candele hanno chiuso molto al di sotto della banda inferiore. Tuttavia, in entrambi i casi il prezzo è rimbalzato nelle bande.",
+                    "updated": 1668620311232
                 }
             ]
         }

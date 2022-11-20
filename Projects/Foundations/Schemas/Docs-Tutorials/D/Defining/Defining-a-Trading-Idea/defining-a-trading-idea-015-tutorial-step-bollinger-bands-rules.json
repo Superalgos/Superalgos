@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Artık listelerdeki grupları gördüğünüze göre, bunları nasıl yorumlayıp kullanacağımızı öğreten kuralları gözden geçirelim!",
                 "updated": 1640871846120
+            },
+            {
+                "language": "IT",
+                "text": "Ora che hai visto le band sul grafico, passiamo alle regole che ci insegnano come interpretarle e usarle!",
+                "updated": 1668619923506
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Bu göstergeye aşina değilseniz, kuralları okumak için kesinlikle birkaç dakika harcamaya değer,aşağıdaki link'i inceleyebilirsiniz.",
                     "updated": 1640871944748
+                },
+                {
+                    "language": "IT",
+                    "text": "Se non hai familiarità con questo indicatore, vale sicuramente la pena dedicare qualche minuto alla lettura delle regole,",
+                    "updated": 1668619942890
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "text": "John Bollinger tarafından tanımlandığı gibi!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
                     "updated": 1654393952600,
                     "style": "Link"
+                },
+                {
+                    "language": "IT",
+                    "text": "così come definite da John Bollinger stesso!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1668619971280
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "TR",
                     "text": "Lütfen, John Bollinger'ın bu popüler göstergeyi nasıl yorumlanacağı hakkındaki söylediklerini okuyun!",
                     "updated": 1640872013666
+                },
+                {
+                    "language": "IT",
+                    "text": "Per favore, leggi cosa ha da dire John Bollinger su come interpretare questo popolare indicatore!",
+                    "updated": 1668619984559
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "TR",
                     "text": "Not: 6'dan 8'e kadar olan kurallar, daha sonra deneyeceğimiz şey için özel bir öneme sahiptir!",
                     "updated": 1640872123653
+                },
+                {
+                    "language": "IT",
+                    "text": "Le regole da 6 a 8 sono di particolare importanza per ciò che tenteremo in seguito!",
+                    "updated": 1668620002078
                 }
             ]
         }

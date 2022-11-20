@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Bu öğreticinin geri kalanı, az önce tartıştıklarımızı uygulamaya koymakla ilgilidir!",
                 "updated": 1640869463819
+            },
+            {
+                "language": "IT",
+                "text": "Il resto di questo tutorial riguarda la messa in pratica di ciò che abbiamo appena discusso!",
+                "updated": 1668619525485
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Grafiklere derinlemesine bir göz atacağız, belirli bir gösterge hakkında bir iki şey öğreneceğiz ve bir sonraki öğreticide test edebileceğimiz uygun bir ticaret fikri bulmaya çalışacağız!",
                     "updated": 1640869580201
+                },
+                {
+                    "language": "IT",
+                    "text": "Approfondiremo l'uso dei grafici, impareremo una o due cose su un indicatore specifico e proveremo a trovare un'idea di trading adeguata che possiamo testare nel prossimo tutorial!",
+                    "updated": 1668619650638
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": " Önemli: Kemerlerinizi bağlayın! İleride birkaç keskin dönüş öngörüyorum!",
                     "updated": 1640869613037
+                },
+                {
+                    "language": "IT",
+                    "text": "Allacciati le cinture! Prevedo alcune brusche svolte andando avanti!",
+                    "updated": 1668619686978
                 }
             ]
         }

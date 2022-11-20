@@ -28,6 +28,11 @@
                 "language": "TR",
                 "text": "Artık bu veri madenciliği operasyonunu yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
                 "updated": 1640863987889
+            },
+            {
+                "language": "IT",
+                "text": "Ora che comprendi le implicazioni dell'esecuzione di questa operazione di data mining, procediamo!",
+                "updated": 1668618722122
             }
         ]
     },
@@ -56,6 +61,11 @@
                     "language": "TR",
                     "text": "Veri Görevleri ( Data Tasks ) düğüm menüsünde \"Tüm Proje Veri Görevlerini ( Project Data Tasks ) Çalıştır\"ı seçin!",
                     "updated": 1640864070221
+                },
+                {
+                    "language": "IT",
+                    "text": "Seleziona \"Run All Project Data Tasks\" sul menù del nodo Data Tasks !",
+                    "updated": 1668618751123
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "TR",
                     "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğreticiye devam edebilirsiniz!",
                     "updated": 1640864703636
+                },
+                {
+                    "language": "IT",
+                    "text": "Se stai facendo questo tutorial dopo aver fatto altri tutorial, è probabile che tu abbia già parte dei dati richiesti, il che potrebbe rendere le cose più veloci! Ad ogni modo, non c'è bisogno di aspettare che il data mining arrivi al presente... puoi continuare con il tutorial!",
+                    "updated": 1668618777805
                 }
             ]
         }

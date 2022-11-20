@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Ana giriş kuralları, grafiklerde yaptığımız analizin odak noktasıydı, ancak birkaç husus daha ekleyelim.",
                 "updated": 1640952128338
+            },
+            {
+                "language": "IT",
+                "text": "Le principali regole di ingresso sono state al centro dell'analisi che abbiamo fatto sui grafici, ma aggiungiamo un altro paio di considerazioni.",
+                "updated": 1668621621733
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "1H grafiğindeki bir dökümün, günlük bir yükseliş trendindeyken orta vadeli bir geri dönüşü ve - günlük bir düşüş trendindeyken - gerilemenin hızlanmasını öngörebileceğini bulduk. Ancak, aynı zamanda üretmeyen birkaç arıza da fark ettik. Bu, arızayı kendi başına bir onay olarak değil, bir sinyal olarak almamız gerektiği anlamına gelir.",
                     "updated": 1640952193325
+                },
+                {
+                    "language": "IT",
+                    "text": "Abbiamo scoperto che una ripartizione nel grafico 1H può prevedere un'inversione a medio termine in caso di trend rialzista giornaliero e, in caso di trend ribassista giornaliero, un'accelerazione del ribasso. Tuttavia, abbiamo anche notato diversi breakdown che non hanno prodotto nessuno dei due. Ciò significa che dovremmo prendere un breakdown come un segnale, non come una conferma in sé e per sé.",
+                    "updated": 1668621664312
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Onayımız 1H grafiğinde art arda ikinci bir arızadır!",
                     "updated": 1640952400804
+                },
+                {
+                    "language": "IT",
+                    "text": "La nostra conferma è una seconda rottura consecutiva nel grafico 1H!",
+                    "updated": 1668621678443
                 }
             ]
         }

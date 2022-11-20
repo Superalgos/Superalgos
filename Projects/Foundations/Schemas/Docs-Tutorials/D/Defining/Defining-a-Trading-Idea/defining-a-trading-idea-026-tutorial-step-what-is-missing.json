@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Elimizde, bağlamın ve giriş noktası kurallarının belirsiz bir tanımı var! Hala varsayımımızı resmileştirmeye ihtiyacımız var!",
                 "updated": 1640950261673
+            },
+            {
+                "language": "IT",
+                "text": "Quello che abbiamo è una definizione vaga del contesto e delle regole del punto di ingresso! Dobbiamo ancora formalizzare la nostra ipotesi!",
+                "updated": 1668621384398
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Unutmayın, ticaret fikrimiz şunları yapmalıdır:",
                     "updated": 1640950521792
+                },
+                {
+                    "language": "IT",
+                    "text": "Ricorda, la nostra idea di trading dovrebbe:",
+                    "updated": 1668621397638
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "bir ticaret süreci önermek,",
                     "updated": 1640950587997
+                },
+                {
+                    "language": "IT",
+                    "text": "proporre un processo di trading,",
+                    "updated": 1668621439079
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "uygun içeriği seçin;",
                     "updated": 1640950592011
+                },
+                {
+                    "language": "IT",
+                    "text": "selezionare il contesto appropriato;",
+                    "updated": 1668621451879
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "ana giriş kurallarını tanımlayın;",
                     "updated": 1640950607750
+                },
+                {
+                    "language": "IT",
+                    "text": "definire le principali regole di ingresso;",
+                    "updated": 1668621463967
                 }
             ]
         },
@@ -129,6 +154,11 @@
                     "language": "TR",
                     "text": "belirli bir sonucu tahmin etmek;",
                     "updated": 1640950618594
+                },
+                {
+                    "language": "IT",
+                    "text": "prevedere un risultato specifico;",
+                    "updated": 1668621477237
                 }
             ]
         },
@@ -150,6 +180,11 @@
                     "language": "TR",
                     "text": "özel bir test mekanizması sunun!",
                     "updated": 1640950628599
+                },
+                {
+                    "language": "IT",
+                    "text": "offrire un meccanismo di test specifico!",
+                    "updated": 1668621491638
                 }
             ]
         },
@@ -171,6 +206,11 @@
                     "language": "TR",
                     "text": "Haydi bu gereksinimleri yerine getirmeye devam edelim!",
                     "updated": 1640950750111
+                },
+                {
+                    "language": "IT",
+                    "text": "Procediamo con il soddisfacimento di tali requisiti!",
+                    "updated": 1668621505258
                 }
             ]
         }

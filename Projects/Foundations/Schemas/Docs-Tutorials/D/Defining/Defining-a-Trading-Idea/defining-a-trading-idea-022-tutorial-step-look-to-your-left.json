@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Solunuzdaki fiyat hareketi bir şey çağrıştırıyor mu? Bu büyük piyasa çöküşlerini hatırlıyor musun?",
                 "updated": 1640948706186
+            },
+            {
+                "language": "IT",
+                "text": "L'azione dei prezzi alla tua sinistra suona un campanello? Riconosci questo grave crollo del mercato?",
+                "updated": 1668620768981
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "12-13 Mart 2020 ~%50 pandemik piyasa çöküşüne bakıyorsunuz! Günlük grafiği analiz etmek için birkaç dakika ayırın!",
                     "updated": 1640948725727
+                },
+                {
+                    "language": "IT",
+                    "text": "Stai osservando il crollo del mercato pandemico del 12-13 marzo 2020 ~ 50%! Dedica qualche minuto all'analisi del grafico giornaliero!",
+                    "updated": 1668620794576
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Kısacası, hareketli ortalamanın güneyine yöneldiğini ve bantların kırılmasını trendin başlangıcının bir göstergesi olarak alırsak, piyasanın 25 Şubat'tan beri düşüş trendinde olduğunu görebiliriz.",
                     "updated": 1640948743841
+                },
+                {
+                    "language": "IT",
+                    "text": "In breve, possiamo vedere che il mercato era in una tendenza al ribasso dal 25 febbraio, se consideriamo la svolta a sud della media mobile e la rottura delle bande come indicazione dell'inizio della tendenza.",
+                    "updated": 1668620819019
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Daha düşük zaman dilimlerine de bir göz atın",
                     "updated": 1640948755759
+                },
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata anche ai tempi inferiori!",
+                    "updated": 1668620833203
                 }
             ]
         }

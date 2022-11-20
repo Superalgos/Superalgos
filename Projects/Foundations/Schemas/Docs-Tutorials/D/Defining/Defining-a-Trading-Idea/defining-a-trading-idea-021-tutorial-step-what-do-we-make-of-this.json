@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Tek bir vakayı analiz ederek evrensel sonuçlara varamayız, ancak test etmek için bir varsayım önerebiliriz!",
                 "updated": 1640948562830
+            },
+            {
+                "language": "IT",
+                "text": "Non possiamo arrivare a conclusioni universali analizzando un singolo caso, ma possiamo proporre un'ipotesi da verificare!",
+                "updated": 1668620642953
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bu noktada, makul bir varsayım şöyle olacaktır:",
                     "updated": 1640948579802
+                },
+                {
+                    "language": "IT",
+                    "text": "A questo punto un'ipotesi ragionevole sarebbe:",
+                    "updated": 1668620665971
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Günlük grafikte bir yükseliş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü, ara trendde bir tersine dönüşü öngörebilir.",
                     "updated": 1640948606286
+                },
+                {
+                    "language": "IT",
+                    "text": "Nel contesto di un trend rialzista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H potrebbe prevedere un'inversione del trend intermedio.",
+                    "updated": 1668620686730
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Bu varsayımı sonraya saklayalım ve başka bir duruma bakalım!",
                     "updated": 1640948619803
+                },
+                {
+                    "language": "IT",
+                    "text": "Conserviamo questa ipotesi per dopo ed esaminiamo un altro caso!",
+                    "updated": 1668620701929
                 }
             ]
         }

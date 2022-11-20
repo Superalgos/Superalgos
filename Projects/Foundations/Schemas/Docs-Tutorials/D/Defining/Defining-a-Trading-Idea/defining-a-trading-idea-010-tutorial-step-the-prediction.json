@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Dikkate alınması gereken dördüncü husus, bu fikirden ne beklediğimizdir ve bu stratejinin türüne oldukça bağlıdır.",
                 "updated": 1640867620767
+            },
+            {
+                "language": "IT",
+                "text": "Il quarto aspetto da considerare è quello che ci aspettiamo da questa idea, e questo dipende fortemente dal tipo di strategia.",
+                "updated": 1668619341700
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Örneğin, bir salınım stratejisi için, %50 isabet oranıyla ayda iki kez pozisyon almak kabul edilebilir, ancak scalping stratejisi için kabul edilemez.",
                     "updated": 1640867758388
+                },
+                {
+                    "language": "IT",
+                    "text": "Ad esempio, per una strategia swing, può essere accettabile aprire una posizione due volte al mese con un hit ratio del 50%, ma non vale lo stesso per una strategia scalping.",
+                    "updated": 1668619377410
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Stratejiden ne beklediğimizi ticaret sıklığı ve isabet oranı açısından tanımlamak, stratejinin takip etmeye değer olup olmadığını belirlemeye yardımcı olur.",
                     "updated": 1640867969084
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire cosa ci aspettiamo dalla strategia in termini di frequenza di trading e hit ratio aiuta a determinare se vale la pena perseguire o meno la strategia.",
+                    "updated": 1668619396497
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Testler, fikrin istenildiği kadar çok işlem veya çok sayıda iyi girdi üretmediğini gösteriyorsa, yeni bir fikir edinmek isteyebilirsiniz.",
                     "updated": 1640868138794
+                },
+                {
+                    "language": "IT",
+                    "text": "Se i test mostrano che l'idea non produce tutti gli scambi o tutte le buone entrate che è desiderabile, potresti voler trovare una nuova idea.",
+                    "updated": 1668619417683
                 }
             ]
         }

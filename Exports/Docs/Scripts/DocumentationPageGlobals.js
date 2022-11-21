@@ -196,6 +196,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
         html += '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
         html += '</div>'
         html += '</div>'
+        html += '<div id="docs-search-content-div" class="hidden"></div>'
         document.getElementById('docs-search-results-div').innerHTML = html
     }
 }

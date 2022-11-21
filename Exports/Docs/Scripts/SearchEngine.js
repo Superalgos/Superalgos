@@ -7,24 +7,8 @@ exports.docsSearchEngine = function docsSearchEngine() {
 
     return thisObject
 
-    function initialize() {
-        thisObject.documentIndex = new FlexSearch.Document({
-            preset: "performance",
-            worker: true,
-            encoder: "advanced",
-            tokenize: "forward",
-            document: {
-                index: [
-                    "docsSchemaDocument:type",
-                    "text",
-                ],
-                store: true
-            },
-        })
-    }
-
     function setUpSearchEngine() {
-        const schemaTypes = ED.schemas.schemaTypes
+        const schemaTypes = ED.schemas.schemaTypes.filter(t => t.category !== 'App-Schema')
 
         const filePaths = []
         
@@ -41,9 +25,9 @@ exports.docsSearchEngine = function docsSearchEngine() {
                 info('SearchEngine'.padEnd(20) + ' -> ' + project + ' -> ' + schemaType.category + ' -> indexing schema')
 		        const schemaArray = SCHEMAS_BY_PROJECT.get(project).array[schemaType.key]
                 return schemaArray.map((schema, i) => ({
-                        id: schema.category + project + i, // since we don't have a real ID we concatenate some values to achieve an unique ID
+                        id: schemaType.category + project + i, // since we don't have a real ID we concatenate some values to achieve a unique ID
                         docsSchemaDocument: schema,
-                        category: schema.category,
+                        category: schemaType.category,
                         project: project,
                         // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(schema),
@@ -131,7 +115,7 @@ exports.docsSearchEngine = function docsSearchEngine() {
     function updateSearchJsWithProjectFiles(files) {
         jsFileLocation = ED.searchJs.replace(global.env.EXPORT_DOCS_DIR, global.env.PATH_TO_PAGES_DIR)
         let searchJsFile = SA.nodeModules.fs.readFileSync(jsFileLocation, 'utf8')
-        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files))
+        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files)).replace('%%BASE_URL%%', '"/' + global.env.REMOTE_DOCS_DIR + '"')
         SA.nodeModules.fs.writeFileSync(jsFileLocation, searchJsFile)
     }
 }

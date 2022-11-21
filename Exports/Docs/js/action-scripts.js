@@ -12,6 +12,10 @@ for (let i = 0; i < collapsibleElementsArray.length; i++) {
     })
 }
 
+function setCurrentLanguage(language) {
+    document.getElementById('body').setAttribute('lang', language)
+}
+
 const translationsButtons = document.getElementsByClassName('translation-options')
 const languageClasses = []
 for (let i = 0; i < translationsButtons.length; i++) {
@@ -19,6 +23,7 @@ for (let i = 0; i < translationsButtons.length; i++) {
     const language = ele.getAttribute('language')
     ele.addEventListener('click', function toggleLanguage() {
         toggleTranlationGroups(language)
+        setCurrentLanguage(language)
     })
 }
 
@@ -45,6 +50,8 @@ function toggleTranlationGroups(selector) {
         return found
     }
 }
+
+setCurrentLanguage('EN')
 
 tippy('.docs-tooltip', {
     theme: "superalgos"

@@ -111,3 +111,11 @@ body {
     border-top: none;
     margin: 0;
 }
+
+#docs-search-content-div {
+    border-bottom: 1px solid #0295aa;
+}
+
+.docs-search-results-header-tabs-container {
+    width: 100%;
+}

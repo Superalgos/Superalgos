@@ -790,7 +790,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      * @param {string[]} routeParts 
      * @return {string}
      */
-     function normaliseInternalLink(routeParts) {
+    function normaliseInternalLink(routeParts) {
         if(routeParts.length == 0) {
             return '/' + global.env.REMOTE_DOCS_DIR + '/index.html'
         }

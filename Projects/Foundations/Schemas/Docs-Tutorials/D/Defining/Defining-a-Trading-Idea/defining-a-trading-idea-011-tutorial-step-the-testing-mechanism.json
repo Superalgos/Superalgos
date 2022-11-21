@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır!",
                 "updated": 1640868334918
+            },
+            {
+                "language": "ES",
+                "text": "La última cuestión es definir cómo se va a probar la idea. Esto también depende del tipo de estrategia.",
+                "updated": 1668189508385
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Ticaret fikrinin odak noktası, ticaretin yönetimi veya çıkışı değil, giriş noktasıdır. Ancak...",
                     "updated": 1640868524854
+                },
+                {
+                    "language": "ES",
+                    "text": "El objetivo de la idea de trading es el punto de entrada, no la gestión de la operación ni la salida. Sin embargo...",
+                    "updated": 1668189561065
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Giriş noktalarının iyi mi kötü mü olduğunu nasıl ölçeceğiz? Test için hangi periyodu kullanıyoruz?",
                     "updated": 1640868910311
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cómo medimos si los puntos de entrada son buenos o malos? ¿Qué período utilizamos para las pruebas?",
+                    "updated": 1668189576610
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İlk soru, ortaya çıkan giriş noktalarının isabet veya başarısızlık olasılığının yüksek olup olmadığını belirleyebilmemiz için bazı keyfi stop loss tanımlamamız ve kar hedefleri almamız gerekebileceğini kabul etmemize neden olmaktadır. Bir sonraki eğitimde ikinci soruyla ilgileneceğiz.",
                     "updated": 1640869279644
+                },
+                {
+                    "language": "ES",
+                    "text": "La primera pregunta nos lleva a considerar que tal vez debamos definir algunos objetivos arbitrarios de stop loss y take profit para poder determinar si los puntos de entrada resultantes son probables aciertos o fallos. La segunda pregunta la trataremos en el siguiente tutorial.",
+                    "updated": 1668189623277
                 }
             ]
         }

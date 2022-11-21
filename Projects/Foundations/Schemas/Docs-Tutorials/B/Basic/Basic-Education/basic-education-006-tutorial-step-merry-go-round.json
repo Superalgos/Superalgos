@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Secara umum, node terkunci ke simetris rotational di sekitaran node induknya. simetris ini dapat menjangkau 360 derajat atau kurang, tergantung dari pengaturannya!",
                 "updated": 1643473526505
+            },
+            {
+                "language": "NL",
+                "text": "Standaard zijn knooppunten vergrendeld met een rotatiesymmetrie rond hun bovenliggende knooppunt. De symmetrie kan 360 graden of minder overspannen, afhankelijk van de instelling!",
+                "updated": 1668335047368
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Ketika kamu mengklik tombol Angle to Parent node, kamu berputar di antara lima pengaturan berbeda: 360, 180, 90, dan 45 derajat, ditambah opsi untuk menonaktifkan simetris rotational.",
                     "updated": 1643473550089
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer u op de knop Angle to Parent node klikt, schakelt u tussen vijf verschillende instellingen: 360, 180, 90 en 45 graden, plus de optie om de rotatiesymmetrie uit te schakelen.",
+                    "updated": 1668335105001
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Coba lihatlah pengaturan yang dipilih pada masing-masing turunan dari node Lightning Strike Backtesting Session : Trading Parameters, Trading System Reference, dan the Trading Engine Reference. Semuanya diatur ke 180 derajat, benar?",
                     "updated": 1643473584884
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk snel de instelling die is geselecteerd op elk van de nakomelingen van het Lightning Strike Backtesting Session knooppunt: Trading Parameters, Trading System Reference en de Trading Engine Reference. Ze zijn allemaal ingesteld op 180 graden, toch?",
+                    "updated": 1668335174680
                 }
             ]
         }

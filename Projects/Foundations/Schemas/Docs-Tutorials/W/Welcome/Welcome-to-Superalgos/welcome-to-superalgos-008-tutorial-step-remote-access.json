@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red.",
-                "updated": 1624228666520,
+                "text": "Es posible ejecutar Superalgos en una máquina, y acceder desde el navegador de otra maquina en la misma red.",
+                "updated": 1667508527286,
                 "style": "Definition"
             },
             {
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Muchos usuarios optan por ejecutar el Cliente en la nube, en máquinas sencillas como la Raspberry Pi, o en un PC dedicado que pueden dejar encendido en todo momento cuando operan en live. El nodo de red de My Computer Network representa la máquina en la que se ejecuta el Cliente.",
-                    "updated": 1613595575444,
+                    "text": "Muchos usuarios optan por ejecutar el Cliente en la nube, en máquinas sencillas como la Raspberry Pi, o en un PC dedicado que pueden dejar encendido en todo momento cuando operan en live. El nodo de red de My Computer LAN Network Node representa la máquina en la que se ejecuta el Cliente.",
+                    "updated": 1667508598251,
                     "style": "Text"
                 },
                 {

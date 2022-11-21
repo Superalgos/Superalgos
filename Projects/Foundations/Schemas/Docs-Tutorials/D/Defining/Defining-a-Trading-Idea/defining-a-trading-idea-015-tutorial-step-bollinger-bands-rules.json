@@ -25,9 +25,15 @@
                 "updated": 1640871846120
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Ora che hai visto le band sul grafico, passiamo alle regole che ci insegnano come interpretarle e usarle!",
                 "updated": 1668619923506
+=======
+                "language": "ES",
+                "text": "Ahora que ha visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
+                "updated": 1668190702123
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -53,9 +59,15 @@
                     "updated": 1640871944748
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Se non hai familiarità con questo indicatore, vale sicuramente la pena dedicare qualche minuto alla lettura delle regole,",
                     "updated": 1668619942890
+=======
+                    "language": "ES",
+                    "text": "Si no está familiarizado con este indicador, merece la pena que dedique unos minutos a leer las reglas,",
+                    "updated": 1668190713896
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -76,9 +88,15 @@
                     "style": "Link"
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "così come definite da John Bollinger stesso!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
                     "updated": 1668619971280
+=======
+                    "language": "ES",
+                    "text": "tal y como las define el propio John Bollinger!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1668190751611
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -128,9 +146,15 @@
                     "updated": 1640872123653
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Le regole da 6 a 8 sono di particolare importanza per ciò che tenteremo in seguito!",
                     "updated": 1668620002078
+=======
+                    "language": "ES",
+                    "text": "¡Las reglas 6 a 8 son de particular importancia para lo que intentaremos más adelante!",
+                    "updated": 1668190782250
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

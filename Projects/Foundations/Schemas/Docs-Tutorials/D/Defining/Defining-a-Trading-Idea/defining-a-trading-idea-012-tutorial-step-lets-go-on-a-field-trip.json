@@ -25,9 +25,15 @@
                 "updated": 1640869463819
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Il resto di questo tutorial riguarda la messa in pratica di ciò che abbiamo appena discusso!",
                 "updated": 1668619525485
+=======
+                "language": "ES",
+                "text": "El resto de este tutorial consiste en poner en práctica lo que acabamos de discutir.",
+                "updated": 1668189832339
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640869580201
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Approfondiremo l'uso dei grafici, impareremo una o due cose su un indicatore specifico e proveremo a trovare un'idea di trading adeguata che possiamo testare nel prossimo tutorial!",
                     "updated": 1668619650638
+=======
+                    "language": "ES",
+                    "text": "Nos sumergiremos en los gráficos, aprenderemos un par de cosas sobre un indicador específico, y trataremos de dar con una idea de trading adecuada que podamos probar en el próximo tutorial.",
+                    "updated": 1668189881582
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640869613037
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Allacciati le cinture! Prevedo alcune brusche svolte andando avanti!",
                     "updated": 1668619686978
+=======
+                    "language": "ES",
+                    "text": "¡Abróchate el cinturón! ¡Nos esperan unas cuantas curvas cerradas por delante!",
+                    "updated": 1668189938125
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

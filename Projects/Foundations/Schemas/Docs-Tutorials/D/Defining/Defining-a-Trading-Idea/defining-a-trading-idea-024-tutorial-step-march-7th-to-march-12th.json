@@ -25,9 +25,15 @@
                 "updated": 1640948983504
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Tornando al periodo 1H, diamo un'occhiata a cosa è successo tra queste date nel contesto di una tendenza al ribasso giornaliera.",
                 "updated": 1668621211307
+=======
+                "language": "ES",
+                "text": "Volviendo al marco temporal de 1H, veamos lo que ocurrió entre estas fechas en el contexto de una tendencia bajista diaria.",
+                "updated": 1668192942684
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640949026498
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "7 marzo, 17:00: una rottura dopo una compressione della volatilità di due giorni innesca una tendenza al ribasso.",
                     "updated": 1668621228601
+=======
+                    "language": "ES",
+                    "text": "7 de marzo, 17 hs: Una ruptura después de un apretón de volatilidad de dos días desencadena una tendencia bajista.",
+                    "updated": 1668192968366
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640949038389
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "8 marzo, ore 15: ulteriori breakdown accelerano la recessione.",
                     "updated": 1668621255756
+=======
+                    "language": "ES",
+                    "text": "8 de marzo, 15 hs: Nuevas caídas aceleran la tendencia bajista.",
+                    "updated": 1668192990458
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640949055195
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "12 marzo, 07 hs: cinque ore prima del più grande crollo del mercato della storia recente, una serie di crolli innesca una nuova flessione dopo tre giorni di oscillazione dei prezzi.",
                     "updated": 1668621278313
+=======
+                    "language": "ES",
+                    "text": "12 de marzo, 07 hs: Cinco horas antes de la mayor caída del mercado en la historia reciente, una serie de rupturas desencadenan una nueva caída después de tres días de acción de precios.",
+                    "updated": 1668193020199
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -130,9 +154,15 @@
                     "updated": 1640949145571
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Vedi lo schema? Puoi formulare un'ipotesi che possiamo testare?",
                     "updated": 1668621293109
+=======
+                    "language": "ES",
+                    "text": "¿Puede ver el patrón? ¿Puede formular una hipótesis que podamos comprobar?",
+                    "updated": 1668192919614
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

@@ -25,9 +25,15 @@
                 "updated": 1640949719690
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Recuperiamo la nostra ipotesi precedente e ne inventiamo una nuova per le osservazioni più recenti!",
                 "updated": 1668621309900
+=======
+                "language": "ES",
+                "text": "Recuperemos nuestra hipótesis anterior e ideemos una nueva para las observaciones más recientes.",
+                "updated": 1668193080527
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640949950526
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ipotesi 1: Nel contesto di un trend rialzista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H potrebbe prevedere un'inversione del trend intermedio.",
                     "updated": 1668621323251
+=======
+                    "language": "ES",
+                    "text": "Hipótesis 1: En el contexto de una tendencia alcista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir una inversión de la tendencia intermedia.",
+                    "updated": 1668193124428
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640949976880
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ipotesi 2: nel contesto di un trend ribassista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H può prevedere un'accelerazione del trend ribassista.",
                     "updated": 1668621336811
+=======
+                    "language": "ES",
+                    "text": "Hipótesis 2: En el contexto de una tendencia bajista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir una aceleración de la tendencia bajista.",
+                    "updated": 1668193155013
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640950094991
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Potremmo pensare a questi due come al nucleo di due diverse idee di trading! Ma non è tutto, giusto?",
                     "updated": 1668621365974
+=======
+                    "language": "ES",
+                    "text": "Podemos pensar en estos dos como el núcleo de dos ideas de trading diferentes. Pero eso no es todo, ¿verdad?",
+                    "updated": 1668193176194
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

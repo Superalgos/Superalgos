@@ -25,9 +25,15 @@
                 "updated": 1640947962763
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Il grafico 4H ha mostrato un netto cambiamento di tendenza dopo il crollo, ma... per quanto riguarda il lungo termine? Controlliamo il grafico giornaliero!",
                 "updated": 1668620532080
+=======
+                "language": "ES",
+                "text": "El gráfico de 4H mostró un claro cambio de tendencia tras la ruptura, pero... ¿qué pasa con el largo plazo? Revisemos el gráfico diario.",
+                "updated": 1668191695631
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640948082107
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Trova la candela del 10 aprile e prenditi un minuto per pensare a cosa significava, nel quadro generale, ciò che abbiamo appena analizzato nei tempi inferiori. Questo è quello che vedo:",
                     "updated": 1668620568051
+=======
+                    "language": "ES",
+                    "text": "Busque la vela del 10 de abril y tómese un minuto para pensar en lo que significa -en el panorama general- lo que acabamos de analizar en los marcos temporales inferiores. Esto es lo que veo:",
+                    "updated": 1668191726119
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640948168912
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "La passeggiata: Il periodo che abbiamo visto dal 7 al 10 aprile è stato infatti una piccola passeggiata sulla fascia alta giornaliera. Secondo le regole BB, ciò significa che il prezzo è relativamente alto in questo lasso di tempo.",
                     "updated": 1668620587140
+=======
+                    "language": "ES",
+                    "text": "El paseo: El período de oscilación que vimos desde el 7 hasta el 10 de abril fue de hecho un pequeño paseo en la banda superior diaria. Según las reglas del BB, esto significa que el precio es relativamente alto en este marco de tiempo.",
+                    "updated": 1668191784150
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640948190508
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Pullback: la rottura nei time frame inferiori ha segnato il pullback dalla banda superiore giornaliera.",
                     "updated": 1668620604911
+=======
+                    "language": "ES",
+                    "text": "Retroceso: La ruptura en los marcos temporales inferiores marcó el pullback desde la banda superior diaria.",
+                    "updated": 1668191798545
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -130,9 +154,15 @@
                     "updated": 1640948209405
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Continuazione: l'azione dei prezzi nel lasso di tempo più ampio ha finito per essere un normale pullback e continuazione, attraversando a malapena la media mobile.",
                     "updated": 1668620622969
+=======
+                    "language": "ES",
+                    "text": "Continuación: La acción del precio en el marco de tiempo mayor terminó siendo un retroceso normal y una continuación, apenas cruzando la media móvil.",
+                    "updated": 1668191823413
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

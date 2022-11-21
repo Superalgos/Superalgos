@@ -73,6 +73,11 @@
                     "language": "TR",
                     "text": "Node, concept, topic, tutorial, review, and dokümanlar sayfalarındaki en son değişikliklerin tümü diske kaydedildi.",
                     "updated": 1640002830025
+                },
+                {
+                    "language": "ES",
+                    "text": "Todos los últimos cambios en las páginas de nodos, conceptos, temas, tutoriales, revisiones y libros se han guardado en el disco.",
+                    "updated": 1668195020322
                 }
             ]
         }

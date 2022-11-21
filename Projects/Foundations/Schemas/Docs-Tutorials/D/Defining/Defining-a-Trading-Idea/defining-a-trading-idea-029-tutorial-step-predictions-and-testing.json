@@ -25,9 +25,15 @@
                 "updated": 1640952477553
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Non è che stiamo cercando di indovinare il futuro e verremo valutati in base alla nostra accuratezza! La previsione è più simile a un'aspettativa!",
                 "updated": 1668621699951
+=======
+                "language": "ES",
+                "text": "No es que estemos intentando adivinar el futuro y que nos califiquen por nuestra precisión. La predicción es más bien una expectativa.\n",
+                "updated": 1668193822510
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640952505587
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Previsione: ci aspettiamo che una di queste idee venga scambiata almeno due volte al mese, con una percentuale di successo del 50%.",
                     "updated": 1668621712477
+=======
+                    "language": "ES",
+                    "text": "Predicción: Esperamos que cualquiera de estas ideas se negocie al menos dos veces al mes, con una proporción de aciertos del 50%.",
+                    "updated": 1668193842391
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640952631635
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Test: per i trend rialzisti, fisseremo questi obiettivi: stop loss al 3% e take profit al 5%. Per i trend al ribasso dovremmo essere più ottimisti poiché la strategia mira a catturare i grandi movimenti del mercato: fisseremo obiettivi di stop loss del 3% e take profit del 10%.",
                     "updated": 1668621750880
+=======
+                    "language": "ES",
+                    "text": "Pruebas: Para las tendencias alcistas, estableceremos estos objetivos: stop loss al 3% y take profit al 5%. Para las tendencias bajistas debemos ser más optimistas, ya que la estrategia pretende captar los grandes movimientos del mercado: estableceremos un stop loss del 3% y un take profit del 10%.",
+                    "updated": 1668193902714
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640952778819
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ricorda! Questo non significa che è così che gestiremmo le posizioni! È solo per valutare i punti di ingresso!",
                     "updated": 1668621765134
+=======
+                    "language": "ES",
+                    "text": " ¡Recuerde! ¡Esto no significa que sea así como gestionaríamos las posiciones! ¡Es sólo para evaluar los puntos de entrada!",
+                    "updated": 1668193885972
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

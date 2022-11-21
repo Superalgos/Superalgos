@@ -25,9 +25,15 @@
                 "updated": 1640947862345
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Abbiamo un'idea di cosa sta succedendo nel lasso di tempo di 1H. Rimpiccioliamo un po' e diamo un'occhiata al termine intermedio.",
                 "updated": 1668620351481
+=======
+                "language": "ES",
+                "text": "Tenemos una idea de lo que ocurre en el marco temporal de 1H. Vamos a alejarnos un poco y echar un vistazo al plazo intermedio.",
+                "updated": 1668191372889
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640947881342
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ti ho appena portato al grafico 4H, nelle stesse date. Notare quanto segue:",
                     "updated": 1668620369259
+=======
+                    "language": "ES",
+                    "text": "Acabo de llevarle al gráfico de 4H, en las mismas fechas. Observa lo siguiente:",
+                    "updated": 1668191436417
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640947893385
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Breakdown: il breakdown che abbiamo visto nel grafico 1H è evidente anche nel grafico 4H.",
                     "updated": 1668620386091
+=======
+                    "language": "ES",
+                    "text": "Ruptura: La ruptura que vimos en el gráfico de 1H es evidente también en el gráfico de 4H.",
+                    "updated": 1668191454650
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640947908913
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Passato immediato: prima del crollo del 10 aprile, il mercato oscillava da un po'.",
                     "updated": 1668620402298
+=======
+                    "language": "ES",
+                    "text": "Pasado inmediato: Antes de la ruptura del 10 de abril, el mercado había estado oscilando dentro de un rango durante un tiempo.",
+                    "updated": 1668191512621
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -130,9 +154,15 @@
                     "updated": 1640947927156
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Prima di allora: il mercato era in rialzo, ovvero il termine intermedio era in rialzo.",
                     "updated": 1668620419412
+=======
+                    "language": "ES",
+                    "text": "Antes de eso: El mercado tenía una tendencia ascendente, es decir, el plazo intermedio estaba en una tendencia alcista.",
+                    "updated": 1668191551564
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -156,9 +186,15 @@
                     "updated": 1640947941113
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Trend ribassista: il crollo del 10 aprile ha segnato l'inizio di un trend ribassista a medio termine.",
                     "updated": 1668620433958
+=======
+                    "language": "ES",
+                    "text": "Tendencia bajista: La ruptura del 10 de abril marcó el inicio de una tendencia bajista a medio plazo.",
+                    "updated": 1668191566208
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

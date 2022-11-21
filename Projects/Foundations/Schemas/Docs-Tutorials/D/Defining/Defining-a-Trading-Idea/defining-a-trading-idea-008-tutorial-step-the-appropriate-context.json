@@ -25,9 +25,15 @@
                 "updated": 1640866693545
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "La seconda dimensione importante da definire è il contesto generale a cui si rivolge l'ipotesi.",
                 "updated": 1668619162186
+=======
+                "language": "ES",
+                "text": "La segunda dimensión importante que hay que definir es el contexto general al que se dirige la hipótesis.",
+                "updated": 1668188981988
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640867069015
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Poche strategie basate sull'analisi tecnica, se non nessuna, si comportano in modo coerente in situazioni di mercato indefinite.",
                     "updated": 1668619188410
+=======
+                    "language": "ES",
+                    "text": "Pocas estrategias basadas en el análisis técnico, si es que hay alguna, funcionan de forma consistente en situaciones de mercado no definidas.",
+                    "updated": 1668189007571
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640867252493
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "La definizione minima richiesta riguarda se l'ipotesi si rivolge a trend al ribasso, al rialzo o ai mercati laterali.",
                     "updated": 1668619208000
+=======
+                    "language": "ES",
+                    "text": "La definición mínima requerida es si la hipótesis se apunta a las tendencias bajistas, a las tendencias alcistas o a los mercados laterales.",
+                    "updated": 1668189046273
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640867331944
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "La solita risorsa è un'analisi multi-time frame basata su uno o più indicatori che determinano quale sia la tendenza esistente in diversi time frame e qualsiasi altro fattore che possa essere importante per la strategia specifica, ad esempio volume o volatilità.",
                     "updated": 1668619237750
+=======
+                    "language": "ES",
+                    "text": "El recurso habitual es un análisis multitemporal basado en uno o varios indicadores que determinan cuál es la tendencia existente en diferentes marcos temporales, y cualquier otro factor que pueda ser importante para la estrategia concreta, por ejemplo, el volumen o la volatilidad.",
+                    "updated": 1668189128865
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

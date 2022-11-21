@@ -25,9 +25,15 @@
                 "updated": 1640950261673
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Quello che abbiamo è una definizione vaga del contesto e delle regole del punto di ingresso! Dobbiamo ancora formalizzare la nostra ipotesi!",
                 "updated": 1668621384398
+=======
+                "language": "ES",
+                "text": "Lo que tenemos es una vaga definición del contexto y de las reglas de entrada. Todavía tenemos que formalizar nuestra hipótesis.",
+                "updated": 1668193381494
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640950521792
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ricorda, la nostra idea di trading dovrebbe:",
                     "updated": 1668621397638
+=======
+                    "language": "ES",
+                    "text": "Recuerde que nuestra idea de trading debe:",
+                    "updated": 1668193273216
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640950587997
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "proporre un processo di trading,",
                     "updated": 1668621439079
+=======
+                    "language": "ES",
+                    "text": "proponer un proceso de trading,",
+                    "updated": 1668193312567
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640950592011
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "selezionare il contesto appropriato;",
                     "updated": 1668621451879
+=======
+                    "language": "ES",
+                    "text": "seleccionar el contexto adecuado;",
+                    "updated": 1668193323276
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -130,9 +154,15 @@
                     "updated": 1640950607750
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "definire le principali regole di ingresso;",
                     "updated": 1668621463967
+=======
+                    "language": "ES",
+                    "text": "definir las principales reglas de entrada;",
+                    "updated": 1668193335595
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -156,9 +186,15 @@
                     "updated": 1640950618594
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "prevedere un risultato specifico;",
                     "updated": 1668621477237
+=======
+                    "language": "ES",
+                    "text": "predecir un resultado específico;",
+                    "updated": 1668193350387
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -182,9 +218,15 @@
                     "updated": 1640950628599
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "offrire un meccanismo di test specifico!",
                     "updated": 1668621491638
+=======
+                    "language": "ES",
+                    "text": "ofrecer un mecanismo de prueba específico.",
+                    "updated": 1668193363166
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -208,9 +250,15 @@
                     "updated": 1640950750111
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Procediamo con il soddisfacimento di tali requisiti!",
                     "updated": 1668621505258
+=======
+                    "language": "ES",
+                    "text": "¡Procedamos a cumplir esos requisitos!",
+                    "updated": 1668193246608
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

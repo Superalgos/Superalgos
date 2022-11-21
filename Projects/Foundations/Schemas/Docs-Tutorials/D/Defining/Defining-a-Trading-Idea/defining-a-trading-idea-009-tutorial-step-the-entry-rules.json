@@ -25,9 +25,15 @@
                 "updated": 1640867430097
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Il terzo aspetto da definire sono le regole per innescare la strategia e prendere posizione.",
                 "updated": 1668619259000
+=======
+                "language": "ES",
+                "text": "El tercer aspecto que hay que definir son las reglas para activar la estrategia y tomar una posición.",
+                "updated": 1668189190406
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640867458806
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Molte volte, le regole per innescare la strategia derivano dall'analisi del contesto. Ad esempio, si desidera che la strategia sia attiva quando viene rilevata una tendenza specifica con un metodo specifico.",
                     "updated": 1668619281792
+=======
+                    "language": "ES",
+                    "text": "Muchas veces, las reglas para activar la estrategia se derivan del análisis del contexto. Por ejemplo, se desea que la estrategia se active cuando se detecta una tendencia específica por algún método concreto.",
+                    "updated": 1668189231637
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640867496258
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Le regole per prendere una posizione sono solitamente indicate come il segnale e la conferma del segnale.",
                     "updated": 1668619298206
+=======
+                    "language": "ES",
+                    "text": "Las reglas para tomar una posición suelen denominarse señal y confirmación de la señal.",
+                    "updated": 1668189245307
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640867528994
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Queste regole sono la descrizione dell'evento specifico che determina quando entrare in una posizione. Ad esempio, l'incrocio di due linee specifiche o un determinato valore su un indicatore specifico.",
                     "updated": 1668619319070
+=======
+                    "language": "ES",
+                    "text": "Estas reglas son la descripción del evento específico que determina cuándo entrar en una posición. Por ejemplo, el cruce de dos líneas específicas, o un determinado valor en un indicador específico.",
+                    "updated": 1668189265922
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

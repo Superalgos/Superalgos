@@ -25,9 +25,15 @@
                 "updated": 1640867620767
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Il quarto aspetto da considerare è quello che ci aspettiamo da questa idea, e questo dipende fortemente dal tipo di strategia.",
                 "updated": 1668619341700
+=======
+                "language": "ES",
+                "text": "El cuarto aspecto a considerar es lo que esperamos de esta idea, y esto depende en gran medida del tipo de estrategia.",
+                "updated": 1668189338990
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640867758388
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Ad esempio, per una strategia swing, può essere accettabile aprire una posizione due volte al mese con un hit ratio del 50%, ma non vale lo stesso per una strategia scalping.",
                     "updated": 1668619377410
+=======
+                    "language": "ES",
+                    "text": "Por ejemplo, para una estrategia de swing, tomar una posición dos veces al mes con una proporción de aciertos del 50% puede ser aceptable, pero no para una estrategia de scalping.",
+                    "updated": 1668189375636
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640867969084
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Definire cosa ci aspettiamo dalla strategia in termini di frequenza di trading e hit ratio aiuta a determinare se vale la pena perseguire o meno la strategia.",
                     "updated": 1668619396497
+=======
+                    "language": "ES",
+                    "text": "Definir lo que esperamos de la estrategia en términos de frecuencia de negociación y porcentaje de aciertos ayuda a determinar si la estrategia merece la pena o no.",
+                    "updated": 1668189404660
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640868138794
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Se i test mostrano che l'idea non produce tutti gli scambi o tutte le buone entrate che è desiderabile, potresti voler trovare una nuova idea.",
                     "updated": 1668619417683
+=======
+                    "language": "ES",
+                    "text": "Si las pruebas demuestran que la idea no produce tantas operaciones o tantas entradas buenas como sería deseable, es posible que se quiera plantear una nueva idea.",
+                    "updated": 1668189442540
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

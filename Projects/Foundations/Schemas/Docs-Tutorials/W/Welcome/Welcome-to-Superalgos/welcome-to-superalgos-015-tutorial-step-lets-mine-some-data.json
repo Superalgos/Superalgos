@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha... ",
-                "updated": 1627302836248,
+                "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha...",
+                "updated": 1668188069796,
                 "style": "Definition"
             },
             {
@@ -130,8 +130,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En unos 30 segundos, deberias ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
-                    "updated": 1624452903459,
+                    "text": "En unos 30 segundos, deberías ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
+                    "updated": 1668188039270,
                     "style": "Text"
                 },
                 {
@@ -183,8 +183,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tu aplicación de consola deberia mostrar algo similar a lo que aparece en el video a continuación..",
-                    "updated": 1624283587596,
+                    "text": "Tu aplicación de consola debería mostrar algo similar a lo que aparece en el video a continuación..",
+                    "updated": 1667510289638,
                     "style": "Note"
                 },
                 {

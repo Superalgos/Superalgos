@@ -25,9 +25,15 @@
                 "updated": 1640869840820
             },
             {
+<<<<<<< HEAD
                 "language": "IT",
                 "text": "Ormai tutti i processi dovrebbero essere al 100%. Abbiamo bisogno che i dati siano pronti in modo da poter andare a lavorare sui grafici!",
                 "updated": 1668619712891
+=======
+                "language": "ES",
+                "text": "En este momento, todos los procesos deberían estar al 100%. Necesitamos que los datos estén listos para poder ir a trabajar en los gráficos.",
+                "updated": 1668189996012
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
             }
         ]
     },
@@ -52,9 +58,15 @@
                     "updated": 1640869956806
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Guardati intorno e vedi se tutti i processi sono al 100%. Se lo sono tutti, allora interrompi il data mining!",
                     "updated": 1668619732961
+=======
+                    "language": "ES",
+                    "text": "Revisa todos los procesos y comprueba si están al 100%. Si todos lo están, ¡pare el Data Tasks Node!",
+                    "updated": 1668190211896
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -78,9 +90,15 @@
                     "updated": 1640870047711
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Attendere che tutti i processi raggiungano il 100% prima di continuare!",
                     "updated": 1668619749523
+=======
+                    "language": "ES",
+                    "text": "¡Espere hasta que todos los procesos estén al 100% antes de continuar!",
+                    "updated": 1668190115448
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         },
@@ -104,9 +122,15 @@
                     "updated": 1640870153849
                 },
                 {
+<<<<<<< HEAD
                     "language": "IT",
                     "text": "Nella fase successiva andremo ai grafici per controllare le bande di Bollinger in modo da poter discutere l'idea di trading che testeremo!",
                     "updated": 1668619766068
+=======
+                    "language": "ES",
+                    "text": "En el siguiente paso vamos a los gráficos y miraremos las Bandas de Bollinger para poder discutir la idea de trading que vamos a probar.",
+                    "updated": 1668190165911
+>>>>>>> bae826f7c5f255efca5e3e1642f71e4267adae62
                 }
             ]
         }

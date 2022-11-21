@@ -2411,22 +2411,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
                                 case 'mergePullRequests': {
 
-                                    let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
+                                    let serverResponse = await PL.projects.governance.functionLibraries.prMergeBot.run(
                                         params.commitMessage,
                                         params.username,
                                         params.token
                                     )
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-
-                                    setInterval(
-                                        PL.servers.GITHUB_SERVER.mergePullRequests,
-                                        60000,
-                                        params.commitMessage,
-                                        params.username,
-                                        params.token
-                                    )
-
                                     return
                                 }
                                 

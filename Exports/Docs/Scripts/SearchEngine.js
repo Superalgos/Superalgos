@@ -38,7 +38,7 @@ exports.docsSearchEngine = function docsSearchEngine() {
 
             SA.projects.foundations.utilities.filesAndDirectories.createNewDir(global.env.PATH_TO_PAGES_DIR + '/' + project)
             SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/' + project + '/search.json', JSON.stringify(docsIndex))
-            filePaths.push('/' + global.env.REMOTE_DOCS_DIR + '/' + project + '/search.json')
+            filePaths.push(global.env.REMOTE_DOCS_DIR + project + '/search.json')
             
             info('SearchEngine'.padEnd(20) + ' -> ' + project + ' -> indexing saved')
 
@@ -115,7 +115,7 @@ exports.docsSearchEngine = function docsSearchEngine() {
     function updateSearchJsWithProjectFiles(files) {
         jsFileLocation = ED.searchJs.replace(global.env.EXPORT_DOCS_DIR, global.env.PATH_TO_PAGES_DIR)
         let searchJsFile = SA.nodeModules.fs.readFileSync(jsFileLocation, 'utf8')
-        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files)).replace('%%BASE_URL%%', '"/' + global.env.REMOTE_DOCS_DIR + '"')
+        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files)).replace('%%BASE_URL%%', '"' + global.env.REMOTE_DOCS_DIR.substring(0, global.env.REMOTE_DOCS_DIR.length-2) + '"')
         SA.nodeModules.fs.writeFileSync(jsFileLocation, searchJsFile)
     }
 }

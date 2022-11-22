@@ -24,8 +24,7 @@
 			"cwd": "/home/pi/trading/Superalgos/",
 			"program": "export-docs.js",
 			"args": [
-				"My-Data-Storage/_site",
-				"sa-docs"
+				"-r=sa-docs"
 			],
 			"request": "launch",
 			"skipFiles": [

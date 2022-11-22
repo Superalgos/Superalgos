@@ -233,7 +233,8 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
         })
         info('Design space'.padEnd(20) + ' -> transfering -> css')
         const cssFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + 'css', (f) => res(f)))
-        cssFiles.filter((f) => f.indexOf('docs.css') > 0 || f.indexOf('font-awasome.css') > 0)
+        const desiredSheets = ['docs.css', 'main.css', 'font-awasome.css']
+        cssFiles.filter((f) => desiredSheets.find(x => f.indexOf(x) > 0) !== undefined)
             .forEach(file => {
                 let fileParts = file.replaceAll('\\','/').split('/')
                 const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]

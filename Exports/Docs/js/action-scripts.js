@@ -14,6 +14,7 @@ for (let i = 0; i < collapsibleElementsArray.length; i++) {
 
 function setCurrentLanguage(language) {
     document.getElementById('body').setAttribute('lang', language)
+    updateCurrentLanguageIcon()
 }
 
 const translationsButtons = document.getElementsByClassName('translation-options')
@@ -48,6 +49,19 @@ function toggleTranlationGroups(selector) {
             }
         }
         return found
+    }
+}
+
+function updateCurrentLanguageIcon() {
+    let listEle = document.getElementById('docs-translation-list')
+    let currentLang = document.getElementById('body').getAttribute('lang')
+    listEle.getElementsByClassName('translation-options')
+    let tOpts = listEle.getElementsByClassName('translation-options')
+    for(let i = 0; i < tOpts.length; i++) {
+        if(tOpts[i].getAttribute('language') == currentLang) {
+            listEle.children[0].innerHTML = tOpts[i].innerHTML
+            break
+        }
     }
 }
 

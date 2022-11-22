@@ -7,6 +7,22 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
         buildPage: buildPage
     }
 
+    // Should read this from JSON config
+    const languagePack = {
+        'EN': 'English',
+        'ES': 'Spanish',
+        'RU': 'Russian',
+        'IT': 'Italian',
+        'DE': 'German',
+        'FR': 'French',
+        'CN': 'Simplified Chinese-Mandarin',
+        'ID': 'Bahasa',
+        'TR': 'Turkish',
+        'NL': 'Dutch',
+        'AR': 'Arabic',
+        'EL': 'Greek'
+    }
+
     return thisObject
 
     /**
@@ -179,9 +195,39 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
      * @param {*} document
      * @param {string?} currentDocumentLink
      */
-    function addNavigation(document, currentDocumentLink) {
-        let html = '<div class="docs-page"><div class="docs-nav">' + buildPage(ED.siteIndexData.page, 0, currentDocumentLink) + '</div></div>'
+    function addNavigation(document, currentDocumentLink, languages) {
+        let html = '<div class="docs-page">'
+        html += '<div class="docs-nav">'
+        html += buildPage(ED.siteIndexData.page, 0, currentDocumentLink)
+        html += '</div>'
+        html += addTranslationIcons()
+        html += '</div>'
         document.getElementById('docs-nav-div').innerHTML = html
+
+        /**
+             * Builds the list of available translations from the class list that is created while writing out the content
+             */
+         function addTranslationIcons() {
+            let html = '<div id="docs-translation-list" class="dropdown">'
+            html = html + '<span class="docs-tooltip" data-tippy-content="This is a community project and not all sections will have been translated, this is where you can help and earn rewards!">Available translations</span>'
+            html = html + '<div class="dropdown-content">'
+            for(let i = 0; i < languages.length; i++) {
+                const key = languages[i]
+                const value = languagePack[key]
+                if(value === undefined) {
+                    error('Translation'.padEnd(20) + ' -> Missing language option for translation')
+                    html = html + buildTranslationIconHtml(key, value)
+                    continue
+                }
+                html = html + buildTranslationIconHtml(key, value)
+            }
+            html = html + '</div>'
+            return html + '</div>'
+
+            function buildTranslationIconHtml(key, value) {
+                return '<span class="translation-options" language="' + key + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + value + '" class="docs-footer-language"/></span>'
+            }
+        }
     }
 
     /**
@@ -193,7 +239,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
         html += '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></div>'
         html += '<button id="enable-search">Turn on search</button>'
         html += '<div id="search-input" class="docs-search-results-box hidden">'
-        html += '<input class="docs-search-input" placeholder="search the docs or run a command" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+        html += '<input class="docs-search-input" placeholder="search the docs" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
         html += '</div>'
         html += '</div>'
         html += '<div id="docs-search-content-div" class="hidden"></div>'

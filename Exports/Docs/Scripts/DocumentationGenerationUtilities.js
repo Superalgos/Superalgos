@@ -792,15 +792,15 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      */
     function normaliseInternalLink(routeParts) {
         if(routeParts.length == 0) {
-            return '/' + global.env.REMOTE_DOCS_DIR + '/index.html'
+            return global.env.REMOTE_DOCS_DIR + 'index.html'
         }
         routeParts = trimLocalPath(routeParts.join('/'))
         if(!/\.[a-z]{3,4}/.test(routeParts[routeParts.length-1])) {
-            return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/') + '.html'
+            return global.env.REMOTE_DOCS_DIR + routeParts.join('/') + '.html'
 
         }
         else {
-            return '/' + global.env.REMOTE_DOCS_DIR + '/' + routeParts.join('/')
+            return global.env.REMOTE_DOCS_DIR + routeParts.join('/')
         }
 
         /**

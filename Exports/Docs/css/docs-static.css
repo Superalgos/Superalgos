@@ -60,7 +60,7 @@ body {
     background-color: transparent;
     color: e6eaea;
     padding: 10px 10px 11px;
-    margin: 0 0 0 10px;
+    margin: 0 5px 0 5px;
     text-transform: capitalize;
 }
 
@@ -118,4 +118,49 @@ body {
 
 .docs-search-results-header-tabs-container {
     width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 44px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 12px;
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content span { 
+    display: block;
+    cursor: pointer;
+}
+
+#docs-translation-list {
+    padding-top: 24px;
+    padding-bottom: 12px;
+    float: right;
+}
+
+#docs-translation-list > span.docs-tooltip {
+    border-bottom: none;
+}
+
+#enable-search {
+    border: 1px outset #e6eaea;
+    border-radius: 20px;
+    background-color: transparent;
+    color: e6eaea;
+    padding: 10px 10px 11px;
+    margin: 8px 5px 0 5px;
 }

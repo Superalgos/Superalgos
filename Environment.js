@@ -27,7 +27,6 @@ exports.newEnvironment = function () {
         PATH_TO_DATA_STORAGE: path.join(basePath, './Platform/My-Data-Storage'),
         PATH_TO_PROJECTS: path.join(basePath, './Projects'),
         PATH_TO_PLUGINS: path.join(basePath, './Plugins'),
-        PATH_TO_PAGES_DIR: path.join(basePath, './pages'),
         PROJECT_PLUGIN_MAP: projectPluginMap,
         PATH_TO_LOG_FILES: path.join(basePath, './Platform/My-Log-Files'),
         PATH_TO_PROJECTS_REQUIRED: path.join(basePath, './Projects'),

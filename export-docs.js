@@ -15,11 +15,10 @@ const argv = yargs(hideBin(process.argv))
         description: 'The remote directory where the files will be served from, defaults to "My-Data-Storage/_site"',
         default: 'My-Data-Storage/_site'
     })
-    .option('environment', {
-        alias: 'e',
-        type: 'string',
-        description: 'The environment for the build, a "production" value will exclude the robots.txt file, defaults to "develpment"',
-        default: 'development'
+    .option('bots', {
+        alias: 'b',
+        type: 'boolean',
+        description: 'If this is flagged then the robots.txt file not will be created',
     })
     .parse()
 
@@ -76,7 +75,6 @@ async function runRoot() {
 
     // Set the override values
     global.env.PATH_TO_PAGES_DIR = argv.l
-    global.env.ENVIRONMENT = argv.e.toLowerCase()
 
     let tempRoute = '/'
     if(argv.r.length > 0) {
@@ -157,7 +155,7 @@ async function runRoot() {
     info('SearchEngine'.padEnd(20) + ' -> completed search engine indexing')
 
 
-    if(global.env.ENVIRONMENT != 'production') {
+    if(!argv.bots) {
         const robots = `User-agent: *\nDisallow: /`
         SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_PAGES_DIR + '/robots.txt', robots)
     }

@@ -115,7 +115,7 @@ exports.docsSearchEngine = function docsSearchEngine() {
     function updateSearchJsWithProjectFiles(files) {
         jsFileLocation = ED.searchJs.replace(global.env.EXPORT_DOCS_DIR, global.env.PATH_TO_PAGES_DIR)
         let searchJsFile = SA.nodeModules.fs.readFileSync(jsFileLocation, 'utf8')
-        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files)).replace('%%BASE_URL%%', '"' + global.env.REMOTE_DOCS_DIR.substring(0, global.env.REMOTE_DOCS_DIR.length-2) + '"')
+        searchJsFile = searchJsFile.replace('%%PROJECTS%%', JSON.stringify(files)).replace('%%BASE_URL%%', '"' + global.env.REMOTE_DOCS_DIR.substring(0, global.env.REMOTE_DOCS_DIR.length-1) + '"')
         SA.nodeModules.fs.writeFileSync(jsFileLocation, searchJsFile)
     }
 }

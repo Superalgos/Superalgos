@@ -197,9 +197,9 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
      */
     function addNavigation(document, currentDocumentLink, languages) {
         let html = '<div class="docs-page">'
-        html += '<div class="docs-nav">'
-        html += buildPage(ED.siteIndexData.page, 0, currentDocumentLink)
-        html += '</div>'
+//        html += '<div class="docs-nav">'
+//        html += buildPage(ED.siteIndexData.page, 0, currentDocumentLink)
+//        html += '</div>'
         html += addTranslationIcons()
         html += '</div>'
         document.getElementById('docs-nav-div').innerHTML = html

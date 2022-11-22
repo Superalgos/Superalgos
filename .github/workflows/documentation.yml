@@ -24,7 +24,7 @@ jobs:
     - run: npm install
     - name: Preparation
       id: prep
-      run: node export-docs _site Superalgos
+      run: node export-docs -l=_site -r=Superalgos -bots
     - name: Build artifact
       uses: actions/upload-pages-artifact@v1
 

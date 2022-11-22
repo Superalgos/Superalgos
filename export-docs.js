@@ -209,7 +209,7 @@ async function runRoot() {
         try {
             const dom = new SA.nodeModules.jsDom(SA.nodeModules.fs.readFileSync(ED.indexFile))
             dom.window.document.getElementById('docs-content-div').innerHTML = html
-            ED.pageGlobals.addNavigation(dom.window.document, 'index.html')
+            ED.pageGlobals.addNavigation(dom.window.document, 'index.html', [ED.DEFAULT_LANGUAGE])
             ED.pageGlobals.addSearch(dom.window.document)
             ED.pageGlobals.addFooter(dom.window.document)
             SA.nodeModules.fs.writeFileSync(destination, dom.serialize())

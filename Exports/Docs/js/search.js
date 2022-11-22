@@ -16,6 +16,8 @@ let documentIndex = new FlexSearch.Document({
 })
 
 function renderSearchResults(command) {
+    const spinner = document.getElementById('search-spinner')
+    spinner.classList.remove('hidden')
     const currentLanguage = document.getElementById('body').getAttribute('lang')
     const initialTime = new Date()
     const resultsArray = []
@@ -43,6 +45,7 @@ function renderSearchResults(command) {
                 })
             })
             buildHTML()
+            spinner.classList.add('hidden')
         }
     )
 
@@ -239,7 +242,7 @@ element.addEventListener("keyup", function (event) {
     }
 })
 
-function clearCloseSearch() {
+function addClearCloseSearchListener() {
     document.getElementById('close-search-results').addEventListener('click', () => {
         document.getElementsByClassName("docs-search-input")[0].value = ''
         let searchContentDiv = document.getElementById('docs-search-content-div')

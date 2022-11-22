@@ -64,26 +64,26 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
 
         // Buttons Section
 
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
+//        HTML = HTML + '<div class="docs-node-html-footer-table">'
+//        HTML = HTML + '<div class="docs-footer-row">'
 
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
+//        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
 
         // TODO: update sharing
-        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-sharePage"><button>SHARE</button></span>'
+ //        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-sharePage"><button>SHARE</button></span>'
         
         // TODO: update scroll to top
-        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-scrollToElement"><button>TO TOP</button></span>'
+//        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-scrollToElement"><button>TO TOP</button></span>'
 
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Reviews', 'REVIEWS')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Community Data Mines', 'DATA MINES')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'First Steps Tutorials', 'TUTORIALS')
-        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'User Manual', 'USER MANUAL')
+//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Reviews', 'REVIEWS')
+//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Community Data Mines', 'DATA MINES')
+//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'First Steps Tutorials', 'TUTORIALS')
+//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'User Manual', 'USER MANUAL')
 
-        HTML = HTML + '</div>'
+//        HTML = HTML + '</div>'
 
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
+//        HTML = HTML + '</div>'
+//        HTML = HTML + '</div>'
 
         // Language Section
 

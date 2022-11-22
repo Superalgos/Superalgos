@@ -236,7 +236,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
      */
     function addSearch(document) {
         let html = '<div class="docs-search-results-header">'
-        html += '<div class="docs-image-logo-search-results"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></div>'
+        html += '<div class="docs-image-logo-search-results"><a href="https://superalgos.org"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></a></div>'
         html += '<button id="enable-search">Turn on search</button>'
         html += '<div id="search-input" class="docs-search-results-box hidden">'
         html += '<input class="docs-search-input" placeholder="search the docs" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'

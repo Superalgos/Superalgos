@@ -4,6 +4,14 @@ body {
     padding: 0;
 }
 
+.docs-paragraph {
+    margin-bottom: 16px;
+}
+
+.docs-hidden-include {
+    margin-bottom: -12px;
+}
+
 .docs-page {
     max-width: 1200px;
     margin: 0 auto;

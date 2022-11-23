@@ -72,6 +72,16 @@ exports.documentationExporter = function documentationExporter() {
     }
 
     function write() {
+        const title = dom.window.document.createElement('meta')
+        title.name = 'title'
+        title.content = thisObject.docsSchemaDocument.type.replace('"', '&quot;').replace('\'', '&apos;')
+        dom.window.document.getElementsByTagName('head')[0].appendChild(title)
+
+        const description = dom.window.document.createElement('meta')
+        description.name = 'description'
+        description.content = thisObject.docsSchemaDocument.definition.text.replace('"', '&quot;').replace('\'', '&apos;')
+        dom.window.document.getElementsByTagName('head')[0].appendChild(description)
+
         let filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
@@ -307,7 +317,7 @@ exports.documentationExporter = function documentationExporter() {
 
             /**
              * 
-             * @param {SchemaDocument} docsSchemaDocument 
+             * @param {SchemaDocument} definition 
              * @param {string} idPrefix 
              * @param {string} category 
              * @param {string} project 
@@ -634,7 +644,7 @@ exports.documentationExporter = function documentationExporter() {
                                 }
                             } else {
                                 if(paragraph.style === "Block") {
-                                    continue
+                                    break
                                 }
                                 if(paragraph.style === "Include") {
                                     html = html + await renderParagraph(paragraph, key)
@@ -1738,6 +1748,7 @@ exports.documentationExporter = function documentationExporter() {
                         prefix = ''
                         role = ''
                         key = key + '-text'
+                        styleClassList.push('docs-paragraph')
                         innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph, language)
                         innerHTML = ED.utilities.addCodeToCamelCase(innerHTML)
                         innerHTML = ED.utilities.addCodeToWhiteList(innerHTML)

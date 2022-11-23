@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Bir geliştirici değilseniz veya Git veya GitHub'a aşina değilseniz, önceki adım muhtemelen anlamsız geldi! Biliyorum!",
                 "updated": 1640628612883
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu bukan pengembang atau tidak familiar dengan Git atau Github, langkah sebelumnya mungkin terdengar seperti omong kosong! Saya tahu!",
+                "updated": 1668949104045
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Git, işbirliğini yönetmek için tasarlanmış açık kaynaklı bir sürüm kontrol sistemidir. Bu bir endüstri standardıdır.",
                     "updated": 1640628667802
+                },
+                {
+                    "language": "ID",
+                    "text": "Git merupakan sistem kontrol versi sumber terbuka yang dirancang untuk menangani kolaborasi. Ini adalah standar industri.",
+                    "updated": 1668949159609
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "TR",
                     "text": "Bir önceki adım, işbirliğinin çalışması için gerekli teknik adımların ayrıntılarını verir, bazı temel normları karşılar, böylece çalışmanız diğer insanların işlerini bozmaz!",
                     "updated": 1640628702616
+                },
+                {
+                    "language": "ID",
+                    "text": "Step sebelumnya lebih detail ke teknikal step yang dibutuhkan untuk kolaborasi dalam bekerja, bertemu dengan norma basis sehingga pekerjaanmu tidak berantakan dengan pekerjaan orang lain!",
+                    "updated": 1668949166170
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "TR",
                     "text": "Git'i anladıysanız, sizin için en iyi iş akışının hangisi olduğuna karar vermekte her zaman özgürsünüz!",
                     "updated": 1640628735839
+                },
+                {
+                    "language": "ID",
+                    "text": "JIka kamu memahami Git, kamu akan selalu bebas memutuskan alur kerja apa yang terbaik untukmu!",
+                    "updated": 1668949176608
                 }
             ]
         },

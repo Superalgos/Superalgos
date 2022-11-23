@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Superalgos, doğrudan uygulama içinden dallar ( Branch ) arasında geçiş yapmanızı sağlar! Ama neden Branch değiştirmek isteyesiniz?",
                 "updated": 1640382531378
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos memperbolehkan kamu untuk mengubah branches secara langsung dari dalam aplikasi! Tapi, kenapa kamu harus mengubah branches?",
+                "updated": 1668503848752
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Superalgos sürekli gelişiyor. Bir noktada, geliştirme dalında ( Develop Branch ) yazılım sürümünü denemek isteyebilirsiniz. Belki yeni bir özellik vardır ya da henüz ana dalda ( Master Branch ) olmayan, bir hata için bir düzeltme vardır...",
                     "updated": 1640382663346
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos secara konstan terimprov. Dalam satu poin, kamu ingin mencoba versi software dari branch develop. Mungkin ada fitur baru, atau perbaikan bug yang belum ada di branch master...",
+                    "updated": 1668503857080
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Veya şu anda bizim durumumuzda olduğu gibi bir katkı sunmak isteyebilirsiniz! Haydi Yapalım şunu!",
                     "updated": 1640382681608
+                },
+                {
+                    "language": "ID",
+                    "text": "Atau kamu ingin coba mengirimkan kontribusi, seperti dalam kasus kita sekarang ini! Ayo lakukan!",
+                    "updated": 1668503871835
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "TR",
                     "text": "Dokümanlar sayfasını ( bu sayfayı yani ) aşağı kaydırın ve Contributions Branch olarak Develop 'ı seçin! Ortadaki \"Choose The Current Branch\" altındaki seçeneklerde değil , sağ taraftaki seçenek!",
                     "updated": 1640382892211
+                },
+                {
+                    "language": "ID",
+                    "text": "Gulir kebawah halaman Docs di footer dan pilih Develop sebagai Contribution Branch! Opsi itu ada disisi sebelah kanan bukan ditengah!",
+                    "updated": 1668503880687
                 }
             ]
         }

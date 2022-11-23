@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Superalgos - это проект сообщества! Мы предоставляем программное обеспечение всем желающим бесплатно, но мы просим кое-что взамен... вашу помощь!",
                 "updated": 1640154468349
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos adalah Proyek Community! Kami membuat software secara gratis untuk semua orang, Tetapi kami meminta imbal balik yaitu... bantuanmu!",
+                "updated": 1667872273134
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Как Superalgos может быть бесплатным? В чем подвох? Мы часто получаем эти вопросы! Вот краткая история...",
                     "updated": 1640154503032
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagaimana bisa Superalgos ini gratis? Apa yang dicari? Kami sering mendengar pertanyaan itu! Ini cerita singkatnya...",
+                    "updated": 1667872284867
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Компания Superalgos началась с того, что группа друзей объединила усилия для автоматизации торговли криптовалютами!",
                     "updated": 1640154520613
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos bermulai dari pertemanan grup yang ingin mengotomatisasi trading crypto mereka!",
+                    "updated": 1667872297699
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Вскоре друзья поняли, что для того, чтобы конкурировать с ведущими игроками рынка, необходима огромная инфраструктура программного обеспечения. Система должна была быть на уровне или даже лучше, чем коммерческое и собственное программное обеспечение, доступное компаниям. Такие требования не могли быть выполнены небольшой командой - по крайней мере, в короткие сроки.",
                     "updated": 1640154577018
+                },
+                {
+                    "language": "ID",
+                    "text": "Lalu mereka ternyata menyadari bahwa untuk memenangkan top pemain di pasar perlu adanya struktur software yang memadai. Sistem ini harus sama atau lebih baik dari software komersil atau hak milik yang ada. Dengan syarat inilah tidak bisa digapai dari team kecil saja setidaknya di timeframe yang masuk akal.",
+                    "updated": 1667872312519
                 }
             ]
         }

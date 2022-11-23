@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Community!",
                 "updated": 1645269583740
+            },
+            {
+                "language": "ID",
+                "text": "Kamu masih disekitar sini ternyata, sekarang dengan dua tutorial yang telah kamu lakukan!, kamu sudah termasuk keluarga dan Selamat Datang di Komunitas ini!",
+                "updated": 1667870143073
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "В этом учебнике вы научитесь поддерживать систему в актуальном состоянии, использовать встроенную командную строку, переключать ветви и еще нескольким приемам, которые облегчат вам жизнь!",
                     "updated": 1640154232069
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tutorial ini kamu akan belajar untuk selalu up to date dengan system yang ada, menggunakan command/perintah bawaan, mengganti branches, dan beberapa trik untuk mempermudah hidupmu!",
+                    "updated": 1667870960513
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Навыки, которые вы приобретете, также позволят вам начать вносить свой вклад в проект! Помните, это проект сообщества... Мы все должны внести свой вклад и помочь улучшить программное обеспечение!",
                     "updated": 1640154256163
+                },
+                {
+                    "language": "ID",
+                    "text": "Fitur yang tercakup dalam Tutorial ini sangat relevan dengan user yang ingin menginstall untuk Kontribusi dan Pengembangan. Jika kamu menggunakan versi Packaged dan Docker, banyak fitur yang tidak berfungsi untuk Kamu!, Maka dari itu tolong lanjutkan saja tutorialnya sekaligus untuk mempelajari cara menggunakan Docs!",
+                    "updated": 1667897784356
                 }
             ]
         },
@@ -123,6 +138,11 @@
                     "text": "Bu arada, projeye katkıda bulunmak size Superalgos (SA) jetonları kazandırıyor! Daha fazlasını öğrenmek için tıklayın!->superalgos.org/token-overview.shtml",
                     "updated": 1654393892890,
                     "style": "Link"
+                },
+                {
+                    "language": "ID",
+                    "text": "Ngomong-ngomong, berkontribusi ke project akan mendapatkan token  Superalgos (SA), Klik untuk mempelajari lebih lanjut!->superalgos.org/token-overview.shtml",
+                    "updated": 1667870927197
                 }
             ]
         }

@@ -226,6 +226,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
         await copyDir(base, 'Images')
 
         info('Design space'.padEnd(20) + ' -> transfering -> fonts')
+        await copyDir(base, 'Fonts')
         await copyDir(base, 'Fonts', undefined, ['Fonts', 'css/Fonts'])
 
         info('Design space'.padEnd(20) + ' -> transfering -> css')
@@ -233,7 +234,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
         await copyDir(base, 'css', (f) => desiredSheets.find(x => f.indexOf(x) > 0) !== undefined)
 
         info('Design space'.padEnd(20) + ' -> transfering -> js')
-        await copyDir(base, 'css', (f) => f.indexOf('flexsearch.bundle.js') > 0, ['externalScripts', 'js'])
+        await copyDir(base, 'externalScripts', (f) => f.indexOf('flexsearch.bundle.js') > 0, ['externalScripts', 'js'])
     }
 
     /**

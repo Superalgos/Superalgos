@@ -221,35 +221,19 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
      async function copyWebServerData() {
         info('Design space'.padEnd(20) + ' -> copy web server files')
         const base = global.env.PATH_TO_PLATFORM + '/WebServer/'
-        const transferDirectories = ['Fonts', 'Images']
-        const filesTasks = transferDirectories.map( dir => new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + dir, (f) => res(f))))
-        const files = (await Promise.all(filesTasks)).flat()
-        info('Design space'.padEnd(20) + ' -> transfering -> fonts and images')
-        files.forEach(file => {
-            let fileParts = file.replaceAll('\\','/').split('/')
-            const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
-            const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-            copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
-        })
+
+        info('Design space'.padEnd(20) + ' -> transfering -> images')
+        await copyDir(base, 'Images')
+
+        info('Design space'.padEnd(20) + ' -> transfering -> fonts')
+        await copyDir(base, 'Fonts', undefined, ['Fonts', 'css/Fonts'])
+
         info('Design space'.padEnd(20) + ' -> transfering -> css')
-        const cssFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + 'css', (f) => res(f)))
         const desiredSheets = ['docs.css', 'main.css', 'font-awasome.css']
-        cssFiles.filter((f) => desiredSheets.find(x => f.indexOf(x) > 0) !== undefined)
-            .forEach(file => {
-                let fileParts = file.replaceAll('\\','/').split('/')
-                const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
-                const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-                copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName)
-            })
+        await copyDir(base, 'css', (f) => desiredSheets.find(x => f.indexOf(x) > 0) !== undefined)
+
         info('Design space'.padEnd(20) + ' -> transfering -> js')
-        const jsFiles = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + 'externalScripts', (f) => res(f)))
-        jsFiles.filter((f) => f.indexOf('flexsearch.bundle.js') > 0)
-            .forEach(file => {
-                let fileParts = file.replaceAll('\\','/').split('/')
-                const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
-                const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-                copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath.replace('externalScripts', 'js'), fileName)
-            })
+        await copyDir(base, 'css', (f) => f.indexOf('flexsearch.bundle.js') > 0, ['externalScripts', 'js'])
     }
 
     /**
@@ -257,14 +241,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
      */
     async function copyCustomJsScripts() {
         info('Design space'.padEnd(20) + ' -> copy custom JS files')
-        const baseDir = global.env.EXPORT_DOCS_DIR + '/'
-        const files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(baseDir + 'js', (f) => res(f)))
-        files.forEach(file => {
-            let fileParts = file.replaceAll('\\','/').split('/')
-            const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
-            const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-            copyFile(baseDir + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
-        })
+        await copyDir(global.env.EXPORT_DOCS_DIR + '/', 'js')
     }
 
     /**
@@ -272,14 +249,7 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
      */
     async function copyCustomCssScripts() {
         info('Design space'.padEnd(20) + ' -> copy custom CSS files')
-        const baseDir = global.env.EXPORT_DOCS_DIR + '/'
-        const files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(baseDir + 'css', (f) => res(f)))
-        files.forEach(file => {
-            let fileParts = file.replaceAll('\\','/').split('/')
-            const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
-            const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
-            copyFile(baseDir + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
-        })
+        await copyDir(global.env.EXPORT_DOCS_DIR + '/', 'css')
     }
 
     function copyFavicon() {
@@ -299,5 +269,29 @@ exports.documentationDesignSpace = function documentationDesignSpace() {
             SA.projects.foundations.utilities.filesAndDirectories.createNewDir(to)
         }
         fs.copyFileSync(from + fileName, to + fileName)
+    }
+
+    /**
+     * 
+     * @param {string} baseDirectory 
+     * @param {string} directory 
+     * @param {(string)=>boolean} filter
+     * @param {string[]} directoryReplacement
+     */
+    async function copyDir(baseDirectory, directory, filter, directoryReplacement) {
+        let files = await new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(baseDirectory + directory, (f) => res(f)))
+        if(filter !== undefined) {
+            files = files.filter(filter)
+        }
+        files.forEach(file => {
+            let fileParts = file.replaceAll('\\','/').split('/')
+            const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
+            const originalDir = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
+            let remoteDir = originalDir
+            if(directoryReplacement !== undefined && directoryReplacement.length == 2) {
+                remoteDir = originalDir.replace(directoryReplacement[0], directoryReplacement[1])
+            }
+            copyFile(baseDirectory + originalDir, global.env.PATH_TO_PAGES_DIR + '/' + remoteDir, fileName) 
+        })
     }
 }

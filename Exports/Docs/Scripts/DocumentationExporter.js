@@ -82,7 +82,6 @@ exports.documentationExporter = function documentationExporter() {
 
         ED.pageGlobals.addNavigation(
             dom.window.document, 
-            thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/' + fileName, 
             [...new Set(translationLanguages)])
         ED.pageGlobals.addSearch(dom.window.document)
         ED.pageGlobals.addFooter(dom.window.document)

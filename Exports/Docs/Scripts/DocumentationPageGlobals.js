@@ -36,10 +36,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
         if(!page.active) {return ''}
 
         let html = '<div class="docs-page-link depth-' + depth + '">'
-        if(depth == 0) {
-            // html += '<h3>' + page.title + '</h3>'
-        }
-        else {
+        if(depth > 0) {
             const classList = ['button']
             if(currentDocumentLink !== undefined && page.link.join('/').indexOf(currentDocumentLink) >= 0) {
                 classList.push('active')
@@ -61,57 +58,6 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
 
         HTML = HTML + '<div class="docs-page">'
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
-
-        // Buttons Section
-
-//        HTML = HTML + '<div class="docs-node-html-footer-table">'
-//        HTML = HTML + '<div class="docs-footer-row">'
-
-//        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
-
-        // TODO: update sharing
- //        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-sharePage"><button>SHARE</button></span>'
-        
-        // TODO: update scroll to top
-//        HTML = HTML + '<span style="float: right; display: inline-block;" id="docs-scrollToElement"><button>TO TOP</button></span>'
-
-//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Reviews', 'REVIEWS')
-//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Community Data Mines', 'DATA MINES')
-//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'First Steps Tutorials', 'TUTORIALS')
-//        HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'User Manual', 'USER MANUAL')
-
-//        HTML = HTML + '</div>'
-
-//        HTML = HTML + '</div>'
-//        HTML = HTML + '</div>'
-
-        // Language Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Multi-language Docs</h4>'
-        HTML = HTML + 'We produce the original Docs in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Contribute Translations</h4>'
-        HTML = HTML + 'Earn tokens by helping translate the Docs and tutorials to your native language! Search the Docs for How to Contribute Translations and join the Superalgos Docs Group to coordinate with other contributors...'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
 
         // Community Section
 
@@ -174,7 +120,9 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
+        HTML = HTML + '<a href="/">'
         HTML = HTML + '<img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo-white.png']) + '" width="200 px">'
+        HTML = HTML + '</a>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
@@ -183,23 +131,15 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
         HTML = HTML + '</div>'
 
         document.getElementById('docs-footer-div').innerHTML = HTML
-
-        function generateFooterBookLink(project, category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink([project, category, ED.utilities.normaliseStringForLink(pageType)])
-            return '<a class="button" style="float: right; display: inline-block;" href="' + link + '">' + content + ' </a>'
-        }
     }
 
     /**
      * 
      * @param {*} document
-     * @param {string?} currentDocumentLink
+     * @param {string[]} languages
      */
-    function addNavigation(document, currentDocumentLink, languages) {
+    function addNavigation(document, languages) {
         let html = '<div class="docs-page">'
-//        html += '<div class="docs-nav">'
-//        html += buildPage(ED.siteIndexData.page, 0, currentDocumentLink)
-//        html += '</div>'
         html += addTranslationIcons()
         html += '</div>'
         document.getElementById('docs-nav-div').innerHTML = html
@@ -209,7 +149,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
              */
          function addTranslationIcons() {
             let html = '<div id="docs-translation-list" class="dropdown">'
-            html = html + '<span class="docs-tooltip" data-tippy-content="This is a community project and not all sections will have been translated, this is where you can help and earn rewards!">Available translations</span>'
+            html = html + '<span class="docs-tooltip" data-tippy-placement="left" data-tippy-content="This is a community project and not all sections will have been translated, this is where you can help and earn rewards!">Available translations</span>'
             html = html + '<div class="dropdown-content">'
             for(let i = 0; i < languages.length; i++) {
                 const key = languages[i]
@@ -236,7 +176,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
      */
     function addSearch(document) {
         let html = '<div class="docs-search-results-header">'
-        html += '<div class="docs-image-logo-search-results"><a href="https://superalgos.org"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></a></div>'
+        html += '<div class="docs-image-logo-search-results"><a href="/"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></a></div>'
         html += '<button id="enable-search">Turn on search</button>'
         html += '<div id="search-input" class="docs-search-results-box hidden">'
         html += '<input class="docs-search-input" placeholder="search the docs" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'

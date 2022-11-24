@@ -1,4 +1,4 @@
-const {info, error} = require('./Scripts/Logger').logger
+const {info} = require('./Scripts/Logger').logger
 exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     let thisObject = {

@@ -73,12 +73,12 @@ exports.documentationExporter = function documentationExporter() {
 
     function write() {
         const title = dom.window.document.createElement('title')
-        title.innerHTML = 'Superalgos - ' + thisObject.docsSchemaDocument.type.replace(/"/, '&quot;').replace(/'/, '&apos;')
+        title.innerHTML = 'Superalgos - ' + thisObject.docsSchemaDocument.type.replace(/"/g, '&quot;').replace(/'/g, '&apos;')
         dom.window.document.getElementsByTagName('head')[0].appendChild(title)
 
         const description = dom.window.document.createElement('meta')
         description.name = 'description'
-        description.content = thisObject.docsSchemaDocument.definition.text.replace(/"/, '&quot;').replace(/'/, '&apos;')
+        description.content = thisObject.docsSchemaDocument.definition.text.replace(/"/g, '&quot;').replace(/'/g, '&apos;')
         dom.window.document.getElementsByTagName('head')[0].appendChild(description)
 
         let filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'

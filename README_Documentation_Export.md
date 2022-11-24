@@ -9,6 +9,7 @@ Argument | abbreviation | default value | description
 --local-directory | -l | My-Storage/_site | this is the local directory that you want to export the static files to
 --remote-directory | -r | My-Storage/_site | this is the folder that the files will live under on the remote directory. if you wanted to host it on superalgos.org/docs/index.html then you would supply `-r=docs` if you want the files to live under a root directory then you will need to pass in an empty string argument `-r=""`
 --bots | -b | false | this argument determines whether to include a robots.txt file to disallow crawling. To enable crawling add the `--bots` or `-b` argument
+--shtml | n/a | false | this argument determines whether to export the docs '\*.shtml' files instead of '\*.html' files
 
 ## Execution
 

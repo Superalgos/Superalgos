@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все!",
                 "updated": 1640163557924
+            },
+            {
+                "language": "ID",
+                "text": "Kamu pada akhirnya telah membantu proyek! Kami sangat berterima kasih dengan kontribusi pertamamu dan berharap terus ada dimasa mendatang!",
+                "updated": 1668997205176
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done!",
                     "updated": 1640163574867
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semua berjalan lancar dengan otentikasi, kamu seharusnya mendapatkan halaman  App Message - Contribution Done!",
+                    "updated": 1668997216327
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com!",
                     "updated": 1640163619040
+                },
+                {
+                    "language": "ID",
+                    "text": " Pemelihara proyek akan mengulas Pull Request dan bertindak sesuai seharusnya. Jika memiliki kemungkinan untuk menggabungkannya tanpa konflik, Seharusnya itu segera tayang! Tetap perhatikan notifikasi dari GitHub.com!",
+                    "updated": 1668997224948
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "RU",
                     "text": "Если что-то пошло не так с аутентификацией Git, пожалуйста, следуйте инструкциям на странице ошибки для устранения проблемы или обратитесь за помощью в группу разработчиков Develop Group.",
                     "updated": 1640163658875
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika sesuatu berjalan tidak sesuai dengan otentikasi Git, ikuti petunjuk pada halaman kesalahan untuk memecahkan masalah atau meminta bantuan di Develop Group.",
+                    "updated": 1668997234762
                 }
             ]
         }

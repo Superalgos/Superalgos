@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Talimatlarıma harfi harfine uyduysanız, yazılımı Geliştirme ( Develop ) şubesinde çalıştırıyor olmalısınız! Mükemmel!",
                 "updated": 1640554184937
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu mengikuti intruksi saya dengan benar, seharusnya kamu telah menjalankan software di branch Develop! Luar Biasa!",
+                "updated": 1668786730579
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Şu anda çalıştırmakta olduğunuz yazılım, şube değiştirdiğiniz anda Develop şubesinde bulunan Superalgos'un sürümüdür! Bu iyi, çünkü artık yazılımın en son sürümüne sahip olduğunuzu biliyorsunuz!",
                     "updated": 1640554149760
+                },
+                {
+                    "language": "ID",
+                    "text": "Software yang kamu jalankan sekarang berada di versi terkini Superalgos yang ada di Develop branch setelah kamu mengubah branch! Itu baik, seperti yang kamu ketahui sekarang kamu memiliki software versi terbaru!",
+                    "updated": 1668786740430
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Bu özellikle önemlidir çünkü projeye katkıda bulunmak üzeresiniz. Yaptığınız değişikliklerin diğer katkıda bulunanlar tarafından üretilen en son değişiklikleri içermesi için her zaman en son sürüm üzerinde çalışmalısınız!",
                     "updated": 1640554077493
+                },
+                {
+                    "language": "ID",
+                    "text": "Secara khusus hal ini sangat penting karena kamu akan berkontribusi ke proyek. Kamu harus selalu bekerja dengan versi terkini sehingga perubahan yang kamu lakukan masuk ke perubahan terkini dari kontributor lainnya!",
+                    "updated": 1668786751495
                 }
             ]
         }

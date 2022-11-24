@@ -94,8 +94,11 @@ exports.documentationExporter = function documentationExporter() {
             [...new Set(translationLanguages)])
         ED.pageGlobals.addSearch(dom.window.document)
         // ED.pageGlobals.addFooter(dom.window.document)
-
-        SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
+        let serializedHtml = dom.serialize()
+        if(ED.asShtml) {
+            serializedHtml = serializedHtml.replace('<html lang="en">', '')
+        }
+        SA.nodeModules.fs.writeFileSync(filePath, serializedHtml)
         return filePath
     }
 

@@ -1,4 +1,4 @@
-const {info, warn, error} = require('./Logger').logger
+const {error} = require('./Logger').logger
 exports.documentationPageGlobals = function documentationPageGlobals() {
     let thisObject = {
         addFooter: addFooter,

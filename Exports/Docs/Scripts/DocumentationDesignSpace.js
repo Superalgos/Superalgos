@@ -1,4 +1,4 @@
-const {info, warn, error} = require('./Logger').logger
+const {info, error} = require('./Logger').logger
 
 /**
  * @typedef {{

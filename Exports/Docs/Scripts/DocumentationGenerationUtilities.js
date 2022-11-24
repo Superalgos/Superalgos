@@ -373,7 +373,6 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
     }
 
     function addBold(text) {
-        let splittedText = text.split(':')
         if (text.indexOf(':') >= 0) {
             return '<b>' + text.substring(0, text.indexOf(':') + 1) + '</b>' + text.substring(text.indexOf(':') + 1, text.length)
         } else {
@@ -521,7 +520,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
 
             let found = false
 
-            if (found === false && ED.menuLabelsMap.get(cleanPhrase4) === true) {
+            if (ED.menuLabelsMap.get(cleanPhrase4) === true) {
                 changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
                 i = i + 3
                 found = true
@@ -656,7 +655,7 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
                     } else {
                         phrase = phrase + ' ' + word
                     }
-                    if (phrase === undefined) { continue }
+                    if (phrase.trim().length === 0) { continue }
                     phrases.push(phrase)
                     cleanPhrases.push(cleanPhrase(phrase))
                 }

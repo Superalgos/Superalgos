@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Müthiş incelemenizi yazmaya başlamadan önce, ne yaptığınızı anlamanız için komutu incelememe izin verin!",
                 "updated": 1640609570442
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu menulis review yang keren, Biarkan aku menjelaskan perintah yang ada sehingga kamu mengerti apa yang baru saja kamu lakukan!",
+                "updated": 1668848278685
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "docs.add: Docs Add Command kök sözdizimi.",
                     "updated": 1640609613550
+                },
+                {
+                    "language": "ID",
+                    "text": "docs.add: root syntax dari Docs Add Command.",
+                    "updated": 1668848329662
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Review: Sayfanın kategorisi. ( Docs Page Category )",
                     "updated": 1640609711999
+                },
+                {
+                    "language": "ID",
+                    "text": "Review: Docs Page Category dari halaman.",
+                    "updated": 1668848341996
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "TR",
                     "text": "to: okunabilirliği artırmak için bir konuşma dili bağlayıcısı.",
                     "updated": 1640609736194
+                },
+                {
+                    "language": "ID",
+                    "text": "to: Bahasa sehari-hari untuk menyatukan dan improvisasi pembacaan.",
+                    "updated": 1668848357897
                 }
             ]
         },
@@ -167,6 +187,11 @@
                     "language": "TR",
                     "text": "Foundations:Vakıflar: Sayfanın eklendiği proje ( Project )",
                     "updated": 1640609759564
+                },
+                {
+                    "language": "ID",
+                    "text": "Foundations: Project dimana halaman itu ditambahkan.",
+                    "updated": 1668848373007
                 }
             ]
         },
@@ -201,6 +226,11 @@
                     "language": "TR",
                     "text": "Superalgos Project Review: Superalgos Proje İncelemesi: İncelemenin ait olduğu sayfa koleksiyonunun adı.",
                     "updated": 1640609778188
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos Project Review: nama dari kumpulan halaman tempat review tersebut berada.",
+                    "updated": 1668848385662
                 }
             ]
         },
@@ -235,6 +265,11 @@
                     "language": "TR",
                     "text": "->: ->: iki kullanıcı tanımlı parametre gerektiren komutlarda kullanılan bir ayırıcı (bu durumda, sayfa koleksiyonunun adı ve sayfanın adı).",
                     "updated": 1640609803436
+                },
+                {
+                    "language": "ID",
+                    "text": "->: pemisah yang digunakan dalam perintah yang memerlukan dua parameter yang ditentukan pengguna (dalam hal ini, nama kumpulan halaman, dan nama halaman).",
+                    "updated": 1668848396875
                 }
             ]
         },
@@ -269,6 +304,11 @@
                     "language": "TR",
                     "text": "Superalgos Review - Your Review Title: Superalgos İncelemesi - İnceleme Başlığınız: bu, Dokümanlar Sayfa Adıdır; Yinelenen adların olasılığını azaltmak için sayfa adında Superalgos İncelemesini tekrarlıyoruz",
                     "updated": 1640609834844
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos Review - Your Review Title: inilah Docs Page Name: kami ulangi Superalgos Review di nama halaman untuk menurunkan kemungkinan nama duplikat",
+                    "updated": 1668848410468
                 }
             ]
         }

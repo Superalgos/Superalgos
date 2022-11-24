@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz!",
                 "updated": 1640555422367
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu menulis perintah dengan benar, kamu seharusnya mendapatkan halaman baru dengan title yang sudah kamu buat, undangan untuk menulis ringkasan, dan instruksi lebih lanjut di bawah ini!",
+                "updated": 1668788793657
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Bir hata mesajı aldıysanız, okumalı ve sorunu çözmelisiniz! Komuttaki sözdizimi ile ilgili olabilir. Orijinal komutu tekrar bulabilmek için her zaman bir adım geri gidebilirsiniz! (Previous tuşunu kullanarak)",
                     "updated": 1640555518049
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika mendapati pesan kesalahan, baca itu dan perbaiki masalahnya! Itu sepertinya syntax diperintah. Kamu mungkin selalu kembali untuk memulihkan perintah aslinya!",
+                    "updated": 1668788800884
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
                     "updated": 1640555531810
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada step selanjutnya, kita akan mempelajari bagaimana perintah itu bekerja!",
+                    "updated": 1668788824996
                 }
             ]
         },
@@ -117,6 +132,11 @@
                     "text": "Paketlenmiş veya Docker kurulumlarını kullanıyorsanız, İleri'ye basmaya devam edin ve yazılım sürümünüz için mevcut olmayan talimatları göz ardı edin.",
                     "updated": 1654393916499,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan Instalasi Packaged atau Docker, tetap lanjutkan Next dan abaikan instruksi yang tidak tersedia pada versi software kamu.",
+                    "updated": 1668788835411
                 }
             ]
         }

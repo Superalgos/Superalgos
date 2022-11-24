@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Superalgos - это идеальное сочетание интерфейса начального уровня с мощными инструментами для торговли и анализа данных.",
                 "updated": 1640411307855
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, veri ticareti ve analizi için güçlü araçlarla giriş seviyesi bir arayüzün mükemmel bir karışımıdır.",
+                "updated": 1669193755409
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Мое первое впечатление от Superalgos было несколько неоднозначным, но после изучения учебных пособий я значительно потеплел к программе.Хотя временами в интерфейсе может быть немного сложно ориентироваться, это делает его немного сложным и, следовательно, увлекательным. Мне особенно интересно экспериментировать с шахтами данных и торговыми системами.",
                     "updated": 1640411529084
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos hakkındaki ilk izlenimim biraz karışıktı, ancak öğreticileri okuduktan sonra yazılıma çok ısındım. Arayüzde gezinmek bazen biraz zor olsa da, bu onu biraz zorlayıcı ve dolayısıyla eğlenceli hale getiriyor. Veri madenleri ve ticaret sistemleri ile deney yapmak beni özellikle heyecanlandırıyor.",
+                    "updated": 1669193785388
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Сообщество, окружающее проект, является одним из самых привлекательных факторов, а также тот факт, что программное обеспечение не запускается через сторонний веб-сайт, контролирующий данные. Я с нетерпением жду возможности стать активным участником проекта и особенно надеюсь, что смогу научиться и вносить свой вклад в тему машинного обучения. Очень рад, что в новую версию включен TensorFlow!",
                     "updated": 1640411582735
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeyi çevreleyen topluluk, yazılımın verileri kontrol eden üçüncü taraf bir web sitesi aracılığıyla çalıştırılmadığı gerçeğinin yanı sıra en büyük cazibe merkezlerinden biridir. Aktif bir katılımcı olmayı dört gözle bekliyorum ve özellikle makine öğrenimi konusunda öğrenebilmeyi ve katkıda bulunabilmeyi umuyorum. Yeni sürümün TensorFlow'u içermesi gerçekten heyecan verici!",
+                    "updated": 1669193851445
                 }
             ]
         },

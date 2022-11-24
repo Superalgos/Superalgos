@@ -380,13 +380,6 @@ function newEducationDocSpace() {
             UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor = undefined
         } else {
             scrollToElement('docs-space-div')
-            const payload = {
-                category: UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category,
-                project: UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project,
-                type: UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type,
-                content: document.getElementById('docs-space-div').innerHTML
-            }
-            httpRequest(JSON.stringify(payload), 'Docs/Export', (e,d) => { })
         }
     }
 

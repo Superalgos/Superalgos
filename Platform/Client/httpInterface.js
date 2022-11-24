@@ -865,14 +865,6 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             break
                         }
-
-                        case 'Export': {
-                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse).then((body) => {
-                                PL.projects.education.utilities.exportFunctions.process(body)
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                            })
-                            break
-                        }
                     }
 
                     function checkAllSchmemaDocuments(category, docsSchema, filePath) {

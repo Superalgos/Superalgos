@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: Bu eğitici, uygulamanın Github çatalınızla etkileşime girmesine izin verecek kurulumu, uygulamayı güncelleme komutlarını, dalları değiştirmeyi ve projeye nasıl katkıda bulunacağını kapsar.",
                 "updated": 1645104173430
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini mencakup penyiapan untuk mengizinkan aplikasi berinteraksi dengan fork Github kamu, perintah untuk memperbarui aplikasi, berpindah branch, dan cara berkontribusi pada proyek.",
+                "updated": 1669167244790
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393874503,
                     "style": "Title"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1669167198461
                 }
             ]
         },

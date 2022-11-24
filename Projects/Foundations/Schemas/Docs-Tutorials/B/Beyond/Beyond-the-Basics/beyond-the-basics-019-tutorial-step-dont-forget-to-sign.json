@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Superalgos'taki ilk izlenimlerinizle ilgili bu yorumlar sizin ilk katkınızdır ve bunun için size teşekkür ederiz!",
                 "updated": 1640610855166
+            },
+            {
+                "language": "ID",
+                "text": "Dokumentasi tentang impresi pertamamu terhadap Superalgos adalah kontribusi pertamamu, dan untuk itu kami berterima kasih!",
+                "updated": 1668928956479
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "İncelemenizin Superalgos deposunda birleştirilmesi için sayfanın son paragrafında GitHub.com kullanıcı adınızla imzalamanız gerekir! Bu, daha sonra aramayı kullanarak sayfayı bulabilmeniz için önemlidir! Superalgos ile ilerledikçe, her zaman geri gelip düzenleyebilirsiniz.",
                     "updated": 1640610982807
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk ulasanmu agar masuk ke repository Superalgos, kamu harus masuk dengan GitHub.com dengan nama pengguna di paragraf terakhir halaman! Hal ini penting agar nantinya kamu dapat menemukan kembali halaman menggunakan pencarian! Saat kamu berproses dengan Superalgos, kamu akan kembali dan mengedit itu.",
+                    "updated": 1668928963544
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Katkılar size Superalgos SA Tokenleri kazandırır ve Apache Lisansı 2.0'ın koşullarına tabidir. Kısacası, Katkıda Bulunanlar, telif hakkı/patent haklarının açık bir şekilde devretmiş olurlar.",
                     "updated": 1640611462549
+                },
+                {
+                    "language": "ID",
+                    "text": "Kontribusi mendapatkanmu token Superalgos SA dan sesuai dengan peraturan dari Apache Licence 2.0. Secara singkat, Kontributor membawa hak cipta/hak paten yang tegas.",
+                    "updated": 1668929450272
                 }
             ]
         }

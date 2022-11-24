@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Roman uzunluğunda bir yazı yazmadan önce, arada bir sayfayı kaydettiğinizden emin olun! Yazdıklarınızıı riske atmaya gerek yok!",
                 "updated": 1640611553238
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu ke menulis tulisan panjang seperti novel, pastikan kamu selalu menyimpan halaman sesekali! Tidak perlu mengambil resiko prose-mu!",
+                "updated": 1668930539375
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Yazdığınız her paragraf, Düzenleme modundan çıkar çıkmaz tarayıcı oturumu düzeyinde saklanır. Ancak, sayfayı diske kaydetmek ve olası bir tarayıcı çökmesinde işinizi kaybetmemek için aşağıdaki şu komutu çalıştırın:",
                     "updated": 1640611584314
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap paragraf yang kamu tulis tersimpan dalam sesi browser segera setelah kamu keluar dari mode Edit. Adapun, untuk menyimpan dalam diska dan menghindari kehilangan kerja saat terjadi kerusakan pada browser, jalankan perintah ini:",
+                    "updated": 1668930549582
                 }
             ]
         },
@@ -109,6 +119,11 @@
                     "language": "TR",
                     "text": "Herhangi bir nedenle sayfayı gözden kaybederseniz, docs.reindex komutunu çalıştırın ve eklerken verdiğiniz başlığı arayın! Ayrıca sayfanın alt kısmındaki GERİ düğmesini de kullanabilirsiniz!",
                     "updated": 1640611894985
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika karena alasan apapun kamu kehilangan halamanmu, jalankan perintah docs.reindex dan cari judul yang kamu berikan saat menambahkannya! Kamu juga dapat menggunakan tombol BACK di footer halaman!",
+                    "updated": 1668930558088
                 }
             ]
         }

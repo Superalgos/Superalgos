@@ -165,7 +165,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
             return html + '</div>'
 
             function buildTranslationIconHtml(key, value) {
-                return '<span class="translation-options" language="' + key + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + value + '" class="docs-footer-language"/></span>'
+                return '<span class="translation-options" language="' + key + '"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'Languages', key + '.png']) + '" title="' + value + '" class="docs-language-img"/></span>'
             }
         }
     }

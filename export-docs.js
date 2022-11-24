@@ -20,6 +20,10 @@ const argv = yargs(hideBin(process.argv))
         type: 'boolean',
         description: 'If this is flagged then the robots.txt file not will be created',
     })
+    .option('sthml', {
+        type: 'boolean',
+        description: 'Does the output need to be in the \'shtml\' format?'
+    })
     .parse()
 
 runRoot()
@@ -63,7 +67,8 @@ async function runRoot() {
         indexFile: EXPORT_DOCS_DIR + '/index.html',
         baseIndexFile: EXPORT_DOCS_DIR + '/index_base.html',
         siteIndexData: require(EXPORT_DOCS_DIR + '/site-index.json'),
-        searchJs: EXPORT_DOCS_DIR + '/js/search.js'
+        searchJs: EXPORT_DOCS_DIR + '/js/search.js',
+        asShtml: argv.shtml
     }
 
 

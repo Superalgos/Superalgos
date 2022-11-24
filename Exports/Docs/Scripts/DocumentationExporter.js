@@ -72,9 +72,8 @@ exports.documentationExporter = function documentationExporter() {
     }
 
     function write() {
-        const title = dom.window.document.createElement('meta')
-        title.name = 'title'
-        title.content = thisObject.docsSchemaDocument.type.replace('"', '&quot;').replace('\'', '&apos;')
+        const title = dom.window.document.createElement('title')
+        title.innerHTML = 'Superalgos - ' + thisObject.docsSchemaDocument.type.replace('"', '&quot;').replace('\'', '&apos;')
         dom.window.document.getElementsByTagName('head')[0].appendChild(title)
 
         const description = dom.window.document.createElement('meta')
@@ -86,7 +85,7 @@ exports.documentationExporter = function documentationExporter() {
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         
-        let fileName = thisObject.currentDocumentBeingRendered.type + '.html'
+        let fileName = thisObject.currentDocumentBeingRendered.type + (ED.asShtml ? '.shtml' : '.html')
         fileName = ED.utilities.normaliseStringForLink(fileName)
         filePath = filePath + fileName
 
@@ -94,7 +93,7 @@ exports.documentationExporter = function documentationExporter() {
             dom.window.document, 
             [...new Set(translationLanguages)])
         ED.pageGlobals.addSearch(dom.window.document)
-        ED.pageGlobals.addFooter(dom.window.document)
+        // ED.pageGlobals.addFooter(dom.window.document)
 
         SA.nodeModules.fs.writeFileSync(filePath, dom.serialize())
         return filePath

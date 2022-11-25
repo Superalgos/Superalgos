@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Her şube değiştirdiğinizde göz önünde bulundurmanız gereken birkaç şey var! Devam etmeden önce hızlıca göz atalım!",
                 "updated": 1640417403445
+            },
+            {
+                "language": "ID",
+                "text": "Ada beberapa hal yang harus kamu pikirkan setiap kali kamu mengubah branch! Ayo ke beberapa list pendek sebelum kamu memprosesnya!",
+                "updated": 1668505073963
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Ana daldaki ( Master Branch ) çalışma alanları veya diğer veri yapıları diğer daldakilerle uyumlu olmayabilir.",
                     "updated": 1640417455302
+                },
+                {
+                    "language": "ID",
+                    "text": "Bisa terjadi bahwa workspace atau data struktur di master branch tidak kompatibel dengan branch lainnnya.",
+                    "updated": 1668505085430
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Mevcut çalışma alanı diğer daldaki yazılımla uyumlu değilse, uygulama yeniden yüklendiğinde çalışma alanı bozulabilir. Böyle bir durumda yeni şubenin Plugin Workspace'lerinden birini yükleyin.",
                     "updated": 1640417497181
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika workspace saat ini tidak kompatibel dengan software di branch lainnya, workspace mungkin rusak setelah dimuat ulang dalam aplikasi. Jika terjadi hal tersebut coba muat ulang pada Plugin Workspaces dari branch baru.",
+                    "updated": 1668505092995
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "TR",
                     "text": "İşlenmiş verilerin ( Data Mined ) yapısı değişmiş olabilir!",
                     "updated": 1640417605561
+                },
+                {
+                    "language": "ID",
+                    "text": "Struktur dari data mine mungkin berubah!",
+                    "updated": 1668505104515
                 }
             ]
         },
@@ -173,6 +193,11 @@
                     "language": "TR",
                     "text": "Geriye dönük uyumlulukla ilgili herhangi bir açıklama için her zaman geçiş yapmak istediğiniz deposunda bulunan README dosyasını kontrol edin. Şube değiştirmeden önce işinizi yedekleyin!",
                     "updated": 1640417786420
+                },
+                {
+                    "language": "ID",
+                    "text": "Selalu baca file README pada repository terhadap branch yang ingin kamu akses untuk mengetahui komenan dan perubahan kompatibilitas. Sebelum mengubah branch, cadangkan kerjamu!",
+                    "updated": 1668505115799
                 }
             ]
         }

@@ -1305,7 +1305,7 @@ function newUiObject() {
             if (config !== undefined && (Array.isArray(schemaDocument.alternativeIcons) === true)) {
                 try {
                     config = JSON.parse(config)                    
-                    if(nodeToUse.type == "Asset" && nodeToUse.project == "Foundations"){
+                    if((nodeToUse.type == "Asset" || nodeToUse.type == "P2P Network") && nodeToUse.project == "Foundations"){
                         nodeToUse.name=config.codeName
                     }
                     let alternativeIcon

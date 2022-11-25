@@ -117,7 +117,7 @@ exports.docsSearchEngine = function docsSearchEngine() {
         let searchJsFile = SA.nodeModules.fs.readFileSync(jsFileLocation, 'utf8')
         searchJsFile = searchJsFile.replace('__PROJECTS__', JSON.stringify(files))
             .replace('__BASE_URL__', '"' + global.env.REMOTE_DOCS_DIR.substring(0, global.env.REMOTE_DOCS_DIR.length-1) + '"')
-            .replace('__LINK_EXT__', (ED.asShtml ? '.shtml' : '.html'))
+            .replace('__LINK_EXT__', (ED.asShtml ? '".shtml"' : '".html"'))
         SA.nodeModules.fs.writeFileSync(jsFileLocation, searchJsFile)
     }
 }

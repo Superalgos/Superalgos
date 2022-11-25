@@ -104,6 +104,7 @@ function newListSelector() {
         thisObject.targetRadius = thisObject.container.frame.radius
         thisObject.currentRadius = 0
         thisObject.payload.uiObject.resetErrorMessage()
+        thisObject.payload.uiObject.resetQuickInfo()
         thisObject.payload.uiObject.uiObjectTitle.exitEditMode()
 
         onMouseClickEventSubscriptionId = eventSubscriptionId
@@ -301,7 +302,7 @@ function newListSelector() {
         // Search Input Box
         let offset = thisObject.container.frame.radius / (8 / 5)
         let width = offset * 2 - ( SIZE * 3 / 2 )
-        let height = ( offset / VISIBLE_LABELS )
+        let height = ( offset / MAX_LABELS )
         let fontSize = FONT_SIZE
 
         let input = document.getElementById('input')
@@ -324,7 +325,14 @@ function newListSelector() {
         let input = document.getElementById('input')
 
         filteredList = filteredList.filter(val => {
-            return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            if (val.name !== undefined && val.subLabel !== undefined) {
+                return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1 || val.subLabel.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            } else if (val.name !== undefined) {
+                return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            } else if (typeof(val) === "string") {
+                return val.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            }
+
         })
 
         if (filteredList.length < MAX_LABELS) {
@@ -382,6 +390,7 @@ function newListSelector() {
 
                         label = filteredList[index].name
                         subLabel = path.join("->")
+                        filteredList[index].subLabel = path.join("->")
 
                         if (filteredList[index].payload.uiObject.icon !== undefined) {
                             icon = filteredList[index].payload.uiObject.icon

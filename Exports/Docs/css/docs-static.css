@@ -199,3 +199,9 @@ body {
     border: none;
     vertical-align: unset;
 }
+
+@media (max-width: 467px) {   
+    #docs-space-div {
+        margin-top: 175px;
+    }
+}

@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) {
+exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
 
     let thisObject = {
         broadcastSignal: broadcastSignal,

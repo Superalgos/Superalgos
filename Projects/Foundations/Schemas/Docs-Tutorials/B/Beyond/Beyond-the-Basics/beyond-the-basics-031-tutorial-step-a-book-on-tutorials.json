@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Поздравляем! Вы дошли до конца очередного урока! Надеюсь, вы чувствуете, что начинаете понимать, как работает Superalgos!",
                 "updated": 1640163997856
+            },
+            {
+                "language": "ID",
+                "text": "Selamat! kamu telah menyelesaikan akhir dari sebuah tutorial lainnya! Aku harap kamu merasakan cara kerja Superalgos!",
+                "updated": 1669154778545
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Давайте поговорим о том, что будет дальше! Страница, которую я только что открыл, - это книга First Steps Tutorials. С этого момента вы можете сами выбирать, какими учебниками заниматься дальше!",
                     "updated": 1640164185796
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita bicara tentang apa yang akan terjadi selanjutnya! Halaman yang baru saja aku buka adalah buku Tutorial Langkah Pertama. mulai sekarang, kamu bebas memilih tutorial apa yang akan dilakukan selanjutnya!",
+                    "updated": 1669154785908
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Просмотрите список учебных пособий, доступных на каждом из рабочих пространств плагинов (Plugin Workspaces), и выберите, каким из них заняться в следующий раз!",
                     "updated": 1640164219826
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah daftar tutorial yang tersedia di masing-masing Plugin Workspace dan pilih yang mana untuk dilakukan selanjutnya!",
+                    "updated": 1669154793859
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Чтобы принять участие в следующем Airdrop и в управлении (Governance) в целом , начните с загрузки следующего:",
                     "updated": 1640164274970
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk berpartisipasi dalam Airdrop dan Governance umum lanjutan, mulailah dengan memuat yang berikut:",
+                    "updated": 1669154802327
                 }
             ]
         },

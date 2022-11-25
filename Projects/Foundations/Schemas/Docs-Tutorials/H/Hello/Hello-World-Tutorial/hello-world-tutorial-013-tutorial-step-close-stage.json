@@ -41,7 +41,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In the previous stage (the Manage Stage) bot is checking if the current price has hit the SL or the TP. Once one of these two events has been hit, then the Close Stage take charge of closing the trade. The way it works is very similar to the Open Stage. Bot need to know at what candle should look",
+            "text": "In the previous stage (the Manage Stage) the bot is checking if the current price has hit the SL or the TP. Once one of these two events has been hit, then the Close Stage take charge of closing the trade. The way it works is very similar to the Open Stage. The bot just needs to know which candle to look at",
             "updated": 1614261954345,
             "translations": [
                 {
@@ -78,7 +78,7 @@
         },
         {
             "style": "Text",
-            "text": "And obviously as opposed to the Open Stage, here we Sell the asset so we need a Market Sell Order and what bot sells is the Quoted asset",
+            "text": "And obviously as opposed to the Open Stage, here we Sell the asset so we need a Market Sell Order for the bot to sell the Quoted asset",
             "translations": [
                 {
                     "language": "DE",

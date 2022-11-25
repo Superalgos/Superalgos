@@ -1,0 +1,50 @@
+{
+    "notes": "This document is here to help quide users through their Superalgos learning journey.",
+    "page": {
+        "title": "Books",
+        "link": ["index.html"],
+        "active": true,
+        "children": [
+            {
+                "title": "User Manual",
+                "link": ["Foundations","Book","user-manual.html"],
+                "active": true
+            },
+            {
+                "title": "Tutorials",
+                "link": ["Foundations","Book","first-steps-tutorials.html"],
+                "active": true
+            },
+            {
+                "title": "Data Mines",
+                "link": ["Foundations","Book","community-data-mines.html"],
+                "active": true
+            },
+            {
+                "title": "Reviews",
+                "link": ["Foundations","Book","reviews.html"],
+                "active": true
+            },
+            {
+                "title": "Themes",
+                "link": ["Foundations","Book","community-themes.html"],
+                "active": true
+            },
+            {
+                "title": "Docs",
+                "link": ["Foundations","Book","the-docs-explained.html"],
+                "active": true
+            },
+            {
+                "title": "Users' Formula and Code Examples",
+                "link": ["Foundations","Book","users--formula-and-code-examples.html"],
+                "active": true
+            },
+            {
+                "title": "Governance",
+                "link": ["Governance", "Book","the-governance-project.html"],
+                "active": true
+            }
+        ]
+    }
+}

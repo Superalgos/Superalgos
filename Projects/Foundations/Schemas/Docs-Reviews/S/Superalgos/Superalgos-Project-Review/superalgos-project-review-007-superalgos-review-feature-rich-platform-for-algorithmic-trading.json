@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Возможности безграничны, когда вы контролируете платформу. Superalgos позволяет конечному пользователю создавать сложные торговые стратегии с помощью визуального конструктора со встроенными возможностями бэктестинга на основе исторических рыночных данных.",
                 "updated": 1640410653874
+            },
+            {
+                "language": "TR",
+                "text": "Platformun kontrolü sizde olduğunda olasılıklar sonsuzdur. Superalgos, son kullanıcının geçmiş piyasa verilerine dayanan yerleşik geriye dönük test yeteneklerine sahip görsel bir tasarımcı aracılığıyla gelişmiş ticaret stratejileri oluşturmasına olanak tanır.",
+                "updated": 1669191862738
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "После того как я провел много времени, совершая криптовалютные сделки вручную, мне стало интересно, какие инструменты успешные трейдеры могут использовать для быстрого распознавания и реагирования на рыночные индикаторы. Я начал искать торгового бота, которого можно было бы использовать для совершения сделок, но быстро понял, что большинство доступных сегодня программ требуют от меня передачи информации о моей учетной записи в чужой сервис.",
                     "updated": 1640410860265
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto alım satımlarını manuel olarak gerçekleştirdiğimi kabul etmek istemediğim kadar çok zaman geçirdikten sonra, başarılı yatırımcıların piyasa göstergelerini hızlı bir şekilde tanımak ve bunlara yanıt vermek için hangi araçlardan yararlanabildiğini merak etmeye başladım. Alım satım yapmak için yararlanabileceğim bir alım satım botu aramaya başladım, ancak bugün mevcut olan yazılımların çoğunun hesap bilgilerimi başka biri tarafından barındırılan bir hizmete vermemi gerektirdiğini hemen fark ettim.",
+                    "updated": 1669191911163
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Superalgos, разработанный сообществом, проект с открытым исходным кодом, работает совсем не так. С SA я могу запускать программное обеспечение со своего собственного устройства, не полагаясь на чью-либо инфраструктуру. Мне не нужно оплачивать ежемесячную подписку и беспокоиться о безопасности моего торгового счета.",
                     "updated": 1640410953382
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk tarafından geliştirilen açık kaynaklı bir proje olan Superalgos, hiç de bu şekilde çalışmıyor. SA ile gerekli altyapı için kimseye güvenmeden yazılımı kendi cihazımdan çalıştırabiliyorum. Aylık abonelik ödemem gerekmiyor ve ticaret hesabı güvenliğimin risk altında olması konusunda endişelenmeme gerek yok.",
+                    "updated": 1669191960853
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Однако для понимания основных концепций требуется немного терпения и внимания. Знакомство с программированием, особенно на Javascript, полезно, но не обязательно для выполнения успешных стратегий. Инструмент имеет визуальный конструктор сценариев, позволяющий создавать и отлаживать собственные стратегии и индикаторы. После разработки стратегии в инструмент встроены возможности бэктестинга, которые позволяют использовать загруженные исторические данные рынка, что дает вам уверенность в том, что ваша стратегия полностью протестирована, прежде чем переходить к реальной торговле.",
                     "updated": 1640411045601
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, temel kavramları anlamak biraz sabır ve dikkat gerektirir. Kodlamaya, özellikle Javascript'e aşina olmak faydalıdır, ancak başarılı stratejiler uygulamak için gerekli değildir. Araç, kendi stratejilerinizi ve göstergelerinizi oluşturmanıza ve hata ayıklamanıza yardımcı olacak tamamen görsel bir komut dosyası tasarımcısına sahiptir. Stratejiniz tasarlandıktan sonra araç, indirilen geçmiş piyasa verilerinden yararlanan yerleşik geriye dönük test etme özelliklerine sahiptir ve canlı ticarete geçmeden önce stratejinizin tamamen test edildiğinden emin olmanızı sağlar",
+                    "updated": 1669191994162
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Из коробки есть несколько стратегий, разработанных сообществом, которые можно изучить. Фактически, сообщество - это, возможно, наиболее недооцененная функция, входящая в состав инструмента! Благодаря здравому составу участников и преданной группе пользователей, готовых делиться своим временем и усилиями, этот проект быстро развивается.",
                     "updated": 1640411254380
+                },
+                {
+                    "language": "TR",
+                    "text": "Kutudan çıkar çıkmaz, öğrenmek için topluluk tarafından oluşturulmuş birkaç strateji vardır. Aslında topluluk, araca dahil edilen belki de en fazla küçümsenen özelliktir! Sağlıklı bir katılımcı grubu ve zamanını ve çabasını paylaşmaya ve katkıda bulunmaya istekli özel bir kullanıcı grubu, bu projenin hızlı bir şekilde büyümesini sağladı.",
+                    "updated": 1669192027637
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Я лично убедился в скорости разработки функций и решения проблем; это просто поразительно! Как проект с открытым исходным кодом, возможности Superalgos безграничны.",
                     "updated": 1640411281603
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerin geliştirilme hızı ve sorunların ele alınabilmesi konusunda kişisel deneyimim var; oldukça şaşırtıcı! Açık kaynaklı bir proje olarak Superalgos'un yetenekleri sınırsızdır.",
+                    "updated": 1669192052529
                 }
             ]
         },

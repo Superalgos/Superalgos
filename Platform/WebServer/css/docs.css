@@ -9,7 +9,7 @@ background-color: whitesmoke;
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #365558; 
 line-height: 150%;
-margin: 20 25 20 30px;
+margin: 20px 25px 20px 30px;
 }
 
 .docs-common-style-container{
@@ -29,7 +29,7 @@ background-color: #365558;
 line-height: 160%;
 border-top: 5px solid #0295aa;
 margin: 80px 0 0 0;
-padding: 30 0 20 0px;
+padding: 30px 0 20px 0px;
 caret-color: transparent;
 }
 
@@ -295,7 +295,7 @@ box-sizing: border-box;
 
 .docs-topic-index {
 background-color:white;
-padding: 25 20px;
+padding: 25px 20px;
 margin: 40px 0 0 0;
 border: 1px solid rgba(49, 112, 143, .2);
 border-left-width: 5px;
@@ -507,13 +507,13 @@ color: #ffd1a9;
 .docs-footer-language {
 width: 30px;
 margin-top: 7px;
-padding: 7 7px;
+padding: 7px;
 }
 
 .docs-footer-language-selected {
     width: 30px;
     margin-top: 7px;
-    padding: 7 7px;
+    padding: 7px;
     background-color: rgba(230, 234, 234, 0.2);
 /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
 border: 1px solid rgba(200, 200, 200, .5);

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret sürecinin tanımıyla ve bu fikirlerin çalışması gereken bağlamla ilerleyeceğiz.",
                 "updated": 1640950911067
+            },
+            {
+                "language": "ES",
+                "text": " Avancemos con la definición del proceso de trading y el contexto en el que deben operar estas ideas.",
+                "updated": 1668193438103
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İşlem süreci ( trading process ): 24 saatlik çizelgelerdeki trendlere güvendiğimiz için bu, pozisyonların -potansiyel olarak- birkaç gün boyunca açık olduğu bir salınım stratejisi olacaktır.",
                     "updated": 1640950998948
+                },
+                {
+                    "language": "ES",
+                    "text": "Proceso de Trading: Dado que nos basamos en las tendencias de los gráficos de 24H, esta será una estrategia swing, con posiciones abiertas -potencialmente- durante varios días.",
+                    "updated": 1668193480562
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bağlam: İlk hipotez, 24 saatlik grafikteki yükseliş trendleri içindir. İkincisi, düşüş trendleri ve muhtemelen değişen pazarlar için. Superalgos'ta mevcut olan araçlara aşina olduğunuzda, trendlerin nasıl belirleneceğini daha sonra tanımlayacağız.",
                     "updated": 1640951767615
+                },
+                {
+                    "language": "ES",
+                    "text": "Contexto: La primera hipótesis es para tendencias alcistas en el gráfico de 24H. La segunda, para tendencias bajistas y probablemente también para mercados oscilantes. Dejaremos la definición de cómo se determinan las tendencias para más adelante, cuando se familiarice con las herramientas disponibles en Superalgos.",
+                    "updated": 1668193548570
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Fikrin amacı, bitcoin'i daha ucuz bir fiyata yeniden satın almak.",
                     "updated": 1640951904063
+                },
+                {
+                    "language": "ES",
+                    "text": "El objetivo de la idea es acumular bitcoin vendiendo BTC para volver a comprar a un precio más barato.",
+                    "updated": 1668193557416
                 }
             ]
         }

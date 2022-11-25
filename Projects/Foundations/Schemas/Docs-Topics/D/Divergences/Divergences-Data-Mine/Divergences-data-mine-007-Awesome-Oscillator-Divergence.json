@@ -276,14 +276,15 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| awe-Div | aweDiv | status, strength, divPerc |",
+            "text": "| Product Name | Product Variable | Properties |\n| aweDiv | aweDiv | status, strength, divPerc |",
             "translations": [
                 {
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| aweDiv | aweDiv | durum, güç, divPerc |",
                     "updated": 1647718069322
                 }
-            ]
+            ],
+            "updated": 1667785832633
         },
         {
             "style": "List",

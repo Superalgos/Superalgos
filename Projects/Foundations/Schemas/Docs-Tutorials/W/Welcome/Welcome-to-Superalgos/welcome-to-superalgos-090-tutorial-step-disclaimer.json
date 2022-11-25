@@ -30,6 +30,11 @@
                 "language": "RU",
                 "text": "Это предупреждение будет отображаться в полноэкранном режиме.",
                 "updated": 1642769894297
+            },
+            {
+                "language": "NL",
+                "text": "Deze waarschuwing wordt weergegeven in de modus Volledig scherm.",
+                "updated": 1667126054290
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Superalgos - это часть компьютерного программного обеспечения. Как и в любом другом программном обеспечении, в любой момент могут возникнуть ошибки, включая ошибки, которые могут привести к потере денег. Вы несете ответственность за принятие всех мер предосторожности, которые вы можете посчитать необходимыми перед началом торговли. Даже если вы примете все возможные меры предосторожности, все равно что-то может пойти не так, и могут возникнуть ошибки. Используя данное программное обеспечение для реальной торговли, несмотря на предупреждения, вы признаете, что осознаете риски, присущие торговле и использованию программного обеспечения для этой цели. Проект Superalgos предлагает программное обеспечение КАК ЕСТЬ, без явных или подразумеваемых гарантий любого рода. Проект, программное обеспечение, сайт superalgos.org и данное руководство не предоставляют финансовых консультаций. Хотя стратегии, поставляемые с системой, могут быть полностью функциональными, Superalgos не дает никаких явных или подразумеваемых рекомендаций относительно того, как вы должны их использовать. Мы предоставляем стратегии исключительно в образовательных целях. Торгуйте под свою ответственность и на свой страх и риск. Использование программного обеспечения регулируется условиями ЛИЦЕНЗИИ.",
                     "updated": 1642769961569
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos is een stukje computersoftware. Zoals met elke software, kunnen er op elk moment fouten optreden, inclusief fouten waardoor u geld kunt verliezen. U bent verantwoordelijk voor het nemen van alle voorzorgsmaatregelen die u nodig acht voordat u live handelt. Ook als je alle mogelijke voorzorgsmaatregelen neemt, kan het toch misgaan en kunnen er fouten optreden. Door deze software te gebruiken om ondanks de waarschuwingen live te handelen, erkent u dat u zich bewust bent van de inherente risico's van handelen en het gebruik van software voor dat doel. Het Superalgos Project biedt de software ZOALS DEZE IS, zonder expliciete of impliciete garanties van welke aard dan ook. Het project, de software, de website superalgos.org en deze tutorial bieden geen financieel advies. Hoewel de strategieën die bij het systeem worden geleverd volledig functioneel kunnen zijn, doet Superalgos geen expliciete of impliciete aanbeveling over hoe u ze moet gebruiken. We delen strategieën alleen voor educatieve doeleinden. Handel onder uw verantwoordelijkheid en op eigen risico. Het gebruik van de software is onderworpen aan de voorwaarden van de LICENTIE.",
+                    "updated": 1667126220213
                 }
             ]
         }

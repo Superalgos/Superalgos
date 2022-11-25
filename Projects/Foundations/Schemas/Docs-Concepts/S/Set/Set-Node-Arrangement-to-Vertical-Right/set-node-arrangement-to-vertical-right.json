@@ -2,7 +2,14 @@
     "type": "Set Node Arrangement to Vertical Right",
     "definition": {
         "text": "The node adopts a slot on a vertical line to the right of its parent node.",
-        "updated": 1610032182644
+        "updated": 1610032182644,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Düğüm, ana düğümünün sağındaki dikey bir çizgi üzerinde bir yuvayı benimser.",
+                "updated": 1666905995855
+            }
+        ]
     },
     "paragraphs": [
         {

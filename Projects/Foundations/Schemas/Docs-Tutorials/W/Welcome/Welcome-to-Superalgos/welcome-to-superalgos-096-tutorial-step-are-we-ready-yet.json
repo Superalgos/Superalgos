@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Resistances and Supports Multi-Time-Frame-Daily a sinistra è l'ultimo processo a terminare.",
-                "updated": 1618071215837,
+                "text": "Resistenze e supporti Multi-Time-Frame-Daily a sinistra è l'ultimo dei processi a terminare, quindi tienilo d'occhio!",
+                "updated": 1666393815203,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Resistance and Support -> Multi-Time-Frame-Daily слева - последний из завершающих процессов, так что следите за ним!",
                 "updated": 1642771668941
+            },
+            {
+                "language": "NL",
+                "text": "Resistance en Supports Multi-Time-Frame-Daily aan de linker kant is het laatste proces dat moet worden voltooid, dus houd het in de gaten!",
+                "updated": 1667134887624
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "RU",
                     "text": "Если этот процесс достигнет 100%, значит, мы готовы к работе.",
                     "updated": 1642771258144
+                },
+                {
+                    "language": "NL",
+                    "text": "Als dit proces 100% is, zijn we klaar om te gaan.",
+                    "updated": 1667134904268
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "RU",
                     "text": "В любом случае, ничего катастрофического не произойдет, если вы попытаетесь запустить торговую сессию в реальном времени, когда необходимые индикаторы не обновлены. Возникнет ошибка, и вы будете уведомлены о причине. Так что ничего страшного!",
                     "updated": 1642771277717
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe dan ook, er gebeurt niets catastrofaals als u probeert een Live Trading Session uit te voeren wanneer de vereiste indicatoren niet up-to-date zijn. Er zou een fout optreden en u zou op de hoogte worden gesteld van de reden. Dus het is niet erg!",
+                    "updated": 1667134950864
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "language": "RU",
                     "text": "На следующем этапе я попрошу вас запустить задачу (Task) и реальную торговую сессию (Live Trading Session). Если вы этого не сделаете, продолжайте изучать учебник, как если бы вы...",
                     "updated": 1642771363355
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende stap vraag ik je om de Task en de Live Trading Session te starten. Als je ervoor kiest om dat niet te doen, ga dan door met de tutorial alsof je het gestart hebt...",
+                    "updated": 1667134999255
                 }
             ]
         }

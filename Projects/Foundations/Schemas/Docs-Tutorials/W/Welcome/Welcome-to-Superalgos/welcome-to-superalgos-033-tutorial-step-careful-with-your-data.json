@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Het kan een minuut duren voordat alle taken gestopt zijn. Sluit het systeem nooit voordat alle taken zijn gestopt.",
                 "updated": 1638780340286
+            },
+            {
+                "language": "FR",
+                "text": "Il peut s'écouler jusqu'à une minute avant que toutes les tâches ne s'arrêtent. Vous ne devez jamais fermer le système avant l'arrêt de toutes les tâches.",
+                "updated": 1668067352894
             }
         ]
     },
@@ -133,6 +138,16 @@
                     "language": "NL",
                     "text": "De juiste manier om Superalgos af te sluiten is:",
                     "updated": 1638780416686
+                },
+                {
+                    "language": "IT",
+                    "text": "Il modo corretto per chiudere Superalgos è:",
+                    "updated": 1666389151256
+                },
+                {
+                    "language": "FR",
+                    "text": "La façon correcte de fermer Superalgos est :",
+                    "updated": 1668067410695
                 }
             ]
         },
@@ -173,6 +188,16 @@
                     "language": "NL",
                     "text": "Stop alle taken en wacht een paar minuten.",
                     "updated": 1638780441110
+                },
+                {
+                    "language": "IT",
+                    "text": "Interrompi tutte le attività e aspetta un paio di minuti.",
+                    "updated": 1666389191816
+                },
+                {
+                    "language": "FR",
+                    "text": "Arrêtez toutes les tâches et attendez quelques minutes.",
+                    "updated": 1668067422860
                 }
             ]
         },
@@ -213,6 +238,16 @@
                     "language": "NL",
                     "text": "Als alle taken gestopt zijn, sluit je de console app of stop het process met Ctrl + Key-C.",
                     "updated": 1638780618494
+                },
+                {
+                    "language": "IT",
+                    "text": "Quando tutte le attività si fermano, puoi chiudere l'app della console o interrompere il processo con Ctrl + <kbd>Tasto-C</kbd>.",
+                    "updated": 1666389337697
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque toutes les tâches sont arrêtées, vous pouvez fermer l'application console ou arrêter le processus avec Ctrl + Key-C.",
+                    "updated": 1668067471689
                 }
             ]
         },
@@ -252,6 +287,16 @@
                     "language": "NL",
                     "text": "Je kan op elk moment de browser afsluiten en de taken in de achtergrond laten draaien.",
                     "updated": 1638780572014
+                },
+                {
+                    "language": "IT",
+                    "text": "È possibile chiudere il browser in qualsiasi momento e lasciare l'elaborazione delle attività in background.",
+                    "updated": 1666389384070
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez fermer le navigateur à tout moment et laisser les tâches se dérouler en arrière-plan.",
+                    "updated": 1668067487282
                 }
             ]
         },
@@ -290,8 +335,18 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt raken!",
-                    "updated": 1638780998930
+                    "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt maken!",
+                    "updated": 1666616378857
+                },
+                {
+                    "language": "IT",
+                    "text": "La chiusura del Client prima dell'interruzione delle attività può causare la corruzione dei dati!",
+                    "updated": 1666389415403
+                },
+                {
+                    "language": "FR",
+                    "text": "La fermeture du Client avant l'arrêt des tâches peut entraîner la corruption de vos données !",
+                    "updated": 1668067506949
                 }
             ]
         }

@@ -41,6 +41,16 @@
                 "language": "ID",
                 "text": "Operasi penambangan data kamu menampilkan bot yang membuat produk data. Setiap produk tersedia di chart melalui Layer di Layer Manager.",
                 "updated": 1639587301848
+            },
+            {
+                "language": "NL",
+                "text": "Uw datamining-operatie bevat bots die dataproducten maken. Elk product wordt op de grafieken beschikbaar gesteld via een Layer in een Layer Manager.",
+                "updated": 1666787548875
+            },
+            {
+                "language": "FR",
+                "text": "Votre opération de minage de données comprend des robots qui fabriquent des produits de données. Chaque produit est mis à disposition sur les cartes via un calque (Layer) dans un gestionnaire de calques (Layer Manager).",
+                "updated": 1668413815482
             }
         ],
         "updated": 1616427338175
@@ -82,6 +92,16 @@
                     "language": "ID",
                     "text": "Layer Manager pertama di sebelah kiri mesin waktu ini memiliki tiga layer. Layer-layer tersebut mewakili produk data yang akan digunakan oleh Trading System yang akan kita uji nanti untuk membuat keputusan trading.",
                     "updated": 1639587517441
+                },
+                {
+                    "language": "NL",
+                    "text": "De eerst manager aan de linkerkant van deze time machine heeft drie lagen. Die lagen vertegenwoordigen de gegevensproducten die het Trading System dat we later gaan testen, gebruikt om handelsbeslissingen te nemen.",
+                    "updated": 1666787627820
+                },
+                {
+                    "language": "FR",
+                    "text": "Le premier gestionnaire de calques à gauche de cette Time Machine comporte trois calques. Ces calques représentent les produits de données du système de trading que nous allons tester plus tard.",
+                    "updated": 1668413908501
                 }
             ]
         },
@@ -120,6 +140,16 @@
                     "language": "ID",
                     "text": "Untuk menghidupkan dan mematikan layer, klik kiri pada mereka!",
                     "updated": 1639587352062
+                },
+                {
+                    "language": "NL",
+                    "text": "Om lagen aan en uit te zetten, klik je erop met de linkermuisknop!",
+                    "updated": 1666787645627
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour activer et désactiver les calques, faites un clic gauche dessus !",
+                    "updated": 1668413923324
                 }
             ]
         },
@@ -160,6 +190,16 @@
                     "language": "ID",
                     "text": "Superalgos berkerja dengan lebih banyak indikator, tetapi tidak dikonfigurasi di Workspace ini. Kamu akan belajar tentang mereka nanti!",
                     "updated": 1639587415189
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos wordt geleverd met veel meer indicatoren, maar deze zijn niet geconfigureerd in deze Workspace. Je leert er later meer over!",
+                    "updated": 1666787677538
+                },
+                {
+                    "language": "FR",
+                    "text": "Superalgos est livré avec beaucoup plus d'indicateurs, mais ils ne sont pas configurés dans cet espace de travail. Vous les découvrirez plus tard !",
+                    "updated": 1668413949584
                 }
             ]
         }

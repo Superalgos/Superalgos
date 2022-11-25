@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Mobile Apps содержит определения всех мобильных приложений, связанных с текущим профилем пользователя.",
                 "updated": 1645253780458
+            },
+            {
+                "language": "TR",
+                "text": "Mobil Uygulamalar hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm mobil uygulamaların tanımlarını içerir.",
+                "updated": 1666692221203
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Мобильные приложения используются для доступа к сети Superalgos Peer to Peer через мобильное устройство.",
                     "updated": 1645253788679
+                },
+                {
+                    "language": "TR",
+                    "text": "Mobil uygulamalar, bir mobil cihaz aracılığıyla Superalgos eşler arası ağa erişmek için kullanılır.",
+                    "updated": 1666692264287
                 }
             ]
         }

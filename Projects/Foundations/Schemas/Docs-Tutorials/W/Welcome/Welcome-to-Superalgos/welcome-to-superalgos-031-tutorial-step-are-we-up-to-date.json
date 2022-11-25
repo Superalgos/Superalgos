@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Ondertussen horen alle processen op 100% te staan. We noemen de datamijn operatie dan \"up to date\".",
                 "updated": 1637500003121
+            },
+            {
+                "language": "FR",
+                "text": "A présent, tous les processus devraient être à 100%. Lorsque cela se produit, on dit que l'opération de minage de données est \"à jour\".",
+                "updated": 1667987510876
             }
         ],
         "updated": 1616415623576
@@ -94,6 +99,11 @@
                     "language": "NL",
                     "text": "Als alle processen up to date zijn, blijven de bots draaien om informatie van de exchange realtime te verwerken. De datamijn operatie blijft doorgaan tenzij je het zelf stopt!",
                     "updated": 1637500291829
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque tous les processus sont à jour, les bots continuent de fonctionner, traitant les informations en temps réel au fur et à mesure qu'elles sont produites sur l'exchange. En d'autres termes, l'opération de minage des données ne s'arrête que si vous l'arrêtez !",
+                    "updated": 1667987548888
                 }
             ]
         },
@@ -139,6 +149,11 @@
                     "language": "NL",
                     "text": "Kijk en controleer of alle processen op 100% staan.",
                     "updated": 1637500340878
+                },
+                {
+                    "language": "FR",
+                    "text": "Regardez autour de vous et voyez si tous les processus sont à 100%.",
+                    "updated": 1667987569679
                 }
             ]
         },
@@ -184,6 +199,11 @@
                     "language": "NL",
                     "text": "Om een Live Trading Session te draaien, heb je een constante stroom van informatie van de exchange nodig die realtime verwerkt wordt zodat de Trading Bot de regels van jouw Trading System kan toepassen om live trading beslissingen te maken.",
                     "updated": 1637501395384
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour exécuter une Live Trading Session, vous avez besoin d'un flux constant d'informations provenant de l'exchange traitées en temps réel, afin que le Trading Bot puisse appliquer les règles de votre système de trading pour prendre des décisions de trading en direct.",
+                    "updated": 1667987619432
                 }
             ],
             "updated": 1616415667438

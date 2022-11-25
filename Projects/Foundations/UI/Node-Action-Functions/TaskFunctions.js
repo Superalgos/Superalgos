@@ -222,6 +222,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             */
             'P2P Network Client->' +
             'P2P Network Reference->Permissioned P2P Network->P2P Network->' +
+            'P2P Network Node Reference->P2P Network Node->' +
             'Network Services->Social Graph->Machine Learning->Trading Signals->Online Workspaces->' +
             'Network Interfaces->Websockets Network Interface->Webrtc Network Interface->Http Network Interface->'
 

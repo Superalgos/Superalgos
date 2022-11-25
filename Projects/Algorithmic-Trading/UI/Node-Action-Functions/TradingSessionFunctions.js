@@ -197,11 +197,17 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             '-' +
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
+        let userDefinedParametersConfig
+
+        if (node.tradingParameters.userDefinedParameters !== undefined) {
+            userDefinedParametersConfig = node.tradingParameters.userDefinedParameters.config
+        }
+
         let dependencyFilter = UI.projects.foundations.nodeActionFunctions.dependenciesFilter.createDependencyFilter(
             defaultExchange,
             defaultMarket,
             node.tradingSystemReference.payload.referenceParent,
-            node.tradingParameters.userDefinedParameters.config
+            userDefinedParametersConfig
         )
 
         /* Raise event to run the session */

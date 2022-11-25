@@ -49,6 +49,11 @@
                 "language": "ID",
                 "text": "Pengguna saling berkontribusi dalam menerjemahkan sehingga kamu dapat memilih bahasa pilihanmu! Community ini luarbiasa!",
                 "updated": 1639582383650
+            },
+            {
+                "language": "IT",
+                "text": "Gli utenti stanno contribuendo con le traduzioni in modo che tu possa scegliere la tua lingua preferita! Questa comunità è fantastica!",
+                "updated": 1666386405355
             }
         ]
     },
@@ -60,8 +65,8 @@
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais !",
-                    "updated": 1623947447536,
+                    "text": "Voici comment cela fonctionne: la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'elle est disponible, vous l'obtiendrai, sinon le texte sera en anglais!",
+                    "updated": 1666252457691,
                     "style": "Text"
                 },
                 {
@@ -97,6 +102,11 @@
                     "language": "ID",
                     "text": "Begini cara kerjanya: bahasa utama adalah bahasa Inggris. Jika kamu pilih bahasa lain dan ada terjemahannya, maka kamu sudah berada di bahasa yang diinginkan. Jika tidak, Kamu akan membacanya dalam bahasa Inggris!",
                     "updated": 1639582032428
+                },
+                {
+                    "language": "IT",
+                    "text": "Ecco come funziona: la lingua predefinita è l'inglese. Se scegli un'altra lingua, e c'è una traduzione per la pagina corrente, la leggerai nella lingua selezionata. Altrimenti, lo trovi in inglese!",
+                    "updated": 1666386486930
                 }
             ]
         },
@@ -144,6 +154,11 @@
                     "language": "ID",
                     "text": "Gunakan mouse wheel untuk menggulir halaman di kanan bawah. Click bendera sesuai bahasa yang kamu inginkan!",
                     "updated": 1639582298058
+                },
+                {
+                    "language": "IT",
+                    "text": "Usa la rotellina del mouse per scorrere la pagina di destra verso il fondo. Clicca su una bandiera per cambiare la lingua preferita, se lo desideri!",
+                    "updated": 1666386554060
                 }
             ]
         },
@@ -191,6 +206,11 @@
                     "language": "ID",
                     "text": "Hanya Docs dan tutorials yang akan diterjemahkan, bukan interface, ataupun titles!",
                     "updated": 1639582361956
+                },
+                {
+                    "language": "IT",
+                    "text": "Solo i documenti e i tutorial possono essere tradotti, non l'interfaccia, né i titoli!",
+                    "updated": 1666386577762
                 }
             ]
         }

@@ -1,0 +1,64 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "16",
+    "type": "Keltner Baseline",
+    "definition": {
+        "text": "This indicator plots a trend line, trend direction, and trend colored candles based on the price action exceeding the Average True Range threshold once applied to the EMA.",
+        "updated": 1666677921453
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Keltner Baseline on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The plotted candles are colored based on the calculated trend direction, rather than the price action for each time period. Turquoise represents an uptrend, Pink for a downtrend, and Grey when ranging."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-keltner-baseline.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| KeltnerBaseline | KeltBl | value, trend, max, min, open, close |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Keltner Baseline\" Procedure Loop.",
+            "updated": 1666677955265
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-keltner-baseline-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "Values of the indicator can be accessed in the following manner:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.KeltBl.value\nchart.at10min.KeltBl.min\nchart.at01min.KeltBl.trend"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

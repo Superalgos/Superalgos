@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) {
+exports.newTradingSignalsModulesIncomingCandleSignals = function () {
 
     let thisObject = {
         mantain: mantain,
@@ -25,7 +25,11 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
         keysByCandle = undefined
     }
 
-    async function signalReceived(signalMessage) {
+    async function signalReceived(signalMessage, rankingStats) {
+        /*
+        Let's tell the world that we received a trading signal.
+        */
+       TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Candle Signal received, delayed " + rankingStats.accumulatedDelay / 1000 + " seconds. Position in Queue: " + rankingStats.positionInQueue + " / " + rankingStats.queueSize, true)
         /*
         What we have just received are not Trading Signals, but a Signal Meesage
         that represents the File Key needed to locate and open a file with all the

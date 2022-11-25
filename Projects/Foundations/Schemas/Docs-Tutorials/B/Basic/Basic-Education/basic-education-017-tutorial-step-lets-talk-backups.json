@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "I Backups sono molto potenti, e hanno diversi casi d' uso! Quando clicchi sul pulsante del backup, il nodo e i suoi figli sono salvati in un file JSON!",
-                "updated": 1619465895765,
+                "text": "I backup sono molto potenti e ci sono vari casi d'uso! Quando fai clic sul pulsante, il nodo e la sua progenie vengono salvati su un file JSON!",
+                "updated": 1666638287267,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Backups sangat dibutuhkan, dan ada di berbagai kasus penggunaan! Ketika kamu mengklik tombol, node dan turunannya disimpan pada file JSON!",
                 "updated": 1644515762097
+            },
+            {
+                "language": "NL",
+                "text": "Backups zijn erg krachtig en er zijn verschillende gebruiksscenario's! Wanneer u op de knop klikt, worden het  knooppunt en zijn sub-knooppunten opgeslagen in een JSON-bestand!",
+                "updated": 1668337354259
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu mungkin ingin membuat cadangan struktur node untuk melindungi pekerjaanmu atau menyimpan salinan struktur dalam kondisi saat ini.",
                     "updated": 1644515843802
+                },
+                {
+                    "language": "NL",
+                    "text": "Mogelijk wilt u een back-up maken van een structuur van knooppunten om uw werk te beveiligen of om een kopie van de structuur in de huidige staat te houden.",
+                    "updated": 1668337376981
                 }
             ]
         },
@@ -114,6 +124,11 @@
                     "language": "ID",
                     "text": "Cobalah backup Lightning Strike trading system dan periksa folder unduhan kamu!",
                     "updated": 1644515910551
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Lightning Strike handelssysteem en controleer uw downloadmap!",
+                    "updated": 1668337404517
                 }
             ]
         },
@@ -153,6 +168,11 @@
                     "language": "ID",
                     "text": "File diunduh oleh browser dan disimpan di folder Unduhan utama. Jika kamu mengambil multiple backup dari file yang sama, browser mengganti nama file dengan nomor urut.",
                     "updated": 1644515968103
+                },
+                {
+                    "language": "NL",
+                    "text": "Het bestand wordt gedownload door de browser en opgeslagen in de standaard map Downloads. Als u meerdere back-ups van hetzelfde bestand maakt, hernoemt de browser het bestand met opeenvolgende nummers.",
+                    "updated": 1668337427647
                 }
             ]
         }

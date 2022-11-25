@@ -96,7 +96,7 @@ exports.documentationExporter = function documentationExporter() {
         // ED.pageGlobals.addFooter(dom.window.document)
         let serializedHtml = dom.serialize()
         if(ED.asShtml) {
-            serializedHtml = serializedHtml.replace('<html lang="en">', '')
+            serializedHtml = serializedHtml.replace('<!doctype html>', '').replace('<html lang="en">', '')
         }
         SA.nodeModules.fs.writeFileSync(filePath, serializedHtml)
         return filePath

@@ -148,9 +148,9 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
              * Builds the list of available translations from the class list that is created while writing out the content
              */
          function addTranslationIcons() {
-            let html = '<div id="docs-translation-list" class="dropdown">'
+            let html = '<div id="docs-translation-list" class="docs-dropdown">'
             html = html + '<span class="docs-tooltip" data-tippy-placement="left" data-tippy-content="This is a community project and not all sections will have been translated, this is where you can help and earn rewards!">Available translations</span>'
-            html = html + '<div class="dropdown-content">'
+            html = html + '<div class="docs-dropdown-content">'
             for(let i = 0; i < languages.length; i++) {
                 const key = languages[i]
                 const value = languagePack[key]
@@ -176,7 +176,7 @@ exports.documentationPageGlobals = function documentationPageGlobals() {
      */
     function addSearch(document) {
         let html = '<div class="docs-search-results-header">'
-        html += '<div class="docs-image-logo-search-results"><a href="/"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></a></div>'
+//        html += '<div class="docs-image-logo-search-results"><a href="/"><img src="' + ED.utilities.normaliseInternalLink(['Images', 'superalgos-logo.png']) + '" width=200></a></div>'
         html += '<button id="enable-search">Turn on search</button>'
         html += '<div id="search-input" class="docs-search-results-box hidden">'
         html += '<input class="docs-search-input" placeholder="search the docs" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'

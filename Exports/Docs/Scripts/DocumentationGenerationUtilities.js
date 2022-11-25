@@ -790,13 +790,13 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      * @return {string}
      */
     function normaliseInternalLink(routeParts) {
+        const ext = ED.asShtml ? '.shtml' : '.html'
         if(routeParts.length == 0) {
-            return global.env.REMOTE_DOCS_DIR + 'index.html'
+            return global.env.REMOTE_DOCS_DIR + 'index' + ext
         }
         routeParts = trimLocalPath(routeParts.join('/'))
         if(!/\.[a-z]{3,4}/.test(routeParts[routeParts.length-1])) {
-            return global.env.REMOTE_DOCS_DIR + routeParts.join('/') + '.html'
-
+            return global.env.REMOTE_DOCS_DIR + routeParts.join('/') + ext
         }
         else {
             return global.env.REMOTE_DOCS_DIR + routeParts.join('/')

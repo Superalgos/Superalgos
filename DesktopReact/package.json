@@ -8,8 +8,8 @@
     "presetup": "git checkout develop && git pull upstream develop",
     "setup": "node setup noShortcuts && node tf_setup.js",
     "postsetup": "npm start",
-    "startDesktopReactBackend": "node DesktopAppBackend",
-    "startDesktopReactFrontend": "node DesktopAppFrontend"
+    "startDesktopReactBackend": "node SocialTradingAppBackend",
+    "startDesktopReactFrontend": "node SocialTradingAppFrontend"
   },
   "babel": {
     "presets": [

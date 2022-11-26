@@ -20,7 +20,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
     }
 
     function initialize() {
-        let port = DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort
+        let port = ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort
         socketServer = new SA.nodeModules.ws.Server({ port: port })
         setUpWebSocketServer()
     }
@@ -62,7 +62,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                             return
                         }
 
-                        await DK.desktopApp.webAppInterface.sendMessage(messageHeader.payload)
+                        await ST.socialTradeApp.webAppInterface.sendMessage(messageHeader.payload)
                             .then(sendResponseToWebApp)
                             .catch(onError)
 

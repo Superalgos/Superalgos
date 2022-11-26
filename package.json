@@ -39,6 +39,7 @@
     "bootstrap-vue": "*",
     "ccxt": "^1.92.75",
     "child_process": "^1.0.2",
+    "cli-table3": "^0.6.3",
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "dotenv": "8.2.0",

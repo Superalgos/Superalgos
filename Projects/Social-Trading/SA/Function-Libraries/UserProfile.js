@@ -271,8 +271,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
                 switch (profileMessage.userAppType) {
                     case "Social Trading Desktop App": {
-                        if (userProfile.userApps.desktopApps === undefined) {
-                            userProfile.userApps.desktopApps = {
+                        if (userProfile.userApps.socialTradeApp === undefined) {
+                            userProfile.userApps.socialTradeApp = {
                                 type: 'Desktop Apps',
                                 name: 'New Desktop Apps',
                                 project: 'User-Apps',
@@ -288,8 +288,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
                         }
-                        userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
-                        targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
+                        userProfile.userApps.socialTradeApp.socialTradingDesktopApps.push(targetNode)
+                        targetNodeTypeCount = userProfile.userApps.socialTradeApp.socialTradingDesktopApps.length
                         break
                     }
                     case "Social Trading Mobile App": {

@@ -16,7 +16,7 @@ exports.newHttpInterface = function newHttpInterface() {
     }
 
     function initialize() {
-        let port = DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort
+        let port = ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -44,11 +44,11 @@ exports.newHttpInterface = function newHttpInterface() {
                 case 'ClientNode':
                     {
                         let clientNode = {
-                            name: DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.name,
-                            type: DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.type,
-                            id: DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.id,
-                            project: DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.project,
-                            config: JSON.stringify(DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config)                            
+                            name: ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.name,
+                            type: ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.type,
+                            id: ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.id,
+                            project: ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.project,
+                            config: JSON.stringify(ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config)                            
                         }
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(clientNode), httpResponse)
                     }

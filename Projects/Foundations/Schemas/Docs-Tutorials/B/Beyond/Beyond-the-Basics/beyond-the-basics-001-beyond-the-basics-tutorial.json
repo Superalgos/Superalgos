@@ -30,6 +30,11 @@
                 "language": "ID",
                 "text": "Tutorial ini mencakup penyiapan untuk mengizinkan aplikasi berinteraksi dengan fork Github kamu, perintah untuk memperbarui aplikasi, berpindah branch, dan cara berkontribusi pada proyek.",
                 "updated": 1669167244790
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie behandelt de instellingen om de app te laten communiceren met uw Github fork, de opdrachten om de app bij te werken, het schakelen tussen branches en hoe u kunt bijdragen aan het project.",
+                "updated": 1669572869326
             }
         ]
     },

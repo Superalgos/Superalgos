@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek uygulamayı sürdürmeye çalışın!",
-                "updated": 1641654986741
+                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek çalışmaya devam edin!",
+                "updated": 1669581566160
             }
         ]
     },
@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Kodunuzu kontrol etmeden koşulları ve durumları belirleyebilmeniz iyi olur!",
-                    "updated": 1641655015075
+                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Düğümü genişleterek kodunuzu kontrol etmek zorunda kalmak yerine onlara adlar ve etiketler vererek işinizi kolaylaştırırsınız. Adlar ve etiketler bu işe yarayacaktır.",
+                    "updated": 1669581766714
                 }
             ]
         },
@@ -85,8 +85,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: İlk durumu ve ilk koşulu aynı adla, 24h Up ve ikincisini şu şekilde belirtebilirsiniz: 24h Side.",
-                    "updated": 1641655041827
+                    "text": " İlk durumu ve ilk koşulu aynı isimle, 24H Yukarı, ikincisini de şu şekilde etiketleyebilirsiniz: 24H Yan.",
+                    "updated": 1669581860004
                 }
             ]
         }

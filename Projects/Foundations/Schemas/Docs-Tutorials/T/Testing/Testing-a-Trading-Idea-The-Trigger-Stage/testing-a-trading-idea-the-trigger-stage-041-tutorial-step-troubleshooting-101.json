@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bir ticaret sisteminde tanımları test ederken ve üzerinde çalışırken, sorun giderme modunda olmalısınız!",
-                "updated": 1641656598377
+                "text": "Bir ticaret sistemindeki tanımlar üzerinde çalışırken ve bunları test ederken, sorun giderme modunda olmalısınız!",
+                "updated": 1669586341252
             },
             {
                 "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir veri kümesinin hatalarla hesaplanması olası değildir. Ancak, uygun veri görevini gerçekleştirerek veri kümesini hesaplamadıysanız, hatalar alırsınız!",
-                    "updated": 1641656641257
+                    "text": "Bir veri setinin hatalarla hesaplanması pek olası değildir. Ancak, ilgili veri görevini çalıştırarak veri setini hesaplamadıysanız, hata alırsınız!",
+                    "updated": 1669586445504
                 },
                 {
                     "language": "RU",

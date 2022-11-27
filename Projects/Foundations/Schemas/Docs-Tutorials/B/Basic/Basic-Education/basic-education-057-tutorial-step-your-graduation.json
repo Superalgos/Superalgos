@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Selamat! Kamu telah lulus dari  Basic Education kamu dan siap untuk beralih ke hal-hal yang lebih maju!",
                 "updated": 1645562463593
+            },
+            {
+                "language": "NL",
+                "text": "Gefeliciteerd! Je bent afgestudeerd voor je Basic Education en bent klaar om door te gaan naar meer geavanceerde dingen!",
+                "updated": 1669553215582
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Dalam tutorial berikutnya kamu akan belajar cara memperbarui aplikasi kamu, beralih branches untuk menguji versi di branches develop version, beberapa trik tentang Docs, dan banyak lagi!",
                     "updated": 1645562518766
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende zelfstudie leer je hoe je je app kunt updaten, van branches kunt wisselen om de versie in de ontwikkelomgeving te testen, een paar trucs over de Docs, en meer!",
+                    "updated": 1669553254718
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Kamu juga dapat mengirimkan ulasan tentang pengalaman Kamu dengan Superalgos hingga saat ini!",
                     "updated": 1645562541153
+                },
+                {
+                    "language": "NL",
+                    "text": "Je kunt ook een beoordeling geven over je ervaring met Superalgos tot nu toe!",
+                    "updated": 1669553271901
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Saat berprogress maju dengan Superalgos, kamu mungkin perlu merefresh pada topik yang dibahas dalam tutorial ini atau yang sebelumnya! Itu adalah praktik standar, jadi kembalilah sampai kamu mempelajari semua trik!",
                     "updated": 1645562599862
+                },
+                {
+                    "language": "NL",
+                    "text": "Naarmate je vordert met Superalgos, heb je misschien een opfriscursus nodig over de onderwerpen die in deze zelfstudie of de vorige worden behandeld! Dat is een standaardpraktijk, dus kom terug totdat je alle trucs hebt geleerd!",
+                    "updated": 1669553307966
                 }
             ]
         }

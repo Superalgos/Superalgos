@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ingat yang aku katakan bahwa file plugin dimuat setiap kali workspace dimuat? Namun fitur ini juga memiliki konsekuensi langsung...",
                 "updated": 1645558931129
+            },
+            {
+                "language": "NL",
+                "text": "Weet je nog dat ik zei dat het plugin bestand wordt geladen telkens wanneer de werkruimte wordt geladen? Deze functie heeft een onmiddellijk gevolg...",
+                "updated": 1669546813707
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Hierarchies ditempatkan di workspace karena plugin tidak menyimpan dengan workspace secara default. Akibatnya, perubahan yang dibuat dalam Hierarchies tersebut tidak bertahan, kecuali jika kamu menyimpannya secara manual atau mengaktifkan penyimpanan otomatis.",
                     "updated": 1645559008465
+                },
+                {
+                    "language": "NL",
+                    "text": "Hierarchies die als plugins in de werkruimte zijn geplaatst, worden niet standaard met de werkruimte opgeslagen. Als gevolg hiervan blijven wijzigingen in die hiërarchieën niet behouden, tenzij u ze handmatig opslaat of automatisch opslaan inschakelt.",
+                    "updated": 1669546870701
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Ada dua kasus penggunaan utama untuk memodifikasi plugin :",
                     "updated": 1645559032065
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn twee belangrijke use-cases voor het wijzigen van plugins:",
+                    "updated": 1669546893775
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "IT",
                     "text": "Desideri modificare un plugin per renderlo tuo e continuare a lavorare con la versione modificata in futuro.",
                     "updated": 1666640764984
+                },
+                {
+                    "language": "NL",
+                    "text": "U wilt een plugin aanpassen om deze eigen te maken en in de toekomst met de gewijzigde versie te blijven werken.",
+                    "updated": 1669546922157
                 }
             ]
         },
@@ -195,6 +215,11 @@
                     "language": "IT",
                     "text": "Desideri aggiornare e migliorare un plug-in per apportare miglioramenti al progetto.",
                     "updated": 1666640785345
+                },
+                {
+                    "language": "NL",
+                    "text": "U wilt een plugin bijwerken en verbeteren om de verbeteringen aan het project bij te dragen.",
+                    "updated": 1669546940991
                 }
             ]
         }

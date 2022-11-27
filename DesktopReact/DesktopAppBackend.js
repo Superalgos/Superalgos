@@ -1,9 +1,9 @@
-exports.newDesktopAppBackend = function newDesktopAppBackend() {
+exports.newSocialTradingAppBackend = function newSocialTradingAppBackend() {
     /*
-The DK object is accessible everywhere at the Superalgos Desktop App.
+The ST object is accessible everywhere at the Superalgos Desktop App.
 It provides access to all modules built for this App.
 */
-    global.DK = {}
+    global.ST = {}
     /*
     The SA object is accessible everywhere at the Superalgos Desktop App.
     It provides access to all modules built for Superalgos in general.
@@ -19,7 +19,7 @@ It provides access to all modules built for this App.
         run: run
     }
 
-    DK.desktopApp = thisObject
+    ST.socialTradeApp = thisObject
 
     return thisObject
 
@@ -43,7 +43,7 @@ It provides access to all modules built for this App.
         */
         let MULTI_PROJECT = require('../MultiProject.js');
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-        MULTI_PROJECT_MODULE.initialize(DK, 'DK')
+        MULTI_PROJECT_MODULE.initialize(ST, 'ST')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
         /*
         Setting up external dependencies.
@@ -118,12 +118,12 @@ It provides access to all modules built for this App.
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
             let express = require('./backend/src/expressServer.js')
-            express.DesktopBackend(DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
-            console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+            express.DesktopBackend(ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+            console.log(`express Interface ................................................ Listening at port ${ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
         }
     }
 }
 
 
-let app = this.newDesktopAppBackend();
+let app = this.newSocialTradingAppBackend();
 app.run();

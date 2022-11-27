@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: İşte bu! Sonunda, fikrin peşinden gitmeye değer olup olmadığına karar vermek için test edebileceğimiz uygun bir varsayımımız var!",
                 "updated": 1640952844610
+            },
+            {
+                "language": "ES",
+                "text": "¡Y ya está! Por fin tenemos una hipótesis adecuada que podemos probar para decidir si la idea merece la pena o no.",
+                "updated": 1668194019896
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bir sonraki eğitimde devam edecekğiz!",
                     "updated": 1640953399711
+                },
+                {
+                    "language": "ES",
+                    "text": "Seguiremos a partir de este punto en el próximo tutorial.",
+                    "updated": 1668193980991
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Serideki bir sonraki eğitimde, Superalgos'un geçmiş veriler üzerinde test edilecek alım satım fikrini oluşturma sürecinde size nasıl rehberlik ettiğini ele alacağız. Koşullar ve formüller yazmak için sözdizimi, stratejilerin içinden göstergelerin nasıl kullanılacağı ve yol boyunca ihtiyaç duyabileceğimiz başka ne varsa öğreneceğiz!",
                     "updated": 1640953435315
+                },
+                {
+                    "language": "ES",
+                    "text": "En el próximo tutorial de la serie, nos adentraremos en cómo Superalgos te guía a través del proceso de configuración de una idea de trading para ser probada en datos históricos. Aprenderemos sobre la sintaxis para escribir condiciones y fórmulas, sobre cómo usar indicadores desde dentro de las estrategias, ¡y cualquier otra cosa que podamos necesitar en el camino!",
+                    "updated": 1668194072996
                 }
             ]
         }

@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Давайте поговорим о моем друге, поисковой строке во вкладке Docs. У нее немного двойная жизнь: она не только ищет, но и командует!",
                 "updated": 1645269354466
+            },
+            {
+                "language": "ID",
+                "text": "Mari bicarakan temanku ini si search box di Docs. Dia seperti mempunyai dua kepribadian yaitu bisa mencari sekaligus sebagai tempat untuk perintah!",
+                "updated": 1667873279089
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "То есть, окно поиска - это еще и интерфейс командной строки! Текущий список команд включает в себя:",
                     "updated": 1640154364407
+                },
+                {
+                    "language": "ID",
+                    "text": "Maksudku search box juga bisa dimasukkan antarmuka baris perintah! List penggunaan perintah yang berkenaan yaitu:",
+                    "updated": 1667871505137
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Производство и редактирование документов.",
                     "updated": 1640154376361
+                },
+                {
+                    "language": "ID",
+                    "text": "Produksi dan Editing Docs.",
+                    "updated": 1667871452628
                 }
             ]
         },
@@ -132,6 +147,11 @@
                     "language": "RU",
                     "text": "Получение обновлений.",
                     "updated": 1640154387384
+                },
+                {
+                    "language": "ID",
+                    "text": "Mendapatkan update.",
+                    "updated": 1667871468099
                 }
             ]
         },
@@ -166,6 +186,11 @@
                     "language": "RU",
                     "text": "Внесение вклада в проект.",
                     "updated": 1640154397107
+                },
+                {
+                    "language": "ID",
+                    "text": "Berkontribusi kedalam proyek.",
+                    "updated": 1667871483820
                 }
             ]
         },
@@ -200,6 +225,11 @@
                     "language": "RU",
                     "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд!",
                     "updated": 1640154428249
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita ke contoh praktek yang mempelajari keduanya yaitu cara mengedit Docs, dan bagaimana untuk berkontribusi, menggunakan beberapa perintah!",
+                    "updated": 1667871428913
                 }
             ]
         },
@@ -234,6 +264,11 @@
                     "language": "RU",
                     "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея!",
                     "updated": 1640154447255
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku coba gunakan narasi cerita pada step berikutnya... Semoga kamu suka ide ini!",
+                    "updated": 1667871575241
                 }
             ]
         }

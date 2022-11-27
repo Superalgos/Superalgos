@@ -39,10 +39,10 @@ exports.newSocialBotsBotModulesTelegramBot = function newSocialBotsBotModulesTel
                 }
             }
 
+            thisObject.telegramAPI = thisObject.telegramBot.telegram
+
             thisObject.telegramBot.launch()
                 .then(() => {
-                    thisObject.telegramAPI = thisObject.telegramBot.telegram
-
                     const message = "Telegram bot is starting. For assistance type /help."
                     thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError('[WARN] initialize.sendMessage -> Telegram API error -> err = ' + err.stack))
                 }).catch(err => logError('[WARN] initialize.launch -> Telegram API error -> err = ' + err.stack))
@@ -60,7 +60,11 @@ exports.newSocialBotsBotModulesTelegramBot = function newSocialBotsBotModulesTel
     }
 
     function sendMessage(message) {
-        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError("[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+        if(thisObject.telegramAPI !== undefined) {
+            thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError("[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+        } else {
+            logError("[WARN] sendMessage -> Telegram API not initialized")
+        }
     }
 
 

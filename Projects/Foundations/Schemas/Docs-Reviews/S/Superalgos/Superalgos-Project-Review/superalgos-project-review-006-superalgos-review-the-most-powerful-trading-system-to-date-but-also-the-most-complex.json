@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Superalgos - это, безусловно, самая мощная, интуитивно понятная и гибкая торговая система на сегодняшний день. Это гораздо больше, чем традиционный торговый бот. Мощь и расширяемость этого чуда с открытым исходным кодом просто поражает воображение. Однако часто говорят, что в жизни ничего не дается легко, и это, безусловно, относится к Superalgos. Вам придется потратить много времени и терпения, чтобы освоить систему, которая имеет больше возможностей, чем новейшая Tesla. Стоит ли оно того? Безусловно!",
                 "updated": 1640410085157
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, bugün mevcut olan en güçlü, sezgisel ve esnek ticaret sistemidir. Geleneksel bir ticaret botundan çok daha fazlasıdır. Bu açık kaynak harikasının gücü ve genişletilebilirliği akıllara durgunluk veriyor. Ancak, hayatta sahip olmaya değer hiçbir şeyin kolay olmadığı sık sık söylenir ve bu kesinlikle Superalgos için de geçerlidir. En yeni Tesla'dan daha fazla özelliğe sahip bir sistemi öğrenmek için çok fazla zaman ve sabır harcamanız gerekecek. Peki buna değer mi? Kesinlikle değer!",
+                "updated": 1669191325701
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Я наткнулся на Superalgos несколько месяцев назад, когда исследовал бесплатные торговые боты для криптовалют и увидел сообщение о новой торговой системе с открытым исходным кодом, доступной через Github. Это была лучшая находка в моей жизни. Хотя эта система находится на ранней стадии разработки, она уже достаточно развита, чтобы позволить реализовать сложные торговые стратегии, и за то короткое время, что я ее использую, она претерпела значительные улучшения.",
                     "updated": 1640410120863
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a birkaç ay önce kripto para birimleri için ücretsiz ticaret botlarını araştırırken rastladım ve Github üzerinden kullanılabilen yeni bir açık kaynaklı ticaret sistemi hakkında bir gönderi gördüm. Hayatımın en iyi keşfiydi. Bu sistem henüz gelişiminin çok başında olmasına rağmen, karmaşık ticaret stratejilerinin uygulanmasına izin verecek kadar gelişmiş durumda ve kullandığım kısa süre içinde büyük bir gelişme gösterdi.",
+                    "updated": 1669191351195
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Superalgos - это визуальная многоуровневая система. Она подняла объектно-ориентированную технологию на новый уровень, невиданный ранее в пользовательской среде. До сих пор, чтобы найти такую сложную программную систему, нужно было работать на многонациональное финансовое предприятие. Потратьте время и усилия на ее изучение, и вы получите невероятную торговую мощь под рукой. Эта система определенно даст вам инструменты для реализации прибыльных торговых стратегий на нескольких рынках и биржах одновременно, независимо от того, используете ли вы существующие стратегии (которые скоро появятся в этой оригинальной системе) или разработаете свои собственные сложные торговые алгоритмы. При этом вам не обязательно знать программирование, чтобы использовать эту систему, но владение простыми командами, функциями и операторами javascript вам поможет.",
                     "updated": 1640410346622
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos görsel, katmanlı bir sistemdir. Bir kullanıcı ortamında daha önce hiç görülmemiş yeni bir seviyeye nesne-oreinet teknolojisini taşıdı. Şimdiye kadar, bir yazılım sisteminde bu tür bir karmaşıklık bulmak için çok uluslu bir finans kuruluşunda çalışmanız gerekiyordu. Öğrenmek için zaman ve çaba harcadığınızda, parmaklarınızın ucunda inanılmaz bir ticaret gücüne sahip olacaksınız. Bu sistem, ister mevcut stratejileri kullanın (ki yakında bu ilkel sisteme gelecekler) ister kendi karmaşık ticaret algoritmalarınızı geliştirin, size aynı anda birden fazla pazarda ve borsada kârlı ticaret stratejileri uygulamanız için kesinlikle araçlar sağlar. Yine de, kullanmak için programlama bilmek zorunda değilsiniz, ancak basit javascript komutlarını, işlevlerini ve operatörlerini öğrenmek yardımcı olacaktır.",
+                    "updated": 1669191384058
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Самое главное, чтобы Superalgos работал на вас, - это потратить время на то, чтобы узнать о нем как можно больше. Сначала пройдите учебник \"Welcome to Superalgos!\", причем пройдите его несколько раз, чтобы уловить нюансы, которые вы упустили в предыдущих просмотрах этого учебника. Затем пройдите несколько раз учебник \" Install a New Market\" и учебники по проектированию торговой системы (в отдельном плагине). Наконец, изучите \"Руководство пользователя\" в документации, чтобы узнать обо всех важных функциях этого комплексного программного пакета.",
                     "updated": 1640410502629
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un sizin için çalışmasını sağlayacak en önemli şey, onun hakkında mümkün olduğunca çok şey öğrenmek için zaman ayırmaktır. İlk olarak, \"Superalgos'a Hoş Geldiniz!\" eğitimini yapın ve eğitimin önceki incelemelerinde kaçırdığınız nüansları yakalamak için birden çok kez yapın. Ardından 'Yeni Bir Piyasa Oluşturun' ( Market ) eğitimini ve ticaret sistemi tasarımı eğitimlerini (ayrı bir eklentide) birden çok kez yapın. Son olarak, bu kapsamlı yazılım paketindeki tüm önemli özellikler hakkında bilgi edinmek için dokümantasyondaki Kullanıcı Kılavuzunu inceleyin.",
+                    "updated": 1669191560758
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Эта программа поддерживается активным сообществом пользователей и разработчиков в Telegram. Присоединяйтесь к нему и задавайте любые вопросы, которые помогут вам понять и продвинуться в системе. Superalgos - это динамично развивающаяся система. Если вы видите, что чего-то не хватает, или хотите что-то улучшить, просто попросите, и если это имеет смысл, вы можете быть удивлены тем, как быстро это будет реализовано.",
                     "updated": 1640410555112
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu program, Telegram'daki canlı bir kullanıcı ve geliştirici topluluğu tarafından desteklenmektedir. Bu topluluğa katılın ve sistemi anlamanıza ve ilerlemenize yardımcı olacak sorularınızı sorun. Superalgos dinamik bir geliştirme sistemidir. Eksik bir şey görürseniz veya bir iyileştirme isterseniz, sadece sorun ve eğer mantıklıysa, ne kadar hızlı uygulandığına şaşırabilirsiniz.",
+                    "updated": 1669191593069
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "language": "RU",
                     "text": "Вы не успеете оглянуться, как сможете разрабатывать собственные торговые индикаторы и сложные стратегии, которые вы сможете тщательно протестировать на бесчисленных рынках, а затем поделиться этими инструментами для получения прибыли с остальными членами команды Superalgos.",
                     "updated": 1640410593956
+                },
+                {
+                    "language": "TR",
+                    "text": "Siz farkına bile varmadan, özel yatırım göstergeleri ve sofistike stratejiler geliştirebilecek, bunları sayısız piyasada kapsamlı bir şekilde test edebilecek ve ardından bu kârlı araçları Superalgos ortaklığının geri kalanıyla paylaşabileceksiniz.",
+                    "updated": 1669191637780
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Superalgos - это золотая жила, и она может окупиться, если вы потратите время и усилия заранее, и будете сотрудничать с сообществом. Удачной торговли!",
                     "updated": 1640410631090
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bir altın madenidir ve önceden zaman ve çaba harcarsanız ve toplulukla işbirliği yaparsanız bir altın madeni gibi ödeyebilir. Mutlu Ticaretler! ( Trading! )",
+                    "updated": 1669191706515
                 }
             ]
         },

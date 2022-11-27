@@ -1,0 +1,50 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 23,
+    "type": "QQE Mod",
+    "definition": {
+        "text": "The QQE Mod is a port of the indiacator by Mihkel00."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "QQE Mod On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The QQE mod is an extension of the Quantitative Qualitative Estimation indicator. It uses two QQE indicators of differing parameters, and will print a coloured output when both of these agree."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-mod.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the QQE Mod can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"QQE Mod\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-mod-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Braid Filter Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| QQE_Mod | qqeMod | qqe, histo, qqeUp, qqeDown, histoDir |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the qqe value and histogram is above the zero:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.qqeMod.qqe > 0 && chart.at15min.qqeMod.histo > 0"
+        }
+    ]
+}

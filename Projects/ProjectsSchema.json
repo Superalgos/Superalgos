@@ -1016,6 +1016,12 @@
                     "propertyName": "encryption",
                     "functionName": "newFoundationsUtilitiesEncryption",
                     "fileName": "Encryption.js"
+                },
+                {
+                    "name": "Icons",
+                    "propertyName": "icons",
+                    "functionName": "newFoundationsUtilitiesIcons",
+                    "fileName": "Icons.js"
                 }
             ]
         },
@@ -2108,7 +2114,7 @@
                 }
             ]
         },
-        "DK": {
+        "ST": {
             "globals": [],
             "modules": [],
             "utilities": []

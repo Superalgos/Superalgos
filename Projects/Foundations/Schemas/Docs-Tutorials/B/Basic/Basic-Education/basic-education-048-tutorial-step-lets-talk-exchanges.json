@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Kita semua memiliki exchanges pilihan kita... mari kita bicara sedikit tentang bagaimana Superalgos berurusan dengan mereka dan exchanges mana yang dapat kamu gunakan...",
                 "updated": 1645559672939
+            },
+            {
+                "language": "NL",
+                "text": "We hebben allemaal onze favoriete handelsplatformen... laten we het hebben over hoe Superalgos ermee omgaat en welke u kunt gebruiken...",
+                "updated": 1669548074782
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Superalgos menggunakan CCXT, open-source library yang mengusulkan standar untuk pertukaran API comms. Sistem bekerja dengan pertukaran yang sesuai dengan standar :",
                     "updated": 1645559710405
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos gebruikt CCXT, een open-source bibliotheek die een standaard voorstelt voor handelsplatformen API communicatie. Het systeem werkt met centrales die voldoen aan de norm:",
+                    "updated": 1669548137597
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "text": "CCXT ile Uyumluluk Taahhüt Eden Borsaların Listesi->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
                     "updated": 1654393868679,
                     "style": "Link"
+                },
+                {
+                    "language": "NL",
+                    "text": "Lijst met handelsplatformen die naleving van CCXT beloven->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1669548188970
                 }
             ]
         },
@@ -143,6 +158,11 @@
                     "language": "ID",
                     "text": "Namun, Masuk kedalam daftar saja tidak cukup! Banyak exchanges tidak benar-benar patuh! Akibatnya, ada upaya komunitas yang berkelanjutan untuk menguji exchanges dan dokumen yang dapat digunakan dengan Superalgos dan bagaimana caranya! Ini adalah topik dalam Docs yang membahas upaya tersebut. Lihatlah TOC untuk menemukan pertukaran mana yang telah diuji dan sejauh mana perkembangannya.",
                     "updated": 1645562832356
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is echter niet genoeg om in de lijst te verschijnen! Veel handelsplatformen voldoen niet echt! Als gevolg hiervan is er een voortdurende inspanning van de gemeenschap om handelsplatformen te testen en documenteren welke kunnen worden gebruikt met Superalgos, en hoe! Deze inspanning is het onderwerp in de Docs. Kijk in de TOC welke handelsplatformen getest zijn en in welke mate.",
+                    "updated": 1669548340782
                 }
             ]
         }

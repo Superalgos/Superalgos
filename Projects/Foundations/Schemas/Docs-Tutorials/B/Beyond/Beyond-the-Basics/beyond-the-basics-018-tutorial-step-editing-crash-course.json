@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Sayfayı nasıl düzenleyeceğiniz konusunda size birkaç ipucu vereceğim! Stiller menüsünü görüğntülemek için bir paragrafa sağ tıklayın. Kalem simgesi düzenleme modunu başlatır...",
                 "updated": 1640610406161
+            },
+            {
+                "language": "ID",
+                "text": "Aku akan memberikanmu beberapa petunjuk tentang cara mengedit halaman! Klik kanan pada paragraf untuk mendapatkan styles menu. Si Pensil akan memulai mode edit...",
+                "updated": 1668848857606
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "TR",
                     "text": "Bu başlık bir H1... H2 daha küçüktür!",
                     "updated": 1640610460431
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah H1... H2 lebih kecil!",
+                    "updated": 1668848866546
                 }
             ]
         },
@@ -93,6 +103,11 @@
                     "language": "TR",
                     "text": "Ab|: Bunun gibi madde işareti listeleri oluşturur!",
                     "updated": 1640610448673
+                },
+                {
+                    "language": "ID",
+                    "text": "Ab|: membuat bullet list seperti ini!",
+                    "updated": 1668848878865
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "TR",
                     "text": "Dördüncü simge, ipuçları, önemli ve uyarı kutuları ile birlikte notları (bunun gibi) içerir.",
                     "updated": 1640610502107
+                },
+                {
+                    "language": "ID",
+                    "text": "Kolom keempat memiliki fitur note(seperti ini), dengan beberapa box tips, kepentingan, dan peringatan.",
+                    "updated": 1668848906562
                 }
             ]
         },
@@ -150,6 +170,11 @@
                     "language": "RU",
                     "text": "Используйте JS для добавления кода === \"styled by prism!\"",
                     "updated": 1640161702527
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan JS untuk menambahkan kode === \"styled by prism!\"",
+                    "updated": 1668848918659
                 }
             ]
         },
@@ -184,6 +209,11 @@
                     "language": "TR",
                     "text": "Abc| paragrafı düz metne döndürür. İncelemenizin harika görünmesi için bu yeterli olmalı! Menünün geri kalanını daha sonra açıklayacağım!",
                     "updated": 1640610795195
+                },
+                {
+                    "language": "ID",
+                    "text": "Abc| mengubah paragraf kembali ke text biasa. Semua ini seharusnya cukup untuk membuat review kamu terlihat hebat! Aku akan menjelaskan menu lainnya di waktu yang lain!",
+                    "updated": 1668848980721
                 }
             ]
         }

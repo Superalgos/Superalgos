@@ -15,13 +15,25 @@
                 "language": "RU",
                 "text": "Superalgos - это невероятный инструмент, позволяющий всем категориям трейдеров работать вместе с помощью интуитивно понятного графического интерфейса. Приложение имеет довольно крутую кривую обучения и поначалу кажется довольно подавляющим, но учебники сделаны таким образом, что быстро проводят вас через все важные функции, и вы понимаете, что сложность, которая кажется трудной для освоения в начале, позволяет добиться невероятной гибкости без необходимости много знать о программировании.\n\nСамой сильной стороной приложения является его подход, основанный на участии сообщества, позволяющий пользователям изменять программное обеспечение и тем самым вносить свой вклад в проект. Это означает, что не только разработчики могут вносить свой вклад, но и опытные трейдеры с минимальными знаниями программирования или вообще без них, а также мотивированные новички, поскольку каждое маленькое улучшение имеет значение.\n\nПоскольку программное обеспечение является постоянно развивающимся проектом, я с нетерпением жду возможности изучить его больше и внести свой вклад.\n\nfredericopitz",
                 "updated": 1640414232095
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, her türlü yatırımcının sezgisel bir GUI ile birlikte çalışmasına olanak tanıyan inanılmaz bir araçtır. Uygulamanın oldukça dik bir öğrenme eğrisi var ve başlangıçta oldukça bunaltıcı görünüyor, ancak eğitimler sizi tüm önemli özelliklerde hızlı bir şekilde yönlendirecek şekilde yapılıyor ve başlangıçta ustalaşması zor görünen karmaşıklığın, programlama hakkında çok şey bilmek zorunda kalmadan inanılmaz esnekliğe izin verdiği anlaşılıyor. Ancak uygulamanın en güçlü özelliği, kullanıcıların yazılımı değiştirmesine ve böylece projeye katkıda bulunmasına olanak tanıyan topluluk odaklı yaklaşımıdır. Yani sadece geliştiriciler değil, aynı zamanda programlama bilgisi çok az olan veya hiç olmayan deneyimli yatırımcılar veya her küçük gelişme önemli olduğu için motive olmuş yeni gelenler de katkıda bulunabilir. Yazılım sürekli gelişen bir proje olduğu için, onu daha fazla keşfetmeyi ve katkıda bulunmaya yardımcı olmayı dört gözle bekliyorum.\n\nfredericopitz",
+                "updated": 1669310626849
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669310656047
+                }
+            ]
         }
     ]
 }

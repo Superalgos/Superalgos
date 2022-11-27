@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Community juga dapat berkontribusi pada Trading Systems! Pada titik ini, hanya ada beberapa, tetapi kami berharap lebih banyak akan segera muncul!",
                 "updated": 1645562277953
+            },
+            {
+                "language": "NL",
+                "text": "De Community kan ook bijdragen aan Trading Systems! Op dit moment zijn er nog maar een paar, maar we hopen dat er snel meer zullen verschijnen!",
+                "updated": 1669553024415
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Cari dalam Docs untuk Community Trading Systems!",
                     "updated": 1645562295619
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek in de Docs naar Community Trading Systems!",
+                    "updated": 1669553055636
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Strategies yang dikontribusi oleh Community sepenuhnya didokumentasikan sehingga kamu dapat menggunakannya untuk belajar!",
                     "updated": 1645562334387
+                },
+                {
+                    "language": "NL",
+                    "text": "Strategies die door de Community zijn bijgedragen, zijn volledig gedocumenteerd, zodat u ze kunt gebruiken om te leren!",
+                    "updated": 1669553082519
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa sementara Trading Systems yang cocok dengan Superalgos dapat berfungsi penuh, mereka disediakan hanya untuk educational purposes! Kamu bertanggung jawab penuh atas cara kamu menggunakannya! Trading adalah bisnis yang berisiko!",
                     "updated": 1645562423796
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat hoewel de verzending van Trading Systems met Superalgos volledig functioneel kan zijn, ze alleen voor educatieve doeleinden beschikbaar worden gesteld! U bent volledig verantwoordelijk voor het gebruik ervan! Trading is een risicovolle onderneming!",
+                    "updated": 1669553116769
                 }
             ]
         }

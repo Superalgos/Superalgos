@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Mari kita coba contoh ketiga! Perhatikan referensi yang mengalir dari node poligon ke titik di bawah node Chart Points!",
                 "updated": 1644951616463
+            },
+            {
+                "language": "NL",
+                "text": "Laten we het derde voorbeeld proberen! Let op de verwijzingen die lopen van hoekpunten van de polygons naar punten onder het Chart Points knooppunt!",
+                "updated": 1669544537115
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Ambil cadangan node Shapes dan kembalikan di samping tanpa menghapus yang asli. Kemudian ulangi, tetapi hapus yang asli sebelum mengembalikan cadangan!",
                     "updated": 1644951662350
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Shapes knooppunt en herstel het aan de zijkant zonder het origineel te verwijderen. Herhaal dit dan, maar verwijder het origineel voordat u de back-up herstelt!",
+                    "updated": 1669544562709
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Perhatikan bahwa dalam kasus pertama, referensi menunjuk ke titik asli yang berubah menjadi referensi eksternal! Sebaliknya, dalam kasus kedua, referensi tetap internal!",
                     "updated": 1644951685971
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat in het eerste geval verwijzingen verwijzen naar de oorspronkelijke punten die in externe verwijzingen veranderen! Integendeel, in het tweede geval blijven referenties intern!",
+                    "updated": 1669544588102
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa referensi tetap internal hanya ketika kamu menghapus struktur asli terlebih dahulu!",
                     "updated": 1644951711451
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat referenties alleen intern blijven als u eerst de oorspronkelijke structuur verwijdert!",
+                    "updated": 1669544600593
                 }
             ]
         }

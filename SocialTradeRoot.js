@@ -1,4 +1,4 @@
-exports.newDesktopRoot = function newDesktopRoot() {
+exports.newSocialTradeRoot = function newSocialTradeRoot() {
     /*
     This module represents the execution root of the Desktop App.
     We use this module that is outside the Desktop folder to 
@@ -12,10 +12,10 @@ exports.newDesktopRoot = function newDesktopRoot() {
 
     async function run(debugSettings) {
         /* 
-        The DK object is accessible everywhere at the Superalgos Desktop App.
+        The ST object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for this App.
         */
-        global.DK = {}
+        global.ST = {}
         /* 
         The SA object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for Superalgos in general.
@@ -38,7 +38,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
         */
         let MULTI_PROJECT = require('./MultiProject.js')
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-        MULTI_PROJECT_MODULE.initialize(DK, 'DK')
+        MULTI_PROJECT_MODULE.initialize(ST, 'ST')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
         /*
         Setting up external dependencies.
@@ -74,8 +74,8 @@ exports.newDesktopRoot = function newDesktopRoot() {
         run()
 
         async function run() {
-            DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
-            await DK.app.run()
+            ST.app = require('./SocialTrade/SocialTradeApp.js').newSocialTradingApp()
+            await ST.app.run()
             console.log('Superalgos Desktop App is Running!')
         }
     }

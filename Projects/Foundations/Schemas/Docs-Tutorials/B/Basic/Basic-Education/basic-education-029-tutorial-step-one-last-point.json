@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Cukup mirip dengan Node Attaching Rules, node yang dapat membuat referensi juga memiliki aturan dalam hal itu.",
                 "updated": 1644949574169
+            },
+            {
+                "language": "NL",
+                "text": "Net als bij Node Attaching Rules, hebben nodes die referenties kunnen maken ook regels in dat opzicht.",
+                "updated": 1669542632253
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Buka menu node  Trading System Reference, klik tombol help , dan scroll ke bagian bawah halaman!",
                     "updated": 1644949608821
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het Trading System Reference node-menu, klik op de help-knop en scroll naar de onderkant van de pagina!",
+                    "updated": 1669542658280
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Jika kamu seorang developer, kamu mungkin ingin tahu bahwa Node Attaching Rules dan Node Referencing Rules didefinisikan dalam file AppSchema.json di folder Schema dari Project.",
                     "updated": 1644949704675
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u een ontwikkelaar bent, wilt u misschien weten dat regels voor Node Attaching Rules en Node Referencing Rules zijn gedefinieerd in het bestand AppSchema.json in de map Schema van een Project.",
+                    "updated": 1669542723422
                 }
             ]
         }

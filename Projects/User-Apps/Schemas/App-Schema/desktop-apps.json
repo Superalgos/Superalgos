@@ -46,7 +46,7 @@
     "attachingRules": {
         "compatibleTypes": "->User Apps->"
     },
-    "propertyNameAtParent": "socialTradeApp",
+    "propertyNameAtParent": "desktopApps",
     "childrenNodesProperties": [
         {
             "name": "socialTradingDesktopApps",

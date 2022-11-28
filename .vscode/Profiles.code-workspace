@@ -1,0 +1,140 @@
+{
+	"folders": [
+        {
+            "path": "/home/pi/.superalgos"
+        },
+		{
+			"path": "/home/pi/trading/Superalgos/Launch-Profiles"
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [{
+			"name": "Debug delete",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"delete",
+                "--name=UAT"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug list",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"list"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug list limit",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"list",
+                "--limit=1"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug list prefix",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"list",
+                "--prefix=UA"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug list offset limit",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"list",
+                "--limit=1",
+                "--offset=1"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug create",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"create",
+                "--name=UAT1",
+                "--host-platform='192.168.0.132'",
+                "--host-desktop='192.168.0.132'",
+                "--port-wss-platform=19041",
+                "--port-wss-desktop=17041",
+                "--port-wss-network=19042",
+                "--port-wss-dashboard=19043",
+                "--port-http-platform=37248",
+                "--port-http-network=35248",
+                "--port-http-desktop=36248",
+                "--store-logs='/home/pi/trading/Superalgos/My-Log-Files"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug create 2",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"create",
+                "--name=UAT2",
+                "--host-platform='192.168.0.132'"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},{
+			"name": "Debug update",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "profiles.js",
+			"args": [
+				"update",
+                "--name=UAT",
+                "--host-platform='192.168.0.132'",
+                "--host-desktop='192.168.0.132'",
+                "--port-wss-platform=19041",
+                "--port-wss-desktop=17041",
+                "--port-wss-network=19042",
+                "--port-wss-dashboard=19043",
+                "--port-http-platform=37248",
+                "--port-http-network=35248",
+                "--port-http-desktop=36248",
+                "--store-logs='/home/pi/trading/Superalgos/My-Log-Files"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+        }]
+	}
+}

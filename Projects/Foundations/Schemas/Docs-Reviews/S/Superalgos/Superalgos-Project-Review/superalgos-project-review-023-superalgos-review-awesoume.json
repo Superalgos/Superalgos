@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Это приложение потрясающее",
                 "updated": 1640414317915
+            },
+            {
+                "language": "TR",
+                "text": "Bu uygulama harika",
+                "updated": 1669311034572
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Как сказал Гомер С., после многих лет безуспешных попыток легко делать деньги с помощью приложения, я буду делать деньги с помощью этого приложения и легко.",
                     "updated": 1640414342645
+                },
+                {
+                    "language": "TR",
+                    "text": "Homer S.'nin dediği gibi, yıllarca bir uygulama ile kolayca para kazanmaya çalışıp başarılı olamadıktan sonra, bu uygulama ile kolayca para kazanacağım.",
+                    "updated": 1669311069912
                 }
             ]
         },

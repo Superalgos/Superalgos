@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Her şey yolunda gittiyse, Katkılar dalının ( Contributions Branch ) değiştirildiğine dair bir onay almış olmalısınız! Mükemmel!",
                 "updated": 1640417179001
+            },
+            {
+                "language": "ID",
+                "text": "Jika semua berjalan dengan baik, kamu seharusnya mendapat konfirmasi bahwa Contribution Branch telah berubah! Bagus!",
+                "updated": 1668504494023
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Sırada Current Branch'ı değiştirmek var, ancak önce bazı kontrolleri yapmamız gerekiyor!",
                     "updated": 1640417207945
+                },
+                {
+                    "language": "ID",
+                    "text": "Selanjutnya baris berikutnya yaitu mengubah ke Branch yang sekarang, namun sebelum itu kita harus lakukan pengecekan!",
+                    "updated": 1668504485265
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Dalları değiştirdiğinizde, uygulama yazılımı çatalınızın Geliştirme ( Develop ) dalından indirecek bir dizi Git komutu çalıştıracaktır! Mevcut yazılım diskinizde değiştirilecektir! Bu nedenle, geçiş yaptıktan sonra uygulamayı kapatmanız gerekecektir. Ama devam etmeden önce birkaç şey daha tartışalım!",
                     "updated": 1640417255328
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu mengubah branches, aplikasi akan menjalankan rangkaian perintah Git yang mendownload software tambahan dari fork branch Develop kamu! Softwaremu akan tergantikan di diska mu! Dengan alasan itu kamu harus menutup aplikasi setelah berganti branch. Tapi kita diskusikan beberapa hal lain sebelum kamu memproses!",
+                    "updated": 1668504475503
                 }
             ]
         }

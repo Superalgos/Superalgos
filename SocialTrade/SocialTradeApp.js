@@ -1,4 +1,4 @@
-exports.newDesktopApp = function newDesktopApp() {
+exports.newSocialTradingApp = function newSocialTradingApp() {
 
     let thisObject = {
         webSocketsInterface: undefined,
@@ -9,7 +9,7 @@ exports.newDesktopApp = function newDesktopApp() {
         run: run
     }
 
-    DK.desktopApp = thisObject
+    ST.socialTradeApp = thisObject
 
     return thisObject
 
@@ -64,12 +64,13 @@ exports.newDesktopApp = function newDesktopApp() {
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
-                global.env.DESKTOP_APP_SIGNING_ACCOUNT,
-                global.env.DESKTOP_TARGET_NETWORK_TYPE,
-                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
-                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
-                global.env.DESKTOP_APP_MAX_OUTGOING_START_PEERS,
-                thisObject.p2pNetworkInterface.eventReceived
+                global.env.SOCIALTRADE_APP_SIGNING_ACCOUNT,
+                global.env.SOCIALTRADE_TARGET_NETWORK_TYPE,
+                global.env.SOCIALTRADE_TARGET_NETWORK_CODENAME,
+                global.env.SOCIALTRADE_APP_MAX_OUTGOING_PEERS,
+                global.env.SOCIALTRADE_APP_MAX_OUTGOING_START_PEERS,
+                thisObject.p2pNetworkInterface.eventReceived,
+                []
             )
         }
 
@@ -79,11 +80,11 @@ exports.newDesktopApp = function newDesktopApp() {
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Desktop Client Http Interface ................................................ Listening at port ' + DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Desktop Client Http Interface ................................................ Listening at port ' + ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

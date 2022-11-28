@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir durum, içerdiği koşulların tümü doğru olduğunda doğrudur. Bir durumdaki koşulların && (ve) operatörüyle bağlantılı olduğunu düşünün. Eğer tüm koşullar aynı anda doğruysa durum da doğrudur.",
-                    "updated": 1641654651046
+                    "text": "Bir durum, içindeki tüm koşullar doğru olarak onaylandığında doğru olarak onaylanır. Bunu, bir durum içindeki koşulların && (ve) operatörü ile bağlandığı gibi düşünün. Hepsi aynı anda doğruysa, durum da doğrudur.",
+                    "updated": 1669580994960
                 }
             ]
         },
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Olay içindeki durumlardan herhangi biri doğru kabul edilirse olay doğru kabul edilir. Sanki bir olay içindeki durumlar || operatörü tarafından temsil ediliyormuş gibi (ya da) bağlı olacaktır! Belirli bir zamanda durumlardan biri doğruysa, olay tetiklenir!",
-                    "updated": 1641654660718
+                    "text": "Bir olay, içindeki durumlardan herhangi biri doğru olduğunda doğrulanır. Sanki bir olay içindeki durumlar || (veya) operatörü tarafından bağlanmış gibidir! Zamanın belirli bir noktasında durumlardan herhangi biri doğruysa, olay tetiklenir!",
+                    "updated": 1669581340437
                 }
             ]
         },
@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu tanımı nasıl kuracağınızı söyleyebilir misiniz?",
-                    "updated": 1641654684643
+                    "text": "Bu tanımlamanın nasıl yapılacağını söyleyebilir misiniz?",
+                    "updated": 1669581390058
                 }
             ]
         }

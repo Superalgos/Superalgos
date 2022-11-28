@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir!",
-                "updated": 1641660472550
+                "text": "Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir!",
+                "updated": 1669587118067
             },
             {
                 "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir hata oluştuğunda, ilgili mum zaman damgasıyla kaydedilir. Aynı mum üzerinde birden fazla hata meydana gelirse, her hata bir öncekinin altına kaydedilir ve hatalar toplandıkca küçülür . Bu şekilde, tam olarak hangi hataların ne zaman meydana geldiğini bilirsiniz.",
-                    "updated": 1641660516291
+                    "text": "Bir hata oluştuğunda, ilgili mumun zaman damgasıyla birlikte kaydedilir. Aynı mumda birden fazla hata meydana gelirse, her hata bir öncekinin altına çizilir ve uyarı işaretinin boyutu küçülür. Hangi hataların ne zaman gerçekleştiğini tam olarak bu şekilde bilirsiniz.",
+                    "updated": 1669587143588
                 },
                 {
                     "language": "RU",

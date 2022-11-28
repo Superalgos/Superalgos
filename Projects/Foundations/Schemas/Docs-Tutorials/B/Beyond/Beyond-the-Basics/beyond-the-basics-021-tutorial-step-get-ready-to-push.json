@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "İnanılmaz! Dokümanlar'a bir sayfa eklemeyi, düzenlemeyi ve kaydetmeyi öğrendiniz! Şimdi onu PC'nizin ötesine taşımanız ve Superalgos'a katkıda bulunmanız gerekiyor!",
                 "updated": 1640628334773
+            },
+            {
+                "language": "ID",
+                "text": "Luar biasa! kamu sudah mempelajari untuk menambahkan halaman ke Docs, mengedit itu, dan menyimpannya! Sekarang kamu harus membuatnya melebihi PC-mu, dan kontribusikan itu ke Superalgos!",
+                "updated": 1668931188377
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Superalgos, Superalgos kurulumunuzu güncel tutmak ve daha az teknik kullanıcı için katkıları kolaylaştırmak amacıyla Git ile etkileşime girer. App Contribute Command, aşağıdaki Git komutlarını sırayla çalıştırır:",
                     "updated": 1640628398749
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos berinteraksi dengan Git untuk tetap terupdate dengan Instalasi Superalgos dan untuk berkontribusi dengan mudah terhadap user non-teknikal. App Contribute Command berjalan dengan beberapa perintah Git secara berkelanjutan:",
+                    "updated": 1668931194778
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "git add: Katkıda bulunulan dosyalarda yaptığınız değişiklikleri bir git taahhüdüne ekler.",
                     "updated": 1640628443857
+                },
+                {
+                    "language": "ID",
+                    "text": "git add: menambahkan perubahan file yang kamu kontribusikan ke git commit.",
+                    "updated": 1668931203878
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "TR",
                     "text": "git commit: tüm değişiklikleri gerçekleştirir.",
                     "updated": 1640628503599
+                },
+                {
+                    "language": "ID",
+                    "text": "git commit: commits semua perubahan.",
+                    "updated": 1668931215843
                 }
             ]
         },
@@ -173,6 +193,11 @@
                     "language": "TR",
                     "text": "git Push: değişiklikleri çatalınıza gönderir.",
                     "updated": 1640628522294
+                },
+                {
+                    "language": "ID",
+                    "text": "git push: mendorong perubahan ke fork kamu.",
+                    "updated": 1668931225397
                 }
             ]
         },
@@ -207,6 +232,11 @@
                     "language": "TR",
                     "text": "github createPullRequest: Superalgos deposunda bir Çekme İsteği oluşturur veya mevcut bir Çekme İsteğine taahhütler ekler.",
                     "updated": 1640628550015
+                },
+                {
+                    "language": "ID",
+                    "text": "github createPullRequest: membuat Pull Request dengan repository Superalgos, atau menambahkan commits ke Pull Request yang sudah ada.",
+                    "updated": 1668931235892
                 }
             ]
         }

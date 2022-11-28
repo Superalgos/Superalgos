@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "После нажатия кнопки Generate Token вы получите свой драгоценный токен! Не покидайте страницу, так как вы больше никогда его не увидите!",
                 "updated": 1640162993353
+            },
+            {
+                "language": "ID",
+                "text": "Setelah kamu menekan tombol Generate Token, kamu akan mendapatkan token berhargamu! Jangan tinggalkan halaman tersebut karena tidak akan melihatnya lagi!",
+                "updated": 1668950334903
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Скопируйте токен, откройте конфигурацию узла Github API и вставьте его между двойными кавычками параметра token. Заполните параметр username своим именем пользователя GitHub.com, а не электронной почтой!",
                     "updated": 1640163035110
+                },
+                {
+                    "language": "ID",
+                    "text": "Salin token tersebut, buka Github API konfigurasi node, dan tempelkan diantara dua tanda kurung dalam token parameter. Isi parameter username dengan nama pengguna Github.com kamu, bukan email kamu!",
+                    "updated": 1668950341905
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Superalgos хранит токен в файле рабочего пространства, как и ключ учетной записи Exchange Account Key. Токен используется для аутентификации с API GitHub.com для создания Pull Request. Он никогда не отправляется и не хранится где-либо еще.",
                     "updated": 1640163090881
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menyimpan token pada file workflow, seperti Exchange Account Key kamu. token ini digunakan untuk memberikan autentikasi dengan API Github.com untuk membuat Pull Request. Itu tidak pernah dikirim atau disimpan pada tempat lain.",
+                    "updated": 1668950350964
                 }
             ]
         }

@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sözdiziminde hata ayıklamayı kolaylaştırır: mantığı tek bir koşulda topladığınızda, eklemiş olabileceğiniz herhangi bir hatayı bulmak zordur.",
-                    "updated": 1641654501372
+                    "text": "Söz diziminde hata ayıklamayı kolaylaştırır: tüm kodları tek bir koşulda topladığınızda, ortaya çıkan sorunun hangi koşuldan kaynaklandığını bulmanız zorlaşacaktır. Bu yüzden her koşulu ayrı bir düğümde tanımlamak iyi bir seçenektir.",
+                    "updated": 1669580320629
                 }
             ]
         },

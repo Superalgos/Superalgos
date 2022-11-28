@@ -152,8 +152,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Ports) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
-                    "updated": 1640418405614
+                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Port) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
+                    "updated": 1669618111069
                 },
                 {
                     "language": "ID",

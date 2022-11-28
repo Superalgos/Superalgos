@@ -64,13 +64,12 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
-                global.env.SOCIALTRADE_APP_SIGNING_ACCOUNT,
-                global.env.SOCIALTRADE_TARGET_NETWORK_TYPE,
-                global.env.SOCIALTRADE_TARGET_NETWORK_CODENAME,
-                global.env.SOCIALTRADE_APP_MAX_OUTGOING_PEERS,
-                global.env.SOCIALTRADE_APP_MAX_OUTGOING_START_PEERS,
-                thisObject.p2pNetworkInterface.eventReceived,
-                []
+                global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,
+                global.env.SOCIALTRADING_TARGET_NETWORK_TYPE,
+                global.env.SOCIALTRADING_TARGET_NETWORK_CODENAME,
+                global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
+                global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
+                thisObject.p2pNetworkInterface.eventReceived
             )
         }
 

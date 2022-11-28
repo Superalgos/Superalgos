@@ -21,16 +21,16 @@ jest.mock('child_process', () => {
       if (command === `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`) {
         return 0
       }
-      if (command === `cp ${name}.desktop ~/SocialTrade/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`) {
+      if (command === `cp ${name}.desktop ~/SocialTrading/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`) {
         return 0
       }
-      if (command === `chmod +x ${name}.command & cp ${name}.command ~/SocialTrade/${name}.command`) {
+      if (command === `chmod +x ${name}.command & cp ${name}.command ~/SocialTrading/${name}.command`) {
         return 0
       }
       if (command === `npm install -g fileicon`) {
         return 0
       }
-      if (command === `./node_modules/fileicon/bin/fileicon set ~/SocialTrade/${name}.command ./Launch-Scripts/superalgos.ico`) {
+      if (command === `./node_modules/fileicon/bin/fileicon set ~/SocialTrading/${name}.command ./Launch-Scripts/superalgos.ico`) {
         return 0
       }
       if (command === `npm uninstall -g fileicon`) {

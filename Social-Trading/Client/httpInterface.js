@@ -2,7 +2,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
     /*
     This module represent the HTTP API of the 
-    Desktop App Client. All HTTP request are processed
+    Social Trading App Client. All HTTP request are processed
     by this module.
     */
     let thisObject = {

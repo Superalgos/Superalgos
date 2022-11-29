@@ -1,11 +1,11 @@
 exports.newSocialTradingAppBackend = function newSocialTradingAppBackend() {
     /*
-The ST object is accessible everywhere at the Superalgos Desktop App.
+The ST object is accessible everywhere at the Superalgos Social Trading App.
 It provides access to all modules built for this App.
 */
     global.ST = {}
     /*
-    The SA object is accessible everywhere at the Superalgos Desktop App.
+    The SA object is accessible everywhere at the Superalgos Social Trading App.
     It provides access to all modules built for Superalgos in general.
     */
     global.SA = {}
@@ -77,7 +77,7 @@ It provides access to all modules built for this App.
         SECRETS.initialize()
 
 
-        /* Desktop App Interfaces */
+        /* Social Trading App Interfaces */
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
         let P2P_NETWORK_INTERFACE_MODULE = require('./Client/p2pNetworkInterface.js')
 

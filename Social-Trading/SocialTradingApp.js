@@ -15,7 +15,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
     async function run() {
 
-        /* Desktop App Interfaces */
+        /* Social Trading App Interfaces */
         let WEB_SOCKETS_INTERFACE_MODULE = require('./Client/webSocketsInterface.js')
         let HTTP_INTERFACE_MODULE = require('./Client/httpInterface.js')
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')

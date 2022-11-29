@@ -1,6 +1,6 @@
 exports.newSocialTradingRoot = function newSocialTradingRoot() {
     /*
-    This module represents the execution root of the Desktop App.
+    This module represents the execution root of the Social Trading App.
     We use this module that is outside the Desktop folder to 
     load all node dependencies and get them ready to the actual App.
     */
@@ -12,12 +12,12 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
 
     async function run(debugSettings) {
         /* 
-        The ST object is accessible everywhere at the Superalgos Desktop App.
+        The ST object is accessible everywhere at the Superalgos Social Trading App.
         It provides access to all modules built for this App.
         */
         global.ST = {}
         /* 
-        The SA object is accessible everywhere at the Superalgos Desktop App.
+        The SA object is accessible everywhere at the Superalgos Social Trading App.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}
@@ -76,7 +76,7 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
         async function run() {
             ST.app = require('./Social-Trading/SocialTradingApp.js').newSocialTradingApp()
             await ST.app.run()
-            console.log('Superalgos Desktop App is Running!')
+            console.log('Superalgos Social Trading App is Running!')
         }
     }
 }

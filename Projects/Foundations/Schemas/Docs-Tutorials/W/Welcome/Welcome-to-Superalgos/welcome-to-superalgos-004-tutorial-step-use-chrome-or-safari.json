@@ -36,8 +36,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz!",
-                "updated": 1639118223952,
+                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcıları desteklemiyoruz!",
+                "updated": 1669757074910,
                 "style": "Definition"
             },
             {
@@ -252,8 +252,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
-                    "updated": 1633119977867,
+                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
+                    "updated": 1669757105089,
                     "style": "List"
                 },
                 {

@@ -103,11 +103,11 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Socal Trading App Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Socal Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Socal Trading App Client Http Interface ................................................ Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Socal Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

@@ -1,7 +1,7 @@
 exports.newWebSocketsInterface = function newWebSocketsInterface() {
     /*
     This module handles the websockets communication between the 
-    Desktop App's Client and the Desktop App's Web App.
+    Social Trading App's Client and the Social Trading App's Web App.
     */
     let thisObject = {
         sendToWebApp: sendToWebApp,

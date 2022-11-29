@@ -16,6 +16,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         pullUserProfiles: undefined,
         userAppCodeName: undefined,
         p2pNetworkClientIdentity: undefined,
+        loadAllUserProfileBalances: undefined, 
         initialize: initialize,
         run: run
     }
@@ -23,10 +24,16 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
     return thisObject
 
-    async function initialize(userAppCodeName, p2pNetworkClientIdentity, pullUserProfiles) {
+    async function initialize(
+        userAppCodeName,                // This represents the User App that is running. Could be a Network Node App, a Social Trading App, a Task Server App, etc.
+        p2pNetworkClientIdentity,       // Here we will set the Network Client Identity after we load all User Profiles and find the one that is running this App. 
+        pullUserProfiles,               // This is used to know if we need to git pull all User Profiles to keep this App uptodate with changes made by users of their User Profiles over tiem. Usually this is only needed at Network Nodes.
+        loadAllUserProfileBalances      // At some Apps, there is no need to load and keep up to date all User Profile Balances. Only when this is true we will do that, otherwise we will only load the balance of the User Profile running this app. 
+        ) {
         thisObject.pullUserProfiles = pullUserProfiles
         thisObject.userAppCodeName = userAppCodeName
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
+        thisObject.loadAllUserProfileBalances = loadAllUserProfileBalances
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
@@ -313,7 +320,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 userProfile.balance = 0
                 for (const chain of activeChains) {
                     if (
-                        global.TS === undefined ||
+                        thisObject.loadAllUserProfileBalances === true ||
                         thisObject.p2pNetworkClientIdentity.userProfile.id === userProfile.id
                     ) {
                         /*

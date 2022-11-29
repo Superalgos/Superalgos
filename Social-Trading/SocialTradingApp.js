@@ -15,7 +15,24 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
     async function run() {
 
-        /* Social Trading App Interfaces */
+        /* 
+        Social Trading App Interfaces:
+        
+        WEB_SOCKETS_INTERFACE_MODULE:   This is the interface where we expect to receive requests from the UI and send the responses to those requests back to the UI
+                                        syncroniously. This is a local network transport level communication Interface.
+
+        HTTP_INTERFACE_MODULE:          We will use this interface to receive from the UI request for JS files or maybe data files if they are eventually needed.
+                                        This is a local network transport level communication Interface.
+        
+        WEB_APP_INTERFACE_MODULE:       The Social-Trading App has 2 main parts: 1) The Client (a nodejs process), and 2) a Web App (a browser ran app).
+                                        The Web App Interface represents the Interface towards the Web App inside the App Client regardless of the transport used to 
+                                        get the request from the Web App to the Client. It is one layer above the Web or Http interfaces and any business request comming
+                                        from the UI goes through this module.
+                                        
+        P2P_NETWORK_INTERFACE_MODULE:   This is the Interface where all incomming request / events / notifications from the P2P Network are going through. From there they are 
+                                        routed to wherever is needed.                                        
+        
+        */
         let WEB_SOCKETS_INTERFACE_MODULE = require('./Client/webSocketsInterface.js')
         let HTTP_INTERFACE_MODULE = require('./Client/httpInterface.js')
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
@@ -26,7 +43,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         await finalSetupInterfaces()
 
         /*
-        Test Message
+        Test Message: Sometimes devs needs to quicly test something without using the UI...
         
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
@@ -47,7 +64,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
         async function initialSetupInterfaces() {
             /*
-            This is what we are going to use to send messages to the P2P Network.
+            This is what we are going to use to process requests from the Web App / UI.
             */
             thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
             thisObject.webAppInterface.initialize()
@@ -75,15 +92,15 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
         async function finalSetupInterfaces() {
             /* 
-            These are the Network Interfaces by which the Web App interacts with this Desktop Client.
+            These are the Network Interfaces by which the Web App interacts with this Socal Trading App Client.
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Socal Trading App Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Desktop Client Http Interface ................................................ Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Socal Trading App Client Http Interface ................................................ Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

@@ -1,7 +1,7 @@
 exports.newSocialTradingRoot = function newSocialTradingRoot() {
     /*
     This module represents the execution root of the Social Trading App.
-    We use this module that is outside the Desktop folder to 
+    We use this module that is outside the Social-Trading folder to 
     load all node dependencies and get them ready to the actual App.
     */
     let thisObject = {
@@ -25,7 +25,10 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
-
+        /*
+        Here we are defining the cryptographic identity which will be used by this App to
+        identify itself with the Superalgos P2P Network.
+        */
         if (debugSettings !== undefined && debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT !== undefined) {
             global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT = debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT
         }

@@ -1,11 +1,11 @@
 exports.newSocialTradingAppBackend = function newSocialTradingAppBackend() {
     /*
-The ST object is accessible everywhere at the Superalgos Desktop App.
+The ST object is accessible everywhere at the Superalgos Social Trading App.
 It provides access to all modules built for this App.
 */
     global.ST = {}
     /*
-    The SA object is accessible everywhere at the Superalgos Desktop App.
+    The SA object is accessible everywhere at the Superalgos Social Trading App.
     It provides access to all modules built for Superalgos in general.
     */
     global.SA = {}
@@ -19,7 +19,7 @@ It provides access to all modules built for this App.
         run: run
     }
 
-    ST.socialTradeApp = thisObject
+    ST.socialTradingApp = thisObject
 
     return thisObject
 
@@ -31,8 +31,8 @@ It provides access to all modules built for this App.
         let ENVIRONMENT = require('../Environment.js');
         global.env = ENVIRONMENT.newEnvironment();
 
-        if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
-            global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
+        if (debugSettings !== undefined && debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT !== undefined) {
+            global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT = debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT
         }
         /*
         First thing is to load the project schema file.
@@ -77,7 +77,7 @@ It provides access to all modules built for this App.
         SECRETS.initialize()
 
 
-        /* Desktop App Interfaces */
+        /* Social Trading App Interfaces */
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
         let P2P_NETWORK_INTERFACE_MODULE = require('./Client/p2pNetworkInterface.js')
 
@@ -104,11 +104,11 @@ It provides access to all modules built for this App.
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
-                global.env.DESKTOP_APP_SIGNING_ACCOUNT,
+                global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
-                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
-                global.env.DESKTOP_APP_MAX_OUTGOING_START_PEERS,
+                global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
+                global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
                 thisObject.p2pNetworkInterface.eventReceived
             )
         }
@@ -118,8 +118,8 @@ It provides access to all modules built for this App.
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
             let express = require('./backend/src/expressServer.js')
-            express.DesktopBackend(ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
-            console.log(`express Interface ................................................ Listening at port ${ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+            express.DesktopBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+            console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
         }
     }
 }

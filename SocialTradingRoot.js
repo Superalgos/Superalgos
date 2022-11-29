@@ -1,4 +1,4 @@
-exports.newSocialTradeRoot = function newSocialTradeRoot() {
+exports.newSocialTradingRoot = function newSocialTradingRoot() {
     /*
     This module represents the execution root of the Desktop App.
     We use this module that is outside the Desktop folder to 
@@ -26,8 +26,8 @@ exports.newSocialTradeRoot = function newSocialTradeRoot() {
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
 
-        if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
-            global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
+        if (debugSettings !== undefined && debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT !== undefined) {
+            global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT = debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT
         }
         /*
         First thing is to load the project schema file.
@@ -74,7 +74,7 @@ exports.newSocialTradeRoot = function newSocialTradeRoot() {
         run()
 
         async function run() {
-            ST.app = require('./SocialTrade/SocialTradeApp.js').newSocialTradingApp()
+            ST.app = require('./Social-Trading/SocialTradingApp.js').newSocialTradingApp()
             await ST.app.run()
             console.log('Superalgos Desktop App is Running!')
         }

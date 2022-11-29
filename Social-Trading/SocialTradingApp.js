@@ -9,7 +9,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         run: run
     }
 
-    ST.socialTradeApp = thisObject
+    ST.socialTradingApp = thisObject
 
     return thisObject
 
@@ -79,11 +79,11 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Desktop Client Http Interface ................................................ Listening at port ' + ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Desktop Client Http Interface ................................................ Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

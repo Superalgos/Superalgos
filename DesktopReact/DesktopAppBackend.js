@@ -19,7 +19,7 @@ It provides access to all modules built for this App.
         run: run
     }
 
-    ST.socialTradeApp = thisObject
+    ST.socialTradingApp = thisObject
 
     return thisObject
 
@@ -118,8 +118,8 @@ It provides access to all modules built for this App.
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
             let express = require('./backend/src/expressServer.js')
-            express.DesktopBackend(ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
-            console.log(`express Interface ................................................ Listening at port ${ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+            express.DesktopBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+            console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
         }
     }
 }

@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "/home/pi/trading/Superalgos/App-Management"
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [{
+			"name": "Debug delete",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "manageApps.js",
+			"args": [
+				"--help"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		}]
+	}
+}

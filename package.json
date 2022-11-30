@@ -26,9 +26,9 @@
     "lintAll": "eslint . --ext .js",
     "lintFile": "eslint --ext .js",
     "prepare": "husky install",
-    "socialTradingAppDev": "vite serve ./SocialTrade/Vue-UI",
-    "socialTradingAppBuild": "vite build ./SocialTrade/Vue-UI",
-    "socialTradingAppPreview": "vite preview ./SocialTrade/Vue-UI/dist",
+    "socialTradingAppDev": "cd ./SocialTrade/Vue-U && vite dev",
+    "socialTradingAppBuild": "cd ./SocialTrade/Vue-U && vite build",
+    "socialTradingAppPreview": "cd ./SocialTrade/Vue-U && vite preview",
     "build": "webpack build --config ./Dashboards/webpack.config.js",
     "serve": "webpack-dev-server --mode development --config ./Dashboards/webpack.config.js"
   },

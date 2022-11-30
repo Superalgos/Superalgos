@@ -1,9 +1,8 @@
-import { createApp } from 'vue'
-import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from './views/HomeView.vue'
-import DevelopersView from './views/DevelopersView.vue'
-import BitcoinFactoryView from './views/BitcoinFactoryView.vue'
+import HomeView from '../views/HomeView.vue'
+import DevelopersView from '../views/DevelopersView.vue'
+import BitcoinFactoryView from '../views/BitcoinFactoryView.vue'
+
 
 const routes = [
   {
@@ -29,4 +28,4 @@ const router = createRouter({
   routes
 })
 
-createApp(App).use(router).mount('#app')
+export default router

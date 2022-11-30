@@ -5,14 +5,16 @@
             <button class="nav-btn" @click="openMenu">Dashboards</button>
             <button class="nav-btn" @click="openSettings">Settings</button>
         </div>
-    </div>
-    <Drawer class="drawer-theme" :direction="'left'" :exist="true" ref="LeftDrawer">
+
+        <Drawer class="drawer-theme" :direction="'left'" :exist="true" ref="LeftDrawer">
             <img class="logo" :src="logo" >
             <div class="dash-link-container" v-for="dashboard in dashboards">
+                <router-link class="dash-link" :to="{ name: dashboard.name }" >{{dashboard.name}} Dashboard</router-link>
             </div>
-    </Drawer>
-    <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
-    <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
+        </Drawer>
+        <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
+        <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
+    </div>
 </template>
 
 <script>

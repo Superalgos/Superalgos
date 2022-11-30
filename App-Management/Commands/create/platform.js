@@ -1,4 +1,5 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
+const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 
 exports.platformCommand = function platformCommand() {
     const thisObject = {
@@ -40,9 +41,14 @@ exports.platformCommand = function platformCommand() {
             startProcess.env = { 
                 'PROFILE_NAME': args.profile 
             }
+            const profile = getProfile(args.profile)
+            if(profile !== undefined && profile.storeLogs !== undefined) {
+                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'platform-console.log')
+            }
         }
         
         console.log('[INFO] Platform app starting with the following options: ', JSON.stringify(arguments))
+        console.log('[INFO] Platform app pm2 logs location: ' + startProcess.log_file)
 
         // pm2m.connect()
         //     .then(() => pm2m.start(startProcess))

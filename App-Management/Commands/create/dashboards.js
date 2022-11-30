@@ -1,4 +1,5 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
+const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 
 exports.dashboardsCommand = function dashboardsCommand() {
@@ -36,9 +37,14 @@ exports.dashboardsCommand = function dashboardsCommand() {
             startProcess.env = { 
                 'PROFILE_NAME': args.profile 
             }
+            const profile = getProfile(args.profile)
+            if(profile !== undefined && profile.storeLogs !== undefined) {
+                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'dashboards-console.log')
+            }
         }
 
         console.log('[INFO] Dashboards app starting with the following options: ', JSON.stringify(arguments))
+        console.log('[INFO] Dashboards app pm2 logs location: ' + startProcess.log_file)
 
         // pm2m.connect()
         //     .then(() => pm2m.start(startProcess))

@@ -1,4 +1,5 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
+const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 
 exports.networkCommand = function networkCommand() {
@@ -30,9 +31,14 @@ exports.networkCommand = function networkCommand() {
             startProcess.env = { 
                 'PROFILE_NAME': args.profile 
             }
+            const profile = getProfile(args.profile)
+            if(profile !== undefined && profile.storeLogs !== undefined) {
+                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'network-console.log')
+            }
         }
         
         console.log('[INFO] Network app starting')
+        console.log('[INFO] Network app pm2 logs location: ' + startProcess.log_file)
 
         // pm2m.connect()
         //     .then(() => pm2m.start(startProcess))

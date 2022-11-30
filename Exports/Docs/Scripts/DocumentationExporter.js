@@ -85,8 +85,7 @@ exports.documentationExporter = function documentationExporter() {
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         
-        let fileName = thisObject.currentDocumentBeingRendered.type + (ED.asShtml ? '.shtml' : '.html')
-        fileName = ED.utilities.normaliseStringForLink(fileName)
+        const fileName = ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + (ED.asShtml ? '.shtml' : '.html')
         filePath = filePath + fileName
 
         ED.pageGlobals.addNavigation(

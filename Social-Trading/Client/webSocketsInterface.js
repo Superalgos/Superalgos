@@ -1,7 +1,7 @@
 exports.newWebSocketsInterface = function newWebSocketsInterface() {
     /*
     This module handles the websockets communication between the 
-    Desktop App's Client and the Desktop App's Web App.
+    Social Trading App's Client and the Social Trading App's Web App.
     */
     let thisObject = {
         sendToWebApp: sendToWebApp,
@@ -20,7 +20,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
     }
 
     function initialize() {
-        let port = ST.socialTradeApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort
+        let port = ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort
         socketServer = new SA.nodeModules.ws.Server({ port: port })
         setUpWebSocketServer()
     }
@@ -62,7 +62,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                             return
                         }
 
-                        await ST.socialTradeApp.webAppInterface.sendMessage(messageHeader.payload)
+                        await ST.socialTradingApp.webAppInterface.sendMessage(messageHeader.payload)
                             .then(sendResponseToWebApp)
                             .catch(onError)
 

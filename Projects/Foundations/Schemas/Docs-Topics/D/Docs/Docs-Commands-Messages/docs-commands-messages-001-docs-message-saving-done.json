@@ -38,6 +38,11 @@
                 "language": "TR",
                 "text": "docs.save komutu başarılı oldu ve tüm değişiklikler Superalgos İstemcisine kaydedildi",
                 "updated": 1640002778163
+            },
+            {
+                "language": "NL",
+                "text": "De opdracht docs.save is gelukt en alle wijzigingen zijn opgeslagen in de Superalgos-client.",
+                "updated": 1669749167457
             }
         ]
     },

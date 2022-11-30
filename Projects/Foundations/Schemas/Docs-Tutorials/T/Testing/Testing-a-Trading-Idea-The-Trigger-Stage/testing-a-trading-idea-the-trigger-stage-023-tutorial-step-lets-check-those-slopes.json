@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
-                "updated": 1641653922774
+                "text": "Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
+                "updated": 1669577686096
             }
         ]
     },
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "alt kanalların eğiminin bir trendde neredeyse hiç yanal olmadığını unutmayın. Yanal eğim MA'da mümkün olan en düşük eğimi temsil ettiği için bu da beklenen bir durumdur. Piyasanın dalgalı olduğu dönemlerde yön yukarı ve aşağı yönlü hareketler arasında ileri geri geçiş yapabilir, ancak eğim çoğunlukla yanaldır.",
-                    "updated": 1641653985058
+                    "text": "Piyasa trenddeyken, alt kanal eğiminin neredeyse hiçbir zaman Yan olmadığına dikkat edin. Yan eğim MA'da mümkün olan en sığ eğimi temsil ettiği için bu beklenen bir durumdur. Öte yandan, piyasanın değişkenlik gösterdiği dönemlerde, yön Yukarı ve Aşağı arasında gidip gelse de, eğim çoğunlukla Yan'dır.",
+                    "updated": 1669577763292
                 }
             ]
         }

@@ -1,5 +1,4 @@
-const pm2 = require('pm2')
-const path = require('path')
+const pm2m = require('../../Pm2Management/manager').pm2Manager()
 
 exports.platformCommand = function platformCommand() {
     const thisObject = {
@@ -26,18 +25,13 @@ exports.platformCommand = function platformCommand() {
         if(args.noBrowser) { arguments.push('noBrowser')}
         
         console.log('[INFO] Platform app starting with the following options: ', JSON.stringify(arguments))
-        // pm2.start({
+        // pm2m.connect()
+        // .then(() => pm2m.start({
         //     script: 'platform.js',
         //     name: 'platform',
         //     args: arguments,
         //     cwd: path.join(__dirname),
         //     log_file: path.join(__dirname, 'Platform', 'My-Log-Files', 'platform-console.log')
-        // }, function (err) {
-        //     if (err) {
-        //         console.error(err)
-        //         return pm2.disconnect()
-        //     }
-        //     console.log('[INFO] Platform app now running under PM2 dameon')
-        // })
+        // })).then(() => pm2m.disconnect())
     }
 }

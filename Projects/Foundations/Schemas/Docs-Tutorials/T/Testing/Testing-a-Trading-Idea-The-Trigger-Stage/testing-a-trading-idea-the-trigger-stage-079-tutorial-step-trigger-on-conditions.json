@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Tetikleme koşulları, alt kanalın yönünün aşağı olmasını ve mevcut 24 saatlik mumdaki eğimin yan olmamasını gerektirir!",
-                "updated": 1641666063759
+                "text": "Tetikleme koşulları, alt kanalın yönünün aşağı (Down) olmasını ve mevcut 24 saatlik mumdaki eğimin yan (Side) olmamasıdır!",
+                "updated": 1669670760532
             },
             {
                 "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut gün mumu nedir? Kapalı mumları derecelendirme hakkında daha önce öğrendiklerinizi hatırlayın!",
-                    "updated": 1641666085346
+                    "text": "Mevcut gün mumu nedir? Kapalı mumları değerlendirme hakkında daha önce öğrendiklerinizi hatırlayın!",
+                    "updated": 1669670868101
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Günün mevcut mumu en son kapatılan mumdur: 27 Şubat mumu, çünkü 28 Şubat mumu henüz kapanmamıştır! 24 saatlik grafiğe gidin ve 27 Şubat'ta alt kanalın yan tarafı değil aşağıyı gösterdiğini onaylayın!",
-                    "updated": 1641666096125
+                    "text": "Günün mevcut mumu en son kapatılan mumdur: 27 Şubat mumu. Çünkü 28 Şubat mumu henüz kapanmamıştır! 24 saatlik grafiğe baktığınızda 27 Şubat'ta alt kanalın yan (Side) değil aşağıyı (Down) gösterdiğini göreceksiniz!",
+                    "updated": 1669670994254
                 },
                 {
                     "language": "RU",

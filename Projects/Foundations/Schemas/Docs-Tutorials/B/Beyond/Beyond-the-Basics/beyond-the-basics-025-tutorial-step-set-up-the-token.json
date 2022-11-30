@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Setelah kamu menekan tombol Generate Token, kamu akan mendapatkan token berhargamu! Jangan tinggalkan halaman tersebut karena tidak akan melihatnya lagi!",
                 "updated": 1668950334903
+            },
+            {
+                "language": "NL",
+                "text": "Nadat je op de Generate Token-knop hebt gedrukt, krijg je je kostbare token! Verlaat de pagina niet, want je zult hem nooit meer zien!",
+                "updated": 1669749629549
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Salin token tersebut, buka Github API konfigurasi node, dan tempelkan diantara dua tanda kurung dalam token parameter. Isi parameter username dengan nama pengguna Github.com kamu, bukan email kamu!",
                     "updated": 1668950341905
+                },
+                {
+                    "language": "NL",
+                    "text": "Kopieer het token, open de configuratie van het Github API knooppunt en plak het tussen de dubbele aanhalingstekens van de token parameter. Vul de username parameter in met uw GitHub.com-gebruiker, niet met uw e-mailadres!",
+                    "updated": 1669749676494
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Superalgos menyimpan token pada file workflow, seperti Exchange Account Key kamu. token ini digunakan untuk memberikan autentikasi dengan API Github.com untuk membuat Pull Request. Itu tidak pernah dikirim atau disimpan pada tempat lain.",
                     "updated": 1668950350964
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos slaat het token op in het werkruimtebestand, net als uw Exchange Account Key. Het token wordt gebruikt om te verifiëren met de API van GitHub.com om het Pull Request te maken. Het wordt nooit ergens anders verzonden of opgeslagen.",
+                    "updated": 1669749725393
                 }
             ]
         }

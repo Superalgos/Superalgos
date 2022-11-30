@@ -16,7 +16,7 @@
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
-    "startSocialTrade": "node socialTrade",
+    "startSocialTrading": "node socialTrading",
     "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",

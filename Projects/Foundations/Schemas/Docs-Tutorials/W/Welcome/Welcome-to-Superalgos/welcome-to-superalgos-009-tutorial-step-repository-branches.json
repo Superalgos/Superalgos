@@ -43,6 +43,11 @@
                 "language": "TR",
                 "text": "Superalgos deposu iki ana dala sahiptir: Master ve Develop.",
                 "updated": 1639942169332
+            },
+            {
+                "language": "NL",
+                "text": "De Superalgos-repository heeft twee hoofd branches: Master en Develop.",
+                "updated": 1669573989936
             }
         ]
     },
@@ -85,6 +90,11 @@
                     "language": "TR",
                     "text": "Master Dalı: Yazılımın kararlı sürümünü içerir. Bu dala asla katkı göndermeyin!",
                     "updated": 1665961671895
+                },
+                {
+                    "language": "NL",
+                    "text": "Master Branch: beschikt over de stabiele versie van de software. Dien nooit bijdragen in voor deze branch!",
+                    "updated": 1669573978054
                 }
             ]
         },
@@ -126,6 +136,11 @@
                     "language": "TR",
                     "text": "Develop Dalı: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
                     "updated": 1665961827703
+                },
+                {
+                    "language": "NL",
+                    "text": "Develop Branch: bevat de versie die momenteel in ontwikkeling is. Dien bijdragen in van code die van invloed is op de codebase, vertalingen, verbeteringen in de Docs, zelfstudies en plugins zoals data mines, trading systems, enzovoort!",
+                    "updated": 1669574061328
                 }
             ]
         },
@@ -149,6 +164,11 @@
                     "language": "ES",
                     "text": "Ignore las instrucciones para cambiar de rama de los siguientes pasos si no está utilizando la instalación de Contributors. Simplemente haga clic en Siguiente para continuar.",
                     "updated": 1667509026793
+                },
+                {
+                    "language": "NL",
+                    "text": "Negeer de instructies om van branche te wisselen in de volgende paar stappen als u de Contributors-installatie niet gebruikt. Klik gewoon op Next om door te gaan.",
+                    "updated": 1669574092281
                 }
             ]
         }

@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Изменять можно не только рабочие пространства",
                 "updated": 1640633292137
+            },
+            {
+                "language": "ID",
+                "text": "Tidak hanyak Workspace yang dapat diubah",
+                "updated": 1669803238489
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "У Superalgos модульная система, которая может быть организована так, как мы хотим для наших нужд.",
                     "updated": 1640633435587
+                },
+                {
+                    "language": "ID",
+                    "text": "SA sangatlah standar dan dapat diatur sesuai dengan keinginan kita.",
+                    "updated": 1669803246417
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "RU",
                     "text": "Я подготовил для вас базовое рабочее пространство с новым Data Mine и расположил узлы, удалив все, что мне не нужно для этого урока.",
                     "updated": 1640633473041
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku sarankan kamu pada Workspace standar dengan Data Mine baru serta aku hapus node yang tidak terlalu dibutuhkan untuk tutorial ini.",
+                    "updated": 1669803253824
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "RU",
                     "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор!",
                     "updated": 1640633531680
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada SA data mines bisa ditambahkan atau dihilangkan tetapi data yang disimpan di hard disk kamu tidak akan terhapus apabila kamu menghapus indikator!",
+                    "updated": 1669803260240
                 }
             ]
         },

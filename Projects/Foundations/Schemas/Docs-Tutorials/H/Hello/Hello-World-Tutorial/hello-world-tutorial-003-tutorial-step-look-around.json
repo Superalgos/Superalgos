@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Рабочее пространство можно поменять!",
                 "updated": 1640632880649
+            },
+            {
+                "language": "ID",
+                "text": "Workspace dapat diubah!",
+                "updated": 1669803086481
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Я расположил рабочее пространство несколько иначе, чем в Getting Started Tutorial. Это хорошая практика - настраивать рабочее пространство, чтобы сохранить его опрятным и чистым. Помните, что каждая иерархия, узел или потомок могут повлиять на ресурсы вашей машины.",
                     "updated": 1640632949728
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku mengatur workspace sedikit berbeda dengan Getting Started. Itu adalah praktek bagus untuk mengkostumisasi workspace agar tetap rapi dan bersih. Ingatlah bahwa setiap hirarki, node, atau turunan dapat berpengaruh pada sumber daya mesinmu.",
+                    "updated": 1669803093822
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас!",
                     "updated": 1640632964362
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah sekeliling, click kanan pada tempat kosong dan jelajahi Workspace yang telah aku atur untukmu!",
+                    "updated": 1669803129289
                 }
             ]
         },

@@ -47,8 +47,3 @@ builder = commands.reduce((args, c) => args.command(c.name, c.description, c.opt
 builder.alias('h', 'help')
     .help()
     .parse()
-
-
-function runApps() {
-    console.log('You need to add additional commands, please run `manageApps run --help`')
-}

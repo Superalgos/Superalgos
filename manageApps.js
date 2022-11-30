@@ -39,21 +39,15 @@ FURTHER PROCESS MANAGMENT:
 */
 
 const commands = [
-    require('./App-Management/Commands/platform').platformCommand(),
-    require('./App-Management/Commands/dashboards').dashboardsCommand(),
-    require('./App-Management/Commands/network').networkCommand(),
-    require('./App-Management/Commands/multi').multiCommand(),
+    require('./App-Management/Commands/create/index').runCommands(),
 ]
 
-yargs(hideBin(process.argv))
-    .command('run', 'use this command to run apps using pm2 process managment', runOptions, runApps)
-    .alias('h','help')
+let builder = yargs(hideBin(process.argv))
+builder = commands.reduce((args, c) => args.command(c.name, c.description, c.options, c.runner).help(), builder)
+builder.alias('h', 'help')
     .help()
     .parse()
 
-function runOptions(cmd) {
-    return commands.reduce((builder, c) => builder.command(c.name, c.description, c.options, c.runner).help(), cmd)
-}
 
 function runApps() {
     console.log('You need to add additional commands, please run `manageApps run --help`')

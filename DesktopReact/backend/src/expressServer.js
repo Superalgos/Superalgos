@@ -12,7 +12,7 @@ exports.DesktopBackend = (port, SA, ST) => {
 
         app.use(function (req, res, next) {
             global.SA = SA;
-            global.webAppInterface = ST.socialTradeApp.webAppInterface;
+            global.webAppInterface = ST.socialTradingApp.webAppInterface;
             next();
         });
 

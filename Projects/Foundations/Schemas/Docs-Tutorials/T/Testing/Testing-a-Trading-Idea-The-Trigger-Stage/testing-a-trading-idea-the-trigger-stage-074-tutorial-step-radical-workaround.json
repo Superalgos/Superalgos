@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Aç, Kapat ve Yönet Aşamasındaki tanımlar bu serideki bir sonraki öğreticinin konusudur!",
-                "updated": 1641665191783
+                "text": "Aç, Kapat ve Yönet Aşamasındaki tanımlar bu serideki bir sonraki öğreticinin konusudur!",
+                "updated": 1669669660268
             },
             {
                 "language": "RU",
@@ -81,8 +81,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayı ( Take Position Event ) true olarak ilan edilirse ve ticaret botu açık aşamanın ( Open Stage ) tanımlarını okumaya çalışırsa, stratejinin geri kalanının tanımsız olduğunu anlayacak ve stratejiyi kapatacaktır.",
-                    "updated": 1641665232509
+                    "text": "Pozisyon alma olayı ( Take Position Event ) doğru ( true ) olduğunda ve ticaret botu açık aşamanın ( Open Stage ) tanımlarını okumaya çalıştığında, stratejinin geri kalanının tanımsız olduğunu anlayacak ve stratejiyi kapatacaktır.",
+                    "updated": 1669669934959
                 },
                 {
                     "language": "RU",

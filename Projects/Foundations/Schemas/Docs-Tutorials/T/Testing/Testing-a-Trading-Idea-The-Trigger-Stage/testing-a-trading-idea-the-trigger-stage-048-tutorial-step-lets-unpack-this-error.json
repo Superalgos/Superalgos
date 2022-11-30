@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor!",
-                "updated": 1641661632347
+                "text": "Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor!",
+                "updated": 1669587823516
             },
             {
                 "language": "RU",
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hatanın ilişkili olduğu nesne bollingerSubChannel ürünüdür. Bu nesne \\\"tanımsız\\\". Peki neden? Bulmacanın son bir parçası daha var: hata veri kümesinin başında oluşuyor. Sorunu anladın mı?",
-                    "updated": 1641661675751
+                    "text": "Hatanın atıfta bulunduğu nesne bollingerSubChannel ürünüdür. Bu nesne \"undefined\" (tanımlanmamış). Neden? Bulmacanın son bir parçası daha var: hata veri setinin başında meydana geliyor. Sorunu görüyor musunuz?",
+                    "updated": 1669587905723
                 },
                 {
                     "language": "RU",

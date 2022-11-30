@@ -24,7 +24,7 @@ SINGLE APP:
 
 MULTI APP:
     Multiple apps can be run at the same time using the following syntax:
-    node manageApps run multi --platform--minMemo--noBrowser --network --dashboards-minMemo
+    node manageApps run multi --platform --network --dashboards --minMemo --noBrowser
 
 FURTHER PROCESS MANAGMENT:
     PM2 offers further commands to manage apps once they are running.

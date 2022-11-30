@@ -3,8 +3,9 @@ const pm2 = require('pm2')
 exports.pm2Manager = function pm2Manager() {
     const thisObject = {
         connect: connect,
-        list: list,
         disconnect: disconnect,
+        list: list,
+        describe: describe,
         start: start,
         startMany: startMany,
         restart: restart,
@@ -42,12 +43,24 @@ exports.pm2Manager = function pm2Manager() {
     }    
 
     /**
+     * @param {string} name
+     * @returns {Promise<{}>}
+     */ 
+    function describe(name) {
+        return new Promise((res, rej) => pm2.describe(name, (err, details) => {
+            if(err) { rej(err) }
+            else { res(details.map(p => ({pid: p.pid, name: p.name, args: p.pm2_env.args}))[0]) }
+        }))    
+    }    
+
+    /**
      * @typedef {{
-     *   script: string,
      *   name: string,
-     *   args: string[],
+     *   script: string,
      *   cwd: string,
-     *   log_file: string
+     *   args?: string[],
+     *   env?: { [key: string]: string; },
+     *   log_file?: string
      * }} Process
      */
 

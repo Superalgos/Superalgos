@@ -1,4 +1,4 @@
-const pm2 = require('pm2')
+const pm2m = require('../../Pm2Management/manager').pm2Manager()
 
 exports.describeCommand = function describeCommand() {
     const thisObject = {
@@ -18,6 +18,9 @@ exports.describeCommand = function describeCommand() {
 
     function runner(args) {
         console.log('[INFO] Describin the ' + args.name + ' process')
-        pm2.describe(args.name)
+        pm2m.connect()
+            .then(() => pm2m.describe(args.name))
+            .then((list) => console.log(list))
+            .then(() => pm2m.disconnect())
     }
 }

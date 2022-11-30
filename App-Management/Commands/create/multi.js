@@ -1,6 +1,3 @@
-const pm2 = require('pm2')
-const path = require('path')
-
 exports.multiCommand = function multiCommand() {
     const thisObject = {
         name: 'multi',
@@ -30,6 +27,9 @@ exports.multiCommand = function multiCommand() {
             description: 'This will apply the minMemo - minimum memory footprint - attribute to all the services that list it as an option',
             boolean: true,
             default: false
+        }).option('profile', {
+            description: 'A custom profile to apply to the processes being started',
+            string: true
         })
     }
 
@@ -42,17 +42,21 @@ exports.multiCommand = function multiCommand() {
         if(args.platform) { 
             require('./platform').platformCommand().runner({
                 minMemo: args.minMemo,
-                noBrowser: args.noBrowser
+                noBrowser: args.noBrowser,
+                profile: args.profile
             })
         }
 
         if(args.network) {
-            require('./network').networkCommand().runner({})
+            require('./network').networkCommand().runner({
+                profile: args.profile
+            })
         }
 
         if(args.dashboards) { 
             require('./dashboards').dashboardsCommand().runner({
-                minMemo: args.minMemo
+                minMemo: args.minMemo,
+                profile: args.profile
             })
         }
 

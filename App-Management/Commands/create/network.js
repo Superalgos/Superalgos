@@ -1,4 +1,4 @@
-const pm2 = require('pm2')
+const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const path = require('path')
 
 exports.networkCommand = function networkCommand() {
@@ -11,22 +11,31 @@ exports.networkCommand = function networkCommand() {
     return thisObject
 
     function options(cmd) {
-        return cmd
+        return cmd.option('profile', {
+            description: 'A custom profile to apply to the process being started',
+            string: true
+        })
     }
 
-    function runner() {
+    function runner(args) {
+        const name = args.profile !== undefined ? 'sa-' + args.profile + '-network' : 'sa-default-network'
+        const startProcess = {
+            script: 'network.js',
+            name,
+            cwd: path.join(__dirname),
+            log_file: path.join(__dirname, 'My-Log-Files', 'pm2', 'network-console.log')
+        }
+        
+        if(args.profile !== undefined) {
+            startProcess.env = { 
+                'PROFILE_NAME': args.profile 
+            }
+        }
+        
         console.log('[INFO] Network app starting')
-        // pm2.start({
-        //     script: 'network.js',
-        //     name: 'network',
-        //     cwd: path.join(__dirname),
-        //     log_file: path.join(__dirname, 'Network', 'My-Log-Files', 'network-console.log')
-        // }, function (err) {
-        //     if (err) {
-        //         console.error(err)
-        //         return pm2.disconnect()
-        //     }
-        //     console.log('[INFO] Network app now running under PM2 dameon')
-        // })
+
+        // pm2m.connect()
+        //     .then(() => pm2m.start(startProcess))
+        //     .then(() => pm2m.disconnect())
     }
 }

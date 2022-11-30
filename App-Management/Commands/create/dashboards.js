@@ -1,4 +1,4 @@
-const pm2 = require('pm2')
+const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const path = require('path')
 
 exports.dashboardsCommand = function dashboardsCommand() {
@@ -14,6 +14,9 @@ exports.dashboardsCommand = function dashboardsCommand() {
         return cmd.option('minMemo', {
             boolean: true,
             default: false
+        }).option('profile', {
+            description: 'A custom profile to apply to the process being started',
+            string: true
         })
     }
 
@@ -21,19 +24,24 @@ exports.dashboardsCommand = function dashboardsCommand() {
         const arguments = []
         if(args.minMemo) { arguments.push('minMemo')}
 
+        const name = args.profile !== undefined ? 'sa-' + args.profile + '-dashboards' : 'sa-default-dashboards'
+        const startProcess = {
+            script: 'dashboards.js',
+            name,
+            cwd: path.join(__dirname),
+            log_file: path.join(__dirname, 'My-Log-Files', 'pm2', 'dashboards-console.log')
+        }
+
+        if(args.profile !== undefined) {
+            startProcess.env = { 
+                'PROFILE_NAME': args.profile 
+            }
+        }
+
         console.log('[INFO] Dashboards app starting with the following options: ', JSON.stringify(arguments))
-        // pm2.start({
-        //     script: 'dashboards.js',
-        //     name: 'dashboards',
-        //     args: arguments,
-        //     cwd: path.join(__dirname),
-        //     log_file: path.join(__dirname, 'Dashboards', 'My-Log-Files', 'dashboards-console.log')
-        // }, function (err, apps) {
-        //     if (err) {
-        //         console.error(err)
-        //         return pm2.disconnect()
-        //     }
-        //     console.log('[INFO] Dashboards app now running under PM2 dameon')
-        // })
+
+        // pm2m.connect()
+        //     .then(() => pm2m.start(startProcess))
+        //     .then(() => pm2m.disconnect())
     }
 }

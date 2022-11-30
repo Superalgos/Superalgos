@@ -17,7 +17,7 @@ exports.allCommand = function allCommand() {
         console.log('[INFO] Listing running processes')
         pm2m.connect()
             .then(() => pm2m.list())
-            .then((list) => console.log(list))
+            .then((list) => console.log(list.filter( x => /^sa/.test(x.name))))
             .then(() => pm2m.disconnect())
     }
 }

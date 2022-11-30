@@ -1,7 +1,7 @@
-exports.newDesktopRoot = function newDesktopRoot() {
+exports.newSocialTradingRoot = function newSocialTradingRoot() {
     /*
-    This module represents the execution root of the Desktop App.
-    We use this module that is outside the Desktop folder to 
+    This module represents the execution root of the Social Trading App.
+    We use this module that is outside the Social-Trading folder to 
     load all node dependencies and get them ready to the actual App.
     */
     let thisObject = {
@@ -12,12 +12,12 @@ exports.newDesktopRoot = function newDesktopRoot() {
 
     async function run(debugSettings) {
         /* 
-        The DK object is accessible everywhere at the Superalgos Desktop App.
+        The ST object is accessible everywhere at the Superalgos Social Trading App.
         It provides access to all modules built for this App.
         */
-        global.DK = {}
+        global.ST = {}
         /* 
-        The SA object is accessible everywhere at the Superalgos Desktop App.
+        The SA object is accessible everywhere at the Superalgos Social Trading App.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}
@@ -25,9 +25,12 @@ exports.newDesktopRoot = function newDesktopRoot() {
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
-
-        if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
-            global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
+        /*
+        Here we are defining the cryptographic identity which will be used by this App to
+        identify itself with the Superalgos P2P Network.
+        */
+        if (debugSettings !== undefined && debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT !== undefined) {
+            global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT = debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT
         }
         /*
         First thing is to load the project schema file.
@@ -38,7 +41,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
         */
         let MULTI_PROJECT = require('./MultiProject.js')
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-        MULTI_PROJECT_MODULE.initialize(DK, 'DK')
+        MULTI_PROJECT_MODULE.initialize(ST, 'ST')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
         /*
         Setting up external dependencies.
@@ -74,9 +77,9 @@ exports.newDesktopRoot = function newDesktopRoot() {
         run()
 
         async function run() {
-            DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
-            await DK.app.run()
-            console.log('Superalgos Desktop App is Running!')
+            ST.app = require('./Social-Trading/SocialTradingApp.js').newSocialTradingApp()
+            await ST.app.run()
+            console.log('Superalgos Social Trading App is Running!')
         }
     }
 }

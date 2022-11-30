@@ -1,5 +1,6 @@
-const projects = %%PROJECTS%%
-const baseUrl = %%BASE_URL%%
+const projects = __PROJECTS__
+const baseUrl = __BASE_URL__
+const linkExt = __LINK_EXT__
 
 let documentIndex = new FlexSearch.Document({
     preset: "performance",
@@ -157,8 +158,7 @@ function renderSearchResults(command) {
         for (let i = 0; i < tabs.length; i++) {
             let tab = tabs[i]
             HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_SECONDS', totalSeconds)
-            resultCounter = totalResults.get(tab)
-            HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', resultCounter)
+            HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', totalResults.get(tab))
         }
 
         let searchContentDiv = document.getElementById('docs-search-content-div')
@@ -169,12 +169,18 @@ function renderSearchResults(command) {
         tippy('#close-search-results', {content: "Clear and close search results", theme: "superalgos"})
 
         function buildLink(routeParts) {
-            const lastItem = routeParts.splice([routeParts.length-1],1)
-            return routeParts.join('/') + '/' + normaliseStringForLink(lastItem[0]) + '.html'
+            const lastItem = routeParts.splice(routeParts.length-1, 1)
+            return routeParts.join('/') + '/' + normaliseStringForLink(lastItem[0]) + linkExt
         }
 
         function normaliseStringForLink(value) {
-            return value.replace(/[^a-z0-9\.\/]/gi, '-').toLowerCase()
+            return value
+                .replace(/'/g, '')
+                .replace(/[^A-Za-z0-9_\/]/gi, '-')
+                .replace(/-{2,}/g, '-')
+                .replace(/^-/g, '')
+                .replace(/-$/g, '')
+                .toLowerCase()
         }
 
         function addTranslations(definition) {

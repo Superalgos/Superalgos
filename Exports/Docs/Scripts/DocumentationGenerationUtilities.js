@@ -790,13 +790,13 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
      * @return {string}
      */
     function normaliseInternalLink(routeParts) {
+        const ext = ED.asShtml ? '.shtml' : '.html'
         if(routeParts.length == 0) {
-            return global.env.REMOTE_DOCS_DIR + 'index.html'
+            return global.env.REMOTE_DOCS_DIR + 'index' + ext
         }
         routeParts = trimLocalPath(routeParts.join('/'))
         if(!/\.[a-z]{3,4}/.test(routeParts[routeParts.length-1])) {
-            return global.env.REMOTE_DOCS_DIR + routeParts.join('/') + '.html'
-
+            return global.env.REMOTE_DOCS_DIR + routeParts.join('/') + ext
         }
         else {
             return global.env.REMOTE_DOCS_DIR + routeParts.join('/')
@@ -813,11 +813,29 @@ exports.documentGenerationUtilities = function documentGenerationUtilities() {
     }
 
     /**
+     * Removes any single quote then 
+     * replaces all characters that are not 'A-Z' 'a-z' '0-9' or a '/' with a '-'
+     * then reduces any occurences of 2 or more '-' down to a single '-'
+     * and removes the dash if it is a first or last character
+     * 
+     * Example:
+     * 
+     * *Tutorial Step - Ok... Back to Work!*
+     * 
+     * returns as
+     * 
+     * *Tutorial-Step-Ok-Back-to-Work*
      * 
      * @param {string} value 
      * @returns {string}
      */
     function normaliseStringForLink(value) {
-        return value.replace(/[^a-z0-9\.\/]/gi, '-').toLowerCase()
+        return value
+            .replace(/'/g, '')
+            .replace(/[^A-Za-z0-9_\/]/gi, '-')
+            .replace(/-{2,}/g, '-')
+            .replace(/^-/g, '')
+            .replace(/-$/g, '')
+            .toLowerCase()
     }
 }

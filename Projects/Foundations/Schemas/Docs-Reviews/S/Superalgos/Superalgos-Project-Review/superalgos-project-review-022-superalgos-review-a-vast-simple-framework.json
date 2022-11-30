@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Superalgos: Первый взгляд",
                 "updated": 1640414268877
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos: İlk Bakış",
+                "updated": 1669310830036
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "С самого начала Superalgos обрушивает на вас стены текста, и все они полезны. Сам пользовательский интерфейс довольно интуитивно понятен и прост в использовании, но перетаскивание элементов для установления связей несколько неуклюже. Я с нетерпением жду возможности внести свой вклад, помимо, как я надеюсь, конструктивной критики, и надеюсь увидеть некоторую личную пользу от использования и участия в этом проекте.",
                     "updated": 1640414306683
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos sizi en başından itibaren hepsi de faydalı olan metin duvarlarıyla karşılıyor. Kullanıcı arayüzünün kendisi oldukça sezgisel ve kullanımı kolay, ancak ilişkilendirmeler yapmak için öğelerin sürüklenmesi biraz beceriksiz. Yapıcı eleştirilerin ötesinde bir katkıda bulunmayı dört gözle bekliyorum ve bu projenin kullanımı ve katılımından bazı kişisel faydalar görmeyi umuyorum.",
+                    "updated": 1669310985957
                 }
             ]
         },

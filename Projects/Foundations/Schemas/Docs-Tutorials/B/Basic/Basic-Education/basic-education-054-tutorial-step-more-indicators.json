@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Indikator dibangun oleh Komunitas! Biasanya, developer akan membangun beberapa indikator yang dia butuhkan, dan berkontribusi pada projek di Data Mine baru!",
                 "updated": 1645561682561
+            },
+            {
+                "language": "NL",
+                "text": "Indicatoren worden gebouwd door de Community! Gewoonlijk bouwt een ontwikkelaar een paar indicatoren die hij of zij nodig heeft, en draagt deze bij aan het project in een nieuwe Data Mine!",
+                "updated": 1669552608362
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Community Data Mines Book adalah tempat kamu dapat menemukan semua data mines yang ada dan indikatornya! Setiap chapters dalam buku ini sesuai dengan Data Mine...",
                     "updated": 1645561764976
+                },
+                {
+                    "language": "NL",
+                    "text": "In het Community Data Mines Book vindt u alle bestaande data mines en hun indicatoren! Elk hoofdstuk in het boek komt overeen met een Data Mine...",
+                    "updated": 1669552651465
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Pindai isi setiap chapter untuk mendapatkan gambaran tentang apa yang tersedia pada titik ini!",
                     "updated": 1645561755033
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees de inhoud van elk hoofdstuk om een idee te krijgen van wat er op dit moment beschikbaar is!",
+                    "updated": 1669552669273
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Untuk menggunakan Data Mine, kamu harus memasukkannya di workspace atau sebagai plugin, dan menginstal market. Semua Data Tasks akan dibuat secara otomatis!",
                     "updated": 1645561819588
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een Data Mine te gebruiken, moet u deze in de werkruimte of als plugin opnemen, en de markt installeren. Alle Data Tasks worden automatisch gemaakt!",
+                    "updated": 1669552746945
                 }
             ]
         }

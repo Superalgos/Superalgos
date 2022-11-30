@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Plugin adalah struktur data yang dikirimkan bersama sistem dan kamu dapat memanggil ke workspace manapun menggunakan Plugins hierarchy.",
                 "updated": 1645035554043
+            },
+            {
+                "language": "NL",
+                "text": "Plugins zijn gegevensstructuren die bij het systeem worden geleverd en die u kunt aanroepen in elke werkruimte met behulp van de Plugins hiërarchie.",
+                "updated": 1669545883008
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Plugin adalah struktur data yang dimaksudkan untuk digunakan kembali. Itulah sebabnya dikirim sebagai plugin, sehingga kamu dapat menempatkannya di workspace manapun.",
                     "updated": 1645035650373
+                },
+                {
+                    "language": "NL",
+                    "text": "Plugins zijn datastructuren die bedoeld zijn om hergebruikt te worden. Daarom worden ze geleverd als plugins, zodat u ze op elke werkruimte kunt plaatsen.",
+                    "updated": 1669545908504
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Perluas node Plugin!",
                     "updated": 1645035669748
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw het knooppunt Plugins uit!",
+                    "updated": 1669545927685
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Seperti yang kamu tahu dari struktur hierarki, ada beberapa jenis plugin! Mereka mengirim sebagai file JSON, diurutkan berdasarkan jenis di folder plugin. Coba lihat!",
                     "updated": 1645035703122
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je kunt zien aan de structuur van de hiërarchie, zijn er verschillende soorten plugins! Ze worden verzonden als JSON-bestanden, gesorteerd op Project en type in de map plugins. Ga het maar eens bekijken!",
+                    "updated": 1669546014089
                 }
             ]
         },

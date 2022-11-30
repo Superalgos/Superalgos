@@ -85,8 +85,7 @@ exports.documentationExporter = function documentationExporter() {
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         
-        let fileName = thisObject.currentDocumentBeingRendered.type + (ED.asShtml ? '.shtml' : '.html')
-        fileName = ED.utilities.normaliseStringForLink(fileName)
+        const fileName = ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + (ED.asShtml ? '.shtml' : '.html')
         filePath = filePath + fileName
 
         ED.pageGlobals.addNavigation(
@@ -96,7 +95,7 @@ exports.documentationExporter = function documentationExporter() {
         // ED.pageGlobals.addFooter(dom.window.document)
         let serializedHtml = dom.serialize()
         if(ED.asShtml) {
-            serializedHtml = serializedHtml.replace('<html lang="en">', '')
+            serializedHtml = serializedHtml.replace('<!doctype html>', '').replace('<html lang="en">', '')
         }
         SA.nodeModules.fs.writeFileSync(filePath, serializedHtml)
         return filePath

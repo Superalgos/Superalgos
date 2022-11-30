@@ -1712,7 +1712,16 @@
             ]
         },
         "TS": {},
-        "PL": {},
+        "PL": {
+            "functionLibraries": [
+                {
+                    "name": "Pr Merge Bot",
+                    "propertyName": "prMergeBot",
+                    "functionName": "newGovernanceFunctionLibraryPrMergeBot",
+                    "fileName": "PrMergeBot.js"
+                }
+            ]
+        },
         "plugins": [
             "User Profiles",
             "Pools",
@@ -2105,7 +2114,7 @@
                 }
             ]
         },
-        "DK": {
+        "ST": {
             "globals": [],
             "modules": [],
             "utilities": []

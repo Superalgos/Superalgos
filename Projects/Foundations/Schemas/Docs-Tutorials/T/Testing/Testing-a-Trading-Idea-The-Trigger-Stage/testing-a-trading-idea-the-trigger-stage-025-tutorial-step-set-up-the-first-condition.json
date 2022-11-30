@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Koşulu Javascript Kodu ( Javascript Code ) düğümüne yapıştırın!",
-                    "updated": 1641654089581
+                    "text": "Koşulu Javascript Kod ( Javascript Code ) düğümüne yapıştırın!",
+                    "updated": 1669579671156
                 }
             ]
         },
@@ -90,8 +90,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Koşulun ne hakkında olduğuna dair hızlı bir referans almak için koşul düğümünü 24H Down olarak etiketleyin.",
-                    "updated": 1641654131986
+                    "text": "Daha sonra koşulun ne hakkında olduğunu anlamanıza yardımcı olması için koşul düğümünü \"24H Down\" olarak etiketleyin.",
+                    "updated": 1669579758099
                 }
             ]
         }

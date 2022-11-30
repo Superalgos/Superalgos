@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Aç, Kapat ve Yönet Aşamasını sildikten sonra, eskisi gibi aynı parametrelerle yeni bir geriye dönük test yapabilirsiniz.",
-                "updated": 1641665261922
+                "text": "Aç, Kapat ve Yönet Aşamasını sildikten sonra, eskisi gibi aynı parametrelerle yeni bir geriye dönük test yapabiliriz.",
+                "updated": 1669670004327
             },
             {
                 "language": "RU",
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İşte başlıyoruz! Görevi ve oturumu başlatın (Run)!",
-                    "updated": 1641665271881
+                    "text": "İşte başlıyoruz! Görevi (Task) ve oturumu (Session) başlatın.Menüden  (Run) düğmesine basın!",
+                    "updated": 1669670060575
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Aynı zaman çerçevesinde birden çok geriye dönük test çalıştırdığınızda, önceki veriler değiştirilir. Yani, bir ticaret seansı, her zaman çerçevesi için bir veri seti depolar. Testlerin farklı sürümlerini saklamak ve bunlara erişebilmek istiyorsanız, farklı ticaret oturumları ve daha da iyisi, farklı ticaret sistemleri kullanmalısınız, böylece eşleşen tanımları da saklayabilirsiniz!",
-                    "updated": 1641665290409
+                    "text": "Aynı zaman diliminde birden çok geriye dönük test çalıştırdığınızda, önceki veriler değiştirilir. Yani, bir ticaret seansı, her zaman dilimi için bir veri seti depolar. Testlerin farklı sürümlerini saklamak ve bunlara erişebilmek istiyorsanız, farklı ticaret oturumları veya daha da iyisi, farklı ticaret sistemleri kullanmalısınız, böylece eşleşen tanımları da saklayabilirsiniz!",
+                    "updated": 1669670145769
                 },
                 {
                     "language": "RU",

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Пока что я просто изучаю учебники, не терпится провести несколько бэктестов. Я впечатлен тем, насколько сложным и одновременно простым в использовании является это программное обеспечение. Как разработчик я также очень мотивирован внести свой вклад в проект.",
                 "updated": 1640418299472
+            },
+            {
+                "language": "TR",
+                "text": "Şimdilik öğreticileri öğütüyorum, bazı geriye dönük testler yapmak için sabırsızlanıyorum. Bu yazılımın ne kadar karmaşık ama aynı zamanda kullanımının kolay olduğundan etkilendim. Bir geliştirici olarak, projeye katkıda bulunmak için de oldukça motiveyim.",
+                "updated": 1669312471574
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "С уважением,",
                     "updated": 1640418308967
+                },
+                {
+                    "language": "TR",
+                    "text": "Saygılarımızla,",
+                    "updated": 1669312481928
                 }
             ]
         },

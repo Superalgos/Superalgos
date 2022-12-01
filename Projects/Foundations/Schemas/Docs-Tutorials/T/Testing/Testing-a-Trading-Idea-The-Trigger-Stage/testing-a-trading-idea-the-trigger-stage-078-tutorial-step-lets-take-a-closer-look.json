@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız!",
-                "updated": 1641665982894
+                "text": "Bunun nasıl çalıştığını tam olarak anlayabilmeniz ve grafikte gördüğümüz her şeyi açıklamak için birkaç dakikamızı ayıracağız!",
+                "updated": 1669670468057
             },
             {
                 "language": "RU",
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Stratejinin art arda beş kez arka arkaya beş mumda tetiklenip kapatılmış olması şu anlama gelmelidir:",
-                    "updated": 1641665993012
+                    "text": "Stratejinin art arda beş mumda arka arkaya beş kez tetiklenmesi ve kapanması gerçeği şu anlama gelir:",
+                    "updated": 1669670511687
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tetikleme Olayı ( Trigger On Event olayı ) bu mumların her biri için geçerlidir.",
-                    "updated": 1641666005462
+                    "text": "Tetikleme Olayı ( Trigger On Event olayı ) bu mumların her birinde doğrulanır.",
+                    "updated": 1669670588603
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir!",
-                    "updated": 1641666021826
+                    "text": "Pozisyon Al Etkinliği de ( Take Position Event ) bu mumların her biri için doğrulanır!",
+                    "updated": 1669670606544
                 },
                 {
                     "language": "RU",
@@ -101,8 +101,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim!",
-                    "updated": 1641666038197
+                    "text": "Bu aynı zamanda stratejinin aynı mum üzerinde tetiklendiği ve pozisyon aldığı anlamına gelir! Gidelim ve tüm bunların doğru olup olmadığını doğrulayalım!",
+                    "updated": 1669670642457
                 },
                 {
                     "language": "RU",

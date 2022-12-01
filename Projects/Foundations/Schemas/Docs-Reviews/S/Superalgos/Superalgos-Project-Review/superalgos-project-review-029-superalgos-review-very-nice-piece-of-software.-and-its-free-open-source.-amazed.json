@@ -10,13 +10,25 @@
                 "language": "RU",
                 "text": "Очень хорошее программное обеспечение. И она бесплатная с открытым исходным кодом. Удивительно!",
                 "updated": 1640418206784
+            },
+            {
+                "language": "TR",
+                "text": "Çok güzel bir yazılım. Ve ücretsiz açık kaynak. Hayret!",
+                "updated": 1669312208443
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669312226452
+                }
+            ]
         }
     ]
 }

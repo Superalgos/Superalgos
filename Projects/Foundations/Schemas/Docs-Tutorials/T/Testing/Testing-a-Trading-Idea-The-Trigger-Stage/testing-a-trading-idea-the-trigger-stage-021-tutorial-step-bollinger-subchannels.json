@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Eğim, MA eğrisinin ne kadar dik olduğunu gösterir ... yani MA'daki azalma veya artışın ne kadar belirgin olduğunu!",
-                "updated": 1641653617208
+                "text": "Eğim (Slope), MA eğrisinin ne kadar dik olduğunu gösterir... Yani MA'daki düşüşün veya yükelişin  ne kadar belirgin olduğunu anlatır!",
+                "updated": 1669577329699
             }
         ]
     },
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu sayfada bulabileceğiniz bilgi türü sistemle birlikte gelen her bir gösterge için mevcuttur.",
-                    "updated": 1641653648826
+                    "text": "Göstergelerle ilgili bilgiler sistemle birlikte gelir ve kullanıcı için ulaşılabilir durumdadır.",
+                    "updated": 1669577430735
                 }
             ]
         }

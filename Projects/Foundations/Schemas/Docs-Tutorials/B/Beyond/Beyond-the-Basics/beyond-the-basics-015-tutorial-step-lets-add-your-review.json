@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Bu adımda, bir inceleme sayfası oluşturmak için ilk komutunuzu çalıştıracaksınız! Bu sayfa gelecekte düzenlemek için sizin olacak!",
                 "updated": 1640554867287
+            },
+            {
+                "language": "ID",
+                "text": "Pada step ini, kamu akan menjalankan perintah pertamamu untuk membuat halaman review! Ini adalah halaman yang bisa kamu edit dikemudian hari!",
+                "updated": 1668788107543
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap ga je je eerste opdracht uitvoeren om een beoordelingspagina te maken! Deze pagina zal in de toekomst van jou zijn om te bewerken!",
+                "updated": 1669747256061
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Komut yazmak için kullanılan sözdizimi oldukça sadedir.! Onu seveceksin! Kontrol edin ve aşağıdaki talimatları izleyin!",
                     "updated": 1640554941366
+                },
+                {
+                    "language": "ID",
+                    "text": "syntax untuk menulis perintah seperti bahasa sehari-hari! Kamu akan menyukainya! Lihatlah dan ikuti instruksi dibawah ini!",
+                    "updated": 1668788114946
+                },
+                {
+                    "language": "NL",
+                    "text": "De syntaxis om commando's te schrijven is vrij informeel! Je zult het geweldig vinden! Bekijk het en volg de onderstaande instructies!",
+                    "updated": 1669747277020
                 }
             ]
         },
@@ -110,6 +130,16 @@
                     "language": "TR",
                     "text": "1. ADIM: Yukarıdaki komutu kopyalayın.",
                     "updated": 1640555029333
+                },
+                {
+                    "language": "ID",
+                    "text": "PERTAMA: Apabila kamu dari Penginstalan Kontributor, salin perintah diatas.",
+                    "updated": 1668788128361
+                },
+                {
+                    "language": "NL",
+                    "text": "EERST: als u zich in de installatie van de Contributor's bevindt, kopieert u de bovenstaande opdracht.",
+                    "updated": 1669747307759
                 }
             ]
         },
@@ -144,6 +174,16 @@
                     "language": "TR",
                     "text": "2. ADIM: Bir metin düzenleyici açın (Ms Word ya da Text Editör)",
                     "updated": 1640555113303
+                },
+                {
+                    "language": "ID",
+                    "text": "KEDUA: Tempel itu di text editor.",
+                    "updated": 1668788148614
+                },
+                {
+                    "language": "NL",
+                    "text": "TWEEDE: plak het in een teksteditor.",
+                    "updated": 1669747318668
                 }
             ]
         },
@@ -178,6 +218,16 @@
                     "language": "TR",
                     "text": "3. ADIM: İnceleme başlığınızı (Your Review Title) text editörde anlamlı bir başlıkla değiştirin. İnceleme başlıkları benzersiz olmalıdır!",
                     "updated": 1640555280943
+                },
+                {
+                    "language": "ID",
+                    "text": "KETIGA: Ubahlah \"Your Review Title\" dengan judul yang lebih bermakna. Judul Review harus unik!",
+                    "updated": 1668788165495
+                },
+                {
+                    "language": "NL",
+                    "text": "DERDE: Vervang \"Your Review Title\" door een betekenisvolle titel. Recensietitels moeten uniek zijn!",
+                    "updated": 1669747334052
                 }
             ]
         },
@@ -212,6 +262,16 @@
                     "language": "TR",
                     "text": "4. ADIM: Düzenlediğiniz bu yeni komutu arama/komut kutusuna yapıştırın ve Enter'a basın.",
                     "updated": 1640555304432
+                },
+                {
+                    "language": "ID",
+                    "text": "KEEMPAT: Tempelkan perintah yang sudah diubah ke pencarian/command box dan tekan Enter.",
+                    "updated": 1668788179874
+                },
+                {
+                    "language": "NL",
+                    "text": "VIERDE: Plak de bijgewerkte opdracht in het zoek-/opdrachtvenster en druk op Enter.",
+                    "updated": 1669747346319
                 }
             ]
         }

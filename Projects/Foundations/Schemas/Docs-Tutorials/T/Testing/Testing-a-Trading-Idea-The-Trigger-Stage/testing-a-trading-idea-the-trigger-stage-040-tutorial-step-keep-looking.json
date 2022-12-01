@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Stratejinin tetikleyici olayını (trigger off event) ve deneme süresi boyunca meydana gelen diğer tetikleyicileri araştırmak için birkaç dakika daha ayırın.",
-                    "updated": 1641656559167
+                    "text": "Stratejinin Trigger Off olayını ve test edilen süre boyunca ortaya çıkan diğer tetikleyicileri keşfetmek için birkaç dakikanızı daha ayırın.",
+                    "updated": 1669586132771
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Olayların ancak belirli bir durumdaki tüm koşullar yerine getirildiğinde tetiklendiğini ve koşulların yalnızca kapalı mumlar aracılığıyla değerlendirildiğini içselleştirmek için biraz zaman ayırın!",
-                    "updated": 1641656570038
+                    "text": "Olayların yalnızca belirli bir durumdaki tüm koşullar karşılandığında tetiklendiği ve koşulların yalnızca kapalı mumlar üzerinden değerlendirildiği gerçeğini içselleştirmek için bir dakikanızı ayırın!",
+                    "updated": 1669586187331
                 },
                 {
                     "language": "RU",

@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Sekarang setelah kamu memahami referensi, kita bisa masuk lebih dalam ke Backups, dan mungkin bahkan mendiskusikan perbedaan dengan Clones!",
                 "updated": 1644950761541
+            },
+            {
+                "language": "NL",
+                "text": "Nu u referenties begrijpt, kunnen we dieper ingaan op Backups en misschien zelfs de verschillen met Clones bespreken!",
+                "updated": 1669542833421
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu harus membaca lagi! Tolong, baca halaman ini dengan seksama dan biarkan info benar-benar dipahami!",
                     "updated": 1644950812954
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt nog wat te lezen! Lees deze pagina aandachtig door en laat de info bezinken!",
+                    "updated": 1669542852736
                 }
             ]
         },
@@ -121,6 +131,11 @@
                     "text": "Özetle:",
                     "updated": 1654393847003,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Samengevat:",
+                    "updated": 1669542866126
                 }
             ]
         },
@@ -160,6 +175,11 @@
                     "language": "ID",
                     "text": "Outgoing references: Mereka selalu tetap utuh.",
                     "updated": 1644950898928
+                },
+                {
+                    "language": "NL",
+                    "text": "Outgoing references: Ze worden altijd intact gehouden.",
+                    "updated": 1669542879125
                 }
             ]
         },
@@ -199,6 +219,11 @@
                     "language": "ID",
                     "text": "Incoming references: Mereka disimpan hanya ketika struktur asli dihapus sebelum mengembalikan cadangan.",
                     "updated": 1644950928501
+                },
+                {
+                    "language": "NL",
+                    "text": "Incoming references: Ze worden alleen bewaard als de oorspronkelijke structuur wordt verwijderd voordat de back-up wordt hersteld.",
+                    "updated": 1669542907901
                 }
             ]
         },
@@ -238,6 +263,11 @@
                     "language": "ID",
                     "text": "Internal references: Mereka tetap internal, hanya ketika struktur asli dihapus terlebih dahulu.",
                     "updated": 1644950949850
+                },
+                {
+                    "language": "NL",
+                    "text": "Internal references: Ze blijven intern, alleen als eerst de oorspronkelijke structuur wordt verwijderd.",
+                    "updated": 1669542921946
                 }
             ]
         }

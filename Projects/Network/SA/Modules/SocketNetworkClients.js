@@ -286,7 +286,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             of an event or signal that happened at some other Client of the Network.
 
             This can only happen when this module is running at an APP like 
-            the Desktop App, Server App, Platform App, or Task Server App.
+            the Social Trading App, Platform App, or Task Server App.
             */
             let payload
             try {

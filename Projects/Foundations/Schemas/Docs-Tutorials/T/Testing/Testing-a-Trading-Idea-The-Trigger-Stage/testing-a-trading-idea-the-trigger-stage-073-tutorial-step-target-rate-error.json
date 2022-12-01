@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hatayı buldun mu? Hatayı açık aşamada (Open Stage), hedef oranı ( Target Rate ) belirleme formülünde bulmuş olmalısınız!",
-                "updated": 1641665129595
+                "text": "Hatayı buldun mu? Hatayı açık aşamada (Open Stage), hedef oranı ( Target Rate ) belirleme formülünde bulmuş olmalısınız!",
+                "updated": 1669669411694
             },
             {
                 "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayı ( Take Position Event ) \\\"true\\\" değerini alırsa, tetik aşaması ( Trigger Stage ) kapanır ve hem açık aşama ( Open Stage ) hem de yönetim aşaması ( Manage Stage ) açılır!",
-                    "updated": 1641665159633
+                    "text": "Pozisyon Al Olayı ( Take Position Event ) doğru olarak doğrulandığında, Tetikleme Aşaması ( Trigger Stage ) kapatılır ve hem Açık Aşama ( Open Stage ) hem de Yönetme Aşaması ( Manage Stage ) açılır!",
+                    "updated": 1669669568622
                 },
                 {
                     "language": "RU",

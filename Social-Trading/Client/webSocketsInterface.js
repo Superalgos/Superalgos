@@ -42,12 +42,12 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                 webApp = {
                     socket: socket
                 }
-                console.log('Desktop Web App Connected to Web Sockets Interface ........................... Connected to port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Social Trading Web App Connected to Web Sockets Interface ........................... Connected to port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort) //global.env.SOCIALTRADING_WEB_SOCKETS_INTERFACE_PORT)
 
                 webApp.socket.on('close', onConnectionClosed)
-                webApp.socket.on('message', onMenssage)
+                webApp.socket.on('message', onMessage)
 
-                async function onMenssage(message) {
+                async function onMessage(message) {
                     try {
                         let messageHeader
                         try {
@@ -56,7 +56,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                             let response = {
                                 messageId: messageHeader.messageId,
                                 result: 'Error',
-                                message: 'messageHeader Not Coorrect JSON Format.'
+                                message: 'messageHeader Not Correct JSON Format.'
                             }
                             webApp.socket.send(JSON.stringify(response))
                             return
@@ -72,7 +72,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                         }
 
                         function onError(errorMessage) {
-                            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMenssage -> errorMessage = ' + errorMessage)
+                            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMessage -> errorMessage = ' + errorMessage)
                             let response = {
                                 messageId: messageHeader.messageId,
                                 result: 'Error',
@@ -82,14 +82,14 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                         }
 
                     } catch (err) {
-                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMenssage -> err.stack = ' + err.stack)
+                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMessage -> err.stack = ' + err.stack)
                     }
                 }
             }
 
             function onConnectionClosed() {
                 webApp = undefined
-                console.log('Desktop Web App Discoonnected from Web Sockets Interface ..................... Disonnected from port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Social Trading Web App Disconnected from Web Sockets Interface ..................... Disconnected from port ' + global.env.SOCIALTRADING_WEB_SOCKETS_INTERFACE_PORT)
             }
 
         } catch (err) {

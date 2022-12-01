@@ -84,7 +84,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
             Emulate the P2PClientNode that when we are at the Platform UI is defined by Users at the Task Level. In this 
             case the user does not need to set it up, so we do it here, with the right settings for the Social Trading App.
             */
-            let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient.json')
+            let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient2.json')
 
             await thisObject.p2pNetworkClient.initialize(
                 global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,
@@ -99,15 +99,15 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
         async function finalSetupInterfaces() {
             /* 
-            These are the Network Interfaces by which the Web App interacts with this Socal Trading App Client.
+            These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Socal Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Social Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Socal Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Social Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

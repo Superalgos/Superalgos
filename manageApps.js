@@ -143,7 +143,7 @@ function appStartProfiles(app, arguments) {
       console.log("PM2 managment needs set up for this app")
       break;
 
-    case "desktop":
+    case "socialTrading":
       console.log("PM2 managment needs set up for this app")
       break;
 

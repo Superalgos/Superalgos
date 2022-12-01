@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Simülasyonların nasıl çalıştığına hızlıca bir göz atabilmeniz için bir dizi önceden yapılandırılmış parametre ile bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
-                "updated": 1636117912488
+                "text": "Simülasyonların nasıl çalıştığına hızlıca bir göz atabilmeniz için bir dizi önceden yapılandırılmış parametre ile bir Backtest Oturumu ( Backtesting Session ) çalıştıracağız.",
+                "updated": 1669921360222
             },
             {
                 "language": "RU",
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Trading System ) referansı vardır.  Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
-                    "updated": 1665957821581
+                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Trading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine (Trading Engine) konusunu sonraya bırakacağım!",
+                    "updated": 1669921412012
                 },
                 {
                     "language": "RU",

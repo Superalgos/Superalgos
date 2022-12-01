@@ -47,8 +47,8 @@
             },
             {
                 "language": "TR",
-                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde Ctrl (kontrol) [+] ← → ↑ ↓(yön tuşları) tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
-                "updated": 1666062873742
+                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde Ctrl [+] ← → ↑ ↓  (yön tuşları) tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1669837348968
             },
             {
                 "language": "FR",
@@ -208,8 +208,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Elbette Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
-                    "updated": 1644850625993
+                    "text": "Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
+                    "updated": 1669837398464
                 },
                 {
                     "language": "FR",

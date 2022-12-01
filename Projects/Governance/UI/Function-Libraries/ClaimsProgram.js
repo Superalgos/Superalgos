@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryClaimsProgram() {
+exports.newGovernanceFunctionLibraryClaimsProgram = function newGovernanceFunctionLibraryClaimsProgram() {
     let thisObject = {
         calculate: calculate
     }

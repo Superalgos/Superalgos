@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesDownload() {
+exports.newFoundationsUtilitiesDownload = function newFoundationsUtilitiesDownload() {
     let thisObject = {
         downloadText: downloadText,
         downloadCanvas: downloadCanvas,

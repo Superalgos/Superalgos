@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryComputingProgram() {
+exports.newGovernanceFunctionLibraryComputingProgram = function newGovernanceFunctionLibraryComputingProgram() {
     let thisObject = {
         calculate: calculate
     }

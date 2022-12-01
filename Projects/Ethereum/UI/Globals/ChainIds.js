@@ -1,4 +1,4 @@
-function newEthereumGlobalsChainIds() {
+exports.newEthereumGlobalsChainIds = function newEthereumGlobalsChainIds() {
     let thisObject = {
         chainNameById: chainNameById
     }

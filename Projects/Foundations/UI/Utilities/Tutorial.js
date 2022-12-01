@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesTutorial() {
+exports.newFoundationsUtilitiesTutorial = function newFoundationsUtilitiesTutorial() {
     let thisObject = {
         saveTutorial: saveTutorial,
         loadTutorial: loadTutorial

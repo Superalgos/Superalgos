@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesStrings() {
+exports.newFoundationsUtilitiesStrings = function newFoundationsUtilitiesStrings() {
     let thisObject = {
         allWordsToUpper: allWordsToUpper, 
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,

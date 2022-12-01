@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryGithubProgram() {
+exports.newGovernanceFunctionLibraryGithubProgram = function newGovernanceFunctionLibraryGithubProgram() {
     let thisObject = {
         calculate: calculate
     }

@@ -1,4 +1,4 @@
-function newVisualScriptingUtilitiesNodeChildren() {
+exports.newVisualScriptingUtilitiesNodeChildren = function newVisualScriptingUtilitiesNodeChildren() {
     let thisObject = {
         isMissingChildrenById: isMissingChildrenById,
         isMissingChildrenByType: isMissingChildrenByType,

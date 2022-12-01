@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesFolders() {
+exports.newFoundationsUtilitiesFolders = function newFoundationsUtilitiesFolders() {
     let thisObject = {
         asymetricalFolderStructureCloning: asymetricalFolderStructureCloning
     }

@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryTokenPower() {
+exports.newGovernanceFunctionLibraryTokenPower = function newGovernanceFunctionLibraryTokenPower() {
     let thisObject = {
         calculateTokenPower: calculateTokenPower,
         calculateDelegatedPower: calculateDelegatedPower

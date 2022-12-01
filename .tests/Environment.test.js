@@ -30,7 +30,7 @@ const expectedObject = {
   PATH_TO_PROJECTS_REQUIRED: path.join(basePath, './Projects'),
   PATH_TO_PROJECT_SCHEMA: path.join(basePath, './Projects/ProjectsSchema.json'),
   PATH_TO_PLATFORM: path.join(basePath, './Platform'),
-  PATH_TO_SOCIALTRADING: './Social-Trading',
+  PATH_TO_SOCIALTRADING: './Social-Trading/Clean-UI',
   PATH_TO_DEFAULT_WORKSPACE: path.join(basePath, './Plugins/Foundations/Workspaces'),
   PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
   PATH_TO_SECRETS: path.join(basePath, './My-Secrets'),

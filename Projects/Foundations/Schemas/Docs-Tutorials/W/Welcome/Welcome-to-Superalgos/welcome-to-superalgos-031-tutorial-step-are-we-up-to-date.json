@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Şu anda, tüm işlemler %100 olmalıdır. Eğer değil ise tamamlanana kadar beklemelisiniz. Tamamlandığında, veri madenciliği operasyonuna \"güncel\" diyoruz.",
-                "updated": 1644910145574
+                "text": "Şimdiye kadar tüm süreçler %100'e ulaşmış olmalıdır. Bu gerçekleştiğinde, veri madenciliği işlemini \"güncel\" olarak adlandırırız.",
+                "updated": 1669838207549
             },
             {
                 "language": "RU",
@@ -187,8 +187,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Alım Satım Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak borsadan sürekli bir bilgi akışına ihtiyacı vardır.",
-                    "updated": 1644910195601
+                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Ticaret Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak borsadan sürekli bir bilgi akışına ihtiyacı vardır.",
+                    "updated": 1669838321608
                 },
                 {
                     "language": "RU",

@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Alım satım fikrini geliştirdiğimizde, 1H grafiğindeki tek bir kırılmanın kötü girişlere yol açacağını fark ettik...",
-                "updated": 1641663652079
+                "text": "Ticaret fikrini ortaya attığımızda, 1H grafiğindeki tek bir arızanın kötü girişler üreteceğini fark ettik ...",
+                "updated": 1669665722912
             },
             {
                 "language": "RU",
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İlk atılımın sinyalimiz olacağına ve art arda ikinci bir atılımın da onayımız olacağına karar verdik.",
-                    "updated": 1641663664179
+                    "text": "İlk arızanın sinyalimiz olacağına ve ardından gerçekleşecek ikinci bir kırılmanın da teyidimiz olacağına karar verdik.",
+                    "updated": 1669665891106
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Mülkiyet\"(Previous Property) bölümünü okuyunuz!",
-                    "updated": 1641663693370
+                    "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Özellik\"(Previous Property) bölümünü okuyunuz!",
+                    "updated": 1669665807837
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon Al olayının tanımını tamamlamak için ikinci bir koşul yazabilir misiniz?",
-                    "updated": 1641663704474
+                    "text": "Pozisyon Al olayının (Take poisiton Event ) tanımını tamamlamak için ikinci bir koşul yazabilir misiniz?",
+                    "updated": 1669665918600
                 },
                 {
                     "language": "RU",

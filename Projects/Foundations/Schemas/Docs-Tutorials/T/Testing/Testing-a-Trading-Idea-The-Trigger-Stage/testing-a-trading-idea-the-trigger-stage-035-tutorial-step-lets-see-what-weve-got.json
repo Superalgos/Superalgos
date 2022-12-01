@@ -9,21 +9,21 @@
         },
         "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!",
         "translations": [
-                {
-                    "language": "DE",
-                    "text": "Wir werden nun die Simulation durchlaufen und sehen, ob die von uns erstellte Definition die erwarteten Ergebnisse bringt!",
-                    "updated": 1641763341271
-                }, 
-                {
-                    "language": "TR",
-                    "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız!",
-                    "updated": 1641655373874
-                },
-                {
-                    "language": "RU",
-                    "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
-                    "updated": 1642655108942
-                }
+            {
+                "language": "DE",
+                "text": "Wir werden nun die Simulation durchlaufen und sehen, ob die von uns erstellte Definition die erwarteten Ergebnisse bringt!",
+                "updated": 1641763341271
+            },
+            {
+                "language": "TR",
+                "text": "Simülasyondan gözden geçireceğiz ve bulduğumuz ticaret fikrinin beklenen sonuçları verip vermediğini göreceğiz!",
+                "updated": 1669585232590
+            },
+            {
+                "language": "RU",
+                "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
+                "updated": 1642655108942
+            }
         ]
     },
     "paragraphs": [
@@ -39,8 +39,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Simülasyon Nesneleri katman yöneticisine gidin, Strategies  ve Trigger Stages katmanlarını açın.",
-                    "updated": 1641655422767
+                    "text": "Grafik alanında Simülasyon Nesneleri (Simulation Objects) katman yöneticisine gidin, \"Strategies\" ve \"Trigger Stages\" katmanlarını açın.",
+                    "updated": 1669585057202
                 },
                 {
                     "language": "RU",
@@ -60,8 +60,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: 26 Şubat ve 2 Nisan arasında tetiklenen iki strateji örneğini görüyor musunuz? Şimdi, çizelgeleri sağa kaydırın... 3 - 23 Eylül arasında tetiklenen iki tane daha görmelisiniz! Aşağıdaki adım, aynı sayfada olduğumuzdan emin olmak için ekranda görmeniz gerekenlerin bir videosunu içeriyor!",
-                    "updated": 1641655438338
+                    "text": "26 Şubat ve 2 Nisan arasında tetiklenen iki strateji örneğini görüyor musunuz? Şimdi, grafiği sağa kaydırın... 3 - 23 Eylül arasında tetiklenen iki tane daha görmelisiniz! Bir sonraki adımda, aynı sayfada olduğumuzdan emin olmak için ekranda ne görmeniz gerektiğine dair bir video yer alıyor!",
+                    "updated": 1669585144323
                 },
                 {
                     "language": "RU",

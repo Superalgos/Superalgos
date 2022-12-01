@@ -46,8 +46,8 @@ exports.dashboardsCommand = function dashboardsCommand() {
         console.log('[INFO] Dashboards app starting with the following options: ', JSON.stringify(arguments))
         console.log('[INFO] Dashboards app pm2 logs location: ' + startProcess.log_file)
 
-        // pm2m.connect()
-        //     .then(() => pm2m.start(startProcess))
-        //     .then(() => pm2m.disconnect())
+        pm2m.connect()
+            .then(() => pm2m.start(startProcess))
+            .then(() => pm2m.disconnect())
     }
 }

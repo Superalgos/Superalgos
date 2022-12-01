@@ -8,11 +8,12 @@
 	"launch": {
 		"version": "0.2.0",
 		"configurations": [{
-			"name": "Debug delete",
+			"name": "Debug read all",
 			"cwd": "/home/pi/trading/Superalgos/",
 			"program": "manageApps.js",
 			"args": [
-				"--help"
+				"read",
+				"all"
 			],
 			"request": "launch",
 			"skipFiles": [

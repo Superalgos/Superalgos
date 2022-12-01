@@ -40,8 +40,8 @@ exports.networkCommand = function networkCommand() {
         console.log('[INFO] Network app starting')
         console.log('[INFO] Network app pm2 logs location: ' + startProcess.log_file)
 
-        // pm2m.connect()
-        //     .then(() => pm2m.start(startProcess))
-        //     .then(() => pm2m.disconnect())
+        pm2m.connect()
+            .then(() => pm2m.start(startProcess))
+            .then(() => pm2m.disconnect())
     }
 }

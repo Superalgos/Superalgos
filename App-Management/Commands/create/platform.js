@@ -50,8 +50,8 @@ exports.platformCommand = function platformCommand() {
         console.log('[INFO] Platform app starting with the following options: ', JSON.stringify(arguments))
         console.log('[INFO] Platform app pm2 logs location: ' + startProcess.log_file)
 
-        // pm2m.connect()
-        //     .then(() => pm2m.start(startProcess))
-        //     .then(() => pm2m.disconnect())
+        pm2m.connect()
+            .then(() => pm2m.start(startProcess))
+            .then(() => pm2m.disconnect())
     }
 }

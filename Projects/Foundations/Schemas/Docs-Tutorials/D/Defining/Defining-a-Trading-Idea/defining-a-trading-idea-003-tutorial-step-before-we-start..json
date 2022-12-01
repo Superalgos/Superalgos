@@ -28,6 +28,11 @@
                 "language": "TR",
                 "text": "Özet: Başlamadan önce göz önünde bulundurmanız gereken birkaç konuda size bilgi vereyim!",
                 "updated": 1640859451125
+            },
+            {
+                "language": "IT",
+                "text": "Lascia che ti spieghi alcune questioni che dovresti considerare prima di iniziare!",
+                "updated": 1669885345730
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "TR",
                     "text": "Ne kadar değerli olursa olsun, ticaretle ilgili her bir bilgiyi alın! Ticaret kavramlarını paylaştığımda, onları en küçük zerresine kadar aklınıza kazıyın! Ben sadece bir öğreticiyim, mali danışmanın değil! Buraya size Superalgo'u öğretmeye geldim, nasıl takas yapılacağını söylemeye değil! Bir tüccar değilseniz, değerli bir şey alabilirsiniz, ancak her zaman kendi araştırmanızı yaptığınızdan emin olun!",
                     "updated": 1640862680133
+                },
+                {
+                    "language": "IT",
+                    "text": "Prendi qualsiasi informazione relativa al trading per quello che vale! Quando condivido concetti di trading, prendili con le pinze! Sono solo un tutorial, non il tuo consulente finanziario! Sono qui per insegnarti Superalgos, non per dirti come fare trading! Se non sei un trader, potresti trovare qui informazioni valide, ma assicurati sempre di fare le tue ricerche!",
+                    "updated": 1669885366756
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "TR",
                     "text": "Bu öğretici geniş bir kitleye yöneliktir! Herkesin anlayabileceği kavramlar hazırladım, böylece herkes onları anlayabilir. Tecrübeli bir trader, bazı açıklamaların çok temel olduğunu hissedebilirsiniz. Bu durumda, bu öğreticiyi atlamaktan ve serideki bir sonrakine geçmekten çekinmeyin.",
                     "updated": 1640863034548
+                },
+                {
+                    "language": "IT",
+                    "text": "Questo tutorial è rivolto a un vasto pubblico! La prenderò con calma ed esporrò i concetti in modo che tutti possano capirli. Se sei un trader esperto potresti ritenere che alcune spiegazioni siano troppo basilari. In tal caso, sentiti libero di saltare questo tutorial e passare a quello successivo della serie.",
+                    "updated": 1669885383421
                 }
             ]
         }

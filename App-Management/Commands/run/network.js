@@ -3,49 +3,44 @@ const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 const chalk = require('chalk')
 
-exports.dashboardsCommand = function dashboardsCommand() {
+exports.networkCommand = function networkCommand(cwd) {
     const thisObject = {
-        name: 'dashboards',
-        description: chalk.bold('Runs the dashboards app'),
+        name: 'network',
+        description: chalk.bold('Runs the network app'),
         options: options,
         runner: runner
     }
     return thisObject
 
     function options(cmd) {
-        return cmd.option('minMemo', {
-            boolean: true,
-            default: false
-        }).option('profile', {
+        return cmd.option('profile', {
             description: 'A custom profile to apply to the process being started',
             string: true
         })
     }
 
     function runner(args) {
-        const arguments = []
-        if(args.minMemo) { arguments.push('minMemo')}
-
-        const name = args.profile !== undefined ? 'sa-' + args.profile + '-dashboards' : 'sa-default-dashboards'
+        const name = args.profile !== undefined ? 'sa-' + args.profile + '-network' : 'sa-default-network'
         const startProcess = {
-            script: 'dashboards.js',
+            script: 'network.js',
             name,
-            cwd: path.join(__dirname),
-            log_file: path.join(__dirname, 'My-Log-Files', 'pm2', 'dashboards-console.log')
+            cwd,
+            log_file: path.join(cwd, 'My-Log-Files', 'pm2', 'network-console.log')
         }
-
+        
         if(args.profile !== undefined) {
             startProcess.env = { 
                 'PROFILE_NAME': args.profile 
             }
             const profile = getProfile(args.profile)
             if(profile !== undefined && profile.storeLogs !== undefined) {
-                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'dashboards-console.log')
+                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'network-console.log')
             }
+            console.log('[INFO] Network using profile: ' + args.profile)
         }
-
-        console.log('[INFO] Dashboards app starting with the following options: ', JSON.stringify(arguments))
-        console.log('[INFO] Dashboards app pm2 logs location: ' + startProcess.log_file)
+        
+        console.log('[INFO] Network app starting')
+        console.log('[INFO] Network app pm2 logs location: ' + startProcess.log_file)
 
         pm2m.connect()
             .then(() => pm2m.start(startProcess))

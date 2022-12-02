@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 
-exports.multiCommand = function multiCommand() {
+exports.multiCommand = function multiCommand(cwd) {
     const thisObject = {
         name: 'multi',
         description: chalk.bold('Runs multiple apps'),
@@ -11,14 +11,15 @@ exports.multiCommand = function multiCommand() {
 
     function options(cmd) {
         return cmd.option('platform', {
-            description: 'This will run the full platform app with browser',
+            description: 'This will run the platform app',
             boolean: true,
             default: false
         }).option('network', {
+            description: 'This will run the network app',
             boolean: true,
             default: false
         }).option('dashboards', {
-            description: 'This will run the full dashboards app',
+            description: 'This will run the dashboards app',
             boolean: true,
             default: false
         }).option('noBrowser', {
@@ -42,7 +43,7 @@ exports.multiCommand = function multiCommand() {
         }
 
         if(args.platform) { 
-            require('./platform').platformCommand().runner({
+            require('./platform').platformCommand(cwd).runner({
                 minMemo: args.minMemo,
                 noBrowser: args.noBrowser,
                 profile: args.profile
@@ -50,13 +51,13 @@ exports.multiCommand = function multiCommand() {
         }
 
         if(args.network) {
-            require('./network').networkCommand().runner({
+            require('./network').networkCommand(cwd).runner({
                 profile: args.profile
             })
         }
 
         if(args.dashboards) { 
-            require('./dashboards').dashboardsCommand().runner({
+            require('./dashboards').dashboardsCommand(cwd).runner({
                 minMemo: args.minMemo,
                 profile: args.profile
             })

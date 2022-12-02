@@ -1,11 +1,12 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
+const path = require('path')
 const chalk = require('chalk')
 
-exports.platformCommand = function platformCommand() {
+exports.dashboardsCommand = function dashboardsCommand(cwd) {
     const thisObject = {
-        name: 'platform',
-        description: chalk.bold('Runs the platform app'),
+        name: 'dashboards',
+        description: chalk.bold('Runs the dashboards app'),
         options: options,
         runner: runner
     }
@@ -13,9 +14,6 @@ exports.platformCommand = function platformCommand() {
 
     function options(cmd) {
         return cmd.option('minMemo', {
-            boolean: true,
-            default: false
-        }).option('noBrowser', {
             boolean: true,
             default: false
         }).option('profile', {
@@ -26,16 +24,14 @@ exports.platformCommand = function platformCommand() {
 
     function runner(args) {
         const arguments = []
-        if(args.minMemo) { arguments.push('minMemo') }
-        if(args.noBrowser) { arguments.push('noBrowser') }
+        if(args.minMemo) { arguments.push('minMemo')}
 
-        const name = args.profile !== undefined ? 'sa-' + args.profile + '-platform' : 'sa-default-platform'
+        const name = args.profile !== undefined ? 'sa-' + args.profile + '-dashboards' : 'sa-default-dashboards'
         const startProcess = {
-            script: 'platform.js',
+            script: 'dashboards.js',
             name,
-            args: arguments,
-            cwd: path.join(__dirname),
-            log_file: path.join(__dirname, 'My-Log-Files', 'pm2', 'platform-console.log')
+            cwd,
+            log_file: path.join(cwd, 'My-Log-Files', 'pm2', 'dashboards-console.log')
         }
 
         if(args.profile !== undefined) {
@@ -44,12 +40,13 @@ exports.platformCommand = function platformCommand() {
             }
             const profile = getProfile(args.profile)
             if(profile !== undefined && profile.storeLogs !== undefined) {
-                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'platform-console.log')
+                startProcess.log_file = path.join(profile.storeLogs, 'pm2', 'dashboards-console.log')
             }
+            console.log('[INFO] Dashboards using profile: ' + args.profile)
         }
-        
-        console.log('[INFO] Platform app starting with the following options: ', JSON.stringify(arguments))
-        console.log('[INFO] Platform app pm2 logs location: ' + startProcess.log_file)
+
+        console.log('[INFO] Dashboards app starting with the following options: ', JSON.stringify(arguments))
+        console.log('[INFO] Dashboards app pm2 logs location: ' + startProcess.log_file)
 
         pm2m.connect()
             .then(() => pm2m.start(startProcess))

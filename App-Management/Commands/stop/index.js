@@ -1,9 +1,9 @@
 const chalk = require('chalk')
 
-exports.runCommands = function runCommands() {
+exports.stopCommands = function stopCommands() {
     const thisObject = {
-        name: 'run',
-        description: chalk.bold('Use this command to run apps using pm2 process managment'),
+        name: 'stop',
+        description: chalk.bold('Use this command to stop and delete apps running with the pm2 process managment'),
         options: options,
         runner: runner
     }
@@ -23,6 +23,6 @@ exports.runCommands = function runCommands() {
     }
 
     function runner() {
-        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos run --help')}`)
+        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos stop --help')}`)
     }
 }

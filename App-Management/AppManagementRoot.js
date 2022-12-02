@@ -2,7 +2,7 @@ const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const chalk = require('chalk')
 
-exports.runRoot = function runRoot() {
+exports.runRoot = function runRoot(cwd) {
 
     const welcomeMessage = `
 ${chalk.bold.yellowBright('***** Welcome to Superalgos Ecosystem App Management *****')}
@@ -14,6 +14,7 @@ PRIMARY COMMAND LIST:
   - ${chalk.red('run')}
   - ${chalk.red('read')}
   - ${chalk.red('restart')}
+  - ${chalk.red('stop')}
 
 For more details of each command and their options run with the ${chalk.italic('--help')} argument
 `
@@ -25,9 +26,10 @@ For more details of each command and their options run with the ${chalk.italic('
     }
 
     const commands = [
-        require('./Commands/create/index').runCommands(),
+        require('./Commands/run/index').runCommands(cwd),
         require('./Commands/read/index').readCommands(),
         require('./Commands/restart/index').restartCommands(),
+        require('./Commands/stop/index').stopCommands(),
     ]
 
     let builder = yargs(hideBin(process.argv))

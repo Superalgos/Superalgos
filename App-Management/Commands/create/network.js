@@ -1,11 +1,12 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
+const chalk = require('chalk')
 
 exports.networkCommand = function networkCommand() {
     const thisObject = {
         name: 'network',
-        description: 'Runs the network app',
+        description: chalk.bold('Runs the network app'),
         options: options,
         runner: runner
     }

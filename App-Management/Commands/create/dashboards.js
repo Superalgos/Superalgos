@@ -1,11 +1,12 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
+const chalk = require('chalk')
 
 exports.dashboardsCommand = function dashboardsCommand() {
     const thisObject = {
         name: 'dashboards',
-        description: 'Runs the dashboards app',
+        description: chalk.bold('Runs the dashboards app'),
         options: options,
         runner: runner
     }

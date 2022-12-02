@@ -1,9 +1,10 @@
 const pm2 = require('pm2')
+const chalk = require('chalk')
 
 exports.restartCommands = function restartCommands() {
     const thisObject = {
         name: 'restart',
-        description: 'Use this command to restart apps that are using the pm2 process manager',
+        description: chalk.bold('Use this command to restart apps that are using the pm2 process manager'),
         options: options,
         runner: runner
     }

@@ -1,9 +1,10 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
+const chalk = require('chalk')
 
 exports.allCommand = function allCommand() {
     const thisObject = {
         name: 'all',
-        description: 'Reads the all the Superalgos processes returning them as a name list',
+        description: chalk.bold('Reads the all the Superalgos processes returning them as a name list'),
         options: options,
         runner: runner
     }

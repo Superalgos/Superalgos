@@ -1,9 +1,10 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
+const chalk = require('chalk')
 
 exports.describeCommand = function describeCommand() {
     const thisObject = {
         name: 'describe',
-        description: 'Describes a running Superalgos process',
+        description: chalk.bold('Describes a running Superalgos process'),
         options: options,
         runner: runner
     }

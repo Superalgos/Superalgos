@@ -1,7 +1,9 @@
+const chalk = require('chalk')
+
 exports.readCommands = function readCommands() {
     const thisObject = {
         name: 'read',
-        description: 'Use this command to read apps that are using the pm2 process manager',
+        description: chalk.bold('Use this command to read apps that are using the pm2 process manager'),
         options: options,
         runner: runner
     }

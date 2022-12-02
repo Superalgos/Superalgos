@@ -1,10 +1,11 @@
 const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
+const chalk = require('chalk')
 
 exports.platformCommand = function platformCommand() {
     const thisObject = {
         name: 'platform',
-        description: 'Runs the platform app',
+        description: chalk.bold('Runs the platform app'),
         options: options,
         runner: runner
     }

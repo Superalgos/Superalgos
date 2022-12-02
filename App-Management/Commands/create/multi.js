@@ -3,7 +3,7 @@ const chalk = require('chalk')
 exports.multiCommand = function multiCommand() {
     const thisObject = {
         name: 'multi',
-        description: 'Runs multiple apps',
+        description: chalk.bold('Runs multiple apps'),
         options: options,
         runner: runner
     }

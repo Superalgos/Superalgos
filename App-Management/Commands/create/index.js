@@ -3,7 +3,7 @@ const chalk = require('chalk')
 exports.runCommands = function runCommands() {
     const thisObject = {
         name: 'run',
-        description: 'Use this command to run apps using pm2 process managment',
+        description: chalk.bold('Use this command to run apps using pm2 process managment'),
         options: options,
         runner: runner
     }

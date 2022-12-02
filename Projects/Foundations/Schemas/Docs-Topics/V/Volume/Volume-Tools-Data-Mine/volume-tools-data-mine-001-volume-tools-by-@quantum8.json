@@ -3,7 +3,7 @@
     "pageNumber": "1",
     "type": "Volume Tools by @quantum8",
     "definition": {
-        "text": "The Volume Tooks Data Mine features a collection of volume related confirmation indicators that can be used in conjunction with primary and confluence indicators. These indicators can help identify potential upward or downward price swings in the market. The parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
+        "text": "The Volume Tools Data Mine features a collection of volume related confirmation indicators that can be used in conjunction with primary and confluence indicators. These indicators can help identify potential upward or downward price swings in the market. The parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
     },
     "paragraphs": [
         {

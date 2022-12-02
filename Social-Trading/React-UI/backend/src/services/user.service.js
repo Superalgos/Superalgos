@@ -1,7 +1,7 @@
 const getSocialPersonaId = async (req, res) => {
     let response = {};
     try {
-        let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA);
+        let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA);
         response.nodeCodeName = socialPersona.nodeCodeName;
         response.nodeId = socialPersona.nodeId;
         response.blockchainAccount = socialPersona.blockchainAccount;

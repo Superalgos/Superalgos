@@ -19,6 +19,6 @@ exports.readCommands = function readCommands() {
     }
 
     function runner() {
-        console.log('You need to add additional commands, please run `manageApps read --help`')
+        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos read --help')}`)
     }
 }

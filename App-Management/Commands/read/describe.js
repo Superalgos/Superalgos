@@ -17,7 +17,7 @@ exports.describeCommand = function describeCommand() {
     }
 
     function runner(args) {
-        console.log('[INFO] Describin the ' + args.name + ' process')
+        console.log('[INFO] Describing the ' + args.name + ' process')
         pm2m.connect()
             .then(() => pm2m.describe(args.name))
             .then((list) => console.log(list))

@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 exports.multiCommand = function multiCommand() {
     const thisObject = {
         name: 'multi',
@@ -35,7 +37,7 @@ exports.multiCommand = function multiCommand() {
 
     function runner(args) {
         if(!args.plaform && !args.network && args.dashboards) {
-            conosle.log('At least one of --platform, --dashboards or --network must be supplied')
+            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--network')} must be supplied`)
             return
         }
 

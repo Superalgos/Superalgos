@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 exports.runCommands = function runCommands() {
     const thisObject = {
         name: 'run',
@@ -21,6 +23,6 @@ exports.runCommands = function runCommands() {
     }
 
     function runner() {
-        console.log('You need to add additional commands, please run `manageApps run --help`')
+        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos run --help')}`)
     }
 }

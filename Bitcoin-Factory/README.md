@@ -101,12 +101,7 @@ Having said that, please don't expect that forecasts will be precise in the begi
 ## Development To Do List
 
 ### Bug's that need fixing:
- 1. Bug fix Negative error values, the issue needs addressing where the percentageErrorRMSE occasionally produces a negative value.
- 2. Fix the issue returning the test results to the same server that provided the test case.
- 3. The current forecaster is not aware of multiple servers and is causing problems. An upgrade for this is needed, before other improvements.
- 4. Multiple Network Nodes, the current system only allows connection to one network node. Allow the system to scale and avoid bottlenecks, the system must be able to connect to multiple network nodes.
- 5. Computing power owners to be able to specify which server they would like to connect to.
- 6.  Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
+ 1.  The forecaster is sending undefined values.
 
 ## Dashboard setup and progress
 The dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.

@@ -2304,7 +2304,7 @@ exports.documentationExporter = function documentationExporter() {
          * @param {string} content
          * @returns {string}
          */
-        function paginationLinkBuilder(category, pageType, content) {
+        function paginationLinkBuilder(project, category, pageType, content) {
             return `${generateUnstyledLink(project, category, pageType, content)}<br/> ${pageType}`
         }
 

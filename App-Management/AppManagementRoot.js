@@ -1,12 +1,10 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const chalk = require('chalk')
+const boxen = require('boxen')
 
 exports.runRoot = function runRoot(cwd) {
-
     const welcomeMessage = `
-${chalk.bold.yellowBright('***** Welcome to Superalgos Ecosystem App Management *****')}
-
 USAGE:
   ${chalk.red('superalgos')} ${chalk.italic.red('[command] [options]')}
 
@@ -18,10 +16,39 @@ PRIMARY COMMAND LIST:
 
 For more details of each command and their options run with the ${chalk.italic('--help')} argument
 `
+    const logo = `
+                                  ///////
+                               ,    ///////
+                                      //////
+                          *           ,/////
+                        ((             /////
+                     /((      ///      ////
+                 (((((      ((////     ////
+          ,(((((((((       (((////*     ///
+       (((((((((.        (((((/////      //
+     (((((((*         ((((((((//////      /,
+    ((((((          ((((((((((////////     /
+     ((((           ((((((((((/////////
+        (((                       /////
+                   *(((/.
+                          /(((/////            /    
+                               /////////     ///    
+                                  //////////////    
+                                      ////////
+`
+
+    const welcomeBox = boxen(chalk.red(logo) + '\n' + welcomeMessage, {
+        borderColor: 'yellow',
+        title: 'Welcome to Superalgos Ecosystem App Management',
+        titleAlignment: 'center',
+        padding: 1,
+        margin: 1
+    })
+
     // even though the install allows users to run the command `superalgos` 
     // the args still receive `node manageApps`
     if(process.argv.length < 3) {
-        console.log(welcomeMessage)
+        console.log(welcomeBox)
         return
     }
 

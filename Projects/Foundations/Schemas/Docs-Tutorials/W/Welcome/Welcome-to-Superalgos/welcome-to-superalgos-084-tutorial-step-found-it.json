@@ -115,8 +115,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın. Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
-                    "updated": 1639225333761
+                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın (Copy Node Path). Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
+                    "updated": 1670011034151
                 },
                 {
                     "language": "ID",

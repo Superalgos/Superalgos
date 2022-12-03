@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Ve Plotter'lar bu şekilde inşa edilir! Plotter'lar, mumlardan diğer şeylere kadar verilerin grafiksel temsillerini oluşturur!",
-                "updated": 1636106406315
+                "text": "Ve Plotter'lar bu şekilde inşa edilir! Plotter'lar, mumlardan diğer şeylere kadar verilerin grafiksel gösterimini oluşturur!",
+                "updated": 1669920284730
             },
             {
                 "language": "RU",
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "En zo worden plotters gebouwd! Plotters maken grafische weergaven van gegevens... van kaarsen tot al het andere!",
                 "updated": 1666785699306
+            },
+            {
+                "language": "FR",
+                "text": "Et c'est ainsi que les traceurs sont construits ! Les traceurs créent des représentations graphiques des données... depuis les bougies à tout le reste !",
+                "updated": 1668414570996
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Nogmaals, visuele scripting op zijn best! Plotters gebruiken gestileerde polygonen gemaakt van coördinaatpunten om lijnen en vormen te tekenen die gegevens vertegenwoordigen. Elke laag die in de grafieken beschikbaar wordt gemaakt, is gemaakt met een reeks definities van het soort waar u nu naar kijkt. Het specifieke geval van de Resistances and Supports bot is nogal complex, maar laat wel de kracht van de tool zien!",
                     "updated": 1666785793012
+                },
+                {
+                    "language": "FR",
+                    "text": "Encore une fois, le script visuel à son meilleur! Les traceurs utilisent des polygones stylisés constitués de points de coordonnées pour peindre des lignes et des formes qui représentent des données. Chaque calque mise à disposition sur les graphiques est créée avec un ensemble de définitions tel que ceux que vous consultez actuellement. Le cas particulier du bot Resistances and Supports est assez complexe, mais met en valeur la puissance de l'outil !",
+                    "updated": 1668414647743
                 }
             ]
         },
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Zoek de Support Zone 5 Polygon (aan de linkerkant), breid deze uit en kruip je een weg omhoog langs de aftakkingen voor een voorproefje van hoe deze schoonheid werd gebouwd!",
                     "updated": 1666785855321
+                },
+                {
+                    "language": "FR",
+                    "text": "Trouvez le polygone de la zone de support 5 (à gauche), développez-le et explorer le long des branches pour avoir un aperçu de la façon dont cette beauté a été construite !",
+                    "updated": 1668414674398
                 }
             ]
         }

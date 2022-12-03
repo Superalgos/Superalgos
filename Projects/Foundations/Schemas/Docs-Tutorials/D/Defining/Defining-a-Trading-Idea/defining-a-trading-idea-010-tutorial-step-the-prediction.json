@@ -23,6 +23,16 @@
                 "language": "TR",
                 "text": "Dikkate alınması gereken dördüncü husus, bu fikirden ne beklediğimizdir ve bu stratejinin türüne oldukça bağlıdır.",
                 "updated": 1640867620767
+            },
+            {
+                "language": "ES",
+                "text": "El cuarto aspecto a considerar es lo que esperamos de esta idea, y esto depende en gran medida del tipo de estrategia.",
+                "updated": 1668189338990
+            },
+            {
+                "language": "IT",
+                "text": "Il quarto aspetto da considerare è quello che ci aspettiamo da questa idea, e questo dipende fortemente dal tipo di strategia.",
+                "updated": 1669887857817
             }
         ]
     },
@@ -45,6 +55,16 @@
                     "language": "TR",
                     "text": "Örneğin, bir salınım stratejisi için, %50 isabet oranıyla ayda iki kez pozisyon almak kabul edilebilir, ancak scalping stratejisi için kabul edilemez.",
                     "updated": 1640867758388
+                },
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, para una estrategia de swing, tomar una posición dos veces al mes con una proporción de aciertos del 50% puede ser aceptable, pero no para una estrategia de scalping.",
+                    "updated": 1668189375636
+                },
+                {
+                    "language": "IT",
+                    "text": "Ad esempio, per una strategia swing, può essere accettabile aprire una posizione due volte al mese con un hit ratio del 50%, ma non vale lo stesso per una strategia scalping.",
+                    "updated": 1669887882711
                 }
             ]
         },
@@ -66,6 +86,16 @@
                     "language": "TR",
                     "text": "Stratejiden ne beklediğimizi ticaret sıklığı ve isabet oranı açısından tanımlamak, stratejinin takip etmeye değer olup olmadığını belirlemeye yardımcı olur.",
                     "updated": 1640867969084
+                },
+                {
+                    "language": "ES",
+                    "text": "Definir lo que esperamos de la estrategia en términos de frecuencia de negociación y porcentaje de aciertos ayuda a determinar si la estrategia merece la pena o no.",
+                    "updated": 1668189404660
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire cosa ci aspettiamo dalla strategia in termini di frequenza di trading e hit ratio aiuta a determinare se vale la pena perseguire o meno la strategia.",
+                    "updated": 1669887899848
                 }
             ]
         },
@@ -87,6 +117,11 @@
                     "language": "TR",
                     "text": "Testler, fikrin istenildiği kadar çok işlem veya çok sayıda iyi girdi üretmediğini gösteriyorsa, yeni bir fikir edinmek isteyebilirsiniz.",
                     "updated": 1640868138794
+                },
+                {
+                    "language": "ES",
+                    "text": "Si las pruebas demuestran que la idea no produce tantas operaciones o tantas entradas buenas como sería deseable, es posible que se quiera plantear una nueva idea.",
+                    "updated": 1668189442540
                 }
             ]
         }

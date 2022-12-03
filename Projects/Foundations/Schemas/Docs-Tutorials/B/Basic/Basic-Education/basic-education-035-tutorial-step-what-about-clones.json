@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Clones berbeda dari cadangan karena fitur ini dirancang untuk mereplikasi struktur data sehingga salinannya menyerupai aslinya.",
                 "updated": 1645032537742
+            },
+            {
+                "language": "NL",
+                "text": "Clones verschillen van back-ups doordat de functie is ontworpen om gegevensstructuren te repliceren, zodat de kopieën lijken op het origineel.",
+                "updated": 1669544812516
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Baca halaman ini dengan seksama!",
                     "updated": 1645032555279
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees deze pagina goed!",
+                    "updated": 1669544823316
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Kesimpulan:",
                     "updated": 1645032582326
+                },
+                {
+                    "language": "NL",
+                    "text": "Samengevat:",
+                    "updated": 1669544835260
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Clones berperilaku dengan cara yang sama apakah aslinya ada pada restorasi atau tidak.",
                     "updated": 1645032619979
+                },
+                {
+                    "language": "NL",
+                    "text": "Clones gedragen zich op dezelfde manier, of het origineel nu aanwezig is bij het terugzetten of niet.",
+                    "updated": 1669544894029
                 }
             ]
         },
@@ -197,6 +217,11 @@
                     "language": "ID",
                     "text": "Referensi Incoming selalu dibuang.",
                     "updated": 1645032707209
+                },
+                {
+                    "language": "NL",
+                    "text": "Inkomende referenties worden altijd weggegooid.",
+                    "updated": 1669544909320
                 }
             ]
         },
@@ -236,6 +261,11 @@
                     "language": "ID",
                     "text": "Jangan ragu untuk meluangkan waktu untuk menguji fitur Clones! Kita akan beralih ke topik lain tanpa basa-basi lagi!",
                     "updated": 1645032739232
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem gerust de tijd om de Clones functie zelf te testen! We gaan zonder verder oponthoud verder met andere onderwerpen!",
+                    "updated": 1669544935235
                 }
             ]
         }

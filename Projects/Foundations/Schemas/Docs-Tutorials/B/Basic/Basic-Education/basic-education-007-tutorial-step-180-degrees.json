@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ketika semua turunan node diatur ke sudut 180 derajat, setiap node mengambil tempat disekeliling yang mencakup 180 derajat, normal untuk parentnya.",
                 "updated": 1643473595168
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer alle knooppunten van sub-knooppunten zijn ingesteld op een hoek van 180 graden, neemt elk knooppunt evenwijdig een fractie van een omtrek van 180 graden, ten opzichte van de ouder.",
+                "updated": 1668335314983
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Tetapi apa yang terjadi jika salah satu turunan node memiliki pengaturan Angle to Parent yang berbeda? Mari kita tes!",
                     "updated": 1643473612431
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar wat gebeurt er als een van de sub-knooppunten een andere Angle to Parent instelling heeft? Laten we een experiment uitvoeren!",
+                    "updated": 1668335345696
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Klik sekali pada pengaturan Angle to Parent di node Trading Parameters dan keluar dari menu!",
                     "updated": 1643336532710
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik eenmaal op de Trading Parameters Angle to Parent instelling en verlaat het menu!",
+                    "updated": 1668335422326
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Node mengambil tempat dalam sudut yang lebih kecil — 90 derajat! Lakukan hal yang sama dengan node Trading System Reference dan Trading Engine Reference !",
                     "updated": 1643336695129
+                },
+                {
+                    "language": "NL",
+                    "text": "Het knooppunt neemt een afstand in een kleinere hoek - 90 graden! Doe hetzelfde met de knooppunten Trading System Reference en Trading Engine Reference!",
+                    "updated": 1668335465054
                 }
             ]
         }

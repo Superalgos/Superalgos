@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "/home/pi/trading/Superalgos/.github"
+		},
+		{
+			"path": "/home/pi/trading/Superalgos/My-Data-Storage"
+		},
+		{
+			"path": "/home/pi/trading/Superalgos/Exports"
+		},
+		{
+			"path": "/home/pi/trading/Superalgos/Platform"
+		},
+		{
+			"path": "/home/pi/trading/Superalgos/Projects"
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [{
+			"name": "Debug exports",
+			"cwd": "/home/pi/trading/Superalgos/",
+			"program": "export-docs.js",
+			"args": [
+				"-r=sa-docs"
+			],
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		}]
+	}
+}

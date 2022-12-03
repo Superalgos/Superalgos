@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Muhtemelen dünyada yaşayan tüccarlar gibi bir eğilim belirlemenin birçok yolu vardır! Bu bir tarz meselesi ve çoğunlukla öznel!",
-                "updated": 1641653161688
+                "text": "Bir trendi belirlemenin muhtemelen Dünya gezegeninde yaşayan tüccarlar kadar çok yolu vardır! Bu bir tarz meselesidir ve çoğunlukla özneldir!",
+                "updated": 1669576481664
             }
         ]
     },
@@ -65,8 +65,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( Layer ) Katmanını açın!",
-                    "updated": 1641653199650
+                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( (Bollinger Channels Objects) Katmanını (Layer) açın!",
+                    "updated": 1669576557806
                 }
             ]
         },
@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bu gösterge MA'nın yönünü alır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
-                    "updated": 1641653214188
+                    "text": "Not: Bu gösterge MA'nın yönüne göre çalışır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
+                    "updated": 1669576593762
                 }
             ]
         }

@@ -76,8 +76,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si necesitas un recordatorio sobre estos temas...",
-                    "updated": 1625871978228,
+                    "text": "Si alguna vez necesita un recordatorio sobre cualquiera de estos temas, puede repetir cualquier Tema o Paso del Tutorial",
+                    "updated": 1668196095962,
                     "style": "Text"
                 },
                 {
@@ -117,8 +117,8 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a (Play) tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
-                    "updated": 1644908382276
+                    "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a (Play) tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde sıralanmıştır.",
+                    "updated": 1669837592721
                 },
                 {
                     "language": "RU",
@@ -134,6 +134,11 @@
                     "language": "FR",
                     "text": "Vous pouvez me trouver dans le coin inférieur gauche de l'espace de conception, parcourir la hiérarchie des sujets et des étapes, et cliquer sur Play sur l'un d'entre eux. Les sujets sont disposés dans le sens des aiguilles d'une montre, en partant de la droite du nœud principal du Tutorial.",
                     "updated": 1667205383606
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes encontrarme en la esquina inferior izquierda del espacio de diseño, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal del Tutorial.",
+                    "updated": 1668196168066
                 }
             ]
         },

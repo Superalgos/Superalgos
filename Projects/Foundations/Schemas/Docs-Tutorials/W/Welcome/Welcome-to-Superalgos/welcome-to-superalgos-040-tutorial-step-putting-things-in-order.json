@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Nog één ding voordat we in de grafieken duiken. Je moet weten hoe je het huis op orde brengt!",
                 "updated": 1666699373988
+            },
+            {
+                "language": "FR",
+                "text": "Une dernière chose avant de plonger dans les graphiques. Vous devez savoir comment mettre de l'ordre dans la maison !",
+                "updated": 1668068476735
             }
         ]
     },
@@ -93,6 +98,11 @@
                     "language": "NL",
                     "text": "Er komt een tijd dat je misschien met tientallen grafieken gaat werken. U weet al hoe u hun formaat kunt wijzigen. Nu moet je leren hoe je ze kunt verplaatsen, zodat je alle aanpassingen kunt maken die je nodig hebt. Het is vrij eenvoudig:",
                     "updated": 1666699424383
+                },
+                {
+                    "language": "FR",
+                    "text": "Le moment viendra où vous travaillerez peut-être avec des dizaines de graphiques. Vous savez déjà comment modifier leur format. Vous devez maintenant apprendre à les déplacer afin de créer les arrangements dont vous avez besoin. C'est très simple :",
+                    "updated": 1668068495009
                 }
             ],
             "updated": 1616416902513
@@ -128,8 +138,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir zaman makinesinin üzerine gelere Shift'e basın, sol tıklayın ve sürükleyin!",
-                    "updated": 1644913296848
+                    "text": "Herhangi bir zaman makinesinin üzerine gelerek Shift'e basın, mouse'un sol tuşuna basılı tutun ve sürükleyin!",
+                    "updated": 1669841271934
                 },
                 {
                     "language": "RU",
@@ -140,6 +150,11 @@
                     "language": "NL",
                     "text": "Druk op <kbd>Shift</kbd>, klik met de linkermuisknop en sleep!",
                     "updated": 1666699465956
+                },
+                {
+                    "language": "FR",
+                    "text": "Appuyer sur Shift, cliquez sur le bouton gauche et faites glisser !",
+                    "updated": 1668068523586
                 }
             ]
         },
@@ -185,6 +200,11 @@
                     "language": "NL",
                     "text": "Ik geloof dat we alles hebben besproken over het beheren van de grafiek omgeving. Het is tijd om in de grafieken te duiken!",
                     "updated": 1666699544611
+                },
+                {
+                    "language": "FR",
+                    "text": "Je crois que nous avons tout couvert sur la façon de gérer l'espace graphique. Il est temps de se plonger dans les graphiques !",
+                    "updated": 1668068541403
                 }
             ]
         }

@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Давайте приступим к выполнению поставленной задачи! Скопируйте приведенную ниже команду, вставьте ее в поле поиска/команды и нажмите Enter!",
                 "updated": 1640163425317
+            },
+            {
+                "language": "ID",
+                "text": "Ayo lanjutkan dengan tugas berada di genggamanmu! Salin perintah dibawah ini, tempelkan itu dalam pencarian/perintah box, dan tekan Enter!",
+                "updated": 1668996710622
+            },
+            {
+                "language": "NL",
+                "text": "Laten we doorgaan met de taak die voorhanden is! Kopieer de onderstaande opdracht, plak deze in het zoek-/opdrachtvenster en druk op Enter!",
+                "updated": 1669750169608
             }
         ]
     },
@@ -76,6 +86,16 @@
                     "language": "RU",
                     "text": "В Windows появится диалоговое окно входа в GitHub, предлагающее пройти аутентификацию с помощью токена или пароля. Любой из этих вариантов должен сработать! Помните, что требуется последняя версия Git! Если у вас проблемы с последней версией, перезагрузка компьютера может помочь. На Mac и Linux учетные данные запрашивает Терминал. Если вы включили двухфакторную аутентификацию на GitHub, используйте токен, даже если вас попросят ввести пароль!",
                     "updated": 1640163486555
+                },
+                {
+                    "language": "ID",
+                    "text": "Di Windows, sebuah Github dialog sign in yang muncul menawarkan untuk memberikan autentikasi token atau password. Keduanya seharusnya bekerja! Mohon diingat versi Git terbaru sangat dibutuhkan! Jika kamu memiliki masalah dengan versi terbaru, mulai ulang PC-mu mungkin membantu. Di Mac dan Linux, ada sebuah terminal yang meminta kredensial. Jika kamu menggunakan autentikasi ganda di GitHub, gunakan token bahkan saat jika kamu ditanya tentang password!",
+                    "updated": 1668996720256
+                },
+                {
+                    "language": "NL",
+                    "text": "In Windows verschijnt een GitHub-aanmeldingsdialoogvenster waarin wordt aangeboden om te verifiëren met uw token of wachtwoord. Beiden zouden moeten werken! Vergeet niet dat de nieuwste versie van Git vereist is! Als u problemen ondervindt met de nieuwste versie, kan het helpen om de pc opnieuw op te starten. Op Mac en Linux is het de terminal die om inloggegevens vraagt. Als je tweefactorauthenticatie op GitHub hebt ingeschakeld, gebruik dan het token, zelfs als er om het wachtwoord wordt gevraagd!",
+                    "updated": 1669750262897
                 }
             ]
         }

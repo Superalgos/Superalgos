@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir ticaret görevi gerçekleştirmenin bir veri görevi gerçekleştirmeye benzer olduğunu unutmayın. Aradaki fark, görevi gerçekleştirdikten sonra ticaret oturumunu da çalıştırmanız gerektiğidir.",
-                    "updated": 1641655247740
+                    "text": "Bir Ticaret görevi (Trading Task) çalıştırmanın bir veri görevi (Data Task) çalıştırmaya benzediğini unutmayın. Aradaki fark, görevi (Task) çalıştırdıktan sonra Ticaret oturumunu da (Trading Session) çalıştırmanız gerektiğidir.",
+                    "updated": 1669583671775
                 }
             ]
         },
@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Ticaret Süreci Örneği ( Trading Process Instance ) ilerleme çubuğu %100 işaretine ulaştığında görevi tamamlayın ve İleri'yi tıklatın.",
-                    "updated": 1641655287663
+                    "text": "İşlem Süreci Örneğinin (Trading Process Instance)  ilerleme bildirimi %100 işaretine ulaştığında, görevi durdurun ve Next'e tıklayın.",
+                    "updated": 1669583952370
                 }
             ]
         }

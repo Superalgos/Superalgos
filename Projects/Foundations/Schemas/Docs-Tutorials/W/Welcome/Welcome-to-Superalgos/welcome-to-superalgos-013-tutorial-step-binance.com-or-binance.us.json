@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
-                "updated": 1627302684720,
+                "text": "Antes de comenzar con la mineria de datos (Data Mine), tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
+                "updated": 1668194468478,
                 "style": "Definition"
             },
             {
@@ -128,8 +128,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
-                    "updated": 1624491042411,
+                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso te muestra cómo!",
+                    "updated": 1668194494383,
                     "style": "Callout"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor!",
-                    "updated": 1635582592953
+                    "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımda göreceğinizi video size nasıl yapabileceğinizi gösterecektir!",
+                    "updated": 1669836814336
                 },
                 {
                     "language": "FR",
@@ -180,8 +180,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Accede a la configuración y cambia el codeName a \"binanceus\". Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
-                    "updated": 1627302546798,
+                    "text": "Accede a la configuración y cambia el codeName por \"binanceus\". Salga del editor y se guardará automáticamente.",
+                    "updated": 1667510167454,
                     "style": "List"
                 },
                 {

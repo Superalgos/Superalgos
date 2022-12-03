@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Jika kamu seorang developer atau memiliki setidaknya pemahaman dasar tentang JavaScript, Kamu akan dapat membuat indikator sendiri!",
                 "updated": 1645561357928
+            },
+            {
+                "language": "NL",
+                "text": "Als u een ontwikkelaar bent of op zijn minst een basiskennis van JavaScript heeft, kunt u uw eigen indicatoren maken!",
+                "updated": 1669552417237
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Ini adalah fitur penting Superalgos, karena trading intelligence tidak dapat muncul tanpa kemampuan untuk menganalisis data market! Sekali lagi, aku tidak akan membahas cara membangun indikator pada titik ini, tetapi aku ingin memberi tahu kamu bahwa kami telah membantu kamu!",
                     "updated": 1645561426287
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is een cruciaal kenmerk van Superalgos, aangezien handelsinformatie niet kan ontstaan zonder de mogelijkheid om marktgegevens te analyseren! Nogmaals, ik ga op dit moment niet in op het bouwen van indicatoren, maar ik wil je wel laten weten dat het mogelijk is!",
+                    "updated": 1669552502929
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Ada serangkaian tutorial video komprehensif yang menjelaskan seluruh proses! Lihatlah halaman ini dengan cepat di Docs!",
                     "updated": 1645561474655
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is een uitgebreide reeks video-zelfstudies die het hele proces uitleggen! Kijk dan snel op deze pagina in de Docs!",
+                    "updated": 1669552529817
                 }
             ]
         }

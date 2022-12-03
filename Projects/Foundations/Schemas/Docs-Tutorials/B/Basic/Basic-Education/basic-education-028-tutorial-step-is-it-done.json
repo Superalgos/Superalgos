@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Jika belum, lakukanlah dan buat referensi dari Trading System Reference ke Lightning Strike Trading System!",
                 "updated": 1644949362631
+            },
+            {
+                "language": "NL",
+                "text": "Als je dat nog niet hebt gedaan, ga je gang en creëer een referentie van de Trading System Reference naar het Lightning Strike Trading System!",
+                "updated": 1669542467400
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu mungkin menemukan teknik ini untuk membuat referensi menjadi sedikit janggal atau tidak praktis. Jika kamu memiliki ide yang lebih baik atau tahu cara memperbaikinya, jangan ragu untuk membuka fitur request issue. Pastikan kamu mempertimbangkan yang berikut ini:",
                     "updated": 1644949461178
+                },
+                {
+                    "language": "NL",
+                    "text": "Misschien vindt u deze techniek om een referentie vast te stellen een beetje onhandig of onpraktisch. Als u een beter idee heeft of weet hoe u het kunt verbeteren, kunt u een nieuw functieverzoek openen. Zorg ervoor dat u rekening houdt met het volgende:",
+                    "updated": 1669542518350
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Di workspace yang kompleks, mungkin ada ratusan node yang mungkin dapat menerima referensi.",
                     "updated": 1644949490752
+                },
+                {
+                    "language": "NL",
+                    "text": "In een complexe werkruimte kunnen er honderden knooppunten zijn die een referentie kunnen accepteren.",
+                    "updated": 1669542533566
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Referensi harus dibuat secara tegas dari node tertentu ke node tertentu lainnya.",
                     "updated": 1644949516370
+                },
+                {
+                    "language": "NL",
+                    "text": "De verwijzing moet ondubbelzinnig tot stand komen van een specifiek knooppunt naar een ander specifiek knooppunt.",
+                    "updated": 1669542556974
                 }
             ]
         },

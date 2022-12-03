@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan!",
                 "updated": 1641093078598
+            },
+            {
+                "language": "NL",
+                "text": "Ik hoor dat mijn vriend de Welcome zelfstudie je rondleidde en je betoverde met een paar goedkope trucs... Wat een opschepperij!",
+                "updated": 1668333763030
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Nah, sekarang saatnya untuk kita bekerja!",
                     "updated": 1641092624533
+                },
+                {
+                    "language": "NL",
+                    "text": "Nou, nu is het tijd om aan de slag te gaan!",
+                    "updated": 1668333785942
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Belajar Superalgos cukup sulit! Bukan karena susah, tetapi karena sistemnya luas, sangat fleksibel, dan dibangun di atas paradigma baru yang tidak tentu pada awalnya...",
                     "updated": 1641092701951
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos leren is een hele onderneming! Niet omdat het moeilijk is, maar omdat het systeem enorm is, extreem flexibel en gebouwd is op een nieuw paradigma dat in het begin niet voor de hand ligt...",
+                    "updated": 1668333811196
                 }
             ]
         },
@@ -154,10 +169,15 @@
                     "text": "Но не волнуйтесь! Если вы будете внимательны и пройдете все доступные уроки, вы сможете справиться с кривой обучения как чемпион! Тем не менее, имейте в виду... большинство людей проходят учебники не один раз!",
                     "updated": 1640858678160
                 },
-                {    
+                {
                     "language": "ID",
                     "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali!",
                     "updated": 1641092815981
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar maak je geen zorgen! Als je goed oplet en alle beschikbare zelfstudies volgt, kun je de leercurve als een kampioen aanpakken! Maar wees gewaarschuwd... de meeste mensen doen zelfstudies meer dan eens!",
+                    "updated": 1668333877715
                 }
             ]
         }

@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos, çok projeli bir platformdur. TensorFlow'dan sonra sıradaki Ethereum entegrasyonudur...",
-                "updated": 1636636198144
+                "text": "Bitcoin Factory, Bitcoin fiyatlarını tahmin eden makine öğrenimi algoritmalarını eğitmek için topluluktan bilgi işlem gücü alıyor!",
+                "updated": 1670014037133
             },
             {
                 "language": "ID",
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Görsel arayüzü kullanarak Superalgos'un içinden bir Ethereum düğümüne bağlanırsınız.",
-                    "updated": 1636637433751
+                    "text": "Hesaplamaya katkıda bulunmak için Bitcoin Factory ML-Test-Client'ı çalıştırarak Superalgos SA Token madenciliği yapın!",
+                    "updated": 1670014043789
                 },
                 {
                     "language": "ID",
@@ -118,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "De-Fi veya neye sahipseniz, tüm Ethereum tabanlı projeler için coin ve sözleşme bilgilerine erişmek için blok zinciri verilerini çıkarabilir, grafiklerdeki verileri görselleştirebilir, göstergeler oluşturabilir ve Superalgos altyapısının geri kalanından yararlanabilirsiniz.",
-                    "updated": 1636637425615
+                    "text": "Avantaj sağlamak için stratejilerinize ekleyebileceğiniz ML tahminlerini ve sinyallerini istihbarat olarak kullanın!",
+                    "updated": 1670014087346
                 },
                 {
                     "language": "ID",
@@ -161,8 +161,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret sistemlerinden ilgili göstergeleri kullanarak ticaret yapmak için verileri kullanabilirsiniz.",
-                    "updated": 1636637596993
+                    "text": "Katılmak için lütfen Bitcoin Factory ekibine katılın",
+                    "updated": 1670014124135
                 },
                 {
                     "language": "ID",
@@ -210,6 +210,11 @@
                     "language": "NL",
                     "text": "Zodra de bètafase voorbij is, moet u een bepaald saldo van Superalgos SA-tokens hebben om toegang te krijgen tot Bitcoin Factory-voorspellingen, omdat het een premium community-service is.",
                     "updated": 1667136591937
+                },
+                {
+                    "language": "TR",
+                    "text": "Beta aşaması sona erdiğinde, premium bir topluluk hizmeti olan Bitcoin Factory tahminlerine erişmek için belirli bir Superalgos SA Token bakiyesine sahip olmanız gerekecektir.",
+                    "updated": 1670014167149
                 }
             ]
         }

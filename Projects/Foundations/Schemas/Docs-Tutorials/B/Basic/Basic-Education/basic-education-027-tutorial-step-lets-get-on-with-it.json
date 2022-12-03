@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Bagaimana jika node jauh dari satu sama lain, bahkan mungkin dalam hierarki yang berbeda? Tonton video untuk mempelajari beberapa trik!",
                 "updated": 1644949084231
+            },
+            {
+                "language": "NL",
+                "text": "Wat als de knooppunten ver van elkaar verwijderd zijn, misschien zelfs in verschillende hiërarchieën? Bekijk de video om een paar trucjes te leren!",
+                "updated": 1669542195152
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Trik UI ini dapat membuat hidup kamu lebih mudah :",
                     "updated": 1644949107171
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze UI-trucs kunnen uw leven gemakkelijker maken:",
+                    "updated": 1669542210029
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Pin node kamu yang akan bergerak melintasi design space, sehingga akan tetap di tempat kamu menjatuhkannya!",
                     "updated": 1644949159572
+                },
+                {
+                    "language": "NL",
+                    "text": "Pin het knooppunt dat u over de ontwerpruimte gaat verplaatsen vast, zodat het blijft staan waar u het neerzet!",
+                    "updated": 1669542234745
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Klik tombol \"Save node to be moved\" pada node yang ingin kamu pindahkan.",
                     "updated": 1644949190021
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de knop \"Save node to be moved\" op de node die u wilt verplaatsen.",
+                    "updated": 1669542269472
                 }
             ]
         },
@@ -192,6 +212,11 @@
                     "language": "IT",
                     "text": "Usa la mappa dello spazio di progettazione per ridurre lo zoom e fai clic vicino al nodo verso il quale desideri spostarti.",
                     "updated": 1666639048273
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de ontwerpruimtekaart om uit te zoomen en klik in de buurt van het knooppunt waarnaar u wilt gaan.",
+                    "updated": 1669542302896
                 }
             ]
         },
@@ -225,6 +250,11 @@
                     "language": "IT",
                     "text": "Clicca su \"Snap saved node to postion\" e il nodo che hai salvato apparirà magicamente sopra il nodo in cui ti trovi!",
                     "updated": 1666639078071
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op \"Snap saved node to position\" en het knooppunt dat je hebt opgeslagen, verschijnt op magische wijze bovenop het knooppunt waar je bent!",
+                    "updated": 1669542342318
                 }
             ]
         },
@@ -257,6 +287,11 @@
                     "language": "IT",
                     "text": "Una volta stabilito il riferimento, rimuovi il pin con cui hai fissato il nodo in modo che torni al suo posto.",
                     "updated": 1666639163813
+                },
+                {
+                    "language": "NL",
+                    "text": "Verwijder de pin zodra de referentie tot stand is gebracht, zodat het knooppunt terugkeert naar zijn plaats.",
+                    "updated": 1669542357727
                 }
             ]
         }

@@ -14,8 +14,8 @@
             },
             {
                 "language": "ES",
-                "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
-                "updated": 1628897237327,
+                "text": "Este tutorial le presenta el universo Superalgos. Te guiará a través de las áreas principales del sistema, te enseñará el funcionamiento básico y te guiará a través del proceso de backtesting. Practicarás con una demostración de Trading System, e incluso podrás configurar tu primer Live Trading Session.",
+                "updated": 1667506565492,
                 "style": "Definition"
             },
             {
@@ -70,6 +70,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394207568,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sobre este Tutorial",
+                    "updated": 1667506139645
                 }
             ]
         },

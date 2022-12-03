@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
-                "updated": 1618434622270,
+                "text": "Acabo de arrastrarte a los confines de la operación de minería de datos. ¡Observa el progreso del Sensor Bot Instance a su derecha!",
+                "updated": 1668195246807,
                 "style": "Definition"
             },
             {
@@ -182,8 +182,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
-                    "updated": 1625933743042,
+                    "text": "No debería tardar más de 5 a 10 minutos en extraer los datos de la bolsa, o un poco más, dependiendo de tu hardware. ¿No puedes esperar? No hay problema. Haz clic en Siguiente para obtener una pista rápida.",
+                    "updated": 1668195338360,
                     "style": "Success"
                 },
                 {
@@ -206,8 +206,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Verilerin borsadan çekilmesi 5 ila 10 dakikadan uzun sürmemeli. Ancak Bu süre donanımınıza bağlı olarak biraz daha uzun sürebilir. Bekleyemez misin? O zaman hızlı bir ipucu için İleri'ye tıkla!",
-                    "updated": 1644850340098
+                    "text": "Verilerin borsadan alınması 5 ila 10 dakikadan uzun sürmemeli. Ancak Bu süre donanımınıza ve verileri almak istediğiniz başlangıç tarihine bağlı olarak biraz daha uzun sürebilir. Bekleyemez misin? O zaman hızlı bir ipucu için İleri'ye tıkla!",
+                    "updated": 1669837136952
                 },
                 {
                     "language": "FR",

@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Фрирайдинг - это не круто! Мы знаем, что как только вы начнете вносить свой вклад, вы вдохновите еще больше людей последовать вашему примеру!",
                 "updated": 1640155387123
+            },
+            {
+                "language": "ID",
+                "text": "Menjadi pengguna tanpa berkontribusi bukanlah hal yang keren! Kami tahu ketika kamu memulai untuk berkontribusi. Kamu akan menginspirasi banyak orang untuk mengikuti arahanmu!",
+                "updated": 1668503254632
+            },
+            {
+                "language": "NL",
+                "text": "Mee liften is niet cool! We weten dat als u eenmaal begint bij te dragen, u meer mensen zult inspireren om uw voorbeeld te volgen!",
+                "updated": 1669573715537
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "RU",
                     "text": "В проекте реализована мощная система поощрений для стимулирования желаемого поведения и формирования культуры сотрудничества. Мы распространяем токен Superalgos (SA) исключительно среди участников проекта!",
                     "updated": 1640155406805
+                },
+                {
+                    "language": "ID",
+                    "text": "Proyek ini mengimplementasi skema insentif yang hebat untuk promosi dan dorongan untuk kontribusi. Kami mendistribusikan token Superalgos (SA) secara ekslusif kepada kontributor!",
+                    "updated": 1668503268188
+                },
+                {
+                    "language": "NL",
+                    "text": "Het project heeft een krachtig stimuleringsschema geïmplementeerd om het gewenste gedrag te bevorderen en een cultuur van samenwerking te bevorderen. We verdelen het Superalgos (SA)-token exclusief onder bijdragers!",
+                    "updated": 1669573747137
                 }
             ]
         },
@@ -88,6 +108,16 @@
                     "text": "Superalgos SA Token hakkında daha fazla bilgi edinin!->superalgos.org/token-overview.shtml",
                     "updated": 1654393898900,
                     "style": "Link"
+                },
+                {
+                    "language": "ID",
+                    "text": "Pelajari lebih lanjut tentang Superalgos SA Token!->superalgos.org/token-overview.shtml",
+                    "updated": 1668503156500
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees meer over de Superalgos SA-token!->superalgos.org/token-overview.shtml",
+                    "updated": 1669573766993
                 }
             ]
         },
@@ -122,6 +152,16 @@
                     "language": "RU",
                     "text": "Мы боремся с фрирайдерством с помощью стимулов!",
                     "updated": 1640155437390
+                },
+                {
+                    "language": "ID",
+                    "text": "Kami melawan pengguna tanpa kontribusi dengan insentif!",
+                    "updated": 1668503277708
+                },
+                {
+                    "language": "NL",
+                    "text": "Meeliften bestrijden we met beloningen!",
+                    "updated": 1669573788049
                 }
             ]
         },
@@ -156,6 +196,16 @@
                     "language": "RU",
                     "text": "Давайте сделаем ваш первый вклад! Сначала я научу вас, как переключать ветки!",
                     "updated": 1640155450271
+                },
+                {
+                    "language": "ID",
+                    "text": "Ayo lakukan kontribusi pertamamu! Pertama, aku lajarkan cara mengubah branches!",
+                    "updated": 1668503287749
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we uw eerste bijdrage aan het rollen krijgen! Eerst zal ik je leren hoe je van branche kunt wisselen!",
+                    "updated": 1669573819729
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Мои первые мысли о Superalgos.",
                 "updated": 1640411614422
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos hakkındaki ilk düşüncelerim.",
+                "updated": 1669193965114
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Первая мысль, которая пришла мне в голову, это то, насколько хорошо документирован, отшлифован и представлен Superalgos. Учитывая огромный объем знаний, которые необходимо передать новому пользователю, учебники идут в правильном темпе, чтобы не перегрузить его.",
                     "updated": 1640411653324
+                },
+                {
+                    "language": "TR",
+                    "text": "Aklıma gelen ilk düşünce Superalgos'un ne kadar iyi belgelenmiş, sade ve sunulmuş olduğuydu. Yeni bir kullanıcıya aktarılması gereken bilgi miktarı düşünüldüğünde, eğitimler bunaltmayacak şekilde doğru bir hızda ilerliyor.",
+                    "updated": 1669194742313
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Написав свой собственный базовый торговый интерфейс и ботов с помощью python, я с нетерпением жду момента, когда мне не придется беспокоиться о нестандартных ситуациях в программном обеспечении или о результатах, о которых я не подумал. Только благодаря работе целеустремленной команды сообщества эти проблемы могут быть эффективно решены.",
                     "updated": 1640411683475
+                },
+                {
+                    "language": "TR",
+                    "text": "Python kullanarak kendi temel ticaret arayüzümü ve botlarımı yazdıktan sonra, yazılımın uç durumları veya dikkate almadığım sonuçlar hakkında endişelenmek zorunda kalmamayı dört gözle bekliyorum. Sadece odaklanmış bir topluluk ekibinin çalışmasıyla bu sorunlar etkili bir şekilde çözülebilir.",
+                    "updated": 1669194107584
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Жаль, что я не нашел это раньше. Не терпится покопаться.",
                     "updated": 1640411777423
+                },
+                {
+                    "language": "TR",
+                    "text": "Keşke bunu daha önce bulsaydım. Kazmak için sabırsızlanıyorum.",
+                    "updated": 1669194121546
                 }
             ]
         },

@@ -1,0 +1,89 @@
+{
+    "topic": "Berlin Range Index Data Mine",
+    "pageNumber": "3",
+    "type": "Berlin Range Index EMA",
+    "definition": {
+        "text": "This indicator attempts to identify the strength of market moves to determine if the price action is trending or not."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Berlin Range Index on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The range index increases when price action remains within the set standard deviation area of the average true range (ATR). The resulting index is then smoothed using the exponential moving average (EMA) method."
+        },
+        {
+            "style": "Text",
+            "text": "- If the range index drops below the first threshold, the condition is set to \"trending\". "
+        },
+        {
+            "style": "Text",
+            "text": "- If below the lower threshold, the condition is then set to \"strong\". "
+        },
+        {
+            "style": "Text",
+            "text": "- If the index rises above the lower threshold, the condition is set to \"weakening\". "
+        },
+        {
+            "style": "Text",
+            "text": "- All other times the condition is set to \"choppy\".",
+            "updated": 1668733344071
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/berlin-range-index-ema-chart.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| BerlinRangeIndexEMA | briEMA | condition, value |"
+        },
+        {
+            "style": "Text",
+            "text": "The moving average length, and standard deviation thresholds of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Berlin Range Index EMA\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/berlin-range-index-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry confirmation could be used with the following example, when the current index is less than 40:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.briEMA.value < 40",
+            "updated": 1668732781195
+        },
+        {
+            "style": "Text",
+            "text": "Alternatively, the condition string could be used to achieve the same confirmation signal:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.briEMA.condition === \"trending\" || chart.at01hs.briEMA.condition === \"strong\"",
+            "updated": 1668732790728
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

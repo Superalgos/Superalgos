@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Superalgos klasöründeki çoğu dosya değiştirilmeye ve projeye katkıda bulunmaya tabidir! Buna kod, resimler, belgeler vb. de dahildir.",
                 "updated": 1640628796387
+            },
+            {
+                "language": "ID",
+                "text": "Hampir semua file dalam folder Superalgos merupakan subyek untuk dimodifikasi dan dikontribusikan ke proyek! temasuk juga kode, gambar, dokuemtasi, dll.",
+                "updated": 1668996035688
+            },
+            {
+                "language": "NL",
+                "text": "De meeste bestanden in de map Superalgos kunnen worden gewijzigd en worden toegevoegd aan het project! Dat omvat code, afbeeldingen, documentatie, enz.",
+                "updated": 1669750025584
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Şu klasörler bu durumdan muaftır: Platform klasörü içindeki My-Workspaces, My-Data-Storage ve My-log-File. ",
                     "updated": 1640628968160
+                },
+                {
+                    "language": "ID",
+                    "text": "Folder-folder ini dikecualikan dari kontribusi: My-Workspaces, My-Data-Storage, dan My-Log-Files, dalam folder Platform.",
+                    "updated": 1668996043301
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze mappen hoeven niet te worden bijgedragen: My-Workspaces, My-Data-Storage en My-Log-Files, binnen de map Platform.",
+                    "updated": 1669750045272
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Superalgos klasörünü, Superalgos yazılımının parçası olması amaçlanmayan kişisel şeyleri veya dosyaları depolamak için kullanmayın! Superalgos klasörüne eklediğiniz her şey (belirtilen muaf tutulan klasörler için kaydedin) bir değişiklik olarak taahhüt edilmeye tabidir, GitHub.com'daki çatalınıza gönderilir ve her ikisi de herkesin erişebileceği bir Çekme İsteğine dahil edilir!",
                     "updated": 1640629051301
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangankan gunakan folder Superalgos untuk menyimpan file pribadi yang tidak seharusnya bagian dari software Superalgos! Apapun yang kamu masukkan kedalam folder Superalgos (simpan untuk folder yang dikecualikan yang dicatat) jika diinginkan untuk menjadi perubahan, maka akan terkirim ke fork kamu di GIthub.com, dan disertakan dalam Pull Request, keduanya dapat diakses secara publik!",
+                    "updated": 1668996049837
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de Superalgos-map niet om persoonlijke dingen of bestanden op te slaan die niet bedoeld zijn als onderdeel van de Superalgos-software! Alles wat u in de Superalgos-map opneemt (behalve de vermelde vrijgestelde mappen) kan als wijziging worden vastgelegd, naar uw fork op GitHub.com worden verzonden en worden opgenomen in een Pull Request, welke beide openbaar toegankelijk zijn!",
+                    "updated": 1669750082770
                 }
             ]
         }

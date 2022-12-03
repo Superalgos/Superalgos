@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este Network Node.",
-                "updated": 1618433799425,
+                "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este LAN Network Node. ",
+                "updated": 1667509773501,
                 "style": "Definition"
             },
             {
@@ -101,8 +101,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Önümüzdeki birkaç dakika içinde ele alacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
-                    "updated": 1635579409291
+                    "text": "Önümüzdeki birkaç dakika içinde başlatacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
+                    "updated": 1669758479728
                 },
                 {
                     "language": "FR",
@@ -129,8 +129,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ejecutar una operación de data mining para obtener datos del mercado BTC/USDT de Binance.",
-                    "updated": 1618433865098,
+                    "text": "Ejecutar una Data Mine (minería de datos) para obtener datos del mercado BTC/USDT desde un exchange.",
+                    "updated": 1667511883581,
                     "style": "List"
                 },
                 {
@@ -182,8 +182,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ejecutar una Backtesting session con una estrategia de código abierto existente.",
-                    "updated": 1618433902156,
+                    "text": "Ejecutar una Backtesting Session con una estrategia de código abierto existente.",
+                    "updated": 1667509919199,
                     "style": "List"
                 },
                 {
@@ -234,8 +234,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ejecutar una Live trading session con fondos mínimos, para descubrir aspectos críticos del sistema.",
-                    "updated": 1618433958316,
+                    "text": "Ejecutar una Live Trading Session con fondos mínimos, para probar otros aspectos críticos del sistema.",
+                    "updated": 1667510044658,
                     "style": "List"
                 },
                 {

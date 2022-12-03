@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
                 "updated": 1640858379007
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial ti insegna come formulare un'idea di trading verificabile. In un certo senso, è un'introduzione all'approccio sistematico al trading, un concetto cruciale che devi cogliere per automatizzare le strategie. L'esempio illustrato in questo tutorial viene successivamente utilizzato nel resto della serie.",
+                "updated": 1669885201391
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393934900,
                     "style": "Title"
+                },
+                {
+                    "language": "IT",
+                    "text": "Riguardo questo tutorial",
+                    "updated": 1669885161053
                 }
             ]
         },

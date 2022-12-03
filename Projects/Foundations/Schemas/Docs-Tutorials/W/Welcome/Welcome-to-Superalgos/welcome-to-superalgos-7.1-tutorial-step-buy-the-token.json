@@ -27,8 +27,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos'u inşa edenleri desteklemek istiyorsanız, PancakeSwap'ten jeton satın alabilirsiniz! İşte bu yüzden...",
-                "updated": 1654394299762,
+                "text": "Superalgos'u inşa eden insanları desteklemek istiyorsanız, PancakeSwap veya 1Inch'te biraz jeton satın almak en doğru yoldur! İşte bu yüzden...",
+                "updated": 1670014500998,
                 "style": "Definition"
             },
             {
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, topluluğa ait bir kripto projesidir. Yerel token, katkıları teşvik etmek için kullanılır, yani proje tokenı yalnızca katkıda bulunanlar arasında dağıtır. Superalgos SA Token'ı satın almak için harcadığınız her dolar, doğrudan size bu harika yazılımı sunan kişilere gider!",
-                    "updated": 1654394306999,
+                    "text": "Superalgos, topluluğa ait bir kripto projesidir. Yerel token, katkıları teşvik etmek için kullanılır, yani proje tokenı yalnızca açık kaynaklı katkıda bulunanlar arasında dağıtır",
+                    "updated": 1670014507976,
                     "style": "Success"
                 },
                 {
@@ -100,6 +100,11 @@
                     "language": "NL",
                     "text": "Elke Euro die u uitgeeft aan het kopen van de Superalgos SA Token gaat rechtstreeks naar de mensen die u dit geweldige stukje software brengen!",
                     "updated": 1667137392998
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos SA Token satın almak için harcadığınız her dolar doğrudan size bu harika yazılımı getiren kişilere gidiyor!",
+                    "updated": 1670014536860
                 }
             ]
         },

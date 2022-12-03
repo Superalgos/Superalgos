@@ -84,7 +84,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
             Emulate the P2PClientNode that when we are at the Platform UI is defined by Users at the Task Level. In this 
             case the user does not need to set it up, so we do it here, with the right settings for the Social Trading App.
             */
-            let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient2.json')
+            let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient.json')
 
             await thisObject.p2pNetworkClient.initialize(
                 global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,

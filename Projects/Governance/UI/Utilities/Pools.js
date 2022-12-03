@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesPools = function newGovernanceUtilitiesPools() {
+function newGovernanceUtilitiesPools() {
     let thisObject = {
         findPool: findPool
     }

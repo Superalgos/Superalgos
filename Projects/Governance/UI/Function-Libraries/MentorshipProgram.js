@@ -1,4 +1,4 @@
-exports.newGovernanceFunctionLibraryMentorshipProgram = function newGovernanceFunctionLibraryMentorshipProgram() {
+function newGovernanceFunctionLibraryMentorshipProgram() {
     let thisObject = {
         calculate: calculate
     }

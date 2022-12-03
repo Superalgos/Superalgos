@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesValidations = function newGovernanceUtilitiesValidations() {
+function newGovernanceUtilitiesValidations() {
     let thisObject = {
         onlyOneProgram: onlyOneProgram,
         onlyOneProgramBasedOnConfigProperty: onlyOneProgramBasedOnConfigProperty,

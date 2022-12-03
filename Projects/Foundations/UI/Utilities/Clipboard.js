@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesClipboard = function newFoundationsUtilitiesClipboard() {
+function newFoundationsUtilitiesClipboard() {
     let thisObject = {
         fallbackCopyTextToClipboard: fallbackCopyTextToClipboard,
         copyTextToClipboard: copyTextToClipboard

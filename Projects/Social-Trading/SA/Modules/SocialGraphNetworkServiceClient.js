@@ -60,7 +60,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 to retrieve it's id from the secrets file. 
                 */
                 if (queryMessage.originSocialPersonaId === undefined) {
-                    queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
+                    queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
                     console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
                 }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
@@ -220,7 +220,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 to retrieve it's id from the secrets file. 
                 */
                 if (eventMessage.originSocialPersonaId === undefined) {
-                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
+                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
                     console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
                 /*

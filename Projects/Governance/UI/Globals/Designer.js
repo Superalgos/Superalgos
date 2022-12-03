@@ -1,4 +1,4 @@
-exports.newGovernanceGlobalsDesigner = function newGovernanceGlobalsDesigner() {
+function newGovernanceGlobalsDesigner() {
     let thisObject = {
         SET_VALUE_COUNTER: 1000,
         SET_STATUS_COUNTER: 1000,

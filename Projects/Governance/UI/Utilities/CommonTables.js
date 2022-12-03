@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesCommonTables = function newGovernanceUtilitiesCommonTables() {
+function newGovernanceUtilitiesCommonTables() {
     let thisObject = {
         addHTML: addHTML
     }

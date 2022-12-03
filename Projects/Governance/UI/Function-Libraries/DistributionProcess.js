@@ -1,4 +1,4 @@
-exports.newGovernanceFunctionLibraryDistributionProcess = function newGovernanceFunctionLibraryDistributionProcess() {
+function newGovernanceFunctionLibraryDistributionProcess() {
     let thisObject = {
         calculate: calculate,
         finalize: finalize,

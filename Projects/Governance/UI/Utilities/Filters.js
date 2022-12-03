@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesFilters = function newGovernanceUtilitiesFilters() {
+function newGovernanceUtilitiesFilters() {
     let thisObject = {
         applyFilters: applyFilters
     }

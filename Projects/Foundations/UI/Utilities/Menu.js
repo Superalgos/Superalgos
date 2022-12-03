@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesMenu = function newFoundationsUtilitiesMenu() {
+function newFoundationsUtilitiesMenu() {
     let thisObject = {
         menuClickOfNodeArray: menuClickOfNodeArray,
         menuClick: menuClick

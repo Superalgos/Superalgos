@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesStatusBar = function newFoundationsUtilitiesStatusBar() {
+function newFoundationsUtilitiesStatusBar() {
     let thisObject = {
         changeStatus: changeStatus
     }

@@ -232,12 +232,12 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 messageType: 'Request',
                 payload: message
             }
-            onMessageFunctionsMap.set(socketMessage.messageId, onMessageFunction)
+            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
             thisObject.socket.send(
                 JSON.stringify(socketMessage)
             )
 
-            function onMessageFunction(response) {
+            function onMenssageFunction(response) {
                 try {
                     if (response.result === 'Ok' || response.result === 'Warning') {
                         if (response.data !== undefined) {
@@ -246,7 +246,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             resolve(response)
                         }
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> onMessageFunction -> response.message = ' + response.message)
+                        console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
                     }
                 } catch (err) {
@@ -263,9 +263,9 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        let onMessageFunction = onMessageFunctionsMap.get(messageHeader.messageId)
+        let onMenssageFunction = onMessageFunctionsMap.get(messageHeader.messageId)
 
-        if (onMessageFunction !== undefined) {
+        if (onMenssageFunction !== undefined) {
             processAnswerToARequest(messageHeader)
         } else {
             processNotification(messageHeader)
@@ -276,7 +276,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             The message received is a response to a message sent.
             */
             onMessageFunctionsMap.delete(messageHeader.messageId)
-            onMessageFunction(messageHeader)
+            onMenssageFunction(messageHeader)
         }
 
         function processNotification(messageHeader) {

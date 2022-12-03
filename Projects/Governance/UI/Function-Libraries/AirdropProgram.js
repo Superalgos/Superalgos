@@ -1,4 +1,4 @@
-exports.newGovernanceFunctionLibraryAirdropProgram = function newGovernanceFunctionLibraryAirdropProgram() {
+function newGovernanceFunctionLibraryAirdropProgram() {
     let thisObject = {
         calculate: calculate
     }

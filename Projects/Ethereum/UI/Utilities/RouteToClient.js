@@ -1,4 +1,4 @@
-exports.newEthereumUtilitiesRouteToClient = function newEthereumUtilitiesRouteToClient() {
+function newEthereumUtilitiesRouteToClient() {
     let thisObject = {
         buildRouteToClient: buildRouteToClient
     }

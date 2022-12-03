@@ -77,7 +77,7 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
         run()
 
         async function run() {
-            ST.app = require('./Social-Trading/Clean-UI/SocialTradingApp.js').newSocialTradingApp()
+            ST.app = require('./Social-Trading/SocialTradingApp.js').newSocialTradingApp()
             await ST.app.run()
             console.log('Superalgos Social Trading App is Running!')
         }

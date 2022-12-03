@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesGitBranches = function newFoundationsUtilitiesGitBranches() {
+function newFoundationsUtilitiesGitBranches() {
     let thisObject = {
         getBranchLabel: getBranchLabel
     }

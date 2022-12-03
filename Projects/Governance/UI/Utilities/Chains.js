@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesChains = function newGovernanceUtilitiesChains() {
+function newGovernanceUtilitiesChains() {
     let thisObject = {
         getSATokenAddress: getSATokenAddress,
         getSATokenDetails: getSATokenDetails,

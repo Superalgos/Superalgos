@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesDecendentTables = function newGovernanceUtilitiesDecendentTables() {
+function newGovernanceUtilitiesDecendentTables() {
     let thisObject = {
         addHTML: addHTML
     }

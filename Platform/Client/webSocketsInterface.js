@@ -34,9 +34,9 @@
                     console.log('New Websocket Connection.')
                 }
 
-                socket.on('message', onMessage)
+                socket.on('message', onMenssage)
 
-                function onMessage(message) {
+                function onMenssage(message) {
                     // Here is where all messages will be received through the websocket
        
                     try {

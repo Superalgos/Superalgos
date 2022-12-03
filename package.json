@@ -41,6 +41,7 @@
     "axios": "^0.26.0",
     "bootstrap": "*",
     "bootstrap-vue": "*",
+    "boxen": "^5.1.2",
     "ccxt": "^1.92.75",
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
@@ -82,8 +83,8 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
-    "electron": "^21.3.1",
-    "electron-builder": "^23.6.0",
+    "electron": "^22.0.0",
+    "electron-builder": "^22.10.3",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

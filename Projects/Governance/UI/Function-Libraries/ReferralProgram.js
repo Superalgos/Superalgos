@@ -1,4 +1,4 @@
-exports.newGovernanceFunctionLibraryReferralProgram = function newGovernanceFunctionLibraryReferralProgram() {
+function newGovernanceFunctionLibraryReferralProgram() {
     let thisObject = {
         calculate: calculate
     }

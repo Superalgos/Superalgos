@@ -1,4 +1,4 @@
-exports.newVisualScriptingUtilitiesBranches = function newVisualScriptingUtilitiesBranches() {
+function newVisualScriptingUtilitiesBranches() {
     let thisObject = {
         nodeBranchToArray: nodeBranchToArray,
         findInBranch: findInBranch

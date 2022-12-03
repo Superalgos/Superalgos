@@ -1,4 +1,4 @@
-exports.newVisualScriptingUtilitiesHierarchy = function newVisualScriptingUtilitiesHierarchy() {
+function newVisualScriptingUtilitiesHierarchy() {
     let thisObject = {
         getHiriarchyMap: getHiriarchyMap,
         getHiriarchyHead: getHiriarchyHead,

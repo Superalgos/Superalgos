@@ -1,4 +1,4 @@
-exports.newEducationUtilitiesDocs = function newEducationUtilitiesDocs() {
+function newEducationUtilitiesDocs() {
     let thisObject = {
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,

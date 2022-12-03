@@ -28,7 +28,7 @@ It provides access to all modules built for this App.
 
 
         /* Load Environment Variables */
-        let ENVIRONMENT = require('../../Environment.js');
+        let ENVIRONMENT = require('../Environment.js');
         global.env = ENVIRONMENT.newEnvironment();
 
         if (debugSettings !== undefined && debugSettings.SOCIALTRADING_APP_SIGNING_ACCOUNT !== undefined) {
@@ -41,7 +41,7 @@ It provides access to all modules built for this App.
         /*
         Setting up the modules that will be available, defined at the Project Schema file.
         */
-        let MULTI_PROJECT = require('../../MultiProject.js');
+        let MULTI_PROJECT = require('../MultiProject.js');
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
         MULTI_PROJECT_MODULE.initialize(ST, 'ST')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
@@ -63,17 +63,17 @@ It provides access to all modules built for this App.
             axios: require('axios'),
             crypto: require('crypto')
         }
-        SA.version = require('../../package.json').version
+        SA.version = require('../package.json').version
         /*
         Setting up the App Schema Memory Map.
         */
-        let APP_SCHEMAS = require('../../AppSchemas.js')
+        let APP_SCHEMAS = require('../AppSchemas.js')
         let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
         await APP_SCHEMAS_MODULE.initialize()
         /*
         Setting up Secrets.
         */
-        let SECRETS = require('../../Secrets.js').newSecrets()
+        let SECRETS = require('../Secrets.js').newSecrets()
         SECRETS.initialize()
 
 
@@ -103,21 +103,13 @@ It provides access to all modules built for this App.
             We set up the P2P Network Client.
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
-            /*
-            Emulate the P2PClientNode that when we are at the Platform UI is defined by Users at the Task Level. In this 
-            case the user does not need to set it up, so we do it here, with the right settings for the Social Trading App.
-            */
-            let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient2.json')
-
-            thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
                 global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,
-                global.env.SOCIALTRADING_TARGET_NETWORK_TYPE,
-                global.env.SOCIALTRADING_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
-                thisObject.p2pNetworkInterface.eventReceived,
-                P2P_NETWORK_CLIENT_DEFINITION
+                thisObject.p2pNetworkInterface.eventReceived
             )
         }
 

@@ -1,4 +1,4 @@
-exports.newGovernanceFunctionLibraryTokens = function newGovernanceFunctionLibraryTokens() {
+function newGovernanceFunctionLibraryTokens() {
     let thisObject = {
         calculate: calculate
     }

@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesDrawPrint = function newFoundationsUtilitiesDrawPrint() {
+function newFoundationsUtilitiesDrawPrint() {
     let configStyle
     let thisObject = {
         roundedCornersBackground: roundedCornersBackground,

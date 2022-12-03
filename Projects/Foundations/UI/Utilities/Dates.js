@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesDates = function newFoundationsUtilitiesDates() {
+function newFoundationsUtilitiesDates() {
     let thisObject = {
         formatDate: formatDate
     }

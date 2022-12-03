@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesDateRateTransformations = function newFoundationsUtilitiesDateRateTransformations() {
+function newFoundationsUtilitiesDateRateTransformations() {
     let thisObject = {
         getDateFromPointAtBrowserCanvas: getDateFromPointAtBrowserCanvas,
         getDateFromPointAtChartsSpace: getDateFromPointAtChartsSpace,

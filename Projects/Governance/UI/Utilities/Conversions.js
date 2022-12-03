@@ -1,4 +1,4 @@
-exports.newGovernanceUtilitiesConversions = function newGovernanceUtilitiesConversions () {
+function newGovernanceUtilitiesConversions () {
     let thisObject = {
         estimateSATokensInBTC: estimateSATokensInBTC
     }

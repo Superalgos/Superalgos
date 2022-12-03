@@ -1,4 +1,4 @@
-exports.newVisualScriptingUtilitiesNodeConfig = function newVisualScriptingUtilitiesNodeConfig() {
+function newVisualScriptingUtilitiesNodeConfig() {
     let thisObject = {
         saveConfigProperty: saveConfigProperty,
         loadConfigProperty: loadConfigProperty

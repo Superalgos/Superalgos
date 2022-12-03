@@ -28,6 +28,11 @@
                 "language": "ES",
                 "text": "El cuarto aspecto a considerar es lo que esperamos de esta idea, y esto depende en gran medida del tipo de estrategia.",
                 "updated": 1668189338990
+            },
+            {
+                "language": "IT",
+                "text": "Il quarto aspetto da considerare è quello che ci aspettiamo da questa idea, e questo dipende fortemente dal tipo di strategia.",
+                "updated": 1669887857817
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ES",
                     "text": "Por ejemplo, para una estrategia de swing, tomar una posición dos veces al mes con una proporción de aciertos del 50% puede ser aceptable, pero no para una estrategia de scalping.",
                     "updated": 1668189375636
+                },
+                {
+                    "language": "IT",
+                    "text": "Ad esempio, per una strategia swing, può essere accettabile aprire una posizione due volte al mese con un hit ratio del 50%, ma non vale lo stesso per una strategia scalping.",
+                    "updated": 1669887882711
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "ES",
                     "text": "Definir lo que esperamos de la estrategia en términos de frecuencia de negociación y porcentaje de aciertos ayuda a determinar si la estrategia merece la pena o no.",
                     "updated": 1668189404660
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire cosa ci aspettiamo dalla strategia in termini di frequenza di trading e hit ratio aiuta a determinare se vale la pena perseguire o meno la strategia.",
+                    "updated": 1669887899848
                 }
             ]
         },

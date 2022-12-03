@@ -1,4 +1,4 @@
-function newGovernanceUtilitiesDecendentProgram() {
+exports.newGovernanceUtilitiesDecendentProgram = function newGovernanceUtilitiesDecendentProgram() {
     /*
     This Utility Module is intended to be used by all programs that have the 
     concept of Descendants, and when the program requires to compute recursively

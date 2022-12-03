@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryInfluencerProgram() {
+exports.newGovernanceFunctionLibraryInfluencerProgram = function newGovernanceFunctionLibraryInfluencerProgram() {
     let thisObject = {
         calculate: calculate
     }

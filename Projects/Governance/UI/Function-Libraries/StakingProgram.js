@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryStakingProgram() {
+exports.newGovernanceFunctionLibraryStakingProgram = function newGovernanceFunctionLibraryStakingProgram() {
     let thisObject = {
         calculate: calculate
     }

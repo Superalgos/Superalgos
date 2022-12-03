@@ -1,4 +1,4 @@
-function newFoundationsGlobalsZoom() {
+exports.newFoundationsGlobalsZoom = function newFoundationsGlobalsZoom() {
     let thisObject = {
         DOUBLE_CLICK_ZOOM_OUT_LEVEL: 0,
         DOUBLE_CLICK_ZOOM_IN_LEVEL: 6,

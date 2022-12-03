@@ -1,4 +1,4 @@
-function newGovernanceGlobalsReports() {
+exports.newGovernanceGlobalsReports = function newGovernanceGlobalsReports() {
     let thisObject = {
         REPORTS_SPACE_WIDTH: 900 
     }

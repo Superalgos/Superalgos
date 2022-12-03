@@ -1,4 +1,4 @@
-function newWebApp() {
+exports.newWebApp = function newWebApp() {
     /*
     In it's current state of development, the Web App only has one module. 
 
@@ -23,7 +23,7 @@ function newWebApp() {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
 
-            thisObject.webSocketsWebAppClient = newWebSocketsWebAppClient()
+            thisObject.webSocketsWebAppClient = exports.newWebSocketsWebAppClient()
             await thisObject.webSocketsWebAppClient.initialize()
 
             loadWUserProfileTimeline()
@@ -107,6 +107,7 @@ function newWebApp() {
 
     async function loadWUserProfileTimeline() {
         let queryMessage = {
+            //originSocialPersonaId: '4d8ad0bc-02ba-415d-9995-6da4ef0d8737', // Hack
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
             originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,

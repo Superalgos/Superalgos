@@ -1,4 +1,4 @@
-function newGovernanceUtilitiesBonusProgram() {
+exports.newGovernanceUtilitiesBonusProgram = function newGovernanceUtilitiesBonusProgram() {
     let thisObject = {
         run: run
     }

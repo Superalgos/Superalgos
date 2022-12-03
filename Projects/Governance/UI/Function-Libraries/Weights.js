@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryWeights() {
+exports.newGovernanceFunctionLibraryWeights = function newGovernanceFunctionLibraryWeights() {
     let thisObject = {
         calculate: calculate
     }

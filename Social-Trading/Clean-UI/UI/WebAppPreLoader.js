@@ -6,17 +6,7 @@ function loadSuperalgos() {
         alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionaility issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
     }
 
-    loadGlobals()
-
-    function loadGlobals() {
-        let path = "Globals.js"
-        //REQUIREJS([path], onRequired)
-        requirejs([path], onRequired)
-
-        function onRequired(pModule) {
-            setupEnvironment()
-        }
-    }
+    setupEnvironment()
 
     function setupEnvironment() {
         httpRequest(undefined, 'Environment', onResponse)
@@ -46,10 +36,10 @@ function loadSuperalgos() {
     }
 
     function loadModules() {
-        let path = "WebAppLoader.js"
-        REQUIREJS([path], onRequired)
+        //let path = "WebAppLoader"
+        require(['WebAppLoader'], onRequired)
 
-        function onRequired(pModule) {
+        function onRequired() {
             let APP_LOADER_MODULE = newWebAppLoader()
             APP_LOADER_MODULE.loadModules()
         }

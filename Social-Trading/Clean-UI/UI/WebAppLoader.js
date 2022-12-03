@@ -104,7 +104,7 @@ function newWebAppLoader() {
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
 
-                    REQUIREJS([path], onRequired)
+                    require([path], onRequired)
 
                     function onRequired() {
                         try {
@@ -113,7 +113,7 @@ function newWebAppLoader() {
 
                             if (downloadedCounter === modulesArray.length) {
                                 setTimeout(() => {
-                                    UI.webApp = newWebApp()
+                                    UI.webApp = exports.newWebApp()
                                     UI.webApp.initialize()
                                 }, 500)
 
@@ -124,7 +124,6 @@ function newWebAppLoader() {
                     }
                 }
             }
-
         } catch (err) {
             console.log((new Date()).toISOString(), '[ERROR] loadModules -> err = ' + err.stack)
         }

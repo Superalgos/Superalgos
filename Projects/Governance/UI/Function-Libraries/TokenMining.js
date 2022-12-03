@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryTokenMining() {
+exports.newGovernanceFunctionLibraryTokenMining = function newGovernanceFunctionLibraryTokenMining() {
     let thisObject = {
         calculate: calculate
     }

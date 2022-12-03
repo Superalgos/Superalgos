@@ -1,4 +1,4 @@
-function newGovernanceGlobalsSaToken() {
+exports.newGovernanceGlobalsSaToken = function newGovernanceGlobalsSaToken() {
     let thisObject = {
         SA_TOKEN_LIST: [
             {

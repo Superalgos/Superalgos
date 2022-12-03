@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesCoordinateTransformations() {
+exports.newFoundationsUtilitiesCoordinateTransformations = function newFoundationsUtilitiesCoordinateTransformations() {
     let thisObject = {
         transformThisPoint: transformThisPoint,
         unTransformThisPoint: unTransformThisPoint

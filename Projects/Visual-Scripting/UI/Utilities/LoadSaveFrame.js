@@ -1,4 +1,4 @@
-function newVisualScriptingUtilitiesLoadSaveFrame() {
+exports.newVisualScriptingUtilitiesLoadSaveFrame = function newVisualScriptingUtilitiesLoadSaveFrame() {
     let thisObject = {
         saveFrame: saveFrame,
         loadFrame: loadFrame

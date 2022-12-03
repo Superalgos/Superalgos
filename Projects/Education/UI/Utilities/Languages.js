@@ -1,4 +1,4 @@
-function newEducationUtilitiesLanguages() {
+exports.newEducationUtilitiesLanguages = function newEducationUtilitiesLanguages() {
     let thisObject = {
         getLaguageLabel: getLaguageLabel
     }

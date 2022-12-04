@@ -1,0 +1,35 @@
+{
+    "topic": "Berlin Range Index Data Mine",
+    "pageNumber": "1",
+    "type": "Berlin Range Index by @quantum8",
+    "definition": {
+        "text": "The Berlin Range Index Data Mine features the Berlin Range Index Indicators. There are multiple indicators that are filtered by a variety of moving average methods. The parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",
+        "updated": 1668733438778
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Berlin Range Index:"
+        },
+        {
+            "style": "List",
+            "text": "1.) Berlin Range Index SMA"
+        },
+        {
+            "style": "List",
+            "text": "2) Berlin Range Index EMA"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

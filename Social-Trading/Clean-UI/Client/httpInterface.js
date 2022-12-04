@@ -75,7 +75,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_SOCIALTRADING + '/WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_SOCIALTRADING + '/Clean-UI/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]
@@ -96,7 +96,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_SOCIALTRADING)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_SOCIALTRADING + '/Clean-UI')
                     }
             }
         } catch (err) {

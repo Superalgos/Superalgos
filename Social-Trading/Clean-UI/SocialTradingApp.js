@@ -99,15 +99,15 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
         async function finalSetupInterfaces() {
             /* 
-            These are the Network Interfaces by which the Web App interacts with this Socal Trading App Client.
+            These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
             */
             thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Socal Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            console.log('Social Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Socal Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+            console.log('Social Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

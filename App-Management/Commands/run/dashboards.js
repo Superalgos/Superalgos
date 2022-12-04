@@ -1,7 +1,6 @@
 const path = require('path')
 const chalk = require('chalk')
-const { cwd, pm2m } = global.SAM
-const { getProfile } = require('../profile/index')
+const { cwd, pm2m, getProfile } = global.SAM
 
 exports.dashboardsCommand = function dashboardsCommand() {
     const thisObject = {

@@ -43,7 +43,8 @@ const boxen = require('boxen')
 global.SAM = {
     cwd: path.join(__dirname),
     stdBoxedMessage: stdBoxedMessage,
-    pm2m: require('./App-Management/Pm2Management/manager').pm2Manager()
+    pm2m: require('./App-Management/Pm2Management/manager').pm2Manager(),
+    getProfile: require('./Profile-Scripts/index').getProfile
 }
 
 /**

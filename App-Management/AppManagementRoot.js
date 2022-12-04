@@ -41,12 +41,11 @@ For more details of each command and their options run with the ${chalk.italic('
     const welcomeBox = stdBoxedMessage(chalk.red(logo) + '\n' + welcomeMessage)
 
     const commands = [
-        require('./Commands/profile/index').profileCommands(),
         require('./Commands/run/index').runCommands(),
         require('./Commands/read/index').readCommands(),
         require('./Commands/restart/index').restartCommands(),
         require('./Commands/stop/index').stopCommands(),
-    ]
+    ].concat(require('../Profile-Scripts/index').commands)
 
     let builder = yargs(hideBin(process.argv))
         .version(require('../package.json').version)

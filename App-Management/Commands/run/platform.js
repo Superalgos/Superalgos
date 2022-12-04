@@ -1,7 +1,6 @@
 const path = require('path')
 const chalk = require('chalk')
-const { pm2m } = global.SAM
-const { getProfile } = require('../profile/index')
+const { pm2m, getProfile } = global.SAM
 
 exports.platformCommand = function platformCommand() {
     const thisObject = {

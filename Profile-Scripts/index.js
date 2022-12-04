@@ -1,5 +1,6 @@
 const chalk = require('chalk')
-const { stdBoxedMessage } = global.SAM
+const boxen = require('boxen')
+const profileFunctions = require('./common').commonProfileFunctions()
 
 /** 
  * @typedef {{
@@ -20,16 +21,30 @@ const { stdBoxedMessage } = global.SAM
  */
 
 /**
+ * @param {string} message 
+ * @returns {string}
+ */
+function stdBoxedMessage(message) {
+  return boxen(message, {
+      borderColor: 'yellow',
+      title: 'Welcome to Superalgos Ecosystem App Management',
+      titleAlignment: 'center',
+      padding: 1,
+      margin: 1
+  })
+}
+
+/**
  * @param {string} profileName
  * @returns {Profile}
  */
- exports.getProfile = function getProfile(profileName) {
-    const documentPath = getProfileDocumentPath()
-    const existingProfiles = getProfileDocument(documentPath)
+function getProfile(profileName) {
+    const documentPath = profileFunctions.getProfileDocumentPath()
+    const existingProfiles = profileFunctions.getProfileDocument(documentPath)
     return existingProfiles.find(p => p.name === profileName)
 }
 
-exports.profileCommands = function profileCommands() {
+function profileCommands() {
     const thisObject = {
         name: 'profile',
         description: chalk.bold('Use this command to manage your Superalgos profiles'),
@@ -103,3 +118,6 @@ COMMANDS:
         console.log(stdBoxedMessage(message))
     }
 }
+
+exports.getProfile = getProfile
+exports.commands = [profileCommands()]

@@ -10,7 +10,8 @@ export const Globals = createSlice({
             clientNode: undefined,
             webApp: undefined
         },
-        SA: {projects: {}}
+        SA: {projects: {}},
+        NT: {projects: {}}
     },
     reducers: {
         exampleAction: (state, action) => {

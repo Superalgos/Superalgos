@@ -1,5 +1,5 @@
-const pm2 = require('pm2')
 const chalk = require('chalk')
+const { pm2m } = global.SAM
 
 exports.restartCommands = function restartCommands() {
     const thisObject = {
@@ -20,7 +20,9 @@ exports.restartCommands = function restartCommands() {
 
     function runner(args) {
         console.log('[INFO] restarting the ' + args.name + ' process')
-        pm2.restart(args.name)
-        console.log('[INFO] restarted the ' + args.name + ' process')
+        pm2m.connect()
+            .then(() => pm2m.restart(args.name))
+            .then(() => pm2m.disconnect())
+            .then(() => console.log('[INFO] restarted the ' + args.name + ' process'))
     }
 }

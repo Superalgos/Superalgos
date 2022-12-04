@@ -28,6 +28,11 @@ exports.multiCommand = function multiCommand() {
     }
 
     function runner(args) {
+        if(!(args.platform || args.network || args.dashboards)) {
+            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--network')} must be supplied`)
+            return
+        }
+
         if(args.platform) { 
             require('./platform').platformCommand().runner({
                 profile: args.profile

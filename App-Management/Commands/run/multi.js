@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 
-exports.multiCommand = function multiCommand(cwd) {
+exports.multiCommand = function multiCommand() {
     const thisObject = {
         name: 'multi',
         description: chalk.bold('Runs multiple apps'),
@@ -37,13 +37,13 @@ exports.multiCommand = function multiCommand(cwd) {
     }
 
     function runner(args) {
-        if(!args.plaform && !args.network && args.dashboards) {
+        if(!(args.plaform || args.network || args.dashboards)) {
             conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--network')} must be supplied`)
             return
         }
 
         if(args.platform) { 
-            require('./platform').platformCommand(cwd).runner({
+            require('./platform').platformCommand().runner({
                 minMemo: args.minMemo,
                 noBrowser: args.noBrowser,
                 profile: args.profile
@@ -51,13 +51,13 @@ exports.multiCommand = function multiCommand(cwd) {
         }
 
         if(args.network) {
-            require('./network').networkCommand(cwd).runner({
+            require('./network').networkCommand().runner({
                 profile: args.profile
             })
         }
 
         if(args.dashboards) { 
-            require('./dashboards').dashboardsCommand(cwd).runner({
+            require('./dashboards').dashboardsCommand().runner({
                 minMemo: args.minMemo,
                 profile: args.profile
             })

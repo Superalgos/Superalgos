@@ -1,9 +1,9 @@
-const pm2m = require('../../Pm2Management/manager').pm2Manager()
-const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 const chalk = require('chalk')
+const { cwd, pm2m } = global.SAM
+const { getProfile } = require('../profile/index')
 
-exports.dashboardsCommand = function dashboardsCommand(cwd) {
+exports.dashboardsCommand = function dashboardsCommand() {
     const thisObject = {
         name: 'dashboards',
         description: chalk.bold('Runs the dashboards app'),

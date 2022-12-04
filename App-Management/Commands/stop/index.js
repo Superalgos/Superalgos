@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const { stdBoxedMessage } = global.SAM
 
 exports.stopCommands = function stopCommands() {
     const thisObject = {
@@ -7,6 +8,27 @@ exports.stopCommands = function stopCommands() {
         options: options,
         runner: runner
     }
+    const message = `
+USAGE:
+    ${chalk.red('superalgos stop')} ${chalk.italic.red('[command] [options]')}
+        
+COMMANDS:
+    - ${chalk.red('platform')}
+      - OPTIONS:
+        ${chalk.italic.red('--profile')}
+    - ${chalk.red('dashboards')}
+      - OPTIONS:
+        ${chalk.italic.red('--profile')}
+    - ${chalk.red('network')}
+      - OPTIONS:
+        ${chalk.italic.red('--profile')}
+    - ${chalk.red('multi')}
+      - OPTIONS:
+        ${chalk.italic.red('--platform')}
+        ${chalk.italic.red('--dashboards')}
+        ${chalk.italic.red('--network')}
+        ${chalk.italic.red('--profile')}
+        `
 
     return thisObject
     
@@ -23,6 +45,6 @@ exports.stopCommands = function stopCommands() {
     }
 
     function runner() {
-        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos stop --help')}`)
+        console.log(stdBoxedMessage(message))
     }
 }

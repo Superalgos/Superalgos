@@ -1,9 +1,9 @@
-const pm2m = require('../../Pm2Management/manager').pm2Manager()
-const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 const chalk = require('chalk')
+const { pm2m } = global.SAM
+const { getProfile } = require('../profile/index')
 
-exports.networkCommand = function networkCommand(cwd) {
+exports.networkCommand = function networkCommand() {
     const thisObject = {
         name: 'network',
         description: chalk.bold('Runs the network app'),
@@ -24,8 +24,8 @@ exports.networkCommand = function networkCommand(cwd) {
         const startProcess = {
             script: 'network.js',
             name,
-            cwd,
-            log_file: path.join(cwd, 'My-Log-Files', 'pm2', 'network-console.log')
+            cwd: SAM.cmd,
+            log_file: path.join(SAM.cwd, 'My-Log-Files', 'pm2', 'network-console.log')
         }
         
         if(args.profile !== undefined) {

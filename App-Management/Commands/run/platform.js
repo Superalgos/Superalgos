@@ -1,9 +1,9 @@
-const pm2m = require('../../Pm2Management/manager').pm2Manager()
-const {getProfile} = require('../../../Launch-Profiles/ProfileRoot')
 const path = require('path')
 const chalk = require('chalk')
+const { pm2m } = global.SAM
+const { getProfile } = require('../profile/index')
 
-exports.platformCommand = function platformCommand(cwd) {
+exports.platformCommand = function platformCommand() {
     const thisObject = {
         name: 'platform',
         description: chalk.bold('Runs the platform app'),
@@ -35,8 +35,8 @@ exports.platformCommand = function platformCommand(cwd) {
             script: 'platform.js',
             name,
             args: arguments,
-            cwd,
-            log_file: path.join(cwd, 'My-Log-Files', 'pm2', 'platform-console.log')
+            cwd: SAM.cwd,
+            log_file: path.join(SAM.cwd, 'My-Log-Files', 'pm2', 'platform-console.log')
         }
 
         if(args.profile !== undefined) {

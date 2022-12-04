@@ -82,7 +82,7 @@ exports.newEnvironment = function () {
 
     function setProfileOverrideValues() {
         if(process.env.PROFILE_NAME === undefined) { return }
-        const {getProfile} = require('./Launch-Profiles/ProfileRoot')
+        const { getProfile } = require('./App-Management/Commands/profile/index')
         const profile = getProfile(process.env.PROFILE_NAME)
         if(profile === undefined) {
             console.log('The given profile name does not exist, using default values')

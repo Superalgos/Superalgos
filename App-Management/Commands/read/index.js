@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const { stdBoxedMessage } = global.SAM
 
 exports.readCommands = function readCommands() {
     const thisObject = {
@@ -7,6 +8,17 @@ exports.readCommands = function readCommands() {
         options: options,
         runner: runner
     }
+
+    const message = `
+USAGE:
+    ${chalk.red('superalgos read')} ${chalk.italic.red('[command] [options]')}
+        
+COMMANDS:
+    - ${chalk.red('all')}
+    - ${chalk.red('describe')}
+      - OPTIONS:
+        ${chalk.italic.red('--name')}
+        `
 
     return thisObject
     
@@ -21,6 +33,6 @@ exports.readCommands = function readCommands() {
     }
 
     function runner() {
-        console.log(`You need to add additional commands, please run ${chalk.italic('superalgos read --help')}`)
+        console.log(stdBoxedMessage(message))
     }
 }

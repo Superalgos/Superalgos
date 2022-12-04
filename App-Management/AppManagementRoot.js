@@ -1,9 +1,9 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const chalk = require('chalk')
-const boxen = require('boxen')
+const { stdBoxedMessage } = global.SAM
 
-exports.runRoot = function runRoot(cwd) {
+exports.runRoot = function runRoot() {
     const welcomeMessage = `
 USAGE:
   ${chalk.red('superalgos')} ${chalk.italic.red('[command] [options]')}
@@ -13,6 +13,7 @@ PRIMARY COMMAND LIST:
   - ${chalk.red('read')}
   - ${chalk.red('restart')}
   - ${chalk.red('stop')}
+  - ${chalk.red('profile')}
 
 For more details of each command and their options run with the ${chalk.italic('--help')} argument
 `
@@ -37,23 +38,11 @@ For more details of each command and their options run with the ${chalk.italic('
                                       ////////
 `
 
-    const welcomeBox = boxen(chalk.red(logo) + '\n' + welcomeMessage, {
-        borderColor: 'yellow',
-        title: 'Welcome to Superalgos Ecosystem App Management',
-        titleAlignment: 'center',
-        padding: 1,
-        margin: 1
-    })
-
-    // even though the install allows users to run the command `superalgos` 
-    // the args still receive `node manageApps`
-    if(process.argv.length < 3) {
-        console.log(welcomeBox)
-        return
-    }
+    const welcomeBox = stdBoxedMessage(chalk.red(logo) + '\n' + welcomeMessage)
 
     const commands = [
-        require('./Commands/run/index').runCommands(cwd),
+        require('./Commands/profile/index').profileCommands(),
+        require('./Commands/run/index').runCommands(),
         require('./Commands/read/index').readCommands(),
         require('./Commands/restart/index').restartCommands(),
         require('./Commands/stop/index').stopCommands(),
@@ -65,7 +54,11 @@ For more details of each command and their options run with the ${chalk.italic('
         .help()
         
     builder = commands.reduce((args, c) => args.command(c.name, c.description, c.options, c.runner).help(), builder)
-    builder.parse()
+    builder
+      .command('$0', 'the default command', () => {}, (_) => {
+        console.log(welcomeBox)
+      })
+      .parse()
 }
 
 /*

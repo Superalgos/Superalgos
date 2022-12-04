@@ -1,5 +1,5 @@
-const pm2m = require('../../Pm2Management/manager').pm2Manager()
 const chalk = require('chalk')
+const { pm2m } = global.SAM
 
 exports.describeCommand = function describeCommand() {
     const thisObject = {

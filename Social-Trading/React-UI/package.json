@@ -4,12 +4,12 @@
   "license": "Apache License 2.0",
   "name": "superalgos",
   "scripts": {
-    "start": "start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "start": "npm run startSocialTradingReactBackend && npm run startSocialTradingReactFrontend",
     "presetup": "git checkout develop && git pull upstream develop",
     "setup": "node setup noShortcuts && node tf_setup.js",
     "postsetup": "npm start",
-    "startDesktopReactBackend": "node SocialTradingAppBackend",
-    "startDesktopReactFrontend": "node SocialTradingAppFrontend"
+    "startSocialTradingReactBackend": "node SocialTradingAppBackend",
+    "startSocialTradingReactFrontend": "node SocialTradingAppFrontend"
   },
   "babel": {
     "presets": [

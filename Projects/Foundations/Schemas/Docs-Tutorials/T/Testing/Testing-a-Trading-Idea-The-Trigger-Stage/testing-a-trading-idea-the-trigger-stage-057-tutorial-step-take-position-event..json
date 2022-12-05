@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Son eğitimde yaptığımız hipotez hakkında hızlı bir tazeleme: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarında bir kırılma düşüş trendinde bir hızlanma öngörebilir. Bir atılım, bir mumun alt bandın altında kapanması anlamına gelir. Öyleyse Superalgos'ta bir mum kapanışının nasıl tanımlandığını öğrenelim.",
-                    "updated": 1641662726624
+                    "text": "Bir önceki eğitimde ortaya attığımız hipotez hakkında kısa bir bilgi tazeleyelim: Günlük grafikteki bir düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bozulması düşüş trendinin hızlanacağını öngörebilir. Bir arıza, alt bandın altında bir mum kapanışı anlamına gelir, bu yüzden Superalgos'ta bir mum kapanışının nasıl tanımlandığını öğrenelim.",
+                    "updated": 1669663517807
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu, Mum Hacimleri Göstergesini (Candles Volumes indicator) belgeleyen sayfadır. Ürünler ve Özellikler > Mumlar bölümüne ilerleyin ve okuyun!",
-                    "updated": 1641662738925
+                    "text": "Bu, Mum Hacimleri Göstergesini (Candles Volumes indicator) belgeleyen sayfadır.Products & Properties > Candles bölümüne ilerleyin ve okuyun!",
+                    "updated": 1669663609697
                 },
                 {
                     "language": "RU",

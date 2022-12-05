@@ -28,6 +28,11 @@
                 "language": "ES",
                 "text": "¡Y ya está! Por fin tenemos una hipótesis adecuada que podemos probar para decidir si la idea merece la pena o no.",
                 "updated": 1668194019896
+            },
+            {
+                "language": "IT",
+                "text": "Questo è tutto! Finalmente abbiamo un'ipotesi corretta che possiamo testare per decidere se vale la pena perseguire o meno l'idea!",
+                "updated": 1669901881243
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ES",
                     "text": "Seguiremos a partir de este punto en el próximo tutorial.",
                     "updated": 1668193980991
+                },
+                {
+                    "language": "IT",
+                    "text": "Lo prenderemo da lì nel prossimo tutorial!",
+                    "updated": 1669901900331
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "ES",
                     "text": "En el próximo tutorial de la serie, nos adentraremos en cómo Superalgos te guía a través del proceso de configuración de una idea de trading para ser probada en datos históricos. Aprenderemos sobre la sintaxis para escribir condiciones y fórmulas, sobre cómo usar indicadores desde dentro de las estrategias, ¡y cualquier otra cosa que podamos necesitar en el camino!",
                     "updated": 1668194072996
+                },
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo tutorial della serie, approfondiremo il modo in cui Superalgos ti guida attraverso il processo di configurazione dell'idea di trading da testare sui dati storici. Impareremo la sintassi per scrivere condizioni e formule, come utilizzare gli indicatori all'interno delle strategie e qualsiasi altra cosa di cui potremmo aver bisogno lungo il percorso!",
+                    "updated": 1669901916089
                 }
             ]
         }

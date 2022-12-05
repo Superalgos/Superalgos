@@ -2411,22 +2411,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
                                 case 'mergePullRequests': {
 
-                                    let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
+                                    let serverResponse = await PL.projects.governance.functionLibraries.prMergeBot.run(
                                         params.commitMessage,
                                         params.username,
                                         params.token
                                     )
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-
-                                    setInterval(
-                                        PL.servers.GITHUB_SERVER.mergePullRequests,
-                                        60000,
-                                        params.commitMessage,
-                                        params.username,
-                                        params.token
-                                    )
-
                                     return
                                 }
                                 
@@ -2944,33 +2935,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'IconNames': {
-                    let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
-                    let icons = []
-                    let totalProjects = projects.length
-                    let projectCounter = 0
-
-                    for (let i = 0; i < projects.length; i++) {
-                        let project = projects[i]
-
-                        const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
-
-                        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
-
-                        function onFilesReady(files) {
-                            for (let j = 0; j < files.length; j++) {
-                                let file = files[j]
-                                for (let i = 0; i < 10; i++) {
-                                    file = file.replace('/', '\\')
-                                }
-                                icons.push([project, file])
-                            }
-
-                            projectCounter++
-                            if (projectCounter === totalProjects) {
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(icons), httpResponse)
-                            }
-                        }
-                    }
+                    SA.projects.foundations.utilities.icons.retrieveIcons((icons) => SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(icons), httpResponse))
                 }
                     break
                 case 'PluginFileNames': {

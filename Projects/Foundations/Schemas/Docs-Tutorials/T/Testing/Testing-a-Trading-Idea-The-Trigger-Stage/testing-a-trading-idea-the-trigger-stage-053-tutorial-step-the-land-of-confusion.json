@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Aslında, ticaret botunun yalnızca belirli bir zamanda bunları değerlendirmek için anlamlı olan tanımları değerlendirmesi mantıklıdır!",
-                "updated": 1641662165888
+                "text": "Aslında, ticaret botunun yalnızca belirli bir zamanda bunları değerlendirmek için anlamlı olan tanımları değerlendirmesi mantıklıdır!",
+                "updated": 1669662545996
             },
             {
                 "language": "RU",
@@ -60,8 +60,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Simülasyon nesnelerinin seviye yöneticisinde (Simulation Objects layer manager) \"Stratejiler\"( Strategies ) ve \"Aşamaları Tetikleme\"( Trigger Stages ) seviyelerini kapatın!",
-                    "updated": 1641662227516
+                    "text": "Simülasyon nesnelerinin seviye yöneticisinde (Simulation Objects Layer Manager) \"Strategies\" ve \"Trigger Stages\" katmanlarını kapatın!",
+                    "updated": 1669662610422
                 },
                 {
                     "language": "RU",
@@ -81,8 +81,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi farenizi 1 Mart civarında mumlar üzerinde gezdirin! Koşullarınızı kontrol etmeye çalıştığınızı düşünün, ancak bazı nedenlere göre değerler ve önemli noktalar bazı mumlar için görüntülense de diğerleri için görüntülenmiyor! Superalgos ile ilgili bir sorun var! Değilmi?",
-                    "updated": 1641662251312
+                    "text": "Şimdi farenizi 1 Mart civarında mumlar üzerinde gezdirin! Koşullarınızı kontrol etmeye çalıştığınızı düşünün, ancak bazı nedenlere göre \"Values\" ve \"Highlights\" bazı mumlar için görüntülense de diğerleri için görüntülenmiyor! Superalgos ile ilgili bir sorun var! Değil mi?",
+                    "updated": 1669662694491
                 },
                 {
                     "language": "RU",

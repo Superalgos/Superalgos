@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
                 "updated": 1640554335251
+            },
+            {
+                "language": "ID",
+                "text": "Itu praktek yang baik untuk selalu terupdate sebelum berkontribusi atau setelah menyelesaikan masalah atau melaporkan kesalahan apapun!",
+                "updated": 1668787138904
+            },
+            {
+                "language": "NL",
+                "text": "Het is een goede gewoonte om up-to-date te zijn voordat u een bijdrage levert of bij het oplossen van problemen of het melden van fouten van welke aard dan ook!",
+                "updated": 1669747067013
             }
         ]
     },
@@ -72,6 +82,16 @@
                     "text": "Uygulama Güncelleme Komutu (yalnızca Katkıda Bulunanların Kurulumu) yazılımın en son sürümünü Geçerli Daldaki yukarı akış deposundan alır!",
                     "updated": 1654393910447,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "App Update Command (hanya Penginstalan Kontributor) mengambil versi terupdate software dari repository upstream dalam Current Branch!",
+                    "updated": 1668787155150
+                },
+                {
+                    "language": "NL",
+                    "text": "De App Update Command (alleen Contributors branch) haalt de nieuwste versie van de software op uit de upstream-repository in de huidige branche!",
+                    "updated": 1669747151725
                 }
             ]
         },
@@ -110,6 +130,16 @@
                     "language": "TR",
                     "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
                     "updated": 1640554566255
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu di Penginstalan Kontributor, salin dan jalankan di pencarian/command box di atas Docs.",
+                    "updated": 1668787165529
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u zich in de Contributors branch bevindt, kopieert u de opdracht en voert u deze uit in het zoek-/commando-venster helemaal bovenaan de Documenten.",
+                    "updated": 1669747143412
                 }
             ]
         },
@@ -144,6 +174,16 @@
                     "language": "TR",
                     "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
                     "updated": 1640554583592
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu seharusnya sudah versi terkini setelah mengubah!",
+                    "updated": 1668787174440
+                },
+                {
+                    "language": "NL",
+                    "text": "Je moet up-to-date zijn na de overstap!",
+                    "updated": 1669747164044
                 }
             ]
         }

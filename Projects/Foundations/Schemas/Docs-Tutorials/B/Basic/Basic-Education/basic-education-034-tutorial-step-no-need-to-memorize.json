@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Aku harap kamu dapat memahami seluk-beluk cadangan dan bagaimana referensi dipengaruhi dalam setiap kasus restorasi tertentu!",
                 "updated": 1645032385805
+            },
+            {
+                "language": "NL",
+                "text": "Ik hoop dat je de fijne kneepjes van back-ups hebt begrepen en hoe referenties worden beïnvloed in elk specifiek herstelgeval!",
+                "updated": 1669544663109
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu tidak perlu menghafal kasus-kasus individual. Sebaliknya, jika kamu memahami mekanisme mendasar yang melibatkan referensi, maka kamu dapat menyimpulkan perilaku pada setiap kasus!",
                     "updated": 1645032438839
+                },
+                {
+                    "language": "NL",
+                    "text": "U hoeft de individuele gevallen niet uit uw hoofd te leren. In plaats daarvan, als u het onderliggende mechanisme van verwijzingen begrijpt, kunt u het gedrag in elk geval afleiden!",
+                    "updated": 1669544681206
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa setiap node memiliki ID tertentu! Ketika referensi dibuat, kedua node yang terlibat memiliki ID unik. Referensi Outgoing tidak tergantung pada ID node, tetapi referensi incoming melakukannya! Jika node yang dicadangkan dapat dipulihkan dengan ID yang sama, referensi yang masuk akan tetap ada; jika tidak, mereka akan berubah atau hilang!",
                     "updated": 1645032505347
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat elk knooppunt een specifiek ID heeft! Wanneer een referentie tot stand is gebracht, hebben beide betrokken knooppunten een uniek ID. Uitgaande referenties zijn niet afhankelijk van het ID van het knooppunt, maar inkomende referenties wel! Als het back-upknooppunt met hetzelfde ID kan worden hersteld, blijven inkomende referenties bestaan; anders zullen ze veranderen of verloren gaan!",
+                    "updated": 1669544745156
                 }
             ]
         }

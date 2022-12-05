@@ -33,7 +33,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkClientNode
     ) {
 
-        thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction
+        thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction // This is the function that will be called when an event / signal is received from the p2p Network.
 
         await setupNetwork()
         await setupNetworkServices()

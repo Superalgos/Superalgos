@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Entegrasyon, Superalgos'a özgü düğümlerin yapısında bir Öğrenme algoritması ( Supervised Learning ) ve Yapay Sinir Ağı ( Artificial Neural Network ) içeren bir NodeJS TensorFlow Kitaplığı tanımını eşler.",
-                    "updated": 1636109802947
+                    "text": "Entegrasyon, Denetimli Öğrenme algoritması (Supervised Learning) ve Yapay Sinir Ağı (Artificial Neural Network) içeren bir NodeJS TensorFlow Kütüphanesinin tanımını Superalgos'a özgü aynı tür düğüm yapısıyla eşleştirir.",
+                    "updated": 1669920929925
                 },
                 {
                     "language": "RU",
@@ -118,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Entegrasyon, Superalgos altyapısının yararlanır, böylece ML (Makine Öğrenimi) algoritmalarını eğitmek için veri kümelerinizi kullanabilir ve elde edilen modelleri ticaret sistemlerinden kullanabilirsiniz!",
-                    "updated": 1666064821513
+                    "text": "Entegrasyon, Superalgos altyapısından yararlanır. Böylece ML algoritmalarını eğitmek için veri kümelerinizi kullanabilir ve elde edilen modelleri ticaret sistemlerinden kullanabilirsiniz!",
+                    "updated": 1669921040029
                 },
                 {
                     "language": "RU",
@@ -162,8 +162,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Daha sonra, ML CrossCategoricalEntropy Demo Plugin Workspace'e bir göz atın!",
-                    "updated": 1636109933292
+                    "text": "Entegrasyonun tamamlanmasına ve test edilmesine yardımcı olmak istiyorsanız Superalgos Geliştirme Grubuna katılın!",
+                    "updated": 1669921094331
                 },
                 {
                     "language": "RU",

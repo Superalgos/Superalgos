@@ -13,7 +13,7 @@ async function runRoot() {
   */
   global.TS = {}
   /*
-  The SA object is accessible everywhere at the Superalgos Desktop App.
+  The SA object is accessible everywhere at the Superalgos Social Trading App.
   It provides access to all modules built for Superalgos in general.
   */
   global.SA = {}

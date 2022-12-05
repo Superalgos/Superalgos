@@ -42,6 +42,11 @@
                 "language": "ID",
                 "text": "Tentang skenario kedua: katakanlah kamu sedang menguji indikator EMA, menemukan bug dan tahu cara memperbaikinya. Kamu bermaksud berkontribusi untuk memperbaiki sehingga semua orang mendapat manfaat dari hal itu!",
                 "updated": 1645559461122
+            },
+            {
+                "language": "NL",
+                "text": "Het tweede scenario: stel dat u de EMA-indicator aan het testen bent, een bug hebt gevonden en weet hoe u deze moet oplossen. Je bent van plan om de oplossing bij te dragen zodat iedereen er baat bij heeft!",
+                "updated": 1669547814537
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "ID",
                     "text": "Indikator Bot ini adalah bagian dari Sparta Data Mine, yang biasanya dimasukkan sebagai plugin di beberapa workspaces plugin. Untuk memodifikasi plugin dari dalam UI dan menyimpan perubahan, Kamu memiliki dua opsi :",
                     "updated": 1645559526844
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze Indicator Bot maakt deel uit van de Sparta Data Mine, die meestal als plugin is opgenomen in sommige werkruimten voor plugins. Om de plugin vanuit de UI te wijzigen en de wijzigingen op te slaan, hebt u twee opties:",
+                    "updated": 1669547861719
                 }
             ]
         },
@@ -115,6 +125,11 @@
                     "language": "IT",
                     "text": "Vai al Plugin File corrispondente nella gerarchia Plugin e seleziona <i>Enable Saving With Workspace</i> nel menu. Ora il file del plug-in viene aggiornato ogni volta che salvi l'area di lavoro per includere le modifiche che potresti aver introdotto!",
                     "updated": 1666641552303
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het bijbehorende Plugin File in de Plugins hiërarchie en selecteer </i>Enable Saving With Workspace in het menu. Nu wordt het plugin bestand elke keer dat u de werkruimte opslaat bijgewerkt met de wijzigingen die u mogelijk hebt aangebracht!",
+                    "updated": 1669547955640
                 }
             ]
         },
@@ -148,6 +163,11 @@
                     "language": "IT",
                     "text": "Oppure usa l'opzione <i>Save Plugin File</i> per salvare manualmente il file del plugin ogni volta che lo desideri!",
                     "updated": 1666641598961
+                },
+                {
+                    "language": "NL",
+                    "text": "Of gebruik de </i>Save Plugin File optie om het plugin bestand handmatig op te slaan wanneer je maar wilt!",
+                    "updated": 1669547989335
                 }
             ]
         }

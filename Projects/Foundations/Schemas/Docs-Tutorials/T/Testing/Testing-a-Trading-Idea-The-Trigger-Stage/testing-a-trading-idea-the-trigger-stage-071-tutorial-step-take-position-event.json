@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Pozisyon alma olayını (take position event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var!",
-                "updated": 1641664867597
+                "text": "Pozisyon alma olayını (Take Position Event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var!",
+                "updated": 1669668869133
             },
             {
                 "language": "RU",
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayının (take position event) veya tetikleme olayının (trigger off event ) doğru olduğu onaylanırsa tetik aşamasının kapanacağını daha önce belirtmiştik.",
-                    "updated": 1641664878623
+                    "text": "Pozisyon alma olayının (Take Position Event) veya \"Trigger Off\" olayının doğru olduğu onaylanırsa tetikleme aşamasının kapanacağını daha önce belirtmiştik.",
+                    "updated": 1669669020027
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz ... alt bandın altında art arda iki saatlik kapanış fiyatından hemen sonra! Çok uzak çok iyi!",
-                    "updated": 1641664892452
+                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz... alt bandın altında art arda iki saatlik kapanıştan hemen sonra! Şimdiye kadar çok iyi!",
+                    "updated": 1669669108774
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Uyarı: Ancak hatalar hemen ardından ortaya çıkıyor! burada neler olduğunu bulabilir misin",
-                    "updated": 1641664903289
+                    "text": "Ancak hemen ardından hatalar ortaya çıkıyor! Neler olduğunu bulabilir misin?",
+                    "updated": 1669669188246
                 },
                 {
                     "language": "RU",

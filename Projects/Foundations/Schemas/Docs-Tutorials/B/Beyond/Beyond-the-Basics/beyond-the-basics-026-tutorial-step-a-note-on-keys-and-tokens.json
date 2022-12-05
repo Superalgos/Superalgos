@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Позвольте мне сделать небольшую паузу, чтобы отметить кое-что важное в отношении безопасности ваших ключей и токенов...",
                 "updated": 1640163119058
+            },
+            {
+                "language": "ID",
+                "text": "Berikan aku waktu sejenak untuk menjelaskan sesuatu yang penting mengenai keamanan kunci dan token kamu...",
+                "updated": 1668995380361
+            },
+            {
+                "language": "NL",
+                "text": "Laat me even pauzeren om u op iets belangrijks te wijzen met betrekking tot de veiligheid van uw keys en tokens...",
+                "updated": 1669749789058
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "RU",
                     "text": "Superalgos хранит файл рабочего пространства, содержащий ваши ключи и токены, в формате JSON в незашифрованном виде. В таком состоянии эта важнейшая информация находится в такой же безопасности, как и ваш компьютер.",
                     "updated": 1640163149064
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menyimpannya dalam file workspace yang berisi dengan kunci dan token dalam format JSON-tidak terinkripsi. Sejauh ini informasi krusial didalamnya tetap aman sejauh apa keamanan komputermu.",
+                    "updated": 1668995389727
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos slaat het werkruimtebestand unencrypted op dat uw keys en tokens bevat in JSON-bestandsformaat. In deze staat is deze cruciale informatie net zo veilig als uw computer.",
+                    "updated": 1669749909104
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "RU",
                     "text": "Никогда не делитесь файлом рабочего пространства КАК ЕСТЬ. Чтобы поделиться рабочим пространством, используйте кнопку Share в меню. Она создает безопасную для общего доступа копию рабочего пространства, очищенную от конфиденциальной информации путем удаления иерархии APIs и раздела Exchange Accounts узла Crypto Exchange.",
                     "updated": 1640163182388
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan pernah membagikan file workspacemu dalam bentuk AS IS. Untuk membagikan workspace, gunakan tombol Share dalam menu. Itu akan membuat salinan yang aman dengan workspacemu, Hialngkan informasi sensitif dengan menghapus hirarki APIs dan bagian Exchange Accounts dari node Crypto Exchange.",
+                    "updated": 1668995429357
+                },
+                {
+                    "language": "NL",
+                    "text": "Deel uw werkruimtebestand nooit AS IS. Gebruik de knop Share in het menu om een werkruimte te delen. Het creëert een deelveilige kopie van de werkruimte, ontdaan van gevoelige informatie door de APIs hiërarchie en het gedeelte Exchange Accounts van het Crypto Exchange knooppunt te verwijderen.",
+                    "updated": 1669749967892
                 }
             ]
         },

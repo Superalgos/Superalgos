@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
-                "updated": 1639214551654
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, Katman Yöneticisindeki (Layer Manager) bir Katman (Layer) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1669842934924
             },
             {
                 "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu zaman makinesinin solundaki ilk katman yöneticisi üç katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin ( Trading System ) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
-                    "updated": 1636096453476
+                    "text": "Bu zaman makinesinin en sağdan ikinci katman yöneticisi (Masters Data) iki katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin (Trading System) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
+                    "updated": 1669843334058
                 },
                 {
                     "language": "RU",
@@ -178,8 +178,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
-                    "updated": 1636096525958
+                    "text": "Superalgos birçok indikatör/osilatör gibi araçlarla birlikte gelir, ancak bunlar bu çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "updated": 1669843147164
                 },
                 {
                     "language": "RU",

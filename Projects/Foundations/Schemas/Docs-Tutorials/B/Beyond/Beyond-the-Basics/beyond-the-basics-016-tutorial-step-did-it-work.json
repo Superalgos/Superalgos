@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz!",
                 "updated": 1640555422367
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu menulis perintah dengan benar, kamu seharusnya mendapatkan halaman baru dengan title yang sudah kamu buat, undangan untuk menulis ringkasan, dan instruksi lebih lanjut di bawah ini!",
+                "updated": 1668788793657
+            },
+            {
+                "language": "NL",
+                "text": "Als je de opdracht niet hebt verknoeid, zou je een nieuwe pagina moeten krijgen met de titel die je hebt ingesteld, een uitnodiging om een samenvatting te schrijven en meer instructies hieronder!",
+                "updated": 1669747383619
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Bir hata mesajı aldıysanız, okumalı ve sorunu çözmelisiniz! Komuttaki sözdizimi ile ilgili olabilir. Orijinal komutu tekrar bulabilmek için her zaman bir adım geri gidebilirsiniz! (Previous tuşunu kullanarak)",
                     "updated": 1640555518049
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika mendapati pesan kesalahan, baca itu dan perbaiki masalahnya! Itu sepertinya syntax diperintah. Kamu mungkin selalu kembali untuk memulihkan perintah aslinya!",
+                    "updated": 1668788800884
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u een foutmelding krijgt, lees deze dan en los het probleem op! Het gaat waarschijnlijk om de syntaxis in de opdracht. U kunt altijd een stap teruggaan om de oorspronkelijke opdracht te herstellen!",
+                    "updated": 1669747407564
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
                     "updated": 1640555531810
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada step selanjutnya, kita akan mempelajari bagaimana perintah itu bekerja!",
+                    "updated": 1668788824996
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende stap analyseren we hoe de opdracht werkt!",
+                    "updated": 1669747419933
                 }
             ]
         },
@@ -117,6 +147,16 @@
                     "text": "Paketlenmiş veya Docker kurulumlarını kullanıyorsanız, İleri'ye basmaya devam edin ve yazılım sürümünüz için mevcut olmayan talimatları göz ardı edin.",
                     "updated": 1654393916499,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan Instalasi Packaged atau Docker, tetap lanjutkan Next dan abaikan instruksi yang tidak tersedia pada versi software kamu.",
+                    "updated": 1668788835411
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de Packaged- of Docker-installaties gebruikt, blijf dan op Next drukken en negeer de instructies die niet beschikbaar zijn voor uw versie van de software.",
+                    "updated": 1669747435196
                 }
             ]
         }

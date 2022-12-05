@@ -10,7 +10,14 @@
         {
             "style": "Text",
             "text": "Taking Crypto Trading to the Next Level Applying Machine Learning: A very sophisticated pioneering technology in the modern world of trading cryptocurrency. The fineness and complexity of the structure show us, how much effort was put into developing Superalgos, thus hinting how reliable the outcome could be. Still superalgos could be very challenging and not for the faint-hearted amateurs. It needs a whole lot of serious work, consistency, concentration, understanding, patience and critical as well as creative thinking. Likewise a decent ability of problem solving.",
-            "updated": 1633159694958
+            "updated": 1633159694958,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Makine Öğrenimini ( Machine Learning ) Uygulayarak Kripto Ticaretini ( Trading ) Bir Sonraki Seviyeye Taşımak: Modern kripto para ticareti dünyasında çok gelişmiş bir öncü teknoloji. Yapının inceliği ve karmaşıklığı bize Superalgos'un geliştirilmesi için ne kadar çaba sarf edildiğini göstermekte ve böylece sonucun ne kadar güvenilir olabileceğine işaret etmektedir. Yine de Superalgos çok zorlayıcı olabilir ve zayıf gönüllü amatörler için değildir. Çok ciddi bir çalışma, tutarlılık, konsantrasyon, anlayış, sabır ve kritik olduğu kadar yaratıcı düşünme gerektirir. Aynı şekilde iyi bir problem çözme yeteneği.",
+                    "updated": 1669311813284
+                }
+            ]
         },
         {
             "style": "Text",

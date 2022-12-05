@@ -10,8 +10,7 @@ function loadSuperalgos() {
 
     function loadGlobals() {
         let path = "Globals.js"
-        //REQUIREJS([path], onRequired)
-        requirejs([path], onRequired)
+        REQUIREJS([path], onRequired)
 
         function onRequired(pModule) {
             setupEnvironment()

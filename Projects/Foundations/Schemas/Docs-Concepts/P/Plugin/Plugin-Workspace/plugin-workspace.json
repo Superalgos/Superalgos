@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir kullanıcı tarafından oluşturulan veya projeye eklenti olarak katkıda bulunan ve yazılım paketi ile dağıtılan bir Çalışma Alanı anlamına gelir. Eklenti çalışma alanları, kullanıcıların çalışmaya hazır stratejilere, demolara, öğreticilere veya sistemin geliştirilmekte olan alanlarına erişim sağlamaları için kullanışlıdır.",
-                "updated": 1639143538988
+                "text": "Bir kullanıcı tarafından oluşturulan, projeye eklenti olarak katkıda bulunan ve yazılım paketi ile dağıtılan bir Çalışma Alanını ( Workspace ) ifade eder. Eklenti çalışma alanları, kullanıcıların çalışmaya hazır stratejilere, demolara, öğreticilere veya geliştirilmekte olan sistem alanlarına girişlere erişim sağlamak için kullanışlıdır.",
+                "updated": 1670243753623
             }
         ]
     },

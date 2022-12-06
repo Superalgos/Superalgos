@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Вращательная симметрия отключена, и узел может принимать любое положение. Линия соединения с родителем желтого цвета.",
                 "updated": 1638288776383
+            },
+            {
+                "language": "TR",
+                "text": "Dönme simetrisi devre dışıdır ve düğüm herhangi bir pozisyon alabilir. Ana düğümle olan bağlantı hattı sarıdır.",
+                "updated": 1668000649157
             }
         ]
     },

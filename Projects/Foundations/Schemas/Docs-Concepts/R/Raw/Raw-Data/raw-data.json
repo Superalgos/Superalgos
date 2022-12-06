@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Мы называем необработанными данными Raw Data данные, только что полученные из внешнего источника, которые еще не обрабатывались и не обрабатывались ботами внутри системы.",
                 "updated": 1639382970282
+            },
+            {
+                "language": "TR",
+                "text": "Henüz sistem içindeki Botlar tarafından işlenmemiş veya manipüle edilmemiş, harici bir kaynaktan yeni alınmış verilere ham veri diyoruz.",
+                "updated": 1668000999266
             }
         ]
     },

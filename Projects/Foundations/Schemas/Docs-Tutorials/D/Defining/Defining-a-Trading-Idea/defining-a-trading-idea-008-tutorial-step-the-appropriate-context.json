@@ -28,6 +28,11 @@
                 "language": "ES",
                 "text": "La segunda dimensión importante que hay que definir es el contexto general al que se dirige la hipótesis.",
                 "updated": 1668188981988
+            },
+            {
+                "language": "IT",
+                "text": "La seconda dimensione importante da definire è il contesto generale a cui si rivolge l'ipotesi.",
+                "updated": 1669887574606
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ES",
                     "text": "Pocas estrategias basadas en el análisis técnico, si es que hay alguna, funcionan de forma consistente en situaciones de mercado no definidas.",
                     "updated": 1668189007571
+                },
+                {
+                    "language": "IT",
+                    "text": "Poche strategie basate sull'analisi tecnica, se non nessuna, si comportano in modo coerente in situazioni di mercato indefinite.",
+                    "updated": 1669887597665
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "ES",
                     "text": "La definición mínima requerida es si la hipótesis se apunta a las tendencias bajistas, a las tendencias alcistas o a los mercados laterales.",
                     "updated": 1668189046273
+                },
+                {
+                    "language": "IT",
+                    "text": "La definizione minima richiesta riguarda se l'ipotesi si rivolge a trend al ribasso, al rialzo o ai mercati laterali.",
+                    "updated": 1669887617798
                 }
             ]
         },

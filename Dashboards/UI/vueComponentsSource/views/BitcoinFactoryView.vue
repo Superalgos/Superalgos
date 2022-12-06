@@ -242,8 +242,8 @@
             if (item.timestamp !== undefined) {
               item.timestamp = new Date(item.timestamp).toUTCString() 
             }                   
-            if (item.forcastedCandle !== undefined && item.forcastedCandle.close == undefined) {
-              item.forcastedCandle = 'N/A'
+            if (item.forecastedCandle !== undefined && item.forecastedCandle.close == undefined) {
+              item.forecastedCandle = 'N/A'
             }
             for (let param in item.parameters) {
               if (item.parameters[param] == 'OFF') delete item.parameters[param]
@@ -286,8 +286,8 @@
             if (item.testServer !== undefined && item.testServer.instance !== undefined) {
               item.testServer = item.testServer.instance
             }
-            if (item.forcastedCandle !== undefined && item.forcastedCandle.close == undefined) {
-              item.forcastedCandle = 'N/A'
+            if (item.forecastedCandle !== undefined && item.forecastedCandle.close == undefined) {
+              item.forecastedCandle = 'N/A'
             }
             if (item.assignedTimestamp !== undefined) {
               item.assignedTimestamp = new Date(item.assignedTimestamp).toUTCString() 

@@ -34,7 +34,7 @@ Superalgos supports a decentralised Peer 2 Peer network that offers many ways to
 
 #### The Test Server Application
 
-The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forcast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forecast Clients apps to be processed.
+The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forecast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forecast Clients apps to be processed.
 
 **Note:** The test server app is run by the Bitcoin Factory. 
 

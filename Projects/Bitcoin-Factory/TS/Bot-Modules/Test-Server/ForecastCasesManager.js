@@ -77,7 +77,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                         if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
-                            addForcastCase(testCase)
+                            addForecastCase(testCase)
                             return
                         }
                     //RL     
@@ -87,18 +87,18 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                             console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
-                            addForcastCase(testCase)
+                            addForecastCase(testCase)
                             return
                         }
                     }
                 } else {
                     if (!findForecastCaseWithSameAssetTimeframe(testCase.mainAsset, testCase.mainTimeFrame)) {
-                        addForcastCase(testCase)
+                        addForecastCase(testCase)
                         return
                     }
                 }
             }
-            if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)    
+            if (thisObject.forecastCasesArray.length == 0) addForecastCase(testCase)    
         } finally {
             saveForecastCasesFile()
 
@@ -116,11 +116,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             return false
         }
 
-        function addForcastCase(testCase) {
+        function addForecastCase(testCase) {
             let testServer
             let parameters  
             let predictions     
-            let forcastedCandle     
+            let forecastedCandle     
             try {
                 testServer = JSON.parse(JSON.stringify(testCase.testServer))
             } catch (err) {}                    
@@ -131,7 +131,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 predictions = JSON.parse(JSON.stringify(testCase.predictions))
             } catch (err) {}                    
             try {
-                forcastedCandle = JSON.parse(JSON.stringify(testCase.forcastedCandle))
+                forecastedCandle = JSON.parse(JSON.stringify(testCase.forecastedCandle))
             } catch (err) {}                    
             let forecastCase = {
                 id: testCase.id,
@@ -143,7 +143,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 parameters: parameters,
                 parametersHash: testCase.parametersHash,
                 predictions: predictions,
-                forcastedCandle: forcastedCandle,
+                forecastedCandle: forecastedCandle,
                 ratio_train : testCase.ratio_train,
                 ratio_test : testCase.ratio_test,
                 ratio_validate : testCase.ratio_validate,
@@ -202,7 +202,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             forecastCase.assignedTimestamp = (new Date()).valueOf()
 
             let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
-            forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            forecastCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             saveForecastCasesFile()
 
             let nextForecastCase = {
@@ -227,7 +227,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             if (forecastCase.status === 'Forecasted' && forecastCase.id === forecastCaseId) {
 
                 let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
-                forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+                forecastCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
 
                 let thisForecastCase = {
                     id: forecastCase.id,
@@ -319,7 +319,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
     
             let params = {
                 method: 'updateForecastedCandles',
-                forcastedCandles: JSON.stringify(bestPredictions)
+                forecastedCandles: JSON.stringify(bestPredictions)
             }
     
             const axios = require("axios")

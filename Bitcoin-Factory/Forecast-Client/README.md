@@ -78,7 +78,7 @@ Then add the following configuration within the Task Server App node's config:
 4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
-Hover over the Bitcoin Factory Forcasts node and rename it using the following name: "Testnet"
+Hover over the Bitcoin Factory Forecasts node and rename it using the following name: "Testnet"
 
 ### Signing Accounts
 

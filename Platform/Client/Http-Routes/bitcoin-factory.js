@@ -11,12 +11,12 @@ exports.newBitCoinFactoryRoute = function newBitCoinFactoryRoute() {
 
         function processRequest(body) {
             try {
-                if (body === undefined) {
+                if(body === undefined) {
                     return
                 }
                 let params = JSON.parse(body)
 
-                switch (params.method) {
+                switch(params.method) {
                     case 'updateForecastedCandles': {
 
                         let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.updateForecastedCandles(
@@ -71,10 +71,10 @@ exports.newBitCoinFactoryRoute = function newBitCoinFactoryRoute() {
                         break
                     }
                     default: {
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({error: 'Method ' + params.method + ' is invalid.'}), httpResponse)
                     }
                 }
-            } catch (err) {
+            } catch(err) {
                 console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> Method call produced an error.')
                 console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> err.stack = ' + err.stack)
                 console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> Params Received = ' + body)

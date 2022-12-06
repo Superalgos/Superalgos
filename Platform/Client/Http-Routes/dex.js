@@ -9,7 +9,7 @@ exports.newDEXRoute = function newDEXRoute() {
     function command(httpRequest, httpResponse) {
         let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
         let requestPath = requestPathAndParameters[0].split('/')
-        switch (requestPath[2]) {
+        switch(requestPath[2]) {
             case 'CreateNewWallet':
                 console.log('creating new wallet')
                 let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
@@ -101,7 +101,7 @@ exports.newDEXRoute = function newDEXRoute() {
                 SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                     .then(body => {
                         let config = JSON.parse(body)
-                        if (config.network === 'bsc') {
+                        if(config.network === 'bsc') {
                             SA.projects.decentralizedExchanges.utilities.bsc.getTokens()
                                 .then(response => {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)

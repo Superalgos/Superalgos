@@ -11,12 +11,12 @@ exports.newCCXTRoute = function newCCXTRoute() {
 
         async function processRequest(body) {
             try {
-                if (body === undefined) {
+                if(body === undefined) {
                     return
                 }
                 let params = JSON.parse(body)
 
-                switch (params.method) {
+                switch(params.method) {
                     case 'fetchMarkets': {
 
                         const exchangeClass = SA.nodeModules.ccxt[params.exchangeId]
@@ -29,7 +29,7 @@ exports.newCCXTRoute = function newCCXTRoute() {
                         let ccxtExchange = new exchangeClass(exchangeConstructorParams)
                         let ccxtMarkets = []
 
-                        if (ccxtExchange.has.fetchMarkets === true) {
+                        if(ccxtExchange.has.fetchMarkets === true) {
                             ccxtMarkets = await ccxtExchange.fetchMarkets()
                         }
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(ccxtMarkets), httpResponse)
@@ -37,7 +37,7 @@ exports.newCCXTRoute = function newCCXTRoute() {
                     }
                     case 'listExchanges': {
                         let exchanges = []
-                        for (let i = 0; i < SA.nodeModules.ccxt.exchanges.length; i++) {
+                        for(let i = 0; i < SA.nodeModules.ccxt.exchanges.length; i++) {
                             let exchangeId = SA.nodeModules.ccxt.exchanges[i]
 
                             const exchangeClass = SA.nodeModules.ccxt[exchangeId]
@@ -49,16 +49,16 @@ exports.newCCXTRoute = function newCCXTRoute() {
                             let ccxtExchange
                             try {
                                 ccxtExchange = new exchangeClass(exchangeConstructorParams)
-                            } catch (err) {
+                            } catch(err) {
                             }
-                            if (ccxtExchange === undefined) {
+                            if(ccxtExchange === undefined) {
                                 continue
                             }
 
 
-                            if (ccxtExchange.has.fetchOHLCV === params.has.fetchOHLCV) {
-                                if (ccxtExchange.has.fetchMarkets === params.has.fetchMarkets) {
-                                    if (ccxtExchange.timeframes['1m'] !== undefined) {
+                            if(ccxtExchange.has.fetchOHLCV === params.has.fetchOHLCV) {
+                                if(ccxtExchange.has.fetchMarkets === params.has.fetchMarkets) {
+                                    if(ccxtExchange.timeframes['1m'] !== undefined) {
                                         let exchange = {
                                             name: ccxtExchange.name,
                                             id: ccxtExchange.id
@@ -78,7 +78,7 @@ exports.newCCXTRoute = function newCCXTRoute() {
                 }
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(content), httpResponse)
 
-            } catch (err) {
+            } catch(err) {
                 console.log((new Date()).toISOString(), '[INFO] httpInterface -> CCXT FetchMarkets -> Could not fetch markets.')
                 let error = {
                     result: 'Fail Because',

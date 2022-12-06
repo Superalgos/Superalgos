@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bazı botların Ana Döngülerinin bir sonraki döngüsünde uyandıktan sonra işlemlerine devam edebilmeleri için ihtiyaç duydukları bir veri yapısıdır.",
-                "updated": 1654391171772
+                "text": "Bazı botların Ana Döngülerinin ( Main Loop ) bir sonraki döngüsünde uyandıktan sonra işlemlerine devam edebilmeleri için ihtiyaç duydukları bir veri yapısıdır.",
+                "updated": 1670331944709
             }
         ]
     },

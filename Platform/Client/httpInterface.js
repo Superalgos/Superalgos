@@ -62,7 +62,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'updateForecastedCandles': {
 
                                     let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.updateForecastedCandles(
-                                        params.forcastedCandles
+                                        params.forecastedCandles
                                     )
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)

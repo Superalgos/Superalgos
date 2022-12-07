@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session ) düzenlemeyeceğiz, bu nedenle veri madenciliğimizi bu noktada çalışır durumda tutmanın bir anlamı yok. ",
-                "updated": 1644910339264
+                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session) gerçekleştirmeyeceğiz, bu nedenle veri madenciliğimizi çalışır durumda tutmanın bir anlamı yok.",
+                "updated": 1669838380979
             },
             {
                 "language": "RU",
@@ -139,8 +139,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion ) yürütmek veya yeni göstergeleri işlemek için belirli bir işlem çifti için ( Market ) bir tarih saat aralığını işlemek isteyebilirsiniz.",
-                    "updated": 1644910440492
+                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion) yürütmek ya da herhangi bir işlem çiftinde (Market) başka bir tarih aralığı için yeni göstergeleri işlemek isteyebilirsiniz.",
+                    "updated": 1669838669009
                 },
                 {
                     "language": "RU",
@@ -190,8 +190,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Canlı bir oturum yürütmek için: Paper Trading Session , İleriye Yönelik Test Oturumu (Forward Testing Session ) ve Canlı Alım Satım Oturumu ( Live Trading Session ) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
-                    "updated": 1644910465496
+                    "text": "Canlı bir oturum yürütmek için: Kağıt Ticareti (Paper Trading Session), İleriye Dönük Test Oturumu (Forward Testing Session) ve Canlı Ticaret Oturumu (Live Trading Session) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
+                    "updated": 1669838740848
                 },
                 {
                     "language": "RU",
@@ -240,8 +240,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tüm işlemler güncel olduğunda (%100), Piyasa Veri Görevleri ( Market Data Tasks ) düğümünde \"Stop All Tasks\" seçeneğini seçin. Ek bilgi olarak, görevleri başlattığımız düğümden farklı bir düğümden durdurabileceğimizi de unutmayın.",
-                    "updated": 1636016732706
+                    "text": "Tüm işlemler güncel olduğunda (%100), Piyasa Veri Görevleri ( Market Data Tasks ) düğümünde \"Stop All Tasks\" düğmesine tıklayın. Ek bilgi olarak, görevleri, başlattığımız düğümden farklı bir düğümden de durdurabileceğimizi unutmayın.",
+                    "updated": 1669838794910
                 },
                 {
                     "language": "RU",

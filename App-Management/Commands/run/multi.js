@@ -22,6 +22,10 @@ exports.multiCommand = function multiCommand() {
             description: 'This will run the dashboards app',
             boolean: true,
             default: false
+        }).option('socialTrading', {
+            description: 'This will run the social trading app',
+            boolean: true,
+            default: false
         }).option('noBrowser', {
             description: 'This will apply the noBrowser attribute to all the services that list it as an option',
             boolean: true,
@@ -37,8 +41,8 @@ exports.multiCommand = function multiCommand() {
     }
 
     function runner(args) {
-        if(!(args.plaform || args.network || args.dashboards)) {
-            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--network')} must be supplied`)
+        if(!(args.plaform || args.network || args.dashboards || args.socialTrading)) {
+            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--network')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--socialTrading')} must be supplied`)
             return
         }
 
@@ -59,6 +63,12 @@ exports.multiCommand = function multiCommand() {
         if(args.dashboards) { 
             require('./dashboards').dashboardsCommand().runner({
                 minMemo: args.minMemo,
+                profile: args.profile
+            })
+        }
+
+        if(args.socialTrading) { 
+            require('./social-trading').socialTradingCommand().runner({
                 profile: args.profile
             })
         }

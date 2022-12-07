@@ -26,11 +26,15 @@ COMMANDS:
     - ${chalk.red('network')}
       - OPTIONS:
         ${chalk.italic.red('--profile')}
+    - ${chalk.red('socialTrading')}
+      - OPTIONS:
+        ${chalk.italic.red('--profile')}
     - ${chalk.red('multi')}
       - OPTIONS:
         ${chalk.italic.red('--platform')}
         ${chalk.italic.red('--dashboards')}
         ${chalk.italic.red('--network')}
+        ${chalk.italic.red('--socialTrading')}
         ${chalk.italic.red('--minMemo')}
         ${chalk.italic.red('--noBrowser')}
         ${chalk.italic.red('--profile')}

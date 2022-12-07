@@ -21,6 +21,10 @@ exports.multiCommand = function multiCommand() {
             description: 'This will stop the dashboards app',
             boolean: true,
             default: false
+        }).option('socialTrading', {
+            description: 'This will stop the social trading app',
+            boolean: true,
+            default: false
         }).option('profile', {
             description: 'A custom profile used by the process being stopped',
             string: true
@@ -28,8 +32,8 @@ exports.multiCommand = function multiCommand() {
     }
 
     function runner(args) {
-        if(!(args.platform || args.network || args.dashboards)) {
-            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--network')} must be supplied`)
+        if(!(args.platform || args.network || args.dashboards || args.socialTrading)) {
+            conosle.log(`At least one of ${chalk.italic('--platform')}, ${chalk.italic('--network')}, ${chalk.italic('--dashboards')} or ${chalk.italic('--socialTrading')} must be supplied`)
             return
         }
 

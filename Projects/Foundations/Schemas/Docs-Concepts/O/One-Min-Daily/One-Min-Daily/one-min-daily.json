@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот тип набора данных Dataset организует данные в один файл в день. Сами данные либо собираются с интервалом в одну минуту, либо имеют объекты с интервалом времени в одну минуту.",
                 "updated": 1638287159075
+            },
+            {
+                "language": "TR",
+                "text": "Bu Veri Kümesi ( Dataset ) türü, verileri her gün için bir dosyada düzenler. Verilerin kendisi ya bir dakikalık aralıklarla toplanır ya da bir dakikalık zaman aralığına sahip nesnelere sahiptir.",
+                "updated": 1668683235874
             }
         ]
     },

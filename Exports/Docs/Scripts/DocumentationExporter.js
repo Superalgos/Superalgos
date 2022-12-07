@@ -85,8 +85,7 @@ exports.documentationExporter = function documentationExporter() {
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
 
         
-        let fileName = thisObject.currentDocumentBeingRendered.type + (ED.asShtml ? '.shtml' : '.html')
-        fileName = ED.utilities.normaliseStringForLink(fileName)
+        const fileName = ED.utilities.normaliseStringForLink(thisObject.currentDocumentBeingRendered.type) + (ED.asShtml ? '.shtml' : '.html')
         filePath = filePath + fileName
 
         ED.pageGlobals.addNavigation(
@@ -251,7 +250,7 @@ exports.documentationExporter = function documentationExporter() {
                     HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
     
                     */
-                    generateTopicPreviousAndNextPageNavigation()
+                    generateTopicPreviousAndNextPageNavigation(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
 
@@ -259,7 +258,7 @@ exports.documentationExporter = function documentationExporter() {
 
                     HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the topic.</p>'
 
-                    HTML = HTML + generateTopicMultiPageIndex()
+                    HTML = HTML + generateTopicMultiPageIndex(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '</div>'  // END Container for Topic Navigation
                 }
@@ -277,7 +276,7 @@ exports.documentationExporter = function documentationExporter() {
                     HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
                     */
 
-                    generateTutorialPreviousAndNextPageNavigation()
+                    generateTutorialPreviousAndNextPageNavigation(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '<div class="docs-topic-index">' // Container for Tutorial Navigation including buttons, title and index
 
@@ -285,7 +284,7 @@ exports.documentationExporter = function documentationExporter() {
 
                     HTML = HTML + '<p style="margin-bottom: 15px;">You just did step <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the tutorial.</p>'
 
-                    HTML = HTML + generateTutorialMultiPageIndex()
+                    HTML = HTML + generateTutorialMultiPageIndex(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '</div>'  // END Container for Tutorial Navigation
                 }
@@ -303,7 +302,7 @@ exports.documentationExporter = function documentationExporter() {
                     HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
                     */
 
-                    generateReviewPreviousAndNextPageNavigation()
+                    generateReviewPreviousAndNextPageNavigation(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '<div class="docs-topic-index">' // Container for Review Navigation including buttons, title and index
 
@@ -311,7 +310,7 @@ exports.documentationExporter = function documentationExporter() {
 
                     HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> of this review collection.</p>'
 
-                    HTML = HTML + generateReviewMultiPageIndex()
+                    HTML = HTML + generateReviewMultiPageIndex(thisObject.currentDocumentBeingRendered.project)
 
                     HTML = HTML + '</div>'  // END Container for Review Navigation
                 }
@@ -398,22 +397,25 @@ exports.documentationExporter = function documentationExporter() {
                 return html
             }
 
-            function generateTopicPreviousAndNextPageNavigation() {
+            /**
+             * @param {string} project
+             */
+            function generateTopicPreviousAndNextPageNavigation(project) {
                 for(let i = 0; i < orderedTopicPageIndexArray.length; i++) {
                     let arrayItem = orderedTopicPageIndexArray[i]
 
                     if(thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateNavigationLinks(orderedTopicPageIndexArray[i - 1], orderedTopicPageIndexArray[i + 1], 'Topic')
+                        generateNavigationLinks(orderedTopicPageIndexArray[i - 1], orderedTopicPageIndexArray[i + 1], project, 'Topic')
                         return
                     }
                 }
             }
 
             /**
-             * 
+             * @param {string} project
              * @returns {string}
              */
-            function generateTopicMultiPageIndex() {
+            function generateTopicMultiPageIndex(project) {
                 /* 
                 We will go through all the schema documents array for the current project and pick
                 the documents that share the same key that the document we are rendering now.
@@ -423,27 +425,30 @@ exports.documentationExporter = function documentationExporter() {
                 for(let i = 0; i < orderedTopicPageIndexArray.length; i++) {
                     let arrayItem = orderedTopicPageIndexArray[i]
                     autoGeneratedParagraphIndex++
-                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Topic', arrayItem.type, arrayItem.type)}</p>`
+                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink(project, 'Topic', arrayItem.type, arrayItem.type)}</p>`
                 }
                 return html
             }
 
-            function generateTutorialPreviousAndNextPageNavigation() {
+            /**
+             * @param {string} project 
+             */
+            function generateTutorialPreviousAndNextPageNavigation(project) {
                 for(let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
 
                     if(thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Tutorial')
+                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], project, 'Tutorial')
                         return
                     }
                 }
             }
 
             /**
-             * 
+             * @param {string} project
              * @returns {string}
              */
-            function generateTutorialMultiPageIndex() {
+            function generateTutorialMultiPageIndex(project) {
                 /* 
                 We will go through all the schema documents array for the current project and pick
                 the documents that share the same key that the document we are rendering now. 
@@ -453,27 +458,30 @@ exports.documentationExporter = function documentationExporter() {
                 for(let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
                     autoGeneratedParagraphIndex++
-                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Tutorial', arrayItem.type, arrayItem.type)}</p>`
+                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink(project, 'Tutorial', arrayItem.type, arrayItem.type)}</p>`
                 }
                 return html
             }
 
-            function generateReviewPreviousAndNextPageNavigation() {
+            /**
+             * @param {string} project 
+             */
+            function generateReviewPreviousAndNextPageNavigation(project) {
                 for(let i = 0; i < orderedReviewPageIndexArray.length; i++) {
                     let arrayItem = orderedReviewPageIndexArray[i]
 
                     if(thisObject.docsSchemaDocument.type === arrayItem.type) {
-                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], 'Review')
+                        generateNavigationLinks(orderedTutorialPageIndexArray[i - 1], orderedTutorialPageIndexArray[i + 1], project, 'Review')
                         return
                     }
                 }
             }
 
             /**
-             * 
+             * @param {string} project
              * @returns {string}
              */
-            function generateReviewMultiPageIndex() {
+            function generateReviewMultiPageIndex(project) {
                 /* 
                 We will go through all the schema documents array for the current project and pick
                 the documents that share the same key that the document we are rendering now.
@@ -483,7 +491,7 @@ exports.documentationExporter = function documentationExporter() {
                 for(let i = 0; i < orderedReviewPageIndexArray.length; i++) {
                     let arrayItem = orderedReviewPageIndexArray[i]
                     autoGeneratedParagraphIndex++
-                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink('Review', arrayItem.type, arrayItem.type)}</p>`
+                    html = html + `<p>${arrayItem.pageNumber}.${generateUnstyledLink(project, 'Review', arrayItem.type, arrayItem.type)}</p>`
                 }
                 return html
             }
@@ -806,15 +814,15 @@ exports.documentationExporter = function documentationExporter() {
 
                     switch(category) {
                         case 'Topic': {
-                            html = html + generateTopicMultiPageIndex()
+                            html = html + generateTopicMultiPageIndex(project)
                             break
                         }
                         case 'Tutorial': {
-                            html = html + generateTutorialMultiPageIndex()
+                            html = html + generateTutorialMultiPageIndex(project)
                             break
                         }
                         case 'Review': {
-                            html = html + generateReviewMultiPageIndex()
+                            html = html + generateReviewMultiPageIndex(project)
                             break
                         }
                     }
@@ -2252,62 +2260,63 @@ exports.documentationExporter = function documentationExporter() {
              *   topic: string?, 
              *   tutorial:string?
              * }?} nextPage
+             * @param {string} project
              * @param {string} category
              * @returns 
              */
-            function generateNavigationLinks(previousPage, nextPage, category) {
+            function generateNavigationLinks(previousPage, nextPage, project, category) {
                 HTML = HTML + '<div class="docs-topic-navigation"><div>'
                 if(previousPage !== undefined) {
-                    HTML = HTML + previousPaginationLinkBuilder(category, previousPage.type)
+                    HTML = HTML + previousPaginationLinkBuilder(project, category, previousPage.type)
                 }
                 HTML = HTML + '</div><div>'
                 if(nextPage !== undefined) {
-                    HTML = HTML + nextPaginationLinkBuilder(category, nextPage.type)
+                    HTML = HTML + nextPaginationLinkBuilder(project, category, nextPage.type)
                 }
                 HTML = HTML + '</div></div>'
             }
         }
 
         /**
-         * 
+         * @param {string} project
          * @param {string} category
          * @param {string} pageType
          * @returns {string}
          */
-        function previousPaginationLinkBuilder(category, pageType) {
-            return paginationLinkBuilder(category, pageType, 'Previous')
+        function previousPaginationLinkBuilder(project, category, pageType) {
+            return paginationLinkBuilder(project, category, pageType, 'Previous')
         }
 
         /**
-         * 
+         * @param {string} project
          * @param {string} category
          * @param {string} pageType
          * @returns {string}
          */
-        function nextPaginationLinkBuilder(category, pageType) {
-            return paginationLinkBuilder(category, pageType, 'Next')
+        function nextPaginationLinkBuilder(project, category, pageType) {
+            return paginationLinkBuilder(project, category, pageType, 'Next')
         }
 
         /**
-         * 
+         * @param {string} project
          * @param {string} category
          * @param {string} pageType
          * @param {string} content
          * @returns {string}
          */
-        function paginationLinkBuilder(category, pageType, content) {
-            return `${generateUnstyledLink(category, pageType, content)}<br/> ${pageType}`
+        function paginationLinkBuilder(project, category, pageType, content) {
+            return `${generateUnstyledLink(project, category, pageType, content)}<br/> ${pageType}`
         }
 
         /**
-         * 
+         * @param {string} project
          * @param {string} category
          * @param {string} pageType
          * @param {string} content
          * @returns {string} 
          */
-        function generateUnstyledLink(category, pageType, content) {
-            const link = ED.utilities.normaliseInternalLink([thisObject.currentDocumentBeingRendered.project, category, ED.utilities.normaliseStringForLink(pageType)])
+        function generateUnstyledLink(project, category, pageType, content) {
+            const link = ED.utilities.normaliseInternalLink([project, category, ED.utilities.normaliseStringForLink(pageType)])
             return '<a href="' + link + '"> ' + content + ' </a>'
         }
     }

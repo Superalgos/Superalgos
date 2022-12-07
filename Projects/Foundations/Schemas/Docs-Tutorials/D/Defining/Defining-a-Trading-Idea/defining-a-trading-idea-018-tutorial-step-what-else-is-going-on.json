@@ -28,6 +28,11 @@
                 "language": "ES",
                 "text": "Acabamos de tomar nota de lo que ha sucedido después de esta ruptura de las bandas en el gráfico 1H... ¿Qué más está pasando con el mercado?",
                 "updated": 1668191200497
+            },
+            {
+                "language": "IT",
+                "text": "Abbiamo appena preso nota di quello che è successo dopo questa ripartizione delle bande nella classifica 1H... Cos'altro sta succedendo con il mercato?\"",
+                "updated": 1669900556205
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ES",
                     "text": "¡Echa un vistazo a la acción del precio unas velas antes!",
                     "updated": 1668191217087
+                },
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata all'azione dei prezzi qualche candela prima!",
+                    "updated": 1669900571783
                 }
             ]
         },

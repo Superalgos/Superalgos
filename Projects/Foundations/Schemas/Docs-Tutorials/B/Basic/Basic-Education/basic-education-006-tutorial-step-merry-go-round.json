@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Varsayılan olarak, düğümler, üst düğümlerinin etrafında bir dönme simetrisine kilitlenir. Simetri, ayara bağlı olarak 360 derece veya daha az olabilir!",
-                "updated": 1636700229623
+                "text": "Varsayılan olarak, düğümler, ana düğümlerinin etrafında bir dönme simetrisine kilitlenir. Yavru düğümler, ayarınıza bağlı olarak, ana düğüm etrafında 0 ile 360 derece arasında bir ölçekte sıralanırlar!",
+                "updated": 1670338509923
             },
             {
                 "language": "RU",

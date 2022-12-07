@@ -4,6 +4,8 @@ exports.newWebhookRoute = function newWebhookRoute() {
         command: command
     }
 
+    let webhook = new Map()
+
     return thisObject
 
     function command(httpRequest, httpResponse) {

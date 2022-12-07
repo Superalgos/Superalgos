@@ -41,6 +41,11 @@
                     "language": "RU",
                     "text": "Первый проект - это сам Superalgos, который обеспечивает инфраструктуру самого низкого уровня, которую любой другой интегрированный проект может свободно повторно использовать. В разработке находятся следующие проекты, которые скоро будут интегрированы:",
                     "updated": 1638287541874
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk proje Superalgos'un kendisidir, cadı diğer entegre projelerin serbestçe yeniden kullanabileceği en düşük seviyede bir altyapı sağlar. İşlem hattında yakında entegre edilmeyi bekleyen bu projelerimiz var:",
+                    "updated": 1668522697991
                 }
             ]
         },
@@ -62,6 +67,11 @@
                     "language": "RU",
                     "text": "После интеграции каждый проект будет предоставлять еще больше инфраструктуры, которая впоследствии может быть использована другими проектами для интеграции после этого. Например, как только Ethereum будет полностью интегрирован, он позволит интегрировать проекты DeFi поверх него.",
                     "updated": 1638287570052
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegre edildikten sonra, her proje daha sonra entegre edilecek diğer projeler tarafından kullanılabilecek daha fazla altyapı sağlayacaktır. Örneğin, Ethereum tam olarak entegre edildiğinde, DeFi projelerinin bunun üzerine entegre edilmesini sağlayacaktır.",
+                    "updated": 1668522749061
                 }
             ]
         }

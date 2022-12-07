@@ -101,7 +101,7 @@
 
         let params = {
             method: 'updateForecastedCandles',
-            forcastedCandles: JSON.stringify(bestPredictions)
+            forecastedCandles: JSON.stringify(bestPredictions)
         }
 
         const axios = require("axios")

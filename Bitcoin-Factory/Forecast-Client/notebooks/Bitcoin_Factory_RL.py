@@ -85,7 +85,7 @@ from ray.rllib.policy.sample_batch import SampleBatch
 
 location: str = "/tf/notebooks/"
 instructions_file: str = "instructions.csv"
-run_forcast: bool = False
+run_forecast: bool = False
 res_dir: str = location + "/ray_results/"
 RESUME = False # Resume training from the last checkpoint if any exists  [True, False, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
 

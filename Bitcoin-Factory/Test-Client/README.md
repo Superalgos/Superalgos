@@ -146,7 +146,7 @@ Then add the following configuration within the Task Server App node's config:
 4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
-Hover over the Bitcoin Factory Forcasts node and rename it using the following name: "Testnet"
+Hover over the Bitcoin Factory Forecasts node and rename it using the following name: "Testnet"
 
 **Test Client Instance**
 6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
@@ -301,7 +301,7 @@ Enlapsed Time (HH:MM:SS): 14:29
 
 Best Crowd-Sourced Predictions:
 ┌─────────┬────┬───────────┬───────────────┬─────────────────────┬─────────────────────────────────────┬─────────────────┐
-│ (index) │ id │ mainAsset │ mainTimeFrame │ percentageErrorRMSE │             predictions             │ forcastedCandle │
+│ (index) │ id │ mainAsset │ mainTimeFrame │ percentageErrorRMSE │             predictions             │ forecastedCandle │
 ├─────────┼────┼───────────┼───────────────┼─────────────────────┼─────────────────────────────────────┼─────────────────┤
 │    0    │ 14 │   'BTC'   │    '01-hs'    │       '0.59'        │  [ 43316.723, 42906.44, 43185.24 ]  │    [Object]     │
 │    1    │ 31 │   'BTC'   │    '02-hs'    │       '0.85'        │ [ 43278.008, 42785.055, 43028.305 ] │    [Object]     │

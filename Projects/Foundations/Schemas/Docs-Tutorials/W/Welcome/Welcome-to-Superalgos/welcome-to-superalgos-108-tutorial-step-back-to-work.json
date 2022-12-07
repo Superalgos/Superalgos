@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos, uygulama içi, düzenlenebilir ve çok dilli bir dokümantasyon sitesi ve yerleşik bir komut satırı içerir! Bunları kullanmayı öğrenin.",
-                "updated": 1636662471831
+                "text": "Superalgos, uygulama içi, etkileşimli, aranabilir, düzenlenebilir ve çok dilli bir dokümanlar sitesine ve yerleşik bir komut satırına sahiptir!",
+                "updated": 1670013182912
             },
             {
                 "language": "ID",
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sağdaki Dokümanlar panelinde daha önce zaten birkaç belge sayfası kullandınız, ancak bu sadece buzdağının görünen kısmı!",
-                    "updated": 1636662497865
+                    "text": "Dokümanları ve Komut Satırını kullanmayı öğrenin.",
+                    "updated": 1670013510039
                 },
                 {
                     "language": "ID",
@@ -112,6 +112,11 @@
                     "language": "NL",
                     "text": "Je hebt al een aantal documentatiepagina's gebruikt in het deelvenster Docs aan de rechterkant, maar dat is nog maar het topje van de ijsberg!",
                     "updated": 1667137616262
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağdaki Dokümanlar panelinde birkaç dokümantasyon sayfasını zaten kullandınız, ancak bu buzdağının sadece görünen kısmı!",
+                    "updated": 1670013341870
                 }
             ]
         },
@@ -183,8 +188,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Övünmek için değil ama, arama motorunun hızı Google'a rakip olacak kadar yeteneklidir ;-)",
-                    "updated": 1636662590376
+                    "text": "Övünmek gibi olmasın ama arama motoru çok hızlı!",
+                    "updated": 1670013347836
                 },
                 {
                     "language": "ID",

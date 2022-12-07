@@ -12,13 +12,11 @@ exports.newHttpInterface = function newHttpInterface() {
         finalize: finalize
     }
 
-    let webhook = new Map()
     let routeMap
 
     return thisObject
 
     function finalize() {
-        webhook = undefined
         routeMap = undefined
     }
 

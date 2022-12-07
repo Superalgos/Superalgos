@@ -28,6 +28,11 @@
                 "language": "ES",
                 "text": "Lo que tenemos es una vaga definición del contexto y de las reglas de entrada. Todavía tenemos que formalizar nuestra hipótesis.",
                 "updated": 1668193381494
+            },
+            {
+                "language": "IT",
+                "text": "Quello che abbiamo è una definizione vaga del contesto e delle regole del punto di ingresso! Dobbiamo ancora formalizzare la nostra ipotesi!",
+                "updated": 1669901256309
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ES",
                     "text": "Recuerde que nuestra idea de trading debe:",
                     "updated": 1668193273216
+                },
+                {
+                    "language": "IT",
+                    "text": "Ricorda, la nostra idea di trading dovrebbe:",
+                    "updated": 1669901274523
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "ES",
                     "text": "proponer un proceso de trading,",
                     "updated": 1668193312567
+                },
+                {
+                    "language": "IT",
+                    "text": "proporre un processo di trading,",
+                    "updated": 1669901291352
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "ES",
                     "text": "seleccionar el contexto adecuado;",
                     "updated": 1668193323276
+                },
+                {
+                    "language": "IT",
+                    "text": "selezionare il contesto appropriato;",
+                    "updated": 1669901308087
                 }
             ]
         },
@@ -133,6 +153,11 @@
                     "language": "ES",
                     "text": "definir las principales reglas de entrada;",
                     "updated": 1668193335595
+                },
+                {
+                    "language": "IT",
+                    "text": "definire le principali regole di ingresso;",
+                    "updated": 1669901326235
                 }
             ]
         },
@@ -159,6 +184,11 @@
                     "language": "ES",
                     "text": "predecir un resultado específico;",
                     "updated": 1668193350387
+                },
+                {
+                    "language": "IT",
+                    "text": "prevedere un risultato specifico;",
+                    "updated": 1669901342528
                 }
             ]
         },
@@ -185,6 +215,11 @@
                     "language": "ES",
                     "text": "ofrecer un mecanismo de prueba específico.",
                     "updated": 1668193363166
+                },
+                {
+                    "language": "IT",
+                    "text": "offrire un meccanismo di test specifico!",
+                    "updated": 1669901356638
                 }
             ]
         },

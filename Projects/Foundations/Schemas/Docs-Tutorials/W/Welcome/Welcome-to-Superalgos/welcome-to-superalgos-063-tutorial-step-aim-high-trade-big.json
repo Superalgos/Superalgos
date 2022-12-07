@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Birden çok borsa, pazar ve stratejiyle çalışan, bir ağ üzerinden ticaret çiftliğinizin olduğunu ve burada çalışan bir robot ordusu hayal edin.",
-                "updated": 1636108738487
+                "text": "Birden çok borsa, işlem çifti ve stratejiyle çalışan, bir ağ üzerinden ticaret çiftliğinizin olduğunu ve burada çalışan bir robot ordusu hayal edin.",
+                "updated": 1669920565675
             },
             {
                 "language": "RU",
@@ -118,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar olmasını sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabilmeniz anlamına gelir.",
-                    "updated": 1665964494747
+                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar olmasını sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabileceğiniz  anlamına gelir.",
+                    "updated": 1669920577577
                 },
                 {
                     "language": "RU",
@@ -161,7 +161,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Birkaç Raspberry Pi, endüstriyel düzeyde bir veri merkezi veya bunların arasında herhangi bir şey ile bir ağ kurabilirsiniz.",
+                    "text": "Birka�� Raspberry Pi, endüstriyel düzeyde bir veri merkezi veya bunların arasında herhangi bir şey ile bir ağ kurabilirsiniz.",
                     "updated": 1636109177686
                 },
                 {

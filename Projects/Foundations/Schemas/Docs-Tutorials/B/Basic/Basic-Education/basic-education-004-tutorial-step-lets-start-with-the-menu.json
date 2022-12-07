@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir düğüm menüsünde sol taraftaki öğreler, çoğu düğüm için ortaktır. Ancak sağ taraftak öğeler düğüm tipine özeldir!",
-                "updated": 1636699172648
+                "text": "Bir düğümün menüsünde sol taraftaki öğeler çoğu düğüm için ortaktır. Ancak sağ taraftaki öğeler düğüm tipine özeldir!",
+                "updated": 1670337600881
             },
             {
                 "language": "RU",
@@ -161,8 +161,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
-                    "updated": 1636699433193
+                    "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini (ok simgesi) tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
+                    "updated": 1670337690185
                 },
                 {
                     "language": "RU",

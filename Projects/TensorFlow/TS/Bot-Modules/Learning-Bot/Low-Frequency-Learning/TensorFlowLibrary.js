@@ -1,6 +1,6 @@
 exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
-    const MODULE_NAME = 'Time Series Forcasting Tensor Flow JS Learning Algorithm'
+    const MODULE_NAME = 'Time Series Forecasting Tensor Flow JS Learning Algorithm'
     let thisObject = {
         loadModel: loadModel,
         saveModel: saveModel,

@@ -18,7 +18,7 @@
 
     let dockerPID
 
-    let intervalId = setInterval(updateForcasts, 60 * 1000)
+    let intervalId = setInterval(updateForecasts, 60 * 1000)
 
     return thisObject
 
@@ -218,7 +218,7 @@
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
         } else {
-            console.log((new Date()).toISOString(), 'Already Working on Forcasting', 'Retrying in 60 seconds...')
+            console.log((new Date()).toISOString(), 'Already Working on Forecasting', 'Retrying in 60 seconds...')
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)        
         }
     }
@@ -521,9 +521,9 @@
         }
     }
 
-    function writePhytonInstructionsFile(instruction, nextForecastCase, buildnewModel) {
+    function writePytonInstructionsFile(instruction, nextForecastCase, buildnewModel) {
         /*
-        Here we will instruct the dockerd Phyton Script to Build and save the model or to just reforcast based on existing model.
+        Here we will instruct the dockerd Phyton Script to Build and save the model or to just reforecast based on existing model.
         */
         let instructionsFile = ""
 
@@ -585,9 +585,9 @@
         console.log('')
 
         if (buildnewModel) {
-            writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase, buildnewModel)
+            writePytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase, buildnewModel)
         } else {
-            writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase, buildnewModel)
+            writePytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase, buildnewModel)
         }
 
         return new Promise(executeThePythonScript)
@@ -734,12 +734,12 @@
     }
 
 
-    async function updateForcasts() {
+    async function updateForecasts() {
         
         logQueue()
 
         if (reforecasting === true) {
-            console.log((new Date()).toISOString(), 'Already Working on Reforcasting', 'Retrying in 60 seconds...')
+            console.log((new Date()).toISOString(), 'Already Working on Reforecasting', 'Retrying in 60 seconds...')
             return
         }
         reforecasting = true
@@ -757,7 +757,7 @@
                     .then(onSuccess)
                     .catch(onError)
                 async function onSuccess() {
-                    console.log((new Date()).toISOString(), 'Successfull Reforcasted Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance)
+                    console.log((new Date()).toISOString(), 'Successfull Reforecasted Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance)
                     logQueue(forecastCase)
                 }
                 async function onError(err) {
@@ -790,6 +790,7 @@
     }
 
     function logQueue(forecastCase=undefined) {
+    //function logQueue(forecastCase) {
         if (forecastCase == undefined) {
             forecastCase = {
                 caseIndex: 0
@@ -816,7 +817,7 @@
             setTimeout(onTimeout, 5 * 60 * 1000)
             
             function onTimeout() {
-                reject(new Error('Timeout Reforcasting'))                
+                reject(new Error('Timeout Reforecasting'))                
             }
             
             await getThisForecastCase(forecastCase)
@@ -831,7 +832,7 @@
 
                     let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
                     if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
-                        console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forcasting of case ' + thisForecastCase.id + ' in 60 seconds...')
+                        console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forecasting of case ' + thisForecastCase.id + ' in 60 seconds...')
                         reject('The same file that we already made a prediction with.')
                         return
                     }
@@ -890,7 +891,7 @@
                     
                                         } catch (jsonErr) {
                                             console.log("response.data.serverData.response:" + response.data.serverData.response)
-                                            console.log("err reforcasting: " + jsonErr)
+                                            console.log("err reforecasting: " + jsonErr)
                                         }
                                     } else {
                                         console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
@@ -913,7 +914,7 @@
                     }
                     async function onError(err) {
                         console.log((new Date()).toISOString(), 'Failed to produce a Reforecast for Case Id ' + forecastCase.id + '. Err:', err)
-                        //if reforcast didnt work, remove the case from array (looks like model is wrong) and start again new with building model
+                        //if reforecast didnt work, remove the case from array (looks like model is wrong) and start again new with building model
                         if (removeForecastCase(forecastCase.id,forecastCase.testServer.instance)) {
                             console.log((new Date()).toISOString(), 'was removed')
                             saveForecastCasesFile()

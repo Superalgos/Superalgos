@@ -344,7 +344,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.assignedTimestamp = (new Date()).valueOf()
 
             getTimeSeriesFileName(testCase)
-            testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            testCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             saveTestCasesFile()
 
             let nextTestCase = {

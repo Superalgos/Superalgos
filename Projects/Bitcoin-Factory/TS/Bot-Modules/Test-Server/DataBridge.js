@@ -100,7 +100,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     async function updateDatasetFiles(testCase) {
-        let forcastedCandle
+        let forecastedCandle
         let mainTimeFrame = testCase.parameters.LIST_OF_TIMEFRAMES[0]
         let mainAsset = testCase.parameters.LIST_OF_ASSETS[0]
         let assetsToInclude = testCase.parameters.LIST_OF_ASSETS
@@ -109,11 +109,11 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         createParametersFile()
         await createTimeSeriesFile()
 
-        if (forcastedCandle === undefined) {
+        if (forecastedCandle === undefined) {
             console.log((new Date()).toISOString(), 'Could not produce the object forecasted candle. Please check the config that you have a minimun of 3 labels: Candle Close, Max, Min and 1 Feature: Candle Open only with the option ON. Also check that your data mining operation is running and the files needed from it already exist before running the Test Server. ')
         }
 
-        return forcastedCandle
+        return forecastedCandle
 
         /*
         Function that creates the parameters file as CSV using the parameters object keys as column headers for easier accessing later in python.
@@ -146,14 +146,14 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let currentFileHash
             let savedDataset = savedDatasets.get(testCase.timeSeriesFileName)
             if (savedDataset !== undefined) {
-                forcastedCandle = savedDataset.forcastedCandle
+                forecastedCandle = savedDataset.forecastedCandle
                 let timestamp = (new Date()).valueOf()
                 /*
                 If the file is not expired, then there is no need to run the process that
                 generates it, since it will produce the same file.
                 */
                 if (timestamp < savedDataset.expiration) {
-                    return forcastedCandle
+                    return forecastedCandle
                 } else {
                     currentFileHash = savedDataset.fileHash
                 }
@@ -314,7 +314,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                             if (featuresOrLabelsObject.product === "Candles") {
                                 if (i === indicatorFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
-                                    forcastedCandle = {
+                                    forecastedCandle = {
                                         begin: object.begin,
                                         end: object.end,
                                         open: object.close
@@ -468,7 +468,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                     savedDataset = {
                         fileHash: newFileHash,
-                        forcastedCandle: forcastedCandle,
+                        forecastedCandle: forecastedCandle,
                         expiration: TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getExpiration(testCase)
                     }
                     savedDatasets.set(testCase.timeSeriesFileName, savedDataset)

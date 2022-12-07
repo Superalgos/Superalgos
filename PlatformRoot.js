@@ -45,7 +45,7 @@ async function runRoot() {
     ethers: require('ethers'),
     ethereumjsTx: require('ethereumjs-tx'),
     ethereumjsCommon: require('ethereumjs-common'),
-    nodeFetch: require('node-fetch'),
+    nodeFetch: import('node-fetch'),
     open: require('open'),
     http: require('http'),
     ccxt: require('ccxt'),

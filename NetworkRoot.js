@@ -48,7 +48,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
             path: require('path'),
             util: require('util'),
             http: require('http'),
-            nodeFetch: require('node-fetch'),
+            nodeFetch: import('node-fetch'),
             web3: require('web3'),
             ws: require('ws'),
             simpleGit: require('simple-git'),

@@ -59,7 +59,7 @@ It provides access to all modules built for this App.
             http: require('http'),
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
-            nodeFetch: require('node-fetch'),
+            nodeFetch: import('node-fetch'),
             axios: require('axios'),
             crypto: require('crypto')
         }

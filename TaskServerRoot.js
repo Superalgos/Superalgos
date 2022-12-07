@@ -51,7 +51,7 @@ async function runRoot() {
     https: require('https'),
     http: require('http'),
     web3: require('web3'),
-    nodeFetch: require('node-fetch'),
+    nodeFetch: import('node-fetch'),
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),

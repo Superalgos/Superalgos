@@ -12,6 +12,41 @@ const errorResp = (e) => {
   process.exit()
 }
 
+// the prepare and postinstall package.json scripts are breaking this from 
+// installing automatically during node setup
+const installSuperalgosAsGlobalCli = () => {
+  const command = 'npm install -g .'
+  const nodeInstPromise = new Promise(() => {
+    const child = exec(command, 
+      {cwd: process.cwd()}, 
+      (error, stdout) => {
+        if (error) {
+          console.log('')
+          console.log('There was an error installing superalgos as a global package: ')
+          console.log('')
+          console.log(error)
+          process.exit(1)
+        }
+        console.log('')
+        console.log(stdout)
+      })
+    try {
+      child.stdout.pipe(process.stdout)
+      child.on('exit', async () => {
+        console.log('')
+        console.log('Finished installing superalgos as a global package')
+        console.log('You can now run superalgos --help')
+        await nodeInstPromise.catch(errorResp)
+      })
+    } catch (e) {
+      console.log('')
+      console.log('Event error: ')
+      console.log('')
+      console.log(e)
+      process.exit(1)
+    }})
+}
+
 // ** export setup piece by piece for more robust tests **
 const installExternalScripts = () => {
   for (let i = 0; i<externalScriptsURLs.length; i++) {
@@ -164,7 +199,7 @@ const runSetup = (tfjs=false) => {
 
     try {
       child.stdout.pipe(process.stdout)
-      child.on('exit', () => {
+      child.on('exit', async () => {
         console.log('')
         console.log('Finished npm ci command')
         console.log('')
@@ -195,6 +230,7 @@ const runSetup = (tfjs=false) => {
   console.log('Setting up your environment …')
   console.log('')
   installExternalScripts()
+  // installSuperalgosAsGlobalCli()
   return 'Setup complete'
 
 }

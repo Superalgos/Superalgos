@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Запаситесь некоторыми средствами!",
                 "updated": 1640854887853
+            },
+            {
+                "language": "ID",
+                "text": "Cadangkan beberapa dana!",
+                "updated": 1670300817419
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Событие Trigger On Event - это резервирование (блокировка) ваших средств и предоставление их боту.",
                     "updated": 1640885010312
+                },
+                {
+                    "language": "ID",
+                    "text": "Trigger On Event terkait mencadangkan (mengunci) dana kamu dan membuat hal itu tersedia kepada bot.",
+                    "updated": 1670304058408
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Что мне нужно сделать:",
                     "updated": 1640854931116
+                },
+                {
+                    "language": "ID",
+                    "text": "Yang harus aku lakukan yaitu:",
+                    "updated": 1670300854601
                 }
             ]
         },
@@ -137,6 +152,11 @@
                     "language": "RU",
                     "text": "Определить TF (таймфрейм)",
                     "updated": 1640854990278
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentukan TF",
+                    "updated": 1670300886865
                 }
             ]
         },
@@ -169,6 +189,11 @@
                     "language": "RU",
                     "text": "Определить пересечение SMA50/200",
                     "updated": 1640855013457
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentukan SMA50/200 cross",
+                    "updated": 1670300881135
                 }
             ]
         },
@@ -201,6 +226,11 @@
                     "language": "RU",
                     "text": "Для определения пересечения я использую 2 условия:",
                     "updated": 1640855927266
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menentukan sebuah cross aku menggunakan 2 kondisi:",
+                    "updated": 1670300898813
                 }
             ]
         },

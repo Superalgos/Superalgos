@@ -3,6 +3,10 @@
 Hosting the the public cloud is a great option if you are looking for a highly
 scalable and reliable solution.
 
+While Superalgos does not officially support any public cloud providers, there
+are community projects that have been created to make it easy to deploy Superalgos
+into the cloud. This page is a list of those projects.
+
 ## :small_orange_diamond: AWS
 
 [Superalgos-Iac](https://github.com/khultman/Superalgos-IaC) is a terraform project

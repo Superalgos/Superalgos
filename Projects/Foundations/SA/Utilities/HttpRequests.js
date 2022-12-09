@@ -2,7 +2,8 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
 
     let thisObject = {
         getRequestBody: getRequestBody,
-        getRequestBodyAsync: getRequestBodyAsync
+        getRequestBodyAsync: getRequestBodyAsync,
+        getRequestCompressedBody: getRequestCompressedBody
     }
 
     return thisObject
@@ -50,5 +51,36 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
                 resolve(body)
             })
         })
+    }
+
+    function getRequestCompressedBody(httpRequest, httpResponse, callback) { 
+        try {
+            let body;
+            httpRequest.on('data', function(data) {
+                if(body === undefined) {
+                    body = data
+                }
+                else {
+                    var mergedArray = new Uint8Array(body.length + data.length);
+                    mergedArray.set(body);
+                    mergedArray.set(data, body.length);
+                    body = mergedArray
+                }
+            })
+    
+            httpRequest.on('end', function() {
+                callback(body)
+            })
+    
+            httpRequest.on('error', function(err) {
+                console.log((new Date()).toISOString(), '[ERROR] getBody -> err.stack = ' + err.stack)
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DEFAULT_FAIL_RESPONSE), httpResponse)
+                callback()
+            })
+        } catch(err) {
+            console.log((new Date()).toISOString(), '[ERROR] getBody -> err.stack = ' + err.stack)
+            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DEFAULT_FAIL_RESPONSE), httpResponse)
+            callback()
+        }
     }
 }

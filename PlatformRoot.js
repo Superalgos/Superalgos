@@ -62,7 +62,8 @@ async function runRoot() {
     discordTypes: require('discord-api-types/v9'),
     axios: require('axios'),
     hyperquest: require('hyperquest'),
-    ndjson: require('ndjson')
+    ndjson: require('ndjson'),
+    pako: require('pako')
   
   }
   /* 

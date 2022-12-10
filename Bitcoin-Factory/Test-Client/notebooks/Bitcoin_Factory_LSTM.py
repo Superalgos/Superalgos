@@ -6,7 +6,7 @@
 
 # # Multivariate Time Series Forecasting with LSTMs in Keras
 
-# ## Time Series Forcasting - Multiple Lag Timesteps - Multiple Labels
+# ## Time Series Forecasting - Multiple Lag Timesteps - Multiple Labels
 
 # Based on Tutorial from https://machinelearningmastery.com/multivariate-time-series-forecasting-lstms-keras/
 

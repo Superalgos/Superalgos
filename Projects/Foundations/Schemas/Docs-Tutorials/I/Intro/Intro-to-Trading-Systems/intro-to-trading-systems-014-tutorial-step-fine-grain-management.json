@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному!",
                 "updated": 1640886130902
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer complexe handelslogica wordt opgesplitst in meerdere strategieën, krijgt u de mogelijkheid om de resulterende transacties anders te beheren!",
+                "updated": 1670792181283
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы еще не рассмотрели, как определяются стратегии, но вы знаете, что Superalgos позволяет управлять целями тейк-профита и стоп-лосса...",
                     "updated": 1640886143633
+                },
+                {
+                    "language": "NL",
+                    "text": "We zijn nog niet ingegaan op hoe strategieën worden gedefinieerd, maar u weet wel dat Superalgos het mogelijk maakt om de take profit- en stop loss-doelen te beheren...",
+                    "updated": 1670792199965
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями!",
                     "updated": 1640886153976
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke strategie in een handelssysteem kan zijn eigen logica hebben voor het beheren van posities!",
+                    "updated": 1670792211479
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Если вы используете несколько вариантов одной и той же логики, например, для взятия позиции, то вам, скорее всего, потребуется несколько вариантов управления позицией. Проще и понятнее делать то и другое в отдельных стратегиях.",
                     "updated": 1640886206840
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u meerdere variaties van dezelfde logica hanteert, bijvoorbeeld om een positie in te nemen, dan zult u waarschijnlijk meerdere variaties moeten verwerken om de positie te beheren. Het is gemakkelijker en duidelijker om beide in afzonderlijke strategieën te doen.",
+                    "updated": 1670792251826
                 }
             ]
         }

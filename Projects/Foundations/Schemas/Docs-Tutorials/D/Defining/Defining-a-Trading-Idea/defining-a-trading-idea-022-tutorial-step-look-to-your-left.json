@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "L'azione dei prezzi alla tua sinistra suona un campanello? Riconosci questo grave crollo del mercato?",
                 "updated": 1669900921142
+            },
+            {
+                "language": "NL",
+                "text": "Doet de prijsactie links van je een belletje rinkelen? Herkent u deze grote marktcrash?",
+                "updated": 1670786179410
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Stai osservando il crollo del mercato pandemico del 12-13 marzo 2020 ~ 50%! Dedica qualche minuto all'analisi del grafico giornaliero!",
                     "updated": 1669900937489
+                },
+                {
+                    "language": "NL",
+                    "text": "U kijkt naar de pandemische marktcrash van 12-13 maart 2020 van ~50%! Besteed een paar minuten aan het analyseren van de daggrafiek!",
+                    "updated": 1670786196698
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "In breve, possiamo vedere che il mercato era in una tendenza al ribasso dal 25 febbraio, se consideriamo la svolta a sud della media mobile e la rottura delle bande come indicazione dell'inizio della tendenza.",
                     "updated": 1669900955249
+                },
+                {
+                    "language": "NL",
+                    "text": "Kortom, we kunnen zien dat de markt sinds 25 februari in een neerwaartse trend zat - als we de afslag naar het zuiden van het voortschrijdend gemiddelde en de neerwaartse doorbraak van de banden nemen als een indicatie van het begin van de trend.",
+                    "updated": 1670786324681
                 }
             ]
         },
@@ -122,6 +137,11 @@
                     "language": "ES",
                     "text": "¡Mira también los marcos temporales más bajos!",
                     "updated": 1668192281911
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk ook eens naar de lagere tijdframes!",
+                    "updated": 1670786339169
                 }
             ]
         }

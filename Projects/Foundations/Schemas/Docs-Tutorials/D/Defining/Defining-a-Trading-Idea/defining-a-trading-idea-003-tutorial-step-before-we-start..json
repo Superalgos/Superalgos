@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Lascia che ti spieghi alcune questioni che dovresti considerare prima di iniziare!",
                 "updated": 1669885345730
+            },
+            {
+                "language": "NL",
+                "text": "Laat me je op de hoogte brengen van een paar zaken die je moet overwegen voordat we beginnen!",
+                "updated": 1670783144375
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Prendi qualsiasi informazione relativa al trading per quello che vale! Quando condivido concetti di trading, prendili con le pinze! Sono solo un tutorial, non il tuo consulente finanziario! Sono qui per insegnarti Superalgos, non per dirti come fare trading! Se non sei un trader, potresti trovare qui informazioni valide, ma assicurati sempre di fare le tue ricerche!",
                     "updated": 1669885366756
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem handelsgerelateerde informatie voor wat het waard is! Als ik handelsconcepten deel, neem ze dan met een korreltje zout! Ik ben slechts een zelfstudie, niet uw financieel adviseur! Ik ben hier om je Superalgos te leren, niet om je te vertellen hoe je moet handelen! Als u geen handelaar bent, kunt u iets van waarde oppikken, maar zorg er altijd voor dat u uw eigen onderzoek doet!",
+                    "updated": 1670783171885
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "Questo tutorial è rivolto a un vasto pubblico! La prenderò con calma ed esporrò i concetti in modo che tutti possano capirli. Se sei un trader esperto potresti ritenere che alcune spiegazioni siano troppo basilari. In tal caso, sentiti libero di saltare questo tutorial e passare a quello successivo della serie.",
                     "updated": 1669885383421
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze zelfstudie is gericht op een breed publiek! Ik doe het rustig aan en formuleer concepten zodat iedereen ze kan begrijpen. Als u een doorgewinterde handelaar bent, vindt u sommige uitleg misschien te basaal. Sla in dat geval deze tutorial gerust over en ga naar de volgende in de serie.",
+                    "updated": 1670783196757
                 }
             ]
         }

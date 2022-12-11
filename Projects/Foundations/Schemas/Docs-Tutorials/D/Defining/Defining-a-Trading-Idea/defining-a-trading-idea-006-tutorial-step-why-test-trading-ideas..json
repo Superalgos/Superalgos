@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Impostare, testare e implementare una strategia di trading richiede tempo e fatica. Testiamo le idee di trading per evitare di sprecare risorse.",
                 "updated": 1669885715452
+            },
+            {
+                "language": "NL",
+                "text": "Het opzetten, testen en implementeren van een handelsstrategie kost tijd en moeite. We testen handelsideeën om verspilling van middelen te voorkomen.",
+                "updated": 1670783497923
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Per testare un'idea di trading, dobbiamo formalizzarla in un'ipotesi che:",
                     "updated": 1669885742154
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een handelsidee te testen, moeten we het formaliseren in een hypothese dat:",
+                    "updated": 1670783515906
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "propone un processo di trading;",
                     "updated": 1669885757832
+                },
+                {
+                    "language": "NL",
+                    "text": "stelt een handelsproces voor,",
+                    "updated": 1670783527869
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "IT",
                     "text": "seleziona il contesto appropriato",
                     "updated": 1669885775367
+                },
+                {
+                    "language": "NL",
+                    "text": "selecteert de juiste context;",
+                    "updated": 1670783540067
                 }
             ]
         },
@@ -158,6 +178,11 @@
                     "language": "IT",
                     "text": "definisce le principali regole di entrata;",
                     "updated": 1669885799658
+                },
+                {
+                    "language": "NL",
+                    "text": "definieert de belangrijkste instapregels;",
+                    "updated": 1670783567880
                 }
             ]
         },
@@ -189,6 +214,11 @@
                     "language": "IT",
                     "text": "predice uno specifico risultato;",
                     "updated": 1669885818029
+                },
+                {
+                    "language": "NL",
+                    "text": "voorspelt een specifieke uitkomst;",
+                    "updated": 1670783581201
                 }
             ]
         },
@@ -220,6 +250,11 @@
                     "language": "IT",
                     "text": "offre uno specifico meccanismo di test.",
                     "updated": 1669885832738
+                },
+                {
+                    "language": "NL",
+                    "text": "biedt een specifiek testmechanisme.",
+                    "updated": 1670783590046
                 }
             ]
         },
@@ -246,6 +281,11 @@
                     "language": "TR",
                     "text": "Bir ticaret fikrini tanımlamak için net hedefler belirleyebilmemiz için bu konuların her birini genişletelim.",
                     "updated": 1640865251943
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we elk van deze onderwerpen nader toelichten, zodat we duidelijke doelen kunnen stellen voor het definiëren van een handelsidee.",
+                    "updated": 1670783603659
                 }
             ]
         }

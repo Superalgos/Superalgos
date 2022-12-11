@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Этап Close Stage отвечает за закрытие сделки",
                 "updated": 1640856843212
+            },
+            {
+                "language": "NL",
+                "text": "The Close Stage is verantwoordelijk voor het sluiten van de transactie",
+                "updated": 1670775285020
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "На предыдущем этапе (на этапе Manage Stage) бот проверяет, достигла ли текущая цена SL или TP. Как только одно из этих двух событий было достигнуто, этап Close Stage берет на себя ответственность за закрытие сделки. Принцип его работы очень похож на этап открытия (Open Stage). Бот должен знать, на какую свечу следует обратить внимание.",
                     "updated": 1640856950980
+                },
+                {
+                    "language": "NL",
+                    "text": "In de vorige fase (de Manage STage) controleert de bot of de huidige prijs de SL of de TP heeft bereikt. Zodra een van deze twee waarden is bereikt, neemt de Close Stage de leiding over het sluiten van de transactie. De manier waarop het werkt is zeer vergelijkbaar met de Open Stage. De bot hoeft alleen maar te weten naar welke candle hij moet kijken",
+                    "updated": 1670775363151
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "И, очевидно, в отличие от стадии открытия, здесь мы продаем актив, поэтому нам нужен рыночный ордер на продажу, и то, что бот продает, является котируемым активом.",
                     "updated": 1640856975092
+                },
+                {
+                    "language": "NL",
+                    "text": "En natuurlijk, in tegenstelling tot de Open Stage, verkopen we hier de asset, dus we hebben een Market Sell Order nodig voor de bot om de Quoted asset te verkopen",
+                    "updated": 1670775425058
                 }
             ]
         },

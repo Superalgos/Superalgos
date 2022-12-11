@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Рабочее пространство можно поменять!",
                 "updated": 1640632880649
+            },
+            {
+                "language": "NL",
+                "text": "Workspaces kunnen worden gewijzigd!",
+                "updated": 1670772846891
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Я расположил рабочее пространство несколько иначе, чем в Getting Started Tutorial. Это хорошая практика - настраивать рабочее пространство, чтобы сохранить его опрятным и чистым. Помните, что каждая иерархия, узел или потомок могут повлиять на ресурсы вашей машины.",
                     "updated": 1640632949728
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb de werkruimte op een iets andere manier ingericht ten opzichte van Getting Started. Het is een goede gewoonte om de werkruimte aan te passen om deze netjes en schoon te houden. Onthoud dat elke hiërarchie, node of nakomeling van invloed kan zijn op uw systeem prestaties.",
+                    "updated": 1670772903307
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас!",
                     "updated": 1640632964362
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk rond, klik met de rechtermuisknop op de lege ruimte en verken de Workspace die ik voor je heb geregeld!",
+                    "updated": 1670772928668
                 }
             ]
         },

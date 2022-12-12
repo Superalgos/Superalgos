@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Скорее всего, у вас уже есть некоторые накопленные данные!",
                 "updated": 1640857240429
+            },
+            {
+                "language": "ID",
+                "text": "Kemungkinan kamu sudah memiliki beberapa data yang tertambang!",
+                "updated": 1670310694214
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Если вы изучили вводный учебник, то, вероятно, вы уже добыли некоторые данные. Но я добавил новый индикатор, которого нет в начальной конфигурации. Поэтому, пожалуйста, запустите добычу данных и подождите, пока они не будут готовы на 100%.",
                     "updated": 1640857287228
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu telah menyelesaikan intro Tutorial maka kemungkinan kamu telah menambang beberapa data. Tetapi aku menambahkan indikator baru yang tidak terlihat pada konfigurasi awal. Jadi mohon Run data Mines dan tunggu sampai mereka 100% siap.",
+                    "updated": 1670310702877
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что в разделе Sparta Data Mine Tasks недавно добавленный индикатор Simple Moving Average обновлен на 100%.",
                     "updated": 1640857303985
+                },
+                {
+                    "language": "ID",
+                    "text": "Pastikan bahwa dibawah Sparta Data Mine Tasks, indikator Simple Moving Average yang baru ditambahkan 100% diperbarui (Ini akan membutuhkan waktu tergantung hardware)",
+                    "updated": 1670310711274
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "RU",
                     "text": "Как только все показатели достигнут 100%, вы можете остановить добычу данных и сохранить ресурсы для бэктеста.",
                     "updated": 1640857369873
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika semua indikator sudah 100% kamu dapat memberhentikan data mines dan menyimpan sumber daya untuk backtest",
+                    "updated": 1670310718877
                 }
             ]
         }

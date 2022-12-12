@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Wie Sie Ihre Token Power einsetzen, wird in einer Reihe von Governance Programs innerhalb Ihrer Profilhierarchie festgelegt.",
                 "updated": 1640072792109
+            },
+            {
+                "language": "ID",
+                "text": "Bagaimana kamu menggunakan Token Power mendefinisikan dalam beberapa Governance Programs secara hirarki dalam profil kamu.",
+                "updated": 1670850588887
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Diese Programme helfen bei der Organisation der Arten von Entwicklung und Gemeinschaftsbeziehungen, die Sie belohnen möchten.",
                     "updated": 1640072801388
+                },
+                {
+                    "language": "ID",
+                    "text": "Program ini membantu mengatur tipe dari pengembangan dan hubungan komunitas yang kamu inginkan dengan penghargaan.",
+                    "updated": 1670850622601
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Mit dem Claims Program können Sie zum Beispiel Ansprüche für die von Ihnen geleistete Arbeit geltend machen. Mit dem Support Program können Sie anderen Superalgos-Benutzern danken, die Ihnen mit technischem Support geholfen haben.",
                     "updated": 1640072818879
+                },
+                {
+                    "language": "ID",
+                    "text": "Misalnya, Claims Program memungkinkan kamu mengajukan klaim atas pekerjaan yang telah kamu lakukan. Sementara Support Program memungkinkan kamu berterima kasih kepada pengguna Superalgos lain yang telah membantu kamu dengan dukungan teknis.",
+                    "updated": 1670850633230
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Wir werden alle diese und andere Programme im Detail behandeln, sobald Sie ein funktionierendes Profil haben!",
                     "updated": 1640072824886
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan membahas semua ini dan program lainnya secara detail setelah kamu memiliki profil kerjamu!",
+                    "updated": 1670850651214
                 }
             ]
         }

@@ -1,0 +1,80 @@
+(RolloutWorker pid=451) TRAIN : I have finished the episode ( 15314  Candles) with  1644  trades. NetWorth:  858.7515407370752  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=446) TRAIN : I have finished the episode ( 15314  Candles) with  2165  trades. NetWorth:  5038.590525484421  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=445) TRAIN : I have finished the episode ( 15314  Candles) with  2193  trades. NetWorth:  3681.4680233916392  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=449) TRAIN : I have finished the episode ( 15314  Candles) with  2131  trades. NetWorth:  2700.5319196043674  Buy&Hold Res:  1798.3398543049223
+{"status": "RUNNING", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2351, "episodeRewardMin": -522, "timestepsExecuted": 6503088, "timestepsTotal": 10000000}
+{"status": "RUNNING", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2351, "episodeRewardMin": -522, "timestepsExecuted": 6503088, "timestepsTotal": 10000000}
+2022-11-06 21:46:53,322 WARNING util.py:220 -- The `callbacks.on_trial_result` operation took 8.984 s, which may be a performance bottleneck.
+2022-11-06 21:46:53,386 WARNING util.py:220 -- The `process_trial_result` operation took 9.049 s, which may be a performance bottleneck.
+2022-11-06 21:46:53,386 WARNING util.py:220 -- Processing trial results took 9.050 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-11-06 21:46:53,386 WARNING util.py:220 -- The `process_trial_result` operation took 10.544 s, which may be a performance bottleneck.
+{"status": "RUNNING", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2260, "episodeRewardMin": -522, "timestepsExecuted": 6564152, "timestepsTotal": 10000000}
+{"status": "RUNNING", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2260, "episodeRewardMin": -522, "timestepsExecuted": 6564152, "timestepsTotal": 10000000}
+2022-11-06 21:48:56,523 WARNING worker.py:1829 -- Raylet is terminated: ip=172.17.0.2, id=46d50443859d0930b3d23c2f9813ce5d7ef83ea12f5a90ef828791fe. Termination is unexpected. Possible reasons include: (1) SIGKILL by the user or system OOM killer, (2) Invalid memory access from Raylet causing SIGSEGV or SIGBUS, (3) Other termination signals. Last 20 lines of the Raylet logs:
+    [state-dump]        Subscriber.HandlePublishedMessage_GCS_WORKER_DELTA_CHANNEL - 5 total (0 active), CPU time: mean = 4.098 us, total = 20.488 us
+    [state-dump]        RuntimeEnvService.grpc_client.GetOrCreateRuntimeEnv - 5 total (0 active), CPU time: mean = 979.970 us, total = 4.900 ms
+    [state-dump]        CoreWorkerService.grpc_client.Exit - 5 total (0 active), CPU time: mean = 12.832 us, total = 64.161 us
+    [state-dump]        WorkerInfoGcsService.grpc_client.ReportWorkerFailure - 5 total (0 active), CPU time: mean = 8.979 us, total = 44.893 us
+    [state-dump]        InternalPubSubGcsService.grpc_client.GcsSubscriberCommandBatch - 2 total (0 active), CPU time: mean = 110.352 us, total = 220.703 us
+    [state-dump]        AgentManagerService.grpc_server.RegisterAgent - 1 total (0 active), CPU time: mean = 187.320 us, total = 187.320 us
+    [state-dump]        NodeInfoGcsService.grpc_client.GetAllNodeInfo - 1 total (0 active), CPU time: mean = 77.805 us, total = 77.805 us
+    [state-dump]        Subscriber.HandlePublishedMessage_GCS_JOB_CHANNEL - 1 total (0 active), CPU time: mean = 54.552 us, total = 54.552 us
+    [state-dump]        NodeManagerService.grpc_server.PrepareBundleResources - 1 total (0 active), CPU time: mean = 244.828 us, total = 244.828 us
+    [state-dump]        WorkerPool.PopWorkerCallback - 1 total (0 active), CPU time: mean = 150.682 us, total = 150.682 us
+    [state-dump]        NodeManagerService.grpc_server.ReturnWorker - 1 total (0 active), CPU time: mean = 128.731 us, total = 128.731 us
+    [state-dump]        NodeManagerService.grpc_server.CommitBundleResources - 1 total (0 active), CPU time: mean = 193.282 us, total = 193.282 us
+    [state-dump]        NodeInfoGcsService.grpc_client.RegisterNode - 1 total (0 active), CPU time: mean = 458.398 us, total = 458.398 us
+    [state-dump]        JobInfoGcsService.grpc_client.AddJob - 1 total (0 active), CPU time: mean = 76.333 us, total = 76.333 us
+    [state-dump]        NodeInfoGcsService.grpc_client.GetInternalConfig - 1 total (0 active), CPU time: mean = 12.582 ms, total = 12.582 ms
+    [state-dump]        JobInfoGcsService.grpc_client.GetAllJobInfo - 1 total (0 active), CPU time: mean = 44.403 us, total = 44.403 us
+    [state-dump] DebugString() time ms: 0
+    [state-dump]
+    [state-dump]
+    [2022-11-06 21:48:04,830 I 100 100] (raylet) node_manager.cc:650: Sending Python GC request to 9 local workers to clean up Python cyclic references.
+
+(RolloutWorker pid=446) TRAIN : I have finished the episode ( 15314  Candles) with  2283  trades. NetWorth:  3791.5697227347805  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=451) TRAIN : I have finished the episode ( 15314  Candles) with  2113  trades. NetWorth:  2864.483555392393  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=445) TRAIN : I have finished the episode ( 15314  Candles) with  2315  trades. NetWorth:  2194.459364841924  Buy&Hold Res:  1798.3398543049223
+(RolloutWorker pid=449) TRAIN : I have finished the episode ( 15314  Candles) with  2144  trades. NetWorth:  5379.141426315176  Buy&Hold Res:  1798.3398543049223
+(raylet) [2022-11-06 21:49:02,026 E 100 136] (raylet) agent_manager.cc:134: The raylet exited immediately because the Ray agent failed. The raylet fate shares with the agent. This can happen because the Ray agent was unexpectedly killed or failed. See `dashboard_agent.log` for the root cause.
+{"status": "RUNNING", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2260, "episodeRewardMin": -522, "timestepsExecuted": 6564152, "timestepsTotal": 10000000}
+2022-11-06 21:49:30,928 WARNING worker.py:1829 -- The node with node id: 46d50443859d0930b3d23c2f9813ce5d7ef83ea12f5a90ef828791fe and address: 172.17.0.2 and node name: 172.17.0.2 has been marked dead because the detector has missed too many heartbeats from it. This can happen when a        (1) raylet crashes unexpectedly (OOM, preempted node, etc.)
+        (2) raylet has lagging heartbeats due to slow network or busy workload.
+2022-11-06 21:49:30,941 ERROR trial_runner.py:980 -- Trial PPO_SimpleTradingEnv-training-V01_7191f_00000: Error processing event.
+ray.tune.error._TuneNoNextExecutorEventError: Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/ray/tune/execution/ray_trial_executor.py", line 989, in get_next_executor_event
+    future_result = ray.get(ready_future)
+  File "/usr/local/lib/python3.8/dist-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/ray/_private/worker.py", line 2277, in get
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+        class_name: PPO
+        actor_id: 520e74b05f16872ea427e29d01000000
+        pid: 413
+        namespace: 5068410a-9921-4c92-a9b2-feb4bb53ad6e
+        ip: 172.17.0.2
+The actor is dead because its owner has died. Owner Id: 01000000ffffffffffffffffffffffffffffffffffffffffffffffff Owner Ip address: 172.17.0.2 Owner worker exit type: SYSTEM_ERROR Worker exit detail: Owner's node has crashed.
+
+{"status": "ERROR", "name": "7191f_00000", "episodeRewardMax": 8656, "episodeRewardMean": 2260, "episodeRewardMin": -522, "timestepsExecuted": 6564152, "timestepsTotal": 10000000}
+2022-11-06 21:50:43,915 ERROR ray_trial_executor.py:103 -- An exception occurred when trying to stop the Ray actor:Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/ray/tune/execution/ray_trial_executor.py", line 94, in _post_stop_cleanup
+    ray.get(future, timeout=0)
+  File "/usr/local/lib/python3.8/dist-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/ray/_private/worker.py", line 2277, in get
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+        class_name: PPO
+        actor_id: 520e74b05f16872ea427e29d01000000
+        pid: 413
+        namespace: 5068410a-9921-4c92-a9b2-feb4bb53ad6e
+        ip: 172.17.0.2
+The actor is dead because its owner has died. Owner Id: 01000000ffffffffffffffffffffffffffffffffffffffffffffffff Owner Ip address: 172.17.0.2 Owner worker exit type: SYSTEM_ERROR Worker exit detail: Owner's node has crashed.
+
+Traceback (most recent call last):
+  File "/tf/notebooks/Bitcoin_Factory_RL.py", line 1003, in <module>
+    analysis = tune.run(
+  File "/usr/local/lib/python3.8/dist-packages/ray/tune/tune.py", line 752, in run
+    raise TuneError("Trials did not complete", incomplete_trials)
+ray.tune.error.TuneError: ('Trials did not complete', [PPO_SimpleTradingEnv-training-V01_7191f_00000])

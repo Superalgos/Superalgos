@@ -1,0 +1,43 @@
+.signalPlaceholder {
+    min-width: 20rem;
+    max-width: 40rem;
+}
+
+.signalPlaceholderContainer {
+    min-width: 60%;
+    max-width: 100%;
+}
+
+.signalPlaceholderAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.signalPlaceholderTextField {
+    width: 90%;
+    border: 5px;
+}
+
+.signalPlaceholderInputBox {
+    width: auto;
+}
+
+.signalFeedAccountCircle {
+
+}
+
+.signalPlaceholderButtonStyle {
+    padding: 0.75rem;
+    display: flex;
+    width: auto;
+    justify-content: flex-end;
+}
+
+.signalPlaceholderButton {
+    height: 1.5rem;
+    width: 5rem;
+    border-radius: 20px !important;
+}

@@ -1,0 +1,22 @@
+FROM armswdev/tensorflow-arm-neoverse:latest
+
+USER root
+RUN usermod -u 1001 ubuntu && groupmod -g 1001 ubuntu
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+RUN apt-get update && apt-get install -y ttf-mscorefonts-installer && rm ~/.cache/matplotlib -fr
+# RUN apt-get update && apt-get -y install msttcorefonts -qq && rm ~/.cache/matplotlib -fr
+USER ubuntu
+
+COPY ray-2.1.0-cp38-cp38-linux_aarch64.whl .
+
+RUN pip install -U scikit-learn dm_tree pandas lz4
+RUN pip install ray-2.1.0-cp38-cp38-linux_aarch64.whl
+RUN pip install torch torchvision tabulate tensorboard tensorflow sklearn gym==0.21.0 tensorboardx
+
+# ENV LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+ENV LD_PRELOAD=/home/ubuntu/python3-venv/lib/python3.8/site-packages/torch/lib/../../torch.libs/libgomp-d22c30c5.so.1.0.0
+ENV TF_ENABLE_ONEDNN_OPTS=0
+
+WORKDIR /tf
+EXPOSE 8888
+# CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]

@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Этап Close Stage отвечает за закрытие сделки",
                 "updated": 1640856843212
+            },
+            {
+                "language": "ID",
+                "text": "The Close Stage yang bertanggung jawab dari menutup trade.",
+                "updated": 1670309156613
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "На предыдущем этапе (на этапе Manage Stage) бот проверяет, достигла ли текущая цена SL или TP. Как только одно из этих двух событий было достигнуто, этап Close Stage берет на себя ответственность за закрытие сделки. Принцип его работы очень похож на этап открытия (Open Stage). Бот должен знать, на какую свечу следует обратить внимание.",
                     "updated": 1640856950980
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tahap sebelumnya (The Manage Stage) bot mengecek harga saat ini terkena SL atau TP. Disaat salah satu dari kedua peristiwa telah terkena, maka Close Stage bertanggung jawab untuk menutup trade. Cara kerjanya sangat mirip dengan Open Stage. Bot hanya perlu mengetahui candle yang mana untuk dilihat",
+                    "updated": 1670309171307
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "И, очевидно, в отличие от стадии открытия, здесь мы продаем актив, поэтому нам нужен рыночный ордер на продажу, и то, что бот продает, является котируемым активом.",
                     "updated": 1640856975092
+                },
+                {
+                    "language": "ID",
+                    "text": "Dan seharusnya sebagai kebalikan dari Open Stage, disini kita Jual asetnya sehingga butuh Market Sell Order bagi bot untuk dapat menjual Quoted asset",
+                    "updated": 1670309180846
                 }
             ]
         },

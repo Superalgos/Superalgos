@@ -63,12 +63,15 @@ exports.newEnvironment = function () {
         ]
     }
 
+    setProfileOverrideValues()
+
     if (process.env.DATA_PATH) {
         thisObject.PATH_TO_DATA_STORAGE = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Data-Storage')
         thisObject.PATH_TO_LOG_FILES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Log-Files')
         thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Workspaces')
     }
 
+    // Validating all variables have values
     for (const envVariable in thisObject) {
         if (thisObject[envVariable] === undefined) {
             throw new Error(`Environment variable ${envVariable} is not defined`)
@@ -76,4 +79,27 @@ exports.newEnvironment = function () {
     }
 
     return thisObject
+
+    function setProfileOverrideValues() {
+        if(process.env.PROFILE_NAME === undefined) { return }
+        const { getProfile } = require('./Profile-Scripts/index')
+        const profile = getProfile(process.env.PROFILE_NAME)
+        if(profile === undefined) {
+            console.log('The given profile name does not exist, using default values')
+            return
+        }
+
+        if(profile.hostPlatform !== undefined) { thisObject.WEB_SERVER_URL = profile.hostPlatform }
+        if(profile.portWssPlatform !== undefined) { thisObject.PLATFORM_WEB_SOCKETS_INTERFACE_PORT = profile.portWssPlatform }
+        if(profile.portWssNetwork !== undefined) { thisObject.NETWORK_WEB_SOCKETS_INTERFACE_PORT = profile.portWssNetwork }
+        if(profile.portWssDashboard !== undefined) { thisObject.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT = profile.portWssDashboard }
+        if(profile.portWssDesktop !== undefined) { thisObject.DESKTOP_WEB_SOCKETS_INTERFACE_PORT = profile.portWssDesktop }
+        if(profile.hostDesktop !== undefined) { thisObject.DESKTOP_WEB_SOCKETS_INTERFACE_HOST = profile.hostDesktop }
+        if(profile.portHttpPlatform !== undefined) { thisObject.PLATFORM_HTTP_INTERFACE_PORT = profile.portHttpPlatform }
+        if(profile.portHttpDesktop !== undefined) { thisObject.DESKTOP_HTTP_INTERFACE_PORT = profile.portHttpDesktop }
+        if(profile.portHttpNetwork !== undefined) { thisObject.NETWORK_HTTP_INTERFACE_PORT = profile.portHttpNetwork }
+        if(profile.storeData !== undefined) { thisObject.PATH_TO_DATA_STORAGE = profile.storeData }
+        if(profile.storeLogs !== undefined) { thisObject.PATH_TO_LOG_FILES = profile.storeLogs }
+        if(profile.storeWorkspaces !== undefined) { thisObject.PATH_TO_MY_WORKSPACES = profile.storeWorkspaces }
+    }
 }

@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Пора взглянуть на график!",
                 "updated": 1640857538682
+            },
+            {
+                "language": "ID",
+                "text": "Saatnya untuk melihat chart!",
+                "updated": 1670588149864
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "По завершении бэктеста я останавливаю всю иерархию в узле Testing Trading Tasks. Разверните узел и нажмите кнопку Stop All.",
                     "updated": 1640857559517
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat backtest sudah selesai aku memberhentikan semua hirarki dari node Testing Trading Tasks. Expand node dan klik Stop All.",
+                    "updated": 1670588142606
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "RU",
                     "text": "Помните, что хорошей практикой является сохранение иерархий в свернутом виде и завершение неиспользуемых задач для экономии ресурсов!",
                     "updated": 1640857602673
+                },
+                {
+                    "language": "ID",
+                    "text": "Mohon diingat bahwa praktek yang baik untuk tetap men-collapse hirarki dan mematikan task yang tidak digunakan untuk menghemat sumber daya!",
+                    "updated": 1670588135547
                 }
             ]
         },

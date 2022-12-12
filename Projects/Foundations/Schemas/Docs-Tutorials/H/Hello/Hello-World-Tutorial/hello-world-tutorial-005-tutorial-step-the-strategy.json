@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Давайте создадим материнскую стратегию!",
                 "updated": 1640854438221
+            },
+            {
+                "language": "ID",
+                "text": "Ayo buat Ibu dari segala strategi!",
+                "updated": 1670299308387
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Чтобы протестировать стратегию, сначала нужно написать ее или четко представить ее в уме. Таким образом, это ключевые моменты, на которых основывается наш тест:",
                     "updated": 1640854130229
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk backtesting strategi, pertama kita harus menulis itu atau menjernihkan pikiran. Sehingga ini adalah landasan yang menjadi dasar pengujian kita:",
+                    "updated": 1670299318951
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "RU",
                     "text": "Стратегия использует SMA50 и SMA200",
                     "updated": 1640854147037
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategy menggunakan SMA50 dan SMA200",
+                    "updated": 1670299331351
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "RU",
                     "text": "Стратегия основана на 4H TF",
                     "updated": 1640854168176
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategy berdasar pada TF 4H",
+                    "updated": 1670299341617
                 }
             ]
         },
@@ -165,6 +185,11 @@
                     "language": "RU",
                     "text": "Бот будет покупать актив, когда SMA50 пересечет снизу вверх SMA200",
                     "updated": 1640854277674
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot akan membeli aset ketika SMA50 bersilangan keatas dengan SMA200",
+                    "updated": 1670299352564
                 }
             ]
         },
@@ -197,6 +222,11 @@
                     "language": "RU",
                     "text": "Стоп-лосс устанавливается на уровне 20% от входа",
                     "updated": 1640854291612
+                },
+                {
+                    "language": "ID",
+                    "text": "Stop Loss diatur 20% dari entry",
+                    "updated": 1670299362487
                 }
             ]
         },
@@ -229,6 +259,11 @@
                     "language": "RU",
                     "text": "Тейк-профит устанавливается на уровне 100% или при пересечении SMA50 сверху вниз SMA200",
                     "updated": 1640854324507
+                },
+                {
+                    "language": "ID",
+                    "text": "Take Profit diatur 100% atau pada SMA50 bersilangan kebawah dengan SMA200",
+                    "updated": 1670299372817
                 }
             ]
         }

@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Этот учебник представляет собой флэш-курс, в стиле \"сразу к делу\", знакомящий вас с понятием построения простой торговой системы. Учебник предполагает базовое понимание того, как определяются торговые стратегии. Тем не менее, вы можете найти его полезным и в качестве первого шага, особенно если вам нравится прямая, конкретная информация.",
                 "updated": 1640632619784
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini adalah kursus cepat, dengan gaya langsung ke inti, yaitu memperkenalkan kamu tentang gagasan dari membuat Trading System yang simpel. Tutorial ini mengasumsikan pemahaman dasar tentang bagaimana Trading Strategies dijelaskan. Bahwasanya, kamu akan menemukan hal yang berguna sebagai langkah awal perkenalanmu, terutama jika kamu menyukai informasi yang langsung dan to-the-point.",
+                "updated": 1670298868301
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393992587,
                     "style": "Title"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1670298925338
                 }
             ]
         },

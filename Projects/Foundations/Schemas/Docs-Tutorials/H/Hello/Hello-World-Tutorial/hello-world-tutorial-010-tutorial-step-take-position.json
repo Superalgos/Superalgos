@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Время занять позицию (Position)!",
                 "updated": 1640856251728
+            },
+            {
+                "language": "ID",
+                "text": "Waktunya untuk mengambil Position!",
+                "updated": 1670305379136
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "В этом узле я использую тот же прием, что и для события Trigger Off Event, но в данном случае заставляю его принимать значение True. В событии Trigger On Event я уже определил, каковы мои условия. Поэтому в этом узле я могу просто скопировать эти два условия или установить их в True.",
                     "updated": 1640885064499
+                },
+                {
+                    "language": "ID",
+                    "text": "Didalam node ini aku menggunakan trik yang sama aku gunakan pada Trigger Off Event tapi dalam kasus ini wajib diatur ke True. Aku telah mendefinisikan di Trigger On Event tentang kondisi-ku. Jadi dalam node ini aku hanya tinggal menyalin dua kondisi atau mengaturnya sebagai True.",
+                    "updated": 1670305404419
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "RU",
                     "text": "Конечно, если мне понадобится больше условий, я могу добавить или изменить их в соответствии с моими потребностями!",
                     "updated": 1640856441565
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentu saja jika aku membutuhkan lebih banyak kondisi aku bisa menambah atau mengubahnya sesuai dengan kebutuhanku!",
+                    "updated": 1670305414351
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "RU",
                     "text": "Отлично. Мои первоначальные определения установлены. Пора переходить к стадии открытия (Open Stage)!",
                     "updated": 1640856486187
+                },
+                {
+                    "language": "ID",
+                    "text": "Keren. Definisi awalku sudah siap. Ini saatnya untuk pindah ke Open Stage!",
+                    "updated": 1670305422917
                 }
             ]
         }

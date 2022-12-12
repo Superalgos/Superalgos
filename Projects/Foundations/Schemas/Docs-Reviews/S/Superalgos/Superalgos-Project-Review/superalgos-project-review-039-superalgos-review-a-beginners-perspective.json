@@ -4,12 +4,26 @@
     "type": "Superalgos Review - A beginners perspective",
     "definition": {
         "text": "Superalgos is definitely a great platform and loads of fun. Even if you come from other patforms, there is quite a bit to master. For a new user, the ammount of features demands you to spend quite some quality time with the platform - in the end, you are planning to trade your hard earned cash. \nThe tutorials are very well written, the documentation is vast and the ammount of shared experertize is amazing. It is by far the most collaborative effort I see in the trading space.",
-        "updated": 1640509936321
+        "updated": 1640509936321,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Superalgos kesinlikle harika bir platform ve çok eğlenceli. Diğer platformlardan gelseniz bile, ustalaşmanız gereken çok şey var. Yeni bir kullanıcı için, özelliklerin miktarı platformla oldukça kaliteli zaman geçirmenizi gerektirir - sonunda, zor kazandığınız parayla ticaret yapmayı planlıyorsunuz. Eğitimler çok iyi yazılmış, dokümantasyon kapsamlı ve paylaşılan deneyim miktarı inanılmaz. Ticaret alanında gördüğüm açık ara en işbirlikçi çaba.",
+                "updated": 1670695474638
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın . Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. docs.saveArdından , değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz .",
+                    "updated": 1670695420222
+                }
+            ]
         }
     ]
 }

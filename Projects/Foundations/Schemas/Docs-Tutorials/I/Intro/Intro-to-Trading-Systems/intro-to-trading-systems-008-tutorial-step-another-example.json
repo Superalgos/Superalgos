@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Давайте рассмотрим еще один пример! Это BB Top Bounce, торговая система, основанная на торговой идее отскока от верхней полосы Боллинджера.",
                 "updated": 1640885557009
+            },
+            {
+                "language": "NL",
+                "text": "Laten we een ander voorbeeld bekijken! Dit is BB Top Bounce, een handelssysteem gebaseerd op het idee van het botsen met de bovenste Bollinger Band.",
+                "updated": 1670791546552
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Разверните узел торговой системы... Давайте посмотрим, чему она может нас научить!",
                     "updated": 1640885573510
+                },
+                {
+                    "language": "NL",
+                    "text": "Breid het knooppunt van het trading system uit... Laten we eens kijken wat het ons kan leren!",
+                    "updated": 1670791571573
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Я же говорил! Вы можете иметь столько стратегий, сколько пожелаете, в рамках одной торговой системы! Ну... вот и все!",
                     "updated": 1640885589783
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zei het je! U kunt zoveel strategieën hebben als u wilt onder hetzelfde handelssysteem! Nou... daar heb je het!",
+                    "updated": 1670791599004
                 }
             ],
             "updated": 1640641009638

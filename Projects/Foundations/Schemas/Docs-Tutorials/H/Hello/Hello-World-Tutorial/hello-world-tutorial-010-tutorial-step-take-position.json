@@ -37,6 +37,11 @@
                 "updated": 1640856251728
             },
             {
+                "language": "NL",
+                "text": "Tijd om Position in te nemen!",
+                "updated": 1670774511359
+            },
+            {
                 "language": "ID",
                 "text": "Waktunya untuk mengambil Position!",
                 "updated": 1670305379136
@@ -76,6 +81,11 @@
                     "updated": 1640885064499
                 },
                 {
+                    "language": "NL",
+                    "text": "In dit knooppunt gebruik ik dezelfde truc die wordt gebruikt voor de Trigger Off Event, maar in dit geval forceer ik het naar True. Ik heb al in de Trigger On Event gedefinieerd wat mijn voorwaarden zijn. Dus in dit knooppunt kan ik gewoon de twee voorwaarden kopiëren of op True zetten.",
+                    "updated": 1670774544143
+                },
+                {
                     "language": "ID",
                     "text": "Didalam node ini aku menggunakan trik yang sama aku gunakan pada Trigger Off Event tapi dalam kasus ini wajib diatur ke True. Aku telah mendefinisikan di Trigger On Event tentang kondisi-ku. Jadi dalam node ini aku hanya tinggal menyalin dua kondisi atau mengaturnya sebagai True.",
                     "updated": 1670305404419
@@ -113,6 +123,11 @@
                     "updated": 1640856441565
                 },
                 {
+                    "language": "NL",
+                    "text": "Als ik meer voorwaarden nodig heb, kan ik ze natuurlijk toevoegen of wijzigen volgens mijn behoeften!",
+                    "updated": 1670774559467
+                },
+                {
                     "language": "ID",
                     "text": "Tentu saja jika aku membutuhkan lebih banyak kondisi aku bisa menambah atau mengubahnya sesuai dengan kebutuhanku!",
                     "updated": 1670305414351
@@ -148,6 +163,11 @@
                     "language": "RU",
                     "text": "Отлично. Мои первоначальные определения установлены. Пора переходить к стадии открытия (Open Stage)!",
                     "updated": 1640856486187
+                },
+                {
+                    "language": "NL",
+                    "text": "Cool. Mijn eerste definities zijn ingesteld. Het is tijd om naar het Open Stage te gaan!",
+                    "updated": 1670774580979
                 },
                 {
                     "language": "ID",

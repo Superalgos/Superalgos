@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Il terzo aspetto da definire sono le regole per innescare la strategia e prendere posizione.",
                 "updated": 1669887675506
+            },
+            {
+                "language": "NL",
+                "text": "Het derde te definiëren aspect zijn de regels voor het triggeren van de strategie en het innemen van een positie.",
+                "updated": 1670784048759
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Molte volte, le regole per innescare la strategia derivano dall'analisi del contesto. Ad esempio, si desidera che la strategia sia attiva quando viene rilevata una tendenza specifica con un metodo specifico.",
                     "updated": 1669887698200
+                },
+                {
+                    "language": "NL",
+                    "text": "Vaak komen de regels om de strategie te activeren voort uit de analyse van de context. U wilt bijvoorbeeld dat de strategie actief is wanneer een specifieke trend wordt gedetecteerd door een bepaalde methode.",
+                    "updated": 1670784074826
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "Le regole per prendere una posizione sono solitamente indicate come il segnale e la conferma del segnale.",
                     "updated": 1669887739773
+                },
+                {
+                    "language": "NL",
+                    "text": "De regels om een positie in te nemen worden meestal het signaal en de signaalbevestiging genoemd.",
+                    "updated": 1670784103754
                 }
             ]
         },
@@ -122,6 +137,11 @@
                     "language": "ES",
                     "text": "Estas reglas son la descripción del evento específico que determina cuándo entrar en una posición. Por ejemplo, el cruce de dos líneas específicas, o un determinado valor en un indicador específico.",
                     "updated": 1668189265922
+                },
+                {
+                    "language": "NL",
+                    "text": "Die regels zijn de beschrijving van de specifieke gebeurtenis die bepaalt wanneer een positie moet worden ingenomen. Bijvoorbeeld het kruisen van twee specifieke lijnen, of een bepaalde waarde op een specifieke indicator.",
+                    "updated": 1670784135267
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Специализация - это очень интересная концепция, которая может привести к созданию более эффективных торговых систем!",
                 "updated": 1640885958098
+            },
+            {
+                "language": "NL",
+                "text": "Specialisatie is een zeer interessant concept dat kan leiden tot het ontwerpen van efficiëntere handelssystemen!",
+                "updated": 1670792102299
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Хорошо известно, что большинство стратегий лучше работают в определенных рыночных условиях.",
                     "updated": 1640885968020
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een bekend feit dat de meeste strategieën beter presteren onder bepaalde marktomstandigheden.",
+                    "updated": 1670792113655
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Как и в случае с BB Top Bounce, одна торговая система может включать в себя несколько стратегий, каждая из которых специализируется на определенных трендах, диапазонах волатильности или любых других параметрах рынка.",
                     "updated": 1640885984968
+                },
+                {
+                    "language": "NL",
+                    "text": "Net als bij BB Top Bounce kan een enkel handelssysteem meerdere strategieën bevatten, elk gespecialiseerd in specifieke trends, volatiliteitsbereiken of andere marktparameters.",
+                    "updated": 1670792129677
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Вместо того чтобы разрабатывать стратегию для оценки целого ряда рыночных условий, сосредоточьтесь именно на них!",
                     "updated": 1640886033732
+                },
+                {
+                    "language": "NL",
+                    "text": "In plaats van een strategie te ontwerpen om een reeks marktomstandigheden te evalueren, houdt u ze gefocust!",
+                    "updated": 1670792144088
                 }
             ]
         }

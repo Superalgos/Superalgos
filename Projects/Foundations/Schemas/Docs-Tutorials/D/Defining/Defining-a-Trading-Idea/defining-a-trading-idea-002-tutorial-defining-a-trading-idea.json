@@ -34,6 +34,11 @@
                 "language": "IT",
                 "text": "Prima di poter costruire una Trading Strategy, devi prima trovare un'idea di trading chiara e verificabile.",
                 "updated": 1669885262513
+            },
+            {
+                "language": "NL",
+                "text": "Voordat u een Trading Strategy kunt opstellen, moet u eerst met een duidelijk en testbaar handelsidee komen.",
+                "updated": 1670783046377
             }
         ]
     },
@@ -67,6 +72,11 @@
                     "language": "IT",
                     "text": "Un'idea di trading è il precursore di una strategia di trading. Mentre una strategia completa comporta le regole per prendere, gestire ed uscire da una posizione, un'idea di trading riguarda solo la prima di queste questioni.",
                     "updated": 1669885284956
+                },
+                {
+                    "language": "NL",
+                    "text": "Een handelsidee is een voorloper van een handelsstrategie. Hoewel een volledige strategie de regels omvat voor het innemen, beheren en verlaten van een positie, heeft een handelsidee alleen betrekking op de eerste van deze kwesties.",
+                    "updated": 1670783074649
                 }
             ]
         },
@@ -99,6 +109,11 @@
                     "language": "IT",
                     "text": "Testare un'idea di trading prima di impegnarsi a costruire una strategia completa è l'approccio logico perché la gestione e l'uscita dalle entrate fallite non è ciò a cui dovresti mirare!",
                     "updated": 1669885293742
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een logische aanpak om een handelsidee te testen alvorens een complete strategie op te bouwen, omdat het beheren en beëindigen van mislukte transacties niet is waar u naar zou moeten streven!",
+                    "updated": 1670783101261
                 }
             ]
         },
@@ -131,6 +146,11 @@
                     "language": "IT",
                     "text": "Questo tutorial spiega come formulare correttamente un'idea di trading che potrebbe essere successivamente testata.",
                     "updated": 1669885315689
+                },
+                {
+                    "language": "NL",
+                    "text": "In deze tutorial wordt uitgelegd hoe u een handelsidee op de juiste manier formuleert dat later kan worden getest.",
+                    "updated": 1670783113868
                 }
             ]
         }

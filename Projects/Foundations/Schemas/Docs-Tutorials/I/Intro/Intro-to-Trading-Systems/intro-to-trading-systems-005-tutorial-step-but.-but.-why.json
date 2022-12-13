@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Зачем мне иметь несколько стратегий в торговой системе, если одновременно может торговать только одна из них?",
                 "updated": 1640884479971
+            },
+            {
+                "language": "NL",
+                "text": "Waarom zou ik meerdere strategieën binnen een handelssysteem willen hebben, als er maar één op elk moment kan worden verhandeld?",
+                "updated": 1670791240581
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Прежде чем ответить на этот животрепещущий вопрос, давайте рассмотрим пару примеров. Взгляните на две стратегии торговой системы Weak-hands Buster (WHB v2)!",
                     "updated": 1640884499162
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we, voordat we de brandende vraag beantwoorden, een paar voorbeelden bekijken. Bekijk de twee strategieën binnen het Weak-hands Buster (WHB v2) handelssysteem!",
+                    "updated": 1670791260161
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Изучите определения события Trigger On Event на этапе Trigger Stage и посмотрите, заметите ли вы разницу между ними.",
                     "updated": 1640884544708
+                },
+                {
+                    "language": "NL",
+                    "text": "Verken de definities van de Trigger On Event op de Trigger Stage en kijk of je het verschil tussen de twee opmerkt.",
+                    "updated": 1670791274973
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "RU",
                     "text": "В названии каждой стратегии есть подсказка!",
                     "updated": 1640884555767
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zit een hint in de naam van elke strategie!",
+                    "updated": 1670791284943
                 }
             ]
         }

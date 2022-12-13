@@ -37,6 +37,11 @@
                 "updated": 1640857775385
             },
             {
+                "language": "NL",
+                "text": "Dit is de laatste stap in deze zelfstudie, maar een eerste grote stap voor jou!",
+                "updated": 1670776898670
+              },
+              {
                 "language": "ID",
                 "text": "Inilah langkah akhir dari tutorial ini tapi langkah awal yang besar untuk kamu!",
                 "updated": 1670589483948
@@ -76,6 +81,11 @@
                     "updated": 1640857826726
                 },
                 {
+                    "language": "NL",
+                    "text": "Nu je hebt gezien hoe snel en gemakkelijk het is om eenvoudige strategieën in SA te maken, geef ik je enkele hints die je kunt verkennen.",
+                    "updated": 1670776930539
+                },
+                {
                     "language": "ID",
                     "text": "Sekarang kamu sudah melihat bagaimana cepat dan mudahnya men-deploy strategi simpel pada SA, Aku tinggalkan kamu dengan suatu petunjuk  yang bisa kamu eksplore.",
                     "updated": 1670589490361
@@ -111,6 +121,11 @@
                     "language": "RU",
                     "text": "Возможно, вы захотите добавить новый индикатор и использовать его свойства как дополнительный фильтр для этапа Trigger Stage.",
                     "updated": 1640857883663
+                },
+                {
+                    "language": "NL",
+                    "text": "Misschien kunt u een nieuwe indicator toevoegen en de eigenschappen ervan gebruiken als een extra filter voor de Trigger Stage.",
+                    "updated": 1670776952195
                 },
                 {
                     "language": "ID",
@@ -151,6 +166,11 @@
                     "updated": 1640857938812
                 },
                 {
+                    "language": "NL",
+                    "text": "Of u kunt de SL zo aanpassen dat deze meebeweegt in plaats van vast te zitten.",
+                    "updated": 1670776989511
+                },
+                {
                     "language": "ID",
                     "text": "Atau kamu bisa memodifikasi SL sehingga punya sesuatu untuk diikuti daripada mencoba untuk memperbaiki.",
                     "updated": 1670589940367
@@ -187,6 +207,11 @@
                     "language": "RU",
                     "text": "Спасибо за уделенное время. Более подробную статью вы можете прочитать здесь: http://bit.ly/9808usHelloWorld.",
                     "updated": 1640857954646
+                },
+                {
+                    "language": "NL",
+                    "text": "Bedankt voor je tijd. U kunt hier een meer diepgaand artikel lezen: http://bit.ly/9808usHelloWorld",
+                    "updated": 1670777012077
                 },
                 {
                     "language": "ID",

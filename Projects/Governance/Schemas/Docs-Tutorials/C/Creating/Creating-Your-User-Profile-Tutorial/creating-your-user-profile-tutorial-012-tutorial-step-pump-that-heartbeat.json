@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Lassen Sie uns nun den Profile Constructor konfigurieren, damit wir später das Profil erstellen können!",
                 "updated": 1640073101123
+            },
+            {
+                "language": "ID",
+                "text": "Mari mengkonfigurasi Profile Constructor untuk membuat profil kamu! Klik Configure pada menu dan memasukkan username Github!",
+                "updated": 1670853558907
             }
         ]
     },
@@ -64,6 +69,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine bestehende Adresse verknüpfen möchten, geben Sie die zwölf Wörter der Mnemonik in die Eigenschaft mnemonic ein. Lassen Sie die Eigenschaft leer, um eine neue Adresse zu erzeugen! Sie werden diese sensiblen Daten später löschen. Die Daten verlassen Ihren Computer nicht und werden nicht auf der Festplatte gespeichert.",
                     "updated": 1640073154326
+                },
+                {
+                    "language": "ID",
+                    "text": "JIka kamu mau mentautkan alamat yang telah kamu punya, tuliskan mnemonik dua belas kata pada properti mnemonic. Biarkan kosong untuk  menghasilkan alamat baru! Infonya tidak akan meninggalkan komputer-mu, tidak akan tersimpan dalam diskamu, dan kamu akan menghapusnya nanti sebelum kita selesai.",
+                    "updated": 1670853566841
                 }
             ]
         },

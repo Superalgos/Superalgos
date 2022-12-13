@@ -46,6 +46,11 @@
                 "language": "NL",
                 "text": "Workspaces kunnen worden gewijzigd!",
                 "updated": 1670772846891
+            },
+            {
+                "language": "ID",
+                "text": "Workspace dapat diubah!",
+                "updated": 1670299182378
             }
         ]
     },
@@ -91,6 +96,11 @@
                     "language": "NL",
                     "text": "Ik heb de werkruimte op een iets andere manier ingericht ten opzichte van Getting Started. Het is een goede gewoonte om de werkruimte aan te passen om deze netjes en schoon te houden. Onthoud dat elke hiërarchie, node of nakomeling van invloed kan zijn op uw systeem prestaties.",
                     "updated": 1670772903307
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku mengatur workspace sedikit berbeda dengan Getting Started. Itu adalah praktek bagus untuk mengkostumisasi workspace agar tetap rapi dan bersih. Ingatlah bahwa setiap hirarki, node, atau turunan dapat berpengaruh pada sumber daya mesinmu.",
+                    "updated": 1670299195984
                 }
             ]
         },
@@ -135,6 +145,11 @@
                     "language": "NL",
                     "text": "Kijk rond, klik met de rechtermuisknop op de lege ruimte en verken de Workspace die ik voor je heb geregeld!",
                     "updated": 1670772928668
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah sekeliling, click kanan pada tempat kosong dan jelajahi Workspace yang telah aku atur untukmu!",
+                    "updated": 1670299210338
                 }
             ]
         },

@@ -40,6 +40,11 @@
                 "language": "NL",
                 "text": "Als u geen voorwaarde nodig heeft, stelt u deze gewoon in op False of True!",
                 "updated": 1670774274921
+          },
+          {
+                "language": "ID",
+                "text": "JIka kamu tidak perlu kondisi cukup atur saja ke False atau True!",
+                "updated": 1670304541845
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "NL",
                     "text": "Voor mijn backtest heb ik geen Trigger Off conditie, dus ik schrijf gewoon false in Javascript code",
                     "updated": 1670774355503
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk backtest-ku aku tidak perlu kondisi Trigger Off jadi aku hanya menulis false di kode Javascript",
+                    "updated": 1670304556205
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "NL",
                     "text": "Onthoud dat Voorwaarden alleen True of False kunnen zijn. Wanneer ik wat Javascript-code in dit soort knooppunten schrijf, moeten ze True of False evalueren, omdat wat ik schrijf in wezen een test is.",
                     "updated": 1670774393326
+                },
+                {
+                    "language": "ID",
+                    "text": "Selalu diingat bahwa Kondisi hanya bisa True atau False. Ketika aku menulis sebuah kode Javascript didalam tipe node ini, mereka harus mengevaluasi True atau False karena biasanya adalah sebuah test.",
+                    "updated": 1670304588981
                 }
             ]
         }

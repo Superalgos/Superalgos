@@ -41,6 +41,11 @@
                 "language": "NL",
                 "text": "Strategy is bepaald!",
                 "updated": 1670775474477
+            },
+            {
+                "language": "ID",
+                "text": "Strategy sudah di definisikan!",
+                "updated": 1670310002080
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "NL",
                     "text": "Zoals je hebt gezien, is het implementeren van een eenvoudige strategie een kwestie van een paar regels code!",
                     "updated": 1670775491393
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu telah lihat, mengimplementasikan strategi simpel adalah permasalahan bagi beberapa baris kode!",
+                    "updated": 1670310017418
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "NL",
                     "text": "Houd hier rekening mee om correct om te gaan met de Base en Quoted Asset. Base staat bovenaan, Quoted onderaan! Dus in ons geval BTC/USD hebben we dat BTC de Base Asset is, terwijl USDT de Quoted Asset is",
                     "updated": 1670775578946
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapkan ini dipikiran untuk bekerja sama dengan benar antara Base dan Quoted Asset. Base itu diatas. Quoted itu dibawah! Jadi pada kasus kita BTC/USDT kita punya BTC sebagai Base Asset sedangkan USDT sebagai Quoted Asset.",
+                    "updated": 1670310035380
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "NL",
                     "text": "Het verandert niet als je Short gaat. Als de strategie Short is, zal de bot in de open fase de Base Asset verkopen en later terugkopen met behulp van de Quoted Asset!",
                     "updated": 1670775622386
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu tidak akan berubah jika kamu memilih untuk Short. Jika strategi untuk Short maka bot Open Stage akan menjual Base Assset dan setelahnya membeli kembali dengan Quoted Asset!",
+                    "updated": 1670310047614
                 }
             ]
         }

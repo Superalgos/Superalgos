@@ -40,6 +40,11 @@
                 "language": "NL",
                 "text": "Trigger Stage is onze Talentscout",
                 "updated": 1670773801127
+            },
+            {
+                "language": "ID",
+                "text": "Trigger Stage adalah Pemandu Bakat kita",
+                "updated": 1670300579964
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "NL",
                     "text": "Onze strategie is gebaseerd op het kruisen van SMA en het is in dit knooppunt dat we de bot opdracht kunnen geven om te zoeken naar voorwaarden waaraan moet worden voldaan om een transactie aan te gaan.",
                     "updated": 1670773886440
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategi kita berdasar kepada SMA cross dan itu terdapat pada node yang dapat menginstruksikan bot untuk mencari suatu kondisi yang harus dipenuhi untuk mengambil keputusan berdagang/trading.",
+                    "updated": 1670300587289
                 }
             ]
         },
@@ -116,6 +126,11 @@
                     "language": "NL",
                     "text": "In deze fase draait alles om het controleren van de markt en het beslissen of sommige voorwaarden een transactie waard zijn of niet!",
                     "updated": 1670773908137
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tahap ini semua tentang memeriksa market dan mengambil keputusan jika beberapa kondisi layak diperdagangkan atau tidak!",
+                    "updated": 1670300593184
                 }
             ]
         },
@@ -154,6 +169,11 @@
                     "language": "NL",
                     "text": "Laten we eens kijken naar zijn 3 afstammelingen en ik zal je enkele trucjes laten zien om de strategie zo snel mogelijk te implementeren!",
                     "updated": 1670773952618
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita lihat ketiga offspring-nya dan aku akan memperlihatkanmu sebuah trik kecil untuk mengemplementasikan strategi dengan cara yang secepat mungkin!",
+                    "updated": 1670300599571
                 }
             ]
         }

@@ -41,6 +41,11 @@
                 "language": "NL",
                 "text": "In The Manage Stage controleert de bot of hij Take Profit of een Stop Loss moet uitvoeren",
                 "updated": 1670775013944
+            },
+            {
+                "language": "ID",
+                "text": "The Manage Stage adalah dimana bot mengecek jika itu memiliki Take Profit atau Stop Loss",
+                "updated": 1670306615283
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "NL",
                     "text": "In deze fase controleert de bot of de prijs Take Profit (TP) of Stop Loss (SL) heeft bereikt. De eerste voorwaarden voor mijn strategie waren om een SL in te stellen op 20% vanaf het begin en een TP op 100% of wanneer MA50 onder MA200 kruist.",
                     "updated": 1670775066538
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tahap ini bot mengecek jika harga telah kena Take Profit (TP) atau Stop Loss (SL). Kondisi awal untuk strategi aku dimana untuk mengatur SL pada 20% dari entry dan TP pada 100% atau saat MA50 menyilang kebawah MA200.",
+                    "updated": 1670306623921
                 }
             ]
         },
@@ -109,6 +119,11 @@
                     "language": "NL",
                     "text": "Stop Loss formule:",
                     "updated": 1670775081690
+                },
+                {
+                    "language": "ID",
+                    "text": "formula Stop Loss:",
+                    "updated": 1670306632756
                 }
             ]
         },
@@ -152,6 +167,11 @@
                     "language": "NL",
                     "text": "De Take Profit formule is iets uitgebreider:",
                     "updated": 1670775104451
+                },
+                {
+                    "language": "ID",
+                    "text": "formula Take Profit sedikit lebih rumit:",
+                    "updated": 1670306643121
                 }
             ]
         },

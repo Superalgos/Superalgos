@@ -40,6 +40,11 @@
                 "language": "NL",
                 "text": "Reserveer wat geld!",
                 "updated": 1670774139209
+            },
+            {
+                "language": "ID",
+                "text": "Cadangkan beberapa dana!",
+                "updated": 1670300817419
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "NL",
                     "text": "Trigger On event gaat over het reserveren (vergrendelen) van uw geld en het beschikbaar maken ervan voor de bot.",
                     "updated": 1670774170395
+                },
+                {
+                    "language": "ID",
+                    "text": "Trigger On Event terkait mencadangkan (mengunci) dana kamu dan membuat hal itu tersedia kepada bot.",
+                    "updated": 1670304058408
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "NL",
                     "text": "Wat ik moet doen is:",
                     "updated": 1670774183543
+                },
+                {
+                    "language": "ID",
+                    "text": "Yang harus aku lakukan yaitu:",
+                    "updated": 1670300854601
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "language": "NL",
                     "text": "Definieer de TF",
                     "updated": 1670774193591
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentukan TF",
+                    "updated": 1670300886865
                 }
             ]
         },
@@ -194,6 +214,11 @@
                     "language": "NL",
                     "text": "Definieer het SMA50/200-kruis",
                     "updated": 1670774205674
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentukan SMA50/200 cross",
+                    "updated": 1670300881135
                 }
             ]
         },
@@ -231,6 +256,11 @@
                     "language": "NL",
                     "text": "Om een kruising te definiëren gebruik ik 2 voorwaarden:",
                     "updated": 1670774219351
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menentukan sebuah cross aku menggunakan 2 kondisi:",
+                    "updated": 1670300898813
                 }
             ]
         },

@@ -40,6 +40,11 @@
                 "language": "NL",
                 "text": "Geniet van je backtest!",
                 "updated": 1670776763395
+            },
+            {
+                "language": "ID",
+                "text": "Nikmati backtest-mu!",
+                "updated": 1670588305268
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "NL",
                     "text": "Nu is het tijd om naar de Charting Space te gaan en (indien nog niet actief) deze te starten:",
                     "updated": 1670776802815
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang saatnya untuk pindah ke Charting Space dan (jika belum berjalan) jalankan:",
+                    "updated": 1670588311778
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "TR",
                     "text": "Stratejiler ( Strategies )",
                     "updated": 1640618564547
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategi (Strategies)",
+                    "updated": 1670588421190
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Mumlar",
                     "updated": 1640618573665
+                },
+                {
+                    "language": "ID",
+                    "text": "Lilin (Candles)",
+                    "updated": 1670588484471
                 }
             ]
         },
@@ -137,6 +157,11 @@
                     "language": "NL",
                     "text": "Buy en Sell Market Orders",
                     "updated": 1670776814279
+                },
+                {
+                    "language": "ID",
+                    "text": "Market Orders Beli dan Jual",
+                    "updated": 1670588458063
                 }
             ]
         },
@@ -186,6 +211,11 @@
                     "language": "NL",
                     "text": "Neem de tijd en verken de visuele resultaten. Pas de SMA-indicator toe in de grafiek en zorg ervoor dat de bot positie heeft ingenomen wanneer verwacht",
                     "updated": 1670776856607
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktumu dan eksplorasi hasil visual. Gunakan indikator SMA ke chart dan pastikan bot telah mengambil posisi sesuai ekspektasimu.",
+                    "updated": 1670588375726
                 }
             ]
         }

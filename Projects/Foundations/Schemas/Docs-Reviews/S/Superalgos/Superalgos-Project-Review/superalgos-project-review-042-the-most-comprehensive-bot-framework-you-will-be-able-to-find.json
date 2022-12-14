@@ -4,26 +4,12 @@
     "type": "The most comprehensive bot framework you will be able to find",
     "definition": {
         "text": "This will blow you away with what you can do with it. Expect a bit of a learning curve, but once you get into it there's no stopping you",
-        "updated": 1642772222781,
-        "translations": [
-            {
-                "language": "TR",
-                "text": "Bununla neler yapabileceğinize şaşıracaksınız. Biraz öğrenme süreci bekleyin, ancak bir kez içine girdiğinizde sizi durduracak bir şey yok",
-                "updated": 1670922706203
-            }
-        ]
+        "updated": 1642772222781
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
-                    "updated": 1670922799428
-                }
-            ]
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
         }
     ]
 }

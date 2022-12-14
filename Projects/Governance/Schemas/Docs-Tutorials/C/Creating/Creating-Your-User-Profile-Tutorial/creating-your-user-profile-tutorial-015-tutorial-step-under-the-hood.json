@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Schauen wir uns die kryptografische Signatur in Ihrem neuen Profil genauer an.",
                 "updated": 1640073446031
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat lebih dekat signature cryptography pada profil barumu.",
+                "updated": 1670855067906
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf die Konfigurationsoption in Ihrem Benutzerprofilknoten und sehen Sie sich an, was dort steht.",
                     "updated": 1640073472809
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik opsi configuration pada node User Profile dan lihatlah lebih dekat yang ada didalamnya.",
+                    "updated": 1670855074000
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Wow, das sind eine Menge Zahlen! So weiß das Governance-System, dass dieses Benutzerprofil ( User Profile ) zu dem privaten Schlüssel gehört, mit dem die Nachricht signiert wurde, der wiederum zu der Adresse gehört, die die Token enthält, mit denen Ihr Profil Token Power erhält.",
                     "updated": 1640073506764
+                },
+                {
+                    "language": "ID",
+                    "text": "Wow sekarang banyak sekali nomor! Lagipula, inilah bagaiman sistem governance akan mengetahui bahwa User Profile ini diperuntukkan kepada private key yang tertanda dalam pesan, yang pada gilirannya menjadi milik alamat yang akan menyimpan token yang memberikan profil kamu dengan Token Power.",
+                    "updated": 1670855079937
                 }
             ]
         }

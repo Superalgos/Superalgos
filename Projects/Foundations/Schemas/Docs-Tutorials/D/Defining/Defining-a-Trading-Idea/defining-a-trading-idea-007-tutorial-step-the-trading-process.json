@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "La prima dimensione che dovremmo definire è a quale tipo di strategia è rivolta l'ipotesi.",
                 "updated": 1669887364484
+            },
+            {
+                "language": "NL",
+                "text": "De eerste dimensie die we moeten definiëren, is op welk type strategie de hypothese gericht is.",
+                "updated": 1670783648259
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Una semplice regola empirica è determinare se si tratta di una strategia di scalping, day-trading, swing trading o position trading.",
                     "updated": 1669887380780
+                },
+                {
+                    "language": "NL",
+                    "text": "Een eenvoudige vuistregel bepaalt of het een scalpeer-, daghandel-, swinghandel- of positiehandelstrategie is.",
+                    "updated": 1670783666508
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "Questa definizione fornisce un'idea del periodo di detenzione previsto, ovvero l'intervallo di tempo medio previsto per l'apertura di ciascuna posizione.",
                     "updated": 1669887395707
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze definitie geeft een idee van de verwachte periode van bezit, dat wil zeggen het gemiddelde tijdsbestek dat verwacht wordt voor elke openstaande positie.",
+                    "updated": 1670783699104
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "IT",
                     "text": "Il valore di una tale definizione è che fornisce una linea guida su quali intervalli di tempo analizzare per determinare l'esistenza di tendenze.",
                     "updated": 1669887411445
+                },
+                {
+                    "language": "NL",
+                    "text": "De waarde van een dergelijke definitie is dat het een richtlijn biedt voor de tijdsbestekken die moeten worden geanalyseerd om het bestaan van trends vast te stellen.",
+                    "updated": 1670783719027
                 }
             ]
         }

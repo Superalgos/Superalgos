@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Superalgos belohnt keine Trittbrettfahrer! Echte Beiträge zum Projekt und zur Gemeinschaft werden mit Token und Token Power belohnt.",
                 "updated": 1640072591163
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos tidak menghargai seorang yang hanya menumpang hidup! Kontribusi nyata ke proyek dan komunitas yang akan mendapatkan token dan Token Power.",
+                "updated": 1670820691024
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Das schicke Wort für diese Art der Projektführung ist Meritokratie. Mit anderen Worten, je mehr Sie zur Verbesserung von Superalgos und zur Unterstützung unserer Community beitragen, desto mehr Token Power und Reputation verdienen Sie, um die Zukunft des Projekts zu beeinflussen.",
                     "updated": 1640072402925
+                },
+                {
+                    "language": "ID",
+                    "text": "Kata-kata yang keren untuk proyek seperti ini adalah meritokrasi. Dengan kata lain, semakin banyak kamu berkontribusi untuk meningkatkan Superalgos serta untuk mendukung Community, maka semakin banyak Token Power dan Reputasi yang akan kamu peroleh untuk meng-influence masa depan dari proyek ini.",
+                    "updated": 1670820705664
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Dies ist eine Zusammenarbeit! Nur gemeinsam können wir Superalgos weiterhin zu dem Spielveränderer machen, der es heute ist, egal, was die Zukunft bringen mag.",
                     "updated": 1640072411877
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah kolaborasi! Hanya bersama-sama baru bisa melanjutkan untuk membuat Superalgos menjadi pengubah jalannya permainan untuk sekarang ini tidak peduli apa yang akan terjadi di masa depan.",
+                    "updated": 1670820713703
                 }
             ]
         }

@@ -193,18 +193,18 @@
                                     }
                                 } else {
                                     forecasting = false
-                                    console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.' : '.'))
+                                    TS.logger.warn('getAllForecastCase: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.' : '.'))
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                 }
                             } else {
                                 forecasting = false
-                                console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No response.')
+                                TS.logger.warn('getAllForecastCase: Failed to get any Forecast Case. No response.')
                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                             }
                         }
                         async function onErrorgetAllForecastCase(err) {
                             forecasting = false
-                            console.log((new Date()).toISOString(), '[WARN] Failed to get a any Forecast Case. Err:', err, 'Retrying in 30 seconds...')
+                            TS.logger.warn('Failed to get a any Forecast Case. Err:', err, 'Retrying in 30 seconds...')
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         }                        
                     }
@@ -269,15 +269,15 @@
                                     if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                 }    
                             } else {
-                                console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Wrong server did respond.')
+                                TS.logger.warn('setForecastCaseResults: Wrong server did respond.')
                                 if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)    
                             }
                         } else {
-                            console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
+                            TS.logger.warn('setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
                             if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         }
                     } else {
-                        console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Failed to get any Forecast Case. No response.')
+                        TS.logger.warn('setForecastCaseResults: Failed to get any Forecast Case. No response.')
                         if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }               
                 }
@@ -885,7 +885,7 @@
             
                                                 saveForecastCasesFile()
                                             } else {
-                                                console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Wrong server did respond.')
+                                                TS.logger.warn('setForecastCaseResults: Wrong server did respond.')
                                                 if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)    
                                             }
                     
@@ -894,11 +894,11 @@
                                             console.log("err reforecasting: " + jsonErr)
                                         }
                                     } else {
-                                        console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
+                                        TS.logger.warn('setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
                                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     }
                                 } else {
-                                    console.log((new Date()).toISOString(), '[WARN] setForecastCaseResults: Failed to get any Forecast Case. No response.')
+                                    TS.logger.warn('setForecastCaseResults: Failed to get any Forecast Case. No response.')
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                 }
                             }

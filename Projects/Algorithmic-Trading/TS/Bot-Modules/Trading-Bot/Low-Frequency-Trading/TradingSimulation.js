@@ -141,7 +141,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     /*
                     This candle is too early and there are no signals for it, we'll move to the next one and see...
                     */
-                    console.log((new Date()).toISOString(), '[WARN] Simulation Candle running without Signals because the Signals for this candle did not arrive on time. -> Candle Index = ' + i)
+                    TS.logger.warn('Simulation Candle running without Signals because the Signals for this candle did not arrive on time. -> Candle Index = ' + i)
                 }
                 /* Portfolio Manager */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(

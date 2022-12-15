@@ -172,7 +172,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 console.log(error)
                                 throw (error)
                             } else {
-                                console.log((new Date()).toISOString(), '[INFO] Clonning repo ' + repoURL + ' succeed.')
+                                NT.logger.info('Clonning repo ' + repoURL + ' succeed.')
                                 resolve()
                             }
                         })

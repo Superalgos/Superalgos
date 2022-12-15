@@ -9,19 +9,19 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
     function command(httpRequest, httpResponse) {
         let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
         let requestPath = requestPathAndParameters[0].split('/')
-        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
+        SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
-        async function processRequest(body) {
-
-            if(body === undefined) {
-                return
-            }
-
-            let fileContent = body
-            let fileName = unescape(requestPath[2])
-            let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
-
+        async function processRequest(compressedBody) {
             try {
+                if(compressedBody === undefined) {
+                    return
+                }
+                const body = SA.nodeModules.pako.inflate(compressedBody, { to: 'string' })
+                let fileName = unescape(requestPath[2])
+                let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
+                
+                let workspace = JSON.parse(body)
+                let fileContent = JSON.stringify(workspace, undefined, 4)
                 let fs = SA.nodeModules.fs
                 let dir = global.env.PATH_TO_MY_WORKSPACES;
 

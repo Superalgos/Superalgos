@@ -45,7 +45,7 @@
             openDashboardSocket()
             intervalIdupdateDashboard = setInterval(updateDashboard, 60 * 1000)
 
-            console.log((new Date()).toISOString(), '[INFO] Running Test Server v.' + TEST_SERVER_VERSION)
+            TS.logger.info('Running Test Server v.' + TEST_SERVER_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

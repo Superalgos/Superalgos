@@ -122,14 +122,14 @@
                         }
                     } else {
                         forecasting = false
-                        console.log((new Date()).toISOString(), '[INFO] Nothing to Forecast', 'Retrying in 30 seconds...')
+                        TS.logger.info('Nothing to Forecast', 'Retrying in 30 seconds...')
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
                 }
                 async function onErrorgetNextForecastCase(err) {                    
-                    console.log((new Date()).toISOString(), '[INFO] getNextForecastCase: Failed to get a new Forecast Case. Err:', err)    
+                    TS.logger.info('getNextForecastCase: Failed to get a new Forecast Case. Err:', err)    
                     if (err === 'DUPLICATE FORECAST CASE') {
-                        console.log((new Date()).toISOString(), '[INFO] Resending result from local DB.')    
+                        TS.logger.info('Resending result from local DB.')    
                         //(re)send result, maybe server didnt store it for whatever reasons
 
 /*
@@ -168,7 +168,7 @@
                                         }
                                         //console.table(bestPredictions)    
                                         let changeArrayLength = checkSetForecastCaseResultsResponse(bestPredictions)
-                                        console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', changeArrayLength)
+                                        TS.logger.info('Size of local forecast array did change by ', changeArrayLength)
                                         if (changeArrayLength > 0) {
                                             await getThisForecastCase(thisObject.forecastCasesArray[thisObject.forecastCasesArray.length - 1])
                                                 .then(onSuccess)
@@ -235,7 +235,7 @@
                     .then(onSuccess)
                     .catch(onError)
                 async function onSuccess(response) {
-                    console.log((new Date()).toISOString(), '[INFO] Got response on TrialNo: ', curSendTries)    
+                    TS.logger.info('Got response on TrialNo: ', curSendTries)    
                     if ((response != undefined) && (response !== 'No response')) {
                         if ((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.response != undefined)) {
                             if (response.data.serverData.response.indexOf('WRONG TESTSERVER!') == -1) {
@@ -252,11 +252,11 @@
                                             bestPredictions[i].testServer.userProfile = response.data.serverData.userProfile
                                         }
                                     }
-                                    console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', checkSetForecastCaseResultsResponse(bestPredictions))
+                                    TS.logger.info('Size of local forecast array did change by ', checkSetForecastCaseResultsResponse(bestPredictions))
                                     forecastResultAccepted = true
         
                                     console.log(' ')
-                                    console.log((new Date()).toISOString(), '[INFO] Result on Forecasting: Best Crowd-Sourced Predictions:')
+                                    TS.logger.info('Result on Forecasting: Best Crowd-Sourced Predictions:')
                                     console.table(bestPredictions)
         
                                     let statusText = 'Published Forecast Case ' + forecastResult.id + ' to ' + forecastResult.testServer.instance
@@ -294,7 +294,7 @@
     }
     async function onSuccessPublish(result) {
         forecasting = false
-        console.log((new Date()).toISOString(), '[INFO] Result published')
+        TS.logger.info('Result published')
     }
     async function onErrorPublish(err) {
         forecasting = false
@@ -305,7 +305,7 @@
     async function getAllForecastCase() {
         return new Promise(promiseWork)
         async function promiseWork(resolve, reject) {
-            console.log((new Date()).toISOString(), '[INFO] getAllForecastCase: Query Testserver for all Forecast Cases')
+            TS.logger.info('getAllForecastCase: Query Testserver for all Forecast Cases')
             let message = {
                 type: 'Get All Forecast Cases'
             }
@@ -336,7 +336,7 @@
                 if (response != undefined) {
                     resolve(response)
                 } else {
-                    console.log((new Date()).toISOString(), '[INFO] No response from Testserver', 'Retrying in 30 seconds...')
+                    TS.logger.info('No response from Testserver', 'Retrying in 30 seconds...')
                     resolve('No response')
                 }
             }
@@ -656,7 +656,7 @@
             dockerProc.on('close', (code) => {
                 if (code === 0) {
                     dockerPID = undefined
-                    console.log((new Date()).toISOString(), '[INFO] Forecaster: Docker Python Script exited with code ' + code);
+                    TS.logger.info('Forecaster: Docker Python Script exited with code ' + code);
                     onFinished(dataReceived)
                 } else {
                     dockerPID = undefined
@@ -687,11 +687,11 @@
                             processExecutionResult.testServer = nextForecastCase.testServer
                             processExecutionResult.id = nextForecastCase.id
                             processExecutionResult.caseIndex = nextForecastCase.caseIndex                                                                           
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount + ' / ' + processExecutionResult["2"].current_action.limit)
+                            TS.logger.info('{Forecastclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
+                            TS.logger.info('{Forecastclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
+                            TS.logger.info('{Forecastclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
+                            TS.logger.info('{Forecastclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
+                            TS.logger.info('{Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount + ' / ' + processExecutionResult["2"].current_action.limit)
 
                         } catch (err) {
                             console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
@@ -796,10 +796,10 @@
                 caseIndex: 0
             }
             console.log()
-            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Current Forecast table')    
+            TS.logger.info('{Forecastclient} Current Forecast table')    
         } else {
             console.log()
-            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
+            TS.logger.info('{Forecastclient} A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
         }
         let logQueue = []
         for (let i = Math.max(0, forecastCase.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastCase.caseIndex + 5); i++) {
@@ -851,7 +851,7 @@
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {
-                                console.log((new Date()).toISOString(), '[INFO] Got response on TrialNo: ', curSendTries)
+                                TS.logger.info('Got response on TrialNo: ', curSendTries)
                                 if ((response != undefined) && (response !== 'No response')) {
                                     if ((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.response != undefined)) {
                                         try {
@@ -998,7 +998,7 @@
                     }
                 }
                 if ((!foundForecastId) && (!otherTestServer)) {
-                    //console.log((new Date()).toISOString(), '[INFO] Remove id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)
+                    //TS.logger.info('Remove id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)
                     if (removeForecastCase(thisObject.forecastCasesArray[j].id,thisObject.forecastCasesArray[j].testServer.instance)) {
                         j--
                         saveForecastCasesFile()

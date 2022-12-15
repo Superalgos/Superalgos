@@ -249,7 +249,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                         break
                     }
                 } else {
-                    console.log((new Date()).toISOString(), '[INFO] Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                    TS.logger.info('Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
                     allGood = true
                     break
                 }

@@ -102,7 +102,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         } finally {
             saveForecastCasesFile()
 
-            console.log((new Date()).toISOString(), '[INFO] Testserver: Current Forecast table:')
+            TS.logger.info('Testserver: Current Forecast table:')
             console.table(thisObject.forecastCasesArray)    
         }
 
@@ -250,8 +250,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         try {
             let forecastCase = thisObject.forecastCasesMap.get(forecastResult.id)
             if ((forecastCase == undefined) && (forecastResult.id != undefined) && (forecastResult.id > 0) ) {
-                console.log((new Date()).toISOString(), '[INFO] ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
+                TS.logger.info('' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                TS.logger.info('This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
@@ -294,8 +294,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     }
                     logQueue.push(forecastCase)
                 }
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} Updated partial table of Forecast Cases:')
+                TS.logger.info('{Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                TS.logger.info('{Test-Server} Updated partial table of Forecast Cases:')
                 console.table(logQueue)
                 saveForecastReportFile()
                 saveForecastCasesFile()    

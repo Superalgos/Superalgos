@@ -120,10 +120,10 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             candle available since it is not considered a closed candle, but a candle
             that still can change. So effectively will be processing all closed candles.
             */
-            console.log((new Date()).toISOString(), '[INFO] Starting Simulation -> initialCandle = ' + initialCandle + ' -> finalCandle = ' + (candles.length - 2))
+            TS.logger.info('Starting Simulation -> initialCandle = ' + initialCandle + ' -> finalCandle = ' + (candles.length - 2))
 
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                console.log((new Date()).toISOString(), '[INFO] Simulation Loop -> Candle Index = ' + i)
+                TS.logger.info('Simulation Loop -> Candle Index = ' + i)
 
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(

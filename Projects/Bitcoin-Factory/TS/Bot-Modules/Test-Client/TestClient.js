@@ -356,11 +356,11 @@
                                 let endingTimestamp = (new Date()).valueOf()
                                 processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000          
                                 processExecutionResult.pythonScriptName = nextTestCase.pythonScriptName                                                  
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
-                                console.log((new Date()).toISOString(), '[INFO] {Testclient} Next Action/Amount/Limit: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount+ ' / ' + processExecutionResult["2"].current_action.limit)
+                                TS.logger.info('{Testclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
+                                TS.logger.info('{Testclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Next Action/Amount/Limit: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount+ ' / ' + processExecutionResult["2"].current_action.limit)
                             } catch (err) {
                                 console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
                                 console.log('The data that can not be parsed is = ' + fileContent)

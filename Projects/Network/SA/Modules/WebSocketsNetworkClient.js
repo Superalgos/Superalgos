@@ -112,7 +112,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 function heartbeat() {
                     clearTimeout(socket.pingTimeout)
                     socket.pingTimeout = setTimeout(() => {
-                        console.log((new Date()).toISOString(), '[INFO] No Websockets heartbeat received from server, re-initializing connection...')
+                        SA.logger.info('No Websockets heartbeat received from server, re-initializing connection...')
                         socket.terminate()
                     }, 30000 + 15000)
                 }

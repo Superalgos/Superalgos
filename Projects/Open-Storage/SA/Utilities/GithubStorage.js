@@ -81,7 +81,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 /*
                 We will give github a few seconds to make the file accessible via http. Without these few seconds, the bots following the signal might get a 404 error.
                 */
-                console.log((new Date()).toISOString(), '[INFO] Signal File just created on Github. completePath = ' + completePath)
+                SA.logger.info('Signal File just created on Github. completePath = ' + completePath)
 
                 setTimeout(resolve, 3000)
             }

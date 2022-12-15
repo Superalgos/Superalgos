@@ -42,7 +42,7 @@
         try {
 
             if (INFO_LOG === true) {
-                console.log('setuptWebSockets at ' + host + ':' + port)
+                TS.logger.info('setuptWebSockets at ' + host + ':' + port)
             }
             WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
 
@@ -54,7 +54,7 @@
             WEB_SOCKETS_CLIENT.onopen = () => {
                 try {
                     if (INFO_LOG === true) {
-                        console.log('Websocket connection opened.')
+                        TS.logger.info('Websocket connection opened.')
                     }
     
                     if (callBackFunction !== undefined) {
@@ -67,7 +67,7 @@
             WEB_SOCKETS_CLIENT.onmessage = e => {
                 try {
                     if (INFO_LOG === true) {
-                        console.log('Websocket Message Received: ' + e.data.substring(0, 1000))
+                        TS.logger.info('Websocket Message Received: ' + e.data.substring(0, 1000))
                     }
 
                     let message = JSON.parse(e.data)
@@ -83,7 +83,7 @@
                         if (handler) {
                             handler.callBack(message)
                         //} else {
-                        //    console.log(`${(new Date()).toISOString()} [ERROR] handler not found in eventListeners. key = ${key}`)
+                        //    TS.logger.error(`handler not found in eventListeners. key = ${key}`)
                         }
                         return
                     }
@@ -93,7 +93,7 @@
                         if (handler) {
                             handler(message)
                         //} else {
-                        //    console.log(`${(new Date()).toISOString()} [ERROR] handler not found in responseWaiters. message.callerId = ${message.callerId}`)
+                        //    TS.logger.error(`handler not found in responseWaiters. message.callerId = ${message.callerId}`)
                         }
                         return
                     }

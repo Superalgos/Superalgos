@@ -60,11 +60,11 @@
     function finalize() {
         clearInterval(intervalId)
         if (dockerPID != undefined) {
-            console.log('Try 1 to kill')
+            TS.logger.info('Try 1 to kill')
             const kill = require("tree-kill");
             kill(dockerPID)
         }
-        console.log('Try 2 to kill')
+        TS.logger.info('Try 2 to kill')
         const { spawn } = require('child_process');
         const dockerProc = spawn('docker', ['stop', 'Bitcoin-Factory-ML-Forecasting']);
 
@@ -187,8 +187,8 @@
 
                                     } catch (err) {
                                         forecasting = false
-                                        console.log("response.data.serverData.response:" + response.data.serverData.response)
-                                        console.log("err: " + err)
+                                        TS.logger.error("response.data.serverData.response:" + response.data.serverData.response)
+                                        TS.logger.error("err: " + err)
                                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     }
                                 } else {
@@ -255,7 +255,7 @@
                                     TS.logger.info('Size of local forecast array did change by ', checkSetForecastCaseResultsResponse(bestPredictions))
                                     forecastResultAccepted = true
         
-                                    console.log(' ')
+                                    TS.logger.info(' ')
                                     TS.logger.info('Result on Forecasting: Best Crowd-Sourced Predictions:')
                                     console.table(bestPredictions)
         
@@ -264,8 +264,8 @@
         
                                     if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)    
                                 } catch (jsonErr) {
-                                    console.log("response.data.serverData.response:" + response.data.serverData.response)
-                                    console.log("err: " + jsonErr)
+                                    TS.logger.error("response.data.serverData.response:" + response.data.serverData.response)
+                                    TS.logger.error("err: " + jsonErr)
                                     if (typeof callBackFunction === "function") callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                 }    
                             } else {
@@ -412,7 +412,7 @@
         async function promiseWork(resolve, reject) {
 
             //debug
-            console.log("DEBUG requested testserver: " + JSON.stringify(forecastCase.testServer))
+            TS.logger.info("DEBUG requested testserver: " + JSON.stringify(forecastCase.testServer))
 
             let message = {
                 type: 'Get This Forecast Case',
@@ -472,7 +472,7 @@
         async function promiseWork(resolve, reject) {
 
             if (forecastResult.testServer == undefined) {
-                console.log('BUG testserver undefined')
+                TS.logger.error('BUG testserver undefined')
                 reject('forecastResult with undefined testserver')
             } 
             forecastResult.trainingOutput = undefined // delete this to save bandwidth
@@ -509,7 +509,7 @@
                         userProfile: response.data.serverData.userProfile,
                         instance: response.data.serverData.instance
                     }
-                    console.log('[DEBUG] ', response.data.serverData.response.testServer)
+                    TS.logger.debug('[DEBUG] ', response.data.serverData.response.testServer)
                     resolve(response)   
                 } else {
                     reject('WRONG SERVER DID RESPOND')
@@ -566,23 +566,23 @@
         Set default script name.
         */
         if (nextForecastCase.pythonScriptName === undefined) { 
-            console.log("pythonScriptName undefined ... set default name")
+            TS.logger.info("pythonScriptName undefined ... set default name")
             nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" 
         }
-        console.log('')
+        TS.logger.info('')
         if (buildnewModel) {
-            console.log('------------------------------------------------------- Forecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
+            TS.logger.info('------------------------------------------------------- Forecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
         } else {
-            console.log('------------------------------------------------------- Reforecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
+            TS.logger.info('------------------------------------------------------- Reforecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
         }
-        console.log('')
-        console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
-        console.log('')
-        console.log('Parameters Received for this Forecast:')
+        TS.logger.info('')
+        TS.logger.info('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
+        TS.logger.info('')
+        TS.logger.info('Parameters Received for this Forecast:')
         console.table(getRelevantParameters(nextForecastCase.parameters))
-        console.log('')
+        TS.logger.info('')
         TS.logger.info('Starting to process this Case')
-        console.log('')
+        TS.logger.info('')
 
         if (buildnewModel) {
             writePytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase, buildnewModel)
@@ -636,7 +636,7 @@
                             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
                         }
                     } catch (err) { 
-                        console.log('Error pricessing heartbeat: ' + err)
+                        TS.logger.error('Error pricessing heartbeat: ' + err)
                     }
                     for (let i = 0; i < 1000; i++) {
                         data = data.replace(/\n/, "")
@@ -645,7 +645,7 @@
                 dataReceived = dataReceived + data.toString()
 
                 if (BOT_CONFIG.logTrainingOutput === true) {
-                    console.log(data)
+                    TS.logger.info(data)
                 }                
             });
     
@@ -680,7 +680,7 @@
                     if (fileContent !== undefined) {
                         try {
                             processExecutionResult = JSON.parse(fileContent)
-                            console.log(processExecutionResult)                            
+                            TS.logger.info(processExecutionResult)                            
                             let endingTimestamp = (new Date()).valueOf()
                             processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000          
                             processExecutionResult.pythonScriptName = nextForecastCase.pythonScriptName     
@@ -694,26 +694,26 @@
                             TS.logger.info('{Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount + ' / ' + processExecutionResult["2"].current_action.limit)
 
                         } catch (err) {
-                            console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
-                            console.log('The data that can not be parsed is = ' + fileContent)
+                            TS.logger.error('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
+                            TS.logger.error('The data that can not be parsed is = ' + fileContent)
                         }
                     } else {
-                        console.log('Can not read result file: ' + global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/evaluation_results.json")
+                        TS.logger.error('Can not read result file: ' + global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/evaluation_results.json")
                     }                            
                 } else { //LSTM
                     try {
 
                         let index = dataReceived.indexOf('{')
                         dataReceived = dataReceived.substring(index)
-                        //just for debug: console.log(dataReceived)
+                        //just for debug: TS.logger.info(dataReceived)
                         processExecutionResult = JSON.parse(fixJSON(dataReceived))
         
-                        console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                        console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
+                        TS.logger.info('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                        TS.logger.info('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
         
                         let endingTimestamp = (new Date()).valueOf()
                         processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                        console.log('Elapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.elapsedTime * 1000).toISOString().substr(11, 8)) + ' ')
+                        TS.logger.info('Elapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.elapsedTime * 1000).toISOString().substr(11, 8)) + ' ')
         
                         processExecutionResult.testServer = nextForecastCase.testServer
                         processExecutionResult.id = nextForecastCase.id
@@ -722,9 +722,9 @@
                     } catch (err) {
     
                         if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                            console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                            TS.logger.error('processExecutionResult.predictions:' + processExecutionResult.predictions)
                         }
-                        console.log(err.stack)
+                        TS.logger.error(err.stack)
                         console.error(err)
                     }    
                 }
@@ -795,10 +795,10 @@
             forecastCase = {
                 caseIndex: 0
             }
-            console.log()
+            TS.logger.info()
             TS.logger.info('{Forecastclient} Current Forecast table')    
         } else {
-            console.log()
+            TS.logger.info()
             TS.logger.info('{Forecastclient} A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
         }
         let logQueue = []
@@ -868,8 +868,8 @@
                                                 index += checkSetForecastCaseResultsResponse(bestPredictions)
                                                 forecastResultAccepted = true
             
-                                                console.log(' ')
-                                                console.log('Result on REforecasting: Best Crowd-Sourced Predictions:')
+                                                TS.logger.info(' ')
+                                                TS.logger.info('Result on REforecasting: Best Crowd-Sourced Predictions:')
                                                 console.table(bestPredictions)
             
                                                 let statusText = 'Published Forecast Case ' + forecastResult.id + ' to ' + forecastResult.testServer.instance
@@ -890,8 +890,8 @@
                                             }
                     
                                         } catch (jsonErr) {
-                                            console.log("response.data.serverData.response:" + response.data.serverData.response)
-                                            console.log("err reforecasting: " + jsonErr)
+                                            TS.logger.error("response.data.serverData.response:" + response.data.serverData.response)
+                                            TS.logger.error("err reforecasting: " + jsonErr)
                                         }
                                     } else {
                                         TS.logger.warn('setForecastCaseResults: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
@@ -969,11 +969,11 @@
             //remove local forecast cases, which aren't available on testserver anymore
             for (let j = 0; j < thisObject.forecastCasesArray.length; j++) {
                 if (thisObject.forecastCasesArray[j].testServer == undefined) {
-                    console.log('[DEBUG] Testserver undefined j: ', j)
+                    TS.logger.debug('[DEBUG] Testserver undefined j: ', j)
                     continue
                 }
                 if (thisObject.forecastCasesArray[j].testServer.instance == undefined) { 
-                    console.log('[DEBUG] Testserver undefined j: ', j)
+                    TS.logger.debug('[DEBUG] Testserver undefined j: ', j)
                     continue 
                 }
                 //TS.logger.debug('Look for local id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)
@@ -981,11 +981,11 @@
                 let otherTestServer = false
                 for (let i = 0; i < forecastCasesArrayfromTestserver.length; i++) {
                     if (forecastCasesArrayfromTestserver[i].testServer == undefined) {
-                        console.log('[BUG] Testserver undefined')
+                        TS.logger.error('[BUG] Testserver undefined')
                         continue
                     }
                     if (forecastCasesArrayfromTestserver[i].testServer.instance == undefined) { 
-                        console.log('[BUG] Testserver undefined')
+                        TS.logger.error('[BUG] Testserver undefined')
                         continue 
                     }
                         //TS.logger.debug('Found id on Test server ' + forecastCasesArrayfromTestserver[i].id + ' from ' + forecastCasesArrayfromTestserver[i].testServer.instance)

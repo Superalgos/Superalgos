@@ -75,7 +75,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             const parametersIsON = getParametersIsON()
             const AMOUNT_OF_VARIABLES = parametersIsON.length
 
-            console.log("Testing this features")
+            TS.logger.info("Testing this features")
             console.table(parametersIsON)
 
             let combinations = []

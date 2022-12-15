@@ -701,7 +701,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             if (obj !== undefined) {
                                                 dataA.push(obj)
                                             }
-                                            //console.log(obj)      // Uncomment to log response to console
+                                            //TS.logger.info(obj)      // Uncomment to log response to console
 
                                         })
                                         // When we hit the end of the data received we proceed to saving.
@@ -1326,7 +1326,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     // First we must control our path info to iterate through all data in the API response.
                                                     switch (timestampPath.length) {
                                                         case (1): {
-                                                            console.log(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
+                                                            TS.logger.info(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
                                                             break
                                                         }
                                                         // If two we will count up and loop through all possible responses.
@@ -1350,7 +1350,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
         
                                                         switch (dataPath.length) {
                                                             case (1): {
-                                                                console.log(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
+                                                                TS.logger.info('This data does not have anything to loop through. Please use a different save option.')
                                                                 break
                                                             }
                                                             // If two we will count up and loop through all possible responses.

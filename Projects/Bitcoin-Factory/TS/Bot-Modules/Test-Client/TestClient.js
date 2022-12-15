@@ -14,7 +14,7 @@
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), 'Running Test Client v.' + TEST_CLIENT_VERSION)
+            TS.logger.info('Running Test Client v.' + TEST_CLIENT_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -62,25 +62,25 @@
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                 }
                                 async function onError(err) {
-                                    console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Test Case Results.')
-                                    console.log((new Date()).toISOString(), 'Reason why I could not deliver the Test Report:', err)
-                                    console.log((new Date()).toISOString(), 'Retrying to send the Test Report in 60 seconds...')
+                                    TS.logger.error('Failed to send a Report to the Test Server with the Test Case Results.')
+                                    TS.logger.error('Reason why I could not deliver the Test Report:', err)
+                                    TS.logger.error('Retrying to send the Test Report in 60 seconds...')
                                 }
                             }
                         }
                     }
 
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                        TS.logger.error('Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
                 } else {
-                    console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
+                    TS.logger.info('Nothing to Test', 'Retrying in 30 seconds...')
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
             }
             async function onError(err) {
-                console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
+                TS.logger.error('Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
         }
@@ -108,10 +108,10 @@
         axios
             .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
             .then(res => {
-                console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                TS.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
             })
             .catch(error => {
-                console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                TS.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
             })
     }
 
@@ -253,7 +253,7 @@
         console.table(relevantParameters)
         console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting to process this Case')
+        TS.logger.info('Starting to process this Case')
         console.log('')
         /*
         Return Promise

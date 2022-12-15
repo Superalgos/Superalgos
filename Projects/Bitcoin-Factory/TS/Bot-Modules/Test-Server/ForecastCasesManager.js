@@ -326,10 +326,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             axios
                 .post('http://' + Test_Server_BOT_CONFIG.targetSuperalgosHost + ':' + Test_Server_BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                    TS.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                    TS.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
                 })
         }
 

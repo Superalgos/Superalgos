@@ -83,7 +83,7 @@
 
     async function start(callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), "Test Server is Starting Now.")
+            TS.logger.info("Test Server is Starting Now.")
             let queryMessage = {
                 sender: 'Test-Server',
                 instance: serverInstanceName
@@ -96,12 +96,12 @@
             }
             while (true) {
                 if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    console.log((new Date()).toISOString(), "Test Server is Stopping Now.")
+                    TS.logger.info("Test Server is Stopping Now.")
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     return
                 }
                 if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
-                    console.log((new Date()).toISOString(), "Not connected to the Superalgos Network. Retrying in 10 seconds...")
+                    TS.logger.info("Not connected to the Superalgos Network. Retrying in 10 seconds...")
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 } else {
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
@@ -114,7 +114,7 @@
                             */
                             getReadyForNewMessage()
                             if (response.result === "Ok" && response.data.result === "Ok" && response.data.message === "Next Request Already Expired.") {
-                                console.log((new Date()).toISOString(), 'Network Node Response: Next Request Already Expired.')
+                                TS.logger.info('Network Node Response: Next Request Already Expired.')
                             } else {
                                 /* No request at the moment for the Test Server */
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
@@ -131,7 +131,7 @@
                                 switch (clientData.recipient) {
                                     case 'Test Client Manager': {
                                         if (clientData.testClientVersion === undefined || clientData.testClientVersion < MIN_TEST_CLIENT_VERSION) {
-                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
+                                            TS.logger.info('Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
                                             managerResponse = 'CLIENT VERSION IS TOO OLD'
                                         } else {
                                             managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
@@ -162,18 +162,18 @@
                                 a response to the client, we will let it timeout and try again, in other words
                                 we will ignore messages that would crash the server.
                                 */
-                                console.log((new Date()).toISOString(), 'Query that produced an error at Test Server: ' + JSON.stringify(response))
-                                console.log((new Date()).toISOString(), 'err: ' + err)
-                                console.log((new Date()).toISOString(), 'err.stack: ' + err.stack)
+                                TS.logger.error('Query that produced an error at Test Server: ' + JSON.stringify(response))
+                                TS.logger.error('err: ' + err)
+                                TS.logger.error('err.stack: ' + err.stack)
                                 getReadyForNewMessage()
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                             }
                         }
                     }
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Error retrieving message from Network Node.')
-                        console.log((new Date()).toISOString(), 'err: ' + err)
-                        console.log((new Date()).toISOString(), 'Retrying in 10 seconds...')
+                        TS.logger.error('Error retrieving message from Network Node.')
+                        TS.logger.error('err: ' + err)
+                        TS.logger.error('Retrying in 10 seconds...')
                         getReadyForNewMessage()
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                     }

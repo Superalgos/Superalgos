@@ -15,7 +15,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
     async function initialize() {
 
         await scanSuperalgosUserProfiles()
-        console.log((new Date()).toISOString(), 'Starting Network "' + networkCodeName + '" with these Forecast Clients:')
+        TS.logger.info('Starting Network "' + networkCodeName + '" with these Forecast Clients:')
         console.table(forecastClients)
 
     }
@@ -72,29 +72,29 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
         switch (message.type) {
             case 'Get Next Forecast Case': {
-                console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Forecast Case')
+                TS.logger.info(currentClientInstance, 'requested a new Forecast Case')
                 let nextForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase(currentClientInstance)
                 if (nextForecastCase !== undefined) {
-                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', currentClientInstance)
+                    TS.logger.info('Forecast Case Id ' + nextForecastCase.id + ' delivered to', currentClientInstance)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
                     if (nextForecastCase.pythonScriptName == undefined) nextForecastCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
                     return nextForecastCase
                 } else {
-                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + currentClientInstance)
+                    TS.logger.info('No more Forecast Cases to Build. Could not deliver one to ' + currentClientInstance)
                     return'NO FORECAST CASES AVAILABLE AT THE MOMENT'
                 }
             }
             case 'Get This Forecast Case': {
-                console.log((new Date()).toISOString(), currentClientInstance, 'requested the Forecast Case Id ' + message.forecastCaseId)
+                TS.logger.info(currentClientInstance, 'requested the Forecast Case Id ' + message.forecastCaseId)
                 let thisForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
                 if (thisForecastCase !== undefined) {
-                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', currentClientInstance)
+                    TS.logger.info('Forecast Case Id ' + thisForecastCase.id + ' delivered to', currentClientInstance)
                     thisForecastCase.files.parameters = thisForecastCase.files.parameters.toString()
                     thisForecastCase.files.timeSeries = thisForecastCase.files.timeSeries.toString()
                     return thisForecastCase
                 } else {
-                    console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + currentClientInstance)
+                    TS.logger.info('Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + currentClientInstance)
                     return'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE'
                 }
             }
@@ -104,7 +104,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                 return response
             }
             case 'Get All Forecast Cases': {
-                console.log((new Date()).toISOString(), currentClientInstance, 'requested all Forecast Cases')
+                TS.logger.info(currentClientInstance, 'requested all Forecast Cases')
                 let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                 return response
             }

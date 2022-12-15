@@ -39,7 +39,7 @@
         eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, taskStatus)
 
         function runTask(message) {
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Entering function.') 
+            //PL.logger.info('Client -> Task Manager Server -> runTask -> Entering function.') 
 
             if (message.event === undefined) {
                 PL.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
@@ -61,8 +61,8 @@
                 eventsServerClient.raiseEvent(key, 'Running') // Meaning Task Running
                 return
             }
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Task Id = ' + message.event.taskId) 
+            //PL.logger.info('Client -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)
+            //PL.logger.info('Client -> Task Manager Server -> runTask -> Task Id = ' + message.event.taskId) 
 
             let path = global.env.BASE_PATH + '/TaskServerRoot.js'
 
@@ -97,8 +97,8 @@
             })
             /* If the Task Server stops, we remove it from our task map */
             task.childProcess.on('close', (code, signal) => {
-                //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
-                //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
+                //PL.logger.info('Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
+                //PL.logger.info('Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
                 tasksMap.delete(task.id)
             })
             /* 
@@ -113,13 +113,13 @@
             intra-process communications.
             */
             function sendStartingEvent() {
-                //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
+                //PL.logger.info('Client -> Task Manager Server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
                 eventsServerClient.raiseEvent('Task Server - ' + task.id, 'Run Task', message.event)
             }
         }
 
         function stopTask(message) {
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Entering function.')
+            //PL.logger.info('Client -> Task Manager Server -> stopTask -> Entering function.')
             if (message.event === undefined) {
                 PL.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
@@ -129,8 +129,8 @@
                 PL.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Task Id = ' + message.event.taskId) 
+            //PL.logger.info('Client -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
+            //PL.logger.info('Client -> Task Manager Server -> stopTask -> Task Id = ' + message.event.taskId) 
 
             let task = tasksMap.get(message.event.taskId)
 
@@ -140,14 +140,14 @@
             */
             if (task) {
                 task.childProcess.send('Stop this Task');
-                //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
+                //PL.logger.info('Client -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
             } else {
                 PL.logger.warn('Client -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
             }
         }
 
         function taskStatus(message) {
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> taskStatus -> Entering function.')
+            //PL.logger.info('Client -> Task Manager Server -> taskStatus -> Entering function.')
             if (message.event === undefined) {
                 PL.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
@@ -157,8 +157,8 @@
                 PL.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
-            //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
+            //PL.logger.info('Client -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
+            //PL.logger.info('Client -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
 
             let task = tasksMap.get(message.event.taskId)
             let event = {}

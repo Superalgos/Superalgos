@@ -35,8 +35,8 @@ exports.newWebhookRoute = function newWebhookRoute() {
                     webhookMessages = []
                 }
 
-                console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                PL.logger.info('httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
+                PL.logger.info('httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                 webhookMessages = []
@@ -84,9 +84,9 @@ exports.newWebhookRoute = function newWebhookRoute() {
                     webhookMessages.push([timestamp, source, messageReceived])
                     webhook.set(key, webhookMessages)
 
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                 }
 

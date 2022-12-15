@@ -215,7 +215,7 @@ exports.newAppRoute = function newAppRoute() {
                         }
                         let repoURL = 'https://github.com/Superalgos/Superalgos'
                         let repoName = 'Superalgos'
-                        console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                        PL.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                         let git = simpleGit(options)
 
                         await pushFiles(git) // Main Repo
@@ -232,7 +232,7 @@ exports.newAppRoute = function newAppRoute() {
                             git = simpleGit(options)
                             repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                             repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            PL.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             await pushFiles(git)
                         }
 
@@ -327,7 +327,7 @@ exports.newAppRoute = function newAppRoute() {
                         async function createPullRequest(repo) {
                             try {
                                 console.log(' ')
-                                console.log((new Date()).toISOString(), '[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                PL.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
                                     owner,
@@ -336,7 +336,7 @@ exports.newAppRoute = function newAppRoute() {
                                     head,
                                     base,
                                 });
-                                console.log((new Date()).toISOString(), '[INFO] A pull request has been succesfully created. ')
+                                PL.logger.info('A pull request has been succesfully created. ')
                             } catch(err) {
                                 if(
                                     err.stack.indexOf('A pull request already exists') >= 0 ||
@@ -458,7 +458,7 @@ exports.newAppRoute = function newAppRoute() {
                         // Check if we are commiting to main repo 
                         if(repoName === 'Superalgos') {
                             let repoURL = 'https://github.com/Superalgos/Superalgos'
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            PL.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             let git = simpleGit(options)
 
                             await pushFiles(git) // Main Repo
@@ -471,7 +471,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
                             git = simpleGit(options)
                             repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[repoName].repo
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            PL.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             await pushFiles(git)
                         }
 
@@ -527,7 +527,7 @@ exports.newAppRoute = function newAppRoute() {
                         async function createPullRequest(repo) {
                             try {
                                 console.log(' ')
-                                console.log((new Date()).toISOString(), '[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                PL.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
                                     owner,
@@ -536,7 +536,7 @@ exports.newAppRoute = function newAppRoute() {
                                     head,
                                     base,
                                 });
-                                console.log((new Date()).toISOString(), '[INFO] A pull request has been succesfully created. ')
+                                PL.logger.info('A pull request has been succesfully created. ')
                             } catch(err) {
                                 if(
                                     err.stack.indexOf('A pull request already exists') >= 0 ||
@@ -637,7 +637,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
                             let git = simpleGit(options)
                             let repoURL = 'https://github.com/Superalgos/Superalgos'
-                            console.log((new Date()).toISOString(), '[INFO] Downloading from ' + repoURL)
+                            PL.logger.info('Downloading from ' + repoURL)
                             let message = await git.pull(repoURL, currentBranch)
 
                             if(message.error === undefined) {
@@ -654,7 +654,7 @@ exports.newAppRoute = function newAppRoute() {
                                     }
                                     git = simpleGit(options)
                                     repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                    console.log((new Date()).toISOString(), '[INFO] Downloading from ' + repoURL)
+                                    PL.logger.info('Downloading from ' + repoURL)
                                     message = await git.pull(repoURL, currentBranch)
                                     if(message.error === undefined) {
                                         addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
@@ -670,9 +670,9 @@ exports.newAppRoute = function newAppRoute() {
                             function addToReposUpdated(message, repo) {
                                 if(message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
                                     reposUpdated = true
-                                    console.log((new Date()).toISOString(), '[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                    PL.logger.info('Your local repository ' + repo + ' was successfully updated. ')
                                 } else {
-                                    console.log((new Date()).toISOString(), '[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                    PL.logger.info('Your local repository ' + repo + ' was already up-to-date. ')
                                 }
                             }
 

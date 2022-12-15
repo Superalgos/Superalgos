@@ -28,7 +28,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
     function updateForecastedCandles(bestPredictionsData) {
 
-        console.log((new Date()).toISOString(), '[DEBUG] {BitcoinFactoryServer} Updating DataMine with new results')
+        PL.logger.debug('{BitcoinFactoryServer} Updating DataMine with new results')
 
         let bestPredictions
 
@@ -46,13 +46,13 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
         for (let j = 0; j < bestPredictions.length; j++) {
             let bestPrediction = bestPredictions[j]
-            console.log((new Date()).toISOString(), '[DEBUG] {BitcoinFactoryServer} Updating No', j+1 ,'Prediction now')
+            PL.logger.debug('{BitcoinFactoryServer} Updating No', j+1 ,'Prediction now')
 
             let newForecastedCandles = []
             let newRLPredictions = []
             //LSTM
             if (bestPrediction.percentageErrorRMSE != undefined) { 
-                console.log((new Date()).toISOString(), '[DEBUG] {BitcoinFactoryServer} It is LSTM')
+                PL.logger.debug('{BitcoinFactoryServer} It is LSTM')
 
                 let forecastedCandlesFileContent
                 let percentageError = Number(bestPrediction.percentageErrorRMSE)
@@ -160,7 +160,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
             //RL      
             } else if (bestPrediction.ratio_validate != undefined) {     
-                console.log((new Date()).toISOString(), '[DEBUG] {BitcoinFactoryServer} It is RL')
+                PL.logger.debug('{BitcoinFactoryServer} It is RL')
 
                 let RLPredictionsFileContent 
                 let newRLPrediction = {

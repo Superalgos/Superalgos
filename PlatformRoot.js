@@ -33,6 +33,9 @@ async function runRoot() {
   let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
   MULTI_PROJECT_MODULE.initialize(PL, 'PL')
   MULTI_PROJECT_MODULE.initialize(SA, 'SA')
+
+  SA.logger = require('./loggerFactory').loggerFactory(global.env.PATH_TO_LOG_FILES)
+
   /*
   Setting up external dependencies.
   */
@@ -107,7 +110,7 @@ async function runRoot() {
   async function run(initialWorkspace) {
     PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
     await PL.app.run(initialWorkspace)
-    console.log('Superalgos Platform App is Running!')
+    SA.logger.info('Superalgos Platform App is Running!')
     if (process.send) {
       process.send('Running')
     }

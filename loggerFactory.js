@@ -1,5 +1,14 @@
-const winston = require('winston');
+const { createLogger, format, transports } = require('winston');
+const { combine, splat, timestamp, printf } = format;
 require('winston-daily-rotate-file');
+
+const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
+    let msg = `${timestamp} | ${level} | ${message} `
+    if (metadata !== undefined && Object.keys(metadata).length > 0) {
+        msg += JSON.stringify(metadata)
+    }
+    return msg
+});
 
 /**
  * 
@@ -13,24 +22,28 @@ require('winston-daily-rotate-file');
  */
 exports.loggerFactory = function loggerFactory(logFileDirectory) {
     const filePathParts = logFileDirectory.split('/')
-    return winston.createLogger({
+    return createLogger({
         level: 'info',
-        format: winston.format.simple(),
+        format: combine(
+            splat(),
+            timestamp(),
+            myFormat
+        ),
         transports: [
-            new winston.transports.DailyRotateFile({
+            new transports.DailyRotateFile({
                 filename: filePathParts.concat(['error-%DATE%.log']).join('/'),
                 level: 'error',
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
             }),
-            new winston.transports.DailyRotateFile({
+            new transports.DailyRotateFile({
                 filename: filePathParts.concat(['combined-%DATE%.log']).join('/'),
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
             }),
-            new winston.transports.Console()
+            new transports.Console()
         ]
     })
 }

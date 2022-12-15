@@ -15,7 +15,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
             const secret = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName)
             if (secret === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
+                SA.logger.warn('You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
                 reject()
                 return
             }

@@ -120,9 +120,9 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                 */
                 /*
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
                 */
                 reject()
                 return
@@ -292,7 +292,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             try {
                 payload = JSON.parse(messageHeader.payload)
             } catch (err) {
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Payload Not Correct JSON Format.')
+                SA.logger.warn('Socket Network Clients -> Payload Not Correct JSON Format.')
             }
             switch (payload.networkService) {
                 case 'Social Graph': {
@@ -302,7 +302,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             thisObject.p2pNetworkClient.eventReceivedCallbackFunction
                         )
                     } else {
-                        console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Social Graph Network Service Client Not Running')
+                        SA.logger.warn('Socket Network Clients -> Social Graph Network Service Client Not Running')
                     }
                     break
                 }
@@ -317,12 +317,12 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             messageHeader.rankingStats
                         )
                     } else {
-                        console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Trading Signals Network Service Client Not Running')
+                        SA.logger.warn('Socket Network Clients -> Trading Signals Network Service Client Not Running')
                     }
                     break
                 }
                 default: {
-                    console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Network Service Not Supported -> messageHeader.networkService = ' + messageHeader.networkService)
+                    SA.logger.warn('Socket Network Clients -> Network Service Not Supported -> messageHeader.networkService = ' + messageHeader.networkService)
                 }
             }
         }

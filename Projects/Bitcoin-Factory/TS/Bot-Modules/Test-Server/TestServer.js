@@ -206,11 +206,11 @@
 
     async function updateDashboard() {
 
-        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} Updating Dashboard')
+        //TS.logger.debug('{TestServer} Updating Dashboard')
         let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
         let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Server|*|'+fileContent
         socketClientDashboard.send(messageToSend)
-        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} ' + messageToSend)
+        //TS.logger.debug('{TestServer} ' + messageToSend)
 
         fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
         messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Forecaster|*|'+fileContent

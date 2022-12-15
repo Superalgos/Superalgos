@@ -63,12 +63,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function addToforecastCases(testCase) {
         try {
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
-            if (testCase.ratio_validate !== undefined) console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
+            TS.logger.debug('{ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
+            if (testCase.ratio_validate !== undefined) TS.logger.debug('{ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
+            TS.logger.debug('{ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
-                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
+                TS.logger.debug('{ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
 
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
@@ -84,7 +84,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     } else if (testCase.ratio_validate !== undefined) {
                         console.log((new Date()).toISOString(),'Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
                         if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
-                            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} new testCase is better as existing forecastCase')
+                            TS.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
                             addForecastCase(testCase)

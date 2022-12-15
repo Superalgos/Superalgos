@@ -743,7 +743,7 @@
             return
         }
         reforecasting = true
-        console.log((new Date()).toISOString(), '[DEBUG] Length forecastCasesArray: ' + thisObject.forecastCasesArray.length + ' forecasting: ' + forecasting + ' reforecasting: ' + reforecasting)
+        TS.logger.debug('Length forecastCasesArray: ' + thisObject.forecastCasesArray.length + ' forecasting: ' + forecasting + ' reforecasting: ' + reforecasting)
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             let timestamp = (new Date()).valueOf()
@@ -976,7 +976,7 @@
                     console.log('[DEBUG] Testserver undefined j: ', j)
                     continue 
                 }
-                //console.log((new Date()).toISOString(), '[DEBUG] Look for local id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)
+                //TS.logger.debug('Look for local id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)
                 let foundForecastId = false
                 let otherTestServer = false
                 for (let i = 0; i < forecastCasesArrayfromTestserver.length; i++) {
@@ -988,7 +988,7 @@
                         console.log('[BUG] Testserver undefined')
                         continue 
                     }
-                        //console.log((new Date()).toISOString(), '[DEBUG] Found id on Test server ' + forecastCasesArrayfromTestserver[i].id + ' from ' + forecastCasesArrayfromTestserver[i].testServer.instance)
+                        //TS.logger.debug('Found id on Test server ' + forecastCasesArrayfromTestserver[i].id + ' from ' + forecastCasesArrayfromTestserver[i].testServer.instance)
                     if ((forecastCasesArrayfromTestserver[i].id == thisObject.forecastCasesArray[j].id) &&
                     (forecastCasesArrayfromTestserver[i].testServer.instance == thisObject.forecastCasesArray[j].testServer.instance)) {
                         otherTestServer = false
@@ -1009,12 +1009,12 @@
                     }
                 }
             }
-            //console.log((new Date()).toISOString(), '[DEBUG] Array length is now: ' + thisObject.forecastCasesArray.length)
+            //TS.logger.debug('Array length is now: ' + thisObject.forecastCasesArray.length)
             if (counter != 0) return counter
             //add forgein forecast cases, which we dont have in out db
             for (let i = 0; i < forecastCasesArrayfromTestserver.length; i++) {
                 let foundForecastId = false
-                //console.log((new Date()).toISOString(), '[DEBUG] Found id on Test server ' + forecastCasesArrayfromTestserver[i].id + ' from ' + forecastCasesArrayfromTestserver[i].testServer.instance)
+                //TS.logger.debug('Found id on Test server ' + forecastCasesArrayfromTestserver[i].id + ' from ' + forecastCasesArrayfromTestserver[i].testServer.instance)
                 for (let j = 0; j < thisObject.forecastCasesArray.length; j++) {
                     if ((forecastCasesArrayfromTestserver[i].id == thisObject.forecastCasesArray[j].id) &&
                     (forecastCasesArrayfromTestserver[i].testServer.instance == thisObject.forecastCasesArray[j].testServer.instance)) {
@@ -1028,7 +1028,7 @@
                     counter++
                 }
             }
-            //console.log((new Date()).toISOString(), '[DEBUG] Array length is now: ' + thisObject.forecastCasesArray.length)
+            //TS.logger.debug('Array length is now: ' + thisObject.forecastCasesArray.length)
             if (counter != 0) return counter
         }
         return counter

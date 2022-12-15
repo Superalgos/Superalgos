@@ -31,7 +31,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                             If we have a problem reading this folder we will assume that it is
                             because this project does not need this folder and that's it.
                             */
-                            //console.log((new Date()).toISOString(), '[WARN] Error reading a directory content. filePath = ' + dirPath)
+                            //PL.logger.warn('Error reading a directory content. filePath = ' + dirPath)
                         } else {
                             for(let i = 0; i < fileList.length; i++) {
                                 let name = 'Plugin \u2192 ' + fileList[i]

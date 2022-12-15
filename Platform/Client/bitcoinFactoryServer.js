@@ -35,7 +35,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         try {
             bestPredictions = JSON.parse(bestPredictionsData)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[WARN] {BitcoinFactoryServer} Error parsing JSON data ' + err.stack)
+            PL.logger.warn('{BitcoinFactoryServer} Error parsing JSON data ' + err.stack)
             return {
                 result: 'JSON Parse error'
             }            

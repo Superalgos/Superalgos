@@ -42,17 +42,17 @@
             //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> runTask -> Entering function.') 
 
             if (message.event === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskDefinition === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> runTask -> Message Received Without taskDefinition -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without taskDefinition -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
@@ -121,12 +121,12 @@
         function stopTask(message) {
             //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Entering function.')
             if (message.event === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
             //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
@@ -142,19 +142,19 @@
                 task.childProcess.send('Stop this Task');
                 //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
             } else {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
+                PL.logger.warn('Client -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
             }
         }
 
         function taskStatus(message) {
             //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> taskStatus -> Entering function.')
             if (message.event === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] Client -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                PL.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
             //console.log((new Date()).toISOString(), '[INFO] Client -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)

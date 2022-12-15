@@ -64,7 +64,7 @@ exports.newSchemaRoute = function newSchemaRoute() {
                         try {
                             schemaDocument = JSON.parse(fileContent)
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                            PL.logger.warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                             continue
                         }
                         schemaArray.push(schemaDocument)

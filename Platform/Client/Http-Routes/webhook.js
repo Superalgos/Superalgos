@@ -18,12 +18,12 @@ exports.newWebhookRoute = function newWebhookRoute() {
 
                 /* Some validations */
                 if (exchange === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                    PL.logger.warn('httpInterface -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }
                 if (market === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
+                    PL.logger.warn('httpInterface -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }
@@ -59,17 +59,17 @@ exports.newWebhookRoute = function newWebhookRoute() {
 
                     /* Some validations */
                     if (source === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }
                     if (exchange === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }
                     if (market === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }

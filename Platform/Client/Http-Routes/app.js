@@ -12,7 +12,7 @@ exports.newAppRoute = function newAppRoute() {
         const GITHUB_API_WAITING_TIME = 3000
         // If running the electron app do not try to get git tool. I don't allow it.
         if(process.env.SA_MODE === 'gitDisable') {
-            console.log((new Date()).toISOString(), '[WARN] No contributions on binary distributions. Do manual installation')
+            PL.logger.warn('No contributions on binary distributions. Do manual installation')
             return
         }
         switch(requestPath[2]) { // switch by command
@@ -343,10 +343,10 @@ exports.newAppRoute = function newAppRoute() {
                                     err.stack.indexOf('No commits between') >= 0
                                 ) {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                        PL.logger.warn('A pull request already exists. If any, commits would added to the existing Pull Request. ')
                                     }
                                     if(err.stack.indexOf('No commits between') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] No commits detected. Pull request not created. ')
+                                        PL.logger.warn('No commits detected. Pull request not created. ')
                                     }
                                     return
                                 } else {
@@ -543,10 +543,10 @@ exports.newAppRoute = function newAppRoute() {
                                     err.stack.indexOf('No commits between') >= 0
                                 ) {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                        PL.logger.warn('A pull request already exists. If any, commits would added to the existing Pull Request. ')
                                     }
                                     if(err.stack.indexOf('No commits between') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] No commits detected. Pull request not created. ')
+                                        PL.logger.warn('No commits detected. Pull request not created. ')
                                     }
                                     return
                                 } else {
@@ -1250,7 +1250,7 @@ exports.newAppRoute = function newAppRoute() {
                                     allAppSchemasFilePaths.push(fileToRead)
                                     allAppSchemasFileProjects.push(project)
                                 } catch(err) {
-                                    console.log((new Date()).toISOString(), '[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                    PL.logger.warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                                     continue
                                 }
                             }

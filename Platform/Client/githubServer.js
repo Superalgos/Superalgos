@@ -188,7 +188,7 @@ exports.newGithubServer = function newGithubServer() {
                         repo: repo,
                     }).catch(async err => {
                         PL.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[WARN] Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
+                        PL.logger.warn('Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
                         // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
                         await octokit.repos.createFork({
                             owner: 'Superalgos',
@@ -384,7 +384,7 @@ exports.newGithubServer = function newGithubServer() {
                             */
 
                             if (await mergePullRequest() === false) {
-                                console.log((new Date()).toISOString(), '[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
+                                PL.logger.warn('Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                             } else {
                                 console.log((new Date()).toISOString(), '[INFO] Github Server -> mergeGithubPullRequests -> Merge Succeed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Il grafico 4H ha mostrato un netto cambiamento di tendenza dopo il crollo, ma... per quanto riguarda il lungo termine? Controlliamo il grafico giornaliero!",
                 "updated": 1669900748385
+            },
+            {
+                "language": "NL",
+                "text": "De 4H-grafiek toonde een duidelijke verschuiving in de trend na de neerwaartse beweging, maar... hoe zit het met de lange termijn? Laten we de daggrafiek eens bekijken!",
+                "updated": 1670785862699
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Trova la candela del 10 aprile e prenditi un minuto per pensare a cosa significava, nel quadro generale, ciò che abbiamo appena analizzato nei tempi inferiori. Questo è quello che vedo:",
                     "updated": 1669900762994
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek de candle van 10 april en neem even de tijd om na te denken over wat het betekende - in het grote geheel - wat we zojuist in de lagere tijdsbestekken hebben geanalyseerd. Dit is wat ik zie:",
+                    "updated": 1670785889963
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "La passeggiata: Il periodo che abbiamo visto dal 7 al 10 aprile è stato infatti una piccola passeggiata sulla fascia alta giornaliera. Secondo le regole BB, ciò significa che il prezzo è relativamente alto in questo lasso di tempo.",
                     "updated": 1669900778238
+                },
+                {
+                    "language": "NL",
+                    "text": "The walk: De variërende periode die we zagen van 7 tot 10 april was eigenlijk een kleine wandeling op de dagelijkse bovenband. Volgens de BB-regels betekent dit dat de prijs in dit tijdsbestek relatief hoog is.",
+                    "updated": 1670785921515
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "IT",
                     "text": "Pullback: la rottura nei time frame inferiori ha segnato il pullback dalla banda superiore giornaliera.",
                     "updated": 1669900796852
+                },
+                {
+                    "language": "NL",
+                    "text": "Pullback: De neerwaartse beweging in de lagere tijdframes markeerde een verlaging van de dagelijkse bovenste band.",
+                    "updated": 1670785973331
                 }
             ]
         },
@@ -153,6 +173,11 @@
                     "language": "ES",
                     "text": "Continuación: La acción del precio en el marco de tiempo mayor terminó siendo un retroceso normal y una continuación, apenas cruzando la media móvil.",
                     "updated": 1668191823413
+                },
+                {
+                    "language": "NL",
+                    "text": "Continuation: De prijsactie in het grotere tijdsbestek werd uiteindelijk een normale terugval en voortzetting, die nauwelijks het voortschrijdend gemiddelde overschreed.",
+                    "updated": 1670786008858
                 }
             ]
         }

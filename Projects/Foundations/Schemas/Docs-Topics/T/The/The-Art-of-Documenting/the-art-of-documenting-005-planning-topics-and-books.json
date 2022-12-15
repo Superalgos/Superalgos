@@ -4,108 +4,283 @@
     "type": "Planning Topics and Books",
     "definition": {
         "text": "Now that you have iterated on Definition Pages, it's time to consider how you will present all the information to the reader.",
-        "updated": 1643049278880
+        "updated": 1643049278880,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы провели итерации по определению страниц, пришло время подумать о том, как вы представите всю информацию читателю.",
+                "updated": 1670680300113
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "At the highest level, the Docs are organized in books.",
-            "updated": 1643049291781
+            "updated": 1643049291781,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На самом высоком уровне документы организованы в книги.",
+                    "updated": 1670680311798
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A book is a collection of topics, each representing a chapter in the book. The purpose of a book is to offer a compendium of information optimized for linear reading, from start to end, usually covering an entire Project."
+            "text": "A book is a collection of topics, each representing a chapter in the book. The purpose of a book is to offer a compendium of information optimized for linear reading, from start to end, usually covering an entire Project.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Книга - это собрание тем, каждая из которых представляет собой главу в книге. Цель книги - предложить сборник информации, оптимизированный для линейного чтения, от начала до конца, обычно охватывающий весь проект.",
+                    "updated": 1670680327383
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A topic is a collection of pages that explore a certain feature or a particular dimension of a Project. When arranged in a book, each topic makes up a chapter in the book."
+            "text": "A topic is a collection of pages that explore a certain feature or a particular dimension of a Project. When arranged in a book, each topic makes up a chapter in the book.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тема - это набор страниц, на которых рассматривается определенная характеристика или конкретный аспект Проекта. При компоновке в книгу каждая тема составляет главу в книге.",
+                    "updated": 1670680382758
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Definition Pages you wrote are building blocks you will use to feed content on new pages you will create. Those pages will be topic pages, that is, the pages that make up a topic."
+            "text": "The Definition Pages you wrote are building blocks you will use to feed content on new pages you will create. Those pages will be topic pages, that is, the pages that make up a topic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Написанные вами страницы определения - это строительные блоки, которые вы будете использовать для подачи контента на новые страницы, которые вы создадите. Эти страницы будут тематическими страницами, то есть страницами, составляющими тему.",
+                    "updated": 1670680399013
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "With the above in mind, it's time to take a deep breath, sit, and think! The task at hand is a creative task for which there is no specific directive or formula to tell you how to approach it. You need to think what is the best way to explain the whole feature or project to someone that knows absolutely nothing about it!"
+            "text": "With the above in mind, it's time to take a deep breath, sit, and think! The task at hand is a creative task for which there is no specific directive or formula to tell you how to approach it. You need to think what is the best way to explain the whole feature or project to someone that knows absolutely nothing about it!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учитывая вышесказанное, пришло время сделать глубокий вдох, сесть и подумать! Поставленная задача - это творческое задание, для которого не существует конкретной директивы или формулы, которая подсказала бы вам, как к нему подойти. Вам нужно подумать, как лучше всего объяснить всю функцию или проект человеку, который абсолютно ничего об этом не знает!",
+                    "updated": 1670680419980
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Does the Content Fit an Existing Book?"
+            "text": "Does the Content Fit an Existing Book?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подходит ли содержание к уже существующей книге?",
+                    "updated": 1670680435628
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The main book in the Docs is the User Manual. This book covers all the aspects of the Superalgos Platform that involve the individual use of the system for individual traders."
+            "text": "The main book in the Docs is the User Manual. This book covers all the aspects of the Superalgos Platform that involve the individual use of the system for individual traders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Главная книга в документации - это Руководство пользователя. Эта книга охватывает все аспекты платформы Superalgos, связанные с индивидуальным использованием системы для отдельных трейдеров.",
+                    "updated": 1670680460398
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the feature or project you're documenting involves functionality directly related to trading automation using the Superalgos Platform, chances are that the content should end up enriching the User Manual book."
+            "text": "If the feature or project you're documenting involves functionality directly related to trading automation using the Superalgos Platform, chances are that the content should end up enriching the User Manual book.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если функция или проект, который вы документируете, включает функциональность, непосредственно связанную с автоматизацией торговли с использованием платформы Superalgos, есть вероятность, что содержание должно в конечном итоге обогатить книгу \"Руководство пользователя\".",
+                    "updated": 1670680477209
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If, on the other hand, the functionality involves other uses of the Superalgos Platform, like Governance, for instance, or is about collaborative uses of the platform, then chances are the content belongs to other existing books or a new book altogether."
+            "text": "If, on the other hand, the functionality involves other uses of the Superalgos Platform, like Governance, for instance, or is about collaborative uses of the platform, then chances are the content belongs to other existing books or a new book altogether.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если, с другой стороны, функциональность включает в себя другие виды использования платформы Superalgos, например, управление, или касается совместного использования платформы, то есть шанс, что содержание относится к другим существующим книгам или вообще к новой книге.",
+                    "updated": 1670680493365
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "All in all, this is the kind of decision that you shouldn't make on your own. Instead, you should get other contributors involved, particularly Community members with a track record writing documentation!"
+            "text": "All in all, this is the kind of decision that you shouldn't make on your own. Instead, you should get other contributors involved, particularly Community members with a track record writing documentation!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В целом, это тот тип решения, которое вы не должны принимать самостоятельно. Вместо этого вам следует привлечь других участников, особенно членов сообщества с опытом составления документации!",
+                    "updated": 1670680514263
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "General Guidance"
+            "text": "General Guidance",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Общее руководство",
+                    "updated": 1670680521508
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you're writing documentation for a whole new project, chances are you will write at least one topic, and likely more. How many topics you need depends on the depth and complexity of the project."
+            "text": "If you're writing documentation for a whole new project, chances are you will write at least one topic, and likely more. How many topics you need depends on the depth and complexity of the project.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы пишете документацию для совершенно нового проекта, есть вероятность, что вы напишете как минимум одну тему, а скорее всего, и больше. Сколько тем вам понадобится, зависит от глубины и сложности проекта.",
+                    "updated": 1670680535302
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If a project is large and deep enough, consider writing an entire introduction topic. The topic will likely have several pages offering an overview of the most important aspects of the project. This is where you will explain what the project is about, the kind of functionality it brings, and what users may achieve with it. It may also offer an overview of how the project interacts with the rest of the infrastructure. In any case, this introduction should feature the birds'-eye view and not go into operational details.",
-            "updated": 1643049460434
+            "updated": 1643049460434,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проект достаточно большой и глубокий, подумайте о написании целой вводной темы. Скорее всего, тема будет состоять из нескольких страниц, предлагающих обзор наиболее важных аспектов проекта. Здесь вы объясните, что представляет собой проект, какую функциональность он несет и чего пользователи могут достичь с его помощью. Здесь также можно предложить обзор того, как проект взаимодействует с остальной инфраструктурой. В любом случае, это введение должно быть представлено с высоты птичьего полета и не вдаваться в рабочие детали.",
+                    "updated": 1670680562979
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You may look into the introduction chapter of the User Manual and Governance books for reference.",
-            "updated": 1643049508392
+            "updated": 1643049508392,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете изучить вводную главу руководства пользователя и книги по управлению для справки.",
+                    "updated": 1670680622133
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let's briefly explore the layout of the introduction chapter of the User Manual. These are a few ideas worth mentioning:",
-            "updated": 1643049515630
+            "updated": 1643049515630,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте вкратце рассмотрим макет вводной главы руководства пользователя. Вот несколько идей, заслуживающих внимания:",
+                    "updated": 1670680689491
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The first page describes the few theoretical concepts and the main elements that make up the experience of engaging with the Superalgos Platform."
+            "text": "The first page describes the few theoretical concepts and the main elements that make up the experience of engaging with the Superalgos Platform.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На первой странице описаны несколько теоретических концепций и основные элементы, из которых складывается опыт взаимодействия с платформой Superalgos.",
+                    "updated": 1670680701963
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "It's a first glimpse into what users are getting into, mentioning a few specific notions like hierarchies, nodes, spaces, and workspaces."
+            "text": "It's a first glimpse into what users are getting into, mentioning a few specific notions like hierarchies, nodes, spaces, and workspaces.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это первый взгляд на то, с чем сталкиваются пользователи, в котором упоминается несколько специфических понятий, таких как иерархии, узлы, пространства и рабочие пространства.",
+                    "updated": 1670680716689
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The second page offers an overview of the concept of bots and clarifies some fundamental terminology."
+            "text": "The second page offers an overview of the concept of bots and clarifies some fundamental terminology.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вторая страница предлагает обзор концепции ботов и разъясняет некоторую фундаментальную терминологию.",
+                    "updated": 1670680728691
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The page goes a little bit deeper touching on other fundamental concepts, but still from the bird's-eye perspective."
+            "text": "The page goes a little bit deeper touching on other fundamental concepts, but still from the bird's-eye perspective.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта страница немного углубляется, затрагивая другие фундаментальные понятия, но по-прежнему с высоты птичьего полета.",
+                    "updated": 1670680741932
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The rest of the pages explore the rest of the fundamental concepts behind the overall design of the platform, this time offering a certain level of detail that help the user bring things down to earth."
+            "text": "The rest of the pages explore the rest of the fundamental concepts behind the overall design of the platform, this time offering a certain level of detail that help the user bring things down to earth.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На остальных страницах рассматриваются остальные фундаментальные концепции, лежащие в основе общего дизайна платформы, на этот раз предлагая определенный уровень детализации, который помогает пользователю свести все к реальности.",
+                    "updated": 1670680757118
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "These pages complete the overview of other high-level concepts that are particular to the workings of the Superalgos Platform."
+            "text": "These pages complete the overview of other high-level concepts that are particular to the workings of the Superalgos Platform.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти страницы завершают обзор других высокоуровневых концепций, которые являются специфическими для работы платформы Superalgos.",
+                    "updated": 1670680769475
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "After this broad introduction, the user is now ready to dive into a sequence of chapters offering the deepest level of detail on each of the topics covered."
+            "text": "After this broad introduction, the user is now ready to dive into a sequence of chapters offering the deepest level of detail on each of the topics covered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После такого широкого введения пользователь готов погрузиться в последовательность глав, предлагающих самый глубокий уровень детализации по каждой из рассматриваемых тем.",
+                    "updated": 1670680781241
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each subsequent chapter in the book covers either a specific hierarchy or a specific concept. Because all of these concepts and hierarchies interact with each other in complex manners, there is no absolute best way to order chapters. However, we try to arrange them in a logical order, with the following question in mind: "
+            "text": "Each subsequent chapter in the book covers either a specific hierarchy or a specific concept. Because all of these concepts and hierarchies interact with each other in complex manners, there is no absolute best way to order chapters. However, we try to arrange them in a logical order, with the following question in mind: ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В каждой последующей главе книги рассматривается либо конкретная иерархия, либо конкретная концепция. Поскольку все эти концепции и иерархии сложным образом взаимодействуют друг с другом, не существует абсолютно лучшего способа упорядочить главы. Однако мы стараемся расположить их в логическом порядке, имея в виду следующий вопрос:",
+                    "updated": 1670680805088
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "What is the best way to explain the whole thing to someone that knows nothing about it?"
+            "text": "What is the best way to explain the whole thing to someone that knows nothing about it?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как лучше всего объяснить все это человеку, который ничего об этом не знает?",
+                    "updated": 1670680813693
+                }
+            ]
         }
     ]
 }

@@ -306,7 +306,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 ' -> instance = ' + queryReceived.instance)
                             resolve(response)
                         } else {
-                            console.log((new Date()).toISOString(), '[WARN] Request Expired                              -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                            NT.logger.warn('Request Expired                              -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +

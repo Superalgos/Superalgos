@@ -41,7 +41,7 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
         return new Promise((resolve, reject) => {
             let body = []
             httpRequest.on('error', (err) => {
-                console.error('[ERROR] getRequestBodyAync -> err.stack = ', err.stack)
+                SA.logger.error('getRequestBodyAync -> err.stack = ', err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 reject(err)
             }).on('data', (chunk) => {

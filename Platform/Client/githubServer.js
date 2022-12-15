@@ -119,7 +119,7 @@ exports.newGithubServer = function newGithubServer() {
                                         break
                                     }
                                 }
-                                //console.log(listItem)
+                                //PL.logger.info(listItem)
 
                                 githubListArray.push(githubUsername)
                             }
@@ -127,7 +127,7 @@ exports.newGithubServer = function newGithubServer() {
                             // PL.logger.info('Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
 
                         } catch (err) {
-                            console.log(err)
+                            PL.logger.error(err)
 
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
@@ -303,7 +303,7 @@ exports.newGithubServer = function newGithubServer() {
                                 PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
 
                             } catch (err) {
-                                console.log(err)
+                                PL.logger.error(err)
 
                                 if (err.stack.indexOf('last page') >= 0) {
                                     return
@@ -707,7 +707,7 @@ exports.newGithubServer = function newGithubServer() {
                                         return false
                                     }
                                 } catch (err) {
-                                    console.log(err.stack)
+                                    PL.logger.error(err.stack)
                                 }
                             }
 
@@ -778,7 +778,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                     return true
                                 } catch (err) {
-                                    console.log(err.stack)
+                                    PL.logger.error(err.stack)
                                 }
                             }
 

@@ -134,7 +134,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
+            // NT.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
 
             let response = {
                 result: 'Ok',
@@ -142,7 +142,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 data: query.run()
             }
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
+            // NT.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
             query.finalize()
             return response
 

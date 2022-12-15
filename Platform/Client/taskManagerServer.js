@@ -92,7 +92,7 @@
             task.childProcess.on('error', (err) => {
                 PL.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
                 PL.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
-                console.log(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
+                PL.logger.error(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
                 tasksMap.delete(task.id)
             })
             /* If the Task Server stops, we remove it from our task map */
@@ -224,8 +224,8 @@
                     if (handler) {
                         handler.callBack(message)
                     } else {
-                        console.log(key + ' not found so could not deliver event raised.')
-                        console.log(' Message = ' + data)
+                        PL.logger.error(key + ' not found so could not deliver event raised.')
+                        PL.logger.error(' Message = ' + data)
                     }
                     return
                 }

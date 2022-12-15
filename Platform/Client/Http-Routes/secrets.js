@@ -23,7 +23,7 @@ exports.newSecretsRoute = function newSecretsRoute() {
                         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
 
-                        console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                        PL.logger.info('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
 
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 

@@ -31,7 +31,7 @@
 
                 let lastNonce = -1
                 if (LOG_INFO === true) {
-                    console.log('New Websocket Connection.')
+                    PL.logger.info('New Websocket Connection.')
                 }
 
                 socket.on('message', onMessage)
@@ -62,15 +62,15 @@
                                     ||
                                     message.toString().indexOf('"eventType":"Resume Learning Session"') >= 0
                                 ) {
-                                    console.log('Trying to execute a Task while in DEMO MODE. Some hacking has taken place!')
-                                    console.log('Hacker IP Address is: ' + socket._socket.remoteAddress)
+                                    PL.logger.info('Trying to execute a Task while in DEMO MODE. Some hacking has taken place!')
+                                    PL.logger.info('Hacker IP Address is: ' + socket._socket.remoteAddress)
                                     return
                                 }
                             }
                         }
 
                         if (LOG_INFO === true) {
-                            console.log('Message Received: ' + message.toString().substring(0, 10000))
+                            PL.logger.info('Message Received: ' + message.toString().substring(0, 10000))
                         }
 
                         let messageArray = message.toString().split('|*|')

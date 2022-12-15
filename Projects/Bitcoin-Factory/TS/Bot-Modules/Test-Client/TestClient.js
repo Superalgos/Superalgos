@@ -393,7 +393,7 @@
                     }
 
                     TS.logger.error(err.stack)
-                    console.error(err)
+                    TS.logger.error(err)
                 }
                 resolve(processExecutionResult)
             }

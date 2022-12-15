@@ -53,7 +53,7 @@ exports.newHttpInterface = function newHttpInterface() {
             }
         } catch (err) {
             if (err.stack !== undefined) {
-                console.log(err.stack)
+                PL.logger.error(err.stack)
             }
             if (err.message !== undefined) {
                 PL.logger.error('onHttpRequest -> err.message = ' + err.message)

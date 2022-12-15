@@ -27,7 +27,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -76,7 +76,7 @@ exports.newAppRoute = function newAppRoute() {
                         "githubToken": token
                     }
 
-                    console.log(creds)
+                    PL.logger.info(creds)
                     let error
 
                     saveCreds().catch(errorResp)
@@ -84,7 +84,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -187,7 +187,7 @@ exports.newAppRoute = function newAppRoute() {
                                     anchor: undefined,
                                     placeholder: {}
                                 }
-                                console.log('respond with docs ')
+                                TS.logger.info('respond with docs ')
 
                                 respondWithDocsObject(docs, error)
                                 return
@@ -266,13 +266,13 @@ exports.newAppRoute = function newAppRoute() {
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                console.log('')
-                                console.log('Troubleshooting Tips:')
-                                console.log('')
-                                console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                PL.logger.error('')
+                                PL.logger.error('Troubleshooting Tips:')
+                                PL.logger.error('')
+                                PL.logger.error('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                PL.logger.error('2. Make sure you are running the latest version of Git available for your OS.')
+                                PL.logger.error('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                PL.logger.error('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
 
                                 error = err
                             }
@@ -326,7 +326,7 @@ exports.newAppRoute = function newAppRoute() {
 
                         async function createPullRequest(repo) {
                             try {
-                                console.log(' ')
+                                PL.logger.info(' ')
                                 PL.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
@@ -438,7 +438,7 @@ exports.newAppRoute = function newAppRoute() {
                                     anchor: undefined,
                                     placeholder: {}
                                 }
-                                console.log('respond with docs ')
+                                PL.logger.info('respond with docs ')
 
                                 respondWithDocsObject(docs, error)
                                 return
@@ -491,13 +491,13 @@ exports.newAppRoute = function newAppRoute() {
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                 PL.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                console.log('')
-                                console.log('Troubleshooting Tips:')
-                                console.log('')
-                                console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                PL.logger.error('')
+                                PL.logger.error('Troubleshooting Tips:')
+                                PL.logger.error('')
+                                PL.logger.error('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                PL.logger.error('2. Make sure you are running the latest version of Git available for your OS.')
+                                PL.logger.error('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                PL.logger.error('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
 
                                 error = err
                             }
@@ -526,7 +526,7 @@ exports.newAppRoute = function newAppRoute() {
 
                         async function createPullRequest(repo) {
                             try {
-                                console.log(' ')
+                                PL.logger.info(' ')
                                 PL.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
@@ -678,7 +678,7 @@ exports.newAppRoute = function newAppRoute() {
 
                         } catch(err) {
                             PL.logger.error('Error updating ' + currentBranch)
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                             return {error: err}
                         }
                     }
@@ -728,7 +728,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -806,7 +806,7 @@ exports.newAppRoute = function newAppRoute() {
                             function responce(err, diffSummary) {
                                 if(err !== null) {
                                     PL.logger.error('Error while gathering diff summary for ' + repo)
-                                    console.log(err.stack)
+                                    PL.logger.error(err.stack)
                                     error = err
                                 } else {
                                     return diffSummary
@@ -815,7 +815,7 @@ exports.newAppRoute = function newAppRoute() {
 
                         } catch(err) {
                             PL.logger.error('Error while gathering diff summary for ' + repo)
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                             error = err
                         }
                         return [repo, diffObj, upstreamArray];
@@ -845,7 +845,7 @@ exports.newAppRoute = function newAppRoute() {
 
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -904,13 +904,13 @@ exports.newAppRoute = function newAppRoute() {
 
                         } catch(err) {
                             PL.logger.error('Error changing current branch to ' + currentBranch)
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                             error = err
                         }
                     }
 
                     async function runNodeSetup() {
-                        console.log("Running Node setup to adjust for new Branch")
+                        PL.logger.info("Running Node setup to adjust for new Branch")
                         const process = SA.nodeModules.process
                         const childProcess = SA.nodeModules.childProcess
 
@@ -921,7 +921,7 @@ exports.newAppRoute = function newAppRoute() {
                                 cwd: dir
                             }).toString();
 
-                        console.log("Node Setup has completed with the following result:", stdout)
+                        PL.logger.info("Node Setup has completed with the following result:", stdout)
                     }
 
                 } catch(err) {
@@ -983,7 +983,7 @@ exports.newAppRoute = function newAppRoute() {
                             return await git.branch()
                         } catch(err) {
                             PL.logger.error('Error reading current branch.')
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                         }
                     }
 
@@ -1015,7 +1015,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -1067,13 +1067,13 @@ exports.newAppRoute = function newAppRoute() {
                             if(status === '') {
                                 status = global.DEFAULT_OK_RESPONSE
                             } else {
-                                console.log('[ERROR} There are still differences found for this file')
-                                console.log(status)
+                                PL.logger.error('[ERROR} There are still differences found for this file')
+                                PL.logger.error(status)
                             }
 
                         } catch(err) {
                             PL.logger.error('Error while discarding changes to ' + filepath)
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                             error = err
                         }
                         return status
@@ -1104,7 +1104,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        PL.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -1176,7 +1176,7 @@ exports.newAppRoute = function newAppRoute() {
 
                         } catch(err) {
                             PL.logger.error('Error changing current branch to ' + currentBranch)
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                             error = err
                         }
                     }
@@ -1206,7 +1206,7 @@ exports.newAppRoute = function newAppRoute() {
                 }
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
 
-                console.log('Fixing App Schemas...')
+                PL.logger.info('Fixing App Schemas...')
 
                 let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                 let PROJECTS_MAP = new Map()
@@ -1228,7 +1228,7 @@ exports.newAppRoute = function newAppRoute() {
                         try {
                             let SCHEMA_MAP = new Map()
 
-                            console.log('files.length... ' + files.length)
+                            PL.logger.info('files.length... ' + files.length)
 
                             for(let k = 0; k < files.length; k++) {
                                 let name = files[k]
@@ -1239,7 +1239,7 @@ exports.newAppRoute = function newAppRoute() {
                                 }
                                 let fileToRead = filePath + folder + fileName
 
-                                console.log('Reading file... ' + fileToRead)
+                                PL.logger.info('Reading file... ' + fileToRead)
 
                                 let fileContent = fs.readFileSync(fileToRead)
                                 let schemaDocument
@@ -1257,20 +1257,20 @@ exports.newAppRoute = function newAppRoute() {
                             PROJECTS_MAP.set(project, SCHEMA_MAP)
                             directoryCount++
 
-                            console.log('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
-                            //console.log(Array.from(PROJECTS_MAP.get(project).keys()))
+                            PL.logger.info('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
+                            //PL.logger.info(Array.from(PROJECTS_MAP.get(project).keys()))
                             if(directoryCount === projects.length) {
                                 fixSchemas()
                             }
                         } catch(err) {
-                            console.log(err.stack)
+                            PL.logger.error(err.stack)
                         }
                     }
                 }
 
                 function fixSchemas() {
                     try {
-                        console.log('fixSchemas...' + allAppSchemas.length)
+                        PL.logger.info('fixSchemas...' + allAppSchemas.length)
                         let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         //const fs = SA.nodeModules.fs
                         let needFixing = 0
@@ -1295,7 +1295,7 @@ exports.newAppRoute = function newAppRoute() {
                                             multiProject = multiProject + ' -> ' + project
 
                                             let fileProject = allAppSchemasFileProjects[i]
-                                            //console.log(fileProject, project)
+                                            //PL.logger.info(fileProject, project)
                                             if(fileProject === project) {
                                                 /* If the project of the file is the same as the project found, then we consider this a match*/
                                                 hits = 1
@@ -1305,31 +1305,31 @@ exports.newAppRoute = function newAppRoute() {
                                     }
 
                                     if(hits === 0) {
-                                        console.log('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
-                                        console.log('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
+                                        PL.logger.info('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
+                                        PL.logger.info('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
                                         continue
                                     }
                                     if(hits === 1) {
-                                        console.log('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
+                                        PL.logger.info('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
 
                                         menuItem.relatedUiObjectProject = foundProject
                                         wasUpdated = true
                                         continue
                                     }
-                                    console.log('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
+                                    PL.logger.info('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
                                 }
                             }
 
                             //if (wasUpdated === true) {
                             //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                             //let filePath = allAppSchemasFilePaths[i]
-                            //console.log('Saving File at ' + filePath)
-                            //console.log(fileContent)
+                            //PL.logger.info('Saving File at ' + filePath)
+                            //PL.logger.info(fileContent)
                             //fs.writeFileSync(filePath, fileContent)
                             //}
                         }
                     } catch(err) {
-                        console.log(err.stack)
+                        PL.logger.error(err.stack)
                     }
                 }
 

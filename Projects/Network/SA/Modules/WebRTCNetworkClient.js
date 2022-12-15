@@ -44,9 +44,9 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
 
         await setUpWebSocketClient(socket)
 
-        console.log('')
-        console.log('WebRTC Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
-        console.log('')
+        SA.logger.info('')
+        SA.logger.info('WebRTC Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        SA.logger.info('')
         thisObject.socketNetworkClients.isConnected = true
 
     }
@@ -71,7 +71,7 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        SA.logger.info('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)

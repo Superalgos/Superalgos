@@ -166,10 +166,10 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         },
                         async function (error) {
                             if (error) {
-                                console.log('')
-                                console.log("[ERROR] There was an error clonning this Network node repo. " + repoURL);
-                                console.log('')
-                                console.log(error)
+                                NT.logger.error('')
+                                NT.logger.error("[ERROR] There was an error clonning this Network node repo. " + repoURL);
+                                NT.logger.error('')
+                                NT.logger.error(error)
                                 throw (error)
                             } else {
                                 NT.logger.info('Clonning repo ' + repoURL + ' succeed.')
@@ -267,7 +267,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 if (errorMessage === undefined) {
                                     errorMessage = err
                                 }
-                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
+                                NT.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
                     }

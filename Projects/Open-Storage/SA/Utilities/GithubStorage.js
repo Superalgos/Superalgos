@@ -112,7 +112,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             axios
                 .get(URL)
                 .then(res => {
-                    //console.log(`statusCode: ${res.status}`)
+                    //SA.logger.info(`statusCode: ${res.status}`)
 
                     resolve(res.data)
                 })

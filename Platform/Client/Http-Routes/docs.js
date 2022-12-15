@@ -285,7 +285,7 @@ exports.newDocsRoute = function newDocsRoute() {
                 if(schemaDocument.deleted === true) {
                     try {
                         fs.unlinkSync(newFilepath + '/' + fileName)
-                        console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
+                        PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
                     } catch(err) {
                         noErrorsDuringSaving = false
                         PL.logger.error('httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
@@ -303,10 +303,10 @@ exports.newDocsRoute = function newDocsRoute() {
                             SA.projects.foundations.utilities.filesAndDirectories.createNewDir(newFilepath)
                             fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                             if(created === true) {
-                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
+                                PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                             } else {
                                 if(updated === true) {
-                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                    PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                 }
                             }
                         } catch(err) {

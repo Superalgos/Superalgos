@@ -114,7 +114,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
 
                                 if(error != undefined) {
-                                    console.log(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
+                                    PL.logger.error(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
                                 }
                             }
 
@@ -130,7 +130,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                         anchor: undefined,
                                         placeholder: {}
                                     }
-                                    console.log('respond with docs ')
+                                    PL.logger.info('respond with docs ')
 
                                     respondWithDocsObject(docs, error)
                                     return
@@ -163,7 +163,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                 const sha = await getSHA(path);
 
                                 if(sha === undefined) {
-                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                    PL.logger.warn('***** Abort GOV.USERPROFILE *****')
                                     return
                                 }
 
@@ -252,14 +252,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     )
 
                                     if(repository.name === undefined) {
-                                        console.log('***** Token permission needed : User:READ *****')
+                                        PL.logger.warn('***** Token permission needed : User:READ *****')
                                         sha = undefined
                                         error = '***** Token permission needed : User:READ *****'
                                         return sha
                                     }
 
                                     if(repository.object === null) {
-                                        console.log("[User Not Found] -> Creating new user")
+                                        PL.logger.warn("[User Not Found] -> Creating new user")
                                         return sha
                                     }
                                     sha = repository.object.oid
@@ -301,9 +301,9 @@ exports.newGOVRoute = function newGOVRoute() {
                     }
 
                     case 'payContributors': {
-                        console.log('----------------------------------------------------------------------------------------------')
-                        console.log('DISTRIBUTION PROCESS STARTED')
-                        console.log('----------------------------------------------------------------------------------------------')
+                        PL.logger.info('----------------------------------------------------------------------------------------------')
+                        PL.logger.info('DISTRIBUTION PROCESS STARTED')
+                        PL.logger.info('----------------------------------------------------------------------------------------------')
 
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 

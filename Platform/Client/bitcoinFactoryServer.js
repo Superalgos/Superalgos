@@ -113,7 +113,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         */
                         newForecastedCandles.push(newForecastedCandle)
                     } else {
-                        console.log("[ERROR] Cound not update Superalgos. " + err.stack)
+                        PL.logger.error('Cound not update Superalgos. ' + err.stack)
                         return
                     }
                 }  
@@ -336,7 +336,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
             reportsDirectory = SA.nodeModules.fs.readdirSync('./Bitcoin-Factory/Reports')
         }
         catch(err) {
-            console.log((new Date()).toISOString(), "[ERROR] Cannot access directory for Bitcoin Factory Reports: ./Bitcoin-Factory/Reports/")
+            PL.logger.warn("Cannot access directory for Bitcoin Factory Reports: ./Bitcoin-Factory/Reports/")
             return {
                 result: 'Not Ok'
             }
@@ -353,7 +353,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                     rewardsFile = SA.nodeModules.fs.readFileSync('./Bitcoin-Factory/Reports/' + reportsDirectory[f])
                 }
                 catch(err) {
-                    console.log((new Date()).toISOString(), "[ERROR] Unable to open Governance Rewards File ./Bitcoin-Factory/Reports/" + reportsDirectory[f])
+                    PL.logger.error("Unable to open Governance Rewards File ./Bitcoin-Factory/Reports/" + reportsDirectory[f])
                     continue
                 }
 
@@ -394,12 +394,12 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 }
                 /* Check if file contained any malformed lines */
                 if (parsingError > 0) {
-                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
+                    PL.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
                     continue
                 }             
                 /* Check if file contains mandatory columns */             
                 if (!headers.includes("assignedTimestamp") || !headers.includes("testedByProfile") || !headers.includes("status")) {
-                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
+                    PL.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
                     continue
                 }
 
@@ -422,15 +422,15 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 }
                 if (debugMode === true) {
                     if (recordsCounter === 0) {
-                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
+                        PL.logger.info("Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
                     } else {
-                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
+                        PL.logger.info("Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
                     }
                 }
             }
         }
         if (debugMode === true) {
-            console.log((new Date()).toISOString(), "[INFO] Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
+            PL.logger.info("Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
         }
         return {
             result: 'Ok',

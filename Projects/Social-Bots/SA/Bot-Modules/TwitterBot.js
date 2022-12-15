@@ -107,6 +107,6 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     }
 
     function logError(message) {
-        console.error('[ERROR]', message)
+        SA.logger.error(message)
     }
 }

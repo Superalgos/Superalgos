@@ -74,8 +74,8 @@ exports.newSchemaRoute = function newSchemaRoute() {
                 }
             } catch(err) {
                 if(err.message.indexOf('no such file or directory') < 0) {
-                    console.log('Could not send Schema:', filePath, schemaType)
-                    console.log(err.stack)
+                    PL.logger.error('Could not send Schema:', filePath, schemaType)
+                    PL.logger.error(err.stack)
                 }
                 SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
             }

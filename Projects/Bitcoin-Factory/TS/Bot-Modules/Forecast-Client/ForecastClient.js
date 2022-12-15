@@ -725,7 +725,7 @@
                             TS.logger.error('processExecutionResult.predictions:' + processExecutionResult.predictions)
                         }
                         TS.logger.error(err.stack)
-                        console.error(err)
+                        TS.logger.error(err)
                     }    
                 }
                 resolve(processExecutionResult)

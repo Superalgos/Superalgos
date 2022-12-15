@@ -16,7 +16,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
     function respondWithFile(fileName, httpResponse) {
         let fs = SA.nodeModules.fs
         if (fileName.indexOf('undefined') > 0) {
-            console.log('[WRN] respondWithFile -> Received httpRequest for undefined file. ')
+            SA.logger.warn('respondWithFile -> Received httpRequest for undefined file. ')
             respondWithContent(undefined, httpResponse)
         } else {
             try {
@@ -26,7 +26,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
                     if (!err) {
                         respondWithContent(file.toString(), httpResponse)
                     } else {
-                        //console.log('File requested not found: ' + fileName)
+                        //SA.logger.info('File requested not found: ' + fileName)
                         respondWithContent(undefined, httpResponse)
                     }
                 }

@@ -82,7 +82,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                         }
                     //RL     
                     } else if (testCase.ratio_validate !== undefined) {
-                        console.log((new Date()).toISOString(),'Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
+                        TS.logger.info('Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
                         if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
                             TS.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)

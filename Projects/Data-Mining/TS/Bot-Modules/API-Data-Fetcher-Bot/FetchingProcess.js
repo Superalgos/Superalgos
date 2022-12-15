@@ -1266,9 +1266,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     saveData(existingFile)
                                 } catch (err) {
                                     if (err) {
-                                        console.log((new Date()).toISOString(), '[ERROR]' + err.message + err.stack)
+                                        TS.logger.error('[ERROR]' + err.message + err.stack)
                                     } else {
-                                        console.log((new Date()).toISOString(), '[Success] Files Updated')
+                                        TS.logger.error('[Success] Files Updated')
                                     }
                                 }
                             }
@@ -1326,7 +1326,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     // First we must control our path info to iterate through all data in the API response.
                                                     switch (timestampPath.length) {
                                                         case (1): {
-                                                            console.log(console.log((new Date()).toISOString(), 'This data does not have anything to loop through. Please use a different save option.') )
+                                                            console.log(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
                                                             break
                                                         }
                                                         // If two we will count up and loop through all possible responses.
@@ -1350,7 +1350,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
         
                                                         switch (dataPath.length) {
                                                             case (1): {
-                                                                console.log(console.log((new Date()).toISOString(), 'This data does not have anything to loop through. Please use a different save option.') )
+                                                                console.log(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
                                                                 break
                                                             }
                                                             // If two we will count up and loop through all possible responses.
@@ -1530,7 +1530,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                             saveDatasetFile("/" + dateForPath)
                                             writeStatusReport()
-                                            console.log((new Date()).toISOString(), '[Success] API Response Saved.')
+                                            TS.logger.info('[Success] API Response Saved.')
                                             return
 
                                         } else {
@@ -1575,7 +1575,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                         if ((content.length - 1) === c) {
                                             writeStatusReport()
-                                            console.log((new Date()).toISOString(), '[Success] API Response Saved.')
+                                            TS.logger.info('[Success] API Response Saved.')
                                             return
                                         }
                                     }

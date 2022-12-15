@@ -61,13 +61,13 @@
     function openDashboardSocket() {
         socketClientDashboard = new SA.nodeModules.ws.WebSocket('ws://localhost:18043')
         socketClientDashboard.on('close', function (close) {
-            console.log((new Date()).toISOString(),'[INFO] {TestServer} Dashboard App has been disconnected.')
+            TS.logger.info('[INFO] {TestServer} Dashboard App has been disconnected.')
         })
         socketClientDashboard.on('error', function (error) {
-            console.log((new Date()).toISOString(),'[ERROR] {TestServer} Dashboards Client error: ', error.message, error.stack)
+            TS.logger.error('[ERROR] {TestServer} Dashboards Client error: ', error.message, error.stack)
         });
         socketClientDashboard.on('message', function (message) {
-            console.log((new Date()).toISOString(),'[INFO] {TestServer} This is a message coming from the Dashboards App', message)
+            TS.logger.info('[INFO] {TestServer} This is a message coming from the Dashboards App', message)
         });
     }
 

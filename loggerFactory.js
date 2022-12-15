@@ -19,7 +19,7 @@ const customLevels = {
 
 const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
     let msg = `${timestamp} | ${level} | ${message} `
-    if (metadata !== undefined && Object.keys(metadata).length > 0) {
+    if (Object.keys(metadata).length > 0) {
         msg += JSON.stringify(metadata)
     }
     return msg

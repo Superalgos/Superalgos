@@ -56,8 +56,8 @@ exports.newListSpaceFilesRoute = function newListSpaceFilesRoute() {
                         }
                     }
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] Error reading a directory content. filePath = ' + path)
-                    console.log((new Date()).toISOString(), '[ERROR] err.stack = ' + err.stack)
+                    PL.logger.error('Error reading a directory content. filePath = ' + path)
+                    PL.logger.error('err.stack = ' + err.stack)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }

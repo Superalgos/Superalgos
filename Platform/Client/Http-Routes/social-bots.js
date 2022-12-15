@@ -18,23 +18,23 @@ exports.newSocialBotsRoute = function newSocialBotsRoute() {
                         let socialBot = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
                         socialBot.initialize(config)
                             .then(response => {
-                                console.log('httpInterface > Discord Bot >', response)
+                                PL.logger.info('httpInterface > Discord Bot >', response)
                                 socialBot.sendMessage(text)
                                     .then(response => {
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                     })
                                     .catch(err => {
-                                        console.error(err)
+                                        PL.logger.error(err)
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     })
                             })
                             .catch(err => {
-                                console.error('error initializing discord bot', err)
+                                PL.logger.error('error initializing discord bot', err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                     })
                 break
             case 'Slack-Test-Message':
@@ -49,12 +49,12 @@ exports.newSocialBotsRoute = function newSocialBotsRoute() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                             })
                             .catch(err => {
-                                console.error(err)
+                                PL.logger.error(err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                     })
                 break
             case 'Twitter-Test-Message':
@@ -69,12 +69,12 @@ exports.newSocialBotsRoute = function newSocialBotsRoute() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                             })
                             .catch(err => {
-                                console.error(err)
+                                PL.logger.error(err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                     })
                 break
         }

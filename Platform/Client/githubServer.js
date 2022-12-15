@@ -132,12 +132,12 @@ exports.newGithubServer = function newGithubServer() {
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->username = ' + username)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->username = ' + username)
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
+                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
                                 return
                             }
@@ -147,12 +147,12 @@ exports.newGithubServer = function newGithubServer() {
             }
 
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> Method call produced an error.')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> err.stack = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> repository = ' + repository)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> username = ' + username)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+            PL.logger.error('Github Server -> getRepoInfo -> Method call produced an error.')
+            PL.logger.error('Github Server -> getRepoInfo -> err.stack = ' + err.stack)
+            PL.logger.error('Github Server -> getRepoInfo -> repository = ' + repository)
+            PL.logger.error('Github Server -> getRepoInfo -> username = ' + username)
+            PL.logger.error('Github Server -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
+            PL.logger.error('Github Server -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',
@@ -187,7 +187,7 @@ exports.newGithubServer = function newGithubServer() {
                         owner: username,
                         repo: repo,
                     }).catch(async err => {
-                        console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                        PL.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
                         console.log((new Date()).toISOString(), '[WARN] Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
                         // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
                         await octokit.repos.createFork({
@@ -198,16 +198,16 @@ exports.newGithubServer = function newGithubServer() {
                     })
                 } catch (err) {
                     if (err === undefined) { return }
-                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                    PL.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
                 }
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> Method call produced an error.')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> err.stack = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> repository = ' + repository)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> username = ' + username)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
+            PL.logger.error('Github Server -> createGithubFork -> Method call produced an error.')
+            PL.logger.error('Github Server -> createGithubFork -> err.stack = ' + err.stack)
+            PL.logger.error('Github Server -> createGithubFork -> repository = ' + repository)
+            PL.logger.error('Github Server -> createGithubFork -> username = ' + username)
+            PL.logger.error('Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
+            PL.logger.error('Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',
@@ -308,12 +308,12 @@ exports.newGithubServer = function newGithubServer() {
                                 if (err.stack.indexOf('last page') >= 0) {
                                     return
                                 } else {
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
+                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                     error = err
                                     return
                                 }
@@ -856,12 +856,12 @@ exports.newGithubServer = function newGithubServer() {
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
-                                console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
+                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
                                 return
                             }
@@ -871,17 +871,17 @@ exports.newGithubServer = function newGithubServer() {
 
                 } catch (err) {
                     if (err === undefined) { return }
-                    console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
+                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }
             }
 
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> Method call produced an error.')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> repository = ' + repo)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> username = ' + username)
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
-            console.log((new Date()).toISOString(), '[ERROR] Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> Method call produced an error.')
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> repository = ' + repo)
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> username = ' + username)
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
+            PL.logger.error('Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',

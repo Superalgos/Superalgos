@@ -13,7 +13,7 @@ exports.newWorkspaceRoute = function newWorkspaceRoute() {
             let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started-Tutorials.json'
             fs.readFile(filePath, onFileRead)
         } catch(e) {
-            console.log((new Date()).toISOString(), '[ERROR] Error reading the Workspace.', e)
+            PL.logger.error('Error reading the Workspace.', e)
         }
 
         function onFileRead(err, workspace) {

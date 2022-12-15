@@ -56,7 +56,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 console.log(err.stack)
             }
             if (err.message !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] onHttpRequest -> err.message = ' + err.message)
+                PL.logger.error('onHttpRequest -> err.message = ' + err.message)
             }
         }
     }

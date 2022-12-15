@@ -28,9 +28,9 @@ exports.newSecretsRoute = function newSecretsRoute() {
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                     } catch (err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',

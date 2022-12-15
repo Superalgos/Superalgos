@@ -51,8 +51,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -112,8 +112,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> SaveCreds -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> SaveCreds -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -156,7 +156,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git')
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             await doGit().catch(e => {
                                 error = e
@@ -261,11 +261,11 @@ exports.newAppRoute = function newAppRoute() {
 
                                 await git.push('origin', currentBranch)
                             } catch(err) {
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                 console.log('')
                                 console.log('Troubleshooting Tips:')
                                 console.log('')
@@ -350,14 +350,14 @@ exports.newAppRoute = function newAppRoute() {
                                     }
                                     return
                                 } else {
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     error = err
                                 }
                             }
@@ -365,14 +365,14 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+                    PL.logger.error('httpInterface -> App -> Contribute -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                    PL.logger.error('httpInterface -> App -> Contribute -> username = ' + username)
+                    PL.logger.error('httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                    PL.logger.error('httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                    PL.logger.error('httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                    PL.logger.error('httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                     let error = {
                         result: 'Fail Because',
@@ -407,7 +407,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git')
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             await doGit().catch(e => {
                                 error = e
@@ -486,11 +486,11 @@ exports.newAppRoute = function newAppRoute() {
                                     .commit(commitMessage)
                                 await git.push('origin', currentBranch)
                             } catch(err) {
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                PL.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                 console.log('')
                                 console.log('Troubleshooting Tips:')
                                 console.log('')
@@ -550,14 +550,14 @@ exports.newAppRoute = function newAppRoute() {
                                     }
                                     return
                                 } else {
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                    PL.logger.error('httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     error = err
                                 }
                             }
@@ -565,14 +565,14 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+                    PL.logger.error('httpInterface -> App -> Contribute -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                    PL.logger.error('httpInterface -> App -> Contribute -> username = ' + username)
+                    PL.logger.error('httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                    PL.logger.error('httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                    PL.logger.error('httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                    PL.logger.error('httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                     let error = {
                         result: 'Fail Because',
@@ -594,7 +594,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             let result = await doGit()
 
@@ -677,15 +677,15 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error updating ' + currentBranch)
+                            PL.logger.error('Error updating ' + currentBranch)
                             console.log(err.stack)
                             return {error: err}
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -705,8 +705,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> RestartRequired -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -745,7 +745,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             let repoStatus = []
                             let status
@@ -800,12 +800,12 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                             if(upstreamArray.length === 0) {
-                                console.log((new Date()).toISOString(), '[ERROR] Unexpected response from command git remote. Responded with:', raw)
+                                PL.logger.error('Unexpected response from command git remote. Responded with:', raw)
                             }
 
                             function responce(err, diffSummary) {
                                 if(err !== null) {
-                                    console.log((new Date()).toISOString(), '[ERROR] Error while gathering diff summary for ' + repo)
+                                    PL.logger.error('Error while gathering diff summary for ' + repo)
                                     console.log(err.stack)
                                     error = err
                                 } else {
@@ -814,7 +814,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error while gathering diff summary for ' + repo)
+                            PL.logger.error('Error while gathering diff summary for ' + repo)
                             console.log(err.stack)
                             error = err
                         }
@@ -822,8 +822,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -862,7 +862,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             // Checkout branch from main repo
                             await doGit().catch(errorResp)
@@ -903,7 +903,7 @@ exports.newAppRoute = function newAppRoute() {
                             await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error changing current branch to ' + currentBranch)
+                            PL.logger.error('Error changing current branch to ' + currentBranch)
                             console.log(err.stack)
                             error = err
                         }
@@ -925,8 +925,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -947,7 +947,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             let result = await doGit()
 
@@ -982,14 +982,14 @@ exports.newAppRoute = function newAppRoute() {
                         try {
                             return await git.branch()
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error reading current branch.')
+                            PL.logger.error('Error reading current branch.')
                             console.log(err.stack)
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -1032,7 +1032,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             let status
 
@@ -1072,7 +1072,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error while discarding changes to ' + filepath)
+                            PL.logger.error('Error while discarding changes to ' + filepath)
                             console.log(err.stack)
                             error = err
                         }
@@ -1080,8 +1080,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -1121,7 +1121,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            PL.logger.error('`git` not installed.')
                         } else {
                             // Reset main repo
                             await doGit().catch(errorResp)
@@ -1175,15 +1175,15 @@ exports.newAppRoute = function newAppRoute() {
                             await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error changing current branch to ' + currentBranch)
+                            PL.logger.error('Error changing current branch to ' + currentBranch)
                             console.log(err.stack)
                             error = err
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',

@@ -485,7 +485,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
                             break
                         default:
-                            console.log((new Date()).toISOString(), '[ERROR] No RPC URI configured for chain ' + chain)
+                            PL.logger.error('No RPC URI configured for chain ' + chain)
                             return
                     }
                     
@@ -545,7 +545,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             );
                             break
                         default:
-                            console.log((new Date()).toISOString(), '[ERROR] No chain configuration present for chain ' + chain)
+                            PL.logger.error('No chain configuration present for chain ' + chain)
                             return
                     }                    
 
@@ -594,13 +594,13 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
-                            console.log((new Date()).toISOString(), '[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
+                            PL.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
                         })
 
                     console.log('Result:', result)
                     return result
                 } catch (err) {
-                    console.log((new Date()).toISOString(), '[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
+                    PL.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
                 // We do not want to exceed any limits, so we take a breather in the end of each run.
                 await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)

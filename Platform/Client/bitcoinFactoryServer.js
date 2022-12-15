@@ -208,8 +208,8 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         */
                         newRLPredictions.push(newRLPrediction)
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] {BitcoinFactoryServer} Cound not update Superalgos. Error-Code: ' +err.code)
-                        console.log((new Date()).toISOString(), '[ERROR] {BitcoinFactoryServer} Error-Stack' + err.stack)
+                        PL.logger.error('{BitcoinFactoryServer} Cound not update Superalgos. Error-Code: ' +err.code)
+                        PL.logger.error('{BitcoinFactoryServer} Error-Stack' + err.stack)
                         return
                     }
                 }

@@ -189,14 +189,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     if(err.stack.indexOf('Error User Commit') >= 0) {
                                         return
                                     } else {
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                         error = err
                                     }
                                 }
@@ -212,14 +212,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
                                         return
                                     } else {
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                        PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                         error = err
                                     }
 
@@ -267,28 +267,28 @@ exports.newGOVRoute = function newGOVRoute() {
 
                                 } catch(err) {
 
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                    PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     return sha
 
                                 }
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                            PL.logger.error('httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
 
                             let error = {
                                 result: 'Fail Because',
@@ -324,9 +324,9 @@ exports.newGOVRoute = function newGOVRoute() {
                     }
                 }
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> Params Received = ' + body)
+                PL.logger.error('httpInterface -> GOV -> Method call produced an error.')
+                PL.logger.error('httpInterface -> GOV -> err.stack = ' + err.stack)
+                PL.logger.error('httpInterface -> GOV -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

@@ -90,8 +90,8 @@
             tasksMap.set(message.event.taskId, task)
             /* If the Task Server crashes, we remove it from our task map */
             task.childProcess.on('error', (err) => {
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
+                PL.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
+                PL.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
                 console.log(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
                 tasksMap.delete(task.id)
             })
@@ -238,8 +238,8 @@
                     return
                 }
             } catch (err) {
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> data = ' + JSON.stringify(data))
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> error = ' + err.stack)
+                PL.logger.error('Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> data = ' + JSON.stringify(data))
+                PL.logger.error('Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> error = ' + err.stack)
             }
         }
 
@@ -266,8 +266,8 @@
 
                 PL.servers.EVENT_SERVER.onMessage(JSON.stringify(command), thisObject.onMessage)
             } catch (err) {
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> command = ' + JSON.stringify(command))
-                console.log((new Date()).toISOString(), '[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> error = ' + err.stack)
+                PL.logger.error('Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> command = ' + JSON.stringify(command))
+                PL.logger.error('Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> error = ' + err.stack)
             }
         }
 

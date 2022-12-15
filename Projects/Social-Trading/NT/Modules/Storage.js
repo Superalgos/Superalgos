@@ -261,7 +261,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                             } catch (err) {
                                 if (err.stack !== undefined) {
-                                    console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                                    NT.logger.error('Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
                                 if (errorMessage === undefined) {

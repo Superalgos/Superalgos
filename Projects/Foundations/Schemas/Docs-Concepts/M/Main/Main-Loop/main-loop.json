@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Большинство ботов в Superalgos не спят все время. В качестве стратегии сохранения аппаратных ресурсов они запускаются и переходят в спящий режим в течение настраиваемого количества времени или до тех пор, пока они не будут разбужены завершением какой-либо другой задачи, которую они ждут. Каждый цикл работы и сна - это цикл в основном цикле бота.",
                 "updated": 1638285721759
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'taki çoğu Bot her zaman uyanık değildir. Donanım kaynaklarını korumak için bir strateji olarak, yapılandırılabilir bir süre boyunca veya bekledikleri başka bir görevin tamamlanmasıyla uyandırılana kadar çalışır ve uyurlar. Her bir çalışma ve uyku döngüsü, bir Botun Ana Döngüsündeki bir döngüdür.",
+                "updated": 1671108160642
             }
         ]
     },

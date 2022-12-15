@@ -1,6 +1,21 @@
-const { createLogger, format, transports } = require('winston');
+const { createLogger, format, transports, addColors } = require('winston');
 const { combine, splat, timestamp, printf } = format;
 require('winston-daily-rotate-file');
+
+const customLevels = {
+    levels: {
+        error: 0,
+        warn: 1,
+        info: 2,
+        debug: 3
+    },
+    colors: {
+        error: 'red',
+        warn: 'yellow',
+        info: 'white',
+        debug: 'green',
+    }
+};
 
 const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
     let msg = `${timestamp} | ${level} | ${message} `
@@ -22,8 +37,9 @@ const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
  */
 exports.loggerFactory = function loggerFactory(logFileDirectory) {
     const filePathParts = logFileDirectory.split('/')
+    addColors(customLevels.colors)
     return createLogger({
-        level: 'info',
+        levels: customLevels.levels,
         format: combine(
             splat(),
             timestamp(),
@@ -31,14 +47,14 @@ exports.loggerFactory = function loggerFactory(logFileDirectory) {
         ),
         transports: [
             new transports.DailyRotateFile({
-                filename: filePathParts.concat(['error','%DATE%.log']).join('/'),
+                filename: filePathParts.concat(['error', '%DATE%.log']).join('/'),
                 level: 'error',
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
             }),
             new transports.DailyRotateFile({
-                filename: filePathParts.concat(['combined','%DATE%.log']).join('/'),
+                filename: filePathParts.concat(['combined', '%DATE%.log']).join('/'),
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,

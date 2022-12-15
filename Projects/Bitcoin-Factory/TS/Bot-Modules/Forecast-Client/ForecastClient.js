@@ -27,7 +27,7 @@
             /*
             Create Missing Folders, if needed.
             */
-            console.log((new Date()).toISOString(), 'Running Forecast Client v.' + FORECAST_CLIENT_VERSION)
+            TS.logger.info('Running Forecast Client v.' + FORECAST_CLIENT_VERSION)
             let dir
             dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Forecast-Client/StateData/ForecastCases'
             if (!SA.nodeModules.fs.existsSync(dir)) {
@@ -117,7 +117,7 @@
     
                         async function onError(err) {
                                 forecasting = false
-                                console.log((new Date()).toISOString(), 'Failed to Build the Model for this Forecast Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                                TS.logger.error('Failed to Build the Model for this Forecast Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         }
                     } else {
@@ -140,12 +140,12 @@
                             .catch(onErrorRePublish)
                         async function onSuccessRePublish(result) {
                             forecasting = false
-                            console.log((new Date()).toISOString(), '3')
+                            TS.logger.info('3')
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                         }
                         async function onErrorRePublish(err) {
                             forecasting = false
-                            console.log((new Date()).toISOString(), '4')
+                            TS.logger.info('4')
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         }   
                         */                                 
@@ -218,7 +218,7 @@
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
         } else {
-            console.log((new Date()).toISOString(), 'Already Working on Forecasting', 'Retrying in 60 seconds...')
+            TS.logger.info('Already Working on Forecasting', 'Retrying in 60 seconds...')
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)        
         }
     }
@@ -581,7 +581,7 @@
         console.log('Parameters Received for this Forecast:')
         console.table(getRelevantParameters(nextForecastCase.parameters))
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting to process this Case')
+        TS.logger.info('Starting to process this Case')
         console.log('')
 
         if (buildnewModel) {
@@ -739,7 +739,7 @@
         logQueue()
 
         if (reforecasting === true) {
-            console.log((new Date()).toISOString(), 'Already Working on Reforecasting', 'Retrying in 60 seconds...')
+            TS.logger.info('Already Working on Reforecasting', 'Retrying in 60 seconds...')
             return
         }
         reforecasting = true
@@ -749,29 +749,29 @@
             let timestamp = (new Date()).valueOf()
 
             if (timestamp < forecastCase.expiration) {
-                console.log((new Date()).toISOString(), 'Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' not expired yet. No need to Reforecast.', 'Reviewing this in 60 seconds...')
+                TS.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' not expired yet. No need to Reforecast.', 'Reviewing this in 60 seconds...')
                 continue
             } else {
-                console.log((new Date()).toISOString(), 'Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' expired.', 'Reforecasting now.')
+                TS.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' expired.', 'Reforecasting now.')
                 await reforecast(forecastCase, i)
                     .then(onSuccess)
                     .catch(onError)
                 async function onSuccess() {
-                    console.log((new Date()).toISOString(), 'Successfull Reforecasted Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance)
+                    TS.logger.info('Successfull Reforecasted Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance)
                     logQueue(forecastCase)
                 }
                 async function onError(err) {
                     if (err === 'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE') {
-                        console.log((new Date()).toISOString(), 'Removing Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' from our records.')
+                        TS.logger.error('Removing Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' from our records.')
                         if (removeForecastCase(forecastCase.id,forecastCase.testServer.instance)) {
-                            console.log((new Date()).toISOString(), 'was removed')
+                            TS.logger.error('was removed')
                             i--
                         } else {
-                            console.log((new Date()).toISOString(), 'was NOT removed -> Please report this bug')
+                            TS.logger.error('was NOT removed -> Please report this bug')
                         }
                         saveForecastCasesFile()
                     } else {
-                        console.log((new Date()).toISOString(), 'Some problem at the Test Server ' + forecastCase.testServer.instance + ' prevented to reforecast Case Id ' + forecastCase.id + ' . Server responded with: ' + err)
+                        TS.logger.error('Some problem at the Test Server ' + forecastCase.testServer.instance + ' prevented to reforecast Case Id ' + forecastCase.id + ' . Server responded with: ' + err)
                     }
                 }
             }
@@ -832,7 +832,7 @@
 
                     let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
                     if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
-                        console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forecasting of case ' + thisForecastCase.id + ' in 60 seconds...')
+                        TS.logger.info('The file provided by the Test Server is the same we already have.', 'Retrying the forecasting of case ' + thisForecastCase.id + ' in 60 seconds...')
                         reject('The same file that we already made a prediction with.')
                         return
                     }
@@ -913,21 +913,21 @@
                         else reject()
                     }
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Failed to produce a Reforecast for Case Id ' + forecastCase.id + '. Err:', err)
+                        TS.logger.error('Failed to produce a Reforecast for Case Id ' + forecastCase.id + '. Err:', err)
                         //if reforecast didnt work, remove the case from array (looks like model is wrong) and start again new with building model
                         if (removeForecastCase(forecastCase.id,forecastCase.testServer.instance)) {
-                            console.log((new Date()).toISOString(), 'was removed')
+                            TS.logger.error('was removed')
                             saveForecastCasesFile()
                         }
                         reject(err)
                     }
                 } else {
-                    console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 60 seconds...')
+                    TS.logger.info('Nothing to Forecast', 'Retrying in 60 seconds...')
                     reject('Nothing to Forecast')
                 }
             }
             async function onError(err) {
-                console.log((new Date()).toISOString(), 'Failed to get the Forecast Case Id ' + forecastCase.id + '. Err:', err)
+                TS.logger.error('Failed to get the Forecast Case Id ' + forecastCase.id + '. Err:', err)
                 reject(err)
             }
         }
@@ -1002,10 +1002,10 @@
                     if (removeForecastCase(thisObject.forecastCasesArray[j].id,thisObject.forecastCasesArray[j].testServer.instance)) {
                         j--
                         saveForecastCasesFile()
-                        //console.log((new Date()).toISOString(), 'was removed')
+                        //TS.logger.info('was removed')
                         counter--
                     } else {
-                        //console.log((new Date()).toISOString(), 'was NOT removed -> Please report this bug')                                                 
+                        //TS.logger.info('was NOT removed -> Please report this bug')                                                 
                     }
                 }
             }
@@ -1024,7 +1024,7 @@
                 if ( !foundForecastId ) {
                     thisObject.forecastCasesArray.push(forecastCasesArrayfromTestserver[i])
                     saveForecastCasesFile()
-                    //console.log((new Date()).toISOString(), 'Added Forecast Case ' + forecastCasesArrayfromTestserver[i].id + ' from Testserver ' + forecastCasesArrayfromTestserver[i].testServer.instance)
+                    //TS.logger.info('Added Forecast Case ' + forecastCasesArrayfromTestserver[i].id + ' from Testserver ' + forecastCasesArrayfromTestserver[i].testServer.instance)
                     counter++
                 }
             }

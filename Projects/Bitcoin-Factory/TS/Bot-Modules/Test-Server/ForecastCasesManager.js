@@ -301,8 +301,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 saveForecastCasesFile()    
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} Error processing forecast results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
+            TS.logger.error('{Test-Server} Error processing forecast results. Err = ' + err.stack)
+            TS.logger.error('{Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
         }
 
         function calculatePercentageErrorRMSE(forecastResult) {

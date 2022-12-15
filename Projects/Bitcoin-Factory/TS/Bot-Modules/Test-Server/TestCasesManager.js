@@ -429,8 +429,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             saveTestCasesFile()
             TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Error processing test results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] testResult = ' + JSON.stringify(testResult))
+            TS.logger.error('Error processing test results. Err = ' + err.stack)
+            TS.logger.error('testResult = ' + JSON.stringify(testResult))
         }
 
         function calculatePercentageErrorRMSE(testResult) {

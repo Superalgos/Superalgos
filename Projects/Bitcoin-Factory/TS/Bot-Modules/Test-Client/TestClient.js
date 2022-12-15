@@ -329,10 +329,10 @@
                 if (code === 0) {
                     onFinished(dataReceived)
                 } else {
-                    console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
-                    console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                    console.log((new Date()).toISOString(), '[ERROR] docker exec ' + BOT_CONFIG.dockerContainerName + ' python -u /tf/notebooks/' + nextTestCase.pythonScriptName)
-                    console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
+                    TS.logger.error('Unexpected error trying to execute a Python script inside the Docker container. ')
+                    TS.logger.error('Check at a console if you can run this command: ')
+                    TS.logger.error('docker exec ' + BOT_CONFIG.dockerContainerName + ' python -u /tf/notebooks/' + nextTestCase.pythonScriptName)
+                    TS.logger.error('Once you can sucessfully run it at the console you might want to try to run this App again. ')
                     reject('Unexpected Error.')
                 }
             });

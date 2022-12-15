@@ -63,11 +63,11 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         // only if message.type == Get Next Forecast Case || == Get All Forecast Cases => no test server is okay
         if ((message.testServer != undefined) && (message.testServer.instance != undefined) && ((message.type != 'Get Next Forecast Case') && (message.type != 'Get All Forecast Cases'))) {
             if (message.testServer.instance != TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName) {
-                console.log((new Date()).toISOString(), '[ERROR] We did receive a message from ' + currentClientInstance + ', which asked for testserver '+message.testServer.instance+', but I am '+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName+'. Write a bug report.')
+                TS.logger.error('We did receive a message from ' + currentClientInstance + ', which asked for testserver '+message.testServer.instance+', but I am '+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName+'. Write a bug report.')
                 return 'WRONG TESTSERVER! I AM:'+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
             }
         } else if ((message.type!='Get Next Forecast Case') && (message.type != 'Get All Forecast Cases')) {
-            console.log((new Date()).toISOString(), '[ERROR] We did receive a message from ' + currentClientInstance + ', which has no target testserver. Write a bug report.')
+            TS.logger.error('We did receive a message from ' + currentClientInstance + ', which has no target testserver. Write a bug report.')
             return 'NO TESTSERVER! I AM:'+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
         }
         switch (message.type) {

@@ -1290,10 +1290,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                         if (thisConfig.nodePath !== undefined && thisConfig.nodePath !== '') {
                                                             pathToTimestamp = thisConfig.nodePath
                                                         } else {
-                                                            console.log((new Date()).toISOString(), '[ERROR] The path to the timestamp is not defined.')
+                                                            TS.logger.error('The path to the timestamp is not defined.')
                                                         }
                                                     } else {
-                                                        console.log((new Date()).toISOString(), '[ERROR] We have encountered a problem with the apiResponseFieldReference.')
+                                                        TS.logger.error('We have encountered a problem with the apiResponseFieldReference.')
                                                     }
                                                 } else {
                                                     /**If the record is not a timestamp we will assume it is data. */
@@ -1303,10 +1303,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                             let thisPath = thisConfig.nodePath
                                                             pathToData.push(thisPath)
                                                         } else {
-                                                            console.log((new Date()).toISOString(), '[ERROR] The path to the data record is not defined.')
+                                                            TS.logger.error('The path to the data record is not defined.')
                                                         }
                                                     } else {
-                                                        console.log((new Date()).toISOString(), '[ERROR] We have encountered a problem with the apiResponseFieldReference.')
+                                                        TS.logger.error('We have encountered a problem with the apiResponseFieldReference.')
                                                     }
                                                 }
                                             }
@@ -1449,7 +1449,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 }
                                             }
                                     } else {
-                                        console.log((new Date()).toISOString(), '[ERROR] dataReceivedObject is not defined. We have no data to save.')
+                                        TS.logger.error('dataReceivedObject is not defined. We have no data to save.')
                                     }
                                 }
 

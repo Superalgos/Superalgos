@@ -282,9 +282,9 @@
                     }               
                 }
                 async function onError(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
-                    console.log((new Date()).toISOString(), '[ERROR] Err: ', err, ' TrialNo: ', curSendTries)
-                    console.log((new Date()).toISOString(), '[ERROR] Retrying to send the Forecast Report in 60 seconds...')
+                    TS.logger.error('Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
+                    TS.logger.error('Err: ', err, ' TrialNo: ', curSendTries)
+                    TS.logger.error('Retrying to send the Forecast Report in 60 seconds...')
                 }  
                 curSendTries++
             }
@@ -298,7 +298,7 @@
     }
     async function onErrorPublish(err) {
         forecasting = false
-        console.log((new Date()).toISOString(), '[ERROR] Err on publishing: ', err)
+        TS.logger.error('Err on publishing: ', err)
     }
 
 
@@ -391,7 +391,7 @@
                     }
                     for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                         if (thisObject.forecastCasesArray[i].id == nextForecastCase.id) {
-                            console.log((new Date()).toISOString(), '[ERROR] Test Server ' + nextForecastCase.testServer.instance + ' did send me forecast case ' + nextForecastCase.id + ', which is allready in local database')
+                            TS.logger.error('Test Server ' + nextForecastCase.testServer.instance + ' did send me forecast case ' + nextForecastCase.id + ', which is allready in local database')
                          //   reject('DUPLICATE FORECAST CASE')
                         }
                     }
@@ -449,7 +449,7 @@
                     if (thisForecastCase.id == forecastCase.id) {
                         resolve(thisForecastCase)
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] I asked for Forecast Case id ' + forecastCase.id + ', but got Case id ' + thisForecastCase.id + ' back')
+                        TS.logger.error('I asked for Forecast Case id ' + forecastCase.id + ', but got Case id ' + thisForecastCase.id + ' back')
                         reject('RESPONSE WITH WRONG FORECAST CASE ID')
                     }
                 } else {
@@ -660,18 +660,18 @@
                     onFinished(dataReceived)
                 } else {
                     dockerPID = undefined
-                    console.log((new Date()).toISOString(), '[ERROR] Forecaster: Docker Python Script exited with code ' + code);
-                    console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
-                    console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML-Forecasting python -u /tf/notebooks/' + nextForecastCase.pythonScriptName)
-                    console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
+                    TS.logger.error('Forecaster: Docker Python Script exited with code ' + code);
+                    TS.logger.error('Unexpected error trying to execute a Python script inside the Docker container. ')
+                    TS.logger.error('Check at a console if you can run this command: ')
+                    TS.logger.error('docker exec -it Bitcoin-Factory-ML-Forecasting python -u /tf/notebooks/' + nextForecastCase.pythonScriptName)
+                    TS.logger.error('Once you can sucessfully run it at the console you might want to try to run this App again. ')
                     reject('Unexpected Error.')
                 }
             });
     
             function onError(err) {
                 err = err.toString()
-                // ACTIVATE THIS ONLY FOR DEBUGGING console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script: ' + err)
+                // ACTIVATE THIS ONLY FOR DEBUGGING TS.logger.error('Unexpected error trying to execute a Python script: ' + err)
             }
     
             function onFinished(dataReceived) {
@@ -903,9 +903,9 @@
                                 }
                             }
                             async function onError(err) {
-                                console.log((new Date()).toISOString(), '[ERROR] Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
-                                console.log((new Date()).toISOString(), '[ERROR] Err: ', err, ' TrialNo: ', curSendTries)
-                                console.log((new Date()).toISOString(), '[ERROR] Retrying to send the Forecast Report.')
+                                TS.logger.error('Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
+                                TS.logger.error('Err: ', err, ' TrialNo: ', curSendTries)
+                                TS.logger.error('Retrying to send the Forecast Report.')
                             }
                             curSendTries++
                         }

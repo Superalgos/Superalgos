@@ -60,7 +60,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
         SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
         
-        const plLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'NT')
+        const ntLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'NT')
         NT.logger = require('./loggerFactory').loggerFactory(ntLogsPath)
 
         /* 

@@ -27,7 +27,7 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         rankingStats
     ) {
         if (signalReceivedCallbackFunction === undefined) {
-            console.log((new Date()).toISOString(), '[ERROR] Cannot receive signals because the Trading Bot Instance does not have a Social Trading Bot Reference. Plese fix this and run this Task again. ')
+            SA.logger.error('Cannot receive signals because the Trading Bot Instance does not have a Social Trading Bot Reference. Plese fix this and run this Task again. ')
             return
         }
 

@@ -100,8 +100,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                         reject()
                         return
                     }
-                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.message = ' + err.message)
-                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
+                    SA.logger.error('Web Sockets Network Client -> onError -> err.message = ' + err.message)
+                    SA.logger.error('Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
                 }
@@ -118,7 +118,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 }
 
             } catch (err) {
-                console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
+                SA.logger.error('Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
             }
         }
     }

@@ -59,7 +59,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 if (err.status === 404) {
                     createNewFile()
                 } else {
-                    console.log((new Date()).toISOString(), '[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                    SA.logger.error('File could not be saved at Github.com. -> err.stack = ' + err.stack)
                     reject(err)
                 }
             }
@@ -87,7 +87,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             }
 
             function githubError(err) {
-                console.log((new Date()).toISOString(), '[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
+                SA.logger.error('Github Storage -> saveFile -> err.stack = ' + err.stack)
                 reject()
             }
         }
@@ -118,12 +118,12 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 })
                 .catch(error => {
 
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> Error = ' + error)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> completePath = ' + completePath)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> repo = ' + repo)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> owner = ' + owner)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> branch = ' + branch)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> URL = ' + URL)
+                    SA.logger.error('Github Storage -> Load File -> Error = ' + error)
+                    SA.logger.error('Github Storage -> Load File -> completePath = ' + completePath)
+                    SA.logger.error('Github Storage -> Load File -> repo = ' + repo)
+                    SA.logger.error('Github Storage -> Load File -> owner = ' + owner)
+                    SA.logger.error('Github Storage -> Load File -> branch = ' + branch)
+                    SA.logger.error('Github Storage -> Load File -> URL = ' + URL)
 
                     reject()
                 })

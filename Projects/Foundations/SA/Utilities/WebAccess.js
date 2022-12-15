@@ -17,7 +17,7 @@ exports.newFoundationsUtilitiesWebAccess = function () {
                 .then((response) => {
 
                     if (response.status !== 200) {
-                        console.log((new Date()).toISOString(), '[ERROR] fetchAPIData -> then -> url =' + url)
+                        SA.logger.error('fetchAPIData -> then -> url =' + url)
                         let err = {
                             message: 'Fetch of ' + url + ' failed with status ' + response.status
                         }
@@ -33,7 +33,7 @@ exports.newFoundationsUtilitiesWebAccess = function () {
                     }
                 })
                 .catch(err => {
-                    console.log((new Date()).toISOString(), '[ERROR] fetchAPIData -> url =' + url)
+                    SA.logger.error('fetchAPIData -> url =' + url)
                     reject(err)
                 })
         }

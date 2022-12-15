@@ -31,14 +31,14 @@ exports.loggerFactory = function loggerFactory(logFileDirectory) {
         ),
         transports: [
             new transports.DailyRotateFile({
-                filename: filePathParts.concat(['error-%DATE%.log']).join('/'),
+                filename: filePathParts.concat(['error','%DATE%.log']).join('/'),
                 level: 'error',
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
             }),
             new transports.DailyRotateFile({
-                filename: filePathParts.concat(['combined-%DATE%.log']).join('/'),
+                filename: filePathParts.concat(['combined','%DATE%.log']).join('/'),
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,

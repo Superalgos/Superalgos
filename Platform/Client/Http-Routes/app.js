@@ -1351,10 +1351,10 @@ exports.newAppRoute = function newAppRoute() {
                     text: error.stack
                 }
             }
-            if(error.code !== undefined) {
+            if(error.status !== undefined) {
                 docs.placeholder.errorCode = {
                     style: 'Json',
-                    text: error.code
+                    text: error.status
                 }
             }
 

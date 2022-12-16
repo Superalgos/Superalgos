@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Varsayılan Piyasa, belirli bir Görevin içinden çıktığı Piyasa Veri Görevleri, Piyasa Alım Satım Görevleri, Piyasa Öğrenme Görevleri düğümleri tarafından referans verilen piyasadır. Bu Görevin içinde çalışan Ticaret Botu, bu referans piyasayı Varsayılan Piyasa olarak kabul edecektir.",
-                "updated": 1654390959063
+                "text": "Varsayılan Piyasa, belirli bir Görevin ( Task ) içinden çıktığı Piyasa Veri Görevleri ( Market Data Tasks ), Piyasa Ticaret Görevleri ( Market Trading Tasks ), Piyasa Öğrenme Görevleri ( Market Learning Tasks ) düğümleri tarafından referans verilen piyasadır. Bu Görevin ( Task ) içinde çalışan Ticaret Botu ( Trading Bot ), bu referans piyasayı Varsayılan Piyasa olarak kabul edecektir.",
+                "updated": 1671219871221
             }
         ]
     },

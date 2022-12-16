@@ -110,7 +110,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         await createTimeSeriesFile()
 
         if (forecastedCandle === undefined) {
-            console.log((new Date()).toISOString(), 'Could not produce the object forecasted candle. Please check the config that you have a minimun of 3 labels: Candle Close, Max, Min and 1 Feature: Candle Open only with the option ON. Also check that your data mining operation is running and the files needed from it already exist before running the Test Server. ')
+            TS.logger.info('Could not produce the object forecasted candle. Please check the config that you have a minimun of 3 labels: Candle Close, Max, Min and 1 Feature: Candle Open only with the option ON. Also check that your data mining operation is running and the files needed from it already exist before running the Test Server. ')
         }
 
         return forecastedCandle
@@ -271,9 +271,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                         try {
                             indicatorFile = JSON.parse(indicatorFileContent)
                         } catch (err) {
-                            console.log((new Date()).toISOString(), 'Error parsing an indicator file. It seems that it does not have a valid JSON format. Check the file mentioned below for incorrect data values like undefined, infinite, NaN, and the like. If necesary fix the indicator or remove it from the configuration of the Test Server.')
-                            console.log((new Date()).toISOString(), 'indicatorFileKey = ' + indicatorFileKey)
-                            console.log((new Date()).toISOString(), err.stack)
+                            TS.logger.error('Error parsing an indicator file. It seems that it does not have a valid JSON format. Check the file mentioned below for incorrect data values like undefined, infinite, NaN, and the like. If necesary fix the indicator or remove it from the configuration of the Test Server.')
+                            TS.logger.error('indicatorFileKey = ' + indicatorFileKey)
+                            TS.logger.error(err.stack)
                             throw(err)
                         }
 
@@ -293,7 +293,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                             try {
                                 recordProperty.parsedConfig = JSON.parse(recordProperty.config)
                             } catch (err) {
-                                console.log((new Date()).toISOString(), err.stack)
+                                TS.logger.error(err.stack)
                                 continue
                             }
                         }
@@ -427,7 +427,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                             try {
                                                 config = JSON.parse(recordProperty.config)
                                             } catch (err) {
-                                                console.log((new Date()).toISOString(), err.stack)
+                                                TS.logger.error(err.stack)
                                                 continue
                                             }
                                             if (config.isCalculated === true) { continue }
@@ -464,7 +464,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 if (currentFileHash === undefined || currentFileHash !== newFileHash) {
 
                     SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
-                    console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
+                    TS.logger.info('Dataset File Saved: ' + testCase.timeSeriesFileName)
 
                     savedDataset = {
                         fileHash: newFileHash,

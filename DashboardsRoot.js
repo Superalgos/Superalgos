@@ -42,6 +42,13 @@ async function runRoot() {
     path: require('path'),
     ws: require('ws')
   }
+
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
+  
+  const dsLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'DS')
+  DS.logger = require('./loggerFactory').loggerFactory(dsLogsPath)
+
   /* 
   Setting up the App Schema Memory Map. 
   */

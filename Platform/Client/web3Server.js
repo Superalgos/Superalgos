@@ -347,7 +347,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 return undefined
             }
         } catch(err) {
-            console.log("Gas Price Query Error: ", err)
+            PL.logger.error("Gas Price Query Error: ", err)
         }
     }
 
@@ -435,9 +435,9 @@ exports.newWeb3Server = function newWeb3Server() {
             let response = await mnemonicToPrivateKey(mnemonic)
             let privateKey = response.privateKey
 
-            console.log('----------------------------------------------------------------------------------------------')
-            console.log('PAYING CONTRIBUTORS')
-            console.log('----------------------------------------------------------------------------------------------')
+            PL.logger.info('----------------------------------------------------------------------------------------------')
+            PL.logger.info('PAYING CONTRIBUTORS')
+            PL.logger.info('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
                 let payment = paymentsArray[i]
@@ -457,19 +457,19 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     tokenAmount = Math.trunc(tokenAmount / decimalFactorDict[chain])
 
-                    console.log('')
-                    console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    console.log(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' + parseFloat(tokenAmount).toLocaleString('en') + ' - Address: ' + toAddress + ' - Blockchain: ' + chain)
-                    console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    console.log('')
+                    PL.logger.info('')
+                    PL.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    PL.logger.info(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' + parseFloat(tokenAmount).toLocaleString('en') + ' - Address: ' + toAddress + ' - Blockchain: ' + chain)
+                    PL.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    PL.logger.info('')
 
                     if (tokenAmount === 0) {
-                        console.log('Token amount 0. No need to send a transaction.')
+                        PL.logger.info('Token amount 0. No need to send a transaction.')
                         return
                     }
 
                     if (parseFloat(tokenAmount) <= 10000) {
-                        console.log('Filtered out. No need to send a transaction.')
+                        PL.logger.info('Filtered out. No need to send a transaction.')
                         return
                     }
 
@@ -485,7 +485,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
                             break
                         default:
-                            console.log((new Date()).toISOString(), '[ERROR] No RPC URI configured for chain ' + chain)
+                            PL.logger.error('No RPC URI configured for chain ' + chain)
                             return
                     }
                     
@@ -545,7 +545,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             );
                             break
                         default:
-                            console.log((new Date()).toISOString(), '[ERROR] No chain configuration present for chain ' + chain)
+                            PL.logger.error('No chain configuration present for chain ' + chain)
                             return
                     }                    
 
@@ -560,13 +560,13 @@ exports.newWeb3Server = function newWeb3Server() {
                         while (gasFeeOk === false) {
                             let currentGasPrice = await getGasPrice();
                             if (currentGasPrice === undefined) {
-                                console.log("Could not obtain current gas price, retrying in 60 seconds...")
+                                PL.logger.info("Could not obtain current gas price, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > gasPriceLimit) {
-                                console.log("Current Gas Price", currentGasPrice, "Gwei exceeding limit of", gasPriceLimit, "Gwei. Holding transaction, retrying in 60 seconds...")
+                                PL.logger.info("Current Gas Price", currentGasPrice, "Gwei exceeding limit of", gasPriceLimit, "Gwei. Holding transaction, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > 0) {
-                                console.log("Current Gas Price", currentGasPrice, "Gwei, executing transaction.")
+                                PL.logger.info("Current Gas Price", currentGasPrice, "Gwei, executing transaction.")
                                 /* Conversion to Wei */
                                 gasPrice = currentGasPrice * 1000000000
                                 gasFeeOk = true
@@ -576,7 +576,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     
                     
                     const nonce = await web3.eth.getTransactionCount(fromAddress);
-                    console.log('Nonce:', nonce)
+                    PL.logger.info('Nonce:', nonce)
 
                     const rawTransaction = {
                         "from": fromAddress,
@@ -589,18 +589,18 @@ exports.newWeb3Server = function newWeb3Server() {
                     const transaction = new Tx(rawTransaction, { 'common': chainConfig })
                     transaction.sign(privateKeyBuffer)
 
-                    console.log('Transaction:', rawTransaction)
+                    PL.logger.info('Transaction:', rawTransaction)
                     let result
 
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
-                            console.log((new Date()).toISOString(), '[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
+                            PL.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
                         })
 
-                    console.log('Result:', result)
+                    PL.logger.info('Result:', result)
                     return result
                 } catch (err) {
-                    console.log((new Date()).toISOString(), '[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
+                    PL.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
                 // We do not want to exceed any limits, so we take a breather in the end of each run.
                 await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)

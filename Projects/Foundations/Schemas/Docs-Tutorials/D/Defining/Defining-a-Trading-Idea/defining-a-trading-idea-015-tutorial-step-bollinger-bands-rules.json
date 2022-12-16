@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Ora che hai visto le band sul grafico, passiamo alle regole che ci insegnano come interpretarle e usarle!",
                 "updated": 1669895914399
+            },
+            {
+                "language": "NL",
+                "text": "Nu je de banden in de grafieken hebt gezien, laten we de regels doornemen die ons leren hoe we ze moeten interpreteren en gebruiken!",
+                "updated": 1670784890247
             }
         ]
     },
@@ -66,6 +71,11 @@
                     "language": "IT",
                     "text": "Se non hai familiarità con questo indicatore, vale sicuramente la pena dedicare qualche minuto alla lettura delle regole,",
                     "updated": 1669895934814
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u niet bekend bent met deze indicator, is het zeker de moeite waard om een paar minuten te besteden aan het lezen van de regels,",
+                    "updated": 1670784906151
                 }
             ]
         },
@@ -94,6 +104,11 @@
                     "language": "IT",
                     "text": "come definite da John Bollinger stesso!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
                     "updated": 1669895961454
+                },
+                {
+                    "language": "NL",
+                    "text": "zoals gedefinieerd door John Bollinger zelf!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1670784929534
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Lütfen, John Bollinger'ın bu popüler göstergeyi nasıl yorumlanacağı hakkındaki söylediklerini okuyun!",
                     "updated": 1640872013666
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees alstublieft wat John Bollinger te zeggen heeft over hoe u deze populaire indicator moet interpreteren!",
+                    "updated": 1670784942543
                 }
             ]
         },
@@ -146,6 +166,11 @@
                     "language": "IT",
                     "text": "Le regole da 6 a 8 sono di particolare importanza per ciò che tenteremo in seguito!",
                     "updated": 1669895989656
+                },
+                {
+                    "language": "NL",
+                    "text": "Regels 6 tot 8 zijn van bijzonder belang voor wat we later zullen proberen!",
+                    "updated": 1670784955664
                 }
             ]
         }

@@ -134,7 +134,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
+            // NT.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
 
             let response = {
                 result: 'Ok',
@@ -142,7 +142,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 data: query.run()
             }
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
+            // NT.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
             query.finalize()
             return response
 
@@ -151,7 +151,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             Any exception that happens while trying to run the query.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                NT.logger.error('Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }
@@ -302,7 +302,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                NT.logger.error('Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

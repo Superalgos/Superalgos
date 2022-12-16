@@ -61,13 +61,13 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 if (queryMessage.originSocialPersonaId === undefined) {
                     queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
-                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
+                    SA.logger.warn('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
                 }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
+                // SA.logger.info('- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
                 switch (queryMessage.queryType) {
 
@@ -196,7 +196,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     }
                 }
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
+                // SA.logger.info('- Web App Interface', '- Query Response Sent', JSON.stringify(response))
 
                 return response
             }
@@ -221,7 +221,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 if (eventMessage.originSocialPersonaId === undefined) {
                     eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
-                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
+                    SA.logger.warn('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
                 /*
                 We need the Origin Social Entity so as to be able to sign this event. And for Post related
@@ -270,7 +270,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     sending this message to the P2P Network.
                     */
                     if (response.result !== "Ok") {
-                        console.log((new Date()).toISOString(), '[WARN] Post could not be saved. Reason: ' + response.message)
+                        SA.logger.warn('Post could not be saved. Reason: ' + response.message)
                         return response
                     }
                 }

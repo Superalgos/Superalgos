@@ -59,10 +59,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.on('pong', heartbeat)
                 const interval = setInterval(function ping() {
                     if (caller.socket.isAlive === false) {
-                        console.log((new Date()).toISOString(), '[INFO] Server could not confirm client to be alive, terminating Websockets connection for user ', caller.userProfile.name)
+                        NT.logger.info('Server could not confirm client to be alive, terminating Websockets connection for user ', caller.userProfile.name)
                         return caller.socket.terminate()
                     }
-                    /* console.log((new Date()).toISOString(), '[DEBUG] Server-side heartbeat triggered for ', caller.userProfile.name, caller.socket.id) */
+                    /* NT.logger.debug('Server-side heartbeat triggered for ', caller.userProfile.name, caller.socket.id) */
                     caller.socket.isAlive = false
                     caller.socket.ping()
                 }, 30000)
@@ -77,7 +77,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 function heartbeat() {
                     caller.socket.isAlive = true
-                    /* console.log((new Date()).toISOString(), '[DEBUG] Incoming Pong received for ', caller.userProfile.name, caller.socket.id) */
+                    /* NT.logger.debug('Incoming Pong received for ', caller.userProfile.name, caller.socket.id) */
                 }
 
                 function onConnectionClosed() {
@@ -87,7 +87,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            NT.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

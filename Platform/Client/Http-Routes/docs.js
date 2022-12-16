@@ -30,9 +30,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Node-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Node-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Node-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -66,9 +66,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Concept-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Concept-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -102,9 +102,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Topic-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Topic-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -138,9 +138,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Tutorial-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Tutorial-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Tutorial-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -174,9 +174,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Review-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Review-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Review-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Review-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Review-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Review-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -210,9 +210,9 @@ exports.newDocsRoute = function newDocsRoute() {
                         }
 
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Book-Schema -> Method call produced an error.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Book-Schema -> err.stack = ' + err.stack)
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save-Book-Schema -> Params Received = ' + body)
+                        PL.logger.error('httpInterface -> Docs -> Save-Book-Schema -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> Docs -> Save-Book-Schema -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Save-Book-Schema -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -285,12 +285,12 @@ exports.newDocsRoute = function newDocsRoute() {
                 if(schemaDocument.deleted === true) {
                     try {
                         fs.unlinkSync(newFilepath + '/' + fileName)
-                        console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
+                        PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
                     } catch(err) {
                         noErrorsDuringSaving = false
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Delete -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
-                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Delete -> err.stack = ' + err.stack)
+                        PL.logger.error('httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
+                        PL.logger.error('httpInterface -> Docs -> Delete -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                        PL.logger.error('httpInterface -> Docs -> Delete -> err.stack = ' + err.stack)
                     }
                 } else {
                     if(schemaDocument.updated === true || schemaDocument.created === true) {
@@ -303,16 +303,16 @@ exports.newDocsRoute = function newDocsRoute() {
                             SA.projects.foundations.utilities.filesAndDirectories.createNewDir(newFilepath)
                             fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                             if(created === true) {
-                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
+                                PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                             } else {
                                 if(updated === true) {
-                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                    PL.logger.info('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                 }
                             }
                         } catch(err) {
                             noErrorsDuringSaving = false
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            PL.logger.error('httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
+                            PL.logger.error('httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                         }
                     }
                 }

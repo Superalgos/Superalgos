@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Questo è tutto! Finalmente abbiamo un'ipotesi corretta che possiamo testare per decidere se vale la pena perseguire o meno l'idea!",
                 "updated": 1669901881243
+            },
+            {
+                "language": "NL",
+                "text": "Dat is het! We hebben eindelijk een goede hypothese die we kunnen testen om te beslissen of het idee de moeite waard is om na te streven of niet!",
+                "updated": 1670787677564
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Lo prenderemo da lì nel prossimo tutorial!",
                     "updated": 1669901900331
+                },
+                {
+                    "language": "NL",
+                    "text": "We nemen het vanaf daar over in de volgende zelfstudie!",
+                    "updated": 1670787690277
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "Nel prossimo tutorial della serie, approfondiremo il modo in cui Superalgos ti guida attraverso il processo di configurazione dell'idea di trading da testare sui dati storici. Impareremo la sintassi per scrivere condizioni e formule, come utilizzare gli indicatori all'interno delle strategie e qualsiasi altra cosa di cui potremmo aver bisogno lungo il percorso!",
                     "updated": 1669901916089
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende zelfstudie in de serie zullen we ingaan op hoe Superalgos u begeleidt bij het opzetten van het handelsidee om te worden getest op historische gegevens. We leren over de syntaxis om voorwaarden en formules te schrijven, over het gebruik van indicatoren vanuit strategieën en alles wat we onderweg nog meer nodig hebben!",
+                    "updated": 1670787718516
                 }
             ]
         }

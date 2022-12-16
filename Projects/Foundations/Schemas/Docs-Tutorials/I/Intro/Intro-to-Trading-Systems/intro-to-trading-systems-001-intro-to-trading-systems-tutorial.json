@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Этот учебник является первым в серии учебников, которые научат вас создавать торговые системы. Серия углубляется во множество тем и проводит вас через последовательность, которая призвана соотнести базовые знания о торговле с конкретными реализациями Superalgos. В этом первом уроке рассматриваются теоретические концепции, объясняется, как построены торговые системы в Superalgos, и подчеркивается, как нужно строить свои стратегии, чтобы извлечь максимальную пользу из торговой платформы, встроенной в систему.",
                 "updated": 1640878603688
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie is de eerste in een reeks zelfstudies die u leren hoe u handelssystemen kunt bouwen. De serie gaat diep in op meerdere onderwerpen en neemt je mee door een progressie die bedoeld is om basiskennis van handelen te matchen met bepaalde Superalgos-implementaties. Deze eerste zelfstudie behandelt theoretische concepten, legt uit hoe handelssystemen zijn gestructureerd in Superalgos en laat zien hoe u uw strategieën moet omkaderen om het meeste uit het in het systeem ingebouwde handelsraamwerk te halen.",
+                "updated": 1670790670019
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394079013,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1670790678945
                 }
             ]
         }

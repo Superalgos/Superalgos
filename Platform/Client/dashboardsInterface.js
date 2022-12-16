@@ -35,23 +35,23 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         
         function runInterface (response){
             if (response.event.isRunning === true) {
-                console.log('')
-                console.log(response.event.message)
+                PL.logger.info('')
+                PL.logger.info(response.event.message)
                 setUpWebSocketClient(url)
 
             } else if (response.event.isRunning === false) {
                 //Skip websocket client initalization
-                //console.log('')
-                //console.log(response.event.message)
+                //PL.logger.info('')
+                //PL.logger.info(response.event.message)
 
             } else {
-                console.log('[ERROR] Something went wrong running the Dashboard App Interface: ', response)
+                PL.logger.error('[ERROR] Something went wrong running the Dashboard App Interface: ', response)
             }
         }
 
 
         // Beginings of Task manager code
-            //console.log('can we get this object', tasksMap)
+            //PL.logger.info('can we get this object', tasksMap)
             //eventsServerClient.listenToEvent('Task Manager', 'Run Task', undefined, undefined, undefined, newMessage)
             //eventsServerClient.listenToEvent('Task Manager', 'Stop Task', undefined, undefined, undefined, newMessage)
             //eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, newMessage)
@@ -61,7 +61,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             // eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
 
             /* function newMessage (message) {
-                console.log('this is the message in the dashboards client event listeners', message)
+                PL.logger.info('this is the message in the dashboards client event listeners', message)
             } */
 
   
@@ -149,15 +149,15 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         });
 
         socketClient.on('close', function (close) {
-            console.log('[INFO] Dashboard App has been disconnected.')
+            PL.logger.info('[INFO] Dashboard App has been disconnected.')
         })
 
         socketClient.on('error', function (error) {
-            console.log('[ERROR] Dashboards Client error: ', error.message, error.stack)
+            PL.logger.error('[ERROR] Dashboards Client error: ', error.message, error.stack)
         });
         
         socketClient.on('message', function (message) {
-            console.log('This is a message coming from the Dashboards App', message)
+            PL.logger.info('This is a message coming from the Dashboards App', message)
         });
     }
 
@@ -167,7 +167,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         packedPL = packGlobalObj('PL', PL)
 
         //let parsed = JSON.parse(data)
-        //console.log('this is the parsed object', parsed)
+        //PL.logger.info('this is the parsed object', parsed)
         let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|Globals|*|' + packedSA + '|*|' + packedPL
         socketClient.send(messageToSend)
 

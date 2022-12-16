@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы рассмотрели три основные причины, по которым целесообразно разделить сложную логику на несколько стратегий...",
                 "updated": 1640886220533
+            },
+            {
+                "language": "NL",
+                "text": "We hebben de drie belangrijkste redenen behandeld waarom het een goed idee is om complexe logica op te splitsen in meer dan één strategie...",
+                "updated": 1670792283258
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы также рассмотрели несколько примеров торговых систем, делающих именно это. Есть и другой пример, который приходит на ум:",
                     "updated": 1640886233628
+                },
+                {
+                    "language": "NL",
+                    "text": "We hebben ook een paar voorbeelden besproken van handelssystemen die precies dat doen. Er is nog een voorbeeld dat in me opkomt:",
+                    "updated": 1670792296493
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "И длинные, и короткие: разработка стратегии, которая работает и в длинную, и в короткую позицию, вероятно, не очень хорошая идея. Разделите логику и постройте одну стратегию для длинных позиций, а другую - для коротких!",
                     "updated": 1640886343305
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Long en short gaan:</b> een strategie ontwerpen die zowel long als short gaat, is waarschijnlijk geen goed idee. Splits de logica en ontwikkel een strategie om long te gaan en een andere om short te gaan!",
+                    "updated": 1670792333250
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Помните принцип KISS!",
                     "updated": 1640886407882
+                },
+                {
+                    "language": "NL",
+                    "text": "Denk aan het KISS-principe!",
+                    "updated": 1670792345077
                 }
             ]
         }

@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Estrarremo alcuni dati per analizzare alcuni eventi sui grafici. Useremo gli stessi dati per testare l'idea di trading nel prossimo tutorial!",
                 "updated": 1669885485615
+            },
+            {
+                "language": "NL",
+                "text": "We zullen wat gegevens verzamelen om enkele gebeurtenissen in de grafieken te kunnen analyseren. We zullen dezelfde gegevens gebruiken om het handelsidee in de volgende zelfstudie te testen!",
+                "updated": 1670783283100
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Il sensor Bot funzionerà sul mercato BTC/USDT (Binance) dal 1° gennaio 2020, insieme ai seguenti indicatori del Masters data mine : Candles Volumes, Bollinger Bands e Bollinger Channels.",
                     "updated": 1669885513100
+                },
+                {
+                    "language": "NL",
+                    "text": "De sensorbot draait vanaf 1 januari 2020 op de BTC/USDT-markt (Binance), samen met de volgende indicatoren uit de Masters data mine: Candles Volumes, Bollinger Bands en Bollinger Channels.",
+                    "updated": 1670783313628
                 }
             ]
         },
@@ -91,6 +101,11 @@
                     "language": "TR",
                     "text": "Uyarı: Bu piyasa/borsa (market/exchange) ile ilgili ancak farklı bir zaman aralığında verileriniz varsa, bu durum verilerinizi etkileyebilir! Nasıl yapılacağını öğrenmek için sensör botu belgelerini okuyun! Sahip olduğunuz veriler önemli değilse, devam etmekten çekinmeyin!",
                     "updated": 1640863378593
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u gegevens heeft over deze markt/beurs maar in een ander tijdsbestek, kan dit van invloed zijn op uw gegevens! Lees de sensorbot-documentatie om te leren hoe! Als de gegevens die je hebt niet belangrijk zijn, ga dan gerust door!",
+                    "updated": 1670783332872
                 }
             ]
         }

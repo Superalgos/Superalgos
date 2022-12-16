@@ -33,6 +33,11 @@
                 "language": "IT",
                 "text": "Il tutorial a destra è il successivo della serie sulla progettazione di sistemi di trading. Continuiamo?",
                 "updated": 1669901978758
+            },
+            {
+                "language": "NL",
+                "text": "De tutorial aan de rechterkant is de volgende in de serie over het ontwerpen van handelssystemen. Zullen we doorgaan?",
+                "updated": 1670787769003
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "IT",
                     "text": "Il prossimo tutorial della serie riguarda l'implementazione delle idee che abbiamo appena avuto su un Trading System in modo che possano essere testate.",
                     "updated": 1669901998322
+                },
+                {
+                    "language": "NL",
+                    "text": "De volgende zelfstudie in de serie gaat over het implementeren van de ideeën die we zojuist hebben bedacht in een Trading System, zodat ze kunnen worden getest.",
+                    "updated": 1670787818998
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "IT",
                     "text": "Fai clic su Avanti per terminare questo tutorial e seleziona Riproduci nel prossimo quando sei pronto!",
                     "updated": 1669902015140
+                },
+                {
+                    "language": "NL",
+                    "text": "Click Next om deze zelfstudie te beëindigen, en selecteer Play in de volgende als je er klaar voor bent!",
+                    "updated": 1670787890238
                 }
             ]
         }

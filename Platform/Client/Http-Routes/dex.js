@@ -11,7 +11,7 @@ exports.newDEXRoute = function newDEXRoute() {
         let requestPath = requestPathAndParameters[0].split('/')
         switch(requestPath[2]) {
             case 'CreateNewWallet':
-                console.log('creating new wallet')
+                PL.logger.info('creating new wallet')
                 let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
                 dexWallet.initialize()
                     .then(() => {
@@ -26,17 +26,17 @@ exports.newDEXRoute = function newDEXRoute() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
                             })
                             .catch(err => {
-                                console.error(err)
+                                PL.logger.error(err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     })
                 break
             case 'ImportWalletFromMnemonic':
-                console.log('importing wallet from mnemonic')
+                PL.logger.info('importing wallet from mnemonic')
                 SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                     .then(body => {
                         let config = JSON.parse(body)
@@ -51,22 +51,22 @@ exports.newDEXRoute = function newDEXRoute() {
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
                                     })
                                     .catch(err => {
-                                        console.error(err)
+                                        PL.logger.error(err)
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     })
                             })
                             .catch(err => {
-                                console.error(err)
+                                PL.logger.error(err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     })
                 break
             case 'ImportWalletFromPrivateKey':
-                console.log('importing wallet from private key')
+                PL.logger.info('importing wallet from private key')
                 SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                     .then(body => {
                         let config = JSON.parse(body)
@@ -82,22 +82,22 @@ exports.newDEXRoute = function newDEXRoute() {
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
                                     })
                                     .catch(err => {
-                                        console.error(err)
+                                        PL.logger.error(err)
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     })
                             })
                             .catch(err => {
-                                console.error(err)
+                                PL.logger.error(err)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             })
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     })
                 break
             case 'GetTokens':
-                console.log('adding missing tokens to wallet assets.')
+                PL.logger.info('adding missing tokens to wallet assets.')
                 SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                     .then(body => {
                         let config = JSON.parse(body)
@@ -107,13 +107,13 @@ exports.newDEXRoute = function newDEXRoute() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                 })
                                 .catch(err => {
-                                    console.error(err)
+                                    PL.logger.error(err)
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 })
                         }
                     })
                     .catch(err => {
-                        console.error(err)
+                        PL.logger.error(err)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     })
         }

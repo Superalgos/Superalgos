@@ -57,7 +57,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                     if (err.status === 404) {
                         createNewFile()
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                        SA.logger.error('File could not be saved at Github.com. -> err.stack = ' + err.stack)
                         reject(err)
                     }
                 }
@@ -80,7 +80,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
             }
 
             function githubError(err) {
-                console.log((new Date()).toISOString(), '[ERROR] Plugins at Github -> err.stack = ' + err.stack)
+                SA.logger.error('Plugins at Github -> err.stack = ' + err.stack)
                 reject(err)
             }
         }

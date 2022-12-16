@@ -20,15 +20,15 @@ exports.newPluginFileNamesRoute = function newPluginFileNamesRoute() {
                     project,
                     folder
                 ).catch(err => {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                    PL.logger.error('httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
                 })
 
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> PluginFileNames -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> PluginFileNames -> Params Received = ' + body)
+                PL.logger.error('httpInterface -> PluginFileNames -> Method call produced an error.')
+                PL.logger.error('httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                PL.logger.error('httpInterface -> PluginFileNames -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

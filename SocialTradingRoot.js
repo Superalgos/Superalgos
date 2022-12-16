@@ -68,6 +68,12 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
             childProcess: require('child_process')
         }
         SA.version = require('./package.json').version
+
+        const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+        SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
+
+        const stLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'ST')
+        ST.logger = require('./loggerFactory').loggerFactory(stLogsPath)
         /* 
         Setting up the App Schema Memory Map. 
         */

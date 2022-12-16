@@ -100,7 +100,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                     }
 
                     function onFileNotLoaded(error) {
-                        console.log((new Date()).toISOString(), '[ERROR] Open Storage Client -> onFileNotLoaded -> Error = ' + error)
+                        SA.logger.error('Open Storage Client -> onFileNotLoaded -> Error = ' + error)
                         resolve()
                     }
 

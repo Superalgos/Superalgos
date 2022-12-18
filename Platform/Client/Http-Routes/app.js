@@ -591,13 +591,14 @@ exports.newAppRoute = function newAppRoute() {
                     update().then(() => PL.servers.RESTART_SERVER.tryRestart([
                         process.pid,
                         process.ppid
-                    ]))
+                    ])).catch(error => PL.logger.error(error.message))
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
                             PL.logger.error('`git` not installed.')
+                            throw new Error('`git` not installed.')
                         } else {
                             let result = await doGit()
 
@@ -621,7 +622,7 @@ exports.newAppRoute = function newAppRoute() {
                                 }
 
                                 respondWithDocsObject(docs, result.error)
-
+                                throw new Error('App Error - Git Update Failed')
                             }
                         }
                     }

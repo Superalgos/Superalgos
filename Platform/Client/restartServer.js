@@ -15,11 +15,11 @@ exports.restartServer = function restartServer() {
     async function tryRestart(pids) {
         const processName = await matchPid(pids)
         if(processName === undefined) {
-            PL.logger.info('No matching process to restart')
+            PL.logger.info('No matching process to restart from ' + pids.join(', '))
             return
         }
         PL.logger.info('Process ' + processName + ' restarting')
-        const child = spawn('pm2 restart ' + processName, {
+        const child = spawn('pm2', ['restart', processName], {
             detached: true,
             stdio: 'ignore'
         })
@@ -34,7 +34,7 @@ exports.restartServer = function restartServer() {
     async function matchPid(pids) {
         const runningProcesses = await list()
         const matches = runningProcesses.filter( p => pids.indexOf( p.pid ) > -1 )
-        if(matches > 0) {
+        if(matches.length > 0) {
             return matches[0].name
         }
     }

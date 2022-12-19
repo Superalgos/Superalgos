@@ -1,0 +1,16 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "6",
+    "type": "App Message - Restart In Progress",
+    "definition": {
+        "text": "The restart process is running.",
+        "updated": 1671485485512
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Your server is restarting.",
+            "updated": 1671485485512
+        }
+    ]
+}

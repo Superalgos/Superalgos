@@ -1,0 +1,58 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "3",
+    "type": "App Restart Command",
+    "definition": {
+        "text": "Use this command to restart your local installation of Superalgos to the latest version available.",
+        "updated": 1671485485512
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610449451990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1640235466825
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz Dizimi",
+                    "updated": 1644223350415
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "app.restart",
+            "updated": 1671485485512
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1638038191514
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640235474571
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1644223365611
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "app.restart"
+        }
+    ]
+}

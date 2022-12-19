@@ -27,6 +27,7 @@ function newFoundationsDocsCommmandInterface() {
     function detectAppCommands() {
         if (checkContributeCommand() === undefined) { return true }
         if (checkUpdateCommand() === undefined) { return true }
+        if (checkRestartCommand() === undefined) { return true }
         if (fixAppSchema() === undefined) { return true }
 
         function checkContributeCommand() {
@@ -120,6 +121,34 @@ function newFoundationsDocsCommmandInterface() {
                         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Update Done - Already Up-To-Date')
                     }
                 } else {
+                    UI.projects.education.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
+                }
+            }
+        }
+
+        function checkRestartCommand() {
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.restart') {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Restart Command')
+                return
+            }
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('App.Restart') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('app.restart') !== 0) { return 'Not Update Commands' }
+
+            httpRequest(undefined, 'App/Restart', onResponse)
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Restart In Progress')
+
+            return
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (!(err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result && data.message.restarting === true)) {
                     UI.projects.education.spaces.docsSpace.navigateTo(
                         data.docs.project,
                         data.docs.category,

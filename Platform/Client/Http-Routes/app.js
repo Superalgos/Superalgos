@@ -51,15 +51,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('GetCreds', err)
                 }
                 break
             }
@@ -112,15 +104,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> SaveCreds -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('SaveCreds', err)
                     break
                 }
 
@@ -586,12 +570,16 @@ exports.newAppRoute = function newAppRoute() {
 
             case 'Update': {
                 try {
+                    PL.logger.info('Update command received')
                     // We update the local repo from remote
-                    const currentBranch = unescape(requestPath[3])
-                    update().then(() => PL.servers.RESTART_SERVER.tryRestart([
-                        process.pid,
-                        process.ppid
-                    ])).catch(error => PL.logger.error(error.message))
+                    let currentBranch = unescape(requestPath[3])
+                    if(['master','develop'].indexOf(currentBranch) == -1) {
+                        currentBranch = 'develop'
+                    }
+                    update().catch(error => {
+                        PL.logger.error(error.message)
+                        basicErrorResponse('Update', err)
+                    })
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath
@@ -658,7 +646,7 @@ exports.newAppRoute = function newAppRoute() {
                                     }
                                     git = simpleGit(options)
                                     repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                    PL.logger.info('Downloading from ' + repoURL)
+                                    PL.logger.info('Downloading branch "' + currentBranch + '" from "' + repoURL + '"')
                                     message = await git.pull(repoURL, currentBranch)
                                     if(message.error === undefined) {
                                         addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
@@ -688,16 +676,27 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Update', err)
                 }
+                break
+            }
+
+            case 'Restart': {
+                PL.logger.info('Restart command received')
+                PL.servers.RESTART_SERVER.tryRestart([
+                    process.pid,
+                    process.ppid
+                ]).catch(error => {
+                    PL.logger.error(error.message)
+                    basicErrorResponse('Restart', err)
+                })
+                let customResponse = {
+                    result: global.CUSTOM_OK_RESPONSE.result,
+                    message: {
+                        restarting: true
+                    }
+                }
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                 break
             }
 
@@ -709,15 +708,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> RestartRequired -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('RestartRequired', err)
                 }
                 break
             }
@@ -826,15 +817,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Status', err)
                 }
                 break
             }
@@ -929,15 +912,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Checkout', err)
                 }
                 break
             }
@@ -992,15 +967,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Branch', err)
                 }
                 break
             }
@@ -1084,15 +1051,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Discard', err)
                 }
                 break
             }
@@ -1186,15 +1145,7 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
-                    PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                    let error = {
-                        result: 'Fail Because',
-                        message: err.message,
-                        stack: err.stack
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    basicErrorResponse('Reset', err)
                 }
                 break
             }
@@ -1339,6 +1290,18 @@ exports.newAppRoute = function newAppRoute() {
 
                 break
             }
+        }
+
+        function basicErrorResponse(command, err) {
+            PL.logger.error('httpInterface -> App -> ' + command + ' -> Method call produced an error.')
+            PL.logger.error('httpInterface -> App -> ' + command + ' -> err.stack = ' + err.stack)
+
+            let error = {
+                result: 'Fail Because',
+                message: err.message,
+                stack: err.stack
+            }
+            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
         }
 
         function respondWithDocsObject(docs, error) {

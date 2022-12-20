@@ -571,6 +571,7 @@ exports.newAppRoute = function newAppRoute() {
             case 'Update': {
                 try {
                     PL.logger.info('Update command received')
+                    const currentVersion = SA.version
                     // We update the local repo from remote
                     let currentBranch = unescape(requestPath[3])
                     if(['master','develop'].indexOf(currentBranch) == -1) {
@@ -597,6 +598,13 @@ exports.newAppRoute = function newAppRoute() {
                                 }
                                 if(result.message.reposUpdated === true) {
                                     SA.restartRequired = true
+                                }
+                                const nextVersion = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.BASE_PATH, 'package.json'))).version
+                                PL.logger.info('curentVersion: ' + currentVersion)
+                                PL.logger.info('nextVersion:   ' + nextVersion)
+                                if(currentVersion != nextVersion) {
+                                    PL.logger.warn('Version update, app requires node setup and restart')
+                                    customResponse.message.nodeUpdateRequired = true
                                 }
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                             } else {
@@ -632,27 +640,27 @@ exports.newAppRoute = function newAppRoute() {
                             PL.logger.info('Downloading from ' + repoURL)
                             let message = await git.pull(repoURL, currentBranch)
 
-                            if(message.error === undefined) {
-                                addToReposUpdated(message, 'Superalgos')
+                            // if(message.error === undefined) {
+                            //     addToReposUpdated(message, 'Superalgos')
 
-                                for(const propertyName in global.env.PROJECT_PLUGIN_MAP) {
-                                    /*
-                                    Update the Plugins
-                                    */
-                                    options = {
-                                        baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    git = simpleGit(options)
-                                    repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                    PL.logger.info('Downloading branch "' + currentBranch + '" from "' + repoURL + '"')
-                                    message = await git.pull(repoURL, currentBranch)
-                                    if(message.error === undefined) {
-                                        addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
-                                    }
-                                }
-                            }
+                            //     for(const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                            //         /*
+                            //         Update the Plugins
+                            //         */
+                            //         options = {
+                            //             baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                            //             binary: 'git',
+                            //             maxConcurrentProcesses: 6,
+                            //         }
+                            //         git = simpleGit(options)
+                            //         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                            //         PL.logger.info('Downloading branch "' + currentBranch + '" from "' + repoURL + '"')
+                            //         message = await git.pull(repoURL, currentBranch)
+                            //         if(message.error === undefined) {
+                            //             addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                            //         }
+                            //     }
+                            // }
 
                             message = {
                                 reposUpdated: reposUpdated

@@ -18,12 +18,12 @@ exports.newWebhookRoute = function newWebhookRoute() {
 
                 /* Some validations */
                 if (exchange === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                    PL.logger.warn('httpInterface -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }
                 if (market === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
+                    PL.logger.warn('httpInterface -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }
@@ -35,8 +35,8 @@ exports.newWebhookRoute = function newWebhookRoute() {
                     webhookMessages = []
                 }
 
-                console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                PL.logger.info('httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
+                PL.logger.info('httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                 webhookMessages = []
@@ -59,17 +59,17 @@ exports.newWebhookRoute = function newWebhookRoute() {
 
                     /* Some validations */
                     if (source === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }
                     if (exchange === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }
                     if (market === undefined) {
-                        console.log((new Date()).toISOString(), '[WARN] httpInterface -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
+                        PL.logger.warn('httpInterface -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
                     }
@@ -84,9 +84,9 @@ exports.newWebhookRoute = function newWebhookRoute() {
                     webhookMessages.push([timestamp, source, messageReceived])
                     webhook.set(key, webhookMessages)
 
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                    console.log((new Date()).toISOString(), '[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
+                    PL.logger.info('httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                 }
 

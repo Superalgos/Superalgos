@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bağımlılık Filtresi, bir Stratejinin bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
-                    "updated": 1654391013976,
+                    "text": "Bağımlılık Filtresi, bir Stratejinin ( Strategy ) bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun ( Trading Bot ) bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
+                    "updated": 1671217736521,
                     "style": "Text"
                 }
             ]
@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
-                    "updated": 1654391020995,
+                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi ( Trading System ) olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
+                    "updated": 1671217821144,
                     "style": "Text"
                 }
             ]
@@ -202,8 +202,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Temel Varlığı, Fiyat Teklifi Varlığını veya Zaman Çerçevesini kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
-                    "updated": 1654391062516,
+                    "text": "Temel Varlığı ( Base Asset ), Fiyat Teklifi Varlığını ( Quote Asset ) veya Zaman Dilimini ( Time Frame ) kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
+                    "updated": 1671218013966,
                     "style": "Success"
                 }
             ]

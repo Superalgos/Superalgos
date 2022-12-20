@@ -63,12 +63,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function addToforecastCases(testCase) {
         try {
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
-            if (testCase.ratio_validate !== undefined) console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
+            TS.logger.debug('{ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
+            if (testCase.ratio_validate !== undefined) TS.logger.debug('{ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
+            TS.logger.debug('{ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
-                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
+                TS.logger.debug('{ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
 
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
@@ -82,9 +82,9 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                         }
                     //RL     
                     } else if (testCase.ratio_validate !== undefined) {
-                        console.log((new Date()).toISOString(),'Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
+                        TS.logger.info('Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
                         if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
-                            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} new testCase is better as existing forecastCase')
+                            TS.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
                             addForecastCase(testCase)
@@ -102,7 +102,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         } finally {
             saveForecastCasesFile()
 
-            console.log((new Date()).toISOString(), '[INFO] Testserver: Current Forecast table:')
+            TS.logger.info('Testserver: Current Forecast table:')
             console.table(thisObject.forecastCasesArray)    
         }
 
@@ -250,8 +250,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         try {
             let forecastCase = thisObject.forecastCasesMap.get(forecastResult.id)
             if ((forecastCase == undefined) && (forecastResult.id != undefined) && (forecastResult.id > 0) ) {
-                console.log((new Date()).toISOString(), '[INFO] ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
+                TS.logger.info('' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                TS.logger.info('This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
@@ -294,15 +294,15 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     }
                     logQueue.push(forecastCase)
                 }
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} Updated partial table of Forecast Cases:')
+                TS.logger.info('{Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                TS.logger.info('{Test-Server} Updated partial table of Forecast Cases:')
                 console.table(logQueue)
                 saveForecastReportFile()
                 saveForecastCasesFile()    
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} Error processing forecast results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
+            TS.logger.error('{Test-Server} Error processing forecast results. Err = ' + err.stack)
+            TS.logger.error('{Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
         }
 
         function calculatePercentageErrorRMSE(forecastResult) {
@@ -326,10 +326,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             axios
                 .post('http://' + Test_Server_BOT_CONFIG.targetSuperalgosHost + ':' + Test_Server_BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                    TS.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                    TS.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
                 })
         }
 

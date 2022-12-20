@@ -166,13 +166,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         },
                         async function (error) {
                             if (error) {
-                                console.log('')
-                                console.log("[ERROR] There was an error clonning this Network node repo. " + repoURL);
-                                console.log('')
-                                console.log(error)
+                                NT.logger.error('')
+                                NT.logger.error("[ERROR] There was an error clonning this Network node repo. " + repoURL);
+                                NT.logger.error('')
+                                NT.logger.error(error)
                                 throw (error)
                             } else {
-                                console.log((new Date()).toISOString(), '[INFO] Clonning repo ' + repoURL + ' succeed.')
+                                NT.logger.info('Clonning repo ' + repoURL + ' succeed.')
                                 resolve()
                             }
                         })
@@ -261,13 +261,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                             } catch (err) {
                                 if (err.stack !== undefined) {
-                                    console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                                    NT.logger.error('Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
                                 if (errorMessage === undefined) {
                                     errorMessage = err
                                 }
-                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
+                                NT.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
                     }

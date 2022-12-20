@@ -29,6 +29,11 @@ function newContributionsSystemActionSwitch() {
                     UI.projects.contributions.spaces.contributionsSpace.editorPage.update()
                 }
                 break
+            case 'restart':
+                {
+                    UI.projects.contributions.spaces.contributionsSpace.editorPage.restart()
+                }
+                break
             case 'reset':
                 {
                     UI.projects.contributions.spaces.contributionsSpace.editorPage.update()

@@ -135,6 +135,12 @@
                 }
             },
             {
+                "label": "Restart App",
+                "action": {
+                    "name": "restart"
+                }
+            },
+            {
                 "label": "Reset Local Repository",
                 "action": {
                     "name": "reset"

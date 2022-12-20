@@ -13,6 +13,7 @@ function newContributionsContributionsPage() {
         getCreds: getCreds,
         discardChange: discardChange,
         update: update,
+        restart: restart,
         resetRepo: resetRepo,
         contributeAll: contributeAll,
         contributeSingleRepo: contributeSingleRepo
@@ -58,7 +59,7 @@ function newContributionsContributionsPage() {
         // Github Credentials
         HTML += '<div><span class="credentials-title">Github Credentials</span><button id="credentials-collapse" type="button" class="contributions-collapsible-element"></button></div><div id="credentials-box" class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
         // Main buttons
-        HTML += '<div class="contributions-top-buttons-div"><button id="contribute-all" class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button id="reset" class="contributions-top-buttons">Reset</button><div id="command-status" class="command-status">' + thisObject.commandStatus + '</div></div>'
+        HTML += '<div class="contributions-top-buttons-div"><button id="contribute-all" class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button id="restart" class="contributions-top-buttons">Restart</button><button id="reset" class="contributions-top-buttons">Reset</button><div id="command-status" class="command-status">' + thisObject.commandStatus + '</div></div>'
         
         // Repo Handling 
         let fileNamesRepoAndPath = []
@@ -137,6 +138,7 @@ function newContributionsContributionsPage() {
         //Attach listeners to Main Buttons 
         document.getElementById('contribute-all').addEventListener('click', contributeAll)
         document.getElementById('update').addEventListener('click', update)
+        document.getElementById('restart').addEventListener('click', restart)
         document.getElementById('reset').addEventListener('click', resetRepo)
 
 
@@ -272,6 +274,24 @@ function newContributionsContributionsPage() {
                 //TODO: need to iterate through returned message in data result to give more specific result messages 
                 reset()
                 setCommandStatus("Updated Succesfully!") 
+                
+            } else {
+                setCommandStatus("Something went wrong! Check the Console")          
+            }
+        }
+    }
+
+    function restart() {
+        setCommandStatus("Restarting....")  
+        httpRequest(undefined, 'App/Restart', onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                //TODO: need to iterate through returned message in data result to give more specific result messages 
+                reset()
+                setCommandStatus("Restart In Progress!") 
                 
             } else {
                 setCommandStatus("Something went wrong! Check the Console")          

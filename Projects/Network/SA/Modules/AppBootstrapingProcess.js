@@ -415,7 +415,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             We calculate the User Profile Ranking based on the posotion at the rankingArray
             */
             const table = new SA.nodeModules.table({
-                head: ['User Profile','Balance','Ranking']
+                head: ['Index', 'User Profile', 'Balance', 'Ranking']
             })
             for (let j = 0; j < rankingArray.length; j++) {
                 let rankingProfile = rankingArray[j]
@@ -427,6 +427,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 }
                 if (rankingTableRow.balance !== '0 SA') {
                     table.push([
+                        j,
                         rankingTableRow.userProfile,
                         rankingTableRow.balance,
                         rankingTableRow.ranking

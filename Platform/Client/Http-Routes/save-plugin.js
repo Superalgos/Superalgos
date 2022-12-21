@@ -9,14 +9,14 @@ exports.newSavePluginRoute = function newSavePluginRoute() {
     function command(httpRequest, httpResponse) {
         let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
         let requestPath = requestPathAndParameters[0].split('/')
-        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
+        SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
-        async function processRequest(body) {
+        async function processRequest(compressedBody) {
             try {
-                if(body === undefined) {
+                if(compressedBody === undefined) {
                     return
                 }
-
+                const body = SA.nodeModules.pako.inflate(compressedBody, { to: 'string' })
                 let plugin = JSON.parse(body)
                 let project = requestPath[2]
                 let folder = requestPath[3]
@@ -28,9 +28,9 @@ exports.newSavePluginRoute = function newSavePluginRoute() {
                 fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> Params Received = ' + body)
+                PL.logger.error('httpInterface -> SavePlugin -> Method call produced an error.')
+                PL.logger.error('httpInterface -> SavePlugin -> err.stack = ' + err.stack)
+                PL.logger.error('httpInterface -> SavePlugin -> gzip length = ' + compressedBody.length)
 
                 let error = {
                     result: 'Fail Because',

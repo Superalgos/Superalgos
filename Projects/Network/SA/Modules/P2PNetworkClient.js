@@ -52,9 +52,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity,
                 false
             )
-            console.log('Network Client User Profile Code Name ........................................ ' + thisObject.p2pNetworkClientIdentity.userProfile.config.codeName)
-            console.log('Network Client User Profile Balance .......................................... ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkClientIdentity.userProfile.balance))
-            console.log('')
+            SA.logger.info('Network Client User Profile Code Name ........................................ ' + thisObject.p2pNetworkClientIdentity.userProfile.config.codeName)
+            SA.logger.info('Network Client User Profile Balance .......................................... ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkClientIdentity.userProfile.balance))
+            SA.logger.info('')
             /*
             We set up the P2P Network reacheable nodes. This means that we will filter out all the network nodes that do not have the
             network services this Task requires or the Network Interfaces this Task can speak to.

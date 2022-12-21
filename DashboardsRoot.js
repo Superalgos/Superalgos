@@ -19,9 +19,9 @@ async function runRoot() {
   global.SA = {}
 
   /* Load Environment Variables */
-  //let ENVIRONMENT = require('./Environment.js')
-  //let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
-  //global.env = ENVIRONMENT_MODULE
+  let ENVIRONMENT = require('./Environment.js')
+  let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
+  global.env = ENVIRONMENT_MODULE
   /*
   First thing is to load the project schema file.
   */
@@ -42,6 +42,13 @@ async function runRoot() {
     path: require('path'),
     ws: require('ws')
   }
+
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
+  
+  const dsLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'DS')
+  DS.logger = require('./loggerFactory').loggerFactory(dsLogsPath)
+
   /* 
   Setting up the App Schema Memory Map. 
   */

@@ -79,7 +79,7 @@ exports.newCCXTRoute = function newCCXTRoute() {
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(content), httpResponse)
 
             } catch(err) {
-                console.log((new Date()).toISOString(), '[INFO] httpInterface -> CCXT FetchMarkets -> Could not fetch markets.')
+                PL.logger.info('httpInterface -> CCXT FetchMarkets -> Could not fetch markets.')
                 let error = {
                     result: 'Fail Because',
                     message: err.message

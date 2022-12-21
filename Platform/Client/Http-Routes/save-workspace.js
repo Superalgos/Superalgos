@@ -9,19 +9,19 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
     function command(httpRequest, httpResponse) {
         let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
         let requestPath = requestPathAndParameters[0].split('/')
-        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
+        SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
-        async function processRequest(body) {
-
-            if(body === undefined) {
-                return
-            }
-
-            let fileContent = body
-            let fileName = unescape(requestPath[2])
-            let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
-
+        async function processRequest(compressedBody) {
             try {
+                if(compressedBody === undefined) {
+                    return
+                }
+                const body = SA.nodeModules.pako.inflate(compressedBody, { to: 'string' })
+                let fileName = unescape(requestPath[2])
+                let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
+                
+                let workspace = JSON.parse(body)
+                let fileContent = JSON.stringify(workspace, undefined, 4)
                 let fs = SA.nodeModules.fs
                 let dir = global.env.PATH_TO_MY_WORKSPACES;
 
@@ -34,8 +34,8 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
 
                 function onFileWritten(err) {
                     if(err) {
-                        console.log((new Date()).toISOString(), '[ERROR] SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
-                        console.log((new Date()).toISOString(), '[ERROR] SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
+                        PL.logger.error('SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
+                        PL.logger.error('SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
                         let error = {
                             result: 'Fail Because',
                             message: err.message,
@@ -48,8 +48,8 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
                 }
 
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
-                console.log((new Date()).toISOString(), '[ERROR] SaveWorkspace -> err.stack = ' + err.stack)
+                PL.logger.error('SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
+                PL.logger.error('SaveWorkspace -> err.stack = ' + err.stack)
                 let error = {
                     result: 'Fail Because',
                     message: err.message,

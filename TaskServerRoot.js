@@ -69,6 +69,13 @@ async function runRoot() {
     vaderSentiment: require('vader-sentiment')
   }
   SA.version = require('./package.json').version
+
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
+
+  const tsLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'TS')
+  TS.logger = require('./loggerFactory').loggerFactory(tsLogsPath)
+  
   /* 
   Setting up the App Schema Memory Map. 
   */

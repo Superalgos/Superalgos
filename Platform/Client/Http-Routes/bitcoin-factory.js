@@ -75,9 +75,9 @@ exports.newBitCoinFactoryRoute = function newBitCoinFactoryRoute() {
                     }
                 }
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Bitcoin-Factory -> Params Received = ' + body)
+                PL.logger.error('httpInterface -> Bitcoin-Factory -> Method call produced an error.')
+                PL.logger.error('httpInterface -> Bitcoin-Factory -> err.stack = ' + err.stack)
+                PL.logger.error('httpInterface -> Bitcoin-Factory -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

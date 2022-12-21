@@ -124,7 +124,7 @@ export default {
     props: {
       posts: {
         type: Object,
-        default: 'Should be a post'
+        default: {data: 'Should be a post'}
       }
     },
     computed: {

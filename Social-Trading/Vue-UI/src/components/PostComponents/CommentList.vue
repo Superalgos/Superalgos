@@ -30,10 +30,6 @@ export default {
     },
     components: { Comment },
     computed: {
-        getPostComments() {
-            const postArray = this.$store.state.posts
-            console.log(postArray)
-        }
     }
 
 }

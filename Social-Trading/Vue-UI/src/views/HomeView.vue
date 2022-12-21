@@ -32,9 +32,6 @@
 <script>
 
 import dashboardIcon from "../assets/dashboard.png"
-import homepagebackground from "../assets/homepagebackground.jpg"
-
-
 
 
   export default {

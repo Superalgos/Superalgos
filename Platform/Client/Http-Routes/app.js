@@ -691,7 +691,7 @@ exports.newAppRoute = function newAppRoute() {
 
             case 'Restart': {
                 PL.logger.info('Restart command received')
-                const currentVersion = SA.version
+
                 function pm2Restart() {
                     PL.servers.RESTART_SERVER.tryRestart([
                         process.pid,
@@ -701,28 +701,20 @@ exports.newAppRoute = function newAppRoute() {
                         basicErrorResponse('Restart', err)
                     })
                 }
-                const nextVersion = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.BASE_PATH, 'package.json'))).version
-                PL.logger.info('curentVersion: ' + currentVersion)
-                PL.logger.info('nextVersion:   ' + nextVersion)
-                if(currentVersion != nextVersion) {
-                    PL.logger.warn('Version update, running node setup script')
-                    const {exec} = SA.nodeModules.childProcess
-                    const updateProcess = exec('npm ci', { cwd: global.env.BASE_PATH }, (error, stdout, stderror) => {
-                        if(error) {
-                            PL.logger.error(error)
-                            PL.logger.error(stderr)
-                        }
-                        PL.logger.info(stdout)
+
+                const {exec} = SA.nodeModules.childProcess
+                exec('npm ci', { cwd: global.env.BASE_PATH }, (error, stdout, stderr) => {
+                    if(error) {
+                        PL.logger.error(error)
                         PL.logger.error(stderr)
-                    })
-                    updateProcess.on('exit', function(exitCode) {
-                        PL.logger.info('node setup completed woth code ' + exitCode)
-                        pm2Restart()
-                    })
-                }
-                else {
+                    }
+                    PL.logger.info(stdout)
+                    PL.logger.error(stderr)
+                }).on('exit', function(exitCode) {
+                    PL.logger.info('node setup completed woth code ' + exitCode)
                     pm2Restart()
-                }
+                })
+
                 let customResponse = {
                     result: global.CUSTOM_OK_RESPONSE.result,
                     message: {

@@ -414,7 +414,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             /*
             We calculate the User Profile Ranking based on the posotion at the rankingArray
             */
-            let rankingTable = []
+            const table = new SA.nodeModules.table({
+                head: ['User Profile','Balance','Ranking']
+            })
             for (let j = 0; j < rankingArray.length; j++) {
                 let rankingProfile = rankingArray[j]
                 rankingProfile.ranking = j + 1
@@ -424,12 +426,17 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     ranking: rankingProfile.ranking
                 }
                 if (rankingTableRow.balance !== '0 SA') {
-                    rankingTable.push(rankingTableRow)
+                    table.push([
+                        rankingTableRow.userProfile,
+                        rankingTableRow.balance,
+                        rankingTableRow.ranking
+                    ])
+                    // rankingTable.push(rankingTableRow)
                 }
             }
             SA.logger.info('User Profiles ranking table calculated based on latest User Profile Balances: ')
             SA.logger.info('')
-            console.table(rankingTable)
+            SA.logger.info(table.toString())
             SA.logger.info('')
         }
 

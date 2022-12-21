@@ -64,7 +64,8 @@ async function runRoot() {
     axios: require('axios'),
     hyperquest: require('hyperquest'),
     ndjson: require('ndjson'),
-    pako: require('pako')
+    pako: require('pako'),
+    Table: require('cli-table3') 
   }
 
   const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')

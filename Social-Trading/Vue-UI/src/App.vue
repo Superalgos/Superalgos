@@ -13,7 +13,7 @@
             </div>
         </Drawer>
         <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
-        <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
+        <div>{{response}}</div>
     </div>
 </template>
 
@@ -21,6 +21,7 @@
     import Drawer from './components/Drawer.vue'
     import logo from "./assets/superalgos-logo-white.png"
     import background from "./assets/superalgos-header-background.png"
+    import { getFeed } from "./api/post.httpService.js"
 
     export default {
         components: { Drawer },
@@ -31,6 +32,7 @@
                 background: background,
                 isActive: false,
                 timestampObj: '',
+                response: undefined
             };
         },
         computed: {
@@ -52,10 +54,19 @@
 				}else{
 					this.$refs.RightDrawer.open();
 				}
-			}
+			},
+            getUserFeed () {
+                getFeed().then(data => {
+                    console.log('this is our response', data)
+                    this.response = data
+                })  
+            }
         },
         // Spin up websocket client on app mount
         mounted: function () {
+            this.getUserFeed()         
+
+            /*
             //open a server socket, so that the platform process can send data to the UI
             let socket = new WebSocket("ws://"+ location.host.split(':')[0]+":18043/");
 
@@ -84,6 +95,7 @@
             socket.onclose = (event) => {
                 console.log((new Date()).toISOString(),'[ERROR] {App.vue} websocket connection closed', event);
             };
+            */
         },
     }
 </script>

@@ -5,6 +5,7 @@ exports.newHttpInterface = function newHttpInterface() {
     Social Trading App Client. All HTTP request are processed
     by this module.
     */
+
     let thisObject = {
         initialize: initialize,
         finalize: finalize
@@ -30,25 +31,13 @@ exports.newHttpInterface = function newHttpInterface() {
     }
 
     function onHttpRequest(httpRequest, httpResponse) {
-        // If the UI selected is the standard Vue Build UI we serve the prebuilt static files here
-        if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
-            //Set up static file server for UI files
-            const PATH_TO_UI_FILES = SA.nodeModules.path.resolve(__dirname, '../Vue-UI/dist')
-            let fileServer = new SA.nodeModules.static.Server(PATH_TO_UI_FILES)
+        // If the UI selected is the standard Clean UI we serve it from here
+        try {
+            let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
+            let requestPath = requestPathAndParameters[0].split('/')
+            let endpointOrFile = requestPath[1]
 
-            //Now Serve all needed UI files 
-            httpRequest.addListener('end', function (){
-                fileServer.serve(httpRequest, httpResponse)
-            }).resume()
-        }
-        // TODO: move clean UI to use this httpinterface
-        if (global.env.SOCIALTRADING_APP_UI_TYPE === 'clean' || global.env.SOCIALTRADING_APP_UI_TYPE === undefined) {
-            try {
-                let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
-                let requestPath = requestPathAndParameters[0].split('/')
-                let endpointOrFile = requestPath[1]
-
-                switch (endpointOrFile) {
+            switch (endpointOrFile) {
                 case 'Environment':
                     {
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
@@ -111,10 +100,9 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_SOCIALTRADING + '/Clean-UI')
                     }
-                }
-            } catch (err) {
-                console.log(err.stack)
             }
+        } catch (err) {
+            console.log(err.stack)
         }
     }
 }

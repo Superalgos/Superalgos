@@ -3,6 +3,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
     let thisObject = {
         webSocketsInterface: undefined,
         httpInterface: undefined,
+        expressHttpInterface: undefined,
         webAppInterface: undefined,
         p2pNetworkInterface: undefined,
         p2pNetworkClient: undefined,
@@ -34,7 +35,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         
         */
         let WEB_SOCKETS_INTERFACE_MODULE = require('./Client/webSocketsInterface.js')
-        let HTTP_INTERFACE_MODULE = require('./Client/httpInterface.js')
+        let HTTP_INTERFACE_MODULE = require('./Client/cleanHttpInterface.js')
+        let EXPRESS_HTTP_INTERFACE_MODULE = require('./Client/expressHttpInterface/expressServer.js')
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
         let P2P_NETWORK_INTERFACE_MODULE = require('./Client/p2pNetworkInterface.js')
 
@@ -98,16 +100,13 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         }
 
         async function finalSetupInterfaces() {
-            /* 
-            These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
-            */
-            thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
-            thisObject.webSocketsInterface.initialize()
-            console.log('Social Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
-
-            // If UI chosen is Vue Dev server lauch the development Server
-            if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vueDev') { 
-                let port = ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort
+            
+            if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vueDev') {
+                /* 
+                These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
+                If UI chosen is Vue Dev server, launch the development Server 
+                */
+                let port = '8000'
                 const PATH_TO_UI_ROOT = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI')
                 const PATH_TO_VITE = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI/node_modules/.bin/vite')
                 console.log('this is our current working directory', PATH_TO_UI_ROOT)
@@ -139,10 +138,46 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                     console.log('')
                     console.log(e)
                     process.exit(1)
-                  }})
-                SA.nodeModules.open('http://localhost:' + port)
+                }})
+               
+                // Then launch the backend server
+                thisObject.expressHttpInterface = EXPRESS_HTTP_INTERFACE_MODULE.SocialTradingBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+                console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+
+                /* if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
+                    //Set up static file server for UI files
+                    const PATH_TO_UI_FILES = SA.nodeModules.path.resolve(__dirname, '../Vue-UI/dist')
+                    let fileServer = new SA.nodeModules.static.Server(PATH_TO_UI_FILES)
+        
+                    //Now Serve all needed UI files 
+                    httpRequest.addListener('end', function (){
+                        fileServer.serve(httpRequest, httpResponse)
+                    }).resume()
+        
+                } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vueDev') {
+                    let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
+                    let requestPath = requestPathAndParameters[0].split('/')
+                    let endpointOrFile = requestPath[1]
+        
+                   
+                
+                // TODO: move clean UI to use this httpinterface
+                } */
+            } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
+                /* 
+                These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
+                */
+                thisObject.expressHttpInterface = EXPRESS_HTTP_INTERFACE_MODULE.SocialTradingBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+                console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
             } else {
-            // Otherwise start the standard http server
+                /* 
+                These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
+                If now UI is specifed launch the clean UI
+                */
+                thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
+                thisObject.webSocketsInterface.initialize()
+                console.log('Social Trading App Client Web Sockets Interface ............................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort)
+            
                 thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
                 thisObject.httpInterface.initialize()
                 console.log('Social Trading App Client Http Interface ...................................... Listening at port ' + ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)

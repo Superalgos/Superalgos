@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "CCXT, ticaret botları geliştiricilerinin kripto borsalarına erişimini kolaylaştırmak için kripto borsaları API'lerini standartlaştırmayı amaçlayan popüler bir açık kaynak kütüphanesidir.",
-                "updated": 1654390855222
+                "text": "CCXT, ticaret botları geliştiricilerinin kripto borsalarına erişimini kolaylaştırmak için kripto borsaları API'lerini ( APIs ) standartlaştırmayı amaçlayan popüler bir açık kaynak kütüphanesidir.",
+                "updated": 1671644837617
             }
         ]
     },
@@ -39,8 +39,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos bu kütüphaneyi borsalardan bir dakikalık mumları ham bilgi olarak almak için kullanır ve daha sonra göstergelerin geri kalanını cadı ile oluşturur. Ayrıca LF Ticaret Botundan sipariş vermek için de kullanır.",
-                    "updated": 1654390861477,
+                    "text": "Superalgos bu kütüphaneyi borsalardan bir dakikalık mumları ham bilgi olarak almak için kullanır ve daha sonra göstergelerin geri kalanını cadı ile oluşturur. Ayrıca LF Ticaret Botundan ( LF Trading Bot ) sipariş vermek için de kullanır.",
+                    "updated": 1671644865464,
                     "style": "Text"
                 }
             ]

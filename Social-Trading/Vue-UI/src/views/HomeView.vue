@@ -75,9 +75,8 @@
       },
       openGovernance() {
         alert("This feature is still under construction - Coming Soon!")
-      }
-    },  
-    getSocialPersona () {
+      },  
+      getSocialPersona () {
         getSocialPersona().then(data => {
                     return data.json()
 

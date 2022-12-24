@@ -21,6 +21,7 @@
     import Drawer from './components/Drawer.vue'
     import logo from "./assets/superalgos-logo-white.png"
     import background from "./assets/superalgos-header-background.png"
+    
 
     export default {
         components: { Drawer },
@@ -52,10 +53,12 @@
 				}else{
 					this.$refs.RightDrawer.open();
 				}
-			}
+			},
         },
         // Spin up websocket client on app mount
         mounted: function () {
+
+            /*
             //open a server socket, so that the platform process can send data to the UI
             let socket = new WebSocket("ws://"+ location.host.split(':')[0]+":18043/");
 
@@ -84,6 +87,7 @@
             socket.onclose = (event) => {
                 console.log((new Date()).toISOString(),'[ERROR] {App.vue} websocket connection closed', event);
             };
+            */
         },
     }
 </script>

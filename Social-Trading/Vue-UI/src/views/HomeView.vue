@@ -25,15 +25,16 @@
       <div id="profile-btn-div" class="tile-btn" v-on:click="viewProfile">
         <h1 id="profile-btn">My Profile</h1>
       </div>
+      <div>this is our loaded persona {{ socialPersona }}</div>
   </div>
-  </div>
+</div>
 </template>
 
 <script>
-
-import dashboardIcon from "../assets/dashboard.png"
-
-
+  import dashboardIcon from "../assets/dashboard.png"
+  import { getFeed } from "../api/post.httpService.js"
+  import { getSocialPersona } from "../api/profile.httpService.js"
+  
   export default {
     name: 'Home',
   components: { },
@@ -43,7 +44,9 @@ import dashboardIcon from "../assets/dashboard.png"
       return {
         dataKey: '',
         dataObjects: [],
-        dashboardIcon: dashboardIcon
+        dashboardIcon: dashboardIcon,
+        feed: undefined,
+        socialPersona: undefined
       }
     },
     computed: {
@@ -74,6 +77,28 @@ import dashboardIcon from "../assets/dashboard.png"
         alert("This feature is still under construction - Coming Soon!")
       }
     },  
+    getSocialPersona () {
+        getSocialPersona().then(data => {
+                    return data.json()
+
+                }).then( socialPersona => {
+                    console.log('this is our loaded Social Persona', socialPersona)
+                    this.socialPersona = socialPersona
+                })
+      },
+      getUserFeed () {
+                getFeed().then(data => {
+                    return data.json()
+                    
+                }).then( feed => {
+                    console.log('this is our feed', feed)
+                    this.response = feed
+                })
+      }
+    }, 
+    mounted: function () {
+      this.getSocialPersona()
+    }, 
   };
 </script>
 

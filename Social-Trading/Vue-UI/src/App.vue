@@ -13,7 +13,7 @@
             </div>
         </Drawer>
         <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
-        <div>{{response}}</div>
+        <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
     </div>
 </template>
 
@@ -21,8 +21,7 @@
     import Drawer from './components/Drawer.vue'
     import logo from "./assets/superalgos-logo-white.png"
     import background from "./assets/superalgos-header-background.png"
-    import { getFeed } from "./api/post.httpService.js"
-    import { getSocialPersona } from "./api/profile.httpService.js"
+    
 
     export default {
         components: { Drawer },
@@ -33,8 +32,6 @@
                 background: background,
                 isActive: false,
                 timestampObj: '',
-                response: undefined,
-                socialPersona: undefined
             };
         },
         computed: {
@@ -57,30 +54,9 @@
 					this.$refs.RightDrawer.open();
 				}
 			},
-            getSocialPersona () {
-                getSocialPersona().then(data => {
-                    return data.json()
-
-                }).then( socialPersona => {
-                    console.log('this is our loaded Social Persona', socialPersona)
-                    this.socialPersona = socialPersona
-                })
-            },
-            getUserFeed () {
-                getFeed().then(data => {
-                    return data.json()
-                    
-                }).then( feed => {
-                    console.log('this is our feed', feed)
-                    this.response = feed
-                })
-            }
         },
         // Spin up websocket client on app mount
         mounted: function () {
-            this.getSocialPersona()
-            this.getUserFeed(this.socialPersona)
-            console.log(this.socialPersona)
 
             /*
             //open a server socket, so that the platform process can send data to the UI

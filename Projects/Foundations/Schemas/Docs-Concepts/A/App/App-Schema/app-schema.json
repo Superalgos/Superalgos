@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Tasarım Alanında kullanılmak üzere belirli bir Proje tarafından hangi düğüm türlerinin kullanılabilir hale getirildiğini tanımlayan bir JSON dosyasına yerleştirilmiş bir dizi düşük seviye tanım.",
-                "updated": 1654390577793
+                "text": "Tasarım Alanında ( Design Space ) kullanılmak üzere belirli bir Proje ( Project ) tarafından hangi düğüm türlerinin kullanılabilir hale getirildiğini tanımlayan bir JSON dosyasına yerleştirilmiş bir dizi düşük seviye tanım.",
+                "updated": 1671981878068
             }
         ]
     },
@@ -153,8 +153,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Düğümün Tipi, her bir düğümün belirli bir Proje bağlamında tanımlanmasını sağlayan anahtardır. Buradaki adlandırma kuralı, tüm kelimelerin büyük harfle yazılması gerektiğidir.",
-                    "updated": 1654390613595,
+                    "text": "Düğümün Tipi, her bir düğümün belirli bir Proje ( Project ) bağlamında tanımlanmasını sağlayan anahtardır. Buradaki adlandırma kuralı, tüm kelimelerin büyük harfle yazılması gerektiğidir.",
+                    "updated": 1671982092279,
                     "style": "Text"
                 }
             ]
@@ -188,8 +188,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu düğüm türünün önemini temsil eden 0 ila 5 arasında bir tamsayıdır. 0 en önemli olanıdır. Düğüm türü ne kadar önemli olursa, Tasarım Alanında o kadar büyük işlenir. Seviye arasındaki fark neredeyse hiç fark edilmez.",
-                    "updated": 1654390625726,
+                    "text": "Bu düğüm türünün önemini temsil eden 0 ila 5 arasında bir tamsayıdır. 0 en önemli olanıdır. Düğüm türü ne kadar önemli olursa, Tasarım Alanında ( Design Space )  o kadar büyük işlenir. Seviye arasındaki fark neredeyse hiç fark edilmez.",
+                    "updated": 1671982150577,
                     "style": "Text"
                 }
             ]
@@ -222,8 +222,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Düğümler genellikle diğer düğümlerin çocuğudur. Her düğümün çocukları da olabilir. Çalışma zamanında çocuk referansları Node nesnesinin bazı özelliklerinde saklanır, ancak bu özellik benzersiz veya önceden tanımlanmış değildir. Bunun yerine, her Node Tipi, App Schema'daki kendi tanımında, üst düğümünde kendi referansını barındıracak özelliğin adını beyan eder.",
-                    "updated": 1654390637121,
+                    "text": "Düğümler genellikle diğer düğümlerin alt düğümleridir. Her Düğümün ( Node ) alt düğümleri de olabilir. Çalışma zamanında alt düğüm referansları Düğüm nesnesinin ( Node object ) bazı özelliklerinde saklanır, ancak bu özellik benzersiz veya önceden tanımlanmış değildir. Bunun yerine, her Düğüm Tipi ( Node Type ), Uygulama Şemasında ( App Schema ) kendi tanımında, üst düğümünde kendi referansını barındıracak özelliğin adını beyan eder.",
+                    "updated": 1671982486105,
                     "style": "Text"
                 }
             ]
@@ -258,8 +258,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Düğümler ayrıca, düğümün hangi tür çocuklara sahip olabileceğini tanımlamak için kullanılacak bir dizi özellik adı bildirir. Örneğin:",
-                    "updated": 1654390648685,
+                    "text": "Düğümler ayrıca, düğümün hangi tür alt düğümlere sahip olabileceğini tanımlamak için kullanılacak bir dizi özellik adı bildirir. Örneğin:",
+                    "updated": 1671982580386,
                     "style": "Text"
                 }
             ]
@@ -286,8 +286,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her dizi öğesi, bu düğümün sahip olabileceği bir tür çocuk düğümünü temsil eder.",
-                    "updated": 1654390655084,
+                    "text": "Her dizi öğesi, bu düğümün sahip olabileceği bir tür alt düğümü temsil eder.",
+                    "updated": 1671982617790,
                     "style": "Text"
                 }
             ]
@@ -331,8 +331,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "name: çalışma zamanında alt düğüme referansı tutacak özelliğin adı anlamına gelir.",
-                    "updated": 1654390666474,
+                    "text": "ad (name): çalışma zamanında alt düğüme referansı tutacak özelliğin adı anlamına gelir.",
+                    "updated": 1671982675260,
                     "style": "List"
                 }
             ]
@@ -398,8 +398,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "autoAdd: isteğe bağlı, bu Node türü oluşturulduğunda bu çocukların bir örneğinin otomatik olarak oluşturulup oluşturulmayacağı anlamına gelir.",
-                    "updated": 1654390683756,
+                    "text": "autoAdd: isteğe bağlı, bu düğüm türü oluşturulduğunda bu çocukların bir örneğinin otomatik olarak oluşturulup oluşturulmayacağı anlamına gelir.",
+                    "updated": 1671982810970,
                     "style": "List"
                 }
             ]
@@ -443,8 +443,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "node: bu tür çocukların yalnızca bir örneğine sahip olabileceği anlamına gelir.",
-                    "updated": 1654390695562,
+                    "text": "düğüm (node): bu tür alt düğümlerin yalnızca bir örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1671982864671,
                     "style": "List"
                 }
             ]
@@ -465,8 +465,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "array: bu tür çocukların birden fazla örneğine sahip olabileceği anlamına gelir.",
-                    "updated": 1654390701557,
+                    "text": "dizi (array): bu tür alt düğümlerin birden fazla örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1671982919988,
                     "style": "List"
                 }
             ]
@@ -499,8 +499,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün, bu düğümleri olası ebeveynler olarak dikkate alarak hangi düğümlere bağlanabileceğini tanımlar. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri listesini içeren bir dize olarak ifade edilir:",
-                    "updated": 1654390713138,
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün, bu düğümleri olası ana düğümler olarak dikkate alarak hangi düğümlere bağlanabileceğini tanımlar. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri ( Node Types ) listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1671983085364,
                     "style": "Text"
                 }
             ]
@@ -527,8 +527,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "incompatibleTypes özelliği, hangi düğümlerin ebeveyn olamayacağını açıkça tanımlamak için de kullanılabilir.",
-                    "updated": 1654390718706,
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ana düğüm olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1671983121387,
                     "style": "Note"
                 }
             ]
@@ -562,8 +562,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün hangi düğümlere referans verebileceğini tanımlar ve bu düğümleri olası referans ebeveynleri olarak dikkate alır. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri listesini içeren bir dize olarak ifade edilir:",
-                    "updated": 1654390731678,
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün hangi düğümlere referans verebileceğini tanımlar ve bu düğümleri olası referans ana düğümleri olarak dikkate alır. Değerleri, aşağıdaki örnekte olduğu gibi Düğüm Türleri ( Node Types ) listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1671983351424,
                     "style": "Text"
                 }
             ]
@@ -590,8 +590,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "incompatibleTypes özelliği, hangi düğümlerin ebeveyn olamayacağını açıkça tanımlamak için de kullanılabilir.",
-                    "updated": 1654390737446,
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ana düğüm olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1671983378728,
                     "style": "Note"
                 }
             ]
@@ -624,8 +624,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özellik, Tasarım Alanında bu Düğüm Tipinin menüsünü tanımlamanıza olanak tanır. Bu menü, aşağıdaki örnekte olduğu gibi Menü Öğeleri nesnelerinden oluşan bir dizi olacaktır:",
-                    "updated": 1654390749110,
+                    "text": "Bu özellik, Tasarım Alanında bu Düğüm Tipinin ( Node Type ) menüsünü tanımlamanıza olanak tanır. Bu menü, aşağıdaki örnekte olduğu gibi Menü Öğeleri nesnelerinden oluşan bir dizi olacaktır:",
+                    "updated": 1671983450939,
                     "style": "Text"
                 }
             ]
@@ -693,6 +693,11 @@
                     "language": "DE",
                     "text": "run: nach der Konfiguration (configure), wenn es eine gibt",
                     "updated": 1642119036213
+                },
+                {
+                    "language": "TR",
+                    "text": "çalıştır (run): eğer varsa yapılandırmadan sonra",
+                    "updated": 1671983591005
                 }
             ]
         },
@@ -750,8 +755,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özellik, tanımlanmakta olan Düğüm Tipinin bir konfigürasyona sahip olacağı durumlarda gereklidir. Bu durumlarda, bu özellik söz konusu yapılandırma için başlangıç değerini ayarlayacaktır. Örnek:",
-                    "updated": 1654390791440,
+                    "text": "Bu özellik, tanımlanmakta olanDüğüm Türünün ( Node Type ) bir yapılandırmaya sahip olacağı durumlarda gereklidir. Bu durumlarda, bu özellik söz konusu yapılandırma için başlangıç değerini ayarlayacaktır. Örnek:",
+                    "updated": 1671983710527,
                     "style": "Text"
                 }
             ]
@@ -927,8 +932,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kullanıcının burada yapılandırılan düzenleyiciyi gerçekten açabilmesi için, eylemi = \"Yapılandır\" olan bir Menü Öğesi olmalıdır.",
-                    "updated": 1654390837503,
+                    "text": "Kullanıcının burada yapılandırılan düzenleyiciyi gerçekten açabilmesi için, eylemi = \"Yapılandır\" (\"Configure\")  olan bir Menü Öğesi ( Menu Item ) olmalıdır.",
+                    "updated": 1671983901323,
                     "style": "Note"
                 }
             ]

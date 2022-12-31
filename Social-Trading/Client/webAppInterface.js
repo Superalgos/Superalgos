@@ -35,6 +35,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
         switch (messageHeader.networkService) {
             case 'Social Graph': {
                 let response = await ST.socialTradingApp.p2pNetworkClient.socialGraphNetworkServiceClient.sendMessage(messageHeader)
+                console.log('social graph message response', response)
                 return response
             }
             case 'Trading Signals': {

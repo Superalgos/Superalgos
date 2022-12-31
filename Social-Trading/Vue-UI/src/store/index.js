@@ -5,8 +5,11 @@ export default createStore({
   state: {
     newPost: false,
     profile: {
-      id: '2',
-      username: 'theblockchainarborist',
+      blockchainAccount: undefined,
+      nodeCodeName: undefined,
+      nodeId: undefined,
+      userProfileHandle: undefined,
+      userProfileId: undefined,
       followers: 2,
       following: 5,
     },
@@ -113,6 +116,13 @@ export default createStore({
   mutations: {
     ADD_POST(state, post) {
       state.posts.unshift(post)
+    },
+    ADD_PROFILE(state, data) {
+      state.profile.blockchainAccount = data.profile.blockchainAccount
+      state.profile.nodeCodeName = data.profile.nodeCodeName
+      state.profile.nodeId = data.profile.nodeId
+      state.profile.userProfileHandle = data.profile.userProfileHandle
+      state.profile.userProfileId = data.profile.userProfileId
     }
   },
   actions: {

@@ -117,6 +117,7 @@ After that, open the config of the Forecast-Client Sensor Bot Instance. It looks
 
 * clientInstanceForecaster: **IMPORTANT:** Change this to match the name you gave to your Test Client Instance node you created at your user profile.
 * clientInstanceBuilder: **IMPORTANT:** Change this to match the name you gave to your Test Client Instance node you created at your user profile.
+* add the line "pythonScriptName": "Bitcoin_Factory_LSTM_Forecaster.py" so the Forecast Client uses the correct file
 
 **IMPORTANT:** If you are going to be using 2 or more computers, you need to take care of the Signing Accounts file that needs to be present at both / all computers (This is the one that lives in your My-Secrets file). In other words, you cannot generate the signing account at one computer and then generate it again at the second one. If you generate it at one computer and contributed your profile, then you need to copy the file inside the My-Secrets folder to the second computer/s.
 

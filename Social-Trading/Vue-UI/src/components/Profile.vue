@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="username-div">
-                    <p  id="profile-username" class="profile-username">{{this.$store.state.profile.username}}</p>
+                    <p  id="profile-username" class="profile-username">{{this.$store.state.profile.userProfileHandle}}</p>
 
                 </div>
                 

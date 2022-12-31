@@ -25,7 +25,6 @@
       <div id="profile-btn-div" class="tile-btn" v-on:click="viewProfile">
         <h1 id="profile-btn">My Profile</h1>
       </div>
-      <div>this is our loaded persona {{ socialPersona }}</div>
   </div>
 </div>
 </template>
@@ -33,7 +32,7 @@
 <script>
   import dashboardIcon from "../assets/dashboard.png"
   import { getFeed } from "../api/post.httpService.js"
-  import { getSocialPersona } from "../api/profile.httpService.js"
+  import { loadProfile } from "../services/LoadProfile.js";
   
   export default {
     name: 'Home',
@@ -77,13 +76,7 @@
         alert("This feature is still under construction - Coming Soon!")
       },  
       getSocialPersona () {
-        getSocialPersona().then(data => {
-                    return data.json()
-
-                }).then( socialPersona => {
-                    console.log('this is our loaded Social Persona', socialPersona)
-                    this.socialPersona = socialPersona
-                })
+        loadProfile()
       },
       getUserFeed () {
                 getFeed().then(data => {
@@ -172,16 +165,8 @@
       text-align: center;
     }
 
-
-
-
-
 a {
   text-decoration: none
-}
-
-.nav-bar {
-  position: fixed;
 }
 
 

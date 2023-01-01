@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Artık çalışma alanında hedef Kullanıcı Profiline sahip olduğunuza göre, geriye kalan tek şey Kullanıcı Yönlendiren (User Referrer) düğümünüzden Kullanıcı Profiline (User Profile) referansı oluşturmaktır.",
                 "updated": 1645099812307
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu menemukan User Profile target di workspace, yang tersisa hanyalah membuat referensi dari node User Referrer kamu ke User Profile.",
+                "updated": 1671528625029
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Referanslar konusunda uzman değilseniz, işte referansların nasıl çalıştığına dair kısa bir hatırlatma!",
                     "updated": 1645100036569
+                },
+                {
+                    "language": "ID",
+                    "text": "Kalau saja kamu tidak mahir dengan referensi, inilah pengingat singkat tentang cara kerja referensi!",
+                    "updated": 1671528631324
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Bu arada, birden fazla yönlendireniniz olduğunu düşünüyorsanız, Kullanıcı Yönlendiren düğümleri eklemekten ve referansları profilleriyle birlikte ayarlamaktan çekinmeyin!",
                     "updated": 1645100072152
+                },
+                {
+                    "language": "ID",
+                    "text": "Ngomong-ngomong, jika kamu merasa memiliki lebih dari satu perujuk, silahkan tambahkan node User Referrer dan atur referensi dengan profil mereka!",
+                    "updated": 1671528638107
                 }
             ]
         },
@@ -110,6 +125,11 @@
                     "language": "TR",
                     "text": "Yönlendirenlerinizi bildirmeyi bitirdikten sonra eğiticiye devam edin!",
                     "updated": 1645100087601
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu selesai menyatakan perujukmu, lanjutkan tutorialnya!",
+                    "updated": 1671528646411
                 }
             ]
         }

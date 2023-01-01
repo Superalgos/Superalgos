@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Hadi başlayalım! Profilinizi göndermek için app.contribute komutunu kullanacağız.",
                 "updated": 1645104660981
+            },
+            {
+                "language": "ID",
+                "text": "Pada bawah baris Governance-Plugins, kamu akan melihat file plugin User Profile-mu yang terdaftar.",
+                "updated": 1671545675285
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki komutu kopyalayın, arama kutusuna yapıştırın ve \"add your name\" kısmını  Github kullanıcı adınızla değiştirerek Enter'a tıklayın.",
                     "updated": 1645104765848
+                },
+                {
+                    "language": "ID",
+                    "text": "Masukkan pesan commit seperti \"First profile submission\", dan klik tombol Contribute!",
+                    "updated": 1671545681762
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Her şey doğru ayarlanmışsa, Pull Request'inizin gönderildiğini belirten bir mesaj görmelisiniz. Bu, profilinizin ana Superalgos deposuna gönderildiği ve birkaç saat içinde otomatik olarak birleştirileceği anlamına gelir!",
                     "updated": 1645105046961
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semuanya diatur dengan benar, dalam beberapa detik file plugin akan hilang dari daftar dan kamu akan mendapatkan pesan yang mengonfirmasi bahwa kontribusimu telah terkirim. Ini berarti profil kamu telah masuk ke repositori Governance-Plugins dan akan digabungkan secara otomatis dalam beberapa jam!",
+                    "updated": 1671545688038
                 }
             ]
         },

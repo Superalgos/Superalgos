@@ -5,7 +5,7 @@
     "project": "Network",
     "p2pNetworkReference": {
         "type": "P2P Network Reference",
-        "name": "Mainnet",
+        "name": "Testnet",
         "project": "Network",
         "id": "448d3ea6-e194-4784-acca-0e446b9127e3",
         "savedPayload": {
@@ -30,12 +30,12 @@
             },
             "referenceParent": {
                 "type": "P2P Network",
-                "name": "Mainnet",
+                "name": "Testnet",
                 "id": "f614fedc-e405-4260-9e17-90c863482c8d"
             },
             "referenceParentCombinedNodePath": [
                 [
-                    "Mainnet",
+                    "Testnet",
                     "P2P Network"
                 ]
             ]

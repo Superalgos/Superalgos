@@ -10,7 +10,7 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
 
     return thisObject
 
-    async function run(debugSettings) {
+    async function run(debugSettings, uiType) {
         /* 
         The ST object is accessible everywhere at the Superalgos Social Trading App.
         It provides access to all modules built for this App.
@@ -25,6 +25,10 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
+
+        if (uiType != undefined) {
+            global.env.SOCIALTRADING_APP_UI_TYPE = uiType
+        }
         /*
         Here we are defining the cryptographic identity which will be used by this App to
         identify itself with the Superalgos P2P Network.
@@ -59,7 +63,9 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
             nodeFetch: require('node-fetch'),
             graphql: require("@octokit/graphql"),
             axios: require('axios'),
-            crypto: require('crypto')
+            crypto: require('crypto'),
+            static: require('node-static'),
+            childProcess: require('child_process')
         }
         SA.version = require('./package.json').version
 
@@ -83,7 +89,7 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
         run()
 
         async function run() {
-            ST.app = require('./Social-Trading/Clean-UI/SocialTradingApp.js').newSocialTradingApp()
+            ST.app = require('./Social-Trading/SocialTradingApp.js').newSocialTradingApp()
             await ST.app.run()
             console.log('Superalgos Social Trading App is Running!')
         }

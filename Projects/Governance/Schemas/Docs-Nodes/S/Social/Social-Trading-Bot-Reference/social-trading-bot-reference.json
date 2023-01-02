@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел хранит ссылку на Social Trading Bot, используемого его родительским экземпляром торгового бота для отправки или получения торговых сигналов в одноранговой сети Superalgos.",
                 "updated": 1645182446137
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, ana Ticaret Botu Örneği ( Trading Bot Instance ) tarafından Superalgos eşler arası ağında Ticaret Sinyalleri ( Trading Signals ) göndermek veya almak için kullanılan Sosyal Ticaret Botuna ( Social Trading Bot ) bir referans depolar.",
+                "updated": 1672063502367
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Если пользователь посылает торговые сигналы, социальный торговый бот, на которого будет ссылаться пользователь, должен быть настроен в профиле пользователя.",
                     "updated": 1645182455948
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kullanıcı alım satım sinyalleri gönderiyorsa, referans alınacak sosyal alım satım botu kullanıcının profili altında ayarlanmalıdır.",
+                    "updated": 1672063543524
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Если пользователь получает сигналы, то социальный торговый бот, на которого нужно ссылаться, будет найден в профиле пользователя, предоставляющего сигналы.",
                     "updated": 1645182467556
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı sinyal alıyorsa, başvurulacak sosyal ticaret botu sinyal sağlayıcıların kullanıcı profili altında bulunacaktır.",
+                    "updated": 1672063582583
                 }
             ]
         }

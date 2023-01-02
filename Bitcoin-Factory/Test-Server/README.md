@@ -65,7 +65,8 @@ Indicator with range "ON" must be mining and up-to-date (from mining workspace p
 5. Use the Profile Constructor to Install Signing Accounts. (If haven't done already)
 6. If you have signed your account don't forget you need to save your profile and merge it with the plugins/governance/user-profiles develop branch on github.com
 7. Reference Task Server App Reference to the task server app in your profile.
-8. Start the Test-Server Task and check the console you should see something like this:
+8. At the Task Server Task, add P2P network client, then reference the P2P Network Reference to either Testnet, Mainnet or your network node, P2P Network Node Reference to your network node, under Network Service node add Machine Learning and finally in Network Interfaces add Websockets Interface + HTTP Network Interface.
+9. Start the Test-Server Task and check the console you should see something like this:
 ```
 Superalgos TaskServer is Running!
 

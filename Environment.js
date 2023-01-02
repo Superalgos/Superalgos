@@ -38,6 +38,7 @@ exports.newEnvironment = function () {
         PATH_TO_SECRETS: path.join(basePath, './My-Secrets'),
         PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
         PATH_TO_BITCOIN_FACTORY: path.join(basePath, './Bitcoin-Factory'),
+        SOCIALTRADING_APP_UI_TYPE: 'clean',
         SOCIALTRADING_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
         SOCIALTRADING_APP_MAX_OUTGOING_PEERS: 5,
         SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS: 1,

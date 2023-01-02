@@ -1,19 +1,30 @@
 <template>
     <div class="app-container">
         <div class="nav-bar">
-            <img class="logo" :src="logo" >
-            <button class="nav-btn" @click="openMenu">Dashboards</button>
+
+            <div id="header-logo-div">
+                <img class="logo" :src="logo" >
+            </div>
+            
+            <div id="nav-btn-div">
+                <button class="nav-btn" @click="openMenu">Menu</button>
             <button class="nav-btn" @click="openSettings">Settings</button>
+            </div>
+
+            
+            
         </div>
 
         <Drawer class="drawer-theme" :direction="'left'" :exist="true" ref="LeftDrawer">
             <img class="logo" :src="logo" >
-            <div class="dash-link-container" v-for="dashboard in dashboards">
-                <router-link class="dash-link" :to="{ name: dashboard.name }" >{{dashboard.name}} Dashboard</router-link>
+            <div class="dash-link-container" v-for="dashboard in dashboards" v-bind:key="dashboard">
+                <router-link class="dash-link" :to="{ name: dashboard.name }" >{{dashboard.name}} </router-link>
             </div>
         </Drawer>
         <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
         <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
+
+        
     </div>
 </template>
 
@@ -21,6 +32,8 @@
     import Drawer from './components/Drawer.vue'
     import logo from "./assets/superalgos-logo-white.png"
     import background from "./assets/superalgos-header-background.png"
+    
+
 
     export default {
         components: { Drawer },
@@ -52,10 +65,12 @@
 				}else{
 					this.$refs.RightDrawer.open();
 				}
-			}
+			},
         },
         // Spin up websocket client on app mount
         mounted: function () {
+
+            /*
             //open a server socket, so that the platform process can send data to the UI
             let socket = new WebSocket("ws://"+ location.host.split(':')[0]+":18043/");
 
@@ -84,6 +99,7 @@
             socket.onclose = (event) => {
                 console.log((new Date()).toISOString(),'[ERROR] {App.vue} websocket connection closed', event);
             };
+            */
         },
     }
 </script>
@@ -94,7 +110,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: rgb(122, 122, 122);
     }
 
     ::-webkit-scrollbar-track {
@@ -103,27 +119,43 @@
 
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        background: #f1f1f1;
-        height: calc(100vh - 50px);
+        background-color: rgba(0, 0, 0, 0.959);
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'header'
+        'body';
     }
     
     .nav-bar {
-        position:fixed; 
+        grid-area: header;
         left:0;           
         top:0;            
         width:100vw;      
         z-index:200;  
-        height:50spx;  
+        height:65px;  
         background-image: url('./assets/superalgos-header-background.png');
         display: flex; 
+        align-self: top;
+        align-items: center;
+    }
+
+    #header-logo-div {
+        display: flex;
     }
 
     .logo {
-        height: 50px;
+        height: 60px;
+    }
+
+    #nav-btn-div {
+        display: flex;
+        margin-left: 1vw;
     }
 
     .nav-btn {
-        font-size: 16px;
+        font-size: 22px;
         color: white;
         text-align: center;
         padding: 14px 16px;
@@ -133,9 +165,11 @@
     }
 
     .nav-btn:hover {
-        font-size: 16px;
+        font-size: 24px;
         color: white;
         background-color: rgba(51, 51, 51, 0.7);
+        border-top-left-radius: 7px;
+        height: 70%;
     }
 
     .dash-link-container {
@@ -159,7 +193,8 @@
     }
 
     .dashboard-view {
-        margin-top: 50px;
+        grid-area: body;
+        background-color: rgba(22, 22, 22, 0.877);
     }
 </style>
   

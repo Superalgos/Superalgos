@@ -11,6 +11,30 @@ exports.newLoadMyWorkspaceRoute = function newLoadMyWorkspaceRoute() {
         let requestPath = requestPathAndParameters[0].split('/')
         let fileName = unescape(requestPath[2])
         let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
-        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
+
+        respondWithFile(filePath, httpResponse)
+    }
+    
+    function respondWithFile(fileName, httpResponse) {
+        if (fileName.indexOf('undefined') > 0) {
+            SA.logger.warn('respondWithFile -> Received httpRequest for undefined file. ')
+            SA.projects.foundations.utilities.httpResponses.respondWithContent(undefined, httpResponse)
+        } else {
+            try {
+                SA.nodeModules.fs.readFile(fileName, onFileRead)
+                
+                function onFileRead(err, file) {
+                    if (!err) {
+                        let workspace = PL.projects.foundations.utilities.credentials.loadExchangesCredentials(PL.projects.foundations.utilities.credentials.loadGithubCredentials(JSON.parse(file.toString())))
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(workspace), httpResponse)
+                    } else {
+                        //SA.logger.info('File requested not found: ' + fileName)
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(undefined, httpResponse)
+                    }
+                }
+            } catch (err) {
+                SA.projects.foundations.utilities.httpResponses.respondWithEmptyArray(httpResponse)
+            }
+        }
     }
 }

@@ -13,26 +13,27 @@ The Superalgos apps are:
 
 Each of these apps has a dedicated global property which has a logger attribute. This attribute loaded from the logger factory and will output logs to the command line and to a series of date stamped files. The logs will be placed in either a direcotory specified by you or the default directory `./Platform/My-Log-Files` this chosen directory will have a subset of folders one for each app:
 
+```cmd
 ./Platform/My-Log-Files
   |-- DS
-  |   |-- error/%DATE$.log
-  |   |-- combined/%DATE$.log
+  |   |-- error/%DATE%.log
+  |   |-- combined/%DATE%.log
   |-- NT
-  |   |-- error/%DATE$.log
-  |   |-- combined/%DATE$.log
+  |   |-- error/%DATE%.log
+  |   |-- combined/%DATE%.log
   |-- PL
-  |   |-- error/%DATE$.log
-  |   |-- combined/%DATE$.log
+  |   |-- error/%DATE%.log
+  |   |-- combined/%DATE%.log
   |-- SA
-  |   |-- error/%DATE$.log
-  |   |-- combined/%DATE$.log
+  |   |-- error/%DATE%.log
+  |   |-- combined/%DATE%.log
   |-- TS
-  |   |-- error/%DATE$.log
-  |   |-- combined/%DATE$.log
+  |   |-- error/%DATE%.log
+  |   |-- combined/%DATE%.log
   |-- ST
-      |-- error/%DATE$.log
-      |-- combined/%DATE$.log
-
+      |-- error/%DATE%.log
+      |-- combined/%DATE%.log
+```
 
 ## Usage
 

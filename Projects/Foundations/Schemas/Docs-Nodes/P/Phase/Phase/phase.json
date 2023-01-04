@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Управление целями тейк-профита и стоп-лосса осуществляется фазами, каждая из которых имеет свою формулу, определяющую цель.",
                 "updated": 1639847728686
+            },
+            {
+                "language": "TR",
+                "text": "Kar alma (Take profit) ve zararı durdurma (Stop loss) hedeflerinin yönetimi, her biri hedefi belirleyen kendi formülüne sahip aşamalar halinde yapılır.",
+                "updated": 1672254904874
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Фаза 1 устанавливает начальные цели, либо для управляемого стоп-лосса Managed Stop Loss, либо для управляемого тейк-профита Managed Take Profit, и становится активной, как только событие Take Position Event становится true (истинным). Последующие фазы позволяют переключаться на различные формулы при определенных ситуациях на рынке.",
                     "updated": 1639847844303
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşama 1, Yönetilen Zarar Durdurma ( Managed Stop Loss ) veya Yönetilen Kar Alma ( Managed Take Profit ) için ilk hedefleri belirler ve Pozisyon Alma Olayı ( Take Position Event ) doğrulanır doğrulanmaz ( true ) aktif hale gelir. Sonraki aşamalar, belirli piyasa durumları göz önüne alındığında farklı formüllere geçişe izin verir.",
+                    "updated": 1672255319452
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Управление фазами по умолчанию является последовательным, то есть фаза 2 наступает после фазы 1, фаза 3 наступает после фазы 2 и так далее.",
                     "updated": 1639847873692
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamaların varsayılan yönetimi sıralıdır, yani 2. aşama 1. aşamadan sonra gelir, 3. aşama 2. aşamadan sonra gelir ve bu böyle devam eder.",
+                    "updated": 1672255374850
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "RU",
                     "text": "Для перехода от одной фазы к следующей в последовательности используется событие Next Phase. Когда ситуация Situation, описанная в событии следующей фазы, становится истинной, происходит переключение, и следующая фаза становится активной.",
                     "updated": 1639847969929
+                },
+                {
+                    "language": "TR",
+                    "text": "Sıralamada bir aşamadan bir sonraki aşamaya geçmek için Sonraki Aşama ( Next Phase ) olayı kullanılır. Sonraki aşama olayında açıklanan Durum ( Situation ) doğru ( true ) olduğunda, geçiş gerçekleşir ve sonraki aşama aktif aşama haline gelir.",
+                    "updated": 1672255609794
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "RU",
                     "text": "Однако управление не обязательно должно происходить последовательно. Используя событие Move To Phase Event вместо события Next Phase Event, система может активировать любую другую фазу, а не только следующую в последовательности.",
                     "updated": 1639847998032
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, yönetimin sırayla gerçekleşmesi gerekmez. Sonraki Aşama Olayı ( Next Phase Event ) yerine Aşamaya Taşı Olayı ( Move To Phase Event ) kullanılarak, sistem sadece sıradaki aşamayı değil, başka herhangi bir aşamayı da etkinleştirebilir.",
+                    "updated": 1672255709381
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Оба события могут быть использованы одновременно, при этом приоритет имеет то событие, которое сработало первым.",
                     "updated": 1639848015265
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki olay da aynı anda kullanılabilir ve hangi olay önce tetiklenirse öncelik o olayın olur.",
+                    "updated": 1672255744400
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что фазы стоп-лосс и тейк-профит являются независимыми и определяются отдельно друг от друга, каждая из них находится ниже соответствующих узлов управляемого стоп-лосс и управляемого тейк-профит.",
                     "updated": 1639848049136
+                },
+                {
+                    "language": "TR",
+                    "text": "Zararı durdur (stop loss) ve kârı al (take profit) aşamalarının bağımsız olduğuna ve her biri ilgili yönetilen zararı durdur (stop loss) ve yönetilen kârı al (take profit) düğümlerinin altında olmak üzere birbirlerinden ayrı olarak tanımlandığına dikkat edin.",
+                    "updated": 1672255831436
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "RU",
                     "text": "Значение цели, установленной для фазы, выражается формулой. Узнайте больше о формулах и о том, как их написать.",
                     "updated": 1639848109450
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir aşama için belirlenen hedefin değeri bir formülle ifade edilir. Formüller ve bunların nasıl yazılacağı hakkında daha fazla bilgi edinin.",
+                    "updated": 1672255877963
                 }
             ]
         },
@@ -105,6 +145,11 @@
                     "language": "RU",
                     "text": "Это объяснение о фазе 1 можно распространить на любую другую фазу, поскольку все они работают одинаково, и оно применимо как к фазам управляемого стоп-лосса, так и к фазам управляемого тейк-профита.",
                     "updated": 1639848134202
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşama 1 ile ilgili bu açıklama, hepsi benzer şekilde çalıştığı için diğer tüm aşamalara genişletilebilir ve hem yönetilen zararı durdurma aşamaları hem de yönetilen kar alma aşamaları için geçerlidir.",
+                    "updated": 1672256044721
                 }
             ]
         },
@@ -116,17 +161,38 @@
         {
             "style": "Title",
             "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "updated": 1609873971454,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Seri Numara Yapılandırması (Serial Number Configuration)",
+                    "updated": 1672256206839
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler (Properties)",
+                    "updated": 1672256235837
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1672256276596
+                }
+            ]
         }
     ]
 }

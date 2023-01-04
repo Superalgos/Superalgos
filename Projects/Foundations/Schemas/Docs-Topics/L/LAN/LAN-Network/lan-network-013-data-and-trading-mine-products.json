@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Разделы Data Mine Products и Trading Mine Products в разделах Data Mines Data и Trading Mines Data соответственно имеют очень похожую структуру и хранят данные в узлах одного и того же типа. Мы рассмотрим оба раздела параллельно.",
                 "updated": 1639150835479
+            },
+            {
+                "language": "TR",
+                "text": "Veri Madeni Verileri ( Data Mines Data ) ve Ticaret Madeni Verileri ( Trading Mines Data ) altındaki Veri Madeni Ürünleri ve Ticaret Madeni Ürünleri ( Trading Mine ) bölümleri sırasıyla çok benzer bir düzenlemeye sahiptir ve verileri aynı tür düğümlerde depolar. Her iki bölümü de yan yana inceleyeceğiz.",
+                "updated": 1672266056095
             }
         ]
     },

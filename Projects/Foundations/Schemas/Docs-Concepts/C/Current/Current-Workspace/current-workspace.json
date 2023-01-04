@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Geçerli Çalışma Alanı, kullanıcı arayüzünde o anda yüklü olan Çalışma Alanıdır. Bir Kullanıcı Çalışma Alanı ya da Eklenti Çalışma Alanı olabilir.",
-                "updated": 1654390911815
+                "text": "Geçerli Çalışma Alanı, kullanıcı arayüzünde ( UI ) o anda yüklü olan Çalışma Alanıdır ( Workspace ). Bir Kullanıcı Çalışma Alanı ( User Workspace ) ya da Eklenti Çalışma Alanı ( Plugin Workspace ) olabilir.",
+                "updated": 1671644479143
             }
         ]
     },

@@ -4,12 +4,15 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     newPost: false,
+    showCreateProfile: false,
+    showProfile: false,
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
+      profileImg: 'https://raw.githubusercontent.com/theblockchainarborist/Social_Trading_App/main/Images/Profile_Picture.png',
       followers: 2,
       following: 5,
     },
@@ -118,11 +121,17 @@ export default createStore({
       state.posts.unshift(post)
     },
     ADD_PROFILE(state, data) {
-      state.profile.blockchainAccount = data.profile.blockchainAccount
-      state.profile.nodeCodeName = data.profile.nodeCodeName
-      state.profile.nodeId = data.profile.nodeId
-      state.profile.userProfileHandle = data.profile.userProfileHandle
-      state.profile.userProfileId = data.profile.userProfileId
+      state.profile.blockchainAccount = data.blockchainAccount
+      state.profile.nodeCodeName = data.nodeCodeName
+      state.profile.nodeId = data.nodeId
+      state.profile.userProfileHandle = data.userProfileHandle
+      state.profile.userProfileId = data.userProfileId
+    },
+    SHOW_CREATE_PROFILE(state, show) {
+      state.showCreateProfile = show;
+    },
+    SHOW_PROFILE(state, show) {
+      state.showProfile = show;
     }
   },
   actions: {

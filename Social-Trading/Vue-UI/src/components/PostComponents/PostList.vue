@@ -8,7 +8,7 @@
 
 <script>
 
-import Post from '../components/PostComponents/Post.vue'
+import Post from './Post.vue'
 
 export default {
     name: 'posts-list',

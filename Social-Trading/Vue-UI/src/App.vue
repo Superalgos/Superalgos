@@ -9,6 +9,8 @@
             <div id="nav-btn-div">
                 <button class="nav-btn" @click="openMenu">Menu</button>
             <button class="nav-btn" @click="openSettings">Settings</button>
+
+            <button class="nav-btn" @click="openProfile">Profile</button>
             </div>
 
             
@@ -24,19 +26,30 @@
         <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
         <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
 
+        <!-- The CreateProfile component -->
+        <div v-if="showCreateProfileComponent">
+            <create-profile />
+        </div>
+
+        <div v-if="showProfileComponent">
+            <profile />
+        </div>
+
         
     </div>
 </template>
 
 <script>
-    import Drawer from './components/Drawer.vue'
-    import logo from "./assets/superalgos-logo-white.png"
-    import background from "./assets/superalgos-header-background.png"
-    
-
+import Drawer from './components/Drawer.vue'
+import logo from "./assets/superalgos-logo-white.png"
+import background from "./assets/superalgos-header-background.png"
+import CreateProfile from './components/ProfileComponents/CreateProfile.vue'
+import store from './store/index'
+import Profile from './components/ProfileComponents/Profile.vue'
+import { getSocialPersona } from './services/ProfileService'
 
     export default {
-        components: { Drawer },
+        components: { Drawer, CreateProfile, Profile },
         data() {
             return {
                 incomingDataObj: {},
@@ -49,6 +62,12 @@
         computed: {
             dashboards () {
                 return this.$router.getRoutes()
+            },
+            showProfileComponent() {
+                return store.state.showProfile
+            },
+            showCreateProfileComponent() {
+                return store.state.showCreateProfile
             }
         },
         methods: {
@@ -66,6 +85,14 @@
 					this.$refs.RightDrawer.open();
 				}
 			},
+            openProfile() {
+                store.commit("SHOW_PROFILE", true);
+            },
+            getSocialPersona () {
+            let response = getSocialPersona()
+            console.log(JSON.stringify(response.data))
+            this.$store.commit("ADD_PROFILE", response)
+        },
         },
         // Spin up websocket client on app mount
         mounted: function () {
@@ -101,6 +128,9 @@
             };
             */
         },
+        created: function () {
+            this.getSocialPersona()
+        }, 
     }
 </script>
 
@@ -119,19 +149,23 @@
 
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        background-color: rgba(0, 0, 0, 0.959);
-        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.918);
+        height: 100%;
+        width: 100vw;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: 
         'header'
         'body';
+        position: relative;
+        margin-top: -8px;
+        margin-left: -8px;
     }
     
     .nav-bar {
         grid-area: header;
         left:0;           
-        top:0;            
+        top: 0;            
         width:100vw;      
         z-index:200;  
         height:65px;  
@@ -139,6 +173,7 @@
         display: flex; 
         align-self: top;
         align-items: center;
+        position: relative;
     }
 
     #header-logo-div {

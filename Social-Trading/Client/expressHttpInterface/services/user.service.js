@@ -155,12 +155,13 @@ const saveProfile = async (body, res) => {
 
 const createProfile = async (body, res) => {
 
+        console.log(JSON.stringify(body))
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
             storageProviderName: "Github",
-            storageProviderUsername: body.username,
-            storageProviderToken: body.token,
+            storageProviderUsername: body.storageProviderUsername,
+            storageProviderToken: body.storageProviderToken,
             userAppType: "Social Trading Desktop App"
         }
 

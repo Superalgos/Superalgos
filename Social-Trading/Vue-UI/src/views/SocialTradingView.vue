@@ -155,14 +155,10 @@
 </template>
 
 <script>
-
 import PostList from '../components/PostComponents/PostList.vue';
-import Profile from '../components/ProfileComponents/Profile.vue';
-import store from '../store/index'
-
 
 export default {
-    components: {Profile, PostList  },
+    components: { PostList  },
     data() {
         let home = false;
         let newPost = false;

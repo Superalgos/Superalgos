@@ -70,7 +70,6 @@
 <script>
 
 import store from '../../store/index'
-import { createProfile, createSocialPersona, getSocialPersona } from '../../services/ProfileService'
 
 export default {
     name: 'profile-component',
@@ -92,8 +91,9 @@ export default {
             return this.$store.state.profile.profileImg;
         },
         closeProfile() {
-                store.commit("SHOW_PROFILE", false);
-            }
+            store.commit("SHOW_PROFILE", false);
+            return this.$store.state.showProfile;
+        }
 }
 };
 </script>

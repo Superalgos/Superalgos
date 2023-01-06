@@ -30,7 +30,7 @@
 <script>
 
 import store from '../../store/index'
-import { createProfile, createSocialPersona, getSocialPersona } from '../../services/ProfileService'
+import { createProfile } from '../../services/ProfileService'
 
 export default {
     name: 'create-profile',

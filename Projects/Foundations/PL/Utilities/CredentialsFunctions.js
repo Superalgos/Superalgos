@@ -181,7 +181,9 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
      */
     function iterateExchanges(exchanges, keyFunction) {
         for (let i = 0; i < exchanges.length; i++) {
-            iterateUserAccounts(exchanges[i].exchangeAccounts.userAccounts, keyFunction)
+            if (exchanges[i].exchangeAccounts !== undefined) {
+                iterateUserAccounts(exchanges[i].exchangeAccounts.userAccounts, keyFunction)
+            }
         }
     }
 
@@ -190,7 +192,9 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
      */
     function iterateUserAccounts(userAccounts, keyFunction) {
         for (let i = 0; i < userAccounts.length; i++) {
-            keyFunction(userAccounts[i].userKeys.keys)
+            if (userAccounts[i].userKeys !== undefined) {
+                keyFunction(userAccounts[i].userKeys.keys)
+            }
         }
     }
 

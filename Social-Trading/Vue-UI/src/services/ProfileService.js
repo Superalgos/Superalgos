@@ -28,6 +28,9 @@ const headers = new Headers({'Accept': 'application/json', 'Content-Type': 'appl
     async function createProfile(profileData, personaName) {
         return http.post('/users/create-profile', profileData, headers)
                 .then(response => {
+                    if (response.data.address !== undefined) {
+                        console.log('A new user profile has been created! This is your address: ', response.data.address, 'and private key: ', response.data.privateKey)
+                    }
                     createSocialPersona(personaName);
                     getSocialPersona();
                     return;

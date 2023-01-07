@@ -135,7 +135,7 @@
 <script>
 import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
-import { getFeed } from '../services/PostService'
+
 
 export default {
     components: { PostList, NewPost  },

@@ -16,7 +16,6 @@ const http = axios.create({
 
     async function getPosts() {
         return http.get('/posts');
-        console.log(JSON.stringify(response.data))
     }
 
     async function getPost(queryParams) {

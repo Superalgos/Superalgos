@@ -76,13 +76,13 @@
 </template>
 
 <script>
-import Comment from './Comment.vue'
+
 
 
 
 
 export default {
-  components: {Comment  },
+  components: { },
     name: 'post-object',
     props: ['timestamp', 'userHandle', 'postBody'],
     computed: {

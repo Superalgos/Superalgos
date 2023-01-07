@@ -6,7 +6,23 @@
             
             <div id="profile-img-div">
                 <img id="profile-img" v-bind:src="imageSrc" alt="Profile Picture">
+
+                <input type="button" value="Set Profile Picture" v-if="setProfilePicture === false" v-on:click="setProfilePicture === false ? setProfilePicture = true : setProfilePicture = false">
+
+                <div v-if="setProfilePicture === true">
+
+                    <label for="profile-picture-url">Image URL: </label>
+                    <input type="text" name="profile-picture-url" id="" v-model="profilePictureUrl" >
+
+                    <div>
+                        <input type="button" value="Submit Image" v-on:click="submitImage">
+                    </div>
+                </div>
+                
+
                 <p id="welcome-user">Welcome {{$store.state.profile.userProfileHandle}}</p>
+
+                
 
                 <div id="followers-following-div">
                     <div id="followers-div">
@@ -70,17 +86,39 @@
 <script>
 
 import store from '../../store/index'
+import { updateProfile, getProfileData, getProfile } from '../../services/ProfileService'
 
 export default {
     name: 'profile-component',
     data() {
     return {
             updateProfileContent: false,
-            profileBio: undefined
+            profileBio: undefined,
+            setProfilePicture: false,
+            profilePictureUrl: undefined
         };
     },
     methods: {
-        
+        submitImage() {
+            console.log(this.profilePictureUrl)
+            this.setProfilePicture = false;
+
+            let message = {
+                        originSocialPersonaId: store.state.profile.nodeId,
+                        username: store.state.profile.userProfileHandle,
+                    }
+
+            //updateProfile(message);
+            let getProfileRequest = {
+                originSocialPersonaId: store.state.profile.nodeId
+            }
+            return getProfileData(message)
+            .then(response => {
+                alert(JSON.stringify(response.data))
+                return response.data
+            });
+            //alert(JSON.stringify(profileData))
+        }
     },
     computed: {
         getVisibility() {
@@ -88,7 +126,7 @@ export default {
             return v;
         },
         imageSrc() {
-            return this.$store.state.profile.profileImg;
+            return this.$store.state.profile.profilePicture;
         },
         closeProfile() {
             store.commit("SHOW_PROFILE", false);

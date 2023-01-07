@@ -1,4 +1,5 @@
 <template>
+  <div class="post-object-container" >
   <div class="post-object" >
 
     <div id="post-user-name-div">
@@ -73,6 +74,7 @@
     
     
   </div>
+  </div>
 </template>
 
 <script>
@@ -105,6 +107,13 @@ export default {
 
 <style>
 
+.post-object-container {
+  display: flex;
+  justify-items: center;
+  width: 100%;
+
+}
+
 .post-object {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -116,7 +125,7 @@ export default {
     background: rgb(231, 227, 227);
     box-shadow: 0px -3px 10px 0.5px rgba(0,0,0,0.4);
     border-radius: 10px;
-    width: 98%;
+    width: 100%;
     margin: 2vh;
 }
 
@@ -185,6 +194,7 @@ export default {
   padding: 2px 5px 2px 5px;
   font-weight: bolder;
   height: 100%;
+  width: 100%;
 }
 
 #post-stats {

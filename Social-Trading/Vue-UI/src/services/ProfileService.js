@@ -17,6 +17,7 @@ const http = axios.create({
                 .then(response => {
                     // If defined all is well and we save the data.
                     if (response.data.nodeCodeName !== undefined) {
+                        console.log("RESPONSE DATA " + JSON.stringify(response.data))
                         store.commit("ADD_PROFILE", response.data);
                         return;
                     } else {
@@ -67,7 +68,12 @@ const http = axios.create({
 
     // Loads Profile
     async function getProfile(socialPersonaId) {
-        return http.get('/users/profile', undefined, socialPersonaId)
+        return http.get('/users/profile', socialPersonaId)
+            .then(response => {
+                console.log(JSON.stringify(response))
+                console.log("RESPONSE>DATA = " + JSON.stringify(response.data))
+                return response
+            });
     }
 
     async function getPaginationProfiles(initialPaginationIndex, pagination) {
@@ -81,7 +87,12 @@ const http = axios.create({
 
 
     async function getProfileData(profileData) {
-        return http.post('/users/profileData', profileData)
+        console.log("GETING PROFILE DATA + " + JSON.stringify(profileData))
+        return http.get('/users/profileData', profileData)
+            .then(response => {
+                console.log("RESPONSE == " + JSON.stringify(response))
+                return response.data
+            });
     }
 
 

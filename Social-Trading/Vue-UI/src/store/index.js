@@ -52,6 +52,7 @@ export default createStore({
       state.profile.nodeId = data.nodeId
       state.profile.userProfileHandle = data.userProfileHandle
       state.profile.userProfileId = data.userProfileId
+      state.profile.profilePicture = data.profilePicture
     },
     SHOW_CREATE_PROFILE(state, show) {
       state.showCreateProfile = show;

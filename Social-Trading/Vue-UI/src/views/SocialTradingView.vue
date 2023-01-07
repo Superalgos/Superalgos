@@ -4,54 +4,72 @@
             <div class="background-image-social-trading">
         <div id="social-app-div" class="social-app-grid ">
         
-            <div class="profile-component-div">
-                <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
-                <p>{{$store.state.profile.userProfileHandle}}</p>
+                
+
+            <!-- New Post Area (TOP-MIDDLE) -->
+            <div class="new-post-div-flex">
+                
+                <div id="header-home-btn-div" >
+                    <p>Home</p>
+                </div>
+
+                <!-- New Post Image & Text Input -->
+                <div class="new-post-div">
+                    <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
+                    <input type="text" name="new-post-input" id="new-post-input" size="75" placeholder="What's happening?" v-model="postBody" >
+                </div>
+                <!-- New Post Button Bar -->
+                <div class="post-btn-bar">
+                    <input id="post-submit-btn" type="button" value="Post" v-on:click="sendPost">
+                </div>
+
             </div>
+            
 
+            <!-- Menu Div -->
             <div id="menu-tab-social-trading">
+                
+                <!-- Menu Header Logo -->
+                <img class="logo" src="../assets/superalgos-logo-white.png" >
 
-                <input id="social-app-home-btn" 
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="Home"
+                <!-- Home Menu Button -->
+                <p class="social-app-home-btn" 
                         v-on:click="openHomeView()"
                         >
+                    Home
+                </p>
 
-                <input id="new-post-btn"
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="New Post"
-                        v-on:click="openNewPostView()"
+                <!-- Profile Menu Button -->
+                <p class="social-app-home-btn" 
+                        @click="openProfile"
                         >
+                    Profile
+                </p>
 
-                <input id="post-history-btn"
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="Post History"
-                        v-on:click="openPostHistoryView()"
-                        >
+                <!-- Profile component -->
+                <div v-if="showProfileComponent">
+                    <profile />
+                </div>
+                
 
-                <input id="social-followers-btn"
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="Follower's"
-                        v-on:click="openSocialFollowersView()"
+                <p class="social-app-home-btn" 
+                        @click="openProfile"
                         >
+                    My Wallet
+                </p>
 
-                <input id="social-following-btn"
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="Following"
-                        v-on:click="openSocialFolloweringView()"
+                <p class="social-app-home-btn" 
+                        @click="openProfile"
                         >
+                    Settings
+                </p>
 
-                <input id="social-app-settings-btn"
-                        class="social-trading-menu-btn" 
-                        type="button" 
-                        value="Social App Settings"
-                        v-on:click="openSocialSettingsView()"
-                        >
+                
+            </div>
+
+            <div class="logout-div">
+                <img class="smaller-profile-pic" v-bind:src="imageSrc" alt="">
+                <p>{{$store.state.profile.userProfileHandle}}</p>
             </div>
 
 
@@ -135,12 +153,14 @@
 <script>
 import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
-
+import logo from "../assets/superalgos-logo-white.png"
+import store from '../store/index'
+import { createPost, getFeed } from '../services/PostService'
 
 export default {
     components: { PostList, NewPost  },
     data() {
-        let home = false;
+        let home = true;
         let newPost = false;
         let postHistory = false;
         let socialFollowersView = false;
@@ -150,7 +170,7 @@ export default {
         let postBody = "";
         return {
             nav: [
-                home = false,
+                home = true,
                 newPost = false,
                 postHistory = false,
                 socialFollowersView = false,
@@ -203,19 +223,29 @@ export default {
         },
 
         sendPost() {
-            sendNewPost(this.postBody)
-            return getAllPosts()
+            let message = {
+                originSocialPersonaId: this.$store.state.profile.nodeId,
+                postText: this.postBody
+            }
+            createPost(message)
                 .then(response => {
-                    console.log(response)
-                    return response
-                })
+                    this.postBody = ''
+                    getFeed()
+                });
+            
 
-        }
+        },
+        openProfile() {
+                store.commit("SHOW_PROFILE", true);
+            },
     },
     computed: {
         imageSrc() {
             return this.$store.state.profile.profileImg;
         },
+        showProfileComponent() {
+                return store.state.showProfile
+            },
     }
 
 }
@@ -225,238 +255,156 @@ export default {
 
 .social-app-grid {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-    'profile-component profile-data'
-    'nav-buttons profile-data';
+    'left-panel center-panel right-panel';
     width: 100%;
     height: 100%;
 }
 
-.background-image-social-trading {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background-image: url(https://superalgos.org/img/photos/supermind-original.jpg);
-    animation: slide 20s linear infinite;
-    
-}
-
-@keyframes slide {
-    0%{background-position-x: left(0); background-position-y: top(0);}
-    25%{background-position-x: left(50); background-position-y: top(100);}
-    50%{background-position-x: left(100); background-position-y: top(200);}
-    75%{background-position-x: left(150); background-position-y: top(300);}
-	100%{background-position-x: left(250); background-position-y: top(400);}
-}
-
-
-#social-app-base-div {
-    
-    align-content: top;
-    border: solid 2px black;
-    border-radius: 8px;
-
-    height: 100vh;
-    width:  98%;
-    align-self: start;
-    min-height: 300px;
-    box-shadow: 0px 2px 10px 4px rgb(44, 44, 44);
-}
 
 .small-profile-pic {
-    width: 15vw;
-    height: 15vw;
+    width: 5vw;
+    height: 5vw;
     border-radius: 100%;
-    margin-top: 4%;
+    margin-top: 9%;
+    margin-left: 1%;
     border: solid 2px black;
+    align-content: left;
 }
 
-.profile-component-div {
-    grid-area: profile-component;
-    background: rgb(228, 220, 209) 100%;
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.smaller-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-top: 7%;
     margin-left: 1%;
-    margin-top: 1%;
-    width: 100%;
-    border-left: solid 3px black;
-    border-top: solid 3px black;
-    border-right: solid 3px black;
-    position: relative;
+    border: solid 1px black;
+    align-content: left;
 }
+
+
 
 #menu-tab-social-trading {
-    grid-area: nav-buttons;
+    grid-area: left-panel;
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    height: 50vh;
-    width: 100%;
-    background: rgb(228, 220, 209) 100%;
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-    margin-left: 1%;
-    margin-bottom: 2%;
-    border-right: solid 3px black;
-    border-left: solid 3px black;
-    border-bottom: solid 3px black;
-    position: relative;
+    width: 60%;
+    margin-top: 10%;
+    justify-self: right;
+    margin-right: 5%;
 }
 
 .social-trading-menu-btn {
-    background: rgb(228, 220, 209);
-    border: solid 2px black;
+    display: flex;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    width: 88%;
+    width: 60%;
     height: 3rem;
-    align-self: center;
-    text-align: center;
     font-size: 1.2vw;
+    justify-content: center;
+    align-content: center;
 
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
+    margin-left: 15%;
 }
 
 .social-trading-menu-btn:hover {
     border: solid 2px black;
-    width: 92%;
+    width: 62%;
     font-weight: 500;
 }
 
 .social-main-view {
-    grid-area: profile-data;
+    grid-area: center-panel;
+    margin-top: 27%;
+
+    border-left: solid 2px black;
+    width: 100%;
 }
 
-.content-container {
+.logout-div {
+    grid-area: left-panel;
+    position: fixed;
+    bottom: 0%;
+    margin-left: 12%;
     display: flex;
-    height: 90%;
-    width: 98%;
-    overflow: auto;
-    align-self: center;
-    background: rgba(228, 220, 209, 0.589);
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-    margin-left: 1vw;
-    border: solid 2px black;
-    border-radius: 20px;
+    padding: 3px;
 }
 
-.social-app-followers-view {
-    grid-area: profile-data;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-    'total-followers'
-    'followers'
-    'followers'
-    'followers';
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    align-self: center;
-    height: 85%;
-}
-
-#followers-count-div {
-    grid-area: total-followers;
-    margin-top: 1vh;
-    height: 40%;
-    width: 20vw;
-    align-self: top;
-    justify-self: center;
-}
-
-.social-app-followers {
-    background: rgb(228, 220, 209) 100%;
-    border: solid 3.5px black;
-    border-radius: 20px;
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-}
-
-.followers:hover {
+.logout-div:hover {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(182, 182, 182, 0.281);
+    width: fit-content;
     cursor: pointer;
-    position: inherit;
-    animation: pulse 1.8s infinite ease-in-out alternate;
-}
-
-#total-followers {
-    grid-area: followers;
-    display: flex;
-    font-size: 2em;
-    justify-content: center;
-    align-content: center;
-}
-
-#followers-array-div {
-    display: flex;
-    flex-wrap: wrap;
-   
 }
 
 
-
-
-
-#following-count-div {
-    grid-area: total-following;
-    margin-top: 1vh;
-    height: 40%;
-    width: 20vw;
-    align-self: top;
-    justify-self: center;
-}
-
-.social-app-following {
-    background: rgb(228, 220, 209) 100%;
-    border: solid 3.5px black;
-    border-radius: 20px;
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-}
-
-.following {
-    background: rgb(228, 220, 209) 100%;
-    border: solid 3.5px black;
-    border-radius: 20px;
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-}
-
-.following:hover {
+.social-app-home-btn {
+    color: black;
+    text-align: center;
+    font-size: 1.3vw;
+    font-weight: 600;
     cursor: pointer;
-    position: inherit;
-    animation: pulse 1.8s infinite ease-in-out alternate;
+    margin-bottom: 0px;
+    margin-top: 8px;
 }
 
-#total-following {
-    grid-area: following;
+.social-app-home-btn:hover {
+
+    margin-left: 20%;
+    margin-right: 20%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(182, 182, 182, 0.281);
+}
+
+#new-post-input {
+    height: fit-content;
+    margin-top: 10%;
+    margin-left: 1%;
+    font-size: 18px;
+}
+
+.new-post-div-flex {
+    grid-area: center-panel;
     display: flex;
-    font-size: 2em;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    border-left: solid 2px black;
+    border-right: solid 2px black;
 }
 
-#following-array-div {
+.post-btn-bar {
     display: flex;
-    flex-wrap: wrap;
-   
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    margin-top: 1%;
+    padding: 5px;
+    justify-content: right;
+    padding-right: 3%;
+}
+
+#post-submit-btn {
+    font-size: 1vw;
+}
+
+#header-home-btn-div {
+    position: fixed;
+    width: 49.85%;
+    height: auto;
+    text-align: center;
+    background: rgb(247, 244, 244);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2vw;
 }
 
 
 
-
-
-@keyframes pulse {
-  from { transform: scale(0.9); }
-  to { transform: scale(1.1); }
-}
-
-
-
-
-#social-app-post-history-div {
-    height: 85%;
-}
 </style>

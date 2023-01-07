@@ -1,21 +1,6 @@
 <template>
     <div class="app-container">
-        <div class="nav-bar">
-
-            <div id="header-logo-div">
-                <img class="logo" :src="logo" >
-            </div>
-            
-            <div id="nav-btn-div">
-                <button class="nav-btn" @click="openMenu">Menu</button>
-            <button class="nav-btn" @click="openSettings">Settings</button>
-
-            <button class="nav-btn" @click="openProfile">Profile</button>
-            </div>
-
-            
-            
-        </div>
+        
 
         <Drawer class="drawer-theme" :direction="'left'" :exist="true" ref="LeftDrawer">
             <img class="logo" :src="logo" >
@@ -149,7 +134,7 @@ import { getSocialPersona } from './services/ProfileService'
 
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        background-color: rgba(0, 0, 0, 0.918);
+        background-color: rgba(247, 244, 244, 0.918);
         height: 100%;
         width: 100vw;
         display: grid;
@@ -157,80 +142,15 @@ import { getSocialPersona } from './services/ProfileService'
         grid-template-areas: 
         'header'
         'body';
-        position: relative;
         margin-top: -8px;
         margin-left: -8px;
+        color: black;
     }
     
-    .nav-bar {
-        grid-area: header;
-        left:0;           
-        top: 0;            
-        width:100vw;      
-        z-index:200;  
-        height:65px;  
-        background-image: url('./assets/superalgos-header-background.png');
-        display: flex; 
-        align-self: top;
-        align-items: center;
-        position: relative;
-    }
-
-    #header-logo-div {
-        display: flex;
-    }
-
     .logo {
         height: 60px;
     }
 
-    #nav-btn-div {
-        display: flex;
-        margin-left: 1vw;
-    }
-
-    .nav-btn {
-        font-size: 22px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: transparent;
-        border: none;
-    }
-
-    .nav-btn:hover {
-        font-size: 24px;
-        color: white;
-        background-color: rgba(51, 51, 51, 0.7);
-        border-top-left-radius: 7px;
-        height: 70%;
-    }
-
-    .dash-link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .dash-link{
-        color: white;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 6px;
-        padding: 10px;
-        width: 80%;
-        text-decoration: none;
-    }
-
-    .dash-link:hover {
-        background-color: rgba(227, 73, 60, 0.5);
-    }
-
-    .dashboard-view {
-        grid-area: body;
-        background-color: rgba(22, 22, 22, 0.877);
-    }
 </style>
   
 

@@ -33,7 +33,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             4. Add to the User Profile the User App based on userAppType.
             5. Create a Storage Container for "My-Social-Trading-Data".
             6. Create the Signing Accounts and sign them.
-    
+            7. TODO: auto merge new profile into the main superalgos governance repo
             */
 
             /*

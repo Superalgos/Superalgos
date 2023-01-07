@@ -1,29 +1,42 @@
 <template>
-    <post
-        id="post"
-        v-for="posts in $store.state.posts" 
-        v-bind:key="posts.postID" 
-        v-bind:posts="posts" />
+    <!-- This component retrieves the array of posts from the store and passes them one by one to the Post component to be displayed. -->
+        <div v-for="post in posts" v-bind:key="post" >
+            <div>
+                <post 
+                    :timestamp="post.timestamp" 
+                    :userHandle="post.originSocialPersona.socialPersonaHandle"  
+                    :postBody="post.postText" 
+                />
+            </div>
+        </div>
+
+
 </template>
 
 <script>
 
 import Post from './Post.vue'
+import { getFeed } from '../../services/PostService'
 
 export default {
     name: 'posts-list',
-    props: ['posts'],
+    postList: [],
     components: {
         Post
     },
     computed: {
+        posts() {
+            return this.$store.state.posts;
+        },
     },
     data() {
         return {
-            post: {
-            }
         }
+    },
+    created() {
+        getFeed()
     }
+    
 
 }
 </script>

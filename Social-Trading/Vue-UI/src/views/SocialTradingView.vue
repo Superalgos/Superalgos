@@ -64,29 +64,7 @@
                     </div>
             </div>
 
-            <div id="social-new-post-div"
-                    class="social-main-view content-container"
-                    v-if="this.nav[1] == true"
-                    >
-                    <div id="social-app-new-post-body">
-                        <div id="social-app-username-div" class="username">
-                            theblockchainarborist
-                        </div>
-
-                        <div class="date-time">
-                            12-3-2022 5:12pm
-                        </div>
-
-                        <div id="social-app-new-post-message" class="post-message">
-                            <textarea name="" id="social-app-post-textarea" cols="30" rows="10" v-model="postBody"></textarea>
-                            <div id="submit-post-btn-div">
-                                <input id="submit-post-btn" type="button" value="Send Post" v-on:click="sendPost">
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-            </div>
+            <new-post v-if="this.nav[1] == true" />
 
             <div id="social-app-post-history-div"
                     class="content-container"
@@ -155,10 +133,12 @@
 </template>
 
 <script>
+import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
+import { getFeed } from '../services/PostService'
 
 export default {
-    components: { PostList  },
+    components: { PostList, NewPost  },
     data() {
         let home = false;
         let newPost = false;
@@ -474,57 +454,7 @@ export default {
 }
 
 
-#post-list {
-    width: 90%;
-    padding-right: 50px;
-}
 
-#social-app-new-post-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "username date-time"
-        "post post"
-        "reply reply" ;
-    border-top: solid 2px black; 
-    background: rgb(231, 227, 227);
-    box-shadow: 0px -3px 10px 0.5px rgba(0,0,0,0.4);
-    border-radius: 10px;
-    width: 95%;
-    height: auto;
-    margin: 2vh;
-}
-
-#social-app-username-div {
-    height: 5vh;
-}
-
-#social-app-new-post-message {
-    height: 49vh;
-}
-
-#social-app-post-textarea {
-    width: 100%;
-    height: 88%;
-    border-radius: 12px;
-}
-
-#submit-post-btn-div {
-    display: flex;
-    justify-content: right;
-}
-
-#social-new-post-div {
-    height: auto;
-    align-self: center;
-}
-
-#submit-post-btn {
-    display: flex;
-    grid-area: reply;
-    justify-self: center;
-    font-size: 2.5vh;
-}
 
 #social-app-post-history-div {
     height: 85%;

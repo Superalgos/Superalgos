@@ -44,25 +44,25 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         await setupNetwork()
         await finalSetupInterfaces()
 
-        /*
-        Test Message: Sometimes devs needs to quicly test something without using the UI...
         
-        let profileMessage = {
-            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
-            socialEntityHandle: 'Pepe',
-            socialEntityType: 'Social Persona',
-            userAppType: 'Social Trading Desktop App'
-        }
+        // //Test Message: Sometimes devs needs to quicly test something without using the UI...
+        
+        // let profileMessage = {
+        //     profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
+        //     socialEntityHandle: 'Pepe',
+        //     socialEntityType: 'Social Persona',
+        //     userAppType: 'Social Trading Desktop App'
+        // }
 
-        let testMessage = {
-            networkService: 'Social Graph',
-            requestType: 'Profile',
-            profileMessage: JSON.stringify(profileMessage)
-        }
+        // let testMessage = {
+        //     networkService: 'Social Graph',
+        //     requestType: 'Profile',
+        //     profileMessage: JSON.stringify(profileMessage)
+        // }
         
-        let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
-        console.log(response)
-        */
+        // let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
+        // console.log(response)
+        
 
         async function initialSetupInterfaces() {
             /*

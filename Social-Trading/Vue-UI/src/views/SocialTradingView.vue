@@ -4,7 +4,10 @@
             <div class="background-image-social-trading">
         <div id="social-app-div" class="social-app-grid ">
         
-            <profile id="profile" />
+            <div class="profile-component-div">
+                <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
+                <p>{{$store.state.profile.userProfileHandle}}</p>
+            </div>
 
             <div id="menu-tab-social-trading">
 
@@ -16,35 +19,35 @@
                         >
 
                 <input id="new-post-btn"
-                        class="profile-menu-btn" 
+                        class="social-trading-menu-btn" 
                         type="button" 
                         value="New Post"
                         v-on:click="openNewPostView()"
                         >
 
                 <input id="post-history-btn"
-                        class="profile-menu-btn" 
+                        class="social-trading-menu-btn" 
                         type="button" 
                         value="Post History"
                         v-on:click="openPostHistoryView()"
                         >
 
                 <input id="social-followers-btn"
-                        class="profile-menu-btn" 
+                        class="social-trading-menu-btn" 
                         type="button" 
                         value="Follower's"
                         v-on:click="openSocialFollowersView()"
                         >
 
                 <input id="social-following-btn"
-                        class="profile-menu-btn" 
+                        class="social-trading-menu-btn" 
                         type="button" 
                         value="Following"
                         v-on:click="openSocialFolloweringView()"
                         >
 
                 <input id="social-app-settings-btn"
-                        class="profile-menu-btn" 
+                        class="social-trading-menu-btn" 
                         type="button" 
                         value="Social App Settings"
                         v-on:click="openSocialSettingsView()"
@@ -53,7 +56,7 @@
 
 
             <div id="home-view-main" 
-                    class="social-main-view" 
+                    class="social-main-view content-container" 
                     v-if="this.nav[0] == true"
                 >
                     <div id="post-list-container">
@@ -61,32 +64,10 @@
                     </div>
             </div>
 
-            <div id="social-new-post-div"
-                    class="social-main-view"
-                    v-if="this.nav[1] == true"
-                    >
-                    <div id="social-app-new-post-body">
-                        <div id="social-app-username-div" class="username">
-                            theblockchainarborist
-                        </div>
-
-                        <div class="date-time">
-                            12-3-2022 5:12pm
-                        </div>
-
-                        <div id="social-app-new-post-message" class="post-message">
-                            <textarea name="" id="social-app-post-textarea" cols="30" rows="10"></textarea>
-                            <div id="submit-post-btn-div">
-                                <input id="submit-post-btn" type="button" value="Send Post">
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-            </div>
+            <new-post v-if="this.nav[1] == true" />
 
             <div id="social-app-post-history-div"
-                    class="social-main-view"
+                    class="content-container"
                     v-if="this.nav[2] == true"
                     >
                     ###Search option here to search the post history by: user, date, keyword
@@ -94,9 +75,10 @@
 
             <div id="social-app-followers-view"
                     v-if="this.nav[3] == true"
+                    class="content-container"
                     >
                 <div id="followers-count-div">
-                    <p id="total-followers" class="social-app-followers">Total Followers: {{this.$store.state.followers.length}} </p>
+                    <p id="total-followers" class="social-app-followers ">Total Followers: {{this.$store.state.followers.length}} </p>
                 </div>
 
                 <div id="followers-array-div"
@@ -151,12 +133,12 @@
 </template>
 
 <script>
+import NewPost from '../components/PostComponents/NewPost.vue';
+import PostList from '../components/PostComponents/PostList.vue';
 
-import PostList from '../components/PostList.vue';
-import Profile from '../components/Profile.vue'
 
 export default {
-    components: {Profile, PostList  },
+    components: { PostList, NewPost  },
     data() {
         let home = false;
         let newPost = false;
@@ -165,6 +147,7 @@ export default {
         let socialFollowingView = false;
         let walletInfoView = false;
         let socialAppSettingsView = false;
+        let postBody = "";
         return {
             nav: [
                 home = false,
@@ -174,7 +157,8 @@ export default {
                 socialFollowingView = false,
                 walletInfoView = false,
                 socialAppSettingsView = false
-            ]
+            ],
+            postBody: '',
         }
     },
     methods: {
@@ -216,7 +200,22 @@ export default {
         bounceBtn() {
             let item = this.classList
             console.log(item)
+        },
+
+        sendPost() {
+            sendNewPost(this.postBody)
+            return getAllPosts()
+                .then(response => {
+                    console.log(response)
+                    return response
+                })
+
         }
+    },
+    computed: {
+        imageSrc() {
+            return this.$store.state.profile.profileImg;
+        },
     }
 
 }
@@ -230,11 +229,14 @@ export default {
     grid-template-areas: 
     'profile-component profile-data'
     'nav-buttons profile-data';
+    width: 100%;
+    height: 100%;
 }
 
 .background-image-social-trading {
     display: flex;
     height: 100%;
+    width: 100%;
     background-image: url(https://superalgos.org/img/photos/supermind-original.jpg);
     animation: slide 20s linear infinite;
     
@@ -254,20 +256,36 @@ export default {
     align-content: top;
     border: solid 2px black;
     border-radius: 8px;
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1em;
-    height: 85vh;
-    width:  auto;
-    align-self: end;
+
+    height: 100vh;
+    width:  98%;
+    align-self: start;
     min-height: 300px;
     box-shadow: 0px 2px 10px 4px rgb(44, 44, 44);
 }
 
-#profile {
+.small-profile-pic {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100%;
+    margin-top: 4%;
+    border: solid 2px black;
+}
+
+.profile-component-div {
     grid-area: profile-component;
     background: rgb(228, 220, 209) 100%;
     box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1%;
+    margin-top: 1%;
+    width: 100%;
+    border-left: solid 3px black;
+    border-top: solid 3px black;
+    border-right: solid 3px black;
+    position: relative;
 }
 
 #menu-tab-social-trading {
@@ -275,9 +293,16 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: top;
-    margin-left: 1vw;
     height: 50vh;
     width: 100%;
+    background: rgb(228, 220, 209) 100%;
+    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
+    margin-left: 1%;
+    margin-bottom: 2%;
+    border-right: solid 3px black;
+    border-left: solid 3px black;
+    border-bottom: solid 3px black;
+    position: relative;
 }
 
 .social-trading-menu-btn {
@@ -289,10 +314,10 @@ export default {
     border-bottom-right-radius: 15px;
     width: 88%;
     height: 3rem;
-    margin-right: 1.2vw;
+    align-self: center;
     text-align: center;
     font-size: 1.2vw;
-    margin-bottom: 1vh;
+
     box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
 }
 
@@ -304,20 +329,22 @@ export default {
 
 .social-main-view {
     grid-area: profile-data;
-    background: rgba(228, 220, 209, 0.582);
-    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    border: solid 2px black;
-    border-radius: 20px;
-    align-self: center;
-    height: 90%;
-    overflow: auto;
 }
 
-#social-app-followers-view {
+.content-container {
+    display: flex;
+    height: 90%;
+    width: 98%;
+    overflow: auto;
+    align-self: center;
+    background: rgba(228, 220, 209, 0.589);
+    box-shadow: 0px 2px 10px 4px rgba(245, 242, 242, .4);
+    margin-left: 1vw;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+.social-app-followers-view {
     grid-area: profile-data;
     display: grid;
     grid-template-columns: 1fr;
@@ -370,33 +397,9 @@ export default {
    
 }
 
-#followers-div {
-    display: flex;
-    background: rgb(228, 220, 209) 100%;
-    height: 35%;
-    min-width: 150px;
-    margin-left: 5vw;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-}
 
-#social-app-following-view {
-    grid-area: profile-data;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-    'total-following'
-    'following'
-    'following'
-    'following';
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    align-self: center;
-    height: 85%;
-}
+
+
 
 #following-count-div {
     grid-area: total-following;
@@ -441,16 +444,7 @@ export default {
    
 }
 
-#following-div {
-    display: flex;
-    background: rgb(228, 220, 209) 100%;
-    height: 35%;
-    min-width: 150px;
-    margin-left: 5vw;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-}
+
 
 
 
@@ -460,57 +454,7 @@ export default {
 }
 
 
-#post-list {
-    width: 90%;
-    padding-right: 50px;
-}
 
-#social-app-new-post-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "username date-time"
-        "post post"
-        "reply reply" ;
-    border-top: solid 2px black; 
-    background: rgb(231, 227, 227);
-    box-shadow: 0px -3px 10px 0.5px rgba(0,0,0,0.4);
-    border-radius: 10px;
-    width: 95%;
-    height: auto;
-    margin: 2vh;
-}
-
-#social-app-username-div {
-    height: 5vh;
-}
-
-#social-app-new-post-message {
-    height: 49vh;
-}
-
-#social-app-post-textarea {
-    width: 100%;
-    height: 88%;
-    border-radius: 12px;
-}
-
-#submit-post-btn-div {
-    display: flex;
-    justify-content: right;
-}
-
-#social-new-post-div {
-    height: auto;
-    align-self: center;
-}
-
-#submit-post-btn {
-    display: flex;
-    grid-area: reply;
-    justify-self: center;
-    font-size: 2.5vh;
-}
 
 #social-app-post-history-div {
     height: 85%;

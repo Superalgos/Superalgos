@@ -18,11 +18,19 @@
                     <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
                     <input type="text" name="new-post-input" id="new-post-input" size="75" placeholder="What's happening?" v-model="postBody" >
                 </div>
+
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar">
-                    <input id="post-submit-btn" type="button" value="Post" v-on:click="sendPost">
+                    <!-- Add to post Icons -->
+                    <div id="add-to-post-icons">
+                        <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon">
+                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon">
+                    </div>
+                    
+                    <div id="submit-btn-div">
+                        <input id="post-submit-btn" type="button" value="Post" v-on:click="sendPost">
+                    </div>
                 </div>
-
             </div>
             
 
@@ -77,12 +85,14 @@
                         &nbsp;Settings
                     </p>
                 </div>
-                
             </div>
 
+            <!-- Logout Div (bottom left) -->
             <div class="logout-div">
                 <img class="smaller-profile-pic" v-bind:src="imageSrc" alt="">
+                &nbsp;
                 <p>{{$store.state.profile.userProfileHandle}}</p>
+                <img src="../assets/iconmonstrHorizontalMenuIcon.png" alt="Add Image" class="logout-div-menu-icon">
             </div>
 
 
@@ -168,7 +178,7 @@ import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
 import { createPost, getFeed } from '../services/PostService'
-import iconmonstrHomeIcon from '../assets/iconmonstrHomeIcon.png'
+
 
 export default {
     components: { PostList, NewPost  },
@@ -265,7 +275,9 @@ export default {
 </script>
 
 <style>
-
+/* __________________
+    Main Div
+*/
 .social-app-grid {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -276,28 +288,9 @@ export default {
 }
 
 
-.small-profile-pic {
-    width: 5vw;
-    height: 5vw;
-    border-radius: 100%;
-    margin-top: 9%;
-    margin-left: 1%;
-    border: solid 2px black;
-    align-content: left;
-}
-
-.smaller-profile-pic {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-top: 7%;
-    margin-left: 1%;
-    border: solid 1px black;
-    align-content: left;
-}
-
-
-
+/* _________________________
+    Menu 
+ */
 #menu-tab-social-trading {
     grid-area: left-panel;
     display: flex;
@@ -307,56 +300,29 @@ export default {
     justify-self: right;
     margin-right: 5%;
 }
-
-.social-trading-menu-btn {
+.menu-btn-text {
     display: flex;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 60%;
-    height: 3rem;
-    font-size: 1.2vw;
-    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
     align-content: center;
-
-    margin-left: 15%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-
-.social-trading-menu-btn:hover {
-    border: solid 2px black;
-    width: 62%;
-    font-weight: 500;
-}
-
-.social-main-view {
-    grid-area: center-panel;
-    margin-top: 27%;
-
-    border-left: solid 2px black;
-    width: 100%;
-}
-
-.logout-div {
-    grid-area: left-panel;
-    position: fixed;
-    bottom: 0%;
-    margin-left: 12%;
-    display: flex;
-    padding: 3px;
-}
-
-.logout-div:hover {
+.menu-btn-text:hover {
+    padding-left: 20px;
+    padding-right: 20px;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: rgba(182, 182, 182, 0.281);
-    width: fit-content;
-    cursor: pointer;
 }
-
-
+.menu-icon {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    margin-right: 10px;
+}
 .social-app-home-btn {
     display: flex;
     color: black;
@@ -371,13 +337,15 @@ export default {
 }
 
 
-#new-post-input {
-    height: fit-content;
-    margin-top: 10%;
-    margin-left: 1%;
-    font-size: 18px;
+/* _______________________
+    Posts 
+*/
+.social-main-view {
+    grid-area: center-panel;
+    margin-top: 27%;
+    border-left: solid 2px black;
+    width: 100%;
 }
-
 .new-post-div-flex {
     grid-area: center-panel;
     display: flex;
@@ -385,21 +353,67 @@ export default {
     border-left: solid 2px black;
     border-right: solid 2px black;
 }
+#new-post-input {
+    height: fit-content;
+    margin-top: 10%;
+    margin-left: 1%;
+    font-size: 18px;
+}
 
-.post-btn-bar {
+
+/* _____________________
+    Profile Pictures 
+*/
+.small-profile-pic {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 100%;
+    margin-top: 9%;
+    margin-left: 1%;
+    border: solid 2px black;
+    align-content: left;
+}
+.smaller-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-top: 7%;
+    margin-left: 1%;
+    border: solid 1px black;
+    align-content: left;
+}
+
+
+/* __________________
+    Logout Div
+*/
+.logout-div {
+    grid-area: left-panel;
+    position: fixed;
+    bottom: 0%;
+    margin-left: 12%;
     display: flex;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
-    margin-top: 1%;
-    padding: 5px;
-    justify-content: right;
-    padding-right: 3%;
+    padding: 3px;
+}
+.logout-div:hover {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(182, 182, 182, 0.281);
+    width: fit-content;
+    cursor: pointer;
+}
+.logout-div-menu-icon {
+    width: 35px;
+    height: 35px;
+    align-self: center;
 }
 
-#post-submit-btn {
-    font-size: 1vw;
-}
 
+/* ____________________________
+    Center Header Menu Button 
+*/
 #header-home-btn-div {
     position: fixed;
     width: 49.85%;
@@ -411,32 +425,32 @@ export default {
     font-size: 1.2vw;
 }
 
-.menu-icon {
-    width: 30px;
-    height: 30px;
-    align-self: center;
-    margin-right: 10px;
-}
 
-.menu-btn-text {
+/* ____________________________
+    Button Bar 
+*/
+.post-btn-bar {
     display: flex;
-    font-size: 25px;
-    font-weight: 700;
-    align-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    margin-top: 1%;
+    padding: 5px;
+    padding-right: 3%;
+    justify-content: space-between;
 }
-
-.menu-btn-text:hover {
-    padding-left: 20px;
-    padding-right: 20px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(182, 182, 182, 0.281);
+#post-submit-btn {
+    font-size: 1vw;
 }
-
-
+.button-bar-icon {
+    width: 30px;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+#add-to-post-icons {
+    margin-left: 5%;
+    display: flex;
+}
 
 </style>

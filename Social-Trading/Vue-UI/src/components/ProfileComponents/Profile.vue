@@ -105,7 +105,7 @@ export default {
 
             let message = {
                         originSocialPersonaId: store.state.profile.nodeId,
-                        username: store.state.profile.userProfileHandle,
+                        username: store.state.profile.userProfileHandle
                     }
 
             return getProfileData(message)

@@ -134,7 +134,7 @@ import { getSocialPersona } from './services/ProfileService'
 
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        background-color: rgba(247, 244, 244, 0.918);
+
         height: 100%;
         width: 100vw;
         display: grid;

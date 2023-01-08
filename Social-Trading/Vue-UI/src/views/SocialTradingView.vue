@@ -30,21 +30,27 @@
             <div id="menu-tab-social-trading">
                 
                 <!-- Menu Header Logo -->
-                <img class="logo" src="../assets/superalgos-logo-white.png" >
+                <img class="logo" src="../assets/superalgos-logo.png" >
 
                 <!-- Home Menu Button -->
-                <p class="social-app-home-btn" 
+                <div class="social-app-home-btn">
+                <p class="menu-btn-text"  
                         v-on:click="openHomeView()"
                         >
-                    Home
+                        <img src="../assets/iconmonstrHomeIcon.png" alt="Home Menu Icon" class="menu-icon">
+                    &nbsp;Home
                 </p>
+                </div>
 
                 <!-- Profile Menu Button -->
-                <p class="social-app-home-btn" 
-                        @click="openProfile"
-                        >
-                    Profile
-                </p>
+                <div class="social-app-home-btn">
+                    <p class="menu-btn-text" 
+                            @click="openProfile"
+                            >
+                            <img src="../assets/iconmonstrProfileIcon.png" alt="Profile Menu Icon" class="menu-icon">
+                        &nbsp;Profile
+                    </p>
+                </div>
 
                 <!-- Profile component -->
                 <div v-if="showProfileComponent">
@@ -52,18 +58,25 @@
                 </div>
                 
 
-                <p class="social-app-home-btn" 
+                <!-- Wallet Menu Button -->
+                <div class="social-app-home-btn">
+                <p class="menu-btn-text" 
                         @click="openProfile"
                         >
-                    My Wallet
+                        <img src="../assets/iconmonstrWalletIcon.png" alt="Profile Menu Icon" class="menu-icon">
+                    &nbsp;Wallet
                 </p>
+                </div>
 
-                <p class="social-app-home-btn" 
-                        @click="openProfile"
-                        >
-                    Settings
-                </p>
-
+                <!-- Settings Menu Button -->
+                <div class="social-app-home-btn">
+                    <p class="menu-btn-text" 
+                            @click="openProfile"
+                            >
+                            <img src="../assets/iconmonstrSettingsIcon.png" alt="Profile Menu Icon" class="menu-icon">
+                        &nbsp;Settings
+                    </p>
+                </div>
                 
             </div>
 
@@ -155,6 +168,7 @@ import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
 import { createPost, getFeed } from '../services/PostService'
+import iconmonstrHomeIcon from '../assets/iconmonstrHomeIcon.png'
 
 export default {
     components: { PostList, NewPost  },
@@ -344,25 +358,18 @@ export default {
 
 
 .social-app-home-btn {
+    display: flex;
     color: black;
-    text-align: center;
-    font-size: 1.3vw;
-    font-weight: 600;
     cursor: pointer;
     margin-bottom: 0px;
     margin-top: 8px;
+    justify-content: left;
+    align-items: center;
+    margin-left: 25%;
+    height: 50px;
+    width: 100%;
 }
 
-.social-app-home-btn:hover {
-
-    margin-left: 20%;
-    margin-right: 20%;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(182, 182, 182, 0.281);
-}
 
 #new-post-input {
     height: fit-content;
@@ -398,10 +405,36 @@ export default {
     width: 49.85%;
     height: auto;
     text-align: center;
-    background: rgb(247, 244, 244);
+    background: white;
     cursor: pointer;
     font-weight: 600;
     font-size: 1.2vw;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.menu-btn-text {
+    display: flex;
+    font-size: 25px;
+    font-weight: 700;
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.menu-btn-text:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(182, 182, 182, 0.281);
 }
 
 

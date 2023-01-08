@@ -4,6 +4,7 @@
 
     <div id="post-user-name-div">
       <p id="post-user-name"> {{userHandle}} </p>
+      <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
     </div>
 
     
@@ -93,7 +94,8 @@ export default {
         let timeString = date.toLocaleString();
         // We remove the seconds from the time.
         let time = timeString.split(',')
-        let postDate = time[0]
+        this.postDate = time[0]
+        console.log(this.postDate)
         let exactTime = time[1]
         let postTime = exactTime.slice(0, 6)
         let amPm = exactTime.slice(exactTime.length - 3, exactTime.length)
@@ -101,9 +103,7 @@ export default {
         if (postTime.slice(-1) === ':') {
           postTime = exactTime.slice(0, 5);
         }
-        
-
-        return postDate + postTime + amPm;
+        return postTime + amPm;
       }
     },
     methods: {
@@ -111,7 +111,8 @@ export default {
     },
     data() {
       return {
-        
+        postDate: undefined,
+        postTime: undefined
       }
     },
     
@@ -120,12 +121,6 @@ export default {
 
 <style>
 
-.post-object-container {
-  display: flex;
-  justify-items: center;
-  width: 100%;
-
-}
 
 .post-object {
     display: grid;
@@ -134,69 +129,56 @@ export default {
         "username date-time"
         "post post" 
         "bottom-btns bottom-btns";
-    border-top: solid 2px black; 
-    background: rgb(231, 227, 227);
-    box-shadow: 0px -3px 10px 0.5px rgba(0,0,0,0.4);
-    border-radius: 10px;
+    border-top: solid 1px black; 
+    box-shadow: 0px -9px 0px rgba(100, 100, 100, 0.26);
     width: 100%;
-    margin: 2vh;
+    margin-top: 1%;
+}
+
+.post-object:hover {
+  background-color: rgb(247, 247, 247);
+  cursor: pointer;
 }
 
 #post-user-name-div {
     grid-area: username;
     justify-self: left;
-    border-left: solid 2px black;
-    border-top-left-radius: 10px;
+    display: flex;
+    margin-left: 3%;
+    height: 40px;
 }
 
 #post-user-name {
   font-size: 30;
+  font-weight: 700;
 }
 
-#username {
-  
-
-}
 
 .date-time {
     grid-area: date-time;
     justify-self: right;
-
-    border-right: solid 2px black;
-    border-top-right-radius: 10px;
-
+    margin-right: 2%;
+    height: fit-content;
 }
 
 #post-date-time {
-
     text-align: bottom;
-
 }
 
 .post-message {
     grid-area: post;
-    border-right: solid 2px black;
-    border-left: solid 2px black;
-    border-bottom: solid 1px black;
-    border-top: solid 1px black;
-    padding: 7px;
 
 }
 
 #post-body {
-    margin: 10px 10px 20px 10px;
-
-    
+    margin: 0px 30px 10px 30px;
 }
 
 .post-footer {
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 2px black;
-  border-right: solid 2px black;
-  border-left: solid 2px black;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom: solid 1px black;
+
 }
 
 
@@ -210,18 +192,14 @@ export default {
   width: 100%;
 }
 
-#post-stats {
-  justify-self: center;
-}
-
-#comment-btn {
-  display: flex;
-  justify-content: right;
-  
-}
 
 #footer {
   grid-area: bottom-btns;
+}
+
+#post-date {
+  color: rgb(99, 98, 98);
+  font-weight: 600;
 }
 
 </style>

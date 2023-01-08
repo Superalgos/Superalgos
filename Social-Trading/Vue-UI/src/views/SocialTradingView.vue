@@ -107,6 +107,8 @@
                     <div id="post-list-container">
                         <post-list id="post-list" />
                     </div>
+
+                    <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
             </div>
 
             <new-post v-if="this.nav[1] == true" />
@@ -188,22 +190,16 @@ export default {
     components: { PostList, NewPost  },
     data() {
         let home = true;
-        let newPost = false;
-        let postHistory = false;
-        let socialFollowersView = false;
-        let socialFollowingView = false;
-        let walletInfoView = false;
-        let socialAppSettingsView = false;
+        let profile = false;
+        let wallet = false;
+        let settings = false;
         let postBody = "";
         return {
             nav: [
                 home = true,
-                newPost = false,
-                postHistory = false,
-                socialFollowersView = false,
-                socialFollowingView = false,
-                walletInfoView = false,
-                socialAppSettingsView = false
+                profile = false,
+                wallet = false,
+                settings = false,
             ],
             postBody: '',
         }

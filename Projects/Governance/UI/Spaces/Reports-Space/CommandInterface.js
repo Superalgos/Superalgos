@@ -1,5 +1,3 @@
-const { ConsoleLogger } = require("@slack/logger")
-
 function newGovernanceReportsCommmandInterface() {
     let thisObject = {
         command: undefined,

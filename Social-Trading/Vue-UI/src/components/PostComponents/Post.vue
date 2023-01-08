@@ -90,7 +90,20 @@ export default {
     computed: {
       formatTimestamp() {
         const date = new Date(this.timestamp);
-        return date.toLocaleString();
+        let timeString = date.toLocaleString();
+        // We remove the seconds from the time.
+        let time = timeString.split(',')
+        let postDate = time[0]
+        let exactTime = time[1]
+        let postTime = exactTime.slice(0, 6)
+        let amPm = exactTime.slice(exactTime.length - 3, exactTime.length)
+        // If time ends in a ":" we need to shorten our split.
+        if (postTime.slice(-1) === ':') {
+          postTime = exactTime.slice(0, 5);
+        }
+        
+
+        return postDate + postTime + amPm;
       }
     },
     methods: {

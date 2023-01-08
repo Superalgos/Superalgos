@@ -16,7 +16,7 @@
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div">
                     <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
-                    <input type="text" name="new-post-input" id="new-post-input" size="75" placeholder="What's happening?" v-model="postBody" >
+                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" >
                 </div>
 
                 <!-- New Post Button Bar -->
@@ -38,8 +38,11 @@
             <div id="menu-tab-social-trading">
                 
                 <!-- Menu Header Logo -->
-                <img class="logo" src="../assets/superalgos-logo.png" >
-
+                <div id="menu-head-logo-div">
+                    <img class="logo" src="../assets/superalgos-logo.png" >
+                </div>
+                
+                <div class="menu-btns-div">
                 <!-- Home Menu Button -->
                 <div class="social-app-home-btn">
                 <p class="menu-btn-text"  
@@ -85,6 +88,7 @@
                         &nbsp;Settings
                     </p>
                 </div>
+            </div>
             </div>
 
             <!-- Logout Div (bottom left) -->
@@ -250,12 +254,14 @@ export default {
                 originSocialPersonaId: this.$store.state.profile.nodeId,
                 postText: this.postBody
             }
+            // If the post is not empty we will send it.
+            if (message.postText !== '') {
             createPost(message)
                 .then(response => {
                     this.postBody = ''
                     getFeed()
                 });
-            
+            }
 
         },
         openProfile() {
@@ -285,7 +291,8 @@ export default {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-    'left-panel center-panel right-panel';
+    'left-panel center-panel right-panel'
+    'left-panel posts right-panel';
     width: 100%;
     height: 100%;
 }
@@ -296,12 +303,17 @@ export default {
  */
 #menu-tab-social-trading {
     grid-area: left-panel;
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+    
+
     margin-top: 10%;
     justify-self: right;
     margin-right: 5%;
+}
+.menu-btns-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: right;
 }
 .menu-btn-text {
     display: flex;
@@ -334,27 +346,29 @@ export default {
     margin-top: 8px;
     justify-content: left;
     align-items: center;
-    margin-left: 25%;
+
     height: 50px;
     width: 100%;
 }
+.logo {
+        height: 60px;
+    }
 
 
 /* _______________________
     Posts 
 */
 .social-main-view {
-    grid-area: center-panel;
-    margin-top: 27%;
-    border-left: solid 2px black;
-    width: 100%;
+    grid-area: posts;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
 }
 .new-post-div-flex {
     grid-area: center-panel;
     display: flex;
     flex-direction: column;
-    border-left: solid 2px black;
-    border-right: solid 2px black;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
 }
 #new-post-input {
     height: fit-content;

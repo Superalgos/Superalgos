@@ -86,7 +86,7 @@
 <script>
 
 import store from '../../store/index'
-import { updateProfile, getProfileData, getProfile } from '../../services/ProfileService'
+import { getProfileData } from '../../services/ProfileService'
 
 export default {
     name: 'profile-component',
@@ -108,10 +108,6 @@ export default {
                         username: store.state.profile.userProfileHandle,
                     }
 
-            //updateProfile(message);
-            let getProfileRequest = {
-                originSocialPersonaId: store.state.profile.nodeId
-            }
             return getProfileData(message)
             .then(response => {
                 alert(JSON.stringify(response.data))

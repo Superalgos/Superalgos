@@ -153,7 +153,6 @@
 <script>
 import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
-import logo from "../assets/superalgos-logo-white.png"
 import store from '../store/index'
 import { createPost, getFeed } from '../services/PostService'
 

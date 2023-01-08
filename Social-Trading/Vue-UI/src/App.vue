@@ -94,7 +94,7 @@ import { getSocialPersona } from './services/ProfileService'
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         height: 100%;
-        width: 100vw;
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: 

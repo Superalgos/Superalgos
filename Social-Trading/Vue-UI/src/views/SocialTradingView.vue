@@ -9,7 +9,7 @@
             <!-- New Post Area (TOP-MIDDLE) -->
             <div class="new-post-div-flex">
                 
-                <div id="header-home-btn-div" >
+                <div id="header-home-btn-div" v-on:click="scrollUp" >
                     <p>Home</p>
                 </div>
 
@@ -259,8 +259,11 @@ export default {
 
         },
         openProfile() {
-                store.commit("SHOW_PROFILE", true);
-            },
+            store.commit("SHOW_PROFILE", true);
+        },
+        scrollUp() {
+            window.scrollTo(window.innerHeight, 0);
+        }
     },
     computed: {
         imageSrc() {
@@ -416,10 +419,11 @@ export default {
 */
 #header-home-btn-div {
     position: fixed;
-    width: 49.85%;
+    grid-area: center-panel;
+    width: 49.25vw;
     height: auto;
     text-align: center;
-    background: white;
+    background: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 600;
     font-size: 1.2vw;

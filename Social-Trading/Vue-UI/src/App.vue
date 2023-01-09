@@ -105,9 +105,7 @@ import { getSocialPersona } from './services/ProfileService'
         color: black;
     }
     
-    .logo {
-        height: 60px;
-    }
+    
 
 </style>
   

@@ -43,8 +43,6 @@ export default {
 
 <style>
 
-#post {
-    justify-content: center;
-}
+
 
 </style>

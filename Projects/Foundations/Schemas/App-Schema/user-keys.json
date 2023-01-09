@@ -10,6 +10,14 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Key Pair",
+            "relatedUiObject": "Exchange Account Key Pair",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -31,6 +39,12 @@
             "name": "keys",
             "type": "array",
             "childType": "Exchange Account Key",
+            "autoAdd": true
+        },
+        {
+            "name": "keyPairs",
+            "type": "array",
+            "childType": "Exchange Account Key Pair",
             "autoAdd": true
         }
     ],

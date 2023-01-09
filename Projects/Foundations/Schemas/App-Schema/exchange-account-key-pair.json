@@ -1,0 +1,46 @@
+{
+    "type": "Exchange Account Key Pair",
+    "menuItems": [
+        {
+            "action": "Create Key Pair",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Create",
+            "label": "Create New Key Pair",
+            "iconPathOff": "run",
+            "iconPathOn": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"fileName\": \"REPLACE_THIS_STRING_WITH_YOUR_PRIVATE_KEY_FILENAME\",\n\"publicKey\": \"REPLACE_THIS_STRING_WITH_YOUR_PUBLIC_KEY_CONTENTS\"\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->User Keys->"
+    },
+    "propertyNameAtParent": "keys",
+    "isPersonalData": true
+}

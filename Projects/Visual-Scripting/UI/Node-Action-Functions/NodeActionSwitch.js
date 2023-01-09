@@ -378,6 +378,16 @@ function newVisualScriptingNodeActionSwitch() {
                     UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node)
                 }
                 break
+            case 'Create Key Pair':
+                {
+                    console.log('Creating a new key pair')
+                    // TODO: make request to API to generate a key pair that returns the filename and the public key value in the format for the config block of the object
+                    httpRequest('', 'CreateKeyPair', (status, message) => {
+                        
+                    })
+                    console.log(action.node.config)
+                }
+                break
             default: {
                 console.log("[WARN] Action sent to Visual-Scripting Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }

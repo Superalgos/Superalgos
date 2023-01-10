@@ -198,8 +198,10 @@ export default {
             let isDisplayed = store.state.showEmojiPicker;
             store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
         },
-        updatePostBody(event) {
-            this.postBody = event.target.innerHTML;
+        updatePostBody() {
+            let postMessage = document.getElementById("new-post-input")
+            this.postBody = postMessage.innerText;
+            
             this.$nextTick(() => {
                 let el = this.$refs.editableDiv;
                 el.focus();
@@ -210,6 +212,11 @@ export default {
                 sel.removeAllRanges();
                 sel.addRange(range);
             });
+            //let count = 0;
+            // if (store.state.postImage !== undefined && count === 0) {
+            //     count++;
+            //     //this.addImage()
+            // }
         },
         toggleUploadImage() {
             let isDisplayed = store.state.showImageUploader;
@@ -225,7 +232,6 @@ export default {
             range.selectNodeContents(el);
             range.collapse(false);
             el.appendChild(range.createContextualFragment(html));
-            this.updatePostBody();
         }
     },
     // Live values returned from computed functions.
@@ -273,7 +279,12 @@ export default {
 
         getPostBody(newValue, oldValue) {
         let postText = document.getElementById('new-post-input')
-        postText.innerText = this.postBody
+        if (store.state.postImage !== undefined) {
+            this.updatePostBody()
+        } else {
+            postText.innerText = this.postBody
+        }
+        
     }
   }
 

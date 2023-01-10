@@ -24,7 +24,7 @@
                         <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="toggleUploadImage">
                         <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker" >
                     </div>
-                    <div id="emoji-component" v-if="getEmojiPicker" v-bind="post-input">
+                    <div id="emoji-component" v-if="getEmojiPicker" >
                             <emoji-picker />
                     </div>
                     <!-- Submit Post Button -->
@@ -115,7 +115,7 @@
 
             <!-- Follow Panel -->
             <div>
-                <!-- <follow-panel /> -->
+                <follow-panel />
             </div>
             <!-- Image Uploader Component -->
             <div>

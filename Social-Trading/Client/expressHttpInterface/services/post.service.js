@@ -4,7 +4,7 @@ const getFeed = async (req, res) => {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
             originSocialPersonaId: req.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
-            amountRequested: 20,
+            amountRequested: 40,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
 

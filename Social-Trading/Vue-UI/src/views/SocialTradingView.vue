@@ -13,8 +13,13 @@
 
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div">
-                    <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
-                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" @change="updatePostBody" >
+                    <!-- Profile Picture -->
+                    <div>
+                        <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
+                    </div>
+                    <!-- Text Input -->
+                    <div ref="editableDiv" name="new-post-input" id="new-post-input" placeholder="What's happening?" @input="updatePostBody" @change="getPostBody" contentEditable="true" >
+                    </div>
                 </div>
 
                 <!-- New Post Button Bar -->
@@ -24,6 +29,7 @@
                         <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="toggleUploadImage">
                         <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker" >
                     </div>
+                    <!-- Emoji Picker -->
                     <div id="emoji-component" v-if="getEmojiPicker" >
                             <emoji-picker />
                     </div>
@@ -192,15 +198,37 @@ export default {
             let isDisplayed = store.state.showEmojiPicker;
             store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
         },
-        updatePostBody() {
-            console.log(`Message updated: ${this.postBody}`)
+        updatePostBody(event) {
+            this.postBody = event.target.innerHTML;
+            this.$nextTick(() => {
+                let el = this.$refs.editableDiv;
+                el.focus();
+                let range = document.createRange();
+                range.selectNodeContents(el);
+                range.collapse(false);
+                let sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+            });
         },
         toggleUploadImage() {
             let isDisplayed = store.state.showImageUploader;
             console.log("Image uploader state = " + store.state.showImageUploader)
             store.commit("SHOW_IMAGE_UPLOADER", !isDisplayed);
+        },
+        addImage() {
+            let el = this.$refs.editableDiv;
+            el.focus();
+            console.log("Adding IMAGE")
+            let html = `<img src="${store.state.postImage}"/>`;
+            let range = document.createRange();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            el.appendChild(range.createContextualFragment(html));
+            this.updatePostBody();
         }
     },
+    // Live values returned from computed functions.
     computed: {
         imageSrc() {
             return store.state.profile.profileImg;
@@ -221,7 +249,6 @@ export default {
             if(store.state.selectedEmoji !== undefined) {
                 this.postBody = this.postBody + store.state.selectedEmoji
                 store.commit("RESET_EMOJI");
-                // TODO Create a click event on the toggle button to close the emoji panel and update the text displayed.
             }
             return this.postBody
         },
@@ -230,12 +257,23 @@ export default {
         },
         shouldUpdateImagePanel() {
             return store.state.showImageUploader;
+        },
+        getPostImage() {
+            if(store.state.postImage !== undefined) {
+                this.addImage()
+            }
+            return store.state.postImage
         }
     },
+    // The below are used to keep things updated. 
     watch: {
-    insertEmoji(newValue, oldValue) {
-        // update the text field when the message value changes
-        this.$el.querySelector('input').value = this.postBody
+        insertEmoji(newValue, oldValue) {},
+
+        getPostImage(newValue, oldValue) {},
+
+        getPostBody(newValue, oldValue) {
+        let postText = document.getElementById('new-post-input')
+        postText.innerText = this.postBody
     }
   }
 
@@ -329,11 +367,22 @@ export default {
     border-left: solid 1px black;
     border-right: solid 1px black;
 }
-#new-post-input {
-    height: fit-content;
+.new-post-div {
+    display: flex;
+    flex-direction: row;
     margin-top: 10%;
+    align-items: flex-end;
+}
+#new-post-input {
+    border: solid 2px black;
+    margin-top: 1%;
     margin-left: 1%;
     font-size: 18px;
+    width: 85%;
+    max-width: 750px;
+    height: fit-content;
+    white-space: pre-wrap;
+    border-radius: 4px;
 }
 
 

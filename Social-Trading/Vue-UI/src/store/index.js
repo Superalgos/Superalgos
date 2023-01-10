@@ -20,6 +20,7 @@ export default createStore({
       followers: 2,
       following: 5,
     },
+    postImage: undefined,
     users: [],
     posts: [],
     followers: [{username: "theblockchainarborist"},
@@ -82,6 +83,9 @@ export default createStore({
     },
     RESET_EMOJI(state) {
       state.selectedEmoji = undefined;
+    },
+    ADD_POST_IMAGE(state, image) {
+      state.postImage = image;
     }
   },
   actions: {

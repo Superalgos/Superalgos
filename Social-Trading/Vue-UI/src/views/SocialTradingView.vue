@@ -14,7 +14,7 @@
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div">
                     <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
-                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" >
+                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" @change="updatePostBody" >
                 </div>
 
                 <!-- New Post Button Bar -->
@@ -22,7 +22,10 @@
                     <!-- Add to post Icons -->
                     <div id="add-to-post-icons">
                         <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon">
-                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon">
+                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker">
+                    </div>
+                    <div id="emoji-component" v-if="getEmojiPicker">
+                            <emoji-picker />
                     </div>
                     <!-- Submit Post Button -->
                     <div id="submit-btn-div">
@@ -122,7 +125,6 @@
 </template>
 
 <script>
-import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
 import { createPost, getFeed } from '../services/PostService'
@@ -130,10 +132,11 @@ import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
 import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
 import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
+import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 
 
 export default {
-    components: { PostList, NewPost, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel  },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker  },
     data() {
         let home = true;
         let profile = false;
@@ -145,7 +148,7 @@ export default {
                 home = true,
                 profile = false,
                 wallet = false,
-                settings = false,
+                settings = false
             ],
             postBody: '',
         }
@@ -179,6 +182,13 @@ export default {
         },
         openFeed() {
             getFeed()
+        },
+        showEmojiPicker() {
+            let isDisplayed = store.state.showEmojiPicker
+            store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
+        },
+        updatePostBody() {
+            console.log(`Message updated: ${this.postBody}`)
         }
     },
     computed: {
@@ -193,8 +203,28 @@ export default {
         },
         showSettingsComponent() {
             return store.state.showSettings
+        },
+        getEmojiPicker() {
+            return store.state.showEmojiPicker
+        },
+        insertEmoji() {
+            while(store.state.selectedEmoji !== undefined) {
+                this.postBody = this.postBody + store.state.selectedEmoji
+                store.commit("RESET_EMOJI");
+            }
+        },
+        getPostBody() {
+            return this.postBody;
         }
+    },
+    watch: {
+    postBody(newValue, oldValue) {
+        // update the text field when the message value changes
+        
+        
+        this.$el.querySelector('input').value = this.postBody
     }
+  }
 
 }
 </script>

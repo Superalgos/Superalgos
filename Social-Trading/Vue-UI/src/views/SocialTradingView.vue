@@ -4,11 +4,9 @@
             <div class="background-image-social-trading">
         <div id="social-app-div" class="social-app-grid ">
         
-                
-
             <!-- New Post Area (TOP-MIDDLE) -->
             <div class="new-post-div-flex">
-                
+                <!-- Fixed top menu button -->
                 <div id="header-home-btn-div" v-on:click="scrollUp" >
                     <p>Home</p>
                 </div>
@@ -16,43 +14,42 @@
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div">
                     <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
-                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" >
+                    <input type="text" name="new-post-input" id="new-post-input" size="50" placeholder="What's happening?" v-model="postBody" @change="updatePostBody" >
                 </div>
 
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar">
                     <!-- Add to post Icons -->
                     <div id="add-to-post-icons">
-                        <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon">
-                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon">
+                        <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="toggleUploadImage">
+                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker" >
                     </div>
-                    
+                    <div id="emoji-component" v-if="getEmojiPicker" >
+                            <emoji-picker />
+                    </div>
+                    <!-- Submit Post Button -->
                     <div id="submit-btn-div">
                         <input id="post-submit-btn" type="button" value="Post" v-on:click="sendPost">
                     </div>
                 </div>
             </div>
-            
 
             <!-- Menu Div -->
             <div id="menu-tab-social-trading">
-                
                 <!-- Menu Header Logo -->
                 <div id="menu-head-logo-div">
                     <img class="logo" src="../assets/superalgos-logo.png" >
                 </div>
-                
                 <div class="menu-btns-div">
                 <!-- Home Menu Button -->
                 <div class="social-app-home-btn">
                 <p class="menu-btn-text"  
-                        v-on:click="openHomeView()"
+                        v-on:click="openFeed"
                         >
                         <img src="../assets/iconmonstrHomeIcon.png" alt="Home Menu Icon" class="menu-icon">
                     &nbsp;Home
                 </p>
                 </div>
-
                 <!-- Profile Menu Button -->
                 <div class="social-app-home-btn">
                     <p class="menu-btn-text" 
@@ -62,34 +59,38 @@
                         &nbsp;Profile
                     </p>
                 </div>
-
                 <!-- Profile component -->
                 <div v-if="showProfileComponent">
-                    <profile />
+                    <profile-panel />
                 </div>
-                
-
                 <!-- Wallet Menu Button -->
                 <div class="social-app-home-btn">
                 <p class="menu-btn-text" 
-                        @click="openProfile"
+                        @click="openWalletPanel"
                         >
                         <img src="../assets/iconmonstrWalletIcon.png" alt="Profile Menu Icon" class="menu-icon">
                     &nbsp;Wallet
                 </p>
                 </div>
-
+                <!-- Wallet Component -->
+                <div v-if="showWalletComponent">
+                    <wallet-panel />
+                </div>
                 <!-- Settings Menu Button -->
                 <div class="social-app-home-btn">
                     <p class="menu-btn-text" 
-                            @click="openProfile"
+                            @click="openSettingsPanel"
                             >
-                            <img src="../assets/iconmonstrSettingsIcon.png" alt="Profile Menu Icon" class="menu-icon">
+                            <img src="../assets/iconmonstrSettingsIcon.png" alt="Settings Menu Icon" class="menu-icon">
                         &nbsp;Settings
                     </p>
                 </div>
+                <!-- Settings Component -->
+                <div v-if="showSettingsComponent">
+                    <settings-panel />
+                </div>
             </div>
-            </div>
+        </div>
 
             <!-- Logout Div (bottom left) -->
             <div class="logout-div">
@@ -99,95 +100,48 @@
                 <img src="../assets/iconmonstrHorizontalMenuIcon.png" alt="Add Image" class="logout-div-menu-icon">
             </div>
 
-
+            <!-- Posts are here -->
             <div id="home-view-main" 
                     class="social-main-view content-container" 
                     v-if="this.nav[0] == true"
                 >
+                    <!-- Post-List Component -->
                     <div id="post-list-container">
                         <post-list id="post-list" />
                     </div>
-
+                    <!-- Temp Refresh Needed Message -->
                     <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
             </div>
 
-            <new-post v-if="this.nav[1] == true" />
-
-            <div id="social-app-post-history-div"
-                    class="content-container"
-                    v-if="this.nav[2] == true"
-                    >
-                    ###Search option here to search the post history by: user, date, keyword
+            <!-- Follow Panel -->
+            <div>
+                <follow-panel />
             </div>
-
-            <div id="social-app-followers-view"
-                    v-if="this.nav[3] == true"
-                    class="content-container"
-                    >
-                <div id="followers-count-div">
-                    <p id="total-followers" class="social-app-followers ">Total Followers: {{this.$store.state.followers.length}} </p>
-                </div>
-
-                <div id="followers-array-div"
-                        >
-
-                        <div id="followers-div"
-                                class="followers"
-                                v-for="follower in this.$store.state.followers"
-                                v-bind:key="follower.username"
-                            >
-                            {{follower.username}}
-                        </div>
-                        
-                </div>
-
+            <!-- Image Uploader Component -->
+            <div>
+                <upload-image-panel />
             </div>
+            
 
-
-            <div id="social-app-following-view"
-                    v-if="this.nav[4] == true"
-            >
-            <div id="following-count-div">
-                <p id="total-following" class="social-app-following">Total Following: {{this.$store.state.following.length}} </p>
-            </div>
-
-            <div id="following-array-div"
-            >
-
-            <div id="following-div"
-                    class="following"
-                    v-for="follow in this.$store.state.following"
-                    v-bind:key="follow.username"
-            >
-            {{follow.username}}
-            </div>
-                        
         </div>
-
-            </div>
-
-
-            <div id="social-app-settings-div"
-                    class="social-main-view"
-                    v-if="this.nav[5] == true"
-                    >
-            </div>
-
+    </div>
 </div>
-        </div>
-        </div>
 
 </template>
 
 <script>
-import NewPost from '../components/PostComponents/NewPost.vue';
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
 import { createPost, getFeed } from '../services/PostService'
-
+import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
+import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
+import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
+import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
+import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
+import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
 
 export default {
-    components: { PostList, NewPost  },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel  },
     data() {
         let home = true;
         let profile = false;
@@ -199,52 +153,12 @@ export default {
                 home = true,
                 profile = false,
                 wallet = false,
-                settings = false,
+                settings = false
             ],
             postBody: '',
         }
     },
     methods: {
-        closeAll() {
-            let newNav = this.nav;
-            for (let i = 0; i < newNav.length; i++) {
-                let btn = newNav[i]
-                if (btn !== false) {
-                    newNav[i] = false;
-                }
-            }
-            this.nav = newNav;
-        },
-        openHomeView() {
-            this.closeAll()
-            this.nav[0] = true;
-        },
-        openNewPostView() {
-            this.closeAll()
-            this.nav[1] = true;
-        },
-        openPostHistoryView() {
-            this.closeAll()
-            this.nav[2] = true;
-        },
-        openSocialFollowersView() {
-            this.closeAll()
-            this.nav[3] = true;
-        },
-        openSocialFolloweringView() {
-            this.closeAll()
-            this.nav[4] = true;
-        },
-        openSocialSettingsView() {
-            this.closeAll()
-            this.nav[5] = true;
-        },
-        
-        bounceBtn() {
-            let item = this.classList
-            console.log(item)
-        },
-
         sendPost() {
             let message = {
                 originSocialPersonaId: this.$store.state.profile.nodeId,
@@ -258,23 +172,72 @@ export default {
                     getFeed()
                 });
             }
-
         },
         openProfile() {
             store.commit("SHOW_PROFILE", true);
         },
+        openWalletPanel() {
+            store.commit("SHOW_WALLET", true);
+        },
+        openSettingsPanel() {
+            store.commit("SHOW_SETTINGS", true);
+        },
         scrollUp() {
             window.scrollTo(window.innerHeight, 0);
+        },
+        openFeed() {
+            getFeed()
+        },
+        showEmojiPicker() {
+            let isDisplayed = store.state.showEmojiPicker;
+            store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
+        },
+        updatePostBody() {
+            console.log(`Message updated: ${this.postBody}`)
+        },
+        toggleUploadImage() {
+            let isDisplayed = store.state.showImageUploader;
+            console.log("Image uploader state = " + store.state.showImageUploader)
+            store.commit("SHOW_IMAGE_UPLOADER", !isDisplayed);
         }
     },
     computed: {
         imageSrc() {
-            return this.$store.state.profile.profileImg;
+            return store.state.profile.profileImg;
         },
         showProfileComponent() {
-                return store.state.showProfile
-            },
+            return store.state.showProfile
+        },
+        showWalletComponent() {
+            return store.state.showWallet
+        },
+        showSettingsComponent() {
+            return store.state.showSettings
+        },
+        getEmojiPicker() {
+            return store.state.showEmojiPicker
+        },
+        insertEmoji() {
+            if(store.state.selectedEmoji !== undefined) {
+                this.postBody = this.postBody + store.state.selectedEmoji
+                store.commit("RESET_EMOJI");
+                // TODO Create a click event on the toggle button to close the emoji panel and update the text displayed.
+            }
+            return this.postBody
+        },
+        getPostBody() {
+            return this.postBody;
+        },
+        shouldUpdateImagePanel() {
+            return store.state.showImageUploader;
+        }
+    },
+    watch: {
+    insertEmoji(newValue, oldValue) {
+        // update the text field when the message value changes
+        this.$el.querySelector('input').value = this.postBody
     }
+  }
 
 }
 </script>

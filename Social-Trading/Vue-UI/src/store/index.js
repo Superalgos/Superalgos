@@ -3,9 +3,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    newPost: false,
     showCreateProfile: false,
     showProfile: false,
+    showWallet: false,
+    showSettings: false,
+    showImageUploader: false,
+    showEmojiPicker: false,
+    selectedEmoji: undefined,
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
@@ -16,6 +20,7 @@ export default createStore({
       followers: 2,
       following: 5,
     },
+    users: [],
     posts: [],
     followers: [{username: "theblockchainarborist"},
                 {username: "quantum8"},
@@ -59,6 +64,24 @@ export default createStore({
     },
     SHOW_PROFILE(state, show) {
       state.showProfile = show;
+    },
+    SHOW_WALLET(state, show) {
+      state.showWallet = show;
+    },
+    SHOW_SETTINGS(state, show) {
+      state.showSettings = show;
+    },
+    SHOW_IMAGE_UPLOADER(state, show) {
+      state.showImageUploader = show;
+    },
+    SHOW_EMOJI_PICKER(state, show) {
+      state.showEmojiPicker = show;
+    },
+    SET_SELECTED_EMOJI(state, emoji) {
+      state.selectedEmoji = emoji;
+    },
+    RESET_EMOJI(state) {
+      state.selectedEmoji = undefined;
     }
   },
   actions: {

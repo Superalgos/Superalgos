@@ -176,17 +176,21 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                 let password = fileKey.password
                 let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
 
-                switch (storageContainer.parentNode.type) {
-                    case 'Github Storage': {
-                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                            .then(onFileLoaded)
-                            .catch(onFileNotLoaded)
-                        break
+                try {
+                    switch (storageContainer.parentNode.type) {
+                        case 'Github Storage': {
+                            await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                                .then(onFileLoaded)
+                                .catch(onFileNotLoaded)
+                            break
+                        }
+                        case 'Superalgos Storage': {
+                            // TODO Build the Superalgos Storage Provider
+                            break
+                        }
                     }
-                    case 'Superalgos Storage': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                } catch (err) {
+                    reject(err)
                 }
 
                 function onFileLoaded(fileData) {

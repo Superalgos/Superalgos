@@ -463,7 +463,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     GOVERNANCE_PLUGINS_REPO_NAME,
                     profileMessage.storageProviderUsername,
                     'User-Profiles',
-                    profileMessage.storageProviderUsername
+                    profileMessage.storageProviderUsername,
+                    GOVERNANCE_PLUGINS_REPO_BRANCH
                 )
                     .then()
                     .catch(profileNotPushed)

@@ -1,8 +1,6 @@
 <template>
     <div class="app-container">
-        
 
-        
         <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
 
         <!-- The CreateProfile component -->
@@ -10,35 +8,22 @@
             <create-profile />
         </div>
 
-        <div v-if="showProfileComponent">
-            <profile />
-        </div>
-
-        
     </div>
 </template>
 
 <script>
-import background from "./assets/superalgos-header-background.png"
 import CreateProfile from './components/ProfileComponents/CreateProfile.vue'
 import store from './store/index'
-import Profile from './components/ProfileComponents/Profile.vue'
 import { getSocialPersona } from './services/ProfileService'
 
     export default {
-        components: { CreateProfile, Profile },
+        components: { CreateProfile },
         data() {
             return {
-                incomingDataObj: {},
-                background: background,
-                isActive: false,
-                timestampObj: '',
+                
             };
         },
         computed: {
-            dashboards () {
-                return this.$router.getRoutes()
-            },
             showProfileComponent() {
                 return store.state.showProfile
             },
@@ -47,25 +32,8 @@ import { getSocialPersona } from './services/ProfileService'
             }
         },
         methods: {
-            openMenu(){
-				if(this.$refs.LeftDrawer.active){
-					this.$refs.LeftDrawer.close();					
-				}else{
-					this.$refs.LeftDrawer.open();
-				}
-			},
-            openSettings(){
-				if(this.$refs.RightDrawer.active){
-					this.$refs.RightDrawer.close();					
-				}else{
-					this.$refs.RightDrawer.open();
-				}
-			},
-            openProfile() {
-                store.commit("SHOW_PROFILE", true);
-            },
             getSocialPersona () {
-            let response = getSocialPersona()
+                let response = getSocialPersona()
             console.log(JSON.stringify(response.data))
             this.$store.commit("ADD_PROFILE", response)
         },

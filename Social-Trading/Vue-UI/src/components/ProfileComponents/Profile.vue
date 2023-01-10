@@ -1,4 +1,5 @@
 <template>
+
     <div class="modal-overlay" v-if="getVisibility">
 
         <div class="profile profile-grid-view">
@@ -178,7 +179,8 @@ export default {
     text-align: center;
     border-bottom: solid 1px black;
     font-weight: 600;
-    font-size: 1vw;
+    font-size: 1.3vw;
+    margin-top: 0px;
 }
 
 #profile-img-div {

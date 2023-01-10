@@ -63,7 +63,12 @@ const http = axios.create({
 
 
     async function getProfiles() {
-        return http.get('/users/profiles');
+        console.log("Getting profiles")
+        return http.get('/users/social-entities')
+            .then(response => {
+                let allUsers = response.data.socialEntities
+                console.table(allUsers)
+            });
     }
 
     // Loads Profile

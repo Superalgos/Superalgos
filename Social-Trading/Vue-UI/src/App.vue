@@ -1,106 +1,48 @@
 <template>
     <div class="app-container">
-        <div class="nav-bar">
 
-            <div id="header-logo-div">
-                <img class="logo" :src="logo" >
-            </div>
-            
-            <div id="nav-btn-div">
-                <button class="nav-btn" @click="openMenu">Menu</button>
-            <button class="nav-btn" @click="openSettings">Settings</button>
-            </div>
-
-            
-            
-        </div>
-
-        <Drawer class="drawer-theme" :direction="'left'" :exist="true" ref="LeftDrawer">
-            <img class="logo" :src="logo" >
-            <div class="dash-link-container" v-for="dashboard in dashboards" v-bind:key="dashboard">
-                <router-link class="dash-link" :to="{ name: dashboard.name }" >{{dashboard.name}} </router-link>
-            </div>
-        </Drawer>
-        <Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
         <router-view class="dashboard-view" :incomingData="incomingDataObj" :timestamp="timestampObj"></router-view>
 
-        
+        <!-- The CreateProfile component -->
+        <div v-if="showCreateProfileComponent">
+            <create-profile />
+        </div>
+
     </div>
 </template>
 
 <script>
-    import Drawer from './components/Drawer.vue'
-    import logo from "./assets/superalgos-logo-white.png"
-    import background from "./assets/superalgos-header-background.png"
-    
-
+import CreateProfile from './components/ProfileComponents/CreateProfile.vue'
+import store from './store/index'
+import { getSocialPersona } from './services/ProfileService'
 
     export default {
-        components: { Drawer },
+        components: { CreateProfile },
         data() {
             return {
-                incomingDataObj: {},
-                logo: logo,
-                background: background,
-                isActive: false,
-                timestampObj: '',
+                
             };
         },
         computed: {
-            dashboards () {
-                return this.$router.getRoutes()
+            showProfileComponent() {
+                return store.state.showProfile
+            },
+            showCreateProfileComponent() {
+                return store.state.showCreateProfile
             }
         },
         methods: {
-            openMenu(){
-				if(this.$refs.LeftDrawer.active){
-					this.$refs.LeftDrawer.close();					
-				}else{
-					this.$refs.LeftDrawer.open();
-				}
-			},
-            openSettings(){
-				if(this.$refs.RightDrawer.active){
-					this.$refs.RightDrawer.close();					
-				}else{
-					this.$refs.RightDrawer.open();
-				}
-			},
+            getSocialPersona () {
+                let response = getSocialPersona()
+            console.log(JSON.stringify(response.data))
+            this.$store.commit("ADD_PROFILE", response)
         },
-        // Spin up websocket client on app mount
+        },
         mounted: function () {
-
-            /*
-            //open a server socket, so that the platform process can send data to the UI
-            let socket = new WebSocket("ws://"+ location.host.split(':')[0]+":18043/");
-
-            //announce this socket to the platform process
-            socket.onopen = () => {
-                let message = (new Date()).toISOString() + "|*|UI|*|Startup|*|UI now connected via Websocket";
-                socket.send(message);
-            };
-
-            socket.onmessage = (event) => {
-                // Vue data binding means we don't need any extra work to
-                // update the UI. Anytime a variable is updated from here the UI will follow
-                //console.log("recieved data", event);
-                let messageArray = event.data.toString().split("|*|");
-                let timestamp = messageArray[0]; //First argument is timestamp 
-                this.timestampObj = timestamp
-                let dataKey = messageArray[1]; // second is the data key assocated with the incoming data
-                try {
-                    let dataContent = JSON.parse(messageArray[2]); // Third is an array of objects holding data
-                    this.incomingDataObj[dataKey] = dataContent;
-                } catch (err) {
-                    console.log((new Date()).toISOString(),'[ERROR] {App.vue} Error Parsing JSON Msg: ' + messageArray[2] + '. Error = ' + err.stack)
-                }
-            };
-
-            socket.onclose = (event) => {
-                console.log((new Date()).toISOString(),'[ERROR] {App.vue} websocket connection closed', event);
-            };
-            */
         },
+        created: function () {
+            this.getSocialPersona()
+        }, 
     }
 </script>
 
@@ -119,83 +61,20 @@
 
     .app-container {
         font:400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        background-color: rgba(0, 0, 0, 0.959);
-        height: 100vh;
+        height: 100%;
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: 
         'header'
         'body';
+        margin-top: -8px;
+        margin-left: -8px;
+        color: black;
     }
     
-    .nav-bar {
-        grid-area: header;
-        left:0;           
-        top:0;            
-        width:100vw;      
-        z-index:200;  
-        height:65px;  
-        background-image: url('./assets/superalgos-header-background.png');
-        display: flex; 
-        align-self: top;
-        align-items: center;
-    }
+    
 
-    #header-logo-div {
-        display: flex;
-    }
-
-    .logo {
-        height: 60px;
-    }
-
-    #nav-btn-div {
-        display: flex;
-        margin-left: 1vw;
-    }
-
-    .nav-btn {
-        font-size: 22px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: transparent;
-        border: none;
-    }
-
-    .nav-btn:hover {
-        font-size: 24px;
-        color: white;
-        background-color: rgba(51, 51, 51, 0.7);
-        border-top-left-radius: 7px;
-        height: 70%;
-    }
-
-    .dash-link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .dash-link{
-        color: white;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 6px;
-        padding: 10px;
-        width: 80%;
-        text-decoration: none;
-    }
-
-    .dash-link:hover {
-        background-color: rgba(227, 73, 60, 0.5);
-    }
-
-    .dashboard-view {
-        grid-area: body;
-        background-color: rgba(22, 22, 22, 0.877);
-    }
 </style>
   
 

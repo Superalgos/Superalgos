@@ -21,10 +21,10 @@
                 <div class="post-btn-bar">
                     <!-- Add to post Icons -->
                     <div id="add-to-post-icons">
-                        <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon">
-                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker">
+                        <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="toggleUploadImage">
+                        <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker" >
                     </div>
-                    <div id="emoji-component" v-if="getEmojiPicker">
+                    <div id="emoji-component" v-if="getEmojiPicker" v-bind="post-input">
                             <emoji-picker />
                     </div>
                     <!-- Submit Post Button -->
@@ -115,8 +115,13 @@
 
             <!-- Follow Panel -->
             <div>
-                <follow-panel />
+                <!-- <follow-panel /> -->
             </div>
+            <!-- Image Uploader Component -->
+            <div>
+                <upload-image-panel />
+            </div>
+            
 
         </div>
     </div>
@@ -133,10 +138,10 @@ import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
 import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
 import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
-
+import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker  },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel  },
     data() {
         let home = true;
         let profile = false;
@@ -184,11 +189,16 @@ export default {
             getFeed()
         },
         showEmojiPicker() {
-            let isDisplayed = store.state.showEmojiPicker
+            let isDisplayed = store.state.showEmojiPicker;
             store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
         },
         updatePostBody() {
             console.log(`Message updated: ${this.postBody}`)
+        },
+        toggleUploadImage() {
+            let isDisplayed = store.state.showImageUploader;
+            console.log("Image uploader state = " + store.state.showImageUploader)
+            store.commit("SHOW_IMAGE_UPLOADER", !isDisplayed);
         }
     },
     computed: {
@@ -208,20 +218,23 @@ export default {
             return store.state.showEmojiPicker
         },
         insertEmoji() {
-            while(store.state.selectedEmoji !== undefined) {
+            if(store.state.selectedEmoji !== undefined) {
                 this.postBody = this.postBody + store.state.selectedEmoji
                 store.commit("RESET_EMOJI");
+                // TODO Create a click event on the toggle button to close the emoji panel and update the text displayed.
             }
+            return this.postBody
         },
         getPostBody() {
             return this.postBody;
+        },
+        shouldUpdateImagePanel() {
+            return store.state.showImageUploader;
         }
     },
     watch: {
-    postBody(newValue, oldValue) {
+    insertEmoji(newValue, oldValue) {
         // update the text field when the message value changes
-        
-        
         this.$el.querySelector('input').value = this.postBody
     }
   }

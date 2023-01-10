@@ -7,6 +7,7 @@ export default createStore({
     showProfile: false,
     showWallet: false,
     showSettings: false,
+    showImageUploader: false,
     showEmojiPicker: false,
     selectedEmoji: undefined,
     profile: {
@@ -69,6 +70,9 @@ export default createStore({
     },
     SHOW_SETTINGS(state, show) {
       state.showSettings = show;
+    },
+    SHOW_IMAGE_UPLOADER(state, show) {
+      state.showImageUploader = show;
     },
     SHOW_EMOJI_PICKER(state, show) {
       state.showEmojiPicker = show;

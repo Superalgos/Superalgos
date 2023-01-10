@@ -167,7 +167,7 @@ export default {
 
 .post-message {
     grid-area: post;
-
+    white-space: pre-wrap;
 }
 
 #post-body {
@@ -178,12 +178,10 @@ export default {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px black;
-
 }
 
 
 .comments-section {
-  
   font-size: .7em;
   color: red;
   padding: 2px 5px 2px 5px;

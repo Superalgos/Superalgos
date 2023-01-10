@@ -72,7 +72,6 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             let file
             let notLoadedCount = 0
 
-            console.table(availableStorage)
 
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
                 let storageContainerReference = availableStorage.storageContainerReferences[i]

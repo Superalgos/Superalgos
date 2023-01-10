@@ -1,28 +1,35 @@
 <template>
+<!-- TODO Set max image sizes -->
     <div class="modal-uploader-overlay" v-if="getUploaderVisibility">
         <div id="uploader-main-div" class="uploader" >
+            <!-- Panel Header -->
             <div class="top-bar">
                 <p  class="bold">Image Uploader</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeUploader">
             </div>
-
+            <!-- Panel Body -->
             <div id="upload-panel-body">
-            <div id="choose-img-div">
-                <button @click="openFileDialog">Choose Image</button>
-                <input type="file" ref="fileInput" accept="image/*" @change="uploadImage" style="display: none">
-            </div>
+                <!-- Upload Button -->
+                <div id="choose-img-div">
+                    <button @click="openFileDialog">Choose Image</button>
+                    <input type="file" ref="fileInput" accept="image/*" @change="uploadImage" style="display: none">
+                </div>
+                <!-- Drag N Drop Area -->
+                <div
+                    @dragenter="onDragEnter"
+                    @dragover="onDragOver"
+                    @drop="onDrop"
+                    class="image-uploader"
+                >
+                    <!-- Text Inside Drag N Drop Area -->
+                    <p id="drag-n-drop-text">Drag and Drop to Upload</p>
+                </div>
 
-            <div
-                @dragenter="onDragEnter"
-                @dragover="onDragOver"
-                @drop="onDrop"
-                class="image-uploader"
-            >
-                <p id="drag-n-drop-text">Drag and Drop to Upload</p>
-            </div>
+                <!-- For Testing TODO remove -->
+                <!-- <img v-if="uploadedImageUrl !== ''" :src="uploadedImageUrl" id="uploaded-image" alt="Uploaded Image"> -->
 
+                </div>
             </div>
-        </div>
     </div>
 </template>
 
@@ -35,6 +42,7 @@ export default {
     name: 'image-uploader-panel',
     data() {
     return {
+        uploadedImageUrl: ''
         };
     },
     methods: {
@@ -43,30 +51,45 @@ export default {
             return store.state.showImageUploader;
         },
         openFileDialog() {
+            console.log("Opening file dialog")
             this.$refs.fileInput.click()
         },
         uploadImage(event) {
             const file = event.target.files[0]
-            // do something with the uploaded image file
-            console.log(`Image uploaded: ${file.name}`)
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            // once the file is read, convert it to a data URL
+            reader.onload = (e) => {
+            const dataURL = e.target.result;
+            // Store the image string in the store.
+            store.commit("ADD_POST_IMAGE", dataURL);
+
+            // Temp for display TODO remove
+            this.uploadedImageUrl = dataURL
+            console.log(this.uploadedImageUrl)
+            }
         },
         onDragEnter(event) {
+            console.log("ON DRAG ENTER")
             // prevent default behavior
             event.preventDefault()
         },
         onDragOver(event) {
+            console.log("ON DRAG OVER")
             // prevent default behavior
             event.preventDefault()
         },
         onDrop(event) {
+            console.log("ON DROP")
             // prevent default behavior
             event.preventDefault()
 
             // get the dropped files
-            const files = event.dataTransfer.files
-
+            const file = event.dataTransfer.files[0]
+            this.uploadedImageUrl = URL.createObjectURL(file)
             // do something with the dropped files
-            console.log(`Files dropped: ${files.length}`)
+            console.log(`Files dropped: ${this.uploadedImageUrl}`)
+            console.log(files[0].name)
         }
     },
     computed: {

@@ -118,7 +118,9 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -404,7 +406,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     GOVERNANCE_PLUGINS_REPO_NAME,
                     storageProviderUsername,
                     'User-Profiles',
-                    storageProviderUsername
+                    storageProviderUsername,
+                    GOVERNANCE_PLUGINS_REPO_BRANCH
                 )
                     .then()
                     .catch(profileNotPushed)
@@ -547,7 +550,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
             async function loadUserProfileFromMemory() {
                 /*
-                We will get the user profile from an in meomry map.
+                We will get the user profile from an in memory map.
                 */
                 userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(userProfileId)
 

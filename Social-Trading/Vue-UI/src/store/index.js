@@ -86,6 +86,9 @@ export default createStore({
     },
     ADD_POST_IMAGE(state, image) {
       state.postImage = image;
+    },
+    ADD_PROFILE_IMAGE(state, image) {
+      state.profile.profileImg = image;
     }
   },
   actions: {

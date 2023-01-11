@@ -20,6 +20,7 @@ export default {
         // do something with the selected emoji
         console.log(`Emoji selected: ${emoji}`)
         store.commit("SET_SELECTED_EMOJI", `${emoji}`);
+        store.commit("SHOW_EMOJI_PICKER", false);
     }
   }
 }

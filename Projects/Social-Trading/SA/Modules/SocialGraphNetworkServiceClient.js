@@ -94,6 +94,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
                                 if (response.result === "Ok") {
                                     event.postText = response.postText
+                                    event.postImage = response.postImage
                                     eventsWithNoProblem.push(event)
                                 }
                             } else {

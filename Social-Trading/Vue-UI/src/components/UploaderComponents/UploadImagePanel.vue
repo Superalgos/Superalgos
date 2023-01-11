@@ -62,34 +62,45 @@ export default {
             reader.onload = (e) => {
             const dataURL = e.target.result;
             // Store the image string in the store.
-            store.commit("ADD_POST_IMAGE", dataURL);
-
+            // This will be either a profile picture or a post image.
+            if (store.state.showProfile === true) {
+                store.commit("ADD_PROFILE_IMAGE", dataURL);
+            } else {
+                store.commit("ADD_POST_IMAGE", dataURL);
+            }
+            
             // Temp for display TODO remove
             this.uploadedImageUrl = dataURL
             console.log(this.uploadedImageUrl)
             }
         },
         onDragEnter(event) {
-            console.log("ON DRAG ENTER")
             // prevent default behavior
             event.preventDefault()
         },
         onDragOver(event) {
-            console.log("ON DRAG OVER")
             // prevent default behavior
             event.preventDefault()
         },
         onDrop(event) {
-            console.log("ON DROP")
             // prevent default behavior
             event.preventDefault()
-
             // get the dropped files
             const file = event.dataTransfer.files[0]
-            this.uploadedImageUrl = URL.createObjectURL(file)
-            // do something with the dropped files
-            console.log(`Files dropped: ${this.uploadedImageUrl}`)
-            console.log(files[0].name)
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (e) => {
+            const dataURL = e.target.result;
+
+            // Store the image string in the store.
+            // This will be either a profile picture or a post image.
+            if (store.state.showProfile === true) {
+                store.commit("ADD_PROFILE_IMAGE", dataURL);
+            } else {
+                store.commit("ADD_POST_IMAGE", dataURL);
+            }
+            }
+            
         }
     },
     computed: {

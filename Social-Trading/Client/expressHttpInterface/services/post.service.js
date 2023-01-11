@@ -85,11 +85,11 @@ const createPost = async (body, res) => {
     try {
         let eventMessage;
         let event;
-
         eventMessage = {
             eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             postText: body.postText,
+            postImage: body.postImage,
             timestamp: (new Date()).valueOf()
         }
 

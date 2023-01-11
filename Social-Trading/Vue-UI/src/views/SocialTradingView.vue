@@ -30,7 +30,7 @@
                         <img src="../assets/iconmonstrEmojiIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="showEmojiPicker" >
                     </div>
                     <!-- Emoji Picker -->
-                    <div id="emoji-component" v-if="getEmojiPicker" >
+                    <div id="emoji-component" v-if="getEmojiPicker"  >
                             <emoji-picker />
                     </div>
                     <!-- Submit Post Button -->
@@ -168,7 +168,8 @@ export default {
         sendPost() {
             let message = {
                 originSocialPersonaId: this.$store.state.profile.nodeId,
-                postText: this.postBody
+                postText: this.postBody,
+                postImage: store.state.postImage
             }
             // If the post is not empty we will send it.
             if (message.postText !== '') {
@@ -382,6 +383,7 @@ export default {
     display: flex;
     flex-direction: row;
     margin-top: 10%;
+    margin-left: 1%;
     align-items: flex-end;
 }
 #new-post-input {

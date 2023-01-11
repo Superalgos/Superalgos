@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В эти источники данных входят такие трендовые индикаторы, как канал Кельтнера, средневзвешенная цена скользящего объема (MVWAP), параболический стоп и реверс (PSAR), индуктор покупки/продажи BeepBoop, а также два индикатора, предназначенные для оценки трендовых или консолидирующихся рынков: Choppy и Chop Index.",
                 "updated": 1646897591284
+            },
+            {
+                "language": "DE",
+                "text": "Diese Datenmine umfasst Trendindikatoren wie Keltner Channel, Moving Volume Weighted Average Price (MVWAP), Parabolic Stop and Reverse (PSAR), einen Kauf-/Verkaufsindikator BeepBoop und zwei Indikatoren, die helfen sollen, die Entwicklung oder Konsolidierung von Märkten zu messen: Choppy und Chop Index.",
+                "updated": 1671461244192
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Источник данных quantum предоставлен вам...",
                     "updated": 1646897635744
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Quanten Datenmine wird präsentiert von...",
+                    "updated": 1671461306509
                 }
             ]
         },

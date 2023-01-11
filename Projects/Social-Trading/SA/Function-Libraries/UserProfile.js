@@ -217,7 +217,9 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const {Octokit} = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: profileMessage.storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })

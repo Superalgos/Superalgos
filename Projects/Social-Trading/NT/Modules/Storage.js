@@ -307,11 +307,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         await doGit()
 
         function saveOneMinuteOfEvents() {
-            return new Promise(promiseWork)
-
-            async function promiseWork(resolve, reject) {
-
-
                 /*
                 Here we will save all the events that were not saved before,
                 in one minute batched files.
@@ -323,6 +318,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 let eventsFromLastMinute = []
                 let eventsFromLastLastMinute = []
                 let dontMoveIndexForward = false
+    
+            return new Promise(promiseWork)
+
+            
+            async function promiseWork(resolve, reject) {
+
 
                 for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
                     let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
@@ -355,12 +356,16 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     if (
                         eventMinute === lastMinute
                     ) {
+                        console.log('saving event in last minute') 
+
                         eventsFromLastMinute.push(eventToSave)
                         dontMoveIndexForward = true
                     }
                     if (
                         eventMinute === lastLastMinute
                     ) {
+                        console.log('Saving Event in last last minute') 
+
                         eventsFromLastLastMinute.push(eventToSave)
                         if (dontMoveIndexForward === false) {
                             indexLastSavedEvent = i

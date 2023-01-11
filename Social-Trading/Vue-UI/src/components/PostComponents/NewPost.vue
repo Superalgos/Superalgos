@@ -30,6 +30,7 @@
 <script>
 
 import { createPost } from '../../services/PostService'
+import store from '../../store/index'
 
 export default {
     name: 'new-post',
@@ -42,7 +43,8 @@ export default {
         sendPost() {
             let message = {
                 originSocialPersonaId: this.$store.state.profile.nodeId,
-                postText: this.postBody
+                postText: this.postBody,
+                postImage: store.state.postImage
             }
             createPost(message)
 

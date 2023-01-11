@@ -307,21 +307,20 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         await doGit()
 
         function saveOneMinuteOfEvents() {
-                /*
-                Here we will save all the events that were not saved before,
-                in one minute batched files.
-                */
-                let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-                let lastLastMinute = lastMinute - 1
-                let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                let eventsFromLastMinute = []
-                let eventsFromLastLastMinute = []
-                let dontMoveIndexForward = false
+            /*
+            Here we will save all the events that were not saved before,
+            in one minute batched files.
+            */
+            let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
+            let lastLastMinute = lastMinute - 1
+            let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+            let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+            let eventsFromLastMinute = []
+            let eventsFromLastLastMinute = []
+            let dontMoveIndexForward = false
     
             return new Promise(promiseWork)
 
-            
             async function promiseWork(resolve, reject) {
 
 
@@ -384,12 +383,14 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                     console.log("EVENTS FROM LAST MIN = " + eventsToSave)
 
-                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
-                    console.log("Save events at storage")
-                    console.log("FilePath = " + filePath)
-                    console.log("FileContent = " + fileContent)
-                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                    if (eventsToSave.length !== 0) {                    
+                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+                        console.log("Save events at storage")
+                        console.log("FilePath = " + filePath)
+                        console.log("FileContent = " + fileContent)
+                        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                    }
                 }
 
                 function saveDataRangeFile() {
@@ -400,7 +401,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
                     if (firstEvent !== undefined) {
                         dataRange.begin = Math.trunc(firstEvent.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                        dataRange.end = (Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                        dataRange.end = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                     } else {
                         return
                     }

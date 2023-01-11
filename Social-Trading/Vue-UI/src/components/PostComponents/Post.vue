@@ -27,23 +27,36 @@
 
       <div id="footer">
 
-        <div class="post-footer">
-          <div id="" class="">
-            <a href="#"
-              class="comments-section"
-              style="text-decoration:none"
-                v-on:click="getComments(posts.post)"
-                v-on:click.left="hasComment === true ? hasComment = false : hasComment = true"
-                >  Comments 
-            </a>
+        <div class="">
+          <div id="" class="post-footer">
+            <!-- Comment Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrCommentIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Comment
+            </p>
+            <!-- Like Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Like
+            </p>
+            <!-- Dislike Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrDislikeIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Dislike
+            </p>
+            <!-- Like Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Love
+            </p>
+            <!-- Repost Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrRepostIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Repost
+            </p>
+            
+           
 
-            <a href="#"
-              id="post-likes"
-              class="comments-section"
-              style="text-decoration:none"
-                
-                >  Likes
-            </a>
 
           </div>
         
@@ -80,8 +93,6 @@
 </template>
 
 <script>
-
-
 
 
 
@@ -177,7 +188,7 @@ export default {
 
 .post-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: solid 1px black;
 }
 
@@ -199,6 +210,25 @@ export default {
 #post-date {
   color: rgb(99, 98, 98);
   font-weight: 600;
+}
+
+.post-comments-button {
+  display: flex;
+  align-items: center;
+  padding: 0.75% 1%;
+  white-space: hide;
+  font-size: 1vw;
+}
+
+.post-comments-button:hover {
+  border-radius: 30px;
+  background-color: rgba(182, 182, 182, 0.281);
+  padding: 0% 1%;
+}
+
+.post-footer-buttons {
+  width: 2vw;
+  height: 2vw;
 }
 
 </style>

@@ -34,6 +34,7 @@
   "dependencies": {
     "@bundled-es-modules/axios": "^0.27.2",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "@octokit/plugin-retry": "^4.0.3",
     "@octokit/rest": "^18.12.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@slack/web-api": "^6.5.1",

@@ -10,12 +10,9 @@
                 />
             </div>
         </div>
-
-
 </template>
 
 <script>
-
 import Post from './Post.vue'
 import { getFeed } from '../../services/PostService'
 

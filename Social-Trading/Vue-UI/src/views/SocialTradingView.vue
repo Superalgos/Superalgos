@@ -11,6 +11,7 @@
                     <p>Home</p>
                 </div>
 
+
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div">
                     <!-- Profile Picture -->
@@ -147,7 +148,7 @@ import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel  },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel },
     data() {
         let home = true;
         let profile = false;
@@ -312,8 +313,6 @@ export default {
  */
 #menu-tab-social-trading {
     grid-area: left-panel;
-    
-
     margin-top: 10%;
     justify-self: right;
     margin-right: 5%;

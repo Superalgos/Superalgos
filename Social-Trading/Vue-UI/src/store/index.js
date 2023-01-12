@@ -16,7 +16,7 @@ export default createStore({
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profilePic: 'https://raw.githubusercontent.com/theblockchainarborist/Social_Trading_App/main/Images/Profile_Picture.png',
+      profilePic: '',
       followers: 2,
       following: 5,
     },

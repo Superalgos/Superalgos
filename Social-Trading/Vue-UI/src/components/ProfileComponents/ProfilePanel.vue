@@ -133,6 +133,7 @@ export default {
     },
     created() {
         this.profileData.bio = store.state.profile.bio
+        this.profileData.name = store.state.profile.name
     }
 };
 </script>

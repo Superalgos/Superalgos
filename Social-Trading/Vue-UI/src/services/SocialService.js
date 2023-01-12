@@ -1,5 +1,6 @@
 import axios from 'axios';
 import store from '../store/index'
+import superalgos from '../assets/superalgos.png'
 
 const http = axios.create({
     baseURL: "http://localhost:33248",
@@ -32,6 +33,11 @@ const http = axios.create({
                     store.commit("UPDATE_NAME", thisProfileData.name);
                     store.commit("UPDATE_BIO", thisProfileData.bio);
                     store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic)
+                }
+
+                // We check to see if the profile has a profile picture set and if not set a default.
+                if (thisProfileData.profilePic === undefined || thisProfileData.profilePic === '') {
+                    thisProfileData.profilePic = superalgos
                 }
             }
             // Here we send the userArray to the store for later use.

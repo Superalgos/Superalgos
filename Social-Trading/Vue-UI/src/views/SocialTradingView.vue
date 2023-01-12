@@ -239,7 +239,7 @@ export default {
     // Live values returned from computed functions.
     computed: {
         imageSrc() {
-            return store.state.profile.profileImg;
+            return store.state.profile.profilePic;
         },
         showProfileComponent() {
             return store.state.showProfile

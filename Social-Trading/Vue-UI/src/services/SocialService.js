@@ -26,9 +26,17 @@ const http = axios.create({
                 let thisProfileData = responseArray[i].profileData
                 console.log(thisProfileData)
                 userArray.push(thisProfileData)
+
+                // We check to see if it is our own profile and if so update it in the store.
+                if(thisProfileData.originSocialPersonaId === store.state.profile.nodeId) {
+                    store.commit("UPDATE_NAME", thisProfileData.name);
+                    store.commit("UPDATE_BIO", thisProfileData.bio);
+                    store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic)
+                }
             }
             // Here we send the userArray to the store for later use.
             store.commit("SET_USER_ARRAY", userArray);
+
             return responseData
         });
     }

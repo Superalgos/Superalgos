@@ -16,7 +16,7 @@ export default createStore({
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profileImg: 'https://raw.githubusercontent.com/theblockchainarborist/Social_Trading_App/main/Images/Profile_Picture.png',
+      profilePic: 'https://raw.githubusercontent.com/theblockchainarborist/Social_Trading_App/main/Images/Profile_Picture.png',
       followers: 2,
       following: 5,
     },
@@ -58,7 +58,7 @@ export default createStore({
       state.profile.nodeId = data.nodeId
       state.profile.userProfileHandle = data.userProfileHandle
       state.profile.userProfileId = data.userProfileId
-      state.profile.profilePicture = data.profilePicture
+      state.profile.profilePic = data.profilePic
     },
     SHOW_CREATE_PROFILE(state, show) {
       state.showCreateProfile = show;
@@ -87,12 +87,19 @@ export default createStore({
     ADD_POST_IMAGE(state, image) {
       state.postImage = image;
     },
-    ADD_PROFILE_IMAGE(state, image) {
-      state.profile.profileImg = image;
-    },
     SET_USER_ARRAY(state, userArray) {
       state.users = userArray
-    }
+    },
+    /* Updating Our Profile Information */
+    UPDATE_NAME(state, name) {
+      state.profile.name = name;
+    },
+    UPDATE_BIO(state, bio) {
+      state.profile.bio = bio;
+    },
+    ADD_PROFILE_IMAGE(state, image) {
+      state.profile.profilePic = image;
+    },
   },
   actions: {
   },

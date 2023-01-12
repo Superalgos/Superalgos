@@ -5,25 +5,81 @@
                 <p  class="bold">Profile</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeProfile">
             </div>
-            <div id="profile-panel-body">
-                <div id="profile-head-left-div">
+            <div class="profile-body">
+                <!-- Default Profile Panel Body -->
+                <div class="update-profile-pic">
+                <div class="profile-panel-body" v-if="!updateProfilePanel">
+                    <div class="profile-head-left-div">
+                        <!-- Profile Picture -->
+                        <img class="profile-pic" v-bind:src="imageSrc" alt="">
+                        <!-- Profile Username -->
+                        <p id="profile-username">{{$store.state.profile.userProfileHandle}}</p>
+                        <!-- Followers / Following Counts -->
+                        <div id="follower-following">
+                            <div id="followers-div">
+                                <p>Followers</p>
+                                <p class="count">{{$store.state.profile.followers}}</p>
+                            </div>
+                            <div id="following-div">
+                                <p>Following</p>
+                                <p class="count">{{$store.state.profile.following}}</p>
+                            </div>
+                        </div>
+                        <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
+                    </div>
+                    <!-- Body Main -->
+                    <div class="profile-main-body">
+                        <!-- Name -->
+                        <div class="update-profile-option">
+                            <p><strong>Name:</strong> {{$store.state.profile.name}} </p>
+                        </div>
+                        <!-- Bio -->
+                        <div class="update-profile-option">
+                            <p><strong>Bio:</strong> {{$store.state.profile.bio}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update Profile Panel Body -->
+            <div class="profile-panel-body" v-if="updateProfilePanel">
+                <!-- Body Left side -->
+                <div id="update-profile-pic" >
+                    <div class="update-profile-head-left-div">
                     <!-- Profile Picture -->
                     <img class="profile-pic" v-bind:src="imageSrc" alt="">
                     <!-- Profile Username -->
                     <p id="profile-username">{{$store.state.profile.userProfileHandle}}</p>
-                    <!-- Followers / Following Counts -->
-                    <div id="follower-following">
-                        <div id="followers-div">
-                            <p>Followers</p>
-                            <p class="count">{{$store.state.profile.followers}}</p>
-                        </div>
-                        <div id="following-div">
-                            <p>Following</p>
-                            <p class="count">{{$store.state.profile.following}}</p>
-                        </div>
+                    <!-- Set Profile Image Button -->
+                    <input type="button" value="Set Profile Image" v-on:click="addProfileImage">
+                    <div id="update-profile-btn-div">
+                        <input class="update-profile-btn" type="button" value="Update Profile" v-on:click="sendProfileUpdate">
                     </div>
                 </div>
-                
+                <!-- Body Main -->
+                <div class="profile-main-body">
+                    <!-- Name input / label -->
+                    <div class="update-profile-option">
+                        <label class="update-profile-labels" for="name">Name: </label>
+                        <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
+                    </div>
+                    <!-- Bio input / label -->
+                    <div class="update-profile-option">
+                        <label class="update-profile-labels" for="bio">Bio: </label>
+                        <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
+                    </div>  
+                    
+                </div>
+
+                    
+                    <!-- Image Uploader -->
+                    <div>
+                        <upload-image-panel />
+                    </div>
+                    
+
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -31,17 +87,40 @@
 
 <script>
 import store from '../../store/index'
+import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
+import { updateProfile } from '../../services/ProfileService'
 
 export default {
+  components: { UploadImagePanel },
     name: 'profile-panel',
     data() {
     return {
+        updateProfilePanel: false,
+        setProfileImage: false,
+        profileData: {
+            name: '',
+            bio: ''
+        }
         };
     },
     methods: {
         closeProfile() {
             store.commit("SHOW_PROFILE", false);
             return store.state.showProfile
+        },
+        addProfileImage() {
+            this.setProfileImage = true;
+            store.commit("SHOW_IMAGE_UPLOADER", true);
+        },
+        sendProfileUpdate() {
+            let message = this.profileData
+            message.profilePic = this.imageSrc
+            message.originSocialPersonaId = store.state.profile.nodeId
+            console.log(message)
+            updateProfile(JSON.stringify(message))
+            .then(response => {
+                console.log(response.data)
+            })
         }
     },
     computed: {
@@ -49,8 +128,11 @@ export default {
             return store.state.showProfile;
         },
         imageSrc() {
-            return store.state.profile.profileImg;
+            return store.state.profile.profilePic;
         }
+    },
+    created() {
+        this.profileData.bio = store.state.profile.bio
     }
 };
 </script>
@@ -95,8 +177,16 @@ export default {
     border-radius: 3px;
 }
 
+#update-profile-pic {
+    display: flex;
+    width: 75vw;
+    height: 68.5vh;
+    border-bottom-left-radius: 20px;
+    
+}
+
 /*Profile Panel Body*/
-#profile-panel-body {
+.profile-panel-body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -106,13 +196,30 @@ export default {
     border-top: solid 1px black;
 }
 
-#profile-head-left-div {
+.profile-head-left-div {
     grid-area: profile-head;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.update-profile-head-left-div {
+    grid-area: profile-head;
+    width: 33.5%;
+    height: 68.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-main-body {
+    grid-area: profile-body;
+    width: 100%;
+    height: 68.5vh;
+    border-left: solid 1px rgba(0, 0, 0, 0.233);
+    border-bottom-right-radius: 20px;
 }
 
 
@@ -153,5 +260,38 @@ export default {
     margin-left: 5px;
 }
 
+/* Update Profile */
+
+.update-profile-option {
+    display: flex;
+    margin: 2%;
+}
+
+.update-profile-labels {
+    font-weight: 600;
+}
+
+
+/* Profile Body Left Area */
+.update-profile-btn {
+    width: 100%;
+    height: 20%;
+    font-size: 1.7vw;
+    border: inset 1px black;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(182, 182, 182, 0.281);
+}
+
+.update-profile-btn:hover {
+    background-color: rgba(182, 182, 182, 0.521);
+}
+
+#update-profile-btn-div {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    height: 100%;
+    
+}
 
 </style>

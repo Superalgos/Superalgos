@@ -123,7 +123,7 @@ export default {
             return v;
         },
         imageSrc() {
-            return this.$store.state.profile.profilePicture;
+            return this.$store.state.profile.profilePic;
         },
         closeProfile() {
             store.commit("SHOW_PROFILE", false);

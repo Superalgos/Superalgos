@@ -56,7 +56,7 @@ const http = axios.create({
     }
 
 
-    // Save a Social Entity's information (bio, profile pic, banner and others) using Open Storage.
+    // Save a Social Entity's information (bio, profile pic, and others) using Open Storage.
     async function updateProfile(profileData) {
         return http.post('/users/profile', profileData)
     }

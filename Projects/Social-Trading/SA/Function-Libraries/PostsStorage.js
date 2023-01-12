@@ -40,7 +40,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
             let timestamp = (new Date()).valueOf()
             let file = {
                 timestamp: timestamp,
-                content: eventMessage.postText
+                content: eventMessage.postText,
+                images: eventMessage.postImage
             }
 
             let web3 = new SA.nodeModules.web3()
@@ -114,6 +115,9 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                         the Network Node.
                         */
                         eventMessage.postText = undefined
+
+                        eventMessage.postImage = undefined
+
                         /*
                         The file key contains all the information needed to later retrieve this post.
                         */
@@ -198,7 +202,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                     let response = {
                         result: 'Ok',
                         message: 'Post Text Found',
-                        postText: file.content
+                        postText: file.content,
+                        postImage: file.images
                     }
                     resolve(response)
                 }

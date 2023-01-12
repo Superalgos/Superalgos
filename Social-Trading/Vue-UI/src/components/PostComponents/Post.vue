@@ -14,6 +14,7 @@
 
     <div class="post-message">
       <p id="post-body">{{postBody}}</p>
+      <img :src="postImage" alt="">
     </div>
 
     
@@ -87,7 +88,7 @@
 export default {
   components: { },
     name: 'post-object',
-    props: ['timestamp', 'userHandle', 'postBody'],
+    props: ['timestamp', 'userHandle', 'postBody', 'postImage'],
     computed: {
       formatTimestamp() {
         const date = new Date(this.timestamp);

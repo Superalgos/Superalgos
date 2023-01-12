@@ -6,6 +6,7 @@
                     :timestamp="post.timestamp" 
                     :userHandle="post.originSocialPersona.socialPersonaHandle"  
                     :postBody="post.postText" 
+                    :postImage="post.postImage"
                 />
             </div>
         </div>

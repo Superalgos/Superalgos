@@ -36,6 +36,7 @@ const http = axios.create({
                         postsToStore.push(thisPost)
                     }
                     store.commit("ADD_POST", postsToStore)
+                    console.log(postsToStore)
                 });
     }
 

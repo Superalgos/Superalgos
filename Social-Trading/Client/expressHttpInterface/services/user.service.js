@@ -43,30 +43,6 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
 
 }
 
-const followProfile = async (userProfileId, eventType, res) => {
-    try {
-        let eventMessage = {
-            eventType: eventType,
-            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetSocialPersonaId: userProfileId,
-            timestamp: (new Date()).valueOf()
-        }
-
-        let event = {
-            networkService: 'Social Graph',
-            requestType: 'Event',
-            eventMessage: JSON.stringify(eventMessage)
-        }
-
-        return await webAppInterface.sendMessage(
-            JSON.stringify(event)
-        );
-    } catch (e) {
-        console.log(e);
-        return {};
-    }
-};
-
 const loadProfile = async (socialPersonaId, res) => {
 
     try {
@@ -261,7 +237,6 @@ const getSocialStats = async (body) => {
 
 
 module.exports = {
-    followProfile,
     paginateProfiles,
     loadProfile,
     saveProfile,

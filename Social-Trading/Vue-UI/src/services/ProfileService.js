@@ -28,7 +28,7 @@ const http = axios.create({
     };
 
 
-    // Creates a new profile or updates an existing one
+    // Used at the Sign Up process when to create a new Superalgos User Profile or to use an existing one.
     async function createProfile(profileData, personaName) {
         return http.post('/users/create-profile', profileData)
                 .then(response => {
@@ -49,29 +49,30 @@ const http = axios.create({
     }
 
 
-    // Creates new repo for the social persona + create social persona
+    // This is to create a Social Entity and also it's Storage. 
     async function createSocialPersona(profileData) {
         console.log("inside createSocial Persona ")
         return http.post('/users/social-entities', profileData)
     }
 
 
-    // Update profile data on github storage
+    // Save a Social Entity's information (bio, profile pic, banner and others) using Open Storage.
     async function updateProfile(profileData) {
         return http.post('/users/profile', profileData)
     }
 
 
+    // This is to retrieve a list of Social Personas or Social Trading Bots belonging to the User Profile created at Sign Up.
     async function getProfiles() {
         console.log("Getting profiles")
         return http.get('/users/social-entities')
             .then(response => {
-                let allUsers = response.data.socialEntities
+                let allUsers = response.data
                 console.table(allUsers)
             });
     }
 
-    // Loads Profile
+    // Load a Social Entity's information from Open Storage.
     async function getProfile(socialPersonaId) {
         return http.get('/users/profile', socialPersonaId)
             .then(response => {

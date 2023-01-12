@@ -1,9 +1,10 @@
 <template>
     <div id="follow-panel-main-div">
         <div id="follow-panel-users" v-for="user in users" v-bind:key="user">
+            <img class="follow-profile-pic" v-bind:src="user.profilePic" alt="">
             <p>{{user.name}}</p>
         </div>
-        <input type="button" value="GET USERS" v-on:click="getUserList">
+
     </div>
 </template>
 
@@ -21,30 +22,33 @@ export default {
         },
     },
     methods: {
-        getUserList() {
-            if (store.state.profile.nodeId === undefined) {
-                this.getUserList()
-                return;
-            }
-            const userID = store.state.profile.nodeId
-
-            let message = {
-                originSocialPersonaId: userID
-            }
-            getAllUsers(message)
-            
-        }
     },
     data() {
         return {
         }
     },
     created() {
-        
+        const userID = store.state.profile.nodeId
+
+            let message = {
+                originSocialPersonaId: userID
+            }
+            getAllUsers(message)
     }
 }
 </script>
 
 <style>
+
+#follow-panel-users {
+    display: flex;
+}
+
+.follow-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: solid 1px black;
+}
 
 </style>

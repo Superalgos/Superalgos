@@ -1,9 +1,5 @@
 const {userService} = require('../services');
 
-const follow = async (req, res) => {
-    const result = await userService.followProfile(req.body.userProfileId);
-    res.send(result);
-};
 
 const paginateProfiles = async (req, res) => {
     const {initialIndex, pagination} = req.body
@@ -58,7 +54,6 @@ const getSocialStats = async (req, res) => {
 
 
 module.exports = {
-    follow,
     paginateProfiles,
     loadProfile,
     saveProfile,

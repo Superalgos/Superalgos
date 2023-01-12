@@ -21,7 +21,7 @@ export default createStore({
       following: 5,
     },
     postImage: undefined,
-    users: [],
+    users: undefined,
     posts: [],
     followers: [{username: "theblockchainarborist"},
                 {username: "quantum8"},
@@ -89,6 +89,9 @@ export default createStore({
     },
     ADD_PROFILE_IMAGE(state, image) {
       state.profile.profileImg = image;
+    },
+    SET_USER_ARRAY(state, userArray) {
+      state.users = userArray
     }
   },
   actions: {

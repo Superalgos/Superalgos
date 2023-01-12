@@ -24,7 +24,9 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
         async function promiseWork(resolve, reject) {
 
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: token,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -77,13 +79,24 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                 }
 
             async function githubSaysOK() {
-                await octokit.rest.pulls.create({
+                const pull = await octokit.rest.pulls.create({
                     owner: 'Superalgos',
                     repo: repo,
                     title: "Profile Update from Social Trading App",
                     head: owner + ":" + branch,
                     base: branch,
                   });
+                
+                let resp
+                do {
+                    resp = await octokit.rest.pulls.checkIfMerged({
+                        owner: 'Superalgos',
+                        repo: repo,
+                        pull_number: pull.data.number,
+                    });
+                }
+                while (resp.status === '204')
+                 
                 resolve()
             }
 

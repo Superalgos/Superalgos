@@ -140,6 +140,8 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
             SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            console.log('pushing new event in client interface')
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(event)
 
             let response = {
                 result: 'Ok',

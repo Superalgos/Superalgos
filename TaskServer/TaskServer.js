@@ -146,7 +146,7 @@ exports.newTaskServer = function newTaskServer() {
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
-                        SA.projects.openStorage.modules.openStorageClient.newOpenStorageModulesOpenStorageClient()
+                        SA.projects.openStorage.modules.openStorageTaskServerClient.newOpenStorageModulesOpenStorageTaskServerClient()
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.initialize()
                 }
 

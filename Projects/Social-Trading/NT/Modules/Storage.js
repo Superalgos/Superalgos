@@ -15,17 +15,18 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     */
     let thisObject = {
         p2pNetworkNode: undefined,
+        openStorageClient: undefined,
         initialize: initialize,
         finalize: finalize
     }
 
-    let indexLastSavedEvent = -1
     let gitCommandRunning = false
 
     return thisObject
 
     function finalize() {
         thisObject.p2pNetworkNode = undefined
+        thisObject.openStorageClient = undefined
     }
 
     async function initialize(
@@ -33,6 +34,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         p2pNetworkReachableNodes
     ) {
         thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.openStorageClient = SA.projects.openStorage.modules.openStorageNetworkClient.newOpenStorageModulesOpenStorageNetworkClient()
+        thisObject.openStorageClient.initialize()
+
         /*
         The strategy to syncronize this node with the rest of the network is like this:
 
@@ -280,7 +284,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                                     SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
                                     SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                                    indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
                                 }
 
                             } catch (err) {
@@ -304,7 +307,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     async function saveEventsAtStorage() {
         console.log("Saving events at storage!")
         await saveOneMinuteOfEvents()
-        await doGit()
 
         function saveOneMinuteOfEvents() {
             /*
@@ -315,20 +317,19 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             let lastLastMinute = lastMinute - 1
             let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
             let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-            let eventsFromLastMinute = []
-            let eventsFromLastLastMinute = []
-            let dontMoveIndexForward = false
+            let eventsToSaveByTimestamp = []
     
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
 
 
-                for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
-                    let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
-                    let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                for (let i = 0; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.length; i++) {
+                    let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE[i]
+                    //let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                    //let timestamp = eventMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                     /*
-                    We will save events only of the last last closed minute.
+                    We will save all events that have not been saved yet.
                     */
                     let eventToSave = {
                         eventId: event.eventId,
@@ -347,49 +348,69 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     }
 
                     console.log("Event to save = " + JSON.stringify(eventToSave))
-                    console.log("Event minute = " + eventMinute)
-                    console.log("Last Minute = " + lastMinute)
-                    console.log(eventMinute === lastMinute)
-                    console.log(eventMinute == lastMinute)
-                    console.log("LAST LAST MINUTE = " + lastLastMinute)
-                    if (
-                        eventMinute === lastMinute
-                    ) {
-                        console.log('saving event in last minute') 
+                    console.log("Timestamp = " + event.timestamp)
+                    console.log('this is our events to save before adding a new event', eventsToSaveByTimestamp)
 
-                        eventsFromLastMinute.push(eventToSave)
-                        dontMoveIndexForward = true
-                    }
-                    if (
-                        eventMinute === lastLastMinute
-                    ) {
-                        console.log('Saving Event in last last minute') 
-
-                        eventsFromLastLastMinute.push(eventToSave)
-                        if (dontMoveIndexForward === false) {
-                            indexLastSavedEvent = i
-                        }
+                    if (event.timestamp in eventsToSaveByTimestamp) {
+                        // then we add it to the timestamp array
+                        eventsToSaveByTimestamp[event.timestamp].push(eventToSave)
+                        console.log('this is our events to save with multipe in same timestamp', eventsToSaveByTimestamp)
+                    } else {
+                        // This timestamp does not have any other events associated with it so we will make a new entry
+                        eventsToSaveByTimestamp[event.timestamp] = [eventToSave]
+                        console.log('this is our events to save with only one event in timestamp', eventsToSaveByTimestamp)
                     }
                 }
 
-                saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
-                saveEventsFile(eventsFromLastMinute, lastTimestamp)
+                saveEventsFile(eventsToSaveByTimestamp)
                 saveDataRangeFile()
 
-                function saveEventsFile(eventsToSave, timestamp) {
+                function saveEventsFile(eventsToSaveByTimestamp) {
 
-                    const fileContent = JSON.stringify(eventsToSave, undefined, 4)
-                    const fileName = "Events" + ".json"
-
-                    console.log("EVENTS FROM LAST MIN = " + eventsToSave)
-
-                    if (eventsToSave.length !== 0) {                    
+                    for (let timestamp in eventsToSaveByTimestamp) {
                         let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
-                        console.log("Save events at storage")
-                        console.log("FilePath = " + filePath)
-                        console.log("FileContent = " + fileContent)
-                        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                        let eventsToSave = eventsToSaveByTimestamp[timestamp]
+                        const fileContent = JSON.stringify(eventsToSave, undefined, 4)
+                        const fileName = "Events" + ".json"
+                        console.log("EVENTS Now being saved = " + eventsToSave)
+
+                        console.log('are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
+    
+                        if ( SA.nodeModules.fs.existsSync(filePath) /*check if timestamp already has a file*/ ) {
+                            // If path exists then we load old file and append new events
+                            if (eventsToSave.length !== 0) { 
+                                // Load and merge events
+                                console.log('need to append')
+                                let storedContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+                                console.log("stored content = " + storedContent)
+    
+                                let eventsList = JSON.parse(storedContent)
+                                let updatedFileContent = eventsList.concat(eventsToSave) 
+
+                                // Save Events locally           
+                                console.log("Saving updated events at storage")
+                                console.log("FilePath = " + filePath)
+                                console.log("FileContent = " + updatedFileContent)
+                                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(updatedFileContent))
+    
+                                // Save Events in Open Storage
+                                thisObject.openStorageClient.persistSocialGraph(filePath, fileName, updatedFileContent)
+                            }
+                            
+                        } else {
+                            // Create a new file for this timestamp
+                            if (eventsToSave.length !== 0) { 
+                                // Save Events locally                    
+                                console.log("Save events at storage")
+                                console.log("FilePath = " + filePath)
+                                console.log("FileContent = " + fileContent)
+                                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+    
+                                // Save Events in Open Storage
+                                thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
+                            }
+                        }
                     }
                 }
 
@@ -414,6 +435,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
                     console.log("Local file path = " + filePath + '/' + fileName )
+                    // Save data range file with open storage
                     resolve()
                 }
             }

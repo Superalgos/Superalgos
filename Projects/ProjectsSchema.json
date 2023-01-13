@@ -957,7 +957,14 @@
             ]
         },
         "PL": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentials",
+                    "functionName": "newFoundationsUtilitiesCredentials",
+                    "fileName": "CredentialsFunctions.js"
+                }
+            ]
         },
         "SA": {
             "globals": [

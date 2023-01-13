@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Eylem, sistem kullanıcılarının kullanıcı arayüzü aracılığıyla, genellikle bir Düğümün Menü Öğesine tıklayarak tetikleyebilecekleri bir şeydir. Eylemler başka eylemler tarafından da tetiklenebilir ve böylece Tasarım Alanı kullanıcılarına yeniden kullanılabilir bir dizi işlevsellik sunulabilir. Eylem tetiklendiğinde önceden tanımlanmış kodu çalıştırır.",
-                "updated": 1654390565076
+                "text": "Eylem, sistem kullanıcılarının kullanıcı arayüzü ( UI ) aracılığıyla, genellikle bir Düğümün Menü Öğesine ( Menu Item of a Node ) tıklayarak tetikleyebilecekleri bir şeydir. Eylemler başka eylemler tarafından da tetiklenebilir ve böylece Tasarım Alanı ( Design Space ) kullanıcılarına yeniden kullanılabilir bir dizi işlevsellik sunulabilir. Eylem tetiklendiğinde önceden tanımlanmış kodu çalıştırır.",
+                "updated": 1671993616610
             }
         ]
     },

@@ -1,0 +1,5 @@
+INSTRUCTION   VALUE
+ACTION_TO_TAKE   BUILD_AND_SAVE_MODEL
+MODEL_FILE_NAME   elitebook_MODEL-2
+PARAMETERS_FILE   parameters_forecast.csv
+TIMESERIES_FILE   time-series_forecast.csv

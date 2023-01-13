@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Liquidity Programs вознаграждают за предоставление ликвидности для токена Superalgos на децентрализованных биржах. Предоставление ликвидности - это ценный вклад в сообщество. Это поддерживает репутацию токена и стабильность цены.",
                 "updated": 1645181350236
+            },
+            {
+                "language": "TR",
+                "text": "Likidite Programları, merkezi olmayan borsalarda Superalgos Token için likidite sağlanmasını ödüllendirir. Likidite sağlamak, topluluğa değerli bir katkıdır. Token'ın itibarını ve fiyat istikrarını destekler.",
+                "updated": 1672155119605
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Децентрализованные биржи позволяют обеспечить ликвидность токена Superalgos. Токен объединяется в пул ликвидности с другим активом. Это позволяет заинтересованным покупателям торговать парными токенами друг с другом.",
                     "updated": 1645181361633
+                },
+                {
+                    "language": "TR",
+                    "text": "Merkezi olmayan borsalar Superalgos Token'a likidite sağlamaya izin verir. Token, başka bir varlıkla bir likidite havuzunda eşleştirilir. Bu, ilgilenen alıcıların eşleştirilmiş tokenleri birbirlerine karşı takas etmelerini sağlar.",
+                    "updated": 1672155193658
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "RU",
                     "text": "В настоящее время сообщество вознаграждает эти пулы ликвидности на Binance Smart Chain (BSC):",
                     "updated": 1645181381304
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk ( Community ) şu anda bu likidite havuzlarını BNB Smart Chain (BSC) üzerinden ödüllendirmektedir:",
+                    "updated": 1672155469931
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Пулы ликвидности на этих децентрализованных биржах в настоящее время получают вознаграждение:",
                     "updated": 1645181391490
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu merkezi olmayan borsalardaki likidite havuzları şu anda ödüllendirilmektedir:",
+                    "updated": 1672155551805
                 }
             ]
         },
@@ -119,6 +139,11 @@
                     "language": "RU",
                     "text": "Только PancakeSwap содержит пулы ликвидности для всех поддерживаемых активов. На Biswap вы найдете пул для SA/BNB, а на 1inch - пул для SA/BTCB.",
                     "updated": 1645181409146
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca PancakeSwap, desteklenen tüm varlıklar için likidite havuzlarına sahiptir. Biswap'ta SA/BNB için bir havuz bulacaksınız, 1inch ise bir SA/BTCB havuzuna sahiptir.",
+                    "updated": 1672155611800
                 }
             ]
         },
@@ -140,6 +165,11 @@
                     "language": "RU",
                     "text": "Если токен Superalgos не находится автоматически на выбранной вами бирже, вы можете добавить его, используя адрес токена: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
                     "updated": 1645181427494
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Token seçtiğiniz borsada otomatik olarak bulunmazsa, token adreslerini kullanarak ekleyebilirsiniz: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) veya 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH)",
+                    "updated": 1672155834247
                 }
             ]
         },
@@ -157,6 +187,11 @@
                     "language": "RU",
                     "text": "За обеспечение ликвидности вы получаете вознаграждение в виде токенов из пула Liquidity Rewards Pool. Для каждого актива, поддерживаемого программой, существует свой отдельный пул вознаграждений. Доля токенов, которые вы получаете из пула вознаграждений, пропорциональна доле, которую вы держите в пуле ликвидности для данного актива.",
                     "updated": 1645181527307
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite sağladığınız için, Likidite Ödülleri Havuzundan ( Rewards Pool )tokenlerle ödüllendirilirsiniz. Programda desteklenen her varlık ve borsa kombinasyonu için belirlenmiş bir Ödül Havuzu ( Rewards Pool ) bulunmaktadır. Ödül Havuzundan ( Rewards Pool ) aldığınız ödül tokenlarının payı, varlık için Likidite Havuzunda ( Liquidity Pool ) sahip olduğunuz pay ile orantılıdır.",
+                    "updated": 1672156365460
                 }
             ]
         },
@@ -174,6 +209,11 @@
                     "language": "RU",
                     "text": "Нажмите \"Add Liquidity Program\" и создайте по одному узлу Liquidity Program для каждого актива (BTCB, BNB...), которые вы объединили в пулы на поддерживаемых биржах.",
                     "updated": 1645181547434
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Likidite Programı Ekle \" (\"Add Liquidity Program\") ye tıklayın ve desteklenen borsalarda havuza koyduğunuz her varlık (BTCB, BNB...) için bir Likidite Programı düğümü ( Liquidity Program node ) oluşturun. Aynı varlığı birden fazla borsada tutuyorsanız, her varlık/borsa kombinasyonu için bir düğüm oluşturun.",
+                    "updated": 1672156928493
                 }
             ]
         },
@@ -191,6 +231,11 @@
                     "language": "RU",
                     "text": "Программы ликвидности не требуют наличия Token Power.",
                     "updated": 1645181560343
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite Programları Token Gücü ( Token Power ) gerektirmez.",
+                    "updated": 1672156970604
                 }
             ]
         }

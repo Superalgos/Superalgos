@@ -54,7 +54,6 @@ import store from '../../store/index'
 export default {
   components: {  },
     name: 'users-profile-panel',
-    props: ['profileData'],
     data() {
     return {
         updateProfilePanel: false,

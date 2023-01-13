@@ -3,7 +3,7 @@
         <div id="follow-panel-inner-div">
         <p id="follow-panel-title" class="center bold">User's to Follow</p>
             <div id="follow-panel-users" v-for="user in users" v-bind:key="user" v-on:click="openUsersProfile(user)">
-            
+
                 <img class="follow-profile-pic" v-bind:src="user.profilePic" alt="">
                 <p>{{user.name}}</p>
             </div>
@@ -23,9 +23,7 @@ export default {
     return {
         }
     },
-    components: {
-        UsersProfilePanel
-    },
+    components: {},
     computed: {
         users() {
             return store.state.users;
@@ -35,10 +33,6 @@ export default {
         openUsersProfile(user) {
             store.commit("SET_USERS_PROFILE_TO_OPEN", user)
             store.commit("OPEN_USERS_PROFILE");
-        }
-    },
-    data() {
-        return {
         }
     },
     created() {

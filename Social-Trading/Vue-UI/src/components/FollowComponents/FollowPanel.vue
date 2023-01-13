@@ -15,7 +15,6 @@
 <script>
 import { getAllUsers } from '../../services/SocialService'
 import store from '../../store/index'
-import UsersProfilePanel from '../ProfileComponents/UsersProfilePanel.vue';
 
 export default {
     name: 'follow-panel',

@@ -240,6 +240,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response)
                 return
             }
+            addGovernanceNode()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             addUserAppsNodes()
             if (response.result === 'Error') {
                 resolve(response)
@@ -382,6 +387,79 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     response.message = "New User Profile Created."
                     response.address = address
                     response.privateKey = privateKey
+                }
+            }
+
+            async function addGovernanceNode() {
+                if (userProfile.tokenPowerSwitch === undefined) {
+                    userProfile.tokenPowerSwitch = {
+                        type: 'Token Power Switch',
+                        name: 'New Token Power Switch',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}'
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.financialPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.financialPrograms = {
+                        type: 'Financial Programs',
+                        name: 'New Financial Programs',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: "{}",
+                        stakingProgram: {
+                            type: "Staking Program",
+                            name: "New Staking Program",
+                            config: "{}",
+                            project: "Governance",
+                            tokensAwarded: {
+                                type: "Tokens Awarded",
+                                name: "New Tokens Awarded",
+                                project: "Governance",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        }
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.liquidityPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.liquidityPrograms = {
+                        type: "Liquidity Programs",
+                        name: "New Liquidity Programs",
+                        config: "{}",
+                        project: "Governance",
+                        liquidityProgram: [
+                            {
+                                type: "Liquidity Program",
+                                name: "BTCB",
+                                config: "{\n    \"asset\": \"BTCB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            {
+                                type: "Liquidity Program",
+                                name: "BNB",
+                                config: "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                "id": SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            }
+                        ],
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    }  
                 }
             }
 

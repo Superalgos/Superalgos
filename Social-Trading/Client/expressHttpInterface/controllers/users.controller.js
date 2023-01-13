@@ -11,12 +11,12 @@ const paginateProfiles = async (req, res) => {
 }
 
 const loadProfile = async (req, res) => {
-    const result = await userService.loadProfile(req.query.socialPersonaId);
+    const result = await userService.loadProfile(req.query);
     res.send(result);
 };
 
 const loadProfileData = async (req, res) => {
-    const result = await userService.loadProfileData(req.query.socialPersonaId);
+    const result = await userService.loadProfileData(req.query);
     res.send(result);
 };
 

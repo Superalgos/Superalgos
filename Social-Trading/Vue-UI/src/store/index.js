@@ -17,32 +17,15 @@ export default createStore({
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profilePic: '',
-      followers: 2,
-      following: 5,
+      profilePic: ''
     },
     usersProfileToOpen: undefined,
     postImage: undefined,
     users: undefined,
     posts: [],
-    followers: [{username: "theblockchainarborist"},
-                {username: "quantum8"},
-                {username: "harrel"},
-                {username: "Luis"},
-                {username: "Nuno"},
-                {username: "Julian"},
-                {username: "tigers4242"},
-                {username: "vraptor75011"},
-                {username: "Alex-White"},
-                {username: "Gary"}],
+    followers: [],
     
-    following: [{username: "theblockchainarborist"},
-                {username: "quantum8"},
-                {username: "harrel"},
-                {username: "Luis"},
-                {username: "Nuno"},
-                {username: "Julian"},
-                {username: "vraptor75011"}]
+    following: []
   },
   getters: {
     post(state) {

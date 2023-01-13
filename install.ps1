@@ -85,7 +85,7 @@ function install {
 function main {
     checkGit
     checkNode
-    if( $gitInstalled && $nodeInstalled ) {
+    if( $gitInstalled -and $nodeInstalled ) {
         cloneSuperalgos
         install
     }

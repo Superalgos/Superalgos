@@ -9,6 +9,7 @@ export default createStore({
     showSettings: false,
     showImageUploader: false,
     showEmojiPicker: false,
+    showUsersProfile: false,
     selectedEmoji: undefined,
     profile: {
       blockchainAccount: undefined,
@@ -16,10 +17,11 @@ export default createStore({
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profilePic: 'https://raw.githubusercontent.com/theblockchainarborist/Social_Trading_App/main/Images/Profile_Picture.png',
+      profilePic: '',
       followers: 2,
       following: 5,
     },
+    usersProfileToOpen: undefined,
     postImage: undefined,
     users: undefined,
     posts: [],
@@ -89,6 +91,15 @@ export default createStore({
     },
     SET_USER_ARRAY(state, userArray) {
       state.users = userArray
+    },
+    OPEN_USERS_PROFILE(state) {
+      state.showUsersProfile = true;
+    },
+    CLOSE_USERS_PROFILE(state) {
+      state.showUsersProfile = false;
+    },
+    SET_USERS_PROFILE_TO_OPEN(state, profile) {
+      state.usersProfileToOpen = profile;
     },
     /* Updating Our Profile Information */
     UPDATE_NAME(state, name) {

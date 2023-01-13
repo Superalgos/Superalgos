@@ -128,6 +128,11 @@
             <div>
                 <upload-image-panel />
             </div>
+
+            <!-- Other Users Profiles -->
+            <div id="users-profile-panel-div-show" v-if="showThisUsersProfile" >
+                    <users-profile-panel />
+                </div>
             
 
         </div>
@@ -146,9 +151,11 @@ import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
 import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
 import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
+import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
+
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel },
     data() {
         let home = true;
         let profile = false;
@@ -271,6 +278,9 @@ export default {
                 this.addImage()
             }
             return store.state.postImage
+        },
+        showThisUsersProfile() {
+            return store.state.showUsersProfile
         }
     },
     // The below are used to keep things updated. 

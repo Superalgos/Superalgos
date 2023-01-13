@@ -107,8 +107,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 If UI chosen is Vue Dev server, launch the development Server 
                 */
                 let port = '8000'
-                const PATH_TO_UI_ROOT = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI')
-                const PATH_TO_VITE = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI/node_modules/.bin/vite')
+                const PATH_TO_UI_ROOT = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'Vue-UI')
+                const PATH_TO_VITE = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'Vue-UI/node_modules/.bin/vite')
                 console.log('this is our current working directory', PATH_TO_UI_ROOT)
                 const command = `${PATH_TO_VITE} --port ${port}` 
                 const nodeInstPromise = new Promise(() => {
@@ -130,7 +130,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                     child.on('exit', async () => {
                       console.log('')
                       console.log('Closing Vue Development Server....')
-                      await nodeInstPromise.catch(errorResp)
+                      await nodeInstPromise
                     })
                   } catch (e) {
                     console.log('')

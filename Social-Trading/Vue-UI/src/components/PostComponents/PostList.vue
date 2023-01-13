@@ -6,15 +6,13 @@
                     :timestamp="post.timestamp" 
                     :userHandle="post.originSocialPersona.socialPersonaHandle"  
                     :postBody="post.postText" 
+                    :postImage="post.postImage"
                 />
             </div>
         </div>
-
-
 </template>
 
 <script>
-
 import Post from './Post.vue'
 import { getFeed } from '../../services/PostService'
 
@@ -43,8 +41,6 @@ export default {
 
 <style>
 
-#post {
-    justify-content: center;
-}
+
 
 </style>

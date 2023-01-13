@@ -4,7 +4,7 @@ const getFeed = async (req, res) => {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
             originSocialPersonaId: req.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
-            amountRequested: 20,
+            amountRequested: 40,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
 
@@ -85,11 +85,11 @@ const createPost = async (body, res) => {
     try {
         let eventMessage;
         let event;
-
         eventMessage = {
             eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             postText: body.postText,
+            postImage: body.postImage,
             timestamp: (new Date()).valueOf()
         }
 

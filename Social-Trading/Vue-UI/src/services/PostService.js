@@ -33,9 +33,10 @@ const http = axios.create({
                     let postsToStore = []
                     for (let i = 0; i < postsArray.length; i++) {
                         let thisPost = postsArray[i];
-                        postsToStore.unshift(thisPost)
+                        postsToStore.push(thisPost)
                     }
                     store.commit("ADD_POST", postsToStore)
+                    console.log(postsToStore)
                 });
     }
 

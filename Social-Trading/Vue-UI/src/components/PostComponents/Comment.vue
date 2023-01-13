@@ -106,7 +106,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 50%;
+  width: 100%;
   font-size: .8em;
 }
 

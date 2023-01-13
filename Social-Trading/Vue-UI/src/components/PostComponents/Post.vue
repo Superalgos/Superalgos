@@ -1,8 +1,10 @@
 <template>
+  <div class="post-object-container" >
   <div class="post-object" >
 
     <div id="post-user-name-div">
       <p id="post-user-name"> {{userHandle}} </p>
+      <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
     </div>
 
     
@@ -12,6 +14,7 @@
 
     <div class="post-message">
       <p id="post-body">{{postBody}}</p>
+      <img :src="postImage" alt="">
     </div>
 
     
@@ -24,23 +27,36 @@
 
       <div id="footer">
 
-        <div class="post-footer">
-          <div id="" class="">
-            <a href="#"
-              class="comments-section"
-              style="text-decoration:none"
-                v-on:click="getComments(posts.post)"
-                v-on:click.left="hasComment === true ? hasComment = false : hasComment = true"
-                >  Comments 
-            </a>
+        <div class="">
+          <div id="" class="post-footer">
+            <!-- Comment Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrCommentIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Comment
+            </p>
+            <!-- Like Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Like
+            </p>
+            <!-- Dislike Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrDislikeIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Dislike
+            </p>
+            <!-- Like Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Love
+            </p>
+            <!-- Repost Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrRepostIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;Repost
+            </p>
+            
+           
 
-            <a href="#"
-              id="post-likes"
-              class="comments-section"
-              style="text-decoration:none"
-                
-                >  Likes
-            </a>
 
           </div>
         
@@ -73,22 +89,33 @@
     
     
   </div>
+  </div>
 </template>
 
 <script>
 
 
 
-
-
 export default {
   components: { },
     name: 'post-object',
-    props: ['timestamp', 'userHandle', 'postBody'],
+    props: ['timestamp', 'userHandle', 'postBody', 'postImage'],
     computed: {
       formatTimestamp() {
         const date = new Date(this.timestamp);
-        return date.toLocaleString();
+        let timeString = date.toLocaleString();
+        // We remove the seconds from the time.
+        let time = timeString.split(',')
+        this.postDate = time[0]
+        console.log(this.postDate)
+        let exactTime = time[1]
+        let postTime = exactTime.slice(0, 6)
+        let amPm = exactTime.slice(exactTime.length - 3, exactTime.length)
+        // If time ends in a ":" we need to shorten our split.
+        if (postTime.slice(-1) === ':') {
+          postTime = exactTime.slice(0, 5);
+        }
+        return postTime + amPm;
       }
     },
     methods: {
@@ -96,7 +123,8 @@ export default {
     },
     data() {
       return {
-        
+        postDate: undefined,
+        postTime: undefined
       }
     },
     
@@ -105,6 +133,7 @@ export default {
 
 <style>
 
+
 .post-object {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -112,93 +141,94 @@ export default {
         "username date-time"
         "post post" 
         "bottom-btns bottom-btns";
-    border-top: solid 2px black; 
-    background: rgb(231, 227, 227);
-    box-shadow: 0px -3px 10px 0.5px rgba(0,0,0,0.4);
-    border-radius: 10px;
-    width: 98%;
-    margin: 2vh;
+    border-top: solid 1px black; 
+    box-shadow: 0px -9px 0px rgba(100, 100, 100, 0.26);
+    width: 100%;
+    margin-top: 1%;
+}
+
+.post-object:hover {
+  background-color: rgb(247, 247, 247);
+  cursor: pointer;
 }
 
 #post-user-name-div {
     grid-area: username;
     justify-self: left;
-    border-left: solid 2px black;
-    border-top-left-radius: 10px;
+    display: flex;
+    margin-left: 3%;
+    height: 40px;
 }
 
 #post-user-name {
   font-size: 30;
+  font-weight: 700;
 }
 
-#username {
-  
-
-}
 
 .date-time {
     grid-area: date-time;
     justify-self: right;
-
-    border-right: solid 2px black;
-    border-top-right-radius: 10px;
-
+    margin-right: 2%;
+    height: fit-content;
 }
 
 #post-date-time {
-
     text-align: bottom;
-
 }
 
 .post-message {
     grid-area: post;
-    border-right: solid 2px black;
-    border-left: solid 2px black;
-    border-bottom: solid 1px black;
-    border-top: solid 1px black;
-    padding: 7px;
-
+    white-space: pre-wrap;
 }
 
 #post-body {
-    margin: 10px 10px 20px 10px;
-
-    
+    margin: 0px 30px 10px 30px;
 }
 
 .post-footer {
   display: flex;
-  justify-content: space-between;
-  border-bottom: solid 2px black;
-  border-right: solid 2px black;
-  border-left: solid 2px black;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  justify-content: space-around;
+  border-bottom: solid 1px black;
 }
 
 
 .comments-section {
-  
   font-size: .7em;
   color: red;
   padding: 2px 5px 2px 5px;
   font-weight: bolder;
   height: 100%;
+  width: 100%;
 }
 
-#post-stats {
-  justify-self: center;
-}
-
-#comment-btn {
-  display: flex;
-  justify-content: right;
-  
-}
 
 #footer {
   grid-area: bottom-btns;
+}
+
+#post-date {
+  color: rgb(99, 98, 98);
+  font-weight: 600;
+}
+
+.post-comments-button {
+  display: flex;
+  align-items: center;
+  padding: 0.75% 1%;
+  white-space: hide;
+  font-size: 1vw;
+}
+
+.post-comments-button:hover {
+  border-radius: 30px;
+  background-color: rgba(182, 182, 182, 0.281);
+  padding: 0% 1%;
+}
+
+.post-footer-buttons {
+  width: 2vw;
+  height: 2vw;
 }
 
 </style>

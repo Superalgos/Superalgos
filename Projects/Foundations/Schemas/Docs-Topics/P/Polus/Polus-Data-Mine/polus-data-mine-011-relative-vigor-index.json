@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Relative Vigor Index (RVI) - это индикатор импульса, аналогичный индикатору Stochastic. RVI сравнивает открытия и закрытия свечей для определения выходного тренда, вместо того чтобы сравнивать закрытие свечи с минимумом, как это делает Стохастик.",
                 "updated": 1645716018763
+            },
+            {
+                "language": "DE",
+                "text": "Der Relative Vigor Index (RVI) ist ein Momentum Indikator, der dem Stochastik Indikator ähnlich ist. Der RVI vergleicht die offenen und geschlossenen Kerzen, um den Ausgangstrend zu bestimmen, anstatt wie die Stochastik den Schluss einer Kerze mit dem Minimum zu vergleichen.",
+                "updated": 1671347548444
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Из Investopedia: Relative Vigor Index (RVI) - это индикатор импульса, используемый в техническом анализе, который измеряет силу тренда, сравнивая цену закрытия ценной бумаги с ее торговым диапазоном и сглаживая результаты с помощью простой скользящей средней (SMA).",
                     "updated": 1645716029817
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Relative Vigor Index (RVI) ist ein in der technischen Analyse verwendeter Momentum Indikator, der die Stärke eines Trends misst, indem er den Schlusskurs eines Wertpapiers mit seiner Handelsspanne vergleicht und die Ergebnisse mithilfe eines einfachen gleitenden Durchschnitts (SMA) glättet.",
+                    "updated": 1671347590267
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Длину расчета для RVI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'RVI' Product Definition.",
                     "updated": 1645716038433
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung für den RVI kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’RVI’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671347661421
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645716043448
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671347684992
                 }
             ]
         },
@@ -77,12 +97,24 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645716049604
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671347705206
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| RVI | RVI | rvi, signal |"
+            "text": "| Product Name | Product Variable | Properties |\n| RVI | RVI | rvi, signal |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| RVI | RVI | rvi, signal |",
+                    "updated": 1671347727915
+                }
+            ]
         },
         {
             "style": "Text",
@@ -92,6 +124,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645716055423
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671347750336
                 }
             ]
         },
@@ -103,6 +140,11 @@
                     "language": "RU",
                     "text": "Можно построить простую стратегию, которая будет открывать сделку, когда RVI пересечет сигнальную линию вверх:",
                     "updated": 1645716063097
+                },
+                {
+                    "language": "DE",
+                    "text": "Es könnte eine einfache Strategie entwickelt werden, um einen Handel zu eröffnen, wenn der RVI die Signallinie nach oben kreuzt:",
+                    "updated": 1671347776909
                 }
             ]
         },
@@ -118,12 +160,24 @@
                     "language": "RU",
                     "text": "RVI склонен к ложным сигналам на рынках, ограниченных диапазоном, поэтому рекомендуется устанавливать более длительные периоды оглядки (ценой увеличения запаздывания), или комбинировать с индикатором направленности, таким как ADX, RSI, или детектором дивергенции.",
                     "updated": 1645716071539
+                },
+                {
+                    "language": "DE",
+                    "text": "Der RVI ist anfällig für Fehlsignale in Märkten mit engen Bandbreiten, daher wird empfohlen, längere Rückblickzeiträume festzulegen (auf Kosten einer größeren Verzögerung) oder ihn mit einem Richtungsindikator wie ADX, RSI oder einem Divergenzmelder zu kombinieren.",
+                    "updated": 1671347851029
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671347868926
+                }
+            ]
         },
         {
             "style": "Link",

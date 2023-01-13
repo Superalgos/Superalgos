@@ -79,24 +79,14 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                 }
 
             async function githubSaysOK() {
-                const pull = await octokit.rest.pulls.create({
+                await octokit.rest.pulls.create({
                     owner: 'Superalgos',
                     repo: repo,
                     title: "Profile Update from Social Trading App",
                     head: owner + ":" + branch,
                     base: branch,
-                  });
-                
-                let resp
-                do {
-                    resp = await octokit.rest.pulls.checkIfMerged({
-                        owner: 'Superalgos',
-                        repo: repo,
-                        pull_number: pull.data.number,
-                    });
-                }
-                while (resp.status === '204')
-                 
+                  })
+                .then(response => SA.logger.info('Pull Request #' + response.data.number +' created'))
                 resolve()
             }
 

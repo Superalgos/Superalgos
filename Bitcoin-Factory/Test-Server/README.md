@@ -31,13 +31,13 @@ For best results and to help keep things organised it is recommended to create a
 
 ## Server Workspace
 
-**The server workspace can be accessed by requesting a default template from the machine learning telegram group.**
-
-1. Edit Test-Server Sensor Bot Instance with the following and replace YOUR-SERVER-NAME with the name of your server:
+1. Load up the Bitcoin-Factory-Test-Server-Workspace
+2. Find and expand Plugins, Governance, Plugin User Profiles then click Add Specified User Profile, browse and add your user profile to the workspace, save and reload. 
+3. Edit Test-Server Sensor Bot Instance with the following and replace NETWORK with Testnet, Mainnet or your local network name, change YOUR-SERVER-NAME with the name of your server:
 
 ```
 {
-    "networkCodeName": "Testnet",
+    "networkCodeName": "NETWORK",
     "targetSuperalgosHost": "localhost",
     "targetSuperalgosHttpPort": 34248,
     "pythonScriptName": "Bitcoin_Factory_LSTM.py",
@@ -46,8 +46,8 @@ For best results and to help keep things organised it is recommended to create a
         "labels": [
 ```
 
-2. If you are running multiple instances of Superalgos and require data transfer from instance then input the IP address of the Superalgos instance in the "targetSuperalgosHost": "IP-ADDRESS-HERE",
-3. Edit each indicator you wish to activate like below.
+4. If you are running multiple instances of Superalgos and require data transfer from instance then input the IP address of the Superalgos instance in the "targetSuperalgosHost": "IP-ADDRESS-HERE",
+5. Edit each indicator you wish to activate like below.
 Indicator with range "ON" must be mining and up-to-date (from mining workspace preferably)
 ```
             {
@@ -61,12 +61,11 @@ Indicator with range "ON" must be mining and up-to-date (from mining workspace p
                 ]
             },
 ```
-4. Create Task-Server-App from within your User Profile/User Apps. (If haven't done already)
-5. Use the Profile Constructor to Install Signing Accounts. (If haven't done already)
-6. If you have signed your account don't forget you need to save your profile and merge it with the plugins/governance/user-profiles develop branch on github.com
-7. Reference Task Server App Reference to the task server app in your profile.
-8. At the Task Server Task, add P2P network client, then reference the P2P Network Reference to either Testnet, Mainnet or your network node, P2P Network Node Reference to your network node, under Network Service node add Machine Learning and finally in Network Interfaces add Websockets Interface + HTTP Network Interface.
-9. Start the Test-Server Task and check the console you should see something like this:
+
+
+6. Reference Task Server App Reference to the task server app in your profile.
+7. At the Task Server Task, add P2P network client, then reference the P2P Network Reference to either Testnet, Mainnet or your local network node, P2P Network Node Reference to the user running the Test Server or your own Test Server, under Network Service node add Machine Learning and finally in Network Interfaces add Websockets Interface and HTTP Network Interface.
+8. Start the Test-Server Task and check the console you should see something like this:
 ```
 Superalgos TaskServer is Running!
 

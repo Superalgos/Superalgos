@@ -8,10 +8,13 @@ RUN pip install torchvision
 RUN pip install tabulate
 RUN pip install tensorboard 
 RUN pip install tensorflow 
-RUN pip install sklearn 
 RUN pip install gym==0.21.0 
 
 # RUN nohup bash -c "ray start --head --port 6379 --num-gpus=1 &"  && sleep 8 # will be used for ray cluster
 
 # RUN pip install notebook
 # RUN pip install matplotlib
+
+
+
+# RUN pip install sklearn # Replaced by scikit-learn

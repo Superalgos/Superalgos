@@ -77,7 +77,7 @@ checkGit() {
     if which git > /dev/null
     then
         echo ""
-        echo "superalgos | info | nodejs already installed"
+        echo "superalgos | info | git already installed"
         echo ""
     else
         installGit
@@ -88,7 +88,7 @@ checkNode() {
     if which node > /dev/null
     then
         echo ""
-        echo "superalgos | info | git already installed"
+        echo "superalgos | info | nodejs already installed"
         echo ""
     else
         installNode
@@ -100,53 +100,6 @@ cloneSuperalgos() {
     echo "superalgos | info | downloading application code"
     echo ""
     git clone "https://github.com/$username/Superalgos.git"
-}
-
-addOriginRemote() {
-    local username = process.args[1]
-    if ! [ -z "$username" ]
-    then
-        echo ""
-        echo "superalgos | info | adding user remote as origin to repositories"
-        echo ""
-        git remote add origin "https://github.com/$username/Superalgos.git"
-        local matchDir
-        while read -r line
-        do 
-            local m=$(echo "$line" | grep "^path" | grep -oE "[A-Za-z]+\/[A-Za-z\-]+") # if result cd
-            if [ -z "$m" ]
-            then 
-                matchDir=$m
-            fi
-            local matchUrl=$(echo "$line" | grep "^url" | grep -oE "http.*" | grep -Eo "[A-Za-z\-]+$") # if result add origin replacing Superalgos with username
-            if [ -z $matchDir && -z $matchUrl ]
-            then
-                cd "$matchDir"
-                git remote add origin "https://github.com/$username/$matchUrl.git"
-                cd ../..
-            fi
-        done < .gitmodules
-    else
-        echo ""
-        echo "superalgos | info | adding superalgos remote as origin to repositories"
-        echo ""
-        git remote add origin "https://github.com/Superalgos/Superalgos.git"
-        while read -r line
-        do 
-            local m=$(echo "$line" | grep "^path" | grep -oE "[A-Za-z]+\/[A-Za-z\-]+") # if result cd
-            if [ -z "$m" ]
-            then 
-                matchDir=$m
-            fi
-            local matchUrl=$(echo "$line" | grep "^url" | grep -oE "http.*") # if result add origin replacing Superalgos with username
-            if [ -z $matchDir && -z $matchUrl ]
-            then
-                cd "$matchDir"
-                git remote add origin "$matchUrl.git"
-                cd ../..
-            fi
-        done < .gitmodules
-    fi
 }
 
 install() {

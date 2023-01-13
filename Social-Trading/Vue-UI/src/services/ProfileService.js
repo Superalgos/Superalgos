@@ -67,7 +67,7 @@ const http = axios.create({
         console.log("Getting profiles")
         return http.get('/users/social-entities')
             .then(response => {
-                let allUsers = response.data
+                return response.data
             });
     }
 

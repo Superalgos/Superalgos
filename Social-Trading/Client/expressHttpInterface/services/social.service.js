@@ -24,7 +24,6 @@ const getAllUsers = async (originSocialPersonaId, res) => {
             JSON.stringify(query)
         );
 
-        console.log("RESULT = " + result)
         let response = {}
         response.data = result;
         response.result = result.result;
@@ -40,12 +39,13 @@ const getAllUsers = async (originSocialPersonaId, res) => {
 
 
 
-const followProfile = async (userProfileId, eventType, res) => {
+const followProfile = async (message, res) => {
     try {
         let eventMessage = {
-            eventType: eventType,
+            eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetSocialPersonaId: userProfileId,
+            originSocialPersonaId: message.originSocialPersonaId,
+            targetSocialPersonaId: message.targetSocialPersonaId,
             timestamp: (new Date()).valueOf()
         }
 
@@ -64,9 +64,52 @@ const followProfile = async (userProfileId, eventType, res) => {
     }
 };
 
+// TODO Update FOLLOWERS queryType to new FOLLOWERS_AND_FOLLOWING queryType. Will finish changes when functional.
+const getProfileFollowersAndFollowing = async (message, res) => {
+    try {
+        console.log("AT THE SERVICE")
+        let queryMessage = {
+            originSocialPersonaId: message.originSocialPersonaId,
+            targetSocialPersonaId: message.targetSocialPersonaId,
+            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP,
+            queryType: SA.projects.socialTrading.globals.queryTypes.FOLLOWERS,
+            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
+            timestamp: (new Date()).valueOf()
+        }
+
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Query',
+            queryMessage: JSON.stringify(queryMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        ).then(results => {
+            return results
+            
+        })
+
+        let response = {}
+            response.data = result;
+            response.result = result.result
+
+            return response
+
+
+    } catch (e) {
+        console.log(e);
+        console.log("ERROR CATCH")
+        return {};
+    
+    }
+}
+
 
 
 module.exports = {
     getAllUsers,
-    followProfile
+    followProfile,
+    getProfileFollowersAndFollowing
 };

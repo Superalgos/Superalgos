@@ -11,8 +11,22 @@ const http = axios.create({
 });
 
     //TODO Not Setup Yet
-    async function followUser(socialPersonaId, eventType) {
-        return http.post('/social/follow', {socialPersonaId: socialPersonaId, eventType: eventType})
+    // Follow the users profile
+    //eventType = 15
+    // SocialPersonaID = the user to follows id,
+    // Along with our own nodeId
+    async function followUser(message) {
+        return http.post('/social/follow', {targetSocialPersonaId: message.targetSocialPersonaId, originSocialPersonaId: message.originSocialPersonaId, eventType: message.eventType})
+    }
+
+
+
+    // Get Followers and following users for the target profile.
+    async function getFollowers(message) {
+        return http.get('/social/followers-following', {params: message})
+        .then(response => {
+            return response.data
+        });
     }
 
     // Returns all users with social personas and saved there profile data in the store as an array of users.
@@ -49,5 +63,6 @@ const http = axios.create({
 
 export {
     getAllUsers,
-    followUser
+    followUser,
+    getFollowers
 }

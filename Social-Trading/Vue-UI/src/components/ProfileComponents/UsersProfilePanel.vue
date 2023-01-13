@@ -18,14 +18,16 @@
                         <div id="follower-following">
                             <div id="followers-div">
                                 <p>Followers</p>
-                                <p class="count">{{$store.state.profile.followers}}</p>
+                                <p class="count">{{followersCount}}</p>
                             </div>
                             <div id="following-div">
                                 <p>Following</p>
-                                <p class="count">{{$store.state.profile.following}}</p>
+                                <p class="count">{{followingCount}}</p>
                             </div>
                         </div>
-                        <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
+                        <input type="button" value="Follow User" v-on:click="followThisUser">
+
+
                     </div>
                     <!-- Body Main -->
                     <div class="profile-main-body">
@@ -49,19 +51,15 @@
 
 <script>
 import store from '../../store/index'
-
+import { followUser, getFollowers } from '../../services/SocialService'
 
 export default {
   components: {  },
     name: 'users-profile-panel',
     data() {
     return {
-        updateProfilePanel: false,
-        setProfileImage: false,
-        profileData: {
-            name: '',
-            bio: ''
-        }
+        followersCount: 0,
+        followingCount: 0
         };
     },
     methods: {
@@ -82,6 +80,23 @@ export default {
             .then(response => {
                 console.log(response.data)
             })
+        },
+        followThisUser() {
+            console.log("FOLLOW THIS USER")
+            let userToFollowID = store.state.usersProfileToOpen.originSocialPersonaId
+            console.log("USERS TO FOLLOW ID =" + userToFollowID)
+            let myNodeId = store.state.profile.nodeId
+
+            let message = {
+                originSocialPersonaId: myNodeId,
+                targetSocialPersonaId: userToFollowID,
+                eventType: 15
+            }
+
+            followUser(message)
+            .then(response => {
+                console.log("RESPONSE REESEIVED " + JSON.stringify(response.data))
+            });
         }
     },
     computed: {
@@ -96,7 +111,25 @@ export default {
         }
     },
     created() {
+        // On Created we will retrieve the follower / following data that relates to the target profile.
+        let userToFollowID = store.state.usersProfileToOpen.originSocialPersonaId
+        let myNodeId = store.state.profile.nodeId
 
+        let message = {
+            originSocialPersonaId: myNodeId,
+            targetSocialPersonaId: userToFollowID,
+            userProfileId: userToFollowID
+        }
+
+        getFollowers(message)
+        .then(response => {
+            let thisResponse = JSON.parse(response.data)
+            let responseData = thisResponse.data
+
+            this.followersCount = Object.keys(responseData.followers).length
+
+            this.followingCount = Object.keys(responseData.following).length
+        });
     }
 };
 </script>

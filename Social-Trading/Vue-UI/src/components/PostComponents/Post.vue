@@ -15,7 +15,7 @@
 
     <div class="post-message">
       <p id="post-body">{{postBody}}</p>
-      <img :src="postImage" alt="">
+      <img class="post-image" :src="postImage" alt="">
     </div>
 
 
@@ -318,6 +318,14 @@ export default {
 .post-footer-buttons {
   width: 2vw;
   height: 2vw;
+}
+
+.post-image {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 700px;
+
 }
 
 </style>

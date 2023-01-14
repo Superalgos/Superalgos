@@ -43,12 +43,12 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
 
 }
 
-const loadProfile = async (socialPersonaId, res) => {
+const loadProfile = async (message, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId: socialPersonaId
+            originSocialPersonaId: message.targetSocialPersonaId
         }
 
         let query = {
@@ -73,12 +73,12 @@ const loadProfile = async (socialPersonaId, res) => {
     }
 }
 
-const loadProfileData = async (socialPersonaId, res) => {
+const loadProfileData = async (message, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.GET_USER_PROFILE_INFO,
-            originSocialPersonaId: socialPersonaId
+            originSocialPersonaId: message.originSocialPersonaId
         }
 
         let query = {
@@ -92,11 +92,13 @@ const loadProfileData = async (socialPersonaId, res) => {
         )
         console.log(result)
 
-        // let response = {}
-        // response.data = result.profileData;
-        // response.result = result.result;
+        let response = {}
+        response.data = result.profileData;
+        response.result = result.result;
 
-        return {status: 'Ko', message: 'functionality not implemented'}
+        return response
+
+        //return {status: 'Ko', message: 'functionality not implemented'}
 
     } catch (error) {
         console.log(error);

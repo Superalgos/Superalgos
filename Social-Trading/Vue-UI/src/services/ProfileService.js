@@ -67,17 +67,15 @@ const http = axios.create({
         console.log("Getting profiles")
         return http.get('/users/social-entities')
             .then(response => {
-                let allUsers = response.data
-                console.table(allUsers)
+                return response.data
             });
     }
 
+    // TESTED WORKING but returns same data as getProfileData
     // Load a Social Entity's information from Open Storage.
-    async function getProfile(socialPersonaId) {
-        return http.get('/users/profile', socialPersonaId)
+    async function getProfile(message) {
+        return http.get('/users/profile', {params: message})
             .then(response => {
-                console.log(JSON.stringify(response))
-                console.log("RESPONSE>DATA = " + JSON.stringify(response.data))
                 return response
             });
     }
@@ -91,10 +89,9 @@ const http = axios.create({
     }
 
 
-
+    // WORKING Returns profile data as found on GitHub storage
     async function getProfileData(profileData) {
-        console.log("GETING PROFILE DATA + " + JSON.stringify(profileData))
-        return http.get('/users/profileData', profileData)
+        return http.get('/users/profileData', {params: profileData})
             .then(response => {
                 console.log("RESPONSE == " + JSON.stringify(response))
                 return response.data

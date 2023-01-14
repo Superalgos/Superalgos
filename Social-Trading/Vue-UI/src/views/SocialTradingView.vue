@@ -236,7 +236,7 @@ export default {
             let el = this.$refs.editableDiv;
             el.focus();
             console.log("Adding IMAGE")
-            let html = `<img src="${store.state.postImage}"/>`;
+            let html = `<img src="${store.state.postImage}" style="max-width: 100%; max-height: 500px display: block; margin:auto" class="post-message" />`;
             let range = document.createRange();
             range.selectNodeContents(el);
             range.collapse(false);

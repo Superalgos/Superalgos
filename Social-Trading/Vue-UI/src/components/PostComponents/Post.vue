@@ -182,6 +182,11 @@ export default {
     white-space: pre-wrap;
 }
 
+.post-message>img {
+  display: block;
+  margin: auto;
+}
+
 #post-body {
     margin: 0px 30px 10px 30px;
 }

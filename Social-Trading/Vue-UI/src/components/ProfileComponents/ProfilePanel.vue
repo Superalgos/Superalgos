@@ -18,11 +18,11 @@
                         <div id="follower-following">
                             <div id="followers-div">
                                 <p>Followers</p>
-                                <p class="count">{{$store.state.profile.followers}}</p>
+                                <p class="count">{{followersCount}}</p>
                             </div>
                             <div id="following-div">
                                 <p>Following</p>
-                                <p class="count">{{$store.state.profile.following}}</p>
+                                <p class="count">{{followingCount}}</p>
                             </div>
                         </div>
                         <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
@@ -89,6 +89,7 @@
 import store from '../../store/index'
 import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
 import { updateProfile } from '../../services/ProfileService'
+import { getFollowers } from '../../services/SocialService'
 
 export default {
   components: { UploadImagePanel },
@@ -97,6 +98,8 @@ export default {
     return {
         updateProfilePanel: false,
         setProfileImage: false,
+        followersCount: 0,
+        followingCount: 0,
         profileData: {
             name: '',
             bio: ''
@@ -134,6 +137,24 @@ export default {
     created() {
         this.profileData.bio = store.state.profile.bio
         this.profileData.name = store.state.profile.name
+
+
+        let myNodeId = store.state.profile.nodeId
+
+        let message = {
+            originSocialPersonaId: myNodeId,
+            targetSocialPersonaId: myNodeId
+        }
+
+        getFollowers(message)
+        .then(response => {
+            let thisResponse = JSON.parse(response.data)
+            let responseData = thisResponse.data
+
+            this.followersCount = Object.keys(responseData.followers).length
+
+            this.followingCount = Object.keys(responseData.following).length
+        });
     }
 };
 </script>

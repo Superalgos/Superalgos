@@ -33,15 +33,15 @@
               <img src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
               &nbsp;&nbsp; <strong> {{originPost.reactions[0][1]}} </strong>
             </p>
-            <!-- Dislike Post Button -->
-            <p class="post-comments-button"       v-on:click="openPostComments">
-              <img src="../../assets/iconmonstrDislikeIcon.png" alt="Comment" class="post-footer-buttons">
-              &nbsp;Dislike
-            </p>
             <!-- Like Post Button -->
             <p class="post-comments-button"       v-on:click="loveThisPost">
               <img src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
               &nbsp;&nbsp; <strong> {{postLoveCount}} </strong>
+            </p>
+            <!-- React to Post Button -->
+            <p class="post-comments-button"       v-on:click="openPostComments">
+              <img src="../../assets/iconmonstrEmojiIcon.png" alt="Comment" class="post-footer-buttons">
+              &nbsp;
             </p>
             <!-- Repost Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
@@ -133,7 +133,9 @@ export default {
             postBody: this.postBody,
             postImage: this.postImage,
             originPostHash: this.originPostHash,
-            originPost: this.originPost
+            originPost: this.originPost,
+            commentCount: this.commentCount,
+            eventType: this.eventType
           }
 
           store.commit("SET_POST_COMMENT_PROPS", postProps);

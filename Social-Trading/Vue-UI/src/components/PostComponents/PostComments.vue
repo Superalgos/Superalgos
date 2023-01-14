@@ -6,7 +6,10 @@
                     :postImage="postData.postImage" 
                     :originPostHash="postData.originPostHash" 
                     :originPost="postData.originPost"
+                    :eventType="postData.eventType"
+                    :commentCount='postData.commentCount'
                     />
+
         <comment />
     </div>
 </template>
@@ -24,7 +27,7 @@ export default {
         }
     },
     methods: {
-
+        
     },
     computed: {
 

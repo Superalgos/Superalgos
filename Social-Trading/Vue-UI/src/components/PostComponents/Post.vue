@@ -33,10 +33,10 @@
               <img src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
               &nbsp;&nbsp; <strong> {{originPost.reactions[0][1]}} </strong>
             </p>
-            <!-- Like Post Button -->
+            <!-- Love Post Button -->
             <p class="post-comments-button"       v-on:click="loveThisPost">
               <img src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
-              &nbsp;&nbsp; <strong> {{postLoveCount}} </strong>
+              &nbsp;&nbsp; <strong> {{this.originPost.reactions[1][1]}} </strong>
             </p>
             <!-- React to Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
@@ -171,7 +171,15 @@ export default {
             }
             reactedPost(message)
             .then(response => {
-              this.likedPost = true;
+              console.log(response)
+              if (this.likedPost !== true) {
+                this.originPost.reactions[0][1] += 1;
+                this.likedPost = true;
+              } else {
+                this.originPost.reactions[0][1] -= 1;
+                this.likedPost = false;
+              }
+              
             });
         },
         loveThisPost() {
@@ -184,6 +192,13 @@ export default {
             reactedPost(message)
             .then(response => {
               console.log(response)
+              if (this.lovedPost !== true) {
+                this.originPost.reactions[1][1] += 1;
+                this.lovedPost = true;
+              } else {
+                this.originPost.reactions[1][1] -= 1;
+                this.lovedPost = false;
+              }
             });
         }
       
@@ -192,7 +207,8 @@ export default {
       return {
         postDate: undefined,
         postTime: undefined,
-        likedPost: false
+        likedPost: false,
+        lovedPost: false
       }
     },
     

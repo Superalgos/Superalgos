@@ -135,6 +135,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response)
                 return
             }
+            addP2PNetworkNode()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             await addSigningAccounts()
             if (response.result === 'Error') {
                 resolve(response)
@@ -276,6 +281,89 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         userProfile.userBots.socialTradingBots.socialTradingBots.push(targetNode)
                         targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length
                         break
+                    }
+                }
+            }
+
+            function addP2PNetworkNode() {
+                if (userProfile.p2pNetworkNodes === undefined) {
+                    userProfile.p2pNetworkNodes = {
+                        type: 'P2P Network Nodes',
+                        name: 'New P2P Network Nodes',
+                        project: 'Network',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}'
+                    }
+                }
+
+                if (userProfile.p2pNetworkNodes.p2pNetworkNodes === undefined) {
+                    userProfile.p2pNetworkNodes.p2pNetworkNodes = {
+                        type: 'P2P Network Node',
+                        name: 'P2P Network Node #1',
+                        project: 'Network',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"clientMinimunBalance\": 0\n}",
+                        p2pNetworkReference: {
+                            type: "P2P Network Reference",
+                            name: "",
+                            project: "Network",
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            savedPayload: {
+                                referenceParent: {
+                                    type: "P2P Network",
+                                    name: "Testnet",
+                                    id: "8cf3c984-f2ce-4ed5-9bfe-49255ed8a9e3"
+                                },
+                                referenceParentCombinedNodePath: [
+                                    [
+                                        "Testnet",
+                                        "P2P Network"
+                                    ]
+                                ]
+                            }
+                        },
+                        networkServices: {
+                            type: "Network Services",
+                            name: "New Network Services",
+                            config: "{}",
+                            project: "Network",
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            socialGraph: {
+                                type: "Social Graph",
+                                name: "New Social Graph",
+                                config: "{}",
+                                project: "Network",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            tradingSignals: {
+                                type: "Trading Signals",
+                                name: "New Trading Signals",
+                                config: "{}",
+                                project: "Network",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                        },
+                        networkInterfaces: {
+                            type: "Network Interfaces",
+                            name: "New Network Interfaces",
+                            config: "{}",
+                            project: "Network",
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            websocketsNetworkInterface: {
+                                type: "Websockets Network Interface",
+                                name: "New Websockets Network Interface",
+                                config: "{ \n\"webSocketsPort\": \"18042\"\n}",
+                                project: "Network",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            httpNetworkInterface: {
+                                type: "Http Network Interface",
+                                name: "New Http Network Interface",
+                                config: "{ \n\"httpPort\": \"31248\"\n}",
+                                project: "Network",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                        },
                     }
                 }
             }

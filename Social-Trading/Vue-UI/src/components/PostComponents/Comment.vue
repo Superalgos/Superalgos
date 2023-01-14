@@ -1,53 +1,25 @@
 <template>
-    <div id="comment-main-div"  
-            v-bind="comment.commentID" 
-            v-on:mouseover="showBtn = true" 
-            v-on:mouseleave="showBtn = false"
-            >
-        <h6 id="comment-username"> {{comment.username}} </h6>
-        <p id="comment-dateTime"> {{comment.dataTime}} </p>
-        <p id="comment"> {{comment.comment}} </p>
-
-
-        <div id="comment-container" 
-            v-if="leaveComment === true" >
-
-            <label for="">Reply:</label>
-
-            <textarea 
-                name="reply-comment" 
-                id="reply-comment" 
-                cols="30" 
-                rows="10"
-                ref="replyComment"
-                v-on:keyup.esc="leaveComment = false"
-            >
-            </textarea>
+    <div ref="editableDivComment" id="comment-component-main-div">
+        <!-- Editable Div for user input of comments -->
+        <div name="new-comment-input" id="new-comment-input" contentEditable="true" @input="updateCommentBody" @change="getCommentBody" >
         </div>
-
-
-
-        <div id="reply-btn-div">
-            <button id="button" 
-                type="button" 
-                value=""
-                v-on:click="handleReplyClick"
-                v-if="showBtn === true"
-            >{{leaveComment == false ? 'Reply' : 'Send'}}
-            </button>
-        </div>
+        <!-- Send Comment Button -->
+        <input id="send-comment-button" type="button" value="Send" v-on:click="sendNewComment">
+        
 
     </div>
 </template>
 
 <script>
+import { createReply } from '../../services/PostService'
+import store from '../../store/index'
+
 export default {
     name: 'post-comment',
-    props: ['comment'],
+    props: [],
     data() {
         return {
-            leaveComment: false,
-            showBtn: false
+            commentBody: ''
         }
     },
     methods: {
@@ -63,6 +35,33 @@ export default {
         setFocus() {
             this.$refs.textArea.focus();
             alert(this.$refs.textArea)
+        },
+        updateCommentBody() {
+            let commentMessage = document.getElementById("new-comment-input")
+            this.commentBody = commentMessage.innerText;
+        },
+        sendNewComment() {
+            let myNodeId = store.state.profile.nodeId
+            let postHash = store.state.postCommentProps.originPostHash
+            let targetSocialPersonaId = store.state.postCommentProps.originPost.originSocialPersonaId
+
+            let message = {
+                originSocialPersonaId: myNodeId,
+                postHash: postHash,
+                targetSocialPersonaId: targetSocialPersonaId,
+                postText: this.commentBody
+            }
+
+            createReply(message)
+            .then(response => {
+                console.log(response)
+            });
+
+        }
+    },
+    computed: {
+        getCommentBody() {
+            return this.commentBody
         }
     }
 
@@ -71,68 +70,31 @@ export default {
 
 <style>
 
-#comment-main-div {
-    border: solid 1.5px black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "username date-time"
-        "comment comment"
-        "reply reply"
-        "comment-footer comment-footer" ;
-    margin: 2% 1%;
-    box-shadow: 2px 5px 5px rgba(0,0,0,0.5);
-    border-radius: 8px;
-}
-
-#comment-username {
-    grid-area: username;
-    border-bottom: solid 1.5px black;
-    padding-left: 10px;
-    height: 70%;
-}
-
-#comment-dateTime {
-    grid-area: date-time;
-    text-align: right;
-    font-size: .8em;
-    padding-right: 10px;
-    border-bottom: solid 1.5px black;
-    height: 70%;
-}
-
-#comment-container {
-    grid-area: reply;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  font-size: .8em;
-}
-
-#reply-comment {
-    margin: 1%;
-}
-
-#comment {
-    grid-area: comment;
-    padding-left: 7px;
-}
-
-#reply-btn-div {
-    grid-area: comment-footer;
+#comment-component-main-div {
+    width: 100%;
+    height: auto;
     display: flex;
-    justify-content: right;
+    flex-direction: column;
 }
 
-button {
-  color: black;
-  border: solid 1px black;
+#new-comment-input {
+    width: 90%;
+    height: auto;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin: 1% auto 0% auto;
 }
 
-#button {
+#send-comment-button {
+    align-self: end;
+    width: auto;
+    margin-right: 6%;
+    margin-top: 3px;
+    font-size: 1vw;
+    font-weight: 600;
+    border: solid 1px black;
     border-radius: 3px;
-    margin: 1%;
+    cursor: pointer;
 }
 
 </style>

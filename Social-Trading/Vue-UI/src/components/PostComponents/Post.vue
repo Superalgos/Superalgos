@@ -1,5 +1,6 @@
 <template>
-  <div class="post-object-container" >
+  <!-- We filter out all none posts in the post array in the below v-if -->
+  <div class="post-object-container" v-if="eventType === 10" >
   <div class="post-object" >
 
     <div id="post-user-name-div">
@@ -17,13 +18,6 @@
       <img :src="postImage" alt="">
     </div>
 
-    
-    
-      
-
-
-        
-
 
       <div id="footer">
 
@@ -32,7 +26,7 @@
             <!-- Comment Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
               <img src="../../assets/iconmonstrCommentIcon.png" alt="Comment" class="post-footer-buttons">
-              &nbsp;Comment
+              &nbsp;&nbsp;  <strong> {{commentCount}} </strong>
             </p>
             <!-- Like Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
@@ -55,7 +49,7 @@
               &nbsp;Repost
             </p>
             
-           
+
 
 
           </div>
@@ -93,13 +87,13 @@
 </template>
 
 <script>
-
+import store from '../../store/index'
 
 
 export default {
   components: { },
     name: 'post-object',
-    props: ['timestamp', 'userHandle', 'postBody', 'postImage'],
+    props: ['timestamp', 'userHandle', 'postBody', 'postImage', 'originPostHash', 'originPost', 'commentCount', 'eventType'],
     computed: {
       formatTimestamp() {
         const date = new Date(this.timestamp);
@@ -119,7 +113,24 @@ export default {
       }
     },
     methods: {
-      
+        openPostComments() {
+          console.log(this.originPost)
+          // Prepare our props to send to the store.
+          let postProps = {
+            timestamp: this.timestamp,
+            userHandle: this.userHandle,
+            postBody: this.postBody,
+            postImage: this.postImage,
+            originPostHash: this.originPostHash,
+            originPost: this.originPost
+          }
+
+          console.log(postProps)
+          store.commit("SET_POST_COMMENT_PROPS", postProps);
+          store.commit("SHOW_POSTS_COMMENTS", true);
+
+
+        }
     },
     data() {
       return {

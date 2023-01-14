@@ -26,6 +26,7 @@ const http = axios.create({
             });
     }
 
+    // Working
     async function getFeed() {
         return  http.get('/posts/feed')
                 .then(response => {
@@ -45,7 +46,7 @@ const http = axios.create({
     }
 
     async function getReplies(queryParams) {
-        return http.get('/posts/replies', queryParams);
+        return http.get('/posts/replies', {params: queryParams});
     }
 
     async function createReply(body) {

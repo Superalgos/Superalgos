@@ -160,6 +160,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response) 
                 return
             }
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return 
+            }
 
             resolve(response)
 
@@ -415,7 +420,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 function profileNotPushed(err) {
                     response = {
                         result: 'Error',
-                        message: 'Error pushing the User Profile to Github.',
+                        message: 'Error pushing the updated User Profile to Github.',
                         stack: err.stack
                     }
                     resolve(response)
@@ -436,6 +441,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }

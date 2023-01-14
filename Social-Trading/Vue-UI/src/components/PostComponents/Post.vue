@@ -29,9 +29,9 @@
               &nbsp;&nbsp;  <strong> {{commentCount}} </strong>
             </p>
             <!-- Like Post Button -->
-            <p class="post-comments-button"       v-on:click="openPostComments">
+            <p class="post-comments-button"       v-on:click="likeThisPost">
               <img src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
-              &nbsp;Like
+              &nbsp;&nbsp; <strong> {{originPost.reactions[0][1]}} </strong>
             </p>
             <!-- Dislike Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
@@ -39,9 +39,9 @@
               &nbsp;Dislike
             </p>
             <!-- Like Post Button -->
-            <p class="post-comments-button"       v-on:click="openPostComments">
+            <p class="post-comments-button"       v-on:click="loveThisPost">
               <img src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
-              &nbsp;Love
+              &nbsp;&nbsp; <strong> {{postLoveCount}} </strong>
             </p>
             <!-- Repost Post Button -->
             <p class="post-comments-button"       v-on:click="openPostComments">
@@ -88,7 +88,7 @@
 
 <script>
 import store from '../../store/index'
-
+import { reactedPost } from '../../services/PostService'
 
 export default {
   components: { },
@@ -110,7 +110,18 @@ export default {
           postTime = exactTime.slice(0, 5);
         }
         return postTime + amPm;
-      }
+      },
+      postLikeCount() {
+        if (this.originPost.reactions[0] > 0) {
+          return this.originPost.reactions[0]
+        }
+      },
+      postLoveCount() {
+        console.log(this.originPost.reactions)
+        if (this.originPost.reactions[1] !== undefined) {
+          return this.originPost.reactions[1][1]
+        }
+      },
     },
     methods: {
         openPostComments() {
@@ -125,17 +136,42 @@ export default {
             originPost: this.originPost
           }
 
-          console.log(postProps)
           store.commit("SET_POST_COMMENT_PROPS", postProps);
           store.commit("SHOW_POSTS_COMMENTS", true);
-
-
+        },
+        likeThisPost() {
+            let message = {
+                originSocialPersonaId: store.state.profile.nodeId,
+                postText: this.postBody,
+                postHash: this.originPostHash,
+                eventType: 100,
+                targetSocialPersonaId: this.originPost.originSocialPersonaId
+            }
+            reactedPost(message)
+            .then(response => {
+              this.likedPost = true;
+            });
+        },
+        loveThisPost() {
+          let message = {
+                originSocialPersonaId: store.state.profile.nodeId,
+                postText: this.postBody,
+                postHash: this.originPostHash,
+                eventType: 101,
+                targetSocialPersonaId: this.originPost.originSocialPersonaId
+            }
+            reactedPost(message)
+            .then(response => {
+              console.log(response)
+            });
         }
+      
     },
     data() {
       return {
         postDate: undefined,
-        postTime: undefined
+        postTime: undefined,
+        likedPost: false
       }
     },
     

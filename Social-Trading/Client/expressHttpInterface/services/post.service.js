@@ -174,18 +174,21 @@ const postReactions = async (body, res) => {
         let event;
 
         eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE,
+            eventType: body.eventType,
             originSocialPersonaId: body.originSocialPersonaId,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             targetPostHash: body.postHash,
+            postHash: body.postHash,
+            targetSocialPersonaId: body.targetSocialPersonaId
         }
+
 
         event = {
             networkService: 'Social Graph',
             requestType: 'Event',
             eventMessage: JSON.stringify(eventMessage)
         }
-        let response = await NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent(event);
+
         return await webAppInterface.sendMessage(
             JSON.stringify(event)
         );
@@ -193,6 +196,20 @@ const postReactions = async (body, res) => {
         console.log(e);
         return {status: 'Ko'};
     }
+
+    //     event = {
+    //         networkService: 'Social Graph',
+    //         requestType: 'Event',
+    //         eventMessage: JSON.stringify(eventMessage)
+    //     }
+    //     let response = await NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent(event);
+    //     return await webAppInterface.sendMessage(
+    //         JSON.stringify(event)
+    //     );
+    // } catch (e) {
+    //     console.log(e);
+    //     return {status: 'Ko'};
+    // }
 }
 
 

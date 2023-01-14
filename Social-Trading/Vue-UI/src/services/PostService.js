@@ -41,8 +41,11 @@ const http = axios.create({
                 });
     }
 
-    async function reactedPost(body) {
-        return http.post('/posts/reactions', body);
+
+    // TODO the logic on the back end so we can't double like.
+    // Tested Working
+    async function reactedPost(message) {
+        return http.post('/posts/reactions', message);
     }
 
     async function getReplies(queryParams) {

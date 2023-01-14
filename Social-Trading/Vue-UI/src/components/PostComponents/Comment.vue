@@ -1,100 +1,73 @@
 <template>
-    <div ref="editableDivComment" id="comment-component-main-div">
-        <!-- Editable Div for user input of comments -->
-        <div name="new-comment-input" id="new-comment-input" contentEditable="true" @input="updateCommentBody" @change="getCommentBody" >
+    <div id="post-comment-main-div">
+
+        <div id="comment-top-div">
+            <div id="comment-name-date-div">
+                <p id="post-user-name"> {{userHandle}} </p>
+                <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
+            </div>
+            <div class="date-time">
+            <p id="post-date-time">{{formatTimestamp}}</p>
+            </div>
         </div>
-        <!-- Send Comment Button -->
-        <input id="send-comment-button" type="button" value="Send" v-on:click="sendNewComment">
-        
+
+    
+        <div class="post-message">
+            <p id="post-body">{{postBody}}</p>
+            <img :src="postImage" alt="">
+        </div>
 
     </div>
 </template>
 
 <script>
-import { createReply } from '../../services/PostService'
-import store from '../../store/index'
-
 export default {
     name: 'post-comment',
-    props: [],
+    props: ['timestamp', 'userHandle', 'postBody', 'postImage', 'originPostHash', 'originPost', 'eventType'],
     data() {
         return {
             commentBody: ''
         }
     },
-    methods: {
-        handleReplyClick() {
-            if (this.leaveComment === false) {
-                this.leaveComment = true;
-                this.$nextTick(() => this.$refs.replyComment.focus())
-                
-            } else {
-                this.leaveComment = false;
-            }
-        },
-        setFocus() {
-            this.$refs.textArea.focus();
-            alert(this.$refs.textArea)
-        },
-        updateCommentBody() {
-            let commentMessage = document.getElementById("new-comment-input")
-            this.commentBody = commentMessage.innerText;
-        },
-        sendNewComment() {
-            let myNodeId = store.state.profile.nodeId
-            let postHash = store.state.postCommentProps.originPostHash
-            let targetSocialPersonaId = store.state.postCommentProps.originPost.originSocialPersonaId
-
-            let message = {
-                originSocialPersonaId: myNodeId,
-                postHash: postHash,
-                targetSocialPersonaId: targetSocialPersonaId,
-                postText: this.commentBody
-            }
-
-            createReply(message)
-            .then(response => {
-                console.log(response)
-            });
-
-        }
-    },
     computed: {
-        getCommentBody() {
-            return this.commentBody
+        formatTimestamp() {
+        const date = new Date(this.timestamp);
+        let timeString = date.toLocaleString();
+        // We remove the seconds from the time.
+        let time = timeString.split(',')
+        this.postDate = time[0]
+        console.log(this.postDate)
+        let exactTime = time[1]
+        let postTime = exactTime.slice(0, 6)
+        let amPm = exactTime.slice(exactTime.length - 3, exactTime.length)
+        // If time ends in a ":" we need to shorten our split.
+        if (postTime.slice(-1) === ':') {
+          postTime = exactTime.slice(0, 5);
         }
+        return postTime + amPm;
+      },
     }
-
 }
 </script>
 
 <style>
 
-#comment-component-main-div {
-    width: 100%;
-    height: auto;
+#post-comment-main-div {
+    border-bottom: solid 1px black;
     display: flex;
     flex-direction: column;
 }
 
-#new-comment-input {
-    width: 90%;
-    height: auto;
-    border: solid 1px black;
-    border-radius: 5px;
-    margin: 1% auto 0% auto;
+#comment-top-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0% 2% 0% 2%;
 }
 
-#send-comment-button {
-    align-self: end;
-    width: auto;
-    margin-right: 6%;
-    margin-top: 3px;
-    font-size: 1vw;
-    font-weight: 600;
-    border: solid 1px black;
-    border-radius: 3px;
-    cursor: pointer;
+#comment-name-date-div {
+    display: flex;
+    flex-direction: row;
 }
 
 </style>

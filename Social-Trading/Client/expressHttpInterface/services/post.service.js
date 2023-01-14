@@ -114,9 +114,9 @@ const getReplies = async (body, res) => {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST_REPLIES,
-            originSocialPersonaId: undefined,
+            originSocialPersonaId: body.originSocialPersonaId,
             targetSocialPersonaId: body.targetSocialPersonaId,
-            targetPostHash: body.targetPostHash,
+            targetPostHash: body.originPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST

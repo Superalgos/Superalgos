@@ -88,7 +88,7 @@
 
 <script>
 import store from '../../store/index'
-import { reactedPost } from '../../services/PostService'
+import { reactedPost, getReplies } from '../../services/PostService'
 
 export default {
   components: { },
@@ -128,26 +128,46 @@ export default {
           console.log(this.originPost)
           // Prepare our props to send to the store.
           let postProps = {
-            timestamp: this.timestamp,
-            userHandle: this.userHandle,
-            postBody: this.postBody,
-            postImage: this.postImage,
-            originPostHash: this.originPostHash,
-            originPost: this.originPost,
-            commentCount: this.commentCount,
-            eventType: this.eventType
-          }
+                timestamp: this.timestamp,
+                userHandle: this.userHandle,
+                postBody: this.postBody,
+                postImage: this.postImage,
+                originPostHash: this.originPostHash,
+                originPost: this.originPost,
+                commentCount: this.commentCount,
+                eventType: this.eventType
+              }
 
           store.commit("SET_POST_COMMENT_PROPS", postProps);
           store.commit("SHOW_POSTS_COMMENTS", true);
+
+          // Then we retrieve the comments for this post.
+          let message = {
+                originSocialPersonaId: store.state.profile.nodeId,
+                targetSocialPersonaId: this.originPost.originSocialPersonaId,
+                originPostHash: this.originPostHash
+            }
+            // Then we fetch the comments for this post.
+            getReplies(message)
+              .then(response => {
+                let responseData =  response.data.data
+                let postComments = [];
+                // We loop through all comments and add them to an array to pass to the commentList component.
+                if (responseData.length !== undefined) {
+                  for(let i = 0; i < responseData.length; i++) {
+                    postComments.unshift(responseData[i])
+                  }
+                }
+                // We send the postComments array to the store for use in a different component.
+                store.commit("SET_POST_COMMENTS_ARRAY", postComments);
+              });
         },
         likeThisPost() {
             let message = {
                 originSocialPersonaId: store.state.profile.nodeId,
-                postText: this.postBody,
+                targetSocialPersonaId: this.originPost.originSocialPersonaId,
                 postHash: this.originPostHash,
                 eventType: 100,
-                targetSocialPersonaId: this.originPost.originSocialPersonaId
             }
             reactedPost(message)
             .then(response => {
@@ -157,10 +177,9 @@ export default {
         loveThisPost() {
           let message = {
                 originSocialPersonaId: store.state.profile.nodeId,
-                postText: this.postBody,
+                targetSocialPersonaId: this.originPost.originSocialPersonaId,
                 postHash: this.originPostHash,
                 eventType: 101,
-                targetSocialPersonaId: this.originPost.originSocialPersonaId
             }
             reactedPost(message)
             .then(response => {

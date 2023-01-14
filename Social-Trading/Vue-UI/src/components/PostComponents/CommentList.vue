@@ -1,35 +1,37 @@
 <template>
-    <div id="comment-object">
-    
-        <comment 
-            id="comment"
-            v-for="post in posts" 
-            v-bind:key="post.postID" 
-            
-        />
+    <div id="post-comments-list" v-for="comment in getPostComments" v-bind:key="comment.index">
+        <comment
+                :timestamp="comment.timestamp" 
+                :userHandle="comment.originSocialPersona.socialPersonaHandle"  
+                :postBody="comment.postText" 
+                :postImage="comment.postImage" 
+                :originPostHash="comment.originPostHash" 
+                :originPost="comment.originPost"
+                :eventType="comment.eventType"
+            />
+        
 
     </div>
 </template>
 
 <script>
-import Comment from '../PostComponents/Comment.vue'
 
+import store from '../../store/index'
+import Comment from './Comment.vue'
 
 
 export default {
     name: 'comments-list',
-    props: ['posts'],
     data() {
         return {
-            comment: {
-                username: '',
-                dateTime: '',
-                comments: []
-            }
+
         }
     },
     components: { Comment },
     computed: {
+        getPostComments() {
+            return store.state.postComments
+        }
     }
 
 }
@@ -37,6 +39,8 @@ export default {
 
 <style>
 
+#post-comments-list {
 
+}
 
 </style>

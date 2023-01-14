@@ -12,6 +12,7 @@ export default createStore({
     showUsersProfile: false,
     showPostComments: false,
     postCommentProps: undefined,
+    postComments: undefined,
     selectedEmoji: undefined,
     profile: {
       blockchainAccount: undefined,
@@ -102,6 +103,9 @@ export default createStore({
     // Store the props needed to display the selected posts Comments
     SET_POST_COMMENT_PROPS(state, postProps) {
       state.postCommentProps = postProps;
+    },
+    SET_POST_COMMENTS_ARRAY(state, comments) {
+      state.postComments = comments;
     }
   },
   actions: {

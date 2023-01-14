@@ -21,7 +21,7 @@ import CommentInput from './CommentInput.vue'
 import commentList from './CommentList.vue'
 import Post from './Post.vue'
 export default {
-  components: { Post, Comment, commentList, CommentInput },
+  components: { Post, commentList, CommentInput },
     name: 'post-comments',
     props: [ 'postData' ],
     data() {

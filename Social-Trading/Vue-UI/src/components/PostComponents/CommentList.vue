@@ -39,8 +39,6 @@ export default {
 
 <style>
 
-#post-comments-list {
 
-}
 
 </style>

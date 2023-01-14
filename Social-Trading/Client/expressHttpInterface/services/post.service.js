@@ -196,20 +196,6 @@ const postReactions = async (body, res) => {
         console.log(e);
         return {status: 'Ko'};
     }
-
-    //     event = {
-    //         networkService: 'Social Graph',
-    //         requestType: 'Event',
-    //         eventMessage: JSON.stringify(eventMessage)
-    //     }
-    //     let response = await NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent(event);
-    //     return await webAppInterface.sendMessage(
-    //         JSON.stringify(event)
-    //     );
-    // } catch (e) {
-    //     console.log(e);
-    //     return {status: 'Ko'};
-    // }
 }
 
 

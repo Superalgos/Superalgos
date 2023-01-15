@@ -52,6 +52,9 @@
                     <p id="profile-username">{{$store.state.profile.userProfileHandle}}</p>
                     <!-- Set Profile Image Button -->
                     <input type="button" value="Set Profile Image" v-on:click="addProfileImage">
+                    <!-- Set Profile Banner Button -->
+                    <input type="button" value="Set Banner Image" v-on:click="addBannerImage">
+                    <!-- Update Profile Button -->
                     <div id="update-profile-btn-div">
                         <input class="update-profile-btn" type="button" value="Update Profile" v-on:click="sendProfileUpdate">
                     </div>
@@ -115,11 +118,16 @@ export default {
             this.setProfileImage = true;
             store.commit("SHOW_IMAGE_UPLOADER", true);
         },
+        addBannerImage() {
+            store.commit("SET_ADD_PROFILE_BANNER", true);
+            store.commit("SHOW_IMAGE_UPLOADER", true);
+
+        },
         sendProfileUpdate() {
-            let message = this.profileData
-            message.profilePic = this.imageSrc
-            message.originSocialPersonaId = store.state.profile.nodeId
-            console.log(message)
+            let message = this.profileData;
+            message.profilePic = this.imageSrc;
+            message.originSocialPersonaId = store.state.profile.nodeId;
+            message.bannerPic = this.bannerImageSrc;
             updateProfile(JSON.stringify(message))
             .then(response => {
                 console.log(response.data)
@@ -132,6 +140,11 @@ export default {
         },
         imageSrc() {
             return store.state.profile.profilePic;
+        },
+        bannerImageSrc() {
+            if (store.state.profile.bannerPic !== undefined) {
+                return store.state.profile.bannerPic
+            }
         }
     },
     created() {

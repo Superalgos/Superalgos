@@ -64,9 +64,17 @@ export default {
             // Store the image string in the store.
             // This will be either a profile picture or a post image.
             if (store.state.showProfile === true) {
-                store.commit("ADD_PROFILE_IMAGE", dataURL);
+                if (store.state.addProfileBanner === true) {
+                    store.commit("ADD_PROFILE_BANNER", dataURL)
+                    store.commit("SET_ADD_PROFILE_BANNER", false);
+                    store.commit("SHOW_IMAGE_UPLOADER", false);
+                } else {
+                    store.commit("ADD_PROFILE_IMAGE", dataURL);
+                    store.commit("SHOW_IMAGE_UPLOADER", false);
+                }
             } else {
                 store.commit("ADD_POST_IMAGE", dataURL);
+                store.commit("SHOW_IMAGE_UPLOADER", false);
             }
             
             // Temp for display TODO remove

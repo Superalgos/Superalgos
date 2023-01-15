@@ -251,7 +251,6 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         break
                     }
                     default: {
-                        console.log("INSIDE THE DEFAULT!")
                         /*
                         In general, all Queries go to the P2P Network to fetch information from the Social Graph. 
                         Though, there are a few exceptions.

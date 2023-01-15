@@ -1,9 +1,7 @@
 
 
 const getAllUsers = async (originSocialPersonaId, res) => {
-    console.log("TRYING TO GET ALL USERS NOW")
     try {
-        console.log("Trying to get all Users")
         let queryMessage = {
             originSocialPersonaId: originSocialPersonaId.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
@@ -12,7 +10,6 @@ const getAllUsers = async (originSocialPersonaId, res) => {
             queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS,
             timestamp: (new Date()).valueOf()
         }
-        console.log("QUERY MESSAGE SENT = " + JSON.stringify(queryMessage))
 
         let query = {
             networkService: 'Social Graph',
@@ -67,7 +64,6 @@ const followProfile = async (message, res) => {
 // TODO Update FOLLOWERS queryType to new FOLLOWERS_AND_FOLLOWING queryType. Will finish changes when functional.
 const getProfileFollowersAndFollowing = async (message, res) => {
     try {
-        console.log("AT THE SERVICE")
         let queryMessage = {
             originSocialPersonaId: message.originSocialPersonaId,
             targetSocialPersonaId: message.targetSocialPersonaId,

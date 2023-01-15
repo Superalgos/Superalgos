@@ -93,7 +93,6 @@ const http = axios.create({
     async function getProfileData(profileData) {
         return http.get('/users/profileData', {params: profileData})
             .then(response => {
-                console.log("RESPONSE == " + JSON.stringify(response))
                 return response.data
             });
     }

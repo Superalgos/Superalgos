@@ -10,6 +10,9 @@ export default createStore({
     showImageUploader: false,
     showEmojiPicker: false,
     showUsersProfile: false,
+    showPostComments: false,
+    postCommentProps: undefined,
+    postComments: undefined,
     selectedEmoji: undefined,
     profile: {
       blockchainAccount: undefined,
@@ -63,6 +66,9 @@ export default createStore({
     SHOW_EMOJI_PICKER(state, show) {
       state.showEmojiPicker = show;
     },
+    SHOW_POSTS_COMMENTS(state, show) {
+      state.showPostComments = show;
+    },
     SET_SELECTED_EMOJI(state, emoji) {
       state.selectedEmoji = emoji;
     },
@@ -94,6 +100,13 @@ export default createStore({
     ADD_PROFILE_IMAGE(state, image) {
       state.profile.profilePic = image;
     },
+    // Store the props needed to display the selected posts Comments
+    SET_POST_COMMENT_PROPS(state, postProps) {
+      state.postCommentProps = postProps;
+    },
+    SET_POST_COMMENTS_ARRAY(state, comments) {
+      state.postComments = comments;
+    }
   },
   actions: {
   },

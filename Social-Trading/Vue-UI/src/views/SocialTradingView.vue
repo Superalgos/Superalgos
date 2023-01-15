@@ -110,7 +110,7 @@
             <!-- Posts are here -->
             <div id="home-view-main" 
                     class="social-main-view content-container" 
-                    v-if="this.nav[0] == true"
+                    v-if="!showPostComments"
                 >
                     <!-- Post-List Component -->
                     <div id="post-list-container">
@@ -119,6 +119,13 @@
                     <!-- Temp Refresh Needed Message -->
                     <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
             </div>
+
+            <!-- Post Comments replace Post list here -->
+            <div id="post-comments-main-view" class="social-main-view content-container" 
+                    v-if="showPostComments">
+                    <post-comments :postData="postData" />
+            </div>
+
 
             <!-- Follow Panel -->
             <div>
@@ -152,16 +159,18 @@ import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
 import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
 import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
+import PostComments from '../components/PostComponents/PostComments.vue';
 
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments },
     data() {
         let home = true;
         let profile = false;
         let wallet = false;
         let settings = false;
         let postBody = "";
+        let postData = undefined;
         return {
             nav: [
                 home = true,
@@ -170,6 +179,7 @@ export default {
                 settings = false
             ],
             postBody: '',
+            postData: undefined
         }
     },
     methods: {
@@ -201,7 +211,8 @@ export default {
             window.scrollTo(window.innerHeight, 0);
         },
         openFeed() {
-            getFeed()
+            getFeed();
+            store.commit("SHOW_POSTS_COMMENTS", false);
         },
         showEmojiPicker() {
             let isDisplayed = store.state.showEmojiPicker;
@@ -281,6 +292,9 @@ export default {
         },
         showThisUsersProfile() {
             return store.state.showUsersProfile
+        },
+        showPostComments() {
+            return store.state.showPostComments
         }
     },
     // The below are used to keep things updated. 
@@ -290,14 +304,18 @@ export default {
         getPostImage(newValue, oldValue) {},
 
         getPostBody(newValue, oldValue) {
-        let postText = document.getElementById('new-post-input')
-        if (store.state.postImage !== undefined) {
+            let postText = document.getElementById('new-post-input')
+            if (store.state.postImage !== undefined) {
             this.updatePostBody()
-        } else {
-            postText.innerText = this.postBody
-        }
+            } else {
+                postText.innerText = this.postBody
+            }
         
-    }
+        },
+
+        showPostComments(newValue, oldValue) {
+            this.postData = store.state.postCommentProps
+        }
   }
 
 }

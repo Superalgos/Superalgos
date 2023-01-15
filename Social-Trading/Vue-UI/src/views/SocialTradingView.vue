@@ -99,12 +99,9 @@
             </div>
         </div>
 
-            <!-- Logout Div (bottom left) -->
-            <div class="logout-div">
-                <img class="smaller-profile-pic" v-bind:src="imageSrc" alt="">
-                &nbsp;
-                <p>{{$store.state.profile.userProfileHandle}}</p>
-                <img src="../assets/iconmonstrHorizontalMenuIcon.png" alt="Add Image" class="logout-div-menu-icon">
+            <!-- Logout Component (bottom left) -->
+            <div class="logout-component">
+                <logout-component />
             </div>
 
             <!-- Posts are here -->
@@ -160,10 +157,11 @@ import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
 import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
 import PostComments from '../components/PostComponents/PostComments.vue';
+import LogoutComponent from '../components/LogoutComponent.vue';
 
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments, LogoutComponent },
     data() {
         let home = true;
         let profile = false;
@@ -438,43 +436,15 @@ export default {
     border: solid 2px black;
     align-content: left;
 }
-.smaller-profile-pic {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-top: 7%;
-    margin-left: 1%;
-    border: solid 1px black;
-    align-content: left;
-}
 
 
 /* __________________
     Logout Div
 */
-.logout-div {
+.logout-component {
     grid-area: left-panel;
     position: fixed;
-    bottom: 0%;
-    margin-left: 12%;
-    display: flex;
-    padding: 3px;
 }
-.logout-div:hover {
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(182, 182, 182, 0.281);
-    width: fit-content;
-    cursor: pointer;
-}
-.logout-div-menu-icon {
-    width: 35px;
-    height: 35px;
-    align-self: center;
-}
-
 
 /* ____________________________
     Center Header Menu Button 

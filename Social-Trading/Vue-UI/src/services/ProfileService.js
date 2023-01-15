@@ -97,6 +97,14 @@ const http = axios.create({
             });
     }
 
+    async function getProfileStats(message) {
+        return http.post('/users/social-stats', message)
+                .then(response => {
+                    console.log("RESPONSE DATA " + JSON.stringify(response.data))
+                    return response.data
+                });
+    }
+
 
 
 export {
@@ -107,5 +115,6 @@ export {
     getSocialPersona,
     createProfile,
     getProfileData,
-    createSocialPersona
+    createSocialPersona,
+    getProfileStats
 }

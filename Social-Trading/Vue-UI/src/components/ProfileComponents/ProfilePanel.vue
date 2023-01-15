@@ -92,7 +92,9 @@
 import store from '../../store/index'
 import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
 import { updateProfile } from '../../services/ProfileService'
-import { getFollowers } from '../../services/SocialService'
+import { getProfileStats } from '../../services/ProfileService'
+
+
 
 export default {
   components: { UploadImagePanel },
@@ -152,22 +154,18 @@ export default {
         this.profileData.name = store.state.profile.name
 
 
+        // On Created we will retrieve the follower / following data that relates to the target profile.
         let myNodeId = store.state.profile.nodeId
 
-        let message = {
+        let thisMessage = {
             originSocialPersonaId: myNodeId,
             targetSocialPersonaId: myNodeId
         }
-
-        getFollowers(message)
-        .then(response => {
-            let thisResponse = JSON.parse(response.data)
-            let responseData = thisResponse.data
-
-            this.followersCount = Object.keys(responseData.followers).length
-
-            this.followingCount = Object.keys(responseData.following).length
-        });
+        getProfileStats(thisMessage)
+            .then(response => {
+                this.followersCount = response.data.followersCount
+                this.followingCount = response.data.followingCount
+            });
     }
 };
 </script>

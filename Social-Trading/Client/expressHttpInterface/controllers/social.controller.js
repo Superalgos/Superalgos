@@ -12,15 +12,9 @@ const follow = async (req, res) => {
 };
 
 
-const followersAndFollowing = async (req, res) => {
-    const result = await socialService.getProfileFollowersAndFollowing(req.query);
-    res.send(result);
-}
-
 
 
 module.exports = {
     getUsers,
-    follow,
-    followersAndFollowing
+    follow
 };

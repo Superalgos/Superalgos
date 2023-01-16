@@ -144,8 +144,7 @@ export default {
 
           // Then we retrieve the comments for this post.
           let message = {
-                originSocialPersonaId: store.state.profile.nodeId,
-                targetSocialPersonaId: this.originPost.originSocialPersonaId,
+                originSocialPersonaId: this.originPost.originSocialPersonaId,
                 originPostHash: this.originPostHash
             }
             // Then we fetch the comments for this post.

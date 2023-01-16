@@ -26,6 +26,11 @@
                 "language": "TR",
                 "text": "Bu eğitim, Ticaret Botu (Trading Bot) tarafından grafiklerde kullanılan katmanlar, özellikle de tüm Ticaret Oturumları ile ilişkili katmanlar konusunda size yol gösterir. BTC-USDT - Weak-Hands-Buster - WHB ticaret sisteminin geriye dönük testini yapacak ve katmanları nasıl kullanacağınızı öğrenirken bazı işlemleri keşfedeceksiniz.",
                 "updated": 1641717431841
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini memandu kamu melalui layers atau lapisan yang disediakan oleh Trading Bot pada chart, khususnya layers yang terkait dengan semua jenis Trading Sessions. Kamu akan menjalankan backtest dari BTC-USDT - Weak-hands Buster - WHB trading system dan menjelajahi beberapa trade sambil mempelajari cara menggunakan layers.",
+                "updated": 1673827027110
             }
         ]
     },

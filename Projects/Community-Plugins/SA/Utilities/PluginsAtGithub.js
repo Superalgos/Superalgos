@@ -24,7 +24,9 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
         async function promiseWork(resolve, reject) {
 
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: token,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -83,7 +85,8 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                     title: "Profile Update from Social Trading App",
                     head: owner + ":" + branch,
                     base: branch,
-                  });
+                  })
+                .then(response => SA.logger.info('Pull Request #' + response.data.number +' created'))
                 resolve()
             }
 

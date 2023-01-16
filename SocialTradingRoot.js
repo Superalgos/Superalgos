@@ -59,6 +59,7 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
             open: require('open'),
             http: require('http'),
             octokit: require("@octokit/rest"),
+            retry: require('@octokit/plugin-retry'),
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch'),
             graphql: require("@octokit/graphql"),

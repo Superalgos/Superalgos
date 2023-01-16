@@ -11,8 +11,9 @@
                     <p>Home</p>
                 </div>
 
+
                 <!-- New Post Image & Text Input -->
-                <div class="new-post-div">
+                <div class="new-post-div" v-if="!$store.state.showPostComments">
                     <!-- Profile Picture -->
                     <div>
                         <img class="small-profile-pic" v-bind:src="imageSrc" alt="">
@@ -22,8 +23,24 @@
                     </div>
                 </div>
 
+                <!-- Selected Users Profile Header -->
+                <div class="new-post-div" v-if="$store.state.showPostComments" >
+                    <!-- Banner Image -->
+                    <div id="header-profile-data-div" v-if="$store.state.headerProfileData !== undefined" :style="`background-image: url(${usersBannerImageSrc});`"  >
+                        <!-- Profile Picture / Name -->
+                        <div id="image-name-header-data" >
+                            <img class="small-profile-pic" v-bind:src="usersImageSrc" alt="">
+                            <p id="header-profile-data-name">{{$store.state.headerProfileData.name}}</p>
+                        </div>
+                        <!-- Profile Bio -->
+                        <div id="header-data-bio-div">
+                            <p>{{$store.state.headerProfileData.bio}}</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- New Post Button Bar -->
-                <div class="post-btn-bar">
+                <div class="post-btn-bar" v-if="!$store.state.showPostComments">
                     <!-- Add to post Icons -->
                     <div id="add-to-post-icons">
                         <img src="../assets/iconmonstrImageIcon.png" alt="Add Image" class="button-bar-icon" v-on:click="toggleUploadImage">
@@ -98,18 +115,15 @@
             </div>
         </div>
 
-            <!-- Logout Div (bottom left) -->
-            <div class="logout-div">
-                <img class="smaller-profile-pic" v-bind:src="imageSrc" alt="">
-                &nbsp;
-                <p>{{$store.state.profile.userProfileHandle}}</p>
-                <img src="../assets/iconmonstrHorizontalMenuIcon.png" alt="Add Image" class="logout-div-menu-icon">
+            <!-- Logout Component (bottom left) -->
+            <div class="logout-component">
+                <logout-component />
             </div>
 
             <!-- Posts are here -->
             <div id="home-view-main" 
                     class="social-main-view content-container" 
-                    v-if="this.nav[0] == true"
+                    v-if="!showPostComments"
                 >
                     <!-- Post-List Component -->
                     <div id="post-list-container">
@@ -119,6 +133,13 @@
                     <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
             </div>
 
+            <!-- Post Comments replace Post list here -->
+            <div id="post-comments-main-view" class="social-main-view content-container" 
+                    v-if="showPostComments">
+                    <post-comments :postData="postData" />
+            </div>
+
+
             <!-- Follow Panel -->
             <div>
                 <follow-panel />
@@ -127,6 +148,11 @@
             <div>
                 <upload-image-panel />
             </div>
+
+            <!-- Other Users Profiles -->
+            <div id="users-profile-panel-div-show" v-if="showThisUsersProfile" >
+                    <users-profile-panel />
+                </div>
             
 
         </div>
@@ -145,15 +171,20 @@ import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
 import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
 import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
+import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
+import PostComments from '../components/PostComponents/PostComments.vue';
+import LogoutComponent from '../components/LogoutComponent.vue';
+
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel  },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments, LogoutComponent },
     data() {
         let home = true;
         let profile = false;
         let wallet = false;
         let settings = false;
         let postBody = "";
+        let postData = undefined;
         return {
             nav: [
                 home = true,
@@ -162,6 +193,7 @@ export default {
                 settings = false
             ],
             postBody: '',
+            postData: undefined
         }
     },
     methods: {
@@ -193,7 +225,8 @@ export default {
             window.scrollTo(window.innerHeight, 0);
         },
         openFeed() {
-            getFeed()
+            getFeed();
+            store.commit("SHOW_POSTS_COMMENTS", false);
         },
         showEmojiPicker() {
             let isDisplayed = store.state.showEmojiPicker;
@@ -228,7 +261,7 @@ export default {
             let el = this.$refs.editableDiv;
             el.focus();
             console.log("Adding IMAGE")
-            let html = `<img src="${store.state.postImage}"/>`;
+            let html = `<img src="${store.state.postImage}" style="max-width: 100%; max-height: 500px display: block; margin:auto" class="post-message" />`;
             let range = document.createRange();
             range.selectNodeContents(el);
             range.collapse(false);
@@ -238,7 +271,7 @@ export default {
     // Live values returned from computed functions.
     computed: {
         imageSrc() {
-            return store.state.profile.profileImg;
+            return store.state.profile.profilePic;
         },
         showProfileComponent() {
             return store.state.showProfile
@@ -269,7 +302,19 @@ export default {
             if(store.state.postImage !== undefined) {
                 this.addImage()
             }
-            return store.state.postImage
+            return store.state.postImage;
+        },
+        showThisUsersProfile() {
+            return store.state.showUsersProfile;
+        },
+        showPostComments() {
+            return store.state.showPostComments;
+        },
+        usersImageSrc() {
+            return store.state.headerProfileData.profilePic;
+        },
+        usersBannerImageSrc() {
+            return store.state.headerProfileData.bannerPic;
         }
     },
     // The below are used to keep things updated. 
@@ -279,14 +324,18 @@ export default {
         getPostImage(newValue, oldValue) {},
 
         getPostBody(newValue, oldValue) {
-        let postText = document.getElementById('new-post-input')
-        if (store.state.postImage !== undefined) {
+            let postText = document.getElementById('new-post-input')
+            if (store.state.postImage !== undefined) {
             this.updatePostBody()
-        } else {
-            postText.innerText = this.postBody
-        }
+            } else {
+                postText.innerText = this.postBody
+            }
         
-    }
+        },
+
+        showPostComments(newValue, oldValue) {
+            this.postData = store.state.postCommentProps
+        }
   }
 
 }
@@ -312,8 +361,6 @@ export default {
  */
 #menu-tab-social-trading {
     grid-area: left-panel;
-    
-
     margin-top: 10%;
     justify-self: right;
     margin-right: 5%;
@@ -355,12 +402,11 @@ export default {
     margin-top: 8px;
     justify-content: left;
     align-items: center;
-
     height: 50px;
     width: 100%;
 }
 .logo {
-        height: 60px;
+    height: 60px;
     }
 
 
@@ -383,13 +429,13 @@ export default {
     display: flex;
     flex-direction: row;
     margin-top: 10%;
-    margin-left: 1%;
     align-items: flex-end;
+    width: 100%;
 }
 #new-post-input {
     border: solid 2px black;
     margin-top: 1%;
-    margin-left: 1%;
+    margin-left: 2%;
     font-size: 18px;
     width: 85%;
     max-width: 750px;
@@ -407,17 +453,8 @@ export default {
     height: 5vw;
     border-radius: 100%;
     margin-top: 9%;
-    margin-left: 1%;
+    margin: 10% 0% 0% 10%;
     border: solid 2px black;
-    align-content: left;
-}
-.smaller-profile-pic {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-top: 7%;
-    margin-left: 1%;
-    border: solid 1px black;
     align-content: left;
 }
 
@@ -425,29 +462,10 @@ export default {
 /* __________________
     Logout Div
 */
-.logout-div {
+.logout-component {
     grid-area: left-panel;
     position: fixed;
-    bottom: 0%;
-    margin-left: 12%;
-    display: flex;
-    padding: 3px;
 }
-.logout-div:hover {
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(182, 182, 182, 0.281);
-    width: fit-content;
-    cursor: pointer;
-}
-.logout-div-menu-icon {
-    width: 35px;
-    height: 35px;
-    align-self: center;
-}
-
 
 /* ____________________________
     Center Header Menu Button 
@@ -472,7 +490,7 @@ export default {
     display: flex;
     border-top: solid 1px black;
     border-bottom: solid 1px black;
-    margin-top: 1%;
+    margin-top: 0%;
     padding: 5px;
     padding-right: 3%;
     justify-content: space-between;
@@ -490,6 +508,30 @@ export default {
 #add-to-post-icons {
     margin-left: 5%;
     display: flex;
+}
+
+
+
+#header-profile-data-div {
+    display: flex;
+    width: 100%;
+}
+
+#image-name-header-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1vw;
+}
+
+#header-profile-data-name {
+    margin-left: 10%;
+}
+
+#header-data-bio-div {
+    display: flex;
+    align-self: center;
 }
 
 </style>

@@ -183,6 +183,48 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         }
                         break
                     }
+                    case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS: {
+
+                        let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+
+                        let responseArray = []
+
+                        // Stepping through all user profiles in network nodes memory
+                        for (let i = 0; i < userProfiles.length; i++) {
+                            let thisProfile = userProfiles[i];
+                            // If the account has social personas we have more to do.
+                            if (thisProfile[1].socialPersonas !== undefined) {
+
+                                let govAccountSocialPersonas = thisProfile[1].socialPersonas.socialPersonas
+
+                                // Here we loop through all different personas at this governance profile.
+                                for (let j = 0; j < govAccountSocialPersonas.length; j++) {
+                                    let thisPersona = govAccountSocialPersonas[j];
+
+                                    // We set the profileMessage to gather data from GitHub storage.
+                                    let profileMessage = {
+                                        originSocialPersonaId: thisPersona.id
+                                    }
+
+                                    // Retrieve data from GitHub Storage.
+                                    let response = await SA.projects.socialTrading.functionLibraries.userProfile.getUserProfileInfo(profileMessage);
+
+                                    if(response.result === "Ok") {
+                                        responseArray.push(response)
+                                    } else {
+                                        console.log("ERROR encountered fetching profile data from GitHub storage.")
+                                    }
+                                }
+                            }
+                        }
+                        // We prepare the response to send back to the client.
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: responseArray
+                        }
+                        break;
+                    }
                     default: {
                         /*
                         In general, all Queries go to the P2P Network to fetch information from the Social Graph. 

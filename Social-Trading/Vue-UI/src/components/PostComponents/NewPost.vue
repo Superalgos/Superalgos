@@ -29,7 +29,7 @@
 
 <script>
 
-import { createPost } from '../../services/PostService'
+// import { createPost } from '../../services/PostService'
 import store from '../../store/index'
 
 export default {
@@ -46,7 +46,7 @@ export default {
                 postText: this.postBody,
                 postImage: store.state.postImage
             }
-            createPost(message)
+            // createPost(message)
 
         }
     },

@@ -495,7 +495,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             name: 'Social Trading Desktop App #1',
                             project: 'User-Apps',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}}',
+                            config: '{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}',
                         }
                         userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
                         targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length

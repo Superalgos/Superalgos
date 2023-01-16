@@ -314,9 +314,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             in one minute batched files.
             */
             let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-            let lastLastMinute = lastMinute - 1
-            let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-            let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
             let eventsToSaveByTimestamp = []
     
             return new Promise(promiseWork)
@@ -362,7 +359,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                 function saveEventsFile(eventsToSaveByTimestamp) {
 
-                    for (let timestamp in eventsToSaveByTimestamp) {
+                    for (let timestamp of eventsToSaveByTimestamp) {
                         let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(Number(timestamp))
                         let eventsToSave = eventsToSaveByTimestamp[timestamp]
                         const fileContent = JSON.stringify(eventsToSave, undefined, 4)
@@ -437,6 +434,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             }
         }
 
+        // This function will be depricated upon addition of openstorage client functions
         async function doGit() {
             console.log("doGit!!")
             if (gitCommandRunning === true) {

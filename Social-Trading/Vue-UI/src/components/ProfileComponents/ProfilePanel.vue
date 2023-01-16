@@ -25,6 +25,7 @@
                                 <p class="count">{{followingCount}}</p>
                             </div>
                         </div>
+                        <!-- Update Profile Button -->
                         <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
                     </div>
                     <!-- Body Main -->
@@ -54,6 +55,8 @@
                     <input type="button" value="Set Profile Image" v-on:click="addProfileImage">
                     <!-- Set Profile Banner Button -->
                     <input type="button" value="Set Banner Image" v-on:click="addBannerImage">
+                    <!-- Update GitHub Info Button -->
+                    <input type="button" value="Update GitHub Info" v-on:click="updateGithubInfo ? updateGithubInfo = false : updateGithubInfo = true ">
                     <!-- Update Profile Button -->
                     <div id="update-profile-btn-div">
                         <input class="update-profile-btn" type="button" value="Update Profile" v-on:click="sendProfileUpdate">
@@ -61,26 +64,41 @@
                 </div>
                 <!-- Body Main -->
                 <div class="profile-main-body">
-                    <!-- Name input / label -->
-                    <div class="update-profile-option">
-                        <label class="update-profile-labels" for="name">Name: </label>
-                        <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
-                    </div>
-                    <!-- Bio input / label -->
-                    <div class="update-profile-option">
-                        <label class="update-profile-labels" for="bio">Bio: </label>
-                        <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
-                    </div>  
                     
+                        <!-- GitHub Info -->
+                        <div id="github-info-main-div" v-if="updateGithubInfo">
+                            <div id="github-info-div" >
+                                <div id="github-info-username-div" >
+                                    <label id="github-info-username-label" for="githubUsername">GitHub Username:</label>
+                                    <input type="text" name="githubUsername" id="github-info-username-input" v-model="githubUsername">
+                                </div>
+                                <div id="github-info-token-div">
+                                    <label id="github-info-token-label" for="githubToken">GitHub Token:</label>
+                                    <input type="text" name="githubToken" id="github-info-token-input" size="40" v-model="githubToken">
+                                </div>
+                                <div id="github-update-button-div">
+                                    <input id="github-update-button" type="button" value="Update Info" v-on:click="updateGithubProfile">
+                                </div>
+                                <p class="center small">Please allow 5 minutes for update.</p>
+                            </div>
+                        </div>
+                        <div id="update-profile-info-div" v-if="!updateGithubInfo">
+                            <!-- Name input / label -->
+                            <div class="update-profile-option">
+                                <label class="update-profile-labels" for="name">Name: </label>
+                                <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
+                            </div>
+                            <!-- Bio input / label -->
+                            <div class="update-profile-option">
+                                <label class="update-profile-labels" for="bio">Bio: </label>
+                                <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
+                            </div>  
+                        </div>
                 </div>
-
-                    
                     <!-- Image Uploader -->
                     <div>
                         <upload-image-panel />
                     </div>
-                    
-
                 </div>
             </div>
             </div>
@@ -92,7 +110,7 @@
 import store from '../../store/index'
 import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
 import { updateProfile } from '../../services/ProfileService'
-import { getProfileStats } from '../../services/ProfileService'
+import { getProfileStats, createProfile } from '../../services/ProfileService'
 
 
 
@@ -102,13 +120,16 @@ export default {
     data() {
     return {
         updateProfilePanel: false,
+        updateGithubInfo: false,
         setProfileImage: false,
         followersCount: 0,
         followingCount: 0,
         profileData: {
             name: '',
             bio: ''
-        }
+        },
+        githubUsername: undefined,
+        githubToken: undefined
         };
     },
     methods: {
@@ -134,6 +155,9 @@ export default {
             .then(response => {
                 console.log(response.data)
             })
+        },
+        updateGithubProfile() {
+            alert("TODO: Add endpoint to update token.")
         }
     },
     computed: {
@@ -250,7 +274,7 @@ export default {
 .profile-main-body {
     grid-area: profile-body;
     width: 100%;
-    height: 68.5vh;
+    height: 100%;
     border-left: solid 1px rgba(0, 0, 0, 0.233);
     border-bottom-right-radius: 20px;
 }
@@ -325,6 +349,68 @@ export default {
     width: 100%;
     height: 100%;
     
+}
+
+
+/* GitHub User Info Input */
+#github-info-main-div {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+#github-info-div {
+    border: solid 2px black;
+    border-radius: 18px;
+    width: fit-content;
+    margin: auto;
+    padding: 2%;
+}
+#github-info-username-div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    'username-label username-input'
+}
+#github-info-username-label {
+    grid-area: username-label;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+#github-info-username-input {
+    grid-area: username-input;
+}
+#github-info-token-div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    'token-label token-input';
+    margin-top: 1%;
+}
+
+
+#github-info-token-label {
+    grid-area: token-label;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+#github-info-token-input {
+    grid-area: token-input;
+}
+#github-update-button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+#github-update-button {
+    font-size: 25px;
+}
+
+.small {
+    font-size: 15px;
 }
 
 </style>

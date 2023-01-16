@@ -14,6 +14,7 @@ export default createStore({
     postCommentProps: undefined,
     postComments: undefined,
     selectedEmoji: undefined,
+    addProfileBanner: false,
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
@@ -23,6 +24,7 @@ export default createStore({
       profilePic: ''
     },
     usersProfileToOpen: undefined,
+    headerProfileData: undefined,
     postImage: undefined,
     users: undefined,
     posts: [],
@@ -47,6 +49,7 @@ export default createStore({
       state.profile.userProfileHandle = data.userProfileHandle
       state.profile.userProfileId = data.userProfileId
       state.profile.profilePic = data.profilePic
+      state.profile.bannerPic = data.bannerPic
     },
     SHOW_CREATE_PROFILE(state, show) {
       state.showCreateProfile = show;
@@ -79,7 +82,7 @@ export default createStore({
       state.postImage = image;
     },
     SET_USER_ARRAY(state, userArray) {
-      state.users = userArray
+      state.users = userArray;
     },
     OPEN_USERS_PROFILE(state) {
       state.showUsersProfile = true;
@@ -106,6 +109,15 @@ export default createStore({
     },
     SET_POST_COMMENTS_ARRAY(state, comments) {
       state.postComments = comments;
+    },
+    SET_HEADER_PROFILE_DATA(state, profileData) {
+      state.headerProfileData = profileData;
+    },
+    SET_ADD_PROFILE_BANNER(state, show) {
+      state.addProfileBanner = show;
+    },
+    ADD_PROFILE_BANNER(state, image) {
+      state.profile.bannerPic = image;
     }
   },
   actions: {

@@ -7,6 +7,7 @@ const getSocialPersonaId = async (req, res) => {
         response.blockchainAccount = socialPersona.blockchainAccount;
         response.userProfileId = socialPersona.userProfileId;
         response.userProfileHandle = socialPersona.userProfileHandle;
+        response.bannerPic = socialPersona.bannerPic;
     } catch (error) {
         console.log(error);
         response = {error: "Could not fetch Social Persona"}
@@ -90,11 +91,12 @@ const loadProfileData = async (message, res) => {
         const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        console.log(result)
+
+        let resultData = JSON.parse(result)
 
         let response = {}
-        response.data = result.profileData;
-        response.result = result.result;
+        response.data = resultData.profileData;
+        response.result = resultData.result;
 
         return response
 

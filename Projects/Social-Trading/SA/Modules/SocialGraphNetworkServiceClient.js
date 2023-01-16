@@ -225,33 +225,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         }
                         break;
                     }
-                    case SA.projects.socialTrading.globals.queryTypes.FOLLOWERS: {
-                        // TODO rename to updated endpoint funtion.
-                        // This endpoint now returns both the followers and following list for the targetSocialPersonaId given.
-
-                        let messageData = JSON.parse(messageHeader.queryMessage)
-
-                        // We get the target users socialPersona data from memory.
-                        let targetProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(messageData.targetSocialPersonaId)
-
-
-                        let responseMessage = {
-                            followers: targetProfile.followers,
-                            following: targetProfile.following
-                        }
-
-
-                        // We prepare the response to send back to the client.
-                        response = {
-                            result: 'Ok',
-                            message: 'Web App Interface Query Processed.',
-                            data: responseMessage
-                        }
-
-                        break
-                    }
                     default: {
-                        console.log("INSIDE THE DEFAULT!")
                         /*
                         In general, all Queries go to the P2P Network to fetch information from the Social Graph. 
                         Though, there are a few exceptions.

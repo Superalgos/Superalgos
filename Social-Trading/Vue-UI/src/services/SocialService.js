@@ -21,15 +21,8 @@ const http = axios.create({
 
 
 
-    // Get Followers and following users for the target profile.
-    async function getFollowers(message) {
-        return http.get('/social/followers-following', {params: message})
-        .then(response => {
-            return response.data
-        });
-    }
-
     // Returns all users with social personas and saved there profile data in the store as an array of users.
+    // This is where we get our own user profile data along with everyone elses.
     async function getAllUsers(socialPersonaId) {
         let userArray = []
         return http.get('/social/all-users', {params: socialPersonaId}).then(response => {
@@ -46,7 +39,8 @@ const http = axios.create({
                 if(thisProfileData.originSocialPersonaId === store.state.profile.nodeId) {
                     store.commit("UPDATE_NAME", thisProfileData.name);
                     store.commit("UPDATE_BIO", thisProfileData.bio);
-                    store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic)
+                    store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic),
+                    store.commit("ADD_PROFILE_BANNER", thisProfileData.bannerPic)
                 }
 
                 // We check to see if the profile has a profile picture set and if not set a default.
@@ -63,6 +57,5 @@ const http = axios.create({
 
 export {
     getAllUsers,
-    followUser,
-    getFollowers
+    followUser
 }

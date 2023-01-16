@@ -24,7 +24,7 @@
         <div class="">
           <div id="" class="post-footer">
             <!-- Comment Post Button -->
-            <p class="post-comments-button"       v-on:click="openPostComments">
+            <p class="post-comments-button"       v-on:click="openPostComments" v-if="!$store.state.showPostComments">
               <img src="../../assets/iconmonstrCommentIcon.png" alt="Comment" class="post-footer-buttons">
               &nbsp;&nbsp;  <strong> {{commentCount}} </strong>
             </p>
@@ -89,6 +89,7 @@
 <script>
 import store from '../../store/index'
 import { reactedPost, getReplies } from '../../services/PostService'
+import { getProfileData } from '../../services/ProfileService'
 
 export default {
   components: { },
@@ -143,8 +144,7 @@ export default {
 
           // Then we retrieve the comments for this post.
           let message = {
-                originSocialPersonaId: store.state.profile.nodeId,
-                targetSocialPersonaId: this.originPost.originSocialPersonaId,
+                originSocialPersonaId: this.originPost.originSocialPersonaId,
                 originPostHash: this.originPostHash
             }
             // Then we fetch the comments for this post.
@@ -153,13 +153,22 @@ export default {
                 let responseData =  response.data.data
                 let postComments = [];
                 // We loop through all comments and add them to an array to pass to the commentList component.
-                if (responseData.length !== undefined) {
-                  for(let i = 0; i < responseData.length; i++) {
-                    postComments.unshift(responseData[i])
+                if (responseData !== undefined) {
+                  if (responseData.length !== undefined) {
+                    for(let i = 0; i < responseData.length; i++) {
+                      postComments.unshift(responseData[i])
+                    }
                   }
-                }
-                // We send the postComments array to the store for use in a different component.
-                store.commit("SET_POST_COMMENTS_ARRAY", postComments);
+                  // We send the postComments array to the store for use in a different component.
+                  store.commit("SET_POST_COMMENTS_ARRAY", postComments);
+                  }
+                  // Finally we need to load the user profile that created the post.
+                  getProfileData(message)
+                    .then(dataResponse => {
+                    
+                    let headerProfileData = dataResponse.data
+                    store.commit("SET_HEADER_PROFILE_DATA", headerProfileData)
+                  });
               });
         },
         likeThisPost() {

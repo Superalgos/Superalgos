@@ -11,9 +11,5 @@ router
     .route('/follow')
     .post(socialController.follow);
 
-router
-    .route('/followers-following')
-    .get(socialController.followersAndFollowing)
-
 
 module.exports = router;

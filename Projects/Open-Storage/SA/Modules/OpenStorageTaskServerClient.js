@@ -1,4 +1,4 @@
-exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesOpenStorageClient() {
+exports.newOpenStorageModulesOpenStorageTaskServerClient = function newOpenStorageModulesOpenStorageTaskServerClient() {
     /*
     This module receives a file to save, and it knows which are
     the available storages for the social trading bot currently running.
@@ -11,8 +11,8 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     where the file is localted. 
     */
     let thisObject = {
-        persit: persit,
-        loadFile: loadFile,
+        persistSignal: persistSignal,
+        loadSignalFile: loadSignalFile,
         initialize: initialize,
         finalize: finalize
     }
@@ -46,7 +46,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         saveIntervalId = setInterval(saveMultipleFiles, 1000)
     }
 
-    function persit(candleSignals, socialTradingBot) {
+    function persistSignal(candleSignals, socialTradingBot) {
 
         let candlesSignalsToSave = candlesSignalsMap.get(socialTradingBot.id)
         if (candlesSignalsToSave === undefined) {
@@ -60,7 +60,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
     }
 
-    async function loadFile(fileKey) {
+    async function loadSignalFile(fileKey) {
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {

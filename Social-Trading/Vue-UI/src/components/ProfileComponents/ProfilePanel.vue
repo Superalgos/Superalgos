@@ -25,6 +25,7 @@
                                 <p class="count">{{followingCount}}</p>
                             </div>
                         </div>
+                        <!-- Update Profile Button -->
                         <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
                     </div>
                     <!-- Body Main -->
@@ -54,6 +55,8 @@
                     <input type="button" value="Set Profile Image" v-on:click="addProfileImage">
                     <!-- Set Profile Banner Button -->
                     <input type="button" value="Set Banner Image" v-on:click="addBannerImage">
+                    <!-- Update GitHub Info Button -->
+                    <input type="button" value="Update GitHub Info" v-on:click="updateGithubInfo ? updateGithubInfo = false : updateGithubInfo = true ">
                     <!-- Update Profile Button -->
                     <div id="update-profile-btn-div">
                         <input class="update-profile-btn" type="button" value="Update Profile" v-on:click="sendProfileUpdate">
@@ -61,26 +64,19 @@
                 </div>
                 <!-- Body Main -->
                 <div class="profile-main-body">
-                    <!-- Name input / label -->
-                    <div class="update-profile-option">
-                        <label class="update-profile-labels" for="name">Name: </label>
-                        <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
+                    <!-- GitHub Info -->
+                    <div id="github-info-main-div" v-if="updateGithubInfo">
+                        <github-info-component />
                     </div>
-                    <!-- Bio input / label -->
-                    <div class="update-profile-option">
-                        <label class="update-profile-labels" for="bio">Bio: </label>
-                        <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
-                    </div>  
-                    
+                    <!-- Update Profile Component -->
+                    <div id="update-profile-info-div" v-if="!updateGithubInfo">
+                        <update-profile-component />
+                    </div>
                 </div>
-
-                    
                     <!-- Image Uploader -->
                     <div>
                         <upload-image-panel />
                     </div>
-                    
-
                 </div>
             </div>
             </div>
@@ -91,24 +87,22 @@
 <script>
 import store from '../../store/index'
 import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
-import { updateProfile } from '../../services/ProfileService'
 import { getProfileStats } from '../../services/ProfileService'
+import GithubInfoComponent from './GithubInfoComponent.vue';
+import UpdateProfileComponent from './UpdateProfileComponent.vue';
 
 
 
 export default {
-  components: { UploadImagePanel },
+  components: { UploadImagePanel, GithubInfoComponent, UpdateProfileComponent },
     name: 'profile-panel',
     data() {
     return {
         updateProfilePanel: false,
+        updateGithubInfo: false,
         setProfileImage: false,
         followersCount: 0,
-        followingCount: 0,
-        profileData: {
-            name: '',
-            bio: ''
-        }
+        followingCount: 0
         };
     },
     methods: {
@@ -126,14 +120,7 @@ export default {
 
         },
         sendProfileUpdate() {
-            let message = this.profileData;
-            message.profilePic = this.imageSrc;
-            message.originSocialPersonaId = store.state.profile.nodeId;
-            message.bannerPic = this.bannerImageSrc;
-            updateProfile(JSON.stringify(message))
-            .then(response => {
-                console.log(response.data)
-            })
+            store.commit("UPDATING_PROFILE", true);
         }
     },
     computed: {
@@ -150,10 +137,6 @@ export default {
         }
     },
     created() {
-        this.profileData.bio = store.state.profile.bio
-        this.profileData.name = store.state.profile.name
-
-
         // On Created we will retrieve the follower / following data that relates to the target profile.
         let myNodeId = store.state.profile.nodeId
 
@@ -250,7 +233,7 @@ export default {
 .profile-main-body {
     grid-area: profile-body;
     width: 100%;
-    height: 68.5vh;
+    height: 100%;
     border-left: solid 1px rgba(0, 0, 0, 0.233);
     border-bottom-right-radius: 20px;
 }
@@ -293,17 +276,6 @@ export default {
     margin-left: 5px;
 }
 
-/* Update Profile */
-
-.update-profile-option {
-    display: flex;
-    margin: 2%;
-}
-
-.update-profile-labels {
-    font-weight: 600;
-}
-
 
 /* Profile Body Left Area */
 .update-profile-btn {
@@ -326,5 +298,4 @@ export default {
     height: 100%;
     
 }
-
 </style>

@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    /* Visibility Toggles */
     showCreateProfile: false,
     showProfile: false,
     showWallet: false,
@@ -11,25 +12,30 @@ export default createStore({
     showEmojiPicker: false,
     showUsersProfile: false,
     showPostComments: false,
-    postCommentProps: undefined,
-    postComments: undefined,
-    selectedEmoji: undefined,
+
+    /* Task Triggers */
+    updatingProfile: false,
     addProfileBanner: false,
+
+    /* Data Storage */
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profilePic: ''
+      profilePic: '',
+      bannerPic: ''
     },
+    postCommentProps: undefined,
+    postComments: undefined,
+    selectedEmoji: undefined,
     usersProfileToOpen: undefined,
     headerProfileData: undefined,
     postImage: undefined,
     users: undefined,
     posts: [],
     followers: [],
-    
     following: []
   },
   getters: {
@@ -39,18 +45,7 @@ export default createStore({
     }
   },
   mutations: {
-    ADD_POST(state, post) {
-      state.posts = post
-    },
-    ADD_PROFILE(state, data) {
-      state.profile.blockchainAccount = data.blockchainAccount
-      state.profile.nodeCodeName = data.nodeCodeName
-      state.profile.nodeId = data.nodeId
-      state.profile.userProfileHandle = data.userProfileHandle
-      state.profile.userProfileId = data.userProfileId
-      state.profile.profilePic = data.profilePic
-      state.profile.bannerPic = data.bannerPic
-    },
+    /* Visibility Toggles */
     SHOW_CREATE_PROFILE(state, show) {
       state.showCreateProfile = show;
     },
@@ -72,6 +67,32 @@ export default createStore({
     SHOW_POSTS_COMMENTS(state, show) {
       state.showPostComments = show;
     },
+    OPEN_USERS_PROFILE(state) {
+      state.showUsersProfile = true;
+    },
+    CLOSE_USERS_PROFILE(state) {
+      state.showUsersProfile = false;
+    },
+    /* Task Triggers */
+    UPDATING_PROFILE(state, show) {
+      state.updatingProfile = show;
+    },
+    ADD_PROFILE_BANNER(state, image) {
+      state.profile.bannerPic = image;
+    },
+    /* Data Storage */
+    ADD_POST(state, post) {
+      state.posts = post
+    },
+    ADD_PROFILE(state, data) {
+      state.profile.blockchainAccount = data.blockchainAccount
+      state.profile.nodeCodeName = data.nodeCodeName
+      state.profile.nodeId = data.nodeId
+      state.profile.userProfileHandle = data.userProfileHandle
+      state.profile.userProfileId = data.userProfileId
+      state.profile.profilePic = data.profilePic
+      state.profile.bannerPic = data.bannerPic
+    },
     SET_SELECTED_EMOJI(state, emoji) {
       state.selectedEmoji = emoji;
     },
@@ -83,12 +104,6 @@ export default createStore({
     },
     SET_USER_ARRAY(state, userArray) {
       state.users = userArray;
-    },
-    OPEN_USERS_PROFILE(state) {
-      state.showUsersProfile = true;
-    },
-    CLOSE_USERS_PROFILE(state) {
-      state.showUsersProfile = false;
     },
     SET_USERS_PROFILE_TO_OPEN(state, profile) {
       state.usersProfileToOpen = profile;
@@ -116,9 +131,7 @@ export default createStore({
     SET_ADD_PROFILE_BANNER(state, show) {
       state.addProfileBanner = show;
     },
-    ADD_PROFILE_BANNER(state, image) {
-      state.profile.bannerPic = image;
-    }
+    
   },
   actions: {
   },

@@ -1,17 +1,13 @@
 <template>
-
-        <div id="social-app-base-div">
-            <div class="background-image-social-trading">
-        <div id="social-app-div" class="social-app-grid ">
-        
-            <!-- New Post Area (TOP-MIDDLE) -->
-            <div class="new-post-div-flex">
-                <!-- Fixed top menu button -->
-                <div id="header-home-btn-div" v-on:click="scrollUp" >
-                    <p>Home</p>
-                </div>
-
-
+    <div id="social-app-base-div">
+        <div class="background-image-social-trading">
+            <div id="social-app-div" class="social-app-grid ">
+                <!-- New Post Area (TOP-MIDDLE) -->
+                <div class="new-post-div-flex">
+                    <!-- Fixed top menu button -->
+                    <div id="header-home-btn-div" v-on:click="scrollUp" >
+                        <p>Home</p>
+                    </div>
                 <!-- New Post Image & Text Input -->
                 <div class="new-post-div" v-if="!$store.state.showPostComments">
                     <!-- Profile Picture -->
@@ -22,10 +18,9 @@
                     <div ref="editableDiv" name="new-post-input" id="new-post-input" placeholder="What's happening?" @input="updatePostBody" @change="getPostBody" contentEditable="true" >
                     </div>
                 </div>
-
                 <!-- Selected Users Profile Header -->
                 <div class="new-post-div" v-if="$store.state.showPostComments" >
-<!-- TODO BREAK TO SMALLER COMPONENT -->
+                    <!-- TODO BREAK TO SMALLER COMPONENT -->
                     <!-- Banner Image -->
                     <div id="header-profile-data-div" v-if="$store.state.headerProfileData !== undefined" :style="`background-image: url(${usersBannerImageSrc});`"  >
                         <!-- Profile Picture / Name -->
@@ -39,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-<!-- TODO BREAK TO SMALLER COMPONENT -->
+                <!-- TODO BREAK TO SMALLER COMPONENT -->
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar" v-if="!$store.state.showPostComments">
                     <!-- Add to post Icons -->
@@ -74,33 +69,23 @@
                     <settings-panel />
                 </div>
             </div>
-
-
             <!-- Logout Component (bottom left) -->
             <div class="logout-component">
                 <logout-component />
             </div>
-
             <!-- Posts are here -->
-            <div id="home-view-main" 
-                    class="social-main-view content-container" 
-                    v-if="!showPostComments"
-                >
-                    <!-- Post-List Component -->
-                    <div id="post-list-container">
-                        <post-list id="post-list" />
-                    </div>
-                    <!-- Temp Refresh Needed Message -->
-                    <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
+            <div id="home-view-main" class="social-main-view content-container" v-if="!showPostComments">
+                <!-- Post-List Component -->
+                <div id="post-list-container">
+                    <post-list id="post-list" />
+                </div>
+                <!-- Temp Refresh Needed Message -->
+                <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
             </div>
-
             <!-- Post Comments replace Post list here -->
-            <div id="post-comments-main-view" class="social-main-view content-container" 
-                    v-if="showPostComments">
-                    <post-comments :postData="postData" />
+            <div id="post-comments-main-view" class="social-main-view content-container" v-if="showPostComments">
+                <post-comments :postData="postData" />
             </div>
-
-
             <!-- Follow Panel -->
             <div>
                 <follow-panel />
@@ -109,13 +94,10 @@
             <div>
                 <upload-image-panel />
             </div>
-
             <!-- Other Users Profiles -->
             <div id="users-profile-panel-div-show" v-if="showThisUsersProfile" >
-                    <users-profile-panel />
-                </div>
-            
-
+                <users-profile-panel />
+            </div>
         </div>
     </div>
 </div>

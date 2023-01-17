@@ -77,8 +77,8 @@ parameters_dataset = read_csv(
     '/tf/notebooks/parameters.csv', 
     sep=' ',
     skipinitialspace=True,
-    error_bad_lines=False,
-    warn_bad_lines=True
+    on_bad_lines='error',
+    on_bad_lines='warn'
 )
 
 parameters_dataset

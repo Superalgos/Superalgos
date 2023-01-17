@@ -25,6 +25,7 @@
 
                 <!-- Selected Users Profile Header -->
                 <div class="new-post-div" v-if="$store.state.showPostComments" >
+<!-- TODO BREAK TO SMALLER COMPONENT -->
                     <!-- Banner Image -->
                     <div id="header-profile-data-div" v-if="$store.state.headerProfileData !== undefined" :style="`background-image: url(${usersBannerImageSrc});`"  >
                         <!-- Profile Picture / Name -->
@@ -38,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-
+<!-- TODO BREAK TO SMALLER COMPONENT -->
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar" v-if="!$store.state.showPostComments">
                     <!-- Add to post Icons -->
@@ -56,64 +57,24 @@
                     </div>
                 </div>
             </div>
-
             <!-- Menu Div -->
             <div id="menu-tab-social-trading">
-                <!-- Menu Header Logo -->
-                <div id="menu-head-logo-div">
-                    <img class="logo" src="../assets/superalgos-logo.png" >
-                </div>
-                <div class="menu-btns-div">
-                <!-- Home Menu Button -->
-                <div class="social-app-home-btn">
-                <p class="menu-btn-text"  
-                        v-on:click="openFeed"
-                        >
-                        <img src="../assets/iconmonstrHomeIcon.png" alt="Home Menu Icon" class="menu-icon">
-                    &nbsp;Home
-                </p>
-                </div>
-                <!-- Profile Menu Button -->
-                <div class="social-app-home-btn">
-                    <p class="menu-btn-text" 
-                            @click="openProfile"
-                            >
-                            <img src="../assets/iconmonstrProfileIcon.png" alt="Profile Menu Icon" class="menu-icon">
-                        &nbsp;Profile
-                    </p>
-                </div>
-                <!-- Profile component -->
+                <!-- Menu Component -->
+                <main-menu />
+                <!-- Profile Component -->
                 <div v-if="showProfileComponent">
                     <profile-panel />
-                </div>
-                <!-- Wallet Menu Button -->
-                <div class="social-app-home-btn">
-                <p class="menu-btn-text" 
-                        @click="openWalletPanel"
-                        >
-                        <img src="../assets/iconmonstrWalletIcon.png" alt="Profile Menu Icon" class="menu-icon">
-                    &nbsp;Wallet
-                </p>
                 </div>
                 <!-- Wallet Component -->
                 <div v-if="showWalletComponent">
                     <wallet-panel />
-                </div>
-                <!-- Settings Menu Button -->
-                <div class="social-app-home-btn">
-                    <p class="menu-btn-text" 
-                            @click="openSettingsPanel"
-                            >
-                            <img src="../assets/iconmonstrSettingsIcon.png" alt="Settings Menu Icon" class="menu-icon">
-                        &nbsp;Settings
-                    </p>
                 </div>
                 <!-- Settings Component -->
                 <div v-if="showSettingsComponent">
                     <settings-panel />
                 </div>
             </div>
-        </div>
+
 
             <!-- Logout Component (bottom left) -->
             <div class="logout-component">
@@ -174,10 +135,11 @@ import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.
 import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
 import PostComments from '../components/PostComponents/PostComments.vue';
 import LogoutComponent from '../components/LogoutComponent.vue';
+import MainMenu from '../components/MenuComponents/MainMenu.vue';
 
 
 export default {
-    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments, LogoutComponent },
+    components: { PostList, FollowPanel, WalletPanel, SettingsPanel, ProfilePanel, EmojiPicker, UploadImagePanel, UsersProfilePanel, PostComments, LogoutComponent, MainMenu },
     data() {
         let home = true;
         let profile = false;
@@ -186,12 +148,6 @@ export default {
         let postBody = "";
         let postData = undefined;
         return {
-            nav: [
-                home = true,
-                profile = false,
-                wallet = false,
-                settings = false
-            ],
             postBody: '',
             postData: undefined
         }
@@ -212,21 +168,8 @@ export default {
                 });
             }
         },
-        openProfile() {
-            store.commit("SHOW_PROFILE", true);
-        },
-        openWalletPanel() {
-            store.commit("SHOW_WALLET", true);
-        },
-        openSettingsPanel() {
-            store.commit("SHOW_SETTINGS", true);
-        },
         scrollUp() {
             window.scrollTo(window.innerHeight, 0);
-        },
-        openFeed() {
-            getFeed();
-            store.commit("SHOW_POSTS_COMMENTS", false);
         },
         showEmojiPicker() {
             let isDisplayed = store.state.showEmojiPicker;
@@ -246,11 +189,6 @@ export default {
                 sel.removeAllRanges();
                 sel.addRange(range);
             });
-            //let count = 0;
-            // if (store.state.postImage !== undefined && count === 0) {
-            //     count++;
-            //     //this.addImage()
-            // }
         },
         toggleUploadImage() {
             let isDisplayed = store.state.showImageUploader;
@@ -365,49 +303,6 @@ export default {
     justify-self: right;
     margin-right: 5%;
 }
-.menu-btns-div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-items: right;
-}
-.menu-btn-text {
-    display: flex;
-    font-size: 25px;
-    font-weight: 700;
-    align-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.menu-btn-text:hover {
-    padding-left: 20px;
-    padding-right: 20px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(182, 182, 182, 0.281);
-}
-.menu-icon {
-    width: 30px;
-    height: 30px;
-    align-self: center;
-    margin-right: 10px;
-}
-.social-app-home-btn {
-    display: flex;
-    color: black;
-    cursor: pointer;
-    margin-bottom: 0px;
-    margin-top: 8px;
-    justify-content: left;
-    align-items: center;
-    height: 50px;
-    width: 100%;
-}
-.logo {
-    height: 60px;
-    }
 
 
 /* _______________________

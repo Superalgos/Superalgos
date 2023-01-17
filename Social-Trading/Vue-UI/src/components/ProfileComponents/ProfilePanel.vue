@@ -64,36 +64,14 @@
                 </div>
                 <!-- Body Main -->
                 <div class="profile-main-body">
-                    
-                        <!-- GitHub Info -->
-                        <div id="github-info-main-div" v-if="updateGithubInfo">
-                            <div id="github-info-div" >
-                                <div id="github-info-username-div" >
-                                    <label id="github-info-username-label" for="githubUsername">GitHub Username:</label>
-                                    <input type="text" name="githubUsername" id="github-info-username-input" v-model="githubUsername">
-                                </div>
-                                <div id="github-info-token-div">
-                                    <label id="github-info-token-label" for="githubToken">GitHub Token:</label>
-                                    <input type="text" name="githubToken" id="github-info-token-input" size="40" v-model="githubToken">
-                                </div>
-                                <div id="github-update-button-div">
-                                    <input id="github-update-button" type="button" value="Update Info" v-on:click="updateGithubProfile">
-                                </div>
-                                <p class="center small">Please allow 5 minutes for update.</p>
-                            </div>
-                        </div>
-                        <div id="update-profile-info-div" v-if="!updateGithubInfo">
-                            <!-- Name input / label -->
-                            <div class="update-profile-option">
-                                <label class="update-profile-labels" for="name">Name: </label>
-                                <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
-                            </div>
-                            <!-- Bio input / label -->
-                            <div class="update-profile-option">
-                                <label class="update-profile-labels" for="bio">Bio: </label>
-                                <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
-                            </div>  
-                        </div>
+                    <!-- GitHub Info -->
+                    <div id="github-info-main-div" v-if="updateGithubInfo">
+                        <github-info-component />
+                    </div>
+                    <!-- Update Profile Component -->
+                    <div id="update-profile-info-div" v-if="!updateGithubInfo">
+                        <update-profile-component />
+                    </div>
                 </div>
                     <!-- Image Uploader -->
                     <div>
@@ -109,13 +87,14 @@
 <script>
 import store from '../../store/index'
 import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
-import { updateProfile } from '../../services/ProfileService'
-import { getProfileStats, createProfile } from '../../services/ProfileService'
+import { getProfileStats } from '../../services/ProfileService'
+import GithubInfoComponent from './GithubInfoComponent.vue';
+import UpdateProfileComponent from './UpdateProfileComponent.vue';
 
 
 
 export default {
-  components: { UploadImagePanel },
+  components: { UploadImagePanel, GithubInfoComponent, UpdateProfileComponent },
     name: 'profile-panel',
     data() {
     return {
@@ -123,13 +102,7 @@ export default {
         updateGithubInfo: false,
         setProfileImage: false,
         followersCount: 0,
-        followingCount: 0,
-        profileData: {
-            name: '',
-            bio: ''
-        },
-        githubUsername: undefined,
-        githubToken: undefined
+        followingCount: 0
         };
     },
     methods: {
@@ -147,17 +120,7 @@ export default {
 
         },
         sendProfileUpdate() {
-            let message = this.profileData;
-            message.profilePic = this.imageSrc;
-            message.originSocialPersonaId = store.state.profile.nodeId;
-            message.bannerPic = this.bannerImageSrc;
-            updateProfile(JSON.stringify(message))
-            .then(response => {
-                console.log(response.data)
-            })
-        },
-        updateGithubProfile() {
-            alert("TODO: Add endpoint to update token.")
+            store.commit("UPDATING_PROFILE", true);
         }
     },
     computed: {
@@ -174,10 +137,6 @@ export default {
         }
     },
     created() {
-        this.profileData.bio = store.state.profile.bio
-        this.profileData.name = store.state.profile.name
-
-
         // On Created we will retrieve the follower / following data that relates to the target profile.
         let myNodeId = store.state.profile.nodeId
 
@@ -317,17 +276,6 @@ export default {
     margin-left: 5px;
 }
 
-/* Update Profile */
-
-.update-profile-option {
-    display: flex;
-    margin: 2%;
-}
-
-.update-profile-labels {
-    font-weight: 600;
-}
-
 
 /* Profile Body Left Area */
 .update-profile-btn {
@@ -350,67 +298,4 @@ export default {
     height: 100%;
     
 }
-
-
-/* GitHub User Info Input */
-#github-info-main-div {
-    width: 100%;
-    height: 90%;
-    display: flex;
-}
-#github-info-div {
-    border: solid 2px black;
-    border-radius: 18px;
-    width: fit-content;
-    margin: auto;
-    padding: 2%;
-}
-#github-info-username-div {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-    'username-label username-input'
-}
-#github-info-username-label {
-    grid-area: username-label;
-    text-align: right;
-    margin-right: 5px;
-    font-size: 22px;
-    font-weight: bold;
-}
-#github-info-username-input {
-    grid-area: username-input;
-}
-#github-info-token-div {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-    'token-label token-input';
-    margin-top: 1%;
-}
-
-
-#github-info-token-label {
-    grid-area: token-label;
-    text-align: right;
-    margin-right: 5px;
-    font-size: 22px;
-    font-weight: bold;
-}
-#github-info-token-input {
-    grid-area: token-input;
-}
-#github-update-button-div {
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-}
-#github-update-button {
-    font-size: 25px;
-}
-
-.small {
-    font-size: 15px;
-}
-
 </style>

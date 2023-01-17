@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    /* Visibility Toggles */
     showCreateProfile: false,
     showProfile: false,
     showWallet: false,
@@ -11,25 +12,30 @@ export default createStore({
     showEmojiPicker: false,
     showUsersProfile: false,
     showPostComments: false,
-    postCommentProps: undefined,
-    postComments: undefined,
-    selectedEmoji: undefined,
+
+    /* Task Triggers */
+    updatingProfile: false,
     addProfileBanner: false,
+
+    /* Data Storage */
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      profilePic: ''
+      profilePic: '',
+      bannerPic: ''
     },
+    postCommentProps: undefined,
+    postComments: undefined,
+    selectedEmoji: undefined,
     usersProfileToOpen: undefined,
     headerProfileData: undefined,
     postImage: undefined,
     users: undefined,
     posts: [],
     followers: [],
-    
     following: []
   },
   getters: {
@@ -92,6 +98,9 @@ export default createStore({
     },
     SET_USERS_PROFILE_TO_OPEN(state, profile) {
       state.usersProfileToOpen = profile;
+    },
+    UPDATING_PROFILE(state, show) {
+      state.updatingProfile = show;
     },
     /* Updating Our Profile Information */
     UPDATE_NAME(state, name) {

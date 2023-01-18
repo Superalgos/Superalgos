@@ -153,7 +153,7 @@ const runSetup = async (tfjs=false) => {
   console.log('')
   console.log('Setting up your environment …')
   console.log('')
-  // installExternalScripts()
+  installExternalScripts()
   return 'Setup complete'
 }
 

@@ -1,5 +1,5 @@
-
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import superalgos from '../assets/superalgos.png';
 
 export default createStore({
   state: {

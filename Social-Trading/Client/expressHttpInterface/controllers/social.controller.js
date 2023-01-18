@@ -7,7 +7,7 @@ const getUsers = async (req, res) => {
 
 
 const follow = async (req, res) => {
-    const result = await socialService.followProfile(req.body);
+    const result = await socialService.followOrUnfollowProfile(req.body);
     res.send(result);
 };
 

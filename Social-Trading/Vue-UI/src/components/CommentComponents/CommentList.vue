@@ -9,23 +9,17 @@
                 :originPost="comment.originPost"
                 :eventType="comment.eventType"
             />
-        
-
     </div>
 </template>
 
 <script>
-
 import store from '../../store/index'
-import Comment from './Comment.vue'
-
+import Comment from '../CommentComponents/Comment.vue'
 
 export default {
     name: 'comments-list',
     data() {
-        return {
-
-        }
+        return {}
     },
     components: { Comment },
     computed: {
@@ -33,12 +27,8 @@ export default {
             return store.state.postComments
         }
     }
-
 }
 </script>
-
 <style>
-
-
 
 </style>

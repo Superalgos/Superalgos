@@ -36,10 +36,10 @@ const getAllUsers = async (originSocialPersonaId, res) => {
 
 
 
-const followProfile = async (message, res) => {
+const followOrUnfollowProfile = async (message, res) => {
     try {
         let eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
+            eventType: message.eventType,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             originSocialPersonaId: message.originSocialPersonaId,
             targetSocialPersonaId: message.targetSocialPersonaId,
@@ -67,5 +67,5 @@ const followProfile = async (message, res) => {
 
 module.exports = {
     getAllUsers,
-    followProfile
+    followOrUnfollowProfile
 };

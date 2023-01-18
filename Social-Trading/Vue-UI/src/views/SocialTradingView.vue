@@ -111,10 +111,10 @@ import { createPost, getFeed } from '../services/PostService'
 import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
 import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
-import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
-import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
+import ProfilePanel from '../components/ProfileComponents/MyProfileComponents/ProfilePanel.vue'
+import EmojiPicker from '../components/EmojiComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
-import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
+import UsersProfilePanel from '../components/ProfileComponents/UsersProfileComponents/UsersProfilePanel.vue'
 import PostComments from '../components/PostComponents/PostComments.vue';
 import LogoutComponent from '../components/LogoutComponent.vue';
 import MainMenu from '../components/MenuComponents/MainMenu.vue';

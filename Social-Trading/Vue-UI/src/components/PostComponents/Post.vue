@@ -198,7 +198,7 @@ export default {
 
 .post-object {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-template-areas: 
         "username date-time"
         "post post" 

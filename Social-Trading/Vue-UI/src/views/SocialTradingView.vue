@@ -20,7 +20,6 @@
                 </div>
                 <!-- Selected Users Profile Header -->
                 <div class="new-post-div" v-if="$store.state.showPostComments" >
-                    <!-- TODO BREAK TO SMALLER COMPONENT -->
                     <!-- Banner Image -->
                     <div id="header-profile-data-div" v-if="$store.state.headerProfileData !== undefined" :style="`background-image: url(${usersBannerImageSrc});`"  >
                         <!-- Profile Picture / Name -->
@@ -34,7 +33,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- TODO BREAK TO SMALLER COMPONENT -->
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar" v-if="!$store.state.showPostComments">
                     <!-- Add to post Icons -->
@@ -311,14 +309,13 @@ export default {
 }
 #new-post-input {
     border: solid 2px black;
-    margin-top: 1%;
-    margin-left: 2%;
     font-size: 18px;
     width: 85%;
     max-width: 750px;
     height: fit-content;
     white-space: pre-wrap;
     border-radius: 4px;
+    margin: 1% 0% 1% 2%;
 }
 
 

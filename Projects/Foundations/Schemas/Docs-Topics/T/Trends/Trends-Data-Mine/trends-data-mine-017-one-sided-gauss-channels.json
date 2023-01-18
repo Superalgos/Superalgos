@@ -1,0 +1,62 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "17",
+    "type": "One Sided Gauss Channels",
+    "definition": {
+        "text": "This indicator is a Gaussian Moving Average that is calculated using a Fibonacci weighting function."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Gauss Channels on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator weighs the price acation against the calculated gaussian distribution to create an accurate moving average. Keltner channels are then plotted to show potential key areas for future price action."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-gauss-channels.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| OneSidedGaussChannels | gaussChannel | value, trend, upper, lower |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"One Sided Gauss Channels\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-gauss-channels-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point could be done when the trend changes to 1"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.gaussChannel.previous.trend != 1 && chart.at01hs.gaussChannel.trend == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

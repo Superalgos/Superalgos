@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Ard arda iki kapanış, mevcut ve önceki mumların düşük bant genişliğinin altına yakın olduğu anlamına gelir!",
-                "updated": 1641663752763
+                "text": "Ard arda iki kapanış, mevcut ve bir önceki mumun alt bandın altında kapandığı anlamına gelir!",
+                "updated": 1669666027695
             },
             {
                 "language": "RU",
@@ -39,8 +39,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir önceki mumun kapanışını tanımlamak için, ifadenin her iki tarafında kullanılan her bir göstergenin her bir özelliğini değiştirmek için önceki özelliği kullanmamız gerekir:",
-                    "updated": 1641663765670
+                    "text": "Bir önceki mumun kapanışını tanımlamak için, ifadenin her iki tarafında \"previous\" özelliğini kullanmamız gerekir:",
+                    "updated": 1669666158209
                 },
                 {
                     "language": "RU",
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Aynı durumda yeni bir koşul oluşturun ve yukarıdaki kodu kullanın!",
-                    "updated": 1641663780922
+                    "text": "Aynı durumda (Situation) yeni bir koşul (Condition) oluşturun ve yukarıdaki kodu kullanın!",
+                    "updated": 1669666216197
                 },
                 {
                     "language": "RU",

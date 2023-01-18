@@ -37,7 +37,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
             candleSignals.push(tradingSignalMessage)
         } else {
             candleSignals.push(tradingSignalMessage)
-            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(candleSignals, socialTradingBot)
+            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persistSignal(candleSignals, socialTradingBot)
             socialTradingBotsMap.delete(socialTradingBot.id)
         }
     }
@@ -62,7 +62,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
  
         let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.tradingSignalsNetworkServiceClient.sendMessage(messageHeader)
         if (response.result !== 'Ok') {
-            console.log((new Date()).toISOString(), '[ERROR] broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
+            TS.logger.error('broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
         }
     }
 }

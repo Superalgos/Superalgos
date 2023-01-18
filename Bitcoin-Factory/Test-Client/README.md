@@ -184,6 +184,10 @@ Locate the node Task Server App Reference, under your Test Client Task, and repl
 
 By setting up this reference you define the identity under which the test client will run on the P2P network. In other words, the signing account held under your "Task-Server-App-1" node acts like a finger print so that other entities running on the network can identify and work with your test client.
 
+Locate the P2P Network Client node and reference the P2P Network Reference to the desired network (Testnet / Mainnet).
+
+Reference the P2P Network Node Reference to the network node in use, you must import the user profile that contains the network node prior to referencing. The user profile may also require additional port configuration within the Network Interfaces Node.
+
 ### Change the Config
 
 After that, open the config of the Test-Client Sensor Bot Instance. It looks like this:

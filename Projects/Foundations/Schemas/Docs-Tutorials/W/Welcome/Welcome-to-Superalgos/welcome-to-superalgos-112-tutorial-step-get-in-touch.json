@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz!",
-                "updated": 1638913840643
+                "text": "Yeni Discord Sunucusuna veya orijinal Telegram gruplarına katıllmak için bağlantılara tıklayın.",
+                "updated": 1670332160799
             },
             {
                 "language": "ID",
@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın!",
-                    "updated": 1638913886098
+                    "text": "Discord Server - Sunucu yenidir, bu nedenle daha az aktiftir!",
+                    "updated": 1670332225086
                 },
                 {
                     "language": "ID",
@@ -116,6 +116,11 @@
                     "language": "NL",
                     "text": "Announcements Channel — Ontvang eerst officieel nieuws!",
                     "updated": 1667138295259
+                },
+                {
+                    "language": "TR",
+                    "text": "Announcements Channel — Resmi duyurulara ulaşın!",
+                    "updated": 1670332270360
                 }
             ]
         },
@@ -285,6 +290,11 @@
                     "language": "NL",
                     "text": "Machine Learning Group — Word lid van de Bitcoin Factory!",
                     "updated": 1667138370189
+                },
+                {
+                    "language": "TR",
+                    "text": "Machine Learning Group — Bitcoin Fabrikasına katılın!",
+                    "updated": 1670332347945
                 }
             ]
         },
@@ -306,6 +316,11 @@
                     "language": "NL",
                     "text": "Trading Group — Help handelssignalen te testen!",
                     "updated": 1667138382923
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Group — Alım satım sinyallerini test edin!",
+                    "updated": 1670332368864
                 }
             ]
         },
@@ -321,8 +336,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Tasarlayabilir misin?",
-                    "updated": 1638914331685
+                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Bir tasarımcı mısın?",
+                    "updated": 1670333823847
                 },
                 {
                     "language": "ID",

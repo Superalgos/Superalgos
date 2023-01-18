@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
-                "updated": 1641653798986
+                "text": "Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
+                "updated": 1669577478568
             }
         ]
     },
@@ -127,8 +127,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölümü dikkatlice okuyunuz, böylece çizelgelere geri dönebilelim ve eğim özelliğini nasıl kullanacağımıza karar verebilelim!",
-                    "updated": 1641653896191
+                    "text": "Bu bölümü dikkatlice okuyun, böylece çizelgelere geri dönebilir ve eğim özelliğini nasıl kullanacağımıza karar verebiliriz!",
+                    "updated": 1669577567795
                 }
             ]
         }

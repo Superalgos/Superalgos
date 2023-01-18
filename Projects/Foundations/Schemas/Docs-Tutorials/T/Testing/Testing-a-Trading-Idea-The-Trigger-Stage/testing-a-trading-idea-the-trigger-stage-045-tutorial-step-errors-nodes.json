@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
-                "updated": 1641660658243
+                "text": "Hata öğesine tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
+                "updated": 1669587410029
             },
             {
                 "language": "RU",
@@ -40,8 +40,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin!",
-                    "updated": 1641660677597
+                    "text": "Durum ( Condition Node ) Düğümünü kontrol edin!",
+                    "updated": 1669587420523
                 },
                 {
                     "language": "RU",

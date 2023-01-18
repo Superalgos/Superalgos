@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Artık yeni profilinizi ana Superalgos deposuna göndermeye hazırsınız!",
                 "updated": 1645104050413
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kamu siap untuk memasukkan profil barumu ke repositori Superalgos!",
+                "updated": 1671545395111
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Profilinizi göndermeye hazırlanmak için Github API kimlik bilgilerinizi ayarlayın!",
                     "updated": 1645104091131
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tab Contributions dan, jika kamu belum melakukannya, siapkan kredensial Github API kamu untuk bersiap berkontribusi pada profilmu!",
+                    "updated": 1671545415651
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Ne hakkında konuştuğumu bilmiyorsanız, Superalgos'a nasıl katkıda bulunacağınız konusunda bir tazelemeye ihtiyacınız olabilir. GitHub kimlik doğrulama sürecinin nasıl olduğunu hatırlatmak için Temel Bilgilerin Ötesinde ( Beyond the Basics Tutorial) eğitimine göz atabilirsiniz. Bunu sizin için sağ tarafta açtım.",
                     "updated": 1645104390381
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu belum memahami apa yang kuberitahu, kamu mungkin memerlukan penyegaran kembali tentang cara mengirimkan kontribusi ke Superalgos. Jika demikian, kamu mungkin ingin mengunjungi kembali Beyond the Basics Tutorial untuk mengingatkanmu kembali tentang proses autentikasi GitHub.",
+                    "updated": 1671545422295
                 }
             ]
         },

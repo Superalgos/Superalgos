@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Stratejinin beklendiği gibi açık ve kapalı olup olmadığını anlamak için simülasyonun hızlı bir görsel incelemesini yapalım!",
-                "updated": 1641655718540
+                "text": "Stratejinin beklendiği gibi açılıp kapandığını anlamak için simülasyon üzerinde hızlı bir görsel kontrol yapalım!",
+                "updated": 1669585494478
             }
         ]
     },
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "25 Şubat mumunun üzerine gelin. Bu, MA'nın aşağı inmesiyle kapanan ilk mum. Bunu alt kanalın kırmızı renginden ve paneldeki yön özelliğinden anlayabilirsiniz. Ancak, bu mumun eğimi yana (Side) ve ve stratejinin 25'inde tetiklenmemesinin nedeni budur. Koşulların yönün aşağı olması ve eğimin yandan (Side)  farklı olması gerektiğini unutmayın.",
-                    "updated": 1641655750970
+                    "text": "25 Şubat mumunun üzerine gelin. Bu, MA'nın aşağı inmesiyle kapanan ilk mum. Bunu alt kanalın kırmızı renginden ve paneldeki yön özelliğinden anlayabilirsiniz. Ancak, bu mumun eğimi yanadır (Side) ve stratejinin 25'inde tetiklenmemesinin nedeni budur. Unutmayın, koşullar yönün Aşağı olması ve eğimin Yan'dan farklı olması gerektiğiydi.",
+                    "updated": 1669585842931
                 }
             ]
         }

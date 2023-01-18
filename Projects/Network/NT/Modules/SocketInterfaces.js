@@ -35,7 +35,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 let diff = Math.trunc((now - caller.timestamp) / 60 / 1000)
                 if (diff > 30) {
                     caller.socket.close()
-                    console.log((new Date()).toISOString(), '[INFO] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
+                    NT.logger.info('Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
                 }
             }
         }
@@ -258,7 +258,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            NT.logger.error('Socket Interfaces -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 
@@ -461,7 +461,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
-                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
+                NT.logger.info('Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
             /*
@@ -685,7 +685,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 .catch(onError)
 
             function onError() {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastToPeers -> Sending Message Failed.')
+                NT.logger.error('Socket Interfaces -> broadcastToPeers -> Sending Message Failed.')
             }
         }
     }
@@ -698,7 +698,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             }
             return true
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastToClients -> err.stack = ' + err.stack)
+            NT.logger.error('Socket Interfaces -> broadcastToClients -> err.stack = ' + err.stack)
         }
     }
 
@@ -759,11 +759,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     signalId = '<unknown>'
                 }
 
-                console.log((new Date()).toISOString(), '[INFO] Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
+                NT.logger.info('Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
             }
             return true
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastSignalsToClients -> err.stack = ' + err.stack)
+            NT.logger.error('Socket Interfaces -> broadcastSignalsToClients -> err.stack = ' + err.stack)
         }
     }
 }

@@ -588,7 +588,10 @@ exports.newAppRoute = function newAppRoute() {
                 try {
                     // We update the local repo from remote
                     const currentBranch = unescape(requestPath[3])
-                    update()
+                    update().then(() => PL.servers.RESTART_SERVER.tryRestart([
+                        process.pid,
+                        process.ppid
+                    ]))
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath

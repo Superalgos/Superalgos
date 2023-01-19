@@ -240,6 +240,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response)
                 return
             }
+            addGovernanceNode()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             addUserAppsNodes()
             if (response.result === 'Error') {
                 resolve(response)
@@ -265,7 +270,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response)
                 return
             }
-
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             resolve(response)
 
             async function checkCreateFork() {
@@ -385,6 +394,79 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
+            async function addGovernanceNode() {
+                if (userProfile.tokenPowerSwitch === undefined) {
+                    userProfile.tokenPowerSwitch = {
+                        type: 'Token Power Switch',
+                        name: 'New Token Power Switch',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}'
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.financialPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.financialPrograms = {
+                        type: 'Financial Programs',
+                        name: 'New Financial Programs',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: "{}",
+                        stakingProgram: {
+                            type: "Staking Program",
+                            name: "New Staking Program",
+                            config: "{}",
+                            project: "Governance",
+                            tokensAwarded: {
+                                type: "Tokens Awarded",
+                                name: "New Tokens Awarded",
+                                project: "Governance",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        }
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.liquidityPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.liquidityPrograms = {
+                        type: "Liquidity Programs",
+                        name: "New Liquidity Programs",
+                        config: "{}",
+                        project: "Governance",
+                        liquidityProgram: [
+                            {
+                                type: "Liquidity Program",
+                                name: "BTCB",
+                                config: "{\n    \"asset\": \"BTCB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            {
+                                type: "Liquidity Program",
+                                name: "BNB",
+                                config: "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                "id": SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            }
+                        ],
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    }  
+                }
+            }
+
             function addUserAppsNodes() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
@@ -410,10 +492,10 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         }
                         targetNode = {
                             type: 'Social Trading Desktop App',
-                            name: 'New Social Trading Desktop App',
+                            name: 'Social Trading Desktop App #1',
                             project: 'User-Apps',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
+                            config: '{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}',
                         }
                         userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
                         targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
@@ -515,6 +597,20 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
                 SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(fileContent, undefined, 4))
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }

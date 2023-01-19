@@ -37,7 +37,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
             candleSignals.push(tradingSignalMessage)
         } else {
             candleSignals.push(tradingSignalMessage)
-            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(candleSignals, socialTradingBot)
+            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persistSignal(candleSignals, socialTradingBot)
             socialTradingBotsMap.delete(socialTradingBot.id)
         }
     }

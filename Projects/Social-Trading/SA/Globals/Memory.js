@@ -13,7 +13,8 @@ exports.newSocialTradingGlobalsMemory = function () {
             SOCIAL_TRADING_BOTS_BY_HANDLE: new Map()              
         },
         arrays: {
-            EVENTS: [],                                         // This is the registry of all events in order that prevents ordering them more than once.
+            EVENTS: [],                                        // This is the registry of all events in order that prevents ordering them more than once.
+            EVENTS_TO_SAVE: [],                                // This is the que for new events that have not been saved to file yet
         }
     }
 

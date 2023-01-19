@@ -60,6 +60,8 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
         let file = { date: new Date(timestamp) }
 
+        console.log('this is our converted timestamp', file, 'this is our timestamp', timestamp)
+
         file.year = file.date.getUTCFullYear()
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()

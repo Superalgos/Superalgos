@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bir önceki adımın doğal sonucu olarak , her şey size mantıklı gelmeyebilir!",
                 "updated": 1642403940663
+            },
+            {
+                "language": "ID",
+                "text": "Akibat wajar dari langkah sebelumnya adalah bahwa tidak semuanya masuk akal bagimu!",
+                "updated": 1673882836154
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Superalgos, esneklik göz önünde bulundurularak tasarlanmış ve üretilmiştir. Farklı kullanıcılar, farklı alım satım yaklaşımları, farklı stratejiler, hepsinin farklı ihtiyaçları olabilir!",
                     "updated": 1642403980645
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos dirancang dan dibangun dengan mempertimbangkan fleksibilitas. User yang berbeda, pendekatan trading yang berbeda, strategi yang berbeda, ini semua memiliki kebutuhan yang berbeda!",
+                    "updated": 1673882843354
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Sistem niyetinizin ne olduğunu bilrmez. Sadece mantıklı olmaları için akıllıca kullanmanız gereken bir dizi araç sağlar!",
                     "updated": 1642404017664
+                },
+                {
+                    "language": "ID",
+                    "text": "Sistem tidak tahu apa maksudmu. Ini hanya menyediakan seperangkat alat yang perlu kamu gunakan dengan bijak agar masuk akal!",
+                    "updated": 1673882849495
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Sizi ilgilendiren bilgilere dikkat etmeyi öğrenin ve ilgilendirmeyen bilgilerin görünmesini engellemekten (katmanları kapatarak) çekinmeyin!",
                     "updated": 1642404156839
+                },
+                {
+                    "language": "ID",
+                    "text": "Belajarlah untuk memperhatikan informasi yang relevan bagimu dan buang yang tidak!",
+                    "updated": 1673882856796
                 }
             ]
         }

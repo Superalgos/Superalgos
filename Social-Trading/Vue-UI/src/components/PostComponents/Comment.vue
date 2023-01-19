@@ -1,40 +1,20 @@
 <template>
-    <div id="comment-main-div"  
-            v-bind="comment.commentID" 
-            v-on:mouseover="showBtn = true" 
-            v-on:mouseleave="showBtn = false"
-            >
-        <h6 id="comment-username"> {{comment.username}} </h6>
-        <p id="comment-dateTime"> {{comment.dataTime}} </p>
-        <p id="comment"> {{comment.comment}} </p>
+    <div id="post-comment-main-div">
 
-
-        <div id="comment-container" 
-            v-if="leaveComment === true" >
-
-            <label for="">Reply:</label>
-
-            <textarea 
-                name="reply-comment" 
-                id="reply-comment" 
-                cols="30" 
-                rows="10"
-                ref="replyComment"
-                v-on:keyup.esc="leaveComment = false"
-            >
-            </textarea>
+        <div id="comment-top-div">
+            <div id="comment-name-date-div">
+                <p id="post-user-name"> {{userHandle}} </p>
+                <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
+            </div>
+            <div class="date-time">
+            <p id="post-date-time">{{formatTimestamp}}</p>
+            </div>
         </div>
 
-
-
-        <div id="reply-btn-div">
-            <button id="button" 
-                type="button" 
-                value=""
-                v-on:click="handleReplyClick"
-                v-if="showBtn === true"
-            >{{leaveComment == false ? 'Reply' : 'Send'}}
-            </button>
+    
+        <div class="post-message">
+            <p id="post-body">{{postBody}}</p>
+            <img :src="postImage" alt="">
         </div>
 
     </div>
@@ -43,96 +23,51 @@
 <script>
 export default {
     name: 'post-comment',
-    props: ['comment'],
+    props: ['timestamp', 'userHandle', 'postBody', 'postImage', 'originPostHash', 'originPost', 'eventType'],
     data() {
         return {
-            leaveComment: false,
-            showBtn: false
+            commentBody: ''
         }
     },
-    methods: {
-        handleReplyClick() {
-            if (this.leaveComment === false) {
-                this.leaveComment = true;
-                this.$nextTick(() => this.$refs.replyComment.focus())
-                
-            } else {
-                this.leaveComment = false;
-            }
-        },
-        setFocus() {
-            this.$refs.textArea.focus();
-            alert(this.$refs.textArea)
+    computed: {
+        formatTimestamp() {
+        const date = new Date(this.timestamp);
+        let timeString = date.toLocaleString();
+        // We remove the seconds from the time.
+        let time = timeString.split(',')
+        this.postDate = time[0]
+        console.log(this.postDate)
+        let exactTime = time[1]
+        let postTime = exactTime.slice(0, 6)
+        let amPm = exactTime.slice(exactTime.length - 3, exactTime.length)
+        // If time ends in a ":" we need to shorten our split.
+        if (postTime.slice(-1) === ':') {
+          postTime = exactTime.slice(0, 5);
         }
+        return postTime + amPm;
+      },
     }
-
 }
 </script>
 
 <style>
 
-#comment-main-div {
-    border: solid 1.5px black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "username date-time"
-        "comment comment"
-        "reply reply"
-        "comment-footer comment-footer" ;
-    margin: 2% 1%;
-    box-shadow: 2px 5px 5px rgba(0,0,0,0.5);
-    border-radius: 8px;
-}
-
-#comment-username {
-    grid-area: username;
-    border-bottom: solid 1.5px black;
-    padding-left: 10px;
-    height: 70%;
-}
-
-#comment-dateTime {
-    grid-area: date-time;
-    text-align: right;
-    font-size: .8em;
-    padding-right: 10px;
-    border-bottom: solid 1.5px black;
-    height: 70%;
-}
-
-#comment-container {
-    grid-area: reply;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  font-size: .8em;
-}
-
-#reply-comment {
-    margin: 1%;
-}
-
-#comment {
-    grid-area: comment;
-    padding-left: 7px;
-}
-
-#reply-btn-div {
-    grid-area: comment-footer;
+#post-comment-main-div {
+    border-bottom: solid 1px black;
     display: flex;
-    justify-content: right;
+    flex-direction: column;
 }
 
-button {
-  color: black;
-  border: solid 1px black;
+#comment-top-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0% 2% 0% 2%;
 }
 
-#button {
-    border-radius: 3px;
-    margin: 1%;
+#comment-name-date-div {
+    display: flex;
+    flex-direction: row;
 }
 
 </style>

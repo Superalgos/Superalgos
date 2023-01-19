@@ -1,9 +1,7 @@
 
 
 const getAllUsers = async (originSocialPersonaId, res) => {
-    console.log("TRYING TO GET ALL USERS NOW")
     try {
-        console.log("Trying to get all Users")
         let queryMessage = {
             originSocialPersonaId: originSocialPersonaId.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
@@ -12,7 +10,6 @@ const getAllUsers = async (originSocialPersonaId, res) => {
             queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS,
             timestamp: (new Date()).valueOf()
         }
-        console.log("QUERY MESSAGE SENT = " + JSON.stringify(queryMessage))
 
         let query = {
             networkService: 'Social Graph',
@@ -24,7 +21,6 @@ const getAllUsers = async (originSocialPersonaId, res) => {
             JSON.stringify(query)
         );
 
-        console.log("RESULT = " + result)
         let response = {}
         response.data = result;
         response.result = result.result;
@@ -40,12 +36,13 @@ const getAllUsers = async (originSocialPersonaId, res) => {
 
 
 
-const followProfile = async (userProfileId, eventType, res) => {
+const followProfile = async (message, res) => {
     try {
         let eventMessage = {
-            eventType: eventType,
+            eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetSocialPersonaId: userProfileId,
+            originSocialPersonaId: message.originSocialPersonaId,
+            targetSocialPersonaId: message.targetSocialPersonaId,
             timestamp: (new Date()).valueOf()
         }
 
@@ -63,6 +60,8 @@ const followProfile = async (userProfileId, eventType, res) => {
         return {};
     }
 };
+
+
 
 
 

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import store from '../../store/index';
-import { updateProfile } from '../../services/ProfileService'
+import store from '../../../store/index';
+import { updateProfile } from '../../../services/ProfileService'
 export default {
     name: 'update-profile-component',
     data() {

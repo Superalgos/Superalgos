@@ -48,42 +48,11 @@
               <img src="../../assets/iconmonstrRepostIcon.png" alt="Comment" class="post-footer-buttons">
               &nbsp;Repost
             </p>
-            
-
-
-
           </div>
-        
-          <div id="comment-btn" class="">
-            <input type="button" 
-                    value="Comment" 
-                    v-on:click="focusComment" 
-                    v-bind="leaveComment"
-                    v-if="leaveComment === false" >
-
-            <input type="button" 
-                  value="    &#10149;    "
-                  id="post-comment-button"
-                  style='font-size:25px;'
-                  v-on:click=" leaveComment = false "
-                  v-if="leaveComment === true"
-                  >
-          </div>
-
-          
-        
-          
         </div>
-
-      
-
     </div>
-
-
-    
-    
   </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -229,7 +198,7 @@ export default {
 
 .post-object {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-template-areas: 
         "username date-time"
         "post post" 

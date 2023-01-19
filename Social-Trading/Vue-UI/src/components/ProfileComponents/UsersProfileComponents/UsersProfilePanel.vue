@@ -1,19 +1,19 @@
 <template>
-    <div class="modal-profile-overlay" v-if="getProfileVisibility">
+    <div class="modal-profile-overlay">
         <div id="" class="profile" >
             <div class="top-bar">
                 <p  class="bold">Profile</p>
-                <input class="close-btn" type="button" value="X" v-on:click="closeProfile">
+                <input class="close-btn" type="button" value="X" v-on:click="closeUsersProfile">
             </div>
             <div class="profile-body">
                 <!-- Default Profile Panel Body -->
                 <div class="update-profile-pic">
-                <div class="profile-panel-body" v-if="!updateProfilePanel">
+                <div class="profile-panel-body">
                     <div class="profile-head-left-div">
                         <!-- Profile Picture -->
-                        <img class="profile-pic" v-bind:src="imageSrc" alt="">
+                        <img class="profile-pic" v-bind:src="usersImageSrc" alt="">
                         <!-- Profile Username -->
-                        <p id="profile-username">{{$store.state.profile.userProfileHandle}}</p>
+                        <p id="profile-username">{{$store.state.usersProfileToOpen.name}}</p>
                         <!-- Followers / Following Counts -->
                         <div id="follower-following">
                             <div id="followers-div">
@@ -25,124 +25,96 @@
                                 <p class="count">{{followingCount}}</p>
                             </div>
                         </div>
-                        <!-- Update Profile Button -->
-                        <input type="button" value="Update Profile" v-on:click="updateProfilePanel = true">
+                        <input ref="followButton" type="button" :value="followBtnText" v-on:click="followOrUnfollow">
+
+
                     </div>
                     <!-- Body Main -->
                     <div class="profile-main-body">
                         <!-- Name -->
                         <div class="update-profile-option">
-                            <p><strong>Name:</strong> {{$store.state.profile.name}} </p>
+                            <p><strong>Name:</strong> {{$store.state.usersProfileToOpen.name}} </p>
                         </div>
                         <!-- Bio -->
                         <div class="update-profile-option">
-                            <p><strong>Bio:</strong> {{$store.state.profile.bio}}</p>
+                            <p><strong>Bio:</strong> {{$store.state.usersProfileToOpen.bio}}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Update Profile Panel Body -->
-            <div class="profile-panel-body" v-if="updateProfilePanel">
-                <!-- Body Left side -->
-                <div id="update-profile-pic" >
-                    <div class="update-profile-head-left-div">
-                    <!-- Profile Picture -->
-                    <img class="profile-pic" v-bind:src="imageSrc" alt="">
-                    <!-- Profile Username -->
-                    <p id="profile-username">{{$store.state.profile.userProfileHandle}}</p>
-                    <!-- Set Profile Image Button -->
-                    <input type="button" value="Set Profile Image" v-on:click="addProfileImage">
-                    <!-- Set Profile Banner Button -->
-                    <input type="button" value="Set Banner Image" v-on:click="addBannerImage">
-                    <!-- Update GitHub Info Button -->
-                    <input type="button" value="Update GitHub Info" v-on:click="updateGithubInfo ? updateGithubInfo = false : updateGithubInfo = true ">
-                    <!-- Update Profile Button -->
-                    <div id="update-profile-btn-div">
-                        <input class="update-profile-btn" type="button" value="Update Profile" v-on:click="sendProfileUpdate">
-                    </div>
-                </div>
-                <!-- Body Main -->
-                <div class="profile-main-body">
-                    <!-- GitHub Info -->
-                    <div id="github-info-main-div" v-if="updateGithubInfo">
-                        <github-info-component />
-                    </div>
-                    <!-- Update Profile Component -->
-                    <div id="update-profile-info-div" v-if="!updateGithubInfo">
-                        <update-profile-component />
-                    </div>
-                </div>
-                    <!-- Image Uploader -->
-                    <div>
-                        <upload-image-panel />
-                    </div>
-                </div>
-            </div>
+            
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import store from '../../store/index'
-import UploadImagePanel from '../UploaderComponents/UploadImagePanel.vue';
-import { getProfileStats } from '../../services/ProfileService'
-import GithubInfoComponent from './GithubInfoComponent.vue';
-import UpdateProfileComponent from './UpdateProfileComponent.vue';
-
-
+import store from '../../../store/index'
+import { followUser } from '../../../services/SocialService'
+import { getProfileStats } from '../../../services/ProfileService'
 
 export default {
-  components: { UploadImagePanel, GithubInfoComponent, UpdateProfileComponent },
-    name: 'profile-panel',
+  components: {  },
+    name: 'users-profile-panel',
     data() {
     return {
-        updateProfilePanel: false,
-        updateGithubInfo: false,
-        setProfileImage: false,
         followersCount: 0,
-        followingCount: 0
+        followingCount: 0,
+        followBtnText: 'Follow User'
         };
     },
     methods: {
-        closeProfile() {
-            store.commit("SHOW_PROFILE", false);
-            return store.state.showProfile
+        closeUsersProfile() {
+            console.log("TRYING TO CLOSE")
+            store.commit("CLOSE_USERS_PROFILE");
         },
-        addProfileImage() {
-            this.setProfileImage = true;
-            store.commit("SHOW_IMAGE_UPLOADER", true);
-        },
-        addBannerImage() {
-            store.commit("SET_ADD_PROFILE_BANNER", true);
-            store.commit("SHOW_IMAGE_UPLOADER", true);
+        followOrUnfollow() {
+            let followButtonValue = this.$refs.followButton.value
+            let userToFollowID = store.state.usersProfileToOpen.originSocialPersonaId
+            let myNodeId = store.state.profile.nodeId
+            let eventType = followButtonValue === "Follow User" ? 15 : 16;
 
+            let message = {
+                originSocialPersonaId: myNodeId,
+                targetSocialPersonaId: userToFollowID,
+                eventType: eventType
+            }
+
+            followUser(message)
+            .then(response => {
+                let responseData = response.data
+                if (responseData.result === "Ok") {
+                    if (this.followBtnText === "Follow User") {
+                        this.followBtnText = "Unfollow User";
+                    } else {
+                        this.followBtnText = "Follow User";
+                    }
+                } else {
+                    console.log("[WARN] UsersProfilePanel - TODO handle users already following on app start to display correct state.")
+                }
+            });
         },
-        sendProfileUpdate() {
-            store.commit("UPDATING_PROFILE", true);
-        }
     },
     computed: {
         getProfileVisibility() {
-            return store.state.showProfile;
+            return store.state.showUsersProfile;
         },
-        imageSrc() {
-            return store.state.profile.profilePic;
+        usersImageSrc() {
+            return store.state.usersProfileToOpen.profilePic;
         },
-        bannerImageSrc() {
-            if (store.state.profile.bannerPic !== undefined) {
-                return store.state.profile.bannerPic
-            }
+        showThisUsersProfile() {
+            return store.state.showUsersProfile
         }
     },
     created() {
         // On Created we will retrieve the follower / following data that relates to the target profile.
+        let userToFollowID = store.state.usersProfileToOpen.originSocialPersonaId
         let myNodeId = store.state.profile.nodeId
 
         let thisMessage = {
             originSocialPersonaId: myNodeId,
-            targetSocialPersonaId: myNodeId
+            targetSocialPersonaId: userToFollowID
         }
         getProfileStats(thisMessage)
             .then(response => {
@@ -233,7 +205,7 @@ export default {
 .profile-main-body {
     grid-area: profile-body;
     width: 100%;
-    height: 100%;
+    height: 68.5vh;
     border-left: solid 1px rgba(0, 0, 0, 0.233);
     border-bottom-right-radius: 20px;
 }
@@ -276,6 +248,17 @@ export default {
     margin-left: 5px;
 }
 
+/* Update Profile */
+
+.update-profile-option {
+    display: flex;
+    margin: 2%;
+}
+
+.update-profile-labels {
+    font-weight: 600;
+}
+
 
 /* Profile Body Left Area */
 .update-profile-btn {
@@ -298,4 +281,5 @@ export default {
     height: 100%;
     
 }
+
 </style>

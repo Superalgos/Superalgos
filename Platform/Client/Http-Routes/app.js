@@ -187,7 +187,7 @@ exports.newAppRoute = function newAppRoute() {
                                     anchor: undefined,
                                     placeholder: {}
                                 }
-                                TS.logger.info('respond with docs ')
+                                SA.logger.info('respond with docs ')
 
                                 respondWithDocsObject(docs, error)
                                 return

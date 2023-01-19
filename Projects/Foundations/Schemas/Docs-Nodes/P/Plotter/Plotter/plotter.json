@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Плоттеры обычно имеют индивидуальные отношения с ботами, так как они часто создаются как индивидуальное решение. Однако на практике нет ограничений на создание любого количества плоттеров для одного бота или одного плоттера для нескольких ботов.",
                     "updated": 1639407357344
+                },
+                {
+                    "language": "TR",
+                    "text": "Çiziciler genellikle özelleştirilmiş bir çözüm olarak oluşturulduklarından botlarla bire bir ilişki içindedirler. Ancak pratikte, tek bir bot için herhangi bir sayıda çizici veya birden fazla bot için tek bir çizici oluşturma konusunda herhangi bir kısıtlama yoktur.",
+                    "updated": 1674141036505
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "RU",
                     "text": "Общий рабочий процесс плоттера при чтении набора данных состоит из:",
                     "updated": 1639407367975
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri kümesini okurken çizicinin genel iş akışı şunlardan oluşur:",
+                    "updated": 1674141181395
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Применение набора правил для идентификации определенных точек данных;",
                     "updated": 1639407378629
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli veri noktalarını tanımlamak için bir dizi kuralın uygulanması;",
+                    "updated": 1674141214954
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Использование этих точек для формирования линий и многоугольников;",
                     "updated": 1639407481128
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu noktaları kullanarak çizgiler ve poligonlar oluşturun;",
+                    "updated": 1674141316283
                 }
             ]
         },
@@ -77,6 +97,11 @@
                     "language": "RU",
                     "text": "Применение к этим линиям и многоугольникам графических стилей.",
                     "updated": 1639407446587
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çizgi ve poligonlara grafik stilleri uygulayın.",
+                    "updated": 1674141347904
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "RU",
                     "text": "Конфигурция Plotter",
                     "updated": 1639407495387
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizici Yapılandırması (Plotter Configuration)",
+                    "updated": 1674141380991
                 }
             ]
         },
@@ -105,6 +135,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639407502122
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674141399431
                 }
             ]
         },
@@ -116,6 +151,11 @@
                     "language": "RU",
                     "text": "codeName - это название плоттера, используемое в коде бота.",
                     "updated": 1639407530704
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName botun kodu içinde kullanıldığı şekliyle çizicinin adıdır.",
+                    "updated": 1674141427164
                 }
             ]
         }

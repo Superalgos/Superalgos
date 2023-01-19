@@ -155,9 +155,9 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 }
 
                             } catch (err) {
-                                NT.logger.error('P2P Node -> httpInterface -> Method call produced an error.')
-                                NT.logger.error('P2P Node -> httpInterface -> err.stack = ' + err.stack)
-                                NT.logger.error('P2P Node -> httpInterface -> Body Received = ' + bodyString)
+                                SA.logger.error('P2P Node -> httpInterface -> Method call produced an error.')
+                                SA.logger.error('P2P Node -> httpInterface -> err.stack = ' + err.stack)
+                                SA.logger.error('P2P Node -> httpInterface -> Body Received = ' + bodyString)
 
                                 let error = {
                                     result: 'Fail Because',
@@ -221,7 +221,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                     }
             }
         } catch (err) {
-            NT.logger.error(err.stack)
+            SA.logger.error(err.stack)
         }
     }
 }

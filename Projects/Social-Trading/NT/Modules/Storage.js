@@ -178,13 +178,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         },
                         async function (error) {
                             if (error) {
-                                NT.logger.error('')
-                                NT.logger.error("[ERROR] There was an error clonning this Network node repo. " + repoURL);
-                                NT.logger.error('')
-                                NT.logger.error(error)
+                                SA.logger.error('')
+                                SA.logger.error("[ERROR] There was an error clonning this Network node repo. " + repoURL);
+                                SA.logger.error('')
+                                SA.logger.error(error)
                                 throw (error)
                             } else {
-                                NT.logger.info('Clonning repo ' + repoURL + ' succeed.')
+                                SA.logger.info('Clonning repo ' + repoURL + ' succeed.')
                                 resolve()
                             }
                         })
@@ -285,13 +285,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                             } catch (err) {
                                 if (err.stack !== undefined) {
-                                    NT.logger.error('Client Interface -> err.stack = ' + err.stack)
+                                    SA.logger.error('Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
                                 if (errorMessage === undefined) {
                                     errorMessage = err
                                 }
-                                NT.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
+                                SA.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
                     }

@@ -31,7 +31,7 @@
 
                 let lastNonce = -1
                 if (LOG_INFO === true) {
-                    PL.logger.info('New Websocket Connection.')
+                    SA.logger.info('New Websocket Connection.')
                 }
 
                 socket.on('message', onMessage)
@@ -62,15 +62,15 @@
                                     ||
                                     message.toString().indexOf('"eventType":"Resume Learning Session"') >= 0
                                 ) {
-                                    PL.logger.info('Trying to execute a Task while in DEMO MODE. Some hacking has taken place!')
-                                    PL.logger.info('Hacker IP Address is: ' + socket._socket.remoteAddress)
+                                    SA.logger.info('Trying to execute a Task while in DEMO MODE. Some hacking has taken place!')
+                                    SA.logger.info('Hacker IP Address is: ' + socket._socket.remoteAddress)
                                     return
                                 }
                             }
                         }
 
                         if (LOG_INFO === true) {
-                            PL.logger.info('Message Received: ' + message.toString().substring(0, 10000))
+                            SA.logger.info('Message Received: ' + message.toString().substring(0, 10000))
                         }
 
                         let messageArray = message.toString().split('|*|')
@@ -81,8 +81,8 @@
 
                         if (origin === 'Web Browser') {
                             if (isNaN(nonce) || nonce === "") {
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message.substring(0, 1000))
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. nonce = ' + nonce)
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message.substring(0, 1000))
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. nonce = ' + nonce)
                                 return
                             }
 
@@ -91,9 +91,9 @@
                             }
 
                             if (Number(nonce) < Number(lastNonce)) {
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message.substring(0, 1000))
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. nonce = ' + nonce)
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message.substring(0, 1000))
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. nonce = ' + nonce)
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
                                 return
                             }
 
@@ -102,8 +102,8 @@
                             try {
                                 JSON.parse(messageToEventServer)
                             } catch (err) {
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
-                                PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
+                                SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
                                 return
                             }
 
@@ -122,13 +122,13 @@
                             socket.send(message)
                         }
                     } catch (err) {
-                        PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. err = ' + err.stack)
+                        SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. err = ' + err.stack)
                     }
                 }
             }
         } catch (err) {
-            PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message)
-            PL.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.stack)
+            SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message)
+            SA.logger.error('Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.stack)
         }
     }
 }

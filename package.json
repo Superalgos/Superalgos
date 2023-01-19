@@ -81,6 +81,7 @@
     "winston-daily-rotate-file": "^4.7.1",
     "workbox-webpack-plugin": "^6.5.4",
     "ws": "^8.4.0",
+    "xlsx": "^0.18.5",
     "yargs": "^17.6.2"
   },
   "devDependencies": {

@@ -43,7 +43,6 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
         saveOneFileCanRun = true
         web3 = new SA.nodeModules.web3()
         thisObject.availableStorage = NT.networkApp.p2pNetworkNode.node.availableStorage
-        saveIntervalId = setInterval(saveMultipleFiles, 1000)
     }
 
     async function persistSocialGraph(filePath, fileName, fileContent) {
@@ -69,15 +68,24 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
                 resolve(response)
                 return
             }
-                    // loop through array then access referenceParent.config
-           
-                    
-            let web3 = new SA.nodeModules.web3()
-            let password = SA.projects.foundations.utilities.encryption.randomPassword()
-            let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
-            console.log('this is what made it through to github storage', fileContent, password)
-            let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
 
+            let timestamp = (new Date()).valueOf() 
+            let repoFileName
+            let repoFileContent
+            let password
+            if (fileName === "Data.Range.json") {
+                // Save an unencrypted dataRange file
+                repoFileName = fileName.slice(0, -5)
+                repoFileContent = fileContent
+                password = undefined
+            } else {
+                // Encrypt events 
+                repoFileName = web3.eth.accounts.hashMessage(encryptedFileContent)
+                let web3 = new SA.nodeModules.web3()
+                password = SA.projects.foundations.utilities.encryption.randomPassword()
+                repoFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
+            }
+            let repoFilePath = filePath.slice(2);
             /*
             We are going to save this file at all of the Storage Containers defined.
             */
@@ -98,7 +106,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
 
                 switch (storageContainer.type) {
                     case 'Github Storage Container': {
-                        await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
+                        await SA.projects.openStorage.utilities.githubStorage.saveFile(repoFileName, repoFilePath, repoFileContent, storageContainer)
                             .then(onFileSaved)
                             .catch(onFileNotSaved)
                         break
@@ -112,7 +120,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
                 function onFileSaved() {
                     let fileKey = {
                         timestamp: timestamp,
-                        fileName: fileName,
+                        fileName: repoFileName,
                         storageContainerId: storageContainer.id,
                         password: password
                     }
@@ -123,7 +131,8 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
                     }
                 }
 
-                function onFileNotSaved() {
+                function onFileNotSaved(err) {
+                    SA.logger.error('Open Storage Network Client -> saveGraphAsync -> err.stack = ' + err.stack)
                     notSavedCount++
                     if (savedCount + notSavedCount === thisObject.availableStorage.storageContainerReferences.length) {
                         allFilesSaved()
@@ -132,22 +141,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
 
                 function allFilesSaved() {
                     if (savedCount > 0) {
-                        /*
-                        Here we modify the eventMessage that is going to continue its journey to 
-                        the P2P Network Node.
-                        */
-                        eventMessage.originPostHash = fileName
-                        /*
-                        The post text is eliminated, since it is now at the user's storage,
-                        and a hash of the content was generated, and that is what is going to
-                        the Network Node.
-                        */
-                        eventMessage.postText = undefined
-                        /*
-                        The file key contains all the information needed to later retrieve this post.
-                        */
-                        eventMessage.fileKeys = fileKeys
-
+                
                         let response = {
                             result: 'Ok',
                             message: 'Social Graph Saved'
@@ -238,81 +232,5 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
                 }
             }
         }
-    }
-
-    async function saveMultipleFiles() {
-        //candlesSignalsMap.forEach(saveOneFile)
-    }
-
-    async function saveOneFile(candlesSignalsToSave, socialTradingBotId) {
-
-        if (candlesSignalsToSave.length === 0) { return }
-        if (saveOneFileCanRun === false) { return }
-
-        saveOneFileCanRun = false
-
-        let socialTradingBot = socialTradingBotsMap.get(socialTradingBotId)
-        /*
-        Cleaning these maps before the next async operation.
-        */
-        candlesSignalsMap.delete(socialTradingBotId)
-        socialTradingBotsMap.delete(socialTradingBotId)
-
-        let timestamp = (new Date()).valueOf()
-        let file = {
-            timestamp: timestamp,
-            content: candlesSignalsToSave
-        }
-
-        let fileContent = JSON.stringify(file)
-        let password = SA.projects.foundations.utilities.encryption.randomPassword()
-        let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
-        let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
-        let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
-        let fileId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
-        /*
-        We are going to save this file at all of the Storage Containers defined.
-        */
-        for (let i = 0; i < thisObject.availableStorage.storageContainerReferences.length; i++) {
-            let storageContainerReference = thisObject.availableStorage.storageContainerReferences[i]
-            if (storageContainerReference.referenceParent === undefined) { continue }
-            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
-
-            let storageContainer = storageContainerReference.referenceParent
-
-            switch (storageContainer.type) {
-                case 'Github Storage Container': {
-                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
-                        .then(onFileSaved)
-                        .catch(onFileNodeSaved)
-                    break
-                }
-                case 'Superalgos Storage Container': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
-            }
-
-            function onFileSaved() {
-
-                let fileKey = {
-                    timestamp: timestamp,
-                    fileName: fileName,
-                    fileId: fileId,
-                    storageContainerId: storageContainer.id,
-                    password: password
-                }
-
-                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastFileKey(fileKey, socialTradingBot)
-            }
-
-            function onFileNodeSaved() {
-                /*
-                The content then will be saved at the next run of this function.
-                */
-            }
-        }
-
-        saveOneFileCanRun = true
     }
 }

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Standart işleyişi anladığınızda, katmanların geri kalanı neredeyse kendi kendini açıklayıcıdır... o yüzden kısa keseceğim!",
                 "updated": 1642518394960
+            },
+            {
+                "language": "ID",
+                "text": "Layer lainnya sudah cukup jelas setelah kamu memahami cara kerja standarnya... jadi, aku akan menjelaskannya secara singkat saja!",
+                "updated": 1674104741593
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Status: Bir tane olan düğümler için!",
                     "updated": 1642518430187
+                },
+                {
+                    "language": "ID",
+                    "text": "Status: untuk node yang memilikinya!",
+                    "updated": 1674104777275
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "Progress: İlerleme belirtisi gösterebilecek düğümler için!",
                     "updated": 1642518469644
+                },
+                {
+                    "language": "ID",
+                    "text": "Progress: untuk node yang mungkin menampilkan indikasi kemajuan!",
+                    "updated": 1674104788504
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "TR",
                     "text": "Running: Zaman içinde belirli noktalarda değerlendirilen düğümler için!",
                     "updated": 1642518493741
+                },
+                {
+                    "language": "ID",
+                    "text": "Running: untuk node yang dievaluasi pada titik waktu tertentu!",
+                    "updated": 1674104798817
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "TR",
                     "text": "Announcements: Şu anda Telegram üzerinden yayınlanan ticaret sisteminde kurulan duyurular için!",
                     "updated": 1642518509730
+                },
+                {
+                    "language": "ID",
+                    "text": "Announcements: untuk pengumuman yang dipasang di trading system, yang saat ini disiarkan melalui Telegram!",
+                    "updated": 1674104810269
                 }
             ]
         },
@@ -134,6 +159,11 @@
                     "language": "TR",
                     "text": "Warnings: Olağandışı bir şey olduğunda, ancak bir hata olarak kabul edilmediğinde!",
                     "updated": 1642518535066
+                },
+                {
+                    "language": "ID",
+                    "text": "Warnings: ketika sesuatu yang tidak biasa terjadi tetapi tidak dianggap sebagai kesalahan! sebuah mode verbose, jika kamu mau.",
+                    "updated": 1674104823073
                 }
             ]
         },
@@ -156,6 +186,11 @@
                     "language": "TR",
                     "text": "System Info: bir tür ayrıntılı mod gibi birçok düğümde görüntülenebilir.",
                     "updated": 1642518560613
+                },
+                {
+                    "language": "ID",
+                    "text": "System Info: dapat ditampilkan di banyak node, seperti mode verbose.",
+                    "updated": 1674104833800
                 }
             ]
         }

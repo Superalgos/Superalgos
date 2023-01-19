@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Biliyorum! Bütün bunlar kulağa çok soyut geliyor! Birkaç örnek vereyim!",
                 "updated": 1642513528325
+            },
+            {
+                "language": "ID",
+                "text": "Aku tahu! Ini semua terdengar terlalu abstrak! Izinkan aku memberimu beberapa contoh!",
+                "updated": 1673966238532
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Br saat altı zaman dilimlerinde çalışırken bir kavram veya olay (örneğin, bir pozisyon) birden çok güne yayılır:",
                     "updated": 1642513663893
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat bekerja dalam sub-hour time frames dan concept atau event—misalnya, position—spans selama beberapa hari:",
+                    "updated": 1673966245630
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Birden çok üçgen görebilirsiniz! Her günün sonunda bir üçgen çizilir ve pozisyonun kapanışında veya pozisyonun henüz kapanmamış olması durumunda mevcut tarih saatinde son bir üçgen çizilir.",
                     "updated": 1642513671951
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin melihat banyak segitiga! Satu segitiga digambar pada penutupan setiap hari, dan satu segitiga terakhir digambar pada penutupan position, atau—kalau position-nya belum ditutup—pada datetime saat ini.",
+                    "updated": 1673966251980
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İstatistikler (Statistics) ve metrikler de parçalıdır! Örneğin, ROI, Kar Kaybı (Profit Loss) ve pozisyonun isabet veya başarısızlık olarak değerlendirilmesi günlük olarak belirlenir!",
                     "updated": 1642513762084
+                },
+                {
+                    "language": "ID",
+                    "text": "Statistics dan metrics juga terfragmentasi! Misalnya, ROI, Profit Loss, dan evaluasi posisi sebagai hit atau fail ditentukan setiap hari!",
+                    "updated": 1673966258662
                 }
             ]
         }

@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Bir katman kaldı... Episodes! Bölümün süresini belirtir ve birkaç çizici paneli içerir...",
                 "updated": 1642502569443
+            },
+            {
+                "language": "ID",
+                "text": "Ada satu layer yang terlupakan... Episodes! Ini menandai durasi episode dan menampilkan fitur untuk beberapa panel plotter...",
+                "updated": 1673951701186
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "TR",
                     "text": "\"Episodes\" katmanını açın!",
                     "updated": 1642502595675
+                },
+                {
+                    "language": "ID",
+                    "text": "Aktifkan layer \"Episode\"!",
+                    "updated": 1673951708917
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "Bu durumda, bölüm altı ay uzunluğundadır, bu nedenle tek göreceğiniz ekranın alt kısmındaki bir çizgidir ve her iki taraftaki bölüm simgesi bölümün ekranda gösterilen süreden daha uzun olduğunu belirtir.",
                     "updated": 1642502623529
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam hal ini, episode tersebut berdurasi enam bulan, jadi yang akan kamu lihat hanyalah garis di bagian bawah layar, dan ikon episode di kedua sisi, menandakan episode tersebut lebih panjang dari periode yang ditampilkan di layar.",
+                    "updated": 1673951715971
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "TR",
                     "text": "Her zamanki gibi, çizici panelleri, belgelerin TTrading Engine bölümünde açıklanan bilgileri içerir.",
                     "updated": 1642502659971
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti biasa, panel plotter menampilkan informasi yang dijelaskan di bagian Dokumentasi Trading Engine.",
+                    "updated": 1673951723348
                 }
             ]
         }

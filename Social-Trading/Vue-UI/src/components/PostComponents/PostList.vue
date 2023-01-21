@@ -11,7 +11,6 @@
                     :originPost="post.originPost"
                     :eventType="post.eventType"
                     :commentCount='getRepliesCount(post)'
-                    
                 />
             </div>
         </div>
@@ -36,8 +35,6 @@ export default {
         getRepliesCount(post) {
             
             if(post.originPost !== undefined) {
-                console.log("This Post " + post.originPost)
-
                 // If the post has a reply count we grab it.
                 if (post.originPost.repliesCount !== undefined) {
                     console.log(post.originPost.repliesCount)
@@ -45,6 +42,8 @@ export default {
                 } else {
                     return
                 }
+            } else {
+                console.log("[WARN] (PostComponents/PostList.vue) The origin post is undefined.")
             }
         }
     },
@@ -61,7 +60,5 @@ export default {
 </script>
 
 <style>
-
-
 
 </style>

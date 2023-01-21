@@ -1,11 +1,11 @@
 <template>
     <!-- Logout Div (bottom left) -->
     <div class="logout-div">
-        <img class="smaller-profile-pic" v-bind:src="imageSrc" alt="">
+        <img class="smaller-profile-pic " v-bind:src="imageSrc" alt="">
         &nbsp;
-            <div id="handle-and-social-persona" title="Login / Logout">
-                <p class="login-text"> <strong> {{getUserProfileHandle}} </strong> </p>
-                <p class="login-text">@{{$store.state.profile.nodeCodeName}}</p>
+            <div id="handle-and-social-persona" title="Login / Logout" class="center-up">
+                <p class="login-text scaling-text"> <strong> {{getUserProfileHandle}} </strong> </p>
+                <p class="login-text scaling-text">@{{$store.state.profile.nodeCodeName}}</p>
             </div>
         <img src="../assets/iconmonstrHorizontalMenuIcon.png" alt="Add Image" class="logout-div-menu-icon">
     </div>
@@ -65,7 +65,7 @@ export default {
     grid-area: left-panel;
     position: fixed;
     bottom: 0%;
-    margin-left: 10%;
+    margin-left: 8%;
     margin-bottom: 2px;
     display: flex;
     padding: 3px;
@@ -81,8 +81,8 @@ export default {
 }
 /* 3 dots image at end */
 .logout-div-menu-icon {
-    width: 35px;
-    height: 35px;
+    width: 2vw;
+    height: 2vw;
     align-self: center;
 }
 /* Div holding text */
@@ -97,8 +97,8 @@ export default {
 }
 /* Image */
 .smaller-profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
     border-radius: 100%;
     border: solid 1px black;
     align-self: center;

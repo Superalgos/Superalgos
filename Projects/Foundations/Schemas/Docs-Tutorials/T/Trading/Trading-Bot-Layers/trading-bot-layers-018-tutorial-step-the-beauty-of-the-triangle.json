@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Üçgenin, ticaretin nasıl gittiğini bir bakışta kavramak için hızlı bir görsel ipucu olduğuna eminim!",
                 "updated": 1642171307302
+            },
+            {
+                "language": "ID",
+                "text": "Aku yakin kamu akan setuju bahwa segitiga adalah petunjuk visual cepat untuk memahami bagaimana perdagangan berjalan dengan cepat!",
+                "updated": 1673882157023
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "TR",
                     "text": "Görselleştirme özelliklerinin arkasındaki temel fikirlerden biri budur: hızlı ve etkili iletişim.",
                     "updated": 1642171329880
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah salah satu ide inti di balik fitur visualisasi ini: komunikasi yang cepat dan efektif.",
+                    "updated": 1673882165595
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "TR",
                     "text": "İkinci temel fikir, oturumda neler olduğunu görerek, stratejilerinizdeki zayıflıkları ve bunları nasıl geliştirebileceğinizi daha kolay tespit etmenizdir!",
                     "updated": 1642171343312
+                },
+                {
+                    "language": "ID",
+                    "text": "Ide inti kedua adalah bahwa—dengan dapat melihat apa yang terjadi dengan sesi tersebut—lebih mudah menemukan kelemahan dalam strategi-mu, dan bagaimana kamu dapat memperbaikinya!",
+                    "updated": 1673882172725
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "TR",
                     "text": "Ek olarak, panellerde görüntülenen verilerin Ticaret Motoru (Trading Engine) hiyerarşisinde bulunan verilerle aynı olduğuna dikkat edin.",
                     "updated": 1642171370248
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebagai tambahan, perhatikan bahwa data yang ditampilkan di panel adalah data yang sama yang tersedia di hierarki Trading Engine.",
+                    "updated": 1673882179684
                 }
             ]
         }

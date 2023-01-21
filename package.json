@@ -43,7 +43,6 @@
     "discord.js": "^14.6.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "electron-updater": "^4.6.1",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.5.3",
@@ -72,12 +71,13 @@
     "yargs": "^17.6.2"
   },
   "optionalDependencies": {
+    "electron-updater": "^4.6.1",
+    "electron": "^21.3.1",
+    "electron-builder": "^23.6.0",
     "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
-    "electron": "^21.3.1",
-    "electron-builder": "^23.6.0",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

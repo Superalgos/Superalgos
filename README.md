@@ -542,7 +542,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 3. For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
 
-4. If you are getting a lot of 'unexpected' errors during node setup, try resetting npm using the command `npm ci` before running `node setup` again.
+4. If you are getting a lot of 'unexpected' errors during node setup, try resetting npm using the command `npm ci --omit=optional` before running `node setup` again.
 
 ## Enabling Desktop Shortcut in Ubuntu
 

@@ -43,7 +43,7 @@ async function runRoot() {
     ws: require('ws')
   }
 
-  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Dashboards')
   SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'DS')
   
   /* 

@@ -67,7 +67,7 @@ async function runRoot() {
     pako: require('pako')
   }
 
-  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Platform')
   SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'SA')
 
   /* 

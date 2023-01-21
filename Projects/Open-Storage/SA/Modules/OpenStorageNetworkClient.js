@@ -18,31 +18,32 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
         finalize: finalize
     }
 
-    let web3
+    //let web3
     let eventsByPathMap
     let saveOneFileCanRun
-    let filesLoadedByIdMap
-    let saveIntervalId
+    //let filesLoadedByIdMap
+    //let saveIntervalId
 
     return thisObject
 
     function finalize() {
-        web3 = undefined
+        //web3 = undefined
         eventsByPathMap  = undefined
         saveOneFileCanRun  = undefined
-        filesLoadedByIdMap  = undefined
-        saveIntervalId  = undefined
+        //filesLoadedByIdMap  = undefined
+        //saveIntervalId  = undefined
     }
 
     async function initialize() {
-        web3 = new SA.nodeModules.web3()
+        //web3 = new SA.nodeModules.web3()
         eventsByPathMap = new Map()
         saveOneFileCanRun = true
-        filesLoadedByIdMap = new Map()
+        //filesLoadedByIdMap = new Map()
         thisObject.availableStorage = NT.networkApp.p2pNetworkNode.node.availableStorage
 
-        // This client saves on an indepentend loop to avoid race cases with external save requests
-        saveIntervalId = setInterval(saveMultipleFiles, 1000)
+        // This client saves on an independent loop to avoid race cases with external save requests
+        // saveIntervalId = possibly assign value from set interval in future
+        setInterval(saveMultipleFiles, 1000)
     }
 
     async function persistSocialGraph(filePath, fileName, fileContent) {

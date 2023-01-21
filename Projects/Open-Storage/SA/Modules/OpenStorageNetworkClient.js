@@ -41,6 +41,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
         filesLoadedByIdMap = new Map()
         thisObject.availableStorage = NT.networkApp.p2pNetworkNode.node.availableStorage
 
+        // This client saves on an indepentend loop to avoid race cases with external save requests
         saveIntervalId = setInterval(saveMultipleFiles, 1000)
     }
 

@@ -314,7 +314,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             in one minute batched files.
             */
             let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-            let eventsToSaveByTimestamp = []
+            let eventsToSaveByTimestamp = {}
     
             return new Promise(promiseWork)
 
@@ -361,13 +361,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 saveDataRangeFile()
 
                 function saveEventsFile(eventsToSaveByTimestamp) {
-
-                    for (let timestamp of eventsToSaveByTimestamp) {
+                    for (let timestamp in eventsToSaveByTimestamp) {
                         let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(Number(timestamp))
                         let eventsToSave = eventsToSaveByTimestamp[timestamp]
                         const fileContent = JSON.stringify(eventsToSave, undefined, 4)
                         const fileName = "Events" + ".json"
-                        console.log("EVENTS Now being saved = " + eventsToSave)
+                        console.log("EVENTS Now being saved = " + JSON.stringify(eventsToSave))
 
                         try {
                             console.log('Are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
@@ -409,7 +408,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                             // Add unsaved events back to que
                             SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(eventsToSave)
 
-                            console.log("[ERROR] Something went wrong while saving events:")
+                            console.log("[ERROR] Something went wrong while saving event:")
                             console.log(error)
                         }
                     }

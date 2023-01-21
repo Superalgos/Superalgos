@@ -3,8 +3,8 @@
     "pageNumber": 7,
     "type": "Automating Actions - Using the Workspace",
     "definition": {
-        "text": "The workspace object will give you access to all the hierarchies of nodes, and once there you will be able to manipulate those structures at will.",
-        "updated": 1614941811976,
+        "text": "Die Arbeitsumgebung (Workspace) des Objektes gibt Ihnen den Zugang zu allen Knotenhierarchien. In diesem können Sie die Strukturen nach Belieben bearbeiten.",
+        "updated": 1674332104817,
         "translations": [
             {
                 "language": "RU",
@@ -21,8 +21,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You can access to the workspace object in this way:",
-            "updated": 1614931075101,
+            "text": "Sie können auf diese Weise auf die Arbeitsumgebung des Objektes zugreifen:",
+            "updated": 1674331886159,
             "translations": [
                 {
                     "language": "RU",
@@ -43,8 +43,8 @@
         },
         {
             "style": "Text",
-            "text": "Check for the functions defined at thisObject what can be useful in your case. ",
-            "updated": 1614931205528,
+            "text": "Prüfen Sie welche Funktionen bei thisObject definiert sind und in Ihrem Fall nützlich sein können.",
+            "updated": 1674331563193,
             "translations": [
                 {
                     "language": "RU",
@@ -60,8 +60,8 @@
         },
         {
             "style": "Text",
-            "text": "It is not very common to use the Workspace object from an Action, since you have access to the rootNodes array directly as a parameter of your Action function. Useful Workspace function for this use case might be:",
-            "updated": 1614931466216,
+            "text": "Es ist nicht sinnvoll, die Workspace des Objektes aus einer Action heraus zu verwenden, da Sie als Parameter Ihrer Action -Funktion direkt auf das Array rootNodes zugreifen können. Eine nützliche Funktion des Workspace für diesen Anwendungsfall könnte sein:",
+            "updated": 1674332443944,
             "translations": [
                 {
                     "language": "RU",

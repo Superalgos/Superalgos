@@ -3,8 +3,8 @@
     "pageNumber": 9,
     "type": "Automating Actions - Testing your Action",
     "definition": {
-        "text": "To test your new Action you just need to reload the UI, locate the node with the new Menu Item, and click on it...",
-        "updated": 1614941791574,
+        "text": "Um Ihre neue Action zu testen, brauchen Sie nur die UI (Benutzeroberfläche) neu zu laden, den Knoten mit dem neuen Menu Item (Menüpunkt) zu suchen und ihn anzuklicken...",
+        "updated": 1674337347822,
         "translations": [
             {
                 "language": "DE",
@@ -26,8 +26,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Debug",
-            "updated": 1614939140622,
+            "text": "Prüfen",
+            "updated": 1674337356346,
             "translations": [
                 {
                     "language": "DE",
@@ -48,8 +48,8 @@
         },
         {
             "style": "Text",
-            "text": "In order to debug your action, you will need to open the developer tool, and at the Sources tab, locate the Function Library file where you added your action, place a breakpoint at the beginning of your function and go and click at the node Menu Item you added.",
-            "updated": 1628261072790,
+            "text": "Um Ihre Aktion zu prüfen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen die Function Library suchen, in die Sie Ihre Aktion eingefügt haben, einen Haltepunkt am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Knoten Menu Item klicken.",
+            "updated": 1674337459015,
             "translations": [
                 {
                     "language": "DE",
@@ -70,30 +70,13 @@
         },
         {
             "style": "Success",
-            "text": "If you change the code of your function, reload the UI and you can debug it again with the new changes.",
-            "updated": 1614939195464,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können sie mit den neuen Änderungen erneut debuggen.",
-                    "updated": 1640212165859
-                },
-                {
-                    "language": "RU",
-                    "text": "Если вы измените код своей функции, перезагрузите пользовательский интерфейс (UI) и вы сможете проводить отладку снова с новыми изменениями.",
-                    "updated": 1640766490565
-                },
-                {
-                    "language": "TR",
-                    "text": "İşlevinizin kodunu değiştirirseniz, kullanıcı arayüzünü yeniden yükleyin ve yeni değişikliklerle tekrar hataları ayıklayabilirsiniz.",
-                    "updated": 1670939848536
-                }
-            ]
+            "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können diese erneut prüfen.",
+            "updated": 1674337745299
         },
         {
             "style": "Text",
-            "text": "You can find more information about setting up and debugging in this topic:",
-            "updated": 1631371694241,
+            "text": "Weitere Informationen zum Einrichten und Prüfen finden Sie hier:",
+            "updated": 1674337899641,
             "translations": [
                 {
                     "language": "DE",
@@ -114,7 +97,8 @@
         },
         {
             "style": "List",
-            "text": "Debugging - Download and Install Visual Studio Code"
+            "text": "Debugging - Download and Install Visual Studio Code (Fehlersuche - Herunterladen und Installieren von Visual Studio Code)",
+            "updated": 1674337877615
         }
     ]
 }

@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Shares seperti Backups, tetapi file yang dihasilkan menghilangkan informasi pribadi yang sensitif!",
                 "updated": 1645032822776
+            },
+            {
+                "language": "NL",
+                "text": "Shares zijn net als Backups, maar het resulterende bestand is ontdaan van gevoelige persoonlijke informatie!",
+                "updated": 1669545152879
             }
         ]
     },
@@ -52,8 +57,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Abituati al loro utilizzo! È una buona pratica per evitare possibili errori pericolosi in futuro!",
-                    "updated": 1619546289258,
+                    "text": "Abituati a condividere le condivisioni! Questa buona pratica ti aiuterà a evitare pericolosi errori in futuro!",
+                    "updated": 1666639531501,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Biasakan berbagi Shares! Latihan yang baik ini akan membantu kamu menghindari kesalahan berbahaya di masa depan!",
                     "updated": 1645032853836
+                },
+                {
+                    "language": "NL",
+                    "text": "Wen aan het delen van Shares! Deze goede praktijk zal u helpen gevaarlijke fouten in de toekomst te voorkomen!",
+                    "updated": 1669545191088
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Baca halaman tentang Shares untuk info lebih lanjut!",
                     "updated": 1645032879007
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees de pagina over Shares voor meer info!",
+                    "updated": 1669545209179
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "language": "ID",
                     "text": "Kapan pun kamu ingin membagikan pekerjaanmu, jangan pernah membagikan file atau Cadangan Workspacemu. File-file itu mungkin berisi informasi sensitif seperti Exchange Account Key kamu. Alih-alih, bagikan Shares kamu!",
                     "updated": 1645032961010
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer u uw werk wilt delen, deel dan nooit uw Workspace bestanden of Backups. Die bestanden kunnen gevoelige informatie bevatten, zoals uw Exchange Account Key. Deel in plaats daarvan uw Shares!",
+                    "updated": 1669545254858
                 }
             ]
         }

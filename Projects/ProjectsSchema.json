@@ -943,6 +943,12 @@
                     "fileName": "ProcessExecutionEvents.js"
                 },
                 {
+                    "name": "Process Trading Signals",
+                    "propertyName": "processTradingSignals",
+                    "functionName": "newFoundationsProcessModulesProcessTradingSignals",
+                    "fileName": "ProcessTradingSignals.js"
+                },                
+                {
                     "name": "Process Output",
                     "propertyName": "processOutput",
                     "functionName": "newFoundationsProcessModulesProcessOutput",
@@ -951,7 +957,14 @@
             ]
         },
         "PL": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentials",
+                    "functionName": "newFoundationsUtilitiesCredentials",
+                    "fileName": "CredentialsFunctions.js"
+                }
+            ]
         },
         "SA": {
             "globals": [
@@ -1010,6 +1023,12 @@
                     "propertyName": "encryption",
                     "functionName": "newFoundationsUtilitiesEncryption",
                     "fileName": "Encryption.js"
+                },
+                {
+                    "name": "Icons",
+                    "propertyName": "icons",
+                    "functionName": "newFoundationsUtilitiesIcons",
+                    "fileName": "Icons.js"
                 }
             ]
         },
@@ -1690,11 +1709,26 @@
                     "propertyName": "signingAccounts",
                     "functionName": "newGovernanceUtilitiesSigningAccounts",
                     "fileName": "SigningAccounts.js"
+                },
+                {
+                    "name": "Balances",
+                    "propertyName": "balances",
+                    "functionName": "newGovernanceUtilitiesBalances",
+                    "fileName": "Balances.js"
                 }
             ]
         },
         "TS": {},
-        "PL": {},
+        "PL": {
+            "functionLibraries": [
+                {
+                    "name": "Pr Merge Bot",
+                    "propertyName": "prMergeBot",
+                    "functionName": "newGovernanceFunctionLibraryPrMergeBot",
+                    "fileName": "PrMergeBot.js"
+                }
+            ]
+        },
         "plugins": [
             "User Profiles",
             "Pools",
@@ -2087,7 +2121,7 @@
                 }
             ]
         },
-        "DK": {
+        "ST": {
             "globals": [],
             "modules": [],
             "utilities": []
@@ -2277,10 +2311,17 @@
         "SA": {
             "modules": [
                 {
-                    "name": "Open Storage Client",
-                    "propertyName": "openStorageClient",
-                    "functionName": "newOpenStorageModulesOpenStorageClient",
-                    "fileName": "OpenStorageClient.js",
+                    "name": "Open Storage Task Server Client ",
+                    "propertyName": "openStorageTaskServerClient",
+                    "functionName": "newOpenStorageModulesOpenStorageTaskServerClient",
+                    "fileName": "OpenStorageTaskServerClient.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Open Storage Network Client",
+                    "propertyName": "openStorageNetworkClient",
+                    "functionName": "newOpenStorageModulesOpenStorageNetworkClient",
+                    "fileName": "OpenStorageNetworkClient.js",
                     "folderName": ""
                 }
             ],
@@ -2394,7 +2435,7 @@
             ]
         },
         "TS": {
-            "botModules":[
+            "botModules": [
                 {
                     "name": "Forecast-Client",
                     "propertyName": "forecastClient",
@@ -2452,7 +2493,7 @@
                     "folderName": "Test-Server"
                 }
             ],
-            "utilities":[
+            "utilities": [
                 {
                     "name": "Miscellaneous",
                     "propertyName": "miscellaneous",
@@ -2463,7 +2504,7 @@
             ]
         },
         "NT": {
-            "modules":[
+            "modules": [
                 {
                     "name": "Machine Learning Network Service",
                     "propertyName": "machineLearningNetworkService",

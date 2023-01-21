@@ -220,6 +220,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Check for the signal that would allow us to syncronize the simulation
             loop with the simulation loop of the bot sending us signals.
             */
+            const MAX_RETRIES = 15000
+            const DELAY_BETWEEN_RETRIES = 10
             let retries = 0
 
             while (true) {
@@ -230,18 +232,24 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                 if (signal === undefined) {
                     /*
                     This means that the signal we are waiting for has not yet arrived, so
-                    we are going to wait for one second and check it again.
+                    we are going to wait and check it again.
                     */
+
                     retries++
-                    if (retries <= 90) {
-                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex +  ' # of retries = ' + retries + ' / 90')
-                        await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                    if (retries <= MAX_RETRIES) {
+                        await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_RETRIES)
                     }
                     else {
+                        TS.logger.warn('Signal for current candle was NEVER received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                        TS.logger.warn('The possible reasons for this to happen are: ')
+                        TS.logger.warn('                                             1) If you never received the signals from this provider before, you might be using an outdated User Profile of the Signal Provider. ')
+                        TS.logger.warn('                                             2) If you were receiving before signals from this Signal Provider, then maybe the provider stopped sending signals. Please check the providers Telegram Group for any notifications.')
+                        
                         allGood = false
                         break
                     }
                 } else {
+                    TS.logger.info('Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
                     allGood = true
                     break
                 }

@@ -14,7 +14,7 @@
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), 'Running Test Client v.' + TEST_CLIENT_VERSION)
+            TS.logger.info('Running Test Client v.' + TEST_CLIENT_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -55,32 +55,32 @@
                                 async function onSuccess(response) {
                                     testResultsAccepted = true
                                     let bestPredictions = JSON.parse(response.data.serverData.response)
-                                    console.log(' ')
-                                    console.log('Best Crowd-Sourced Predictions:')
+                                    TS.logger.info(' ')
+                                    TS.logger.info('Best Crowd-Sourced Predictions:')
                                     console.table(bestPredictions)
                                     updateSuperalgos(bestPredictions)
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                 }
                                 async function onError(err) {
-                                    console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Test Case Results.')
-                                    console.log((new Date()).toISOString(), 'Reason why I could not deliver the Test Report:', err)
-                                    console.log((new Date()).toISOString(), 'Retrying to send the Test Report in 60 seconds...')
+                                    TS.logger.error('Failed to send a Report to the Test Server with the Test Case Results.')
+                                    TS.logger.error('Reason why I could not deliver the Test Report:', err)
+                                    TS.logger.error('Retrying to send the Test Report in 60 seconds...')
                                 }
                             }
                         }
                     }
 
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                        TS.logger.error('Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
                 } else {
-                    console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
+                    TS.logger.info('Nothing to Test', 'Retrying in 30 seconds...')
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
             }
             async function onError(err) {
-                console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
+                TS.logger.error('Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
         }
@@ -101,17 +101,17 @@
 
         let params = {
             method: 'updateForecastedCandles',
-            forcastedCandles: JSON.stringify(bestPredictions)
+            forecastedCandles: JSON.stringify(bestPredictions)
         }
 
         const axios = require("axios")
         axios
             .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
             .then(res => {
-                console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                TS.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
             })
             .catch(error => {
-                console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                TS.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
             })
     }
 
@@ -137,6 +137,11 @@
                 requestType: 'Query',
                 networkService: 'Machine Learning',
                 queryMessage: JSON.stringify(queryMessage)
+            }
+
+            if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK === undefined) {
+                reject('Not connected to network node yet... hold on...')
+                return
             }
 
             if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
@@ -226,6 +231,7 @@
         Set default script name.
         */
         if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py" }
+        if (BOT_CONFIG.dockerContainerName === undefined) { BOT_CONFIG.dockerContainerName = "Bitcoin-Factory-ML" }        
         /*
         Remove from Parameters the properties that are in OFF
         */
@@ -238,17 +244,17 @@
         /*
         Show something nice to the user.
         */
-        console.log('')
-        console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
-        console.log('')
-        console.log('Test Server: ' + nextTestCase.testServer.userProfile + ' / ' + nextTestCase.testServer.instance)
-        console.log('')
-        console.log('Parameters Received for this Test:')
+        TS.logger.info('')
+        TS.logger.info('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
+        TS.logger.info('')
+        TS.logger.info('Test Server: ' + nextTestCase.testServer.userProfile + ' / ' + nextTestCase.testServer.instance)
+        TS.logger.info('')
+        TS.logger.info('Parameters Received for this Test:')
         console.table(relevantParameters)
-        console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
-        console.log('')
-        console.log((new Date()).toISOString(), 'Starting to process this Case')
-        console.log('')
+        TS.logger.info('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
+        TS.logger.info('')
+        TS.logger.info('Starting to process this Case')
+        TS.logger.info('')
         /*
         Return Promise
         */
@@ -259,7 +265,7 @@
         async function promiseWork(resolve, reject) {
 
             const { spawn } = require('child_process');
-            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML', 'python', '-u', '/tf/notebooks/' + nextTestCase.pythonScriptName]);
+            const ls = spawn('docker', ['exec', BOT_CONFIG.dockerContainerName, 'python', '-u', '/tf/notebooks/' + nextTestCase.pythonScriptName]);
             let dataReceived = ''
             ls.stdout.on('data', (data) => {
                 data = data.toString()
@@ -280,7 +286,7 @@
                             data = JSON.parse(fileContent)
 
                             percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
-                            let heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
+                            let heartbeatText = 'Episode reward mean / max / min: ' + data.episodeRewardMean + ' | ' + data.episodeRewardMax + ' | ' + data.episodeRewardMin
 
                             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
 
@@ -309,7 +315,7 @@
                 }
 
                 if (BOT_CONFIG.logTrainingOutput === true) {
-                    console.log(data)
+                    TS.logger.info(data)
                 }
 
             });
@@ -319,14 +325,14 @@
             });
 
             ls.on('close', (code) => {
-                console.log(`Docker Python Script exited with code ${code}`);
+                TS.logger.info(`Docker Python Script exited with code ${code}`);
                 if (code === 0) {
                     onFinished(dataReceived)
                 } else {
-                    console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
-                    console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML python /tf/notebooks/' + nextTestCase.pythonScriptName)
-                    console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
+                    TS.logger.error('Unexpected error trying to execute a Python script inside the Docker container. ')
+                    TS.logger.error('Check at a console if you can run this command: ')
+                    TS.logger.error('docker exec ' + BOT_CONFIG.dockerContainerName + ' python -u /tf/notebooks/' + nextTestCase.pythonScriptName)
+                    TS.logger.error('Once you can sucessfully run it at the console you might want to try to run this App again. ')
                     reject('Unexpected Error.')
                 }
             });
@@ -339,7 +345,29 @@
             function onFinished(dataReceived) {
                 try {
                     if (dataReceived.includes('RL_SCENARIO_END')) {
-                        //TODO: read from the evaluation_results.json file
+                        let fileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/evaluation_results.json")
+                        if (fileContent !== undefined) {
+                            try {
+                                processExecutionResult = JSON.parse(fileContent)
+                                TS.logger.info(processExecutionResult)
+/* example of fileContent:
+ {"meanNetWorth": 721.2464292834837, "stdNetWorth": 271.8523338823371, "minNetWorth": 248.60280285744497, "maxNetWorth": 1264.2342365877673, "stdQuoteAsset": 193.18343367092214, "minQuoteAsset": 4.0065377572671893e-10, "maxQuoteAsset": 1161.3969522280302, "stdBaseAsset": 0.005149471273320009, "minBaseAsset": 0.0, "maxBaseAsset": 0.0284320291802237, "meanNetWorthAtEnd": 260.82332674553476, "stdNetWorthAtEnd": 0.0, "minNetWorthAtEnd": 260.82332674553476, "maxNetWorthAtEnd": 260.82332674553476}
+*/                                
+                                let endingTimestamp = (new Date()).valueOf()
+                                processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000          
+                                processExecutionResult.pythonScriptName = nextTestCase.pythonScriptName                                                  
+                                TS.logger.info('{Testclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
+                                TS.logger.info('{Testclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
+                                TS.logger.info('{Testclient} Next Action/Amount/Limit: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount+ ' / ' + processExecutionResult["2"].current_action.limit)
+                            } catch (err) {
+                                TS.logger.error('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
+                                TS.logger.error('The data that can not be parsed is = ' + fileContent)
+                            }
+                        } else {
+                            TS.logger.error('Can not read result file: ' + global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/evaluation_results.json")
+                        }
                     } else {
                         try {
                             let cleanedData = filterOutput(dataReceived)
@@ -347,25 +375,25 @@
                             processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
                             processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
 
-                            console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                            console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
+                            TS.logger.info('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                            TS.logger.info('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
 
                             let endingTimestamp = (new Date()).valueOf()
-                            processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                            console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+                            processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                            TS.logger.info('Elapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.elapsedTime * 1000).toISOString().substr(11, 8)) + ' ')
                         } catch (err) {
-                            console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
-                            console.log('The data that can not be parsed is = ' + cleanedData)
+                            TS.logger.error('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
+                            TS.logger.error('The data that can not be parsed is = ' + cleanedData)
                         }
                     }
                 } catch (err) {
 
                     if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                        console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                        TS.logger.error('processExecutionResult.predictions:' + processExecutionResult.predictions)
                     }
 
-                    console.log(err.stack)
-                    console.error(err)
+                    TS.logger.error(err.stack)
+                    TS.logger.error(err)
                 }
                 resolve(processExecutionResult)
             }
@@ -422,4 +450,36 @@
         }
         return cleanText
     }
+
+    /**
+     * Converts milliseconds into greater time units as possible
+     * @param {int} ms - Amount of time measured in milliseconds
+     * @return {?Object} Reallocated time units. NULL on failure.
+     */
+    function timeUnits( ms ) {
+        if ( !Number.isInteger(ms) ) {
+            return null
+        }
+        /**
+         * Takes as many whole units from the time pool (ms) as possible
+         * @param {int} msUnit - Size of a single unit in milliseconds
+         * @return {int} Number of units taken from the time pool
+         */
+        const allocate = msUnit => {
+            const units = Math.trunc(ms / msUnit)
+            ms -= units * msUnit
+            return units
+        }
+        // Property order is important here.
+        // These arguments are the respective units in ms.
+        return ""+
+            // weeks: allocate(604800000), // Uncomment for weeks
+            // days: allocate(86400000),
+            allocate(3600000) + "h:" +
+            allocate(60000)+"m:" +
+            allocate(1000)+"s:" 
+            //ms: ms // remainder
+        
+    }
+        
 }

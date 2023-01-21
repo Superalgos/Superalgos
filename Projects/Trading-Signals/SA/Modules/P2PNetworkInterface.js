@@ -23,10 +23,11 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
 
     function messageReceived(
         message,
-        signalReceivedCallbackFunction
+        signalReceivedCallbackFunction,
+        rankingStats
     ) {
         if (signalReceivedCallbackFunction === undefined) {
-            console.log((new Date()).toISOString(), '[ERROR] Cannot receive signals because the Trading Bot Instance does not have a Social Trading Bot Reference. Plese fix this and run this Task again. ')
+            SA.logger.error('Cannot receive signals because the Trading Bot Instance does not have a Social Trading Bot Reference. Plese fix this and run this Task again. ')
             return
         }
 
@@ -34,17 +35,17 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         try {
             messageHeader = JSON.parse(message)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> message Not Correct JSON Format.')
+            SA.logger.warn('P2P Network Interface -> message Not Correct JSON Format.')
             return
         }
 
         if (messageHeader.requestType === undefined) {
-            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> requestType Not Provided.')
+            SA.logger.warn('P2P Network Interface -> requestType Not Provided.')
             return
         }
 
         if (messageHeader.requestType !== 'Signal') {
-            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> requestType Not Supported.')
+            SA.logger.warn('P2P Network Interface -> requestType Not Supported.')
             return
         }
 
@@ -52,7 +53,7 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         try {
             signalReceived = JSON.parse(messageHeader.signalMessage)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> signalMessage Not Correct JSON Format.')
+            SA.logger.warn('P2P Network Interface -> signalMessage Not Correct JSON Format.')
         }
         /*
         At the Client Interface, events need to be emitted by Social Entities that 
@@ -125,7 +126,7 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         */
         let timestamp = (new Date()).valueOf
         SA.projects.tradingSignals.globals.memory.maps.SIGNALS.set(signalReceived.signalId, timestamp)
-        signalReceivedCallbackFunction(signalReceived)
+        signalReceivedCallbackFunction(signalReceived, rankingStats)
 
     }
 }

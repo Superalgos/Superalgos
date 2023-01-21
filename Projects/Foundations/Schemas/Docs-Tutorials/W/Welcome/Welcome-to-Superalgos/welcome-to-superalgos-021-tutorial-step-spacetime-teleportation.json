@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Desing Space.",
-                "updated": 1618435736486,
+                "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Design Space.",
+                "updated": 1668195651585,
                 "style": "Definition"
             },
             {
@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "Aslında ışınlanmayacaksınız ya da uzay-zamanı bükmeyeceksiniz, ama neredeyse öyleymiş gibi geliyor! Tasarım alanı haritasını kullanmayı öğrenmenin zamanı geldi.",
                 "updated": 1644906273037
+            },
+            {
+                "language": "FR",
+                "text": "D'accord, vous n'allez pas vraiment vous téléporter, ni courber l'espace-temps, mais c'est presque comme ça ! Il est temps d'apprendre à utiliser la carte du Design Space.",
+                "updated": 1667204715686
             }
         ]
     },
@@ -97,6 +102,11 @@
                     "language": "TR",
                     "text": "Daha önce Tasarım Alanının çok büyük olduğunu söylemiştim ve ciddiydim! Bir köşeden diğerine gitmek yüzlerce tıklama ve sürükleme gerektirir. Klavyeyi kullanarak bunu yapabilisiniz ancak ışınlanma kadar havalı değil! Bu nasıl çalışır:",
                     "updated": 1635948006704
+                },
+                {
+                    "language": "FR",
+                    "text": "J'ai dit plus tôt que le Design Space était énorme, et je le pensais vraiment ! Pour aller d'un coin à l'autre, il faudrait des centaines de clics et de glissements. Bien que l'utilisation du clavier vous permette de développer des vitesses vertigineuses, ce n'est pas aussi cool que la téléportation ! Voici comment cela fonctionne :",
+                    "updated": 1667204755351
                 }
             ],
             "updated": 1616414991030
@@ -146,6 +156,11 @@
                     "language": "TR",
                     "text": "Haritayı küçütmek için mouseun sağ tuşuna tıklayın ve istediğiniz noktaya gitmek için mouse'un sol tuşunu tıklayın!. Örneğin, Tasarım alanında herhangi bir yerde sağ tıkayın, daha sonra \" Lan Netwok \" düğümünün üzerine sol tıklayın. İşte Tasarım alanında ( Design Space ) gezinmek bu kadar kolay.",
                     "updated": 1635947930242
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez avec le bouton droit de la souris pour ouvrir la carte et cliquez avec le bouton gauche n'importe où pour aller à cet endroit précis !",
+                    "updated": 1667204773927
                 }
             ]
         },
@@ -193,6 +208,11 @@
                     "language": "TR",
                     "text": "Tasarım alanının sol alt köşesine bakarsanız bu öğreticiyi görebilirsiniz. Artık beni nerede bulacağını biliyorsun!",
                     "updated": 1644906356456
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous me voyez dans le coin inférieur gauche de l'espace de conception ? Vous savez maintenant où me trouver !",
+                    "updated": 1667204803655
                 }
             ]
         }

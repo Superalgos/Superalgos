@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Меня зацепил этот потрясающий проект!",
                 "updated": 1640413746767
+            },
+            {
+                "language": "TR",
+                "text": "Bu harika projeye bayıldım!",
+                "updated": 1669310016444
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Text",
             "text": "**Right** click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to end edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
-            "updated": 1622380414603
+            "updated": 1622380414603,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için **sağ** tıklayın ve Düzenle'yi tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modunu sonlandırmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669310036459
+                }
+            ]
         },
         {
             "style": "Text",
@@ -27,6 +39,11 @@
                     "language": "RU",
                     "text": "Я совершенно ошарашен. Какой потрясающий проект. Я только поцарапал поверхность, уловил идеи, лежащие в основе, и обязательно возьму тур, чтобы освоить его.",
                     "updated": 1640413818345
+                },
+                {
+                    "language": "TR",
+                    "text": "Kesinlikle çok etkilendim, ne harika bir proje. Sadece yüzeysel olarak inceledim, arkasındaki fikirleri kavradım ve kesinlikle ustalaşmak için tura katılacağım.",
+                    "updated": 1669310124753
                 }
             ]
         },
@@ -38,6 +55,11 @@
                     "language": "RU",
                     "text": "Поэтому мой первый обзор очень короткий, просто чтобы не сбиться с пути.",
                     "updated": 1640413854103
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu yüzden ilk incelemem sadece akışı sürdürmek için çok kısa olacak.",
+                    "updated": 1669310254213
                 }
             ]
         },
@@ -49,6 +71,11 @@
                     "language": "RU",
                     "text": "Я вернусь позже с более подробным отзывом.",
                     "updated": 1640413893912
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha detaylı bir inceleme ile daha sonra tekrar geleceğim.",
+                    "updated": 1669310268802
                 }
             ]
         },

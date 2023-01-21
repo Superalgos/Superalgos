@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Tüm düğümlerin her zaman değerlendirilmediğine dikkat edin! Sadece aktif aşamada olanlar değerlendirilir!",
                 "updated": 1642517648584
+            },
+            {
+                "language": "ID",
+                "text": "Perhatikan bahwa tidak semua node dievaluasi sepanjang waktu! Hanya mereka yang berada pada aktif stage!",
+                "updated": 1673967976683
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bu, strateji aşamaları hakkında hızlı bir bilgi tazeleme! Ticaret sistemleri ve stratejileriyle ilgili belgeleri okumadıysanız, zaman ayırın ve ilgili belgeleri okuyun!",
                     "updated": 1642517704659
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah penyegaran baik pada tahapan strategi! Jika kamu belum membaca dokumen tentang trading systems dan strategies, temukan time-nya dan lakukanlah!",
+                    "updated": 1673967982835
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bu koşulların pozisyon içindeki mumlar için nasıl vurgulanmadığına dikkat edin.",
                     "updated": 1642517746196
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana conditions ini tidak disorot untuk candle di dalam position.",
+                    "updated": 1673967990282
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Bunun nedeni, Trigger Stage tanımlarına bakıyor olmanızdır. Bu tanımlar, bir Strateji tetiklenene kadar değerlendirilir. Bir kez tetiklendiğinde,Open Stage devreye girer ve bu böyle devam eder!",
                     "updated": 1642518289084
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini karena kamu melihat definisi dari Trigger Stage. Definisi ini dievaluasi sampai Strategy dipicu. Setelah dipicu, Open Stage dimulai, dan seterusnya!",
+                    "updated": 1673967997456
                 }
             ]
         }

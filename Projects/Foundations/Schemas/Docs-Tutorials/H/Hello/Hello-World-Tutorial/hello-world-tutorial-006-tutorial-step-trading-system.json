@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Торговая система уже настроена. Давайте посмотрим!",
                 "updated": 1640854450217
+            },
+            {
+                "language": "NL",
+                "text": "Het Trading System is al ingesteld. Laten we eens kijken!",
+                "updated": 1670773536410
+            },
+            {
+                "language": "ID",
+                "text": "Trading System sudah siap. Ayo kita lihat!",
+                "updated": 1670299893634
             }
         ]
     },
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "Стратегия уже развернута. Так что давайте осмотримся, чтобы понять ее!",
                     "updated": 1640854463200
+                },
+                {
+                    "language": "NL",
+                    "text": "De strategie is al ingezet. Dus laten we eens rondkijken om het te begrijpen!",
+                    "updated": 1670773556235
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategi telah di sebarkan. Jadi mari kita lihat sekiling untuk memahami apa yang terjadi!",
+                    "updated": 1670299903038
                 }
             ]
         },
@@ -101,6 +121,16 @@
                     "language": "RU",
                     "text": "Как видно, торговая система имеет 2 основных потомка:",
                     "updated": 1640854521203
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je kunt zien, heeft een Trading System 2 belangrijke afstammelingen:",
+                    "updated": 1670773588307
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu lihat, sebuah Trading System memiliki 2 offspring utama:",
+                    "updated": 1670299913436
                 }
             ]
         },
@@ -134,6 +164,16 @@
                     "language": "RU",
                     "text": "Dynamic Indicators: Это позволяет создавать индикаторы \"на лету\".",
                     "updated": 1640854555101
+                },
+                {
+                    "language": "NL",
+                    "text": "Dynamic Indicators: Hiermee kunt u On-The-Fly-indicatoren bouwen",
+                    "updated": 1670773605978
+                },
+                {
+                    "language": "ID",
+                    "text": "Dynamic Indicators: Ini memperbolehkanmu membuat indikator dengan mudah",
+                    "updated": 1670299923051
                 }
             ]
         },
@@ -167,6 +207,16 @@
                     "language": "RU",
                     "text": "Trading Strategy: Это место, где мы определяем параметры, условия и формулы для нашей стратегии",
                     "updated": 1640854568299
+                },
+                {
+                    "language": "NL",
+                    "text": "Trading Strategy: Hier definiëren we parameters, voorwaarden en formules voor onze strategie",
+                    "updated": 1670773619775
+                },
+                {
+                    "language": "ID",
+                    "text": "Trading Strategy: Ini dimana kita menjelaskan parameter, kondisi, dan formula untuk strategi kita",
+                    "updated": 1670299933001
                 }
             ]
         },
@@ -199,6 +249,16 @@
                     "language": "RU",
                     "text": "В этом учебнике не рассматриваются определения или концепции, используемые в Superalgos. Этот учебник посвящен только тому, как развернуть стратегию!",
                     "updated": 1640854608376
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze zelfstudie behandelt geen definities of concepten die in SA worden gebruikt. Deze tutorial gaat alleen over het implementeren van een strategie!",
+                    "updated": 1670773636570
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial ini tidak mencakup definisi atau konsep yang digunakan dalam SA. Tutorial ini hanya untuk bagaimana cara menyebarkan strategi!",
+                    "updated": 1670299940303
                 }
             ]
         }

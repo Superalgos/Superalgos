@@ -47,8 +47,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak etiketle ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketle!",
-                    "updated": 1641654408129
+                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketleyin!",
+                    "updated": 1669579870798
                 }
             ]
         },
@@ -69,8 +69,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Ayrıca iki koşulu & imlecini kullanarak tek bir koşula yazabilirdik. Bu iyi bir fikir değil,neden iyi bir fikir değil, bir sonraki adımda açıklayacağım!",
-                    "updated": 1641654435051
+                    "text": "Not: Ayrıca bu iki koşulu \"&&\" imlecini kullanarak tek bir koşulda yazabilirdik. Ancak bu iyi bir fikir değildir, Neden iyi bir fikir olmadığını bir sonraki adımda açıklayacağım!",
+                    "updated": 1669579953764
                 }
             ]
         }

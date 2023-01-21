@@ -25,6 +25,16 @@
                 "language": "TR",
                 "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
                 "updated": 1640858379007
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial ti insegna come formulare un'idea di trading verificabile. In un certo senso, è un'introduzione all'approccio sistematico al trading, un concetto cruciale che devi cogliere per automatizzare le strategie. L'esempio illustrato in questo tutorial viene successivamente utilizzato nel resto della serie.",
+                "updated": 1669885201391
+            },
+            {
+                "language": "NL",
+                "text": "Deze tutorial leert je hoe je een testbaar handelsidee formuleert. In zekere zin is het een inleiding tot de systematische benadering van handelen, een cruciaal concept dat u moet begrijpen om strategieën te automatiseren. Het voorbeeld in deze zelfstudie wordt later in de rest van de serie gebruikt.",
+                "updated": 1670782970695
             }
         ]
     },
@@ -44,6 +54,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393934900,
                     "style": "Title"
+                },
+                {
+                    "language": "IT",
+                    "text": "Riguardo questo tutorial",
+                    "updated": 1669885161053
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654393947007,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1670782985914
                 }
             ]
         }

@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Стратегия определена!",
                 "updated": 1640856987245
+            },
+            {
+                "language": "NL",
+                "text": "Strategy is bepaald!",
+                "updated": 1670775474477
+            },
+            {
+                "language": "ID",
+                "text": "Strategy sudah di definisikan!",
+                "updated": 1670310002080
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "RU",
                     "text": "Как вы убедились, реализация простой стратегии - дело нескольких строк кода!",
                     "updated": 1640857000556
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je hebt gezien, is het implementeren van een eenvoudige strategie een kwestie van een paar regels code!",
+                    "updated": 1670775491393
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu telah lihat, mengimplementasikan strategi simpel adalah permasalahan bagi beberapa baris kode!",
+                    "updated": 1670310017418
                 }
             ]
         },
@@ -105,12 +125,22 @@
                     "language": "RU",
                     "text": "Помните об этом, чтобы правильно работать с базовым и котируемым активом. Базовый находится сверху, котируемый - снизу! Таким образом, в нашем случае BTC/USD BTC является базовым активом, а USDT - котируемым активом.",
                     "updated": 1640857039417
+                },
+                {
+                    "language": "NL",
+                    "text": "Houd hier rekening mee om correct om te gaan met de Base en Quoted Asset. Base staat bovenaan, Quoted onderaan! Dus in ons geval BTC/USD hebben we dat BTC de Base Asset is, terwijl USDT de Quoted Asset is",
+                    "updated": 1670775578946
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapkan ini dipikiran untuk bekerja sama dengan benar antara Base dan Quoted Asset. Base itu diatas. Quoted itu dibawah! Jadi pada kasus kita BTC/USDT kita punya BTC sebagai Base Asset sedangkan USDT sebagai Quoted Asset.",
+                    "updated": 1670310035380
                 }
             ]
         },
         {
             "style": "Warning",
-            "text": "It doesn't change if you go Short. If strategy is Short then in the Open Stage bot will sell the Base Asset and later buy it back using Quoted Asset!",
+            "text": "It doesn't change if you go Short. If the strategy is Short then in the Open Stage the bot will sell the Base Asset and later buy it back using the Quoted Asset!",
             "updated": 1614262348272,
             "translations": [
                 {
@@ -139,6 +169,16 @@
                     "language": "RU",
                     "text": "Это не меняется, если вы выбрали стратегию Short. Если стратегия Short, то в Open Stage бот продаст базовый актив и позже выкупит его обратно, используя котируемый актив!",
                     "updated": 1640857092950
+                },
+                {
+                    "language": "NL",
+                    "text": "Het verandert niet als je Short gaat. Als de strategie Short is, zal de bot in de open fase de Base Asset verkopen en later terugkopen met behulp van de Quoted Asset!",
+                    "updated": 1670775622386
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu tidak akan berubah jika kamu memilih untuk Short. Jika strategi untuk Short maka bot Open Stage akan menjual Base Assset dan setelahnya membeli kembali dengan Quoted Asset!",
+                    "updated": 1670310047614
                 }
             ]
         }

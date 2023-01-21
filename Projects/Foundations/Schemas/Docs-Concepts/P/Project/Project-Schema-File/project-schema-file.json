@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Это самый базовый и низкоуровневый общесистемный файл конфигурации. Вы найдете его в папке Projects. Он содержит список всех интегрированных проектов и для каждого из них список модулей javascript, организованных по различным категориям, например, библиотеки функций, служебные программы, пространства, глобальные объекты и т. д.; в свою очередь организованы в пользовательский интерфейс UI более широких категорий,\nTS и PL.",
                 "updated": 1638287790166
+            },
+            {
+                "language": "TR",
+                "text": "Sistem genelindeki en temel ve düşük seviyeli yapılandırma dosyasıdır. Projeler klasöründe bulabilirsiniz. Tüm entegre projelerin bir listesini ve her biri için İşlev Kütüphaneleri , Yardımcı Programlar  , Alanlar ( Spaces ), Küreseller (Globals) vb. gibi farklı kategorilerde düzenlenmiş javascript modüllerinin listesini içerir; sırayla daha geniş UI , TS ve PL kategorilerinde düzenlenir.",
+                "updated": 1668518547140
             }
         ]
     },

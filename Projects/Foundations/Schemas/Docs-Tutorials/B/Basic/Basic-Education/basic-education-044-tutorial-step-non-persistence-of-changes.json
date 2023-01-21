@@ -29,7 +29,7 @@
             },
             {
                 "language": "TR",
-                "text": "Çalışma alanı her yüklendiğinde eklenti dosyasının yüklendiğini söylediğimi hatırlıyor musunuz? Bu özelliğin bir sonucu vardır ...",
+                "text": "Çalışma alanı her yüklendiğinde eklenti dosyasının yüklendiğini söylediğimi hatırlıyor musunuz? Bu özelliğin bir sonucu vard��r ...",
                 "updated": 1639816667363
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ingat yang aku katakan bahwa file plugin dimuat setiap kali workspace dimuat? Namun fitur ini juga memiliki konsekuensi langsung...",
                 "updated": 1645558931129
+            },
+            {
+                "language": "NL",
+                "text": "Weet je nog dat ik zei dat het plugin bestand wordt geladen telkens wanneer de werkruimte wordt geladen? Deze functie heeft een onmiddellijk gevolg...",
+                "updated": 1669546813707
             }
         ]
     },
@@ -52,8 +57,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Le gerarchie incluse come plugins non sono salvate a livello del workspace, quindi i cambiamenti che applichi ai loro oggetti non sono persistenti. Se vuoi modificare un plugin e mantenere i cambiamenti in futuro, devi clonarlo o fare il backup e lavorare sulla copia.",
-                    "updated": 1619590378028,
+                    "text": "Le Hierarchies posizionate nell'area di lavoro come plug-in non vengono salvate con l'area di lavoro per impostazione predefinita. Di conseguenza, le modifiche apportate a tali gerarchie non vengono mantenute, a meno che non le salvi manualmente o abiliti il salvataggio automatico.",
+                    "updated": 1666640678474,
                     "style": "Warning"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Hierarchies ditempatkan di workspace karena plugin tidak menyimpan dengan workspace secara default. Akibatnya, perubahan yang dibuat dalam Hierarchies tersebut tidak bertahan, kecuali jika kamu menyimpannya secara manual atau mengaktifkan penyimpanan otomatis.",
                     "updated": 1645559008465
+                },
+                {
+                    "language": "NL",
+                    "text": "Hierarchies die als plugins in de werkruimte zijn geplaatst, worden niet standaard met de werkruimte opgeslagen. Als gevolg hiervan blijven wijzigingen in die hiërarchieën niet behouden, tenzij u ze handmatig opslaat of automatisch opslaan inschakelt.",
+                    "updated": 1669546870701
                 }
             ]
         },
@@ -91,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Nei prossimi step vedremo più in dettaglio quanto detto!",
-                    "updated": 1619590413453,
+                    "text": "Esistono due casi d'uso principali per la modifica dei plugins:",
+                    "updated": 1666640713744,
                     "style": "Text"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Ada dua kasus penggunaan utama untuk memodifikasi plugin :",
                     "updated": 1645559032065
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn twee belangrijke use-cases voor het wijzigen van plugins:",
+                    "updated": 1669546893775
                 }
             ]
         },
@@ -153,6 +168,16 @@
                     "language": "ID",
                     "text": "Kamu ingin memodifikasi plugin untuk menjadikannya milik kamu dan tetap bekerja dengan versi yang dimodifikasi di masa depan.",
                     "updated": 1645559057482
+                },
+                {
+                    "language": "IT",
+                    "text": "Desideri modificare un plugin per renderlo tuo e continuare a lavorare con la versione modificata in futuro.",
+                    "updated": 1666640764984
+                },
+                {
+                    "language": "NL",
+                    "text": "U wilt een plugin aanpassen om deze eigen te maken en in de toekomst met de gewijzigde versie te blijven werken.",
+                    "updated": 1669546922157
                 }
             ]
         },
@@ -185,6 +210,16 @@
                     "language": "ID",
                     "text": "Kamu ingin memperbarui dan meningkatkan plugin untuk berkontribusi dalam perbaikan proyek.",
                     "updated": 1645559088893
+                },
+                {
+                    "language": "IT",
+                    "text": "Desideri aggiornare e migliorare un plug-in per apportare miglioramenti al progetto.",
+                    "updated": 1666640785345
+                },
+                {
+                    "language": "NL",
+                    "text": "U wilt een plugin bijwerken en verbeteren om de verbeteringen aan het project bij te dragen.",
+                    "updated": 1669546940991
                 }
             ]
         }

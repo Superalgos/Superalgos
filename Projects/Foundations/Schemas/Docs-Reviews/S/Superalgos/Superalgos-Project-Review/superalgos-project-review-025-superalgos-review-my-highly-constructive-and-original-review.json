@@ -3,7 +3,14 @@
     "pageNumber": 25,
     "type": "Superalgos Review - My highly constructive and original review",
     "definition": {
-        "text": "Write a summary for this review page."
+        "text": "Write a summary for this review page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1669311240528
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,6 +22,11 @@
                     "language": "RU",
                     "text": "Проект выглядит красиво.",
                     "updated": 1640414650709
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje çok güzel görünüyor.",
+                    "updated": 1669311269654
                 }
             ]
         },
@@ -26,6 +38,11 @@
                     "language": "RU",
                     "text": "Это была моя весьма конструктивная и оригинальная оценка.",
                     "updated": 1640414710476
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu benim son derece yapıcı ve özgün incelememdi.",
+                    "updated": 1669311292809
                 }
             ]
         },

@@ -6,10 +6,135 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
     }
 
     return thisObject
-
+    
+    /*
+    Expecting variable data:
+        profileMessage = {
+            originSocialPersonaId: nodeId,
+            username: 'theblockchainarborist',
+        }
+    */
     async function getUserProfileInfo(profileMessage) {
         // TODO make this function return UserProfileInfo
+        /*
+        When the Web App makes a query that includes Post text as responses,
+        we need to fetch the text from the the storage container of the author
+        of such posts, since the Network Nodes do not store that info themselves, 
+        they just store the structure of the social graph.
+        */
+        return new Promise(loadSocialEntityAsync)
+
+        async function loadSocialEntityAsync(resolve, reject) {
+            console.log("LOADING SOCIAL ENTITY ASYNC" + JSON.stringify(profileMessage))
+            /*
+            Each Social Entity must have a Storage Container so that we can here
+            use it to load content on it. 
+            */
+            let socialEntity
+            if (profileMessage.originSocialPersonaId !== undefined) {
+                let socialEntityId = profileMessage.originSocialPersonaId
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            }
+            if (profileMessage.originSocialTradingBotId !== undefined) {
+                let socialEntityId = profileMessage.originSocialTradingBotId
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            }
+            /*
+            Some Validations
+            */
+            if (socialEntity === undefined) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Load Social Entity Profile Because Social Entity is Undefined'
+                }
+                resolve(response)
+                return
+            }
+
+            let availableStorage = socialEntity.node.availableStorage
+            if (availableStorage === undefined) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Load Social Entity Profile Because Available Storage is Undefined'
+                }
+                resolve(response)
+                return
+            }
+
+            if (availableStorage.storageContainerReferences.length === 0) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Load Social Entity Profile Because Storage Container References is Zero'
+                }
+                resolve(response)
+                return
+            }
+            let file
+            let notLoadedCount = 0
+
+
+            for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
+                let storageContainerReference = availableStorage.storageContainerReferences[i]
+                if (storageContainerReference.referenceParent === undefined) {
+                    continue
+                }
+                if (storageContainerReference.referenceParent.parentNode === undefined) {
+                    continue
+                }
+
+                let storageContainer = storageContainerReference.referenceParent
+
+                if (file !== undefined) {
+                    continue
+                }
+                /*
+                We are going to load this file from the Storage Containers defined.
+                We are going to try to read it first from the first Storage container
+                and if it is not possible we will try with the next ones.
+                */
+                let fileName = socialEntity.id
+                let filePath = "Social-Entities"
+
+                switch (storageContainer.parentNode.type) {
+                    case 'Github Storage': {
+                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                            .then(onFileLoaded)
+                            .catch(onFileNotLoaded)
+                        break
+                    }
+                    case 'Superalgos Storage': {
+                        // TODO Build the Superalgos Storage Provider
+                        break
+                    }
+                }
+
+                function onFileLoaded(fileData) {
+                    file = fileData
+                    let response = {
+                        result: 'Ok',
+                        message: 'Social Entity Profile Found',
+                        profileData: file
+                    }
+                    resolve(response)
+                }
+
+                function onFileNotLoaded() {
+                    notLoadedCount++
+                    if (notLoadedCount === availableStorage.storageContainerReferences.length) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Social Entity Profile Not Available At The Moment'
+                        }
+                        resolve(response)
+                    }
+                }
+            }
+        }
     }
+
+
+
+
 
     async function createUserProfile(profileMessage) {
 
@@ -33,7 +158,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             4. Add to the User Profile the User App based on userAppType.
             5. Create a Storage Container for "My-Social-Trading-Data".
             6. Create the Signing Accounts and sign them.
-    
+            7. TODO: auto merge new profile into the main superalgos governance repo
             */
 
             /*
@@ -92,7 +217,9 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const {Octokit} = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: profileMessage.storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -109,6 +236,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 return
             }
             await checkCreateUserProfile()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
+            addGovernanceNode()
             if (response.result === 'Error') {
                 resolve(response)
                 return
@@ -138,7 +270,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response)
                 return
             }
-
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             resolve(response)
 
             async function checkCreateFork() {
@@ -258,6 +394,79 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
+            async function addGovernanceNode() {
+                if (userProfile.tokenPowerSwitch === undefined) {
+                    userProfile.tokenPowerSwitch = {
+                        type: 'Token Power Switch',
+                        name: 'New Token Power Switch',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}'
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.financialPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.financialPrograms = {
+                        type: 'Financial Programs',
+                        name: 'New Financial Programs',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: "{}",
+                        stakingProgram: {
+                            type: "Staking Program",
+                            name: "New Staking Program",
+                            config: "{}",
+                            project: "Governance",
+                            tokensAwarded: {
+                                type: "Tokens Awarded",
+                                name: "New Tokens Awarded",
+                                project: "Governance",
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        }
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.liquidityPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.liquidityPrograms = {
+                        type: "Liquidity Programs",
+                        name: "New Liquidity Programs",
+                        config: "{}",
+                        project: "Governance",
+                        liquidityProgram: [
+                            {
+                                type: "Liquidity Program",
+                                name: "BTCB",
+                                config: "{\n    \"asset\": \"BTCB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            {
+                                type: "Liquidity Program",
+                                name: "BNB",
+                                config: "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                "id": SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            }
+                        ],
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    }  
+                }
+            }
+
             function addUserAppsNodes() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
@@ -283,10 +492,10 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         }
                         targetNode = {
                             type: 'Social Trading Desktop App',
-                            name: 'New Social Trading Desktop App',
+                            name: 'Social Trading Desktop App #1',
                             project: 'User-Apps',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
+                            config: '{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}',
                         }
                         userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
                         targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
@@ -337,7 +546,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     GOVERNANCE_PLUGINS_REPO_NAME,
                     profileMessage.storageProviderUsername,
                     'User-Profiles',
-                    profileMessage.storageProviderUsername
+                    profileMessage.storageProviderUsername,
+                    GOVERNANCE_PLUGINS_REPO_BRANCH
                 )
                     .then()
                     .catch(profileNotPushed)
@@ -387,6 +597,20 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
                 SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(fileContent, undefined, 4))
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }

@@ -1,0 +1,62 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "11",
+    "type": "VAWMA",
+    "definition": {
+        "text": "The Volume Adjusted Weighted Moving Average (VAWMA) is a moving average calculation that more heavily weights recent price data. LWMAs are quicker to react to price changes than the simple moving average (SMA) and the exponential moving average (EMA)."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "VAWMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is essentially a combination of the VWMA and WMA. It attempts to determine the average price per share over time, weighted heavier for recent values."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-vawma.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| VAWMA | vawma | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"VAWMA\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-vawma-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the VAWMA:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.vawma.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

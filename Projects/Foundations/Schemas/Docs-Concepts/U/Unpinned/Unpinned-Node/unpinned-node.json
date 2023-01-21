@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Когда узел не закреплен, на него могут влиять другие настройки или он может находиться в плавающем состоянии в рабочем пространстве.",
                 "updated": 1638300068216
+            },
+            {
+                "language": "TR",
+                "text": "Bir düğüm sabitlenmediğinde, diğer ayarlardan etkilenmekte veya çalışma alanında kendi yerini bulmakta serbesttir.",
+                "updated": 1666869167328
             }
         ]
     },

@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Gitmene izin vermeden önce sana söylemek istediğim birkaç şey daha var! Benimle kal.",
-                "updated": 1636643056079
+                "text": "Diğer eğitimlerde Dokümanlar hakkında daha fazla bilgi edineceksiniz. Şimdi, Canlı Alım Satım Seansı yapmadan önce size birkaç şey daha göstereceğim!",
+                "updated": 1670013725934
             },
             {
                 "language": "ID",
@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Вы узнаете больше о Docs в других руководствах. А сейчас я покажу вам еще несколько вещей, прежде чем мы запустим живую торговую сессию! ",
                 "updated": 1662035681001
+            },
+            {
+                "language": "NL",
+                "text": "U leert meer over de Docs in andere handleidingen. Nu zal ik je nog een paar dingen laten zien voordat we een Live Trading Session houden!",
+                "updated": 1667138002106
             }
         ]
     },
@@ -69,8 +74,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos'un gelecek sürümleri için üzerinde çalıştığımız şeyler hakkında size hızlı bir giriş yapacağım! Makine Öğrenimi ( Machine Learning) algoritmalarından bahsetmiştim ama dahası da var! Çok daha fazla!",
-                    "updated": 1636643093703
+                    "text": "Size Topluluğun şu anda üzerinde çalıştığı bazı premium hizmetler hakkında kısa bir bilgi vereceğim!",
+                    "updated": 1670013750922
                 },
                 {
                     "language": "ID",
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Я расскажу вам о некоторых премиальных услугах, над которыми сейчас работает Сообщество!",
                     "updated": 1662035709702
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je een korte introductie geven over enkele premium services waar de Community momenteel aan werkt!",
+                    "updated": 1667138024500
                 }
             ]
         },
@@ -108,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ayrıca, yaptığımız şeyi takdir ediyorsanız, yardımcı olabileceğinizi de bilmenizi isterim! Superalgos'u inşa etmek ve onu mevcut durumuna getirmek için on binlerce saatlik sıkı çalışma yapıldı. Umarım birkaç dakikanızı ayırıp geri bildirim verebilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyacağım!",
-                    "updated": 1636643137813
+                    "text": "Ayrıca şunu da bilmenizi isterim ki - eğer yaptıklarımızı takdir ediyorsanız - siz de yardım edebilirsiniz!",
+                    "updated": 1670013774078
                 },
                 {
                     "language": "ID",
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Я также хочу сообщить вам, что если вы цените то, что мы делаем, вы можете помочь!",
                     "updated": 1662035727854
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik wil je ook laten weten dat - als je waardeert wat we doen - je kunt helpen!",
+                    "updated": 1667138043692
                 }
             ]
         },
@@ -137,6 +152,16 @@
                     "language": "RU",
                     "text": "Десятки тысяч часов упорного труда ушли на создание Superalgos и доведение его до нынешнего состояния. Я надеюсь, что вы сможете уделить пару минут своего времени, чтобы отблагодарить их, и я буду рад подсказать вам, с чего начать! Давайте продолжим!",
                     "updated": 1662035748856
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn tienduizenden uren hard werk gestoken in het bouwen van Superalgos en het in de huidige staat brengen ervan. Ik hoop dat je een paar minuten van je tijd kunt nemen om iets terug te doen, en ik vertel je graag waar je moet beginnen! Laten we ermee aan de slag gaan!",
+                    "updated": 1667138066450
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u inşa etmek ve bugünkü haline getirmek için on binlerce saat emek harcandı. Umarım geri bildirim vermek için birkaç dakikanızı ayırabilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyarım! Haydi başlayalım!",
+                    "updated": 1670013824109
                 }
             ]
         }

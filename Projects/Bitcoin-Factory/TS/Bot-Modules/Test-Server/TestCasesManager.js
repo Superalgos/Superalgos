@@ -14,14 +14,15 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
     const MUST_BE_ON_PARAMS = [
         'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MAX', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MIN',
-        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN'
+        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN',
+        'CANDLES_CANDLES-VOLUMES_VOLUMES_VOLUME_BUY'
     ]
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
     let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
 
-    console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
+    TS.logger.info('Working with these Parameter Ranges:')
     console.table(parametersRanges)
 
     return thisObject
@@ -41,6 +42,12 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 for (let i = 0; i < thisObject.testCasesArray.length; i++) {
                     let testCase = thisObject.testCasesArray[i]
                     thisObject.testCasesMap.set(testCase.parametersHash, testCase)
+                    if (TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.forecastCasesArray == undefined) {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.initialize()
+                    }
+                    if (testCase.status === "Tested") {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
+                    }
                 }
             }
             generateTestCases()
@@ -68,24 +75,32 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             const parametersIsON = getParametersIsON()
             const AMOUNT_OF_VARIABLES = parametersIsON.length
 
-            console.log("Testing this features")
+            TS.logger.info("Testing this features")
             console.table(parametersIsON)
 
             let combinations = []
+            let length_LEARNING_RATE = (parametersRanges.LEARNING_RATE != undefined ? parametersRanges.LEARNING_RATE.length : 1) 
+            let length_OBSERVATION_WINDOW_SIZE = (parametersRanges.OBSERVATION_WINDOW_SIZE != undefined ? parametersRanges.OBSERVATION_WINDOW_SIZE.length : 1) 
             for (let k = 0; k < parametersRanges.LIST_OF_ASSETS.length; k++) {
                 for (let l = 0; l < parametersRanges.LIST_OF_TIMEFRAMES.length; l++) {
-                    for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
-                        let combination = []
-                        //Increasing or decreasing depending on which direction
-                        for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
-                            let key = parametersIsON[j]
-                            let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
-                            combination.push(parameter)
-                        }
-                        combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
-                        combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
-                        combinations.push(combination);
-                    }        
+                    for (let m = 0; m < length_LEARNING_RATE; m++) {                        
+                        for (let n = 0; n < length_OBSERVATION_WINDOW_SIZE; n++) {                        
+                            for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                                let combination = []
+                                //Increasing or decreasing depending on which direction
+                                for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                                    let key = parametersIsON[j]
+                                    let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                                    combination.push(parameter)
+                                }
+                                combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
+                                combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
+                                if (parametersRanges.LEARNING_RATE != undefined) combination.push({ key: 'LEARNING_RATE', value: parametersRanges.LEARNING_RATE[m] })
+                                if (parametersRanges.OBSERVATION_WINDOW_SIZE != undefined) combination.push({ key: 'OBSERVATION_WINDOW_SIZE', value: parametersRanges.OBSERVATION_WINDOW_SIZE[n] })
+                                combinations.push(combination);
+                            }
+                        }        
+                    }
                 }
             }
             return combinations
@@ -289,7 +304,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 if (
                     diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10 &&
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.forceTestClientsToWait10Minutes === true) {
-                    console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
+                    TS.logger.info('Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
                     return 'NO CASES FOR YOU'
                 } else {
                     return await assignTestCase(testCase)
@@ -320,7 +335,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
         }
 
-        console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
+        TS.logger.info('No more Test Cases. Could not deliver one to ' + currentClientInstance)
         return 'NO TEST CASES AVAILABLE AT THE MOMENT'
 
         async function assignTestCase(testCase) {
@@ -329,7 +344,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.assignedTimestamp = (new Date()).valueOf()
 
             getTimeSeriesFileName(testCase)
-            testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            testCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             saveTestCasesFile()
 
             let nextTestCase = {
@@ -363,26 +378,40 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
             if (testCase === undefined) {
-                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id could not be found at the current Test Cases Array. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                TS.logger.info(currentClientInstance + ' just tested Test Case Id could not be found at the current Test Cases Array. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
                 return
             }
             if (testCase.status !== 'Being Tested') {
-                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id does not match any a Test Case at the current Test Cases Array with an status of Being Tested. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                TS.logger.info(currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id does not match any a Test Case at the current Test Cases Array with an status of Being Tested. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
                 return
             }
             testCase.status = 'Tested'
-            testCase.predictions = testResult.predictions
-            testCase.errorRMSE = testResult.errorRMSE
-            testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)
-            testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
-            testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
-            testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
+            testCase.elapsedSeconds = testResult.elapsedTime.toFixed(0)
+            testCase.elapsedMinutes = (testResult.elapsedTime / 60).toFixed(2)
+            testCase.elapsedHours = (testResult.elapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
+            testCase.pythonScriptName = testResult.pythonScriptName
             testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
             testCase.testServer = {
                 userProfile: ((testResult.testServer != undefined) && (testResult.testServer.userProfile != undefined) ? testResult.testServer.userProfile : ''),
                 instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
+            //LSTM
+            if (testResult.errorRMSE != undefined) {
+                testCase.predictions = testResult.predictions
+                testCase.errorRMSE = testResult.errorRMSE
+                testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)  
+            //RL      
+            } else if (testResult["0"] != undefined) {
+                testCase.predictions = testResult["2"].current_action
+                testCase.ratio_train = (testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin).toFixed(2)
+                testCase.ratio_test = (testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin).toFixed(2)
+                testCase.ratio_validate = (testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin).toFixed(2)
+                
+                testCase.std_train = (testResult["0"].stdNetWorthAtEnd / testResult["0"].NetWorthAtBegin).toFixed(4)
+                testCase.std_test = (testResult["1"].stdNetWorthAtEnd / testResult["1"].NetWorthAtBegin).toFixed(4)
+                testCase.std_validate = (testResult["2"].stdNetWorthAtEnd / testResult["2"].NetWorthAtBegin).toFixed(4)
             }
 
             let logQueue = []
@@ -393,15 +422,15 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
                 logQueue.push(testCase)
             }
-            console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id)
-            console.log((new Date()).toISOString(), 'Updated partial table of Test Cases:')
+            TS.logger.info(currentClientInstance + ' just tested Test Case Id ' + testCase.id)
+            TS.logger.info('Updated partial table of Test Cases:')
             console.table(logQueue)
             saveTestReportFile()
             saveTestCasesFile()
             TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Error processing test results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] testResult = ' + JSON.stringify(testResult))
+            TS.logger.error('Error processing test results. Err = ' + err.stack)
+            TS.logger.error('testResult = ' + JSON.stringify(testResult))
         }
 
         function calculatePercentageErrorRMSE(testResult) {

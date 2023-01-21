@@ -13,13 +13,7 @@ const forkPluginReposPromise = async (resolve) => {
   const username = process.argv[2]
   const token = process.argv[3]
 
-  if (username === undefined || token === undefined) {
-    console.log(
-      '[WARN] You need to provide your Github username and token in order for this script to Fork the Plugins repositories into your acccount for you.'
-      )
-    console.log(
-      '[WARN] Add your user name and token to the parameters of this script and try again please. '
-      )
+  if (!areUserCredentialsProvided()) {
     resolve()
     return
   }
@@ -49,7 +43,6 @@ const forkPluginReposPromise = async (resolve) => {
         reponsesCount++
         if (reponsesCount === Object.keys(global.env.PROJECT_PLUGIN_MAP).length) { resolve() }
       })
-
   }
 }
 
@@ -59,10 +52,9 @@ const cloneTheRepo = async () => {
 
 const cloneTheRepoPromise = async (resolve) => {
   const username = process.argv[2]
+  const currentBranch = await getCurrentBranch()
 
-  if (username === undefined) {
-    console.log('[WARN] You need to provide your Github username for this script to Clone the Plugins repositories forks from your acccount.')
-    console.log('[WARN] Add your user name to the parameters of this script and try again please. ')
+  if (!areUserCredentialsProvided()) {
     return 'no username'
   }
 
@@ -80,7 +72,7 @@ const cloneTheRepoPromise = async (resolve) => {
     console.log(' ')
     console.log('[INFO] Cloning plugin repo from ' + repoURL + ' into ' + cloneDir)
 
-    exec('git clone ' + repoURL + ' ' + global.env.PROJECT_PLUGIN_MAP[propertyName].dir + ' --branch develop',
+    exec('git clone ' + repoURL + ' ' + global.env.PROJECT_PLUGIN_MAP[propertyName].dir + ' --branch ' + currentBranch,
       {
         cwd: path.join(global.env.PATH_TO_PLUGINS)
       },
@@ -108,7 +100,7 @@ const cloneTheRepoPromise = async (resolve) => {
               resolve()
             })
             .catch((err) => {
-              console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually.')
+              console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually. ')
               console.log('')
               console.log(err)
               resolve()             
@@ -151,7 +143,38 @@ const run = async () => {
       console.log('[ERROR] Github Credentials were not saved correctly ' + err)
     }
   })
+}
 
+/**
+ * 
+ * @returns {boolean}
+ */
+const areUserCredentialsProvided = () => {
+  const username = process.argv[2]
+  const token = process.argv[3]
+  if (username === undefined || token === undefined) {
+    console.log(
+      '[WARN] You need to provide your Github username and token in order for this script to Fork the Plugins repositories into your acccount for you.'
+      )
+    console.log(
+      '[WARN] Add your user name and token to the parameters of this script and try again please. '
+      )
+    return false
+  }
+  return true
+}
+
+/**
+ * 
+ * @returns {Promise<string>}
+ */
+const getCurrentBranch = async () => {
+  const branches = await simpleGit({
+    baseDir: process.cwd(),
+    binary: 'git',
+    maxConcurrentProcesses: 6,
+  }).branch()
+  return branches.current
 }
 
 module.exports = {

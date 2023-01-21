@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Tot nu toe was je aan de donkere kant van Superlgos. Maak je klaar voor de lichte kant: de Charting Space.",
                 "updated": 1638781129195
+            },
+            {
+                "language": "FR",
+                "text": " Jusqu'à présent, vous avez été confiné au côté obscur du Superalgos. Préparez-vous à être exposé au côté lumineux : le Charting Space.",
+                "updated": 1668067544161
             }
         ]
     },
@@ -58,8 +63,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il Charting Space si trova al di sopra del Design Space, separato da uno slider turchese. Come imparerai ad aspettarti da Superalgos, il Charting Space è configurabile e molto flessibile. Tutto ciò che accade lí ha una definizione sul Charting Space. ",
-                    "updated": 1618646977566,
+                    "text": "Il Charting Space si trova al di sopra del Design Space, separato da uno slider turchese. Come imparerai ad aspettarti da Superalgos, il Charting Space è configurabile e molto flessibile. Tutto ciò che accade lí ha una definizione sul nodo Charting Space.  Warning!!! This translation is outdated. English version is... The charting space lives on top of the design space, separated by a turquoise slider. As you will come to expect from Superalgos, the charting space is configurable and highly flexible. Everything that happens there is defined on the Charting Space hierarchy. Please update this translation.",
+                    "updated": 1666389987692,
                     "style": "Text"
                 },
                 {
@@ -94,6 +99,11 @@
                     "language": "NL",
                     "text": "De Charting Space bevind zich boven de Design Space, gescheiden door een turquoise schuifbalk. Zoals je gewend bent van Superalgos is de ruimte van de grafieken zeer flexibel en te configureren. Alles wat daar gebeurt is gedefinieerd in de Charting Space hiërarchie.",
                     "updated": 1638781441406
+                },
+                {
+                    "language": "FR",
+                    "text": "Le Charting Space se trouve au-dessus de l'espace de conception, séparé par un curseur turquoise. Comme vous pouvez l'attendre de Superalgos, l'espace graphique est configurable et très flexible. Tout ce qui s'y passe est défini dans la hiérarchie de l'espace graphique.",
+                    "updated": 1668067585135
                 }
             ]
         },
@@ -139,6 +149,11 @@
                     "language": "NL",
                     "text": "De ruimte voor de grafieken staat er om bekend om mensen versteld te doen staan. Ga niet verder met deze tutorial als je op dit moment onder invloed bent van psychoactieve stoffen.",
                     "updated": 1638781673970
+                },
+                {
+                    "language": "FR",
+                    "text": "'espace graphique est connu pour faire perdre la tête aux gens. Veuillez vous abstenir de poursuivre ce tutoriel si vous êtes actuellement sous l'influence de substances psychoactives.",
+                    "updated": 1668067630941
                 }
             ],
             "updated": 1616416552336

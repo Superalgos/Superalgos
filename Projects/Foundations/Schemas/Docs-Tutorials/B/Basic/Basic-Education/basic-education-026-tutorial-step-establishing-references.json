@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Pada sisi tertentu, kamu perlu membuat referensi, jadi mari kita lakukan beberapa latihan dasar untuk mengembangkan keterampilan hebat yang diperlukan!",
                 "updated": 1644948619494
+            },
+            {
+                "language": "NL",
+                "text": "Op een gegeven moment zul je een referentie moeten opbouwen, dus laten we wat basistraining doen om de formidabele vaardigheden te ontwikkelen die nodig zijn!",
+                "updated": 1669542014138
             }
         ]
     },
@@ -52,8 +57,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca sul bottone \"delink\" nel menù del nodo Trading System Reference!",
-                    "updated": 1619501451689,
+                    "text": "Fai doppio click sul bottone \"delink\" nel menù del nodo Trading System Reference!",
+                    "updated": 1666638814404,
                     "style": "Callout"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Klik dua kali tombol delink pada menu node Trading System Reference!",
                     "updated": 1644948646978
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik op de delink knop in het menu van het Trading System Reference knooppunt!",
+                    "updated": 1669542056725
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Kamu baru saja merusak referensi! Tapi jangan khawatir... kita akan membuatnya kembali di langkah selanjutnya!",
                     "updated": 1644948684013
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt zojuist de referentie verbroken! Maar maak je geen zorgen... we maken het opnieuw in de volgende stappen!",
+                    "updated": 1669542074927
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Untuk membuat referensi, ikuti proses yang sama yang kamu gunakan untuk attach node. Yaitu, klik kanan pada node tempat referensi akan berasal, seret dekat ke simpul yang dengannya referensi akan dibuat, dan lepaskan klik setelah cincin oranye muncul!",
                     "updated": 1644948783921
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een referentie tot stand te brengen, volgt u hetzelfde proces dat u gebruikt om een knooppunt aan te sluiten. Dat wil zeggen, klik met de rechtermuisknop op het knooppunt waar de referentie vandaan komt, sleep het dicht bij het knooppunt waarmee de referentie tot stand wordt gebracht en laat de klik los zodra de oranje ring verschijnt!",
+                    "updated": 1669542100674
                 }
             ]
         },

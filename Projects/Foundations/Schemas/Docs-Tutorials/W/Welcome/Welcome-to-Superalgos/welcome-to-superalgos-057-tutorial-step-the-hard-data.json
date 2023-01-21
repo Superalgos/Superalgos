@@ -40,6 +40,16 @@
                 "language": "ID",
                 "text": "Plotter Panel menampilkan representasi data non-grafis, sebagian besar dalam bentuk nilai numerik atau teks.",
                 "updated": 1639587646731
+            },
+            {
+                "language": "NL",
+                "text": "Een Plotter Panel bevat niet-grafische representaties van gegevens, meestal in de vorm van numerieke waarden of tekst.",
+                "updated": 1666787766786
+            },
+            {
+                "language": "FR",
+                "text": "Un panneau de traceur (Plotter Panel) présente des représentations non graphiques des données, principalement sous la forme de valeurs numériques ou de texte.",
+                "updated": 1668414032867
             }
         ]
     },
@@ -79,6 +89,16 @@
                     "language": "ID",
                     "text": "Setiap layer mungkin atau mungkin tidak menampilkan satu atau lebih panel terkait. Terserah pengembang Bot Indikator yang sesuai untuk menentukannya atau tidak.",
                     "updated": 1639587864338
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke laag kan al dan niet één of meer bijbehorende panelen bevatten. Het is aan de ontwikkelaar van de bijbehorende Indicator Bot om ze te definiëren of niet.",
+                    "updated": 1666787800851
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque couche peut comporter ou non un ou plusieurs panneaux associés. C'est au développeur du Bot Indicateur correspondant de les définir ou non.",
+                    "updated": 1668414050206
                 }
             ]
         },
@@ -117,6 +137,16 @@
                     "language": "ID",
                     "text": "Untuk mengakses panel, klik kiri pada icon plotter panel dari layers pilihan.",
                     "updated": 1639587776166
+                },
+                {
+                    "language": "NL",
+                    "text": "Om toegang te krijgen tot panelen, klikt u met de linkermuisknop op het pictogram van het plotterpaneel van de laag naar keuze.",
+                    "updated": 1666787832691
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour accéder aux panneaux, cliquez avec le bouton gauche sur l'icône du panneau du traceur de la couche de votre choix.",
+                    "updated": 1668414068524
                 }
             ]
         },
@@ -143,8 +173,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Katman yöneticilerini ve çizici panellerini, başlıklarına sol tıklayarak ve ekranın herhangi bir köşesine sürükleyerek taşıyabilirsiniz.",
-                    "updated": 1636096719299
+                    "text": "Katman yöneticilerini ve çizici (Plotter) panellerini, başlıklarına sol tıklayarak ve ekranın herhangi bir köşesine sürükleyerek taşıyabilirsiniz.",
+                    "updated": 1665964066901
                 },
                 {
                     "language": "RU",
@@ -155,6 +185,16 @@
                     "language": "ID",
                     "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
                     "updated": 1639587712869
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt laagmanagers en plotterpanelen verplaatsen door met de linkermuisknop op hun koppen te klikken en ze naar een willekeurige hoek van het scherm te slepen.",
+                    "updated": 1666787859211
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez déplacer les gestionnaires de calques et les panneaux de traceur en cliquant avec le bouton gauche sur leurs en-têtes et en les faisant glisser vers n'importe quel coin de l'écran.",
+                    "updated": 1668414093403
                 }
             ],
             "updated": 1640359316083

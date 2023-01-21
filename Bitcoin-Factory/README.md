@@ -34,7 +34,7 @@ Superalgos supports a decentralised Peer 2 Peer network that offers many ways to
 
 #### The Test Server Application
 
-The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forcast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forecast Clients apps to be processed.
+The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forecast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forecast Clients apps to be processed.
 
 **Note:** The test server app is run by the Bitcoin Factory. 
 
@@ -101,12 +101,7 @@ Having said that, please don't expect that forecasts will be precise in the begi
 ## Development To Do List
 
 ### Bug's that need fixing:
- 1. Bug fix Negative error values, the issue needs addressing where the percentageErrorRMSE occasionally produces a negative value.
- 2. Fix the issue returning the test results to the same server that provided the test case.
- 3. The current forecaster is not aware of multiple servers and is causing problems. An upgrade for this is needed, before other improvements.
- 4. Multiple Network Nodes, the current system only allows connection to one network node. Allow the system to scale and avoid bottlenecks, the system must be able to connect to multiple network nodes.
- 5. Computing power owners to be able to specify which server they would like to connect to.
- 6.  Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
+ 1.  The forecaster is sending undefined values.
 
 ## Dashboard setup and progress
 The dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.

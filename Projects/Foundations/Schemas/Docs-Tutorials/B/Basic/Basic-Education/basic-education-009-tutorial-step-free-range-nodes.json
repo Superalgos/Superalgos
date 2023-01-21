@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Pada saat memilih opsi untuk membatalkan pengaturan Angle to Parent, node sendiri sangat mudah untuk diatur tergantung parent dan saudaranya!",
                 "updated": 1643473689963
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer u de optie selecteert om de instelling Angle to Parent te annuleren, is het knooppunt vrij om elke hoek te nemen ten opzichte van zijn ouder en broers en zussen!",
+                "updated": 1668335774658
             }
         ]
     },
@@ -52,8 +57,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Apri il menù del nodo Trading Parameters, seleziona l'opzione per disattivare la proprietà Angle to Parent e sposta il nodo in una qualsiasi direzione.",
-                    "updated": 1619460372348,
+                    "text": "Accedi al menu del nodo Trading Parameters, seleziona l'opzione per annullare l'impostazione Angle to Parent e sposta il nodo in qualsiasi direzione!",
+                    "updated": 1666638174174,
                     "style": "Callout"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Masuk ke menu node Trading Parameters, pilih opsi untuk membatalkan pengaturan Angle to Parent, dan pindahkan node ke segala arah!",
                     "updated": 1643434201967
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het menu van het knooppunt Trading Parameters, selecteer de optie om de instelling Angle to Parent te annuleren en verplaats het knooppunt in een willekeurige richting!",
+                    "updated": 1668335816319
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Seperti yang kamu lihat, node bertahan saat kamu meninggalkannya, dan garis putus menjadi kuning yang terkoneksi dengan parent-nya. Perhatikan kedua sisi node parent dan jarak menjadi leluasa.",
                     "updated": 1643352704204
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je kunt zien, blijft het knooppunt waar je het verlaat en wordt de stippellijn die verbonden is met het bovenliggende knooppunt geel. Merk op dat zowel de hoek naar het bovenliggende knooppunt als de afstand willekeurig worden.",
+                    "updated": 1668335840693
                 }
             ]
         }

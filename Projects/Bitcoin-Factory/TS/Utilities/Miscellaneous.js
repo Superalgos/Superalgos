@@ -81,15 +81,15 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
             }
             return []
         } catch (err) {
-            console.log((new Date()).toISOString(), err.stack)
+            TS.logger.error(err.stack)
             return []
         }
     }
 
     function getHHMMSS(timestamp) {
         let now = (new Date()).valueOf()
-        let enlapsed = now - timestamp
-        return (new Date(enlapsed).toISOString().substr(11, 8))
+        let elapsed = now - timestamp
+        return (new Date(elapsed).toISOString().substr(11, 8))
     }
 
     function getExpiration(thisCase) {
@@ -116,7 +116,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
             if (err.code === "ENOENT") {
                 return
             } else {
-                console.log((new Date()).toISOString(), err.stack)
+                TS.logger.error(err.stack)
                 throw ('Fatal Exception')
             }
         }
@@ -149,9 +149,9 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                 })
                 .catch(error => {
                     const errorMessage = 'Could not reach the Superalgos Platform with the configured host and port in order to get the User Profile File List. Please check that Superalgos is running at the specified location.'
-                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort )
-                    console.log((new Date()).toISOString(), 'Could not check with Superalgos. Had this error: ' + error)
-                    console.log((new Date()).toISOString(), errorMessage)
+                    TS.logger.error('Checking with Superalgos...', 'http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort )
+                    TS.logger.error('Could not check with Superalgos. Had this error: ' + error)
+                    TS.logger.error(errorMessage)
                     reject(errorMessage)
                 })
         }
@@ -178,7 +178,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                     }
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'Could not check with Superalgos. Had this error: ' + error)
+                    TS.logger.error('Checking with Superalgos...', 'Could not check with Superalgos. Had this error: ' + error)
                     reject()
                 })
         }
@@ -209,22 +209,22 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                 dataset: dataset,
                 timeFrameLabel: timeFrameLabel
             }
-            console.time('getIndicatorFile')
-            console.log((new Date()).toISOString(), 'Requesting file to Superalgos...', dataMine, indicator, product, timeFrameLabel)
+            //console.time('getIndicatorFile')
+            TS.logger.info('Requesting file to Superalgos...', dataMine, indicator, product, timeFrameLabel)
             const axios = require("axios")
             axios
                 .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
-                        console.timeEnd('getIndicatorFile')
+                        //console.timeEnd('getIndicatorFile')
                         resolve(res.data.fileContent)
                     } else {
-                        console.log((new Date()).toISOString(), 'File requested not found. Please verify that you are running the Data Mining operation that includes this indactor and that this file exist on disk.')
+                        TS.logger.error('File requested not found. Please verify that you are running the Data Mining operation that includes this indactor and that this file exist on disk.')
                         reject()
                     }
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Error trying to get an indicator file from Superalgos...', ' error: ' + error)
+                    TS.logger.error('Error trying to get an indicator file from Superalgos...', ' error: ' + error)
                     reject()
                 })
         }

@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Der Besitz von Tokens ist mehr als nur ein Zeichen des Engagements. SA-Token verleihen auch Token Power!",
                 "updated": 1640072274888
+            },
+            {
+                "language": "ID",
+                "text": "Memegang token ini lebih dari sekedar hanya menunjukkan komitmen. SA Token juga memberikan Token Power!",
+                "updated": 1670673668587
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Je mehr Token Sie besitzen, desto mehr Einfluss können Sie auf die Richtung des Projekts haben. Das bedeutet, dass Sie durch den Besitz von SA-Token die Macht haben, diese Token zu nutzen, um Einfluss darauf zu nehmen, welche Teile des Systems entwickelt werden und wie sich die Gemeinschaft entwickelt.",
                     "updated": 1640072334022
+                },
+                {
+                    "language": "ID",
+                    "text": "Semakin banyak token yang kamu pegang maka semakin banyak pengaruh yang dapat kamu miliki  terhadap arah proyek. Artinya, dengan memiliki SA Token, kamu memegang kekuatan menggunakan token untuk mengarahkan pengaruh atas bagian apa dari sistem yang akan di kembangkan dan bagaimana komunitas akan bertumbuh.",
+                    "updated": 1670673661086
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Dies funktioniert in einem Kreislauf. Je mehr Sie beitragen, desto mehr Token verdienen Sie, desto mehr Mitspracherecht haben Sie!",
                     "updated": 1640072340534
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini bekerja dalam satuan siklus. Semakin banyak kamu berkontribusi, maka semakin banyak token yang kamu peroleh, semakin banyak yang kamu katakan!",
+                    "updated": 1670673653658
                 }
             ]
         }

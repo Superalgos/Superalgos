@@ -14,7 +14,30 @@
     let statusDependencies
 
     let MAX_OHLCVs_PER_EXECUTION = 10000000
-    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+
+/*  CCXT and its unifiedAPI require a different way to find the pair because now not only spot is supported
+    but swaps and futures too.
+    Form CCXT
+    BTC/USD         -> Could be spot
+    BTC/USDT:USDT   -> Swap Linear
+    BTC/USDT:BTC    -> Swap Inverse
+
+    This is an issue in SA at the moment, since when saving data there is no distinction in folders
+
+    -> Old code left below for a quick reverse in case of issues
+
+    let baseAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+    let quotedAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+    const symbol = baseAsset + '/' + quotedAsset
+ */
+   
+    // Following line is left for history purposes 
+    // const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+       
+    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
+
+
     const ccxt = SA.nodeModules.ccxt
     /*
     This next is required when using an exchange that uses fetchTrades in place of fetchOHLCVs
@@ -179,14 +202,14 @@
             if (sandBox) {                
                 exchange.setSandboxMode(sandBox)
                 /* Uncomment to log
-                console.log('Exchange HistoricOHLCVs connection starting.... ')
-                console.log('Sandbox mode is: ' + sandBox)
-                console.log(exchange.urls.api)
-                console.log('')
-                console.log('exchangeConstructorParams:')
-                console.log(exchangeConstructorParams)
-                console.log('')
-                console.log('limit is: ' + limit)
+                TS.logger.info('Exchange HistoricOHLCVs connection starting.... ')
+                TS.logger.info('Sandbox mode is: ' + sandBox)
+                TS.logger.info(exchange.urls.api)
+                TS.logger.info('')
+                TS.logger.info('exchangeConstructorParams:')
+                TS.logger.info(exchangeConstructorParams)
+                TS.logger.info('')
+                TS.logger.info('limit is: ' + limit)
                 */
             }
             
@@ -198,13 +221,13 @@
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
 
             /* CCXT Supported Exchanges */
-            console.log('CCXT Library current supported exchanges:')
+            TS.logger.error('CCXT Library current supported exchanges:')
             for (const property in ccxt) {
-                console.log(`${property}`);
+                TS.logger.error(`${property}`);
             }
-            console.log('For more info please check: https://github.com/ccxt/ccxt/wiki/Manual')
-            console.log('Exchange Class ' + exchangeId)
-            console.log(exchangeClass)
+            TS.logger.error('For more info please check: https://github.com/ccxt/ccxt/wiki/Manual')
+            TS.logger.error('Exchange Class ' + exchangeId)
+            TS.logger.error(exchangeClass)
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }

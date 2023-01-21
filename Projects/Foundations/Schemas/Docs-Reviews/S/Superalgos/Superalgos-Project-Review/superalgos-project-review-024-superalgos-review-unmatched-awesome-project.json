@@ -10,13 +10,25 @@
                 "language": "RU",
                 "text": "Для группы друзей-трейдеров собраться вместе и решить заняться проектом автоматической торговли, а затем достичь бета-версии 11 этого проекта - это очень круто. \nА если учесть беспрецедентный характер этого проекта, граничащий с революционным, а также планируемые будущие функциональные возможности и другие значимые цели проекта, я могу только покачать головой в абсолютном изумлении.\nКроме того, я только начинал свой путь с торговыми ботами, едва просмотрел 20 или 50 открытых вкладок, и как-то наткнулся на SuperAlgos. Я был немедленно захвачен вашим проектом. Ничто другое не привлекло мое внимание так сильно.\n\nТакже спасибо, потому что это сэкономило мне время на просмотре тех 50 других вкладок!\nЯ сразу же пошел и купил Raspberry Pi 4 B, после того как думал о его приобретении почти 10 лет.\n\nВ любом случае, мои слова не могут передать справедливость вашего удивительного проекта.\nА я еще даже не поцарапал поверхность.\n\nС нетерпением жду освоения вашей платформы и ваших будущих функциональных возможностей и этапов проекта.\nИнтеграция с нодами Ethereum? Святая корова.\n\nПожалуйста, просто убедитесь, что вы продолжаете соблюдать право на финансовую конфиденциальность, финансовый суверенитет, анонимность, индивидуальную конфиденциальность и т.д. Настолько, насколько это возможно для вашей платформы/проекта.\nМы не можем и не должны позволять SEC и подобным \"органам\" вмешиваться в такие проекты.\nПожалуйста, убедитесь, что ваша платформа на 100% противостоит сомнительным централизованным структурам власти...\nThanks\nJerome\nhttps://github.com/romeox7",
                 "updated": 1640414623691
+            },
+            {
+                "language": "TR",
+                "text": "Bir grup tüccar arkadaşın bir araya gelerek otomatik bir ticaret projesi üzerinde çalışmaya karar vermesi ve ardından bu projenin beta 11'e ulaşması oldukça şaşırtıcı. \nBu projenin devrim niteliğindeki eşi benzeri görülmemiş doğasının yanı sıra gelecekte planlanan işlevleri ve diğer önemli proje hedeflerini düşündüğümde, sadece mutlak ŞAŞKINLIK içinde başımı sallayabilirim.\nAyrıca, ticaret botlarıyla yolculuğuma yeni başlamıştım, açtığım 20 veya 50 sekmeyi zar zor geçtim ve bir şekilde SuperAlgos'a rastladım. Projeniz beni hemen yakaladı. Başka hiçbir şey dikkatimi bu kadar güçlü çekmedi.\n\nAyrıca teşekkürler, çünkü diğer 50 sekmeden geçerken bana zaman kazandırdı!\nHemen dışarı çıktım ve neredeyse 10 yıldır almayı düşündüğüm Raspberry Pi 4 B'yi satın aldım.\n\nHer neyse, kelimelerim muhteşem projenizin hakkını veremez.\nVe henüz yüzeyi bile kazımadım.\n\nPlatformunuzda ve gelecekteki işlevlerinizde ve proje kilometre taşlarınızda ustalaşmayı dört gözle bekliyorum.\nEthereum düğümleriyle entegrasyon mu? Vay anasını.\n\nLütfen finansal gizlilik, finansal egemenlik, anonimlik, bireysel gizlilik vb. haklara saygı duymaya devam ettiğinizden emin olun. Platformunuzun/projenizin yapabildiği kadar.\nSEC ve benzeri \"otoritelerin\" bu gibi projelere müdahale etmesine izin veremeyiz ve vermemeliyiz.\nTeşekkürler\n Jerome \nhttps://github.com/romeox7",
+                "updated": 1670875580354
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
+                    "updated": 1670875482882
+                }
+            ]
         }
     ]
 }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Я только что начал использовать Superalgos, и уже нахожусь в полном восторге. То, как структурирован дизайн и то, что все визуализировано, делает его очень интуитивным и более легким для восприятия, чем аналогичные системы, которым не хватает этих качеств.",
                 "updated": 1640412481470
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u yeni kullanmaya başladım ve şimdiye kadar çok şaşırdım. Tasarımın yapılandırılma şekli ve her şeyin görselleştirilmiş olması, bu alanlarda eksik olan karşılaştırılabilir sistemlere göre çok sezgisel ve kavranmasını kolaylaştırıyor.",
+                "updated": 1669195202679
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Кроме того, это делает каждую структуру (торговую стратегию, анализ данных, бэктестинг и т.д.) легко настраиваемой без необходимости опыта программирования.",
                     "updated": 1640412514960
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahası, bu, her yapıyı (ticaret stratejisi, veri madenciliği, geriye dönük test, vb...) programlama deneyimine ihtiyaç duymadan son derece yapılandırılabilir hale getirir.",
+                    "updated": 1669195256850
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Как я уже сказал, я совсем новичок в этом проекте, и за то короткое время, что я им пользуюсь, я влюбился в него. После изучения первых трех руководств становится совершенно очевидно, что потенциал проекта Superalgos и его пользователей просто зашкаливает.",
                     "updated": 1640412545157
+                },
+                {
+                    "language": "TR",
+                    "text": "Dediğim gibi, bu projede çok yeniyim ve kullandığım kısa süre için bunu sevdim. İlk 3 öğreticiden geçtikten sonra, hem Superalgos projesi hem de kullanıcıları için potansiyelin tavan yaptığı oldukça açık.",
+                    "updated": 1669195324050
                 }
             ]
         },

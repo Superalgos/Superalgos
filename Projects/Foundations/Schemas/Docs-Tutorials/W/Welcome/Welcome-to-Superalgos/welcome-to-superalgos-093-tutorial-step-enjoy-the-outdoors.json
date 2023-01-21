@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Иерархия Crypto Ecosystem - это место, где вы настраиваете, с какими биржами и рынками вы работаете, ваши счета на биржах, ключи API и так далее...",
                 "updated": 1642770718295
+            },
+            {
+                "language": "NL",
+                "text": "In de Crypto Ecosystem hiërarchie configureert u met welke handelsplatformen en markten u werkt, uw accounts met handelsplatformen, API-sleutels, enzovoort...",
+                "updated": 1667126804745
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Говоря о ключах API, когда вы создаете свой ключ API Exchange на бирже, учитывайте следующее:",
                     "updated": 1642770772407
+                },
+                {
+                    "language": "NL",
+                    "text": "Over API-sleutels gesproken, houd rekening met het volgende wanneer u uw Exchange API-sleutel bij het handelsplatform maakt:",
+                    "updated": 1667126866661
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Эксклюзив для Superalgos: Создайте ключ для исключительного использования Superalgos. Это поможет вам отслеживать, что Superalgos делает с вашим аккаунтом, и предотвратить конфликты с другими ботами, которые вы можете использовать.",
                     "updated": 1642770790804
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Exclusief voor Superalgos:</b> maak een sleutel om exclusief te gebruiken met Superalgos. Dit zal u helpen bij te houden wat Superalgos met uw account doet en conflicten te voorkomen met andere bots die u mogelijk gebruikt.",
+                    "updated": 1667126925530
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "RU",
                     "text": "Без ограничений по IP: Это необходимо для того, чтобы избежать проблем во время прохождения учебника - вы можете добавить ограничения позже, когда узнаете, как работает система.",
                     "updated": 1642770819542
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Geen IP-beperkingen:</b> dit is om problemen te voorkomen tijdens het uitvoeren van de handleiding - u kunt later beperkingen toevoegen, als u eenmaal weet hoe het systeem werkt.",
+                    "updated": 1667126964492
                 }
             ]
         },
@@ -198,6 +218,11 @@
                     "language": "RU",
                     "text": "Без вывода средств: Superalgos еще не осуществляет переводы средств, поэтому нет смысла разрешать снятие денег. Запретите вывод средств по соображениям безопасности.",
                     "updated": 1642770915764
+                },
+                {
+                    "language": "NL",
+                    "text": "Geen geld opnames: Superalgos verwerkt nog geen overboekingen, dus het heeft geen zin om geld opnames toe te staan. Verwijder geld opnames om veiligheidsredenen.",
+                    "updated": 1667127052577
                 }
             ]
         }

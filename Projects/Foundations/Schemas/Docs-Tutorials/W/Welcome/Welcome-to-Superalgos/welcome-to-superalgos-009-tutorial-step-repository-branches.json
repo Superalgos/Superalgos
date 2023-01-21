@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "El repositorio de Superalgos presenta tres ramas principales: master, develop, y el que estamos buscando, plugins-docs.",
-                "updated": 1628121680964,
+                "text": "El repositorio de Superalgos presenta dos ramas principales: Master y Develop.",
+                "updated": 1667508718420,
                 "style": "Definition"
             },
             {
@@ -43,6 +43,11 @@
                 "language": "TR",
                 "text": "Superalgos deposu iki ana dala sahiptir: Master ve Develop.",
                 "updated": 1639942169332
+            },
+            {
+                "language": "NL",
+                "text": "De Superalgos-repository heeft twee hoofd branches: Master en Develop.",
+                "updated": 1669573989936
             }
         ]
     },
@@ -66,8 +71,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Master Branch: Es la versión estable del software. ¡Nunca envíes contribuciones a esta rama!",
-                    "updated": 1628121827428,
+                    "text": "Master Branch: contiene la versión estable del software. ¡Nunca envíes contribuciones a esta rama! ",
+                    "updated": 1667508817851,
                     "style": "List"
                 },
                 {
@@ -83,8 +88,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
-                    "updated": 1639942204622
+                    "text": "Master Dalı: Yazılımın kararlı sürümünü içerir. Bu dala asla katkı göndermeyin!",
+                    "updated": 1665961671895
+                },
+                {
+                    "language": "NL",
+                    "text": "Master Branch: beschikt over de stabiele versie van de software. Dien nooit bijdragen in voor deze branch!",
+                    "updated": 1669573978054
                 }
             ]
         },
@@ -107,8 +117,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Develop Branch: Presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten al código base.",
-                    "updated": 1628121811043,
+                    "text": "Develop Branch: presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten a la base de código, traducciones, mejoras en los Docs, Tutoriales y Plugins como Data Mine, Trading System, etc.",
+                    "updated": 1667508980371,
                     "style": "List"
                 },
                 {
@@ -124,8 +134,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Develop Branch: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, Dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
-                    "updated": 1639942297409
+                    "text": "Develop Dalı: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
+                    "updated": 1665961827703
+                },
+                {
+                    "language": "NL",
+                    "text": "Develop Branch: bevat de versie die momenteel in ontwikkeling is. Dien bijdragen in van code die van invloed is op de codebase, vertalingen, verbeteringen in de Docs, zelfstudies en plugins zoals data mines, trading systems, enzovoort!",
+                    "updated": 1669574061328
                 }
             ]
         },
@@ -144,6 +159,16 @@
                     "language": "RU",
                     "text": "Если вы не используете установку Contributors, проигнорируйте инструкции по переключению ветвей на следующих нескольких шагах. Просто нажмите кнопку Далее, чтобы продолжить.",
                     "updated": 1662032297873
+                },
+                {
+                    "language": "ES",
+                    "text": "Ignore las instrucciones para cambiar de rama de los siguientes pasos si no está utilizando la instalación de Contributors. Simplemente haga clic en Siguiente para continuar.",
+                    "updated": 1667509026793
+                },
+                {
+                    "language": "NL",
+                    "text": "Negeer de instructies om van branche te wisselen in de volgende paar stappen als u de Contributors-installatie niet gebruikt. Klik gewoon op Next om door te gaan.",
+                    "updated": 1669574092281
                 }
             ]
         }

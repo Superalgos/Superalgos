@@ -33,6 +33,11 @@
                 "language": "TR",
                 "text": "Bu adım, bir videoyu tam ekran modunda oynatır.",
                 "updated": 1635942925637
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape va lire une vidéo en mode plein écran.",
+                "updated": 1667203500277
             }
         ]
     },

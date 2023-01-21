@@ -1,0 +1,108 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 22,
+    "type": "Braid Filter",
+    "definition": {
+        "text": "The Braid Filter show the strength of a trend and can be used as a confirmation indicator.",
+        "updated": 1668053403887,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Braid Filter zeigt die Stärke eines Trends an und kann als Bestätigungsindikator verwendet werden.",
+                "updated": 1671697212543
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Braid Filter On the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Braid Filter auf den Charts",
+                    "updated": 1671697244308
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Braid filter is essentially the difference in high and low values taken from three exponential moving averages of differing lengths. This difference is then compared to the Average True Range of the price action to determine if the current trend is strong.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Braid Filter besteht im Wesentlichen aus der Differenz der Höchst- und Tiefstwerte von drei exponentiell gleitenden Durchschnitten unterschiedlicher Länge. Diese Differenz wird dann mit der Average True Range des Kursverlaufs verglichen, um festzustellen, ob der aktuelle Trend stark ist.",
+                    "updated": 1671697271707
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-braid-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Braid Filter can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Braid Filter\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Flechtfilters können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Braid Filter\" Product Definition suchen und öffnen.",
+                    "updated": 1671697322773
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-braid-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Braid Filter Products & Properties",
+            "updated": 1668053430091,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Braid Filter Produkte & Eigenschaften",
+                    "updated": 1671697349685
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| BraidFilter | BrFilt | value, filter |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| BraidFilter | BrFilt | value, filter |",
+                    "updated": 1671697366756
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671697380434
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the braid value is above the filter value:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in einen Handel einsteigt, wenn der braid Wert über dem Filterwert liegt:",
+                    "updated": 1671697423345
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at45min.BrFilt.value > chart.at45min.BrFilt.filter"
+        }
+    ]
+}

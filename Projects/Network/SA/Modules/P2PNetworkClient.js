@@ -1,7 +1,7 @@
 exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetworkClient() {
     /*
     This module represents the P2P Network and it holds all the infranstructure
-    needed to interact with it.
+    needed to interact with it. 
     */
     let thisObject = {
         appBootstrapingProcess: undefined,
@@ -13,6 +13,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         machineLearningNetworkServiceClient: undefined,
         tradingSignalsNetworkServiceClient: undefined,
         eventReceivedCallbackFunction: undefined,
+        pullProfiles: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -30,10 +31,11 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         maxOutgoingPeers,
         maxOutgoingStartPeers,
         eventReceivedCallbackFunction,
-        p2pNetworkClientNode
+        p2pNetworkClientNode,
+        pullProfiles
     ) {
 
-        thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction
+        thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction // This is the function that will be called when an event / signal is received from the p2p Network.
 
         await setupNetwork()
         await setupNetworkServices()
@@ -50,8 +52,11 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             await thisObject.appBootstrapingProcess.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkClientIdentity,
-                false
+                pullProfiles
             )
+            SA.logger.info('Network Client User Profile Code Name ........................................ ' + thisObject.p2pNetworkClientIdentity.userProfile.config.codeName)
+            SA.logger.info('Network Client User Profile Balance .......................................... ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkClientIdentity.userProfile.balance))
+            SA.logger.info('')
             /*
             We set up the P2P Network reacheable nodes. This means that we will filter out all the network nodes that do not have the
             network services this Task requires or the Network Interfaces this Task can speak to.
@@ -62,7 +67,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 targetNetworkCodeName,
                 targetNetworkType,
                 thisObject.p2pNetworkClientIdentity,
-                p2pNetworkClientNode
+                p2pNetworkClientNode,
+                thisObject.p2pNetworkClientIdentity.userProfile.config.codeName,
+                thisObject.p2pNetworkClientIdentity.userProfile.balance
             )
             /*
             Set up the connections to network nodes. These are websockets connections and in order to do this, 

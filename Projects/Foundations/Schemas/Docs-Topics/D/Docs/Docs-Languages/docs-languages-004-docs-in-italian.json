@@ -126,8 +126,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per cambiare la lingua, é sufficiente cliccare sulle bandiere che si trovano in fondo a ogni pagina dei Docs.",
-                    "updated": 1614710684503,
+                    "text": "Gli utenti possono passare da una lingua all'altra utilizzando il link o bandiere presenti a piè di pagina di ogni pagina dei Documenti.",
+                    "updated": 1666615996768,
                     "style": "Success"
                 },
                 {
@@ -150,8 +150,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "É possible aggiungere o cancellare pagine dei Docs solamente quando la lingua di visualizzazione é in inglese.",
-                    "updated": 1614710793433,
+                    "text": "Puoi aggiungere o eliminare pagine dai Documenti solo quando la lingua è impostata sull'inglese. Per la traduzione devi selezionare la lingua in cui vuoi tradurre. (In questo caso italiano)",
+                    "updated": 1666616616453,
                     "style": "Note"
                 },
                 {

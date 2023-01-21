@@ -6,8 +6,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este libro lo guía por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
-                "updated": 1628207193722
+                "text": "Este libro lo guiará por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
+                "updated": 1668187876379
             },
             {
                 "language": "RU",
@@ -56,6 +56,11 @@
                     "language": "DE",
                     "text": "Verwendung dieses Buches",
                     "updated": 1650359341848
+                },
+                {
+                    "language": "ES",
+                    "text": "Como utilizar este libro",
+                    "updated": 1667506688738
                 }
             ]
         },
@@ -208,6 +213,11 @@
                     "language": "DE",
                     "text": "Liste der Plugin Workspaces und Tutorials",
                     "updated": 1650359575312
+                },
+                {
+                    "language": "ES",
+                    "text": "Listado de Plugin Workspaces y Tutoriales",
+                    "updated": 1667506752109
                 }
             ]
         },
@@ -218,8 +228,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para su conveniencia, encuentre la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
-                    "updated": 1636560626471
+                    "text": "Para su conveniencia, aquí tiene un listado con la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
+                    "updated": 1668187912910
                 },
                 {
                     "language": "RU",

@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "De operatie binnen elke markt is georganiseerd per Data Mine. Superalgos komt met verschillende open-source datamijnen, met meerdere indicatoren.",
                 "updated": 1637497885132
+            },
+            {
+                "language": "FR",
+                "text": "Au sein de chaque marché, l'opération est organisée par Data Mine. Superalgos est livré avec plusieurs mines de données open-source, chacune avec de multiples indicateurs.",
+                "updated": 1667987116077
             }
         ]
     },
@@ -91,8 +96,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Zie datamijnen als een plugins die door ontwikkelaars gemaakt zijn om de data analyse mogelijkheden van het systeem uite te breiden. Een Indicator Bot kan de data van andere indicator gebruiken om meer waarde, diepere en rijkere analyses te maken.",
-                    "updated": 1637498102349
+                    "text": "Zie datamijnen als plug-ins die ontwikkelaars kunnen maken om de gegevensanalysecapaciteit van het systeem uit te breiden. Een Indicator Bot kan gegevens verwerken die andere indicatoren produceren, waardoor waarde wordt toegevoegd en een diepere en rijkere analyse wordt geproduceerd.",
+                    "updated": 1666615684978
+                },
+                {
+                    "language": "FR",
+                    "text": "Considérez les mines de données comme des plugins que les développeurs peuvent créer pour étendre la capacité d'analyse des données du système. Un Indicator Bot peut traiter les données produites par d'autres indicateurs, ajoutant ainsi de la valeur et produisant une analyse plus profonde et plus riche.",
+                    "updated": 1667987148913
                 }
             ]
         },
@@ -136,8 +146,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Als je een basiskennis van JavaScript hebt, kan jij ook indicatoren maken! Als je een contributie aan een Data Mine toevoegd, verdien je daar Superalgos SA Tokens mee!",
-                    "updated": 1637498198951
+                    "text": "Als je basiskennis van JavaScript hebt, kun jij ook indicatoren maken! Als je mee ontwikkeld aan een Data Mine, dan verdien je daar Superalgos SA Tokens mee!",
+                    "updated": 1666615771256
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous avez une compréhension de base de JavaScript, vous pouvez aussi créer des indicateurs ! Si vous contribuez à une Data Mine, vous recevrez des jetons Superalgos SA !",
+                    "updated": 1667987186350
                 }
             ],
             "updated": 1622196189467

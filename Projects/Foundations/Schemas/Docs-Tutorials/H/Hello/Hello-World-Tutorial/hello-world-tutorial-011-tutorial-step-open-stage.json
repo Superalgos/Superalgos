@@ -3,7 +3,7 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Open Stage",
     "definition": {
-        "text": "The Open Stage is where bot take position!",
+        "text": "The Open Stage is where the bot takes position!",
         "icon": {
             "name": "open-stage",
             "project": "Foundations"
@@ -35,13 +35,23 @@
                 "language": "RU",
                 "text": "Open Stage - это место, где бот занимает позицию!",
                 "updated": 1640856530548
+            },
+            {
+                "language": "NL",
+                "text": "Het Open Stage is waar de bot positie inneemt!",
+                "updated": 1670774626429
+            },
+            {
+                "language": "ID",
+                "text": "Open Stage adalah dimana bot mengambil posisi!",
+                "updated": 1670305933796
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The strategy I want to backtest is based on 4h TF and the strategy is Long. This means that bot will Buy the asset to later Sell it (at a better price we hope!). To keep things simple, all I have to do is to indicate the TF in the Target Rate node using my full balance in the Target Size in Quoted Asset.",
+            "text": "The strategy I want to backtest is based on 4h TF and the strategy is Long. This means that the bot will Buy the asset to later Sell it (at a better price we hope!). To keep things simple, all I have to do is to indicate the TF in the Target Rate node using my full balance in the Target Size in Quoted Asset.",
             "updated": 1614333476016,
             "translations": [
                 {
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "Стратегия, которую я хочу протестировать, основана на 4h TF, и стратегия является Long. Это означает, что бот будет покупать актив, чтобы позже продать его (по лучшей цене, мы надеемся!). Чтобы упростить ситуацию, все, что мне нужно сделать, это указать TF в узле Target Rate, используя мой весь баланс в Target Size в Quoted Asset.",
                     "updated": 1640857188703
+                },
+                {
+                    "language": "NL",
+                    "text": "De strategie die ik wil backtesten is gebaseerd op 4h TF en de strategie is Long. Dit betekent dat de bot de asset koopt om het later te verkopen (hopelijk tegen een betere prijs!). Om het simpel te houden, hoef ik alleen maar de TF in het Target Rate knooppunt aan te geven met behulp van mijn volledige saldo in de Target Size in Quoted Asset.",
+                    "updated": 1670774724769
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategi yang ingin aku backtest berdasar pada TF 4h dan strateginya Long. Ini artinya bahwa bot akan Membeli aset yang pada nantinya di Jual (yang aku harap harganya lebih baik!). Untuk menjaga tetap sederhana, semua yang harus aku lakukan yaitu mengindikasikan TF pada node Target Rate menggunakan semua saldo pada Target Size di Quoted Asset.",
+                    "updated": 1670305942917
                 }
             ]
         },
@@ -102,6 +122,16 @@
                     "language": "RU",
                     "text": "Если наш рынок - BTC/USDT, то котируемый актив (Quoted Asset) - USDT, а базовый актив (Base Asset) - BTC.",
                     "updated": 1640856676020
+                },
+                {
+                    "language": "NL",
+                    "text": "Als onze markt BTC/USDT is, dan is de Quoted Asset waarde in USDT en de Base Asset waarde in BTC",
+                    "updated": 1670774815440
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika market kita adalah BTC/USDT maka Quoted Asset yaitu USDT dan Base Asset adalah BTC",
+                    "updated": 1670305953620
                 }
             ]
         }

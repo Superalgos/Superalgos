@@ -106,6 +106,34 @@
                     "style": "Warning"
                 }
             ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">text</code> content of message to be sent when there is no formula.",
+            "updated": 1665712360976
+        },
+        {
+            "style": "List",
+            "text": "onEnter define if message will be sent on node enter.",
+            "updated": 1665712405525
+        },
+        {
+            "style": "List",
+            "text": "onExit define if message will be sent on node exit.",
+            "updated": 1665712422683
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">delay</code> define the amount of delay before sending an announcement in milliseconds.",
+            "updated": 1667316202210
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
         }
     ]
 }

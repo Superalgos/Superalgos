@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Betreiben Sie zwei unabhängige Installationen von Superalgos parallel, aber achten Sie auf mögliche Probleme.",
                 "updated": 1645480792262
+            },
+            {
+                "language": "TR",
+                "text": "İki bağımsız Superalgos kurulumunu paralel olarak çalıştırın, ancak olası sorunların farkında olun.",
+                "updated": 1670936999135
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Superalgos ist in seiner Essenz sehr einfach und geradlinig. Das ist der große Vorteil dieser Software, mit der Sie buchstäblich tun können, was Sie wollen. Eine der vielen großen Fragen, mit denen wir in der Gemeinschaft konfrontiert sind, ist die, wie man mehrere Instanzen von SA gleichzeitig betreiben kann. Das ist durchaus möglich und in der Tat ist es sehr einfach, aber bitte lesen Sie alles sorgfältig durch, denn dies ist nicht frei von Nachteilen. Schauen wir uns also zunächst an, wie man SA konfiguriert, um diese Funktion zu erreichen, und am Ende dieser Anleitung finden Sie, welche Aspekte zu beachten sind.",
                     "updated": 1645480832243
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos özünde çok kolay ve anlaşılırdır. Bu yazılımın en büyük avantajı, kelimenin tam anlamıyla ne isterseniz yapmanıza izin vermesidir. Toplulukta karşılaştığımız birçok Büyük Sorudan biri, aynı anda birden fazla SA örneğinin nasıl çalıştırılacağıdır. Bu tamamen başarılabilir ve gerçekten çok kolaydır, ancak lütfen her şeyi dikkatlice okuyun çünkü bu dezavantajlardan muaf değildir. Öncelikle bu özelliği elde etmek için SA'yı nasıl yapılandıracağınızı görelim ve bu Nasıl Yapılır'ın sonunda hangi hususları göz önünde bulundurmanız gerektiğini bulacaksınız.",
+                    "updated": 1670937093962
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "DE",
                     "text": "Im Grunde besteht Superalgos aus zwei verschiedenen Teilen, der UI und der CLI, die zusammen leben. Um mit uns zu kommunizieren, verwenden sie 3 verschiedene Parameter, die in der Datei Environment.js definiert sind (siehe Standardwerte unten) und die folgenden sind:",
                     "updated": 1645480860596
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel olarak Superalgos, birlikte çalışan UI ve CLI olmak üzere iki farklı bölümden oluşur. Bizimle iletişim kurmak için Environment.js dosyasında tanımlanmış 3 farklı parametre kullanırlar (aşağıdaki varsayılan değerlere bakın) ve bunlar aşağıdaki gibidir:",
+                    "updated": 1670937150254
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Es genügt daher, diese Parameter zu ändern, um das gewünschte Ergebnis zu erzielen. Beachten Sie jedoch, dass es nicht ausreichen könnte, die Werte in der Datei Environment.js zu ändern. Superalgos speichert diese Werte nicht nur als globale Variablen, sondern auch als direkte Werte, wenn Sie z. B. einen Arbeitsbereich speichern. Sie müssen dann sicherstellen, dass Sie diese Parameter in allen Ihren SA-Installationen ändern. Eine Möglichkeit, dies schnell zu erreichen, ist die Verwendung einer Software wie VSCode, mit der Sie in einem ganzes Verzeichnis \"Suchen und Ersetzen\" können.",
                     "updated": 1645481008409
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, istenen sonucu elde etmek için bu parametreleri değiştirmek yeterli olacaktır. Ancak Environment.js dosyasındaki değerleri değiştirmenin yeterli olmayabileceğini unutmayın. Superalgos bu değerleri yalnızca global değişkenler olarak değil, aynı zamanda örneğin bir çalışma alanını kaydettiğinizde sabit değerler olarak da kaydeder. Daha sonra bu parametreleri tüm SA kurulumlarınızda değiştirdiğinizden emin olmalısınız. Bunu hızlı bir şekilde gerçekleştirmenin bir yolu, tüm dizini aramanıza ve değiştirmenize olanak tanıyan VSCode gibi bir yazılım kullanmaktır.",
+                    "updated": 1670937228035
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "DE",
                     "text": "Auf dem obigen Screenshot sehen Sie zwei verschiedene SA-Installationen, die gleichzeitig laufen. Um jegliche Art von Konflikten zu vermeiden, wird empfohlen, nicht nur die verwendeten Ports zu ändern, sondern auch \"localhost\" durch die IP Ihres lokalen Netzwerks zu ersetzen. Unter Windows können Sie mit einem einfachen CLI-Befehl herausfinden, welche IP Ihrem Rechner zugewiesen ist. Geben Sie einfach ipconfig ein und Sie erhalten Details über Ihr lokales Netzwerk wie im folgenden Screenshot. Die IPv4-Adresse ist Ihre lokale IP:",
                     "updated": 1645481058401
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki ekran görüntüsünde aynı anda çalışan iki farklı SA kurulumu görebilirsiniz. Herhangi bir çakışmayı önlemek için, yalnızca kullanılan bağlantı noktalarını değil, aynı zamanda 'localhost'u da yerel LAN'ınızın IP'sine değiştirmeniz önerilir. Windows'ta makinenize hangi IP'nin atandığını basit bir CLI komutuyla öğrenebilirsiniz. Sadece ipconfig yazın ve aşağıdaki ekran görüntüsünde olduğu gibi yerel LAN'ınız hakkında ayrıntılar sunulacaktır. IPv4 Adresi sizin yerel IP'nizdir:",
+                    "updated": 1670937289683
                 }
             ]
         },
@@ -133,6 +158,11 @@
                     "language": "DE",
                     "text": "Mit VSCode oder einem anderen Editor, mit dem Sie den gesamten Superalgos-Ordner importieren können, ist es einfach, zu suchen und zu ersetzen. Achten Sie nur darauf, die genaue Übereinstimmung zu ersetzen, um Fehler zu vermeiden und nicht am Ende etwas zu ersetzen, das nicht ersetzt werden sollte, wie verschachtelte Werte in json-Dateien.",
                     "updated": 1645481144601
+                },
+                {
+                    "language": "TR",
+                    "text": "VSCode veya tüm Supealgos klasörünü içe aktarmanıza izin veren başka bir düzenleyici kullanarak bir arama ve değiştirme yapmak kolaydır. Hatalardan ve json dosyalarındaki iç içe geçmiş değerler gibi değiştirilmemesi gereken bir şeyin değiştirilmesinden kaçınmak için tam eşleşmeyi değiştirdiğinizden emin olun.",
+                    "updated": 1670937340450
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "DE",
                     "text": "Sobald alle 3 Parameter geändert sind, können Sie Superalgos starten. Der erste Schritt besteht nun darin, zum Node Network zu navigieren und sicherzustellen, dass die Werte aktualisiert werden. Im Screenshot unten sehen Sie, dass die Werte für localhost und WebPort gegenüber den Standardwerten aktualisiert wurden (willkürlich auf 192.168.0.2 für IP und 34444 für den WebPort gesetzt), nicht aber der WebSocketPort, der den Standardwert 18041 hat. Dieser Fehler wird zu Fehlern in Superalgos führen.",
                     "updated": 1645481208620
+                },
+                {
+                    "language": "TR",
+                    "text": "3 parametre de değiştirildikten sonra Superalgos'u çalıştırabilirsiniz. Şimdi ilk adım Ağ düğümüne gitmek ve değerlerin güncellendiğinden emin olmaktır. Aşağıdaki ekran görüntüsünde localhost ve WebPort değerlerinin varsayılan değerlerden güncellendiğini görebilirsiniz (keyfi olarak IP için 192.168.0.2 ve WebPort için 34444 olarak ayarlanmıştır), ancak varsayılan değeri 18041 olan WebSocketPort güncellenmemiştir. Bu hata Superalgos'ta hatalara neden olacaktır.",
+                    "updated": 1670937434700
                 }
             ]
         },
@@ -177,6 +212,11 @@
                     "language": "DE",
                     "text": "Wenn alles richtig eingerichtet ist, können Sie nun zwei unabhängige Installationen von Superalgos parallel laufen lassen. Die beiden Installationen sind unabhängig und können verschiedene Branches oder verschiedene Workspaces betreiben:",
                     "updated": 1645481273032
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şey düzgün bir şekilde ayarlandıktan sonra, artık iki bağımsız Superalgos kurulumunu aynı anda paralel olarak çalıştırabilirsiniz. İki kurulum bağımsızdır ve farklı şubeleri veya farklı çalışma alanlarını çalıştırabilir:",
+                    "updated": 1670937496902
                 }
             ]
         },
@@ -199,6 +239,11 @@
                     "language": "DE",
                     "text": "Ein nachteiliger Aspekt, der bei einer solchen Konfiguration zu beachten ist, sind mögliche Probleme, wenn Sie zu Superalgos beitragen wollen. Im folgenden Screenshot können Sie zum Beispiel sehen, dass ein einfacher git checkout-Befehl Ihnen eine Liste von geänderten Dateien präsentiert, die Sie wahrscheinlich nicht für einen Beitrag verwenden wollen:",
                     "updated": 1645481330372
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür bir yapılandırmada göz önünde bulundurulması gereken bir dezavantaj, Superalgos'a katkıda bulunmak istediğinizde karşılaşabileceğiniz potansiyel sorunlardır. Örneğin aşağıdaki ekran görüntüsünde, basit bir git checkout komutunun size muhtemelen katkıda bulunmak için kullanmak istemeyeceğiniz değiştirilmiş dosyaların bir listesini sunacağını görebilirsiniz:",
+                    "updated": 1670937551914
                 }
             ]
         },
@@ -221,6 +266,11 @@
                     "language": "DE",
                     "text": "Es ist daher ratsam, sorgfältig zu entscheiden, wie eine SA-Installation bei der Umstellung auf beliebige Parameter gehandhabt werden soll.",
                     "updated": 1645481351849
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, rastgele parametrelere geçerken bir SA kurulumunun nasıl ele alınacağına dikkatlice karar verilmesi tavsiye edilir.",
+                    "updated": 1670937600289
                 }
             ]
         },

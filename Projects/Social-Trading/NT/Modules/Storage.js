@@ -341,9 +341,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         botEnabled: event.botEnabled
                     }
 
-                    console.log("Event to save = " + JSON.stringify(eventToSave))
                     console.log("Timestamp = " + event.timestamp)
-                    console.log('this is our events to save before adding a new event', eventsToSaveByTimestamp)
+                    console.log("Event to save = " + JSON.stringify(eventToSave))
 
                     if (event.timestamp in eventsToSaveByTimestamp) {
                         // If timestamp exists then we add this event to the timestamp's array
@@ -366,7 +365,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         let eventsToSave = eventsToSaveByTimestamp[timestamp]
                         const fileContent = JSON.stringify(eventsToSave, undefined, 4)
                         const fileName = "Events" + ".json"
-                        console.log("EVENTS Now being saved = " + JSON.stringify(eventsToSave))
 
                         try {
                             console.log('Are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
@@ -375,16 +373,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 if (eventsToSave.length !== 0) { 
                                     // Load and merge events
                                     let storedContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
-                                    console.log("Stored content = " + storedContent)
     
                                     let eventsList = JSON.parse(storedContent)
                                     let joinedEventsArray = eventsList.concat(eventsToSave)
                                     const updatedFileContent = JSON.stringify(joinedEventsArray, undefined, 4)
 
                                     // Save Events locally           
-                                    console.log("Saving updated events at storage")
-                                    console.log("FilePath = " + filePath)
-                                    console.log("FileContent = " + updatedFileContent)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, updatedFileContent)
     
                                     // Save Events in Open Storage
@@ -394,9 +388,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 // Create a new file for this timestamp
                                 if (eventsToSave.length !== 0) { 
                                     // Save Events locally                    
-                                    console.log("Save events at storage")
-                                    console.log("FilePath = " + filePath)
-                                    console.log("FileContent = " + fileContent)
                                     SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
     

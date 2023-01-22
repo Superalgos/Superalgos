@@ -166,7 +166,11 @@ __*Windows*__
 
 Open a powershell terminal, navigate to the directory you want to Superalgos folder to live in
 
-Copy and paste curl https://github.com/Superalgos/Superalgos/install.ps1 ./
+Copy and paste 
+
+```ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Superalgos/Superalgos/install.ps1 -OutFile ./install.ps1
+```
 
 Run the script with you Github username and API token `install.ps1 -username <username> -token <token>` 
 
@@ -176,7 +180,11 @@ __*Linux*__
 
 Open a command terminal, navigate to the directory you want to Superalgos folder to live in
 
-Copy and paste curl https://github.com/Superalgos/Superalgos/install.ps1 ./
+Copy and paste 
+
+```sh
+curl https://raw.githubusercontent.com/Superalgos/Superalgos/install.sh ./
+```
 
 Run the script with you Github username and API token `sh install.sh --username <username> --token <token>` 
 

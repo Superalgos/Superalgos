@@ -77,5 +77,6 @@ function install {
 
 if( checkGit -and checkNode ) {
     cloneSuperalgos
+    cd Superalgos
     install
 }

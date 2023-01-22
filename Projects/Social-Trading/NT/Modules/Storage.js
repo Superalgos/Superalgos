@@ -15,17 +15,17 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     */
     let thisObject = {
         p2pNetworkNode: undefined,
+        p2pNetworkReachableNodes: undefined,
         openStorageClient: undefined,
         initialize: initialize,
         finalize: finalize
     }
 
-    let gitCommandRunning = false
-
     return thisObject
 
     function finalize() {
         thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkReachableNodes = undefined
         thisObject.openStorageClient = undefined
     }
 
@@ -34,6 +34,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         p2pNetworkReachableNodes
     ) {
         thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.p2pNetworkReachableNodes = p2pNetworkReachableNodes
         thisObject.openStorageClient = SA.projects.openStorage.modules.openStorageNetworkClient.newOpenStorageModulesOpenStorageNetworkClient()
         thisObject.openStorageClient.initialize()
 
@@ -262,8 +263,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                         let fileContent = SA.nodeModules.fs.readFileSync(filePath)
 
-                        console.log("File content = " + fileContent)
-
                         let eventsList = JSON.parse(fileContent)
 
                         console.table( eventsList)
@@ -271,13 +270,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         for (let j = 0; j < eventsList.length; j++) {
                             let storedEvent = eventsList[j]
 
-                            console.log("Stored Event = " + storedEvent)
+                            console.log("Stored Event = " + JSON.parse(storedEvent))
 
                             try {
                                 let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                                 event.initialize(storedEvent)
 
-                                console.log("EVENT = " + event)
+                                console.log("EVENT = " + JSON.parse(event))
 
                                 if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(storedEvent.eventId) === undefined) {
                                     event.run()
@@ -294,7 +293,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 if (errorMessage === undefined) {
                                     errorMessage = err
                                 }
-                                NT.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
+                                NT.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + storedEvent.eventId)
+                                continue
                             }
                         }
                     }
@@ -307,6 +307,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     async function saveEventsAtStorage() {
         console.log("Saving events at storage!")
         await saveOneMinuteOfEvents()
+        await broadcastNewEventToPeers()
 
         function saveOneMinuteOfEvents() {
             /*
@@ -401,6 +402,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                             console.log("[ERROR] Something went wrong while saving event:")
                             console.log(error)
+                            continue
                         }
                     }
                 }
@@ -438,29 +440,11 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             }
         }
 
-        // This function will be depricated upon addition of openstorage client functions
-        async function doGit() {
-            console.log("doGit!!")
-            if (gitCommandRunning === true) {
-                return
-            }
-            gitCommandRunning = true
-            const options = {
-                baseDir: process.cwd() + '/My-Network-Nodes-Data',
-                binary: 'git',
-                maxConcurrentProcesses: 6,
-            }
-            const commitMessage = 'New Events'
-            const git = SA.nodeModules.simpleGit(options)
-            console.log("about to get git status")
-            let status = await git.status();
-            console.log("Status === " + status)
-            if (!status.files.some(file => file.path.includes('My-Network-Nodes-Data'))) return
-
-            await git.add('./*')
-            await git.commit(commitMessage)
-            await git.push('origin')
-            gitCommandRunning = false
+        async function broadcastNewEventToPeers() {
+            console.log('reachable nodes', thisObject.p2pNetworkReachableNodes)
+            // iterate through reachable nodes 
+            console.log('nodes to connect to', thisObject.p2pNetworkReachableNodes.p2pNodesToConnect)
+            // figure out sending to peer client 
         }
     }
 }

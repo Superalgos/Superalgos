@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Wir sind fast am Ziel. Klicken Sie jetzt auf <i>Build Profile</i> und beobachten Sie, wie die Magie geschieht. Richtig, Sie haben gerade Ihr Profil erstellt!",
                 "updated": 1640073239787
+            },
+            {
+                "language": "ID",
+                "text": "Kita akan sampai sedikit lagi! Untuk menyelesaikan prosesnya, kamu harus meng-klik tombol kanan  pada node Profile Constructor!",
+                "updated": 1670854068135
             }
         ]
     },
@@ -59,13 +64,25 @@
                     "language": "DE",
                     "text": "Obwohl wir bei der Erstellung Ihres Profils nicht ins Schwitzen gekommen sind, sind hinter den Kulissen einige erstaunliche Dinge passiert.",
                     "updated": 1640073250598
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu membuat wallet baru, klik tombol Build Profile dan New Wallet. Jika kamu mengkoneksikan wallet yang ada, klik tombol Build Profile with Mnemonic.",
+                    "updated": 1670854165423
                 }
             ]
         },
         {
             "style": "Text",
             "text": "Done! Now, this is what happened behind the scenes...",
-            "updated": 1660641960414
+            "updated": 1660641960414,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Selesai! Sekarang, inilah yang terjadi di balik layar...",
+                    "updated": 1670854112190
+                }
+            ]
         },
         {
             "style": "Note",
@@ -92,6 +109,11 @@
                     "language": "DE",
                     "text": "Der Konstruktor hat gerade Ihr Benutzerprofil erstellt und entweder Ihre Adresse verknüpft oder eine eindeutige SA Token Governance Address erstellt.",
                     "updated": 1640073263975
+                },
+                {
+                    "language": "ID",
+                    "text": "Constructor hanya menghasilkan user profile kamu, dan menautkan alamat kamu atau membuat token SA Governance Address yang unik.",
+                    "updated": 1670854118996
                 }
             ]
         }

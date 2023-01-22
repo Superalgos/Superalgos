@@ -118,7 +118,9 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -157,6 +159,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { 
                 resolve(response) 
                 return
+            }
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return 
             }
 
             resolve(response)
@@ -404,7 +411,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     GOVERNANCE_PLUGINS_REPO_NAME,
                     storageProviderUsername,
                     'User-Profiles',
-                    storageProviderUsername
+                    storageProviderUsername,
+                    GOVERNANCE_PLUGINS_REPO_BRANCH
                 )
                     .then()
                     .catch(profileNotPushed)
@@ -412,7 +420,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 function profileNotPushed(err) {
                     response = {
                         result: 'Error',
-                        message: 'Error pushing the User Profile to Github.',
+                        message: 'Error pushing the updated User Profile to Github.',
                         stack: err.stack
                     }
                     resolve(response)
@@ -433,6 +441,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }
@@ -547,7 +569,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
             async function loadUserProfileFromMemory() {
                 /*
-                We will get the user profile from an in meomry map.
+                We will get the user profile from an in memory map.
                 */
                 userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(userProfileId)
 

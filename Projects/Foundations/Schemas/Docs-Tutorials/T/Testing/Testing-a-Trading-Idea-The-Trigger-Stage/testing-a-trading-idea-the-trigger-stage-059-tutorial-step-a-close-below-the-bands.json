@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
-                "updated": 1641662918760
+                "text": "Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
+                "updated": 1669663888636
             },
             {
                 "language": "RU",
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Bantlarının açıklaması, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altında iki standart sapma olduğunu açıklar. MA'yı moveAverage kapasitesinde sunulduğu için biliyoruz. Standart sapma, standardDeviation özelliğinde sunulur.",
-                    "updated": 1641662933434
+                    "text": "Bollinger Bantları, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altındaki iki standart sapmadan oluşur. MA movingAverage 'dır. Standart sapma, standardDeviation olarak tanımlanır.",
+                    "updated": 1669664049840
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "alt bant, MA'nın altında iki standart sapmadır. Daha sonra alt bant, MA eksi standart sapma çarpı iki'ye eşittir.",
-                    "updated": 1641662944330
+                    "text": "alt bant, MA'nın altında K kadar standart sapmadır. Yani alt bant, MA - Standart sapma'ya eşittir.",
+                    "updated": 1669664487496
                 },
                 {
                     "language": "RU",

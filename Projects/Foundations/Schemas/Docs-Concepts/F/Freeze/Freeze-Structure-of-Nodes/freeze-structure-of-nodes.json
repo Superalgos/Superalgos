@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Dondur seçeneğine tıklandığında düğümün ebeveyn ve yavrularıyla olan zincir bağlantıları dondurulur. Bağlantı çizgileri maviye döner. Bir hiyerarşinin baş düğümünü dondurursanız, tüm hiyerarşi dondurulur. Düğüm yapılarının dondurulması yalnızca düğümler gevşek olduğunda, yani açı veya mesafe ayarlarından etkilenmediğinde ve sabitlenmediğinde etkilidir. Bu gibi durumlarda, dondurma işlemi CPU kaynaklarını serbest bırakır, çünkü sistem düğümlerin konumlarını ve durumlarını hesaplamayı durdurur.",
-                "updated": 1654391121216
+                "text": "Dondur seçeneğine tıklandığında düğümün ana düğüm ve yavru düğümleri ile olan zincir bağlantıları dondurulur. Bağlantı çizgileri maviye döner. Bir hiyerarşinin ana düğümünü dondurursanız, tüm hiyerarşi dondurulur. Düğüm yapılarının dondurulması yalnızca düğümler gevşek olduğunda, yani açı veya mesafe ayarlarından etkilenmediğinde ve sabitlenmediğinde etkilidir. Bu gibi durumlarda, dondurma işlemi CPU kaynaklarını serbest bırakır, çünkü sistem düğümlerin konumlarını ve durumlarını hesaplamayı durdurur.",
+                "updated": 1670782110547
             }
         ]
     },

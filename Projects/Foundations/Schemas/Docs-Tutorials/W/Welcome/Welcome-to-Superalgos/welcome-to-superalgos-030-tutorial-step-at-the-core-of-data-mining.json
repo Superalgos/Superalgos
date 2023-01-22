@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir veri madenciliği operasyonunun özü, bot çalıştıran görevlerdir. Bir Görev, bir botu kontrol eder ve bir Görev Yöneticisi ( Tasks Manager ) birden fazla görevi kontrol edebilir.",
-                "updated": 1636015403690
+                "text": "Bir veri madenciliği operasyonunun çekirdeğini botları çalıştıran görevler oluşturur. Bir Görev bir botu kontrol eder ve bir Görev Yöneticisi (Task Manager) birden fazla görevi kontrol edebilir.",
+                "updated": 1669838101714
             },
             {
                 "language": "RU",
@@ -188,8 +188,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "En alt düzeyde, tek bir Görev (Task), tek bir botu kontrol eder. Aradaki düğümler, işlemi düzenli tutmaya yardımcı olan ve farklı bölümler üzerinde ayrıntılı kontrole izin veren organizasyon düğümleridir.",
-                    "updated": 1636015306156
+                    "text": "En alt düzeyde, tek bir Görev (Task), tek bir botu kontrol eder. Aradaki düğümler, operasyonu düzenli tutmaya yardımcı olan ve farklı bölümler üzerinde ayrıntılı kontrol sağlayan organizasyonel düğümlerdir.",
+                    "updated": 1669838159479
                 },
                 {
                     "language": "RU",

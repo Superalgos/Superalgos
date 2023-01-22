@@ -90,8 +90,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme   (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir",
-                    "updated": 1644848447271,
+                    "text": "Ağ hiyerarşisi (LAN Network), sistemin kontrol odasıdır. Burası Veri Görevlerinizi ( Data Task ), Test İşlemi Görevlerinizi (Testing Trading Tasks) ve Üretim İşlemi Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir.",
+                    "updated": 1669757823277,
                     "style": "Text"
                 },
                 {

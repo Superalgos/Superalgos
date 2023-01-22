@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Ancak daha ileri gitmeden önce, yeni bir çalışma alanıyla başladığımızdan emin olalım!",
                 "updated": 1641717882769
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kita pergi lebih jauh, mari kita pastikan bahwa kita memulai dengan workspace yang baru!",
+                "updated": 1673828266343
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "TR",
                     "text": "Eklenti Çalışma Alanları (Plugin Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
                     "updated": 1641717980838
+                },
+                {
+                    "language": "ID",
+                    "text": "Workspaces yang ditandai sebagai Plugin Workspace menyatu bersama perangkat lunak. Yang lainnya adalah milikmu. Saat kamu membuka plugin workspace, salinannya dibuat untuk kamu seorang saja. dan Plugin-nya tetap tidak akan berubah.",
+                    "updated": 1673828276493
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "TR",
                     "text": "Bu öğretici, yeni bir  Weak-hands Buster v2 çalışma alanıyla başlamayı gerektirir. Bu nedenle, eklenti çalışma alanını öğreteciyebaşlamadan hemen önce yüklemediyseniz, lütfen sol tarafta açılan çalışma alanı panelinden Weak-hands-Buster-v2-Demo çalışma alanını seçin ve çalışma alanı yüklendikten sonra bana geri dönün - menümdeki Devam Et'i tıklamanız yeterli!",
                     "updated": 1641718190040
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial ini harus dimulai dengan Plugin Trading Bot Layers Tutorial workspace yang baru. Jadi, kecuali kamu memuat plugin workspace tepat sebelum memulai, silahkan pilih itu dari panel workspace di sebelah kiri dan kembali ke aku setelah workspace dimuat - cukup klik Resume pada menu-ku!",
+                    "updated": 1673828330402
                 }
             ]
         }

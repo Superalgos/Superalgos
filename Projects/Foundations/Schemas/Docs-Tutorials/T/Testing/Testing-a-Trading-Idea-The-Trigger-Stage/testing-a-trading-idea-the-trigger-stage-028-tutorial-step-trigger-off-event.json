@@ -21,8 +21,8 @@
             },
             {
                 "language": "TR",
-                "text": "Artık stratejiyi ne zaman tetikleyeceğimizi belirlediğimize göre, fikri ne zaman geçersiz kılacağımızı düşünmemiz gerekiyor.",
-                "updated": 1641654565486
+                "text": "Artık stratejinin ne zaman tetiklenmesi gerektiğini tanımladığımıza göre, fikrin ne zaman geçersiz kılınması gerektiğini düşünelim.",
+                "updated": 1669580554490
             }
         ]
     },
@@ -44,8 +44,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Aşağı yönlü bir eğilim yoksa bu strateji ile ticaret yapmak istemiyoruz. O zaman tetikleme olayının mantığını tersine çevirelim! Aşağıdaki 1. ve 2. koşulları bulun:",
-                    "updated": 1641654580972
+                    "text": "Düşüş trendi olmadığında bu strateji ile ticaret yapmak istemiyoruz. Bu yüzden, olay üzerindeki tetikleyicinin mantığını tersine çevireceğiz! Aşağıda koşul 1 ve 2'yi bulun:",
+                    "updated": 1669580640435
                 }
             ]
         },

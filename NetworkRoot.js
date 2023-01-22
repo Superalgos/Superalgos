@@ -56,6 +56,13 @@ exports.newNetworkRoot = function newNetworkRoot() {
             axios: require('axios')
         }
         SA.version = require('./package.json').version
+
+        const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+        SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
+        
+        const ntLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'NT')
+        NT.logger = require('./loggerFactory').loggerFactory(ntLogsPath)
+
         /* 
         Setting up the App Schema Memory Map. 
         */

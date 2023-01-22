@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Параметр расстояния отключен, и узел может принять любое расстояние до своего родителя.",
                 "updated": 1638288826128
+            },
+            {
+                "language": "TR",
+                "text": "Mesafe ayarı devre dışı bırakılır ve düğüm, ana düğüme herhangi bir mesafe varsayabilir.",
+                "updated": 1668000269763
             }
         ]
     },

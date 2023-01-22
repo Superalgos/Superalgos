@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Jetzt werde ich Sie mit den Community Building Programs bekannt machen, die ebenfalls recht einfach einzurichten sind und Ihnen mehr Token einbringen werden!",
                 "updated": 1640078892050
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang aku akan menghubungkan kamu dengan Community Building Programs, yang juga cukup mudah disiapkan dan akan memberi kamu lebih banyak token!",
+                "updated": 1671444671753
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Knoten Token Power Switch und wählen Sie im Menü die Option <i>Add Comunity Building Programs</i> aus.",
                     "updated": 1640078912127
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke node Token Power Switch dan pilih Add Comunity Building Programs dari menu.",
+                    "updated": 1671444677678
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Superalgos gedeiht durch Beiträge und Zusammenarbeit. Wir haben diese Programme entwickelt, um eine Gemeinschaft zu fördern, in der die Mitglieder immer bereit sind, zu helfen und etwas zurückzugeben!",
                     "updated": 1640078923561
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos tumbuh melalui kontribusi dan kolaborasi. Kami merancang program-program ini untuk menumbuhkan komunitas di mana anggotanya selalu siap membantu dan mengembalikannya!",
+                    "updated": 1671444684354
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Diese Programme sind ein bisschen komplizierter in ihrer Funktionsweise... Sie werden sie lieben!",
                     "updated": 1640078930456
+                },
+                {
+                    "language": "ID",
+                    "text": "Program-program ini sedikit lebih rumit dalam cara kerjanya... kamu akan menyukainya!",
+                    "updated": 1671444690558
                 }
             ]
         }

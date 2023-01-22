@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Вам необходимо перезапустить торговую сессию (Trading Session), а иногда и задачу (Task), чтобы бот получил новые определения.",
                 "updated": 1640282447773
+            },
+            {
+                "language": "TR",
+                "text": "Bot'un yeni tanımları alması için Ticaret Oturumunu ( Trading Session ) ve bazen Görevi yeniden başlatmanız gerekir.",
+                "updated": 1670874185283
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Пользователи не могут изменять определения и передавать их работающему боту в режиме реального времени. Если определения находятся на уровне торговой системы (Trading System) или на уровне параметров сессии (Session Parameters), вы можете изменить их, и они будут отправлены в запущенную задачу (Task) в следующий раз, когда вы остановите и снова запустите торговую сессию.",
                     "updated": 1640282542998
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar tanımları değiştiremez ve bunları gerçek zamanlı olarak çalışan bir bota ( Trading System ) aktaramaz. Tanımlar İşlem Sistemi düzeyinde veya Oturum Parametreleri düzeyindeyse, bunları değiştirebilirsiniz ve İşlem Oturumunu ( Trading Session ) bir sonraki durduruşunuzda ve yeniden başlatışınızda çalışan Göreve gönderilirler.",
+                    "updated": 1670874354428
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Если определения находятся на уровне задачи или выше, например, смена рынка, вам нужно будет остановить задачу и запустить ее снова, чтобы она была обнаружена.",
                     "updated": 1640282628385
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlar Görev ( Task ) düzeyinde veya üzerindeyse, örneğin bir piyasa değişikliği, Görevi durdurmanız ve tanınması için tekrar çalıştırmanız gerekecektir.",
+                    "updated": 1670874443328
                 }
             ]
         }

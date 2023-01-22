@@ -109,11 +109,15 @@ install() {
     echo ""
     npm install -g pm2
 
-    # install all the local modules
     echo ""
-    echo "superalgos | info | installing local node dependencies"
+    echo "superalgos | info | running node setup script to run prepare the app"
     echo ""
-    npm install
+    node setup.js
+
+    echo ""
+    echo "superalgos | info | running node setup script to run prepare the app"
+    echo ""
+    node setupPlugins.js $username $token
 
     # apply security fixes to local modules
     echo ""
@@ -126,16 +130,6 @@ install() {
     echo "superalgos | info | installing 'superalgos' cli"
     echo ""
     npm install -g .
-
-    echo ""
-    echo "superalgos | info | running node setup script to run prepare the app"
-    echo ""
-    node setup.js
-
-    echo ""
-    echo "superalgos | info | running node setup script to run prepare the app"
-    echo ""
-    node setupPlugins.js $username $token
 }
 
 main() {

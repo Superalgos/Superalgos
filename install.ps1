@@ -7,24 +7,19 @@ Param(
     $token
 )
 
-$nodeInstalled=$false
-$gitInstalled=$false
-
 function installGit {
     Write-Host "Please go to https://git-scm.com/download/win and install git"
 }
 
 function checkGit {
     if (Get-Command git -errorAction SilentlyContinue) {
-        if ((git -v)) {
-            Write-Host ""
-            Write-Host "superalgos | info | git already installed"
-            Write-Host ""
-            $gitInstalled=$true
-            return
-        }
+        Write-Host ""
+        Write-Host "superalgos | info | git already installed"
+        Write-Host ""
+        return $true
     }
     installGit
+    return $false
 }
 
 function installNode {
@@ -33,15 +28,13 @@ function installNode {
 
 function checkNode {
     if (Get-Command node -errorAction SilentlyContinue) {
-        if ((node -v)) {
-            Write-Host ""
-            Write-Host "superalgos | info | nodejs already installed"
-            Write-Host ""
-            $nodeInstalled=$true
-            return
-        }
+        Write-Host ""
+        Write-Host "superalgos | info | nodejs already installed"
+        Write-Host ""
+        return $true
     }
     installNode
+    return $false
 }
 
 function cloneSuperalgos {
@@ -58,17 +51,15 @@ function install {
     Write-Host ""
     npm install -g pm2
 
-    # install all the local modules
     Write-Host ""
-    Write-Host "superalgos | info | installing local node dependencies"
+    Write-Host "superalgos | info | running node setup script to run prepare the app"
     Write-Host ""
-    npm install
+    node setup.js
 
-    # apply security fixes to local modules
     Write-Host ""
-    Write-Host "superalgos | info | applying security patches for local dependencies"
+    Write-Host "superalgos | info | running node setup script to run prepare the app"
     Write-Host ""
-    npm audit fix --force
+    node setupPlugins.js $username $token
 
     # install the superalgos command line app
     Write-Host ""
@@ -76,17 +67,15 @@ function install {
     Write-Host ""
     npm install -g .
 
+    # apply security fixes to local modules
     Write-Host ""
-    Write-Host "superalgos | info | running node setup script to run prepare the app"
+    Write-Host "superalgos | info | applying security patches for local dependencies"
     Write-Host ""
-    node setup.js
+    npm audit fix --force
 }
 
-function main {
-    checkGit
-    checkNode
-    if( $gitInstalled -and $nodeInstalled ) {
-        cloneSuperalgos
-        install
-    }
+
+if( checkGit -and checkNode ) {
+    cloneSuperalgos
+    install
 }

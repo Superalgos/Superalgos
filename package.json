@@ -12,7 +12,6 @@
     "installSocialTradingReact": "cd ./Social-Trading/React-UI && npm ci",
     "lintAll": "eslint . --ext .js",
     "lintFile": "eslint --ext .js",
-    "postinstall": "electron-builder install-app-deps",
     "postsetup": "npm start",
     "prepare": "husky install",
     "presetup": "git checkout develop && git pull upstream develop",

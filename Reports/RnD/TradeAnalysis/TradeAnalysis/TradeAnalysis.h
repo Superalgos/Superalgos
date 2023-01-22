@@ -5,4 +5,6 @@
 
 #include <iostream>
 
+const char version[] = "0.4.2";
+
 // TODO: Reference additional headers your program requires here.

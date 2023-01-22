@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <cstring>
+#include "TradeAnalysis.h"
 
 
 using namespace std;
@@ -211,6 +211,7 @@ void SummaryLine::printHeader()
 		<< "Daily % Profit,"
 		<< "% Profit Since Start,"
 		<< "Day Number,"
+		<< "v" << version
 		<< endl;
 }
 
@@ -225,5 +226,6 @@ void SummaryLine::printSummaryHeader()
 		<< "Daily % Profit,"
 		<< "% Profit Since Start,"
 		<< "Day Number,"
+		<< "v" << version
 		<< endl;
 }

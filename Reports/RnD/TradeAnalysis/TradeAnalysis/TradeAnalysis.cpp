@@ -11,6 +11,7 @@
 
 using namespace std;
 
+
 typedef enum
 {
 	lineType_Heading,
@@ -42,6 +43,8 @@ int main(int argc, char* argv[])
 
 	if ( argc <  4 || argc > 5 )
 	{
+		cout << endl;
+		cout << "Trade Analysis Ver. " << version;
 		cout << endl;
 		cout << "Usage:" << endl;
 		cout << "  TradeAnalysis filename.csv BTC_Ballance USDT_Ballance -s" << endl;

@@ -65,7 +65,7 @@ function install {
     Write-Host ""
     Write-Host "superalgos | info | installing 'superalgos' cli"
     Write-Host ""
-    npm install -g .
+    npm install -g . --omit=optional
 
     # apply security fixes to local modules
     Write-Host ""

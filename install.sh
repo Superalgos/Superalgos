@@ -129,7 +129,7 @@ install() {
     echo ""
     echo "superalgos | info | installing 'superalgos' cli"
     echo ""
-    npm install -g .
+    npm install -g . --omit=optional
 }
 
 main() {

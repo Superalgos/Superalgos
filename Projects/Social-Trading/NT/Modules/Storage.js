@@ -307,7 +307,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     async function saveEventsAtStorage() {
         console.log("Saving events at storage!")
         await saveOneMinuteOfEvents()
-        await broadcastNewEventToPeers()
 
         function saveOneMinuteOfEvents() {
             /*
@@ -438,13 +437,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     resolve()
                 }
             }
-        }
-
-        async function broadcastNewEventToPeers() {
-            console.log('reachable nodes', thisObject.p2pNetworkReachableNodes)
-            // iterate through reachable nodes 
-            console.log('nodes to connect to', thisObject.p2pNetworkReachableNodes.p2pNodesToConnect)
-            // figure out sending to peer client 
         }
     }
 }

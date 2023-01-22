@@ -71,7 +71,7 @@ function install {
     Write-Host ""
     Write-Host "superalgos | info | applying security patches for local dependencies"
     Write-Host ""
-    npm audit fix --force
+    npm audit fix --force --omit=optional
 }
 
 

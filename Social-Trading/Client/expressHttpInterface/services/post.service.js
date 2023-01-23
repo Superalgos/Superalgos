@@ -114,9 +114,9 @@ const getReplies = async (body, res) => {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST_REPLIES,
-            originSocialPersonaId: undefined,
+            originSocialPersonaId: body.originSocialPersonaId,
             targetSocialPersonaId: body.targetSocialPersonaId,
-            targetPostHash: body.targetPostHash,
+            targetPostHash: body.originPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -174,18 +174,21 @@ const postReactions = async (body, res) => {
         let event;
 
         eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE,
+            eventType: body.eventType,
             originSocialPersonaId: body.originSocialPersonaId,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             targetPostHash: body.postHash,
+            postHash: body.postHash,
+            targetSocialPersonaId: body.targetSocialPersonaId
         }
+
 
         event = {
             networkService: 'Social Graph',
             requestType: 'Event',
             eventMessage: JSON.stringify(eventMessage)
         }
-        let response = await NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent(event);
+
         return await webAppInterface.sendMessage(
             JSON.stringify(event)
         );

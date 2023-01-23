@@ -35,7 +35,7 @@
     "@bundled-es-modules/axios": "^0.27.2",
     "@discordjs/rest": "^0.1.0-canary.0",
     "@octokit/plugin-retry": "^4.0.3",
-    "@octokit/rest": "^18.12.0",
+    "@octokit/rest": "^19.0.5",
     "@reduxjs/toolkit": "^1.6.2",
     "@slack/web-api": "^6.5.1",
     "@vitejs/plugin-vue": "^3.2.0",
@@ -81,6 +81,7 @@
     "winston-daily-rotate-file": "^4.7.1",
     "workbox-webpack-plugin": "^6.5.4",
     "ws": "^8.4.0",
+    "xlsx": "^0.18.5",
     "yargs": "^17.6.2"
   },
   "devDependencies": {

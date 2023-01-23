@@ -1,0 +1,76 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "20",
+    "type": "Gann Swing",
+    "definition": {
+        "text": "The Gann Swing indicator tries to identify entry and exit signals based on how the price action interacts with the simple moving average."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Gann Swing on the Charts",
+            "updated": 1673835728808
+        },
+        {
+            "style": "Text",
+            "text": "The indicator provides indications of the trend direction in a similar manner to the PSAR. It also provides potential entry and exit signals based on where the candle closes in relation to the identified trend direction and moving average value."
+        },
+        {
+            "style": "Text",
+            "text": "This indicator works well in trending markets, but is prone to false signals in ranging markets. A confirmation indicator is recommended to filter out these false signals."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-gann-swing.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| GannSwing | GannSwing | bgSig, dnTrend, upTrend |"
+        },
+        {
+            "style": "Text",
+            "text": "upTrend and dnTrend have the potential value of true and false, depending on the identified trend direction."
+        },
+        {
+            "style": "Text",
+            "text": "bgSig has values of 1 or -1 depending on if a buy or sell signal is given, otherwise it will have a value of 0."
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under the \"Gann Swing\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-gann-swing-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade could be when the bgSig record has a value of 1:",
+            "updated": 1673835956953
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.GannSwing.bgSig == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

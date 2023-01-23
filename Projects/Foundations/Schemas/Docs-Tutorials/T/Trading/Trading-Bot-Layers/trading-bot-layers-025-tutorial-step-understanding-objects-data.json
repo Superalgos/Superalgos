@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Simülasyon Nesnelerinde bulunan veriler, nesnenin kapalı olduğu andaki veya henüz kapanmamışsa o andaki işlerin durumunu temsil eder!",
                 "updated": 1642503670183
+            },
+            {
+                "language": "ID",
+                "text": "Data yang tersedia di Simulation Objects mewakili keadaan saat objek ditutup, atau saat ini jika objek belum ditutup!",
+                "updated": 1673952020919
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Buna karşılık, Trading Engine ve Trading System katman yöneticilerindeki katmanlar, fare işaretçisi tarafından işaret edilen mumdaki düğümlerin değerini temsil eder.",
                     "updated": 1642503860156
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebaliknya, layer di layer manager Trading Engine dan Trading System mewakili value node pada candle yang ditandai oleh mouse pointer.",
+                    "updated": 1673952027307
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bu, anlamanız gereken temel bir farktır, aksi takdirde Simulation Objects tarafından sunulan bilgileri yanlış yorumlayabilirsiniz. Önümüzdeki birkaç adımda en önemli sonuçları açıklayacağım!",
                     "updated": 1642504035985
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah perbedaan mendasar yang harus kamu pahami, karena jika tidak, kamu mungkin salah menafsirkan informasi yang disajikan oleh Simulation Objects. Aku akan menjelaskan implikasi yang paling penting dalam beberapa langkah berikutnya!",
+                    "updated": 1673952033665
                 }
             ]
         }

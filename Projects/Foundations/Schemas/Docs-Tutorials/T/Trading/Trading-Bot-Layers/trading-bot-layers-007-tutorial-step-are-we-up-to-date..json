@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Şimdi biraz beklememiz gerekiyor! Tüm süreçler %100 'e ulaştığında, devam edebiliriz!",
                 "updated": 1641754314714
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kita hanya harus menunggu sebentar! Ketika semua prosesnya sampai tertanda 100%, Lalu kita lanjut!",
+                "updated": 1673831026968
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "TR",
                     "text": "Muhtemelen bildiğiniz gibi, veri madenciliği için gereken süre birçok şeye bağlıdır. Önceki etkinliklerden bu verilerin bir kısmına zaten sahipseniz, daha hızlı olabilir!",
                     "updated": 1641754375939
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang telah kamu ketahui, waktu yang diperlukan untuk mining data bergantung pada banyak hal. Jika kamu sudah memiliki beberapa data ini dari aktivitas sebelumnya, itu mungkin lebih cepat!",
+                    "updated": 1673831034532
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "TR",
                     "text": "Sparta ve Masters veri madenlerindeki tüm göstergeler için süreçleri izleyin. Hepsi %100'e ulaştığında, veri madenciliği işlemini durdurun ve devam etmek için İleri'ye tıklayın.",
                     "updated": 1641754399144
+                },
+                {
+                    "language": "ID",
+                    "text": "Pantau proses untuk semua indikator di Sparta and Masters data mines. Ketika semuanya mencapai 100%, hentikan operasi mining data dan klik Next untuk melanjutkan.",
+                    "updated": 1673831041365
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "TR",
                     "text": "\"Bollinger Channels\" göstergesi muhtemelen en son tamamlanan gösterge olacak!",
                     "updated": 1641754463513
+                },
+                {
+                    "language": "ID",
+                    "text": "Bollinger Channels kemungkinan akan menjadi yang terakhir!",
+                    "updated": 1673831047803
                 }
             ]
         }

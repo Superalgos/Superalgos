@@ -787,7 +787,9 @@ exports.newAppRoute = function newAppRoute() {
                             // get the summary of current changes in the current repo
                             diffObj = await git.diffSummary(responce).catch(errorResp)
 
-                            // get the status of current repo compaired to upstream
+                            // get the status of current repo compaired to upstream.
+                            // adds the environemnt so git response is in English allowing us to 
+                            // inspect the response in a uniform manner
                             let raw = await git.env('LC_ALL', en_US).remote(['show', 'upstream'])
                             let split = raw.split('\n')
                             // Keep only end of returned message and format for UI

@@ -85,7 +85,28 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             name: 'New Signing Account',
             project: 'Governance',
             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            config: JSON.stringify(config)
+            config: JSON.stringify(config),
+            savedPayloadNode: {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                targetPosition: {
+                    x: 0,
+                    y: 0
+                },
+                floatingObject: {
+                    isPinned: false,
+                    isFrozen: false,
+                    isCollapsed: false,
+                    angleToParent: 2,
+                    distanceToParent: 3,
+                    arrangementStyle: 0
+                },
+                uiObject: {
+                    isRunning: false
+                }
+            }
         }
         targetNode.signingAccount = signingAccount
         /*

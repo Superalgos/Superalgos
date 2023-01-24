@@ -150,7 +150,7 @@ async function main() {
     const csvLines = deDuplicateTradeHistory(tradeHistory).reduce((a,c) => {
         a.push(mapTradesToCsvLine(c))
         return a
-    }, ['Date,Market,Type,Price,Amount,Total,Fee,Fee Coin'])
+    }, ['Date(UTC),Market,Type,Price,Amount,Total,Fee,Fee Coin'])
 
     if(argv.outFile !== undefined) {
         fs.writeFileSync(argv.outFile, csvLines.join('\n'))

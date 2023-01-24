@@ -1,111 +1,41 @@
-
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    newPost: false,
+    /* Visibility Toggles */
+    showCreateProfile: false,
+    showProfile: false,
+    showWallet: false,
+    showSettings: false,
+    showImageUploader: false,
+    showEmojiPicker: false,
+    showUsersProfile: false,
+    showPostComments: false,
+
+    /* Task Triggers */
+    updatingProfile: false,
+    addProfileBanner: false,
+
+    /* Data Storage */
     profile: {
       blockchainAccount: undefined,
       nodeCodeName: undefined,
       nodeId: undefined,
       userProfileHandle: undefined,
       userProfileId: undefined,
-      followers: 2,
-      following: 5,
+      profilePic: '',
+      bannerPic: ''
     },
-    posts: [
-      {
-        post: {
-          postID: 1,
-          username: "theblockchainarborist",
-          dateTime: "12-3-2022 5:12pm",
-          message: "Test1 Message Here For Testing Purposes!",
-          comments: [
-            {
-              username: "TestUser",
-              postID: 1,
-              commentID: 1,
-              dataTime: "12-4-2022 7:12am",
-              comment: "This here is a comment on a post. In fact its not just a comment on any post, its a comment on post #1 !"
-            },
-            {
-              username: "TestUser2",
-              postID: 1,
-              commentID: 2,
-              dataTime: "12-4-2022 9:12am",
-              comment: "This here is a comment on a post. In fact its not just a comment on any post, its a comment on post #1 !"
-            }
-          ],
-          likes: ["user", "user", "user", "user"]
-          }
-      },
-      {
-        post: {
-          postID: 2,
-          username: "theblockchainarborist",
-          dateTime: "12-3-2022 6:12pm",
-          message: "Test2 Message Here For Testing Purposes!",
-          comments: [
-            {
-              username: "TestUser",
-              postID: 2,
-              commentID: 3,
-              dataTime: "12-4-2022 6:12am",
-              comment: "This here is a comment on a post. In fact its not just a comment on any post, its a comment on post #2 !"
-            }
-          ],
-          likes: ["theblockchainarborist"]
-          }
-      },
-      {
-        post: {
-          postID: 3,
-          username: "theblockchainarborist",
-          dateTime: "12-3-2022 7:12pm",
-          message: "Test3 Message Here For Testing Purposes!",
-          comments: [],
-          likes: []
-          }
-      },
-      {
-        post: {
-          postID: 4,
-          username: "theblockchainarborist",
-          dateTime: "12-3-2022 8:12pm",
-          message: "Test4 Message Here For Testing Purposes! OK greak so how far will this go until its toooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo Longg is this the spot? I sure hope not. Maybe maybe Probably not? A little further we will check to see whats up with this gibrish I'm typing here. Spelling errors and all. Important part here is - This is a post. A post with some content, a post with some words, a post with some information. This is also a post that you can't like. You can't reply to yet. You can't repost it - noo sir-ree.",
-          comments: [],
-          likes: []
-          }
-      },
-      {
-        post: {
-          postID: 5,
-          username: "theblockchainarborist",
-          dateTime: "12-5-2022 7:12pm",
-          message: "Test5 Message Here For Testing Purposes!",
-          comments: [],
-          likes: []
-          }
-      }
-    ],
-    followers: [{username: "theblockchainarborist"},
-                {username: "quantum8"},
-                {username: "harrel"},
-                {username: "Luis"},
-                {username: "Nuno"},
-                {username: "Julian"},
-                {username: "tigers4242"},
-                {username: "vraptor75011"},
-                {username: "Alex-White"},
-                {username: "Gary"}],
-    
-    following: [{username: "theblockchainarborist"},
-                {username: "quantum8"},
-                {username: "harrel"},
-                {username: "Luis"},
-                {username: "Nuno"},
-                {username: "Julian"},
-                {username: "vraptor75011"}]
+    postCommentProps: undefined,
+    postComments: undefined,
+    selectedEmoji: undefined,
+    usersProfileToOpen: undefined,
+    headerProfileData: undefined,
+    postImage: undefined,
+    users: undefined,
+    posts: [],
+    followers: [],
+    following: []
   },
   getters: {
     post(state) {
@@ -114,16 +44,93 @@ export default createStore({
     }
   },
   mutations: {
+    /* Visibility Toggles */
+    SHOW_CREATE_PROFILE(state, show) {
+      state.showCreateProfile = show;
+    },
+    SHOW_PROFILE(state, show) {
+      state.showProfile = show;
+    },
+    SHOW_WALLET(state, show) {
+      state.showWallet = show;
+    },
+    SHOW_SETTINGS(state, show) {
+      state.showSettings = show;
+    },
+    SHOW_IMAGE_UPLOADER(state, show) {
+      state.showImageUploader = show;
+    },
+    SHOW_EMOJI_PICKER(state, show) {
+      state.showEmojiPicker = show;
+    },
+    SHOW_POSTS_COMMENTS(state, show) {
+      state.showPostComments = show;
+    },
+    OPEN_USERS_PROFILE(state) {
+      state.showUsersProfile = true;
+    },
+    CLOSE_USERS_PROFILE(state) {
+      state.showUsersProfile = false;
+    },
+    /* Task Triggers */
+    UPDATING_PROFILE(state, show) {
+      state.updatingProfile = show;
+    },
+    ADD_PROFILE_BANNER(state, image) {
+      state.profile.bannerPic = image;
+    },
+    /* Data Storage */
     ADD_POST(state, post) {
-      state.posts.unshift(post)
+      state.posts = post
     },
     ADD_PROFILE(state, data) {
-      state.profile.blockchainAccount = data.profile.blockchainAccount
-      state.profile.nodeCodeName = data.profile.nodeCodeName
-      state.profile.nodeId = data.profile.nodeId
-      state.profile.userProfileHandle = data.profile.userProfileHandle
-      state.profile.userProfileId = data.profile.userProfileId
-    }
+      state.profile.blockchainAccount = data.blockchainAccount
+      state.profile.nodeCodeName = data.nodeCodeName
+      state.profile.nodeId = data.nodeId
+      state.profile.userProfileHandle = data.userProfileHandle
+      state.profile.userProfileId = data.userProfileId
+      state.profile.profilePic = data.profilePic
+      state.profile.bannerPic = data.bannerPic
+    },
+    SET_SELECTED_EMOJI(state, emoji) {
+      state.selectedEmoji = emoji;
+    },
+    RESET_EMOJI(state) {
+      state.selectedEmoji = undefined;
+    },
+    ADD_POST_IMAGE(state, image) {
+      state.postImage = image;
+    },
+    SET_USER_ARRAY(state, userArray) {
+      state.users = userArray;
+    },
+    SET_USERS_PROFILE_TO_OPEN(state, profile) {
+      state.usersProfileToOpen = profile;
+    },
+    /* Updating Our Profile Information */
+    UPDATE_NAME(state, name) {
+      state.profile.name = name;
+    },
+    UPDATE_BIO(state, bio) {
+      state.profile.bio = bio;
+    },
+    ADD_PROFILE_IMAGE(state, image) {
+      state.profile.profilePic = image;
+    },
+    // Store the props needed to display the selected posts Comments
+    SET_POST_COMMENT_PROPS(state, postProps) {
+      state.postCommentProps = postProps;
+    },
+    SET_POST_COMMENTS_ARRAY(state, comments) {
+      state.postComments = comments;
+    },
+    SET_HEADER_PROFILE_DATA(state, profileData) {
+      state.headerProfileData = profileData;
+    },
+    SET_ADD_PROFILE_BANNER(state, show) {
+      state.addProfileBanner = show;
+    },
+    
   },
   actions: {
   },

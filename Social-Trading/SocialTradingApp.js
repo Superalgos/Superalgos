@@ -16,6 +16,10 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
     async function run() {
 
+        /*
+        SOCIALTRADING_APP_UPDATE_PROFILES: Pull latest profiles from Github repo
+        */
+        let SOCIALTRADING_APP_UPDATE_PROFILES = true
         /* 
         Social Trading App Interfaces:
         
@@ -44,25 +48,25 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
         await setupNetwork()
         await finalSetupInterfaces()
 
-        /*
-        Test Message: Sometimes devs needs to quicly test something without using the UI...
         
-        let profileMessage = {
-            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
-            socialEntityHandle: 'Pepe',
-            socialEntityType: 'Social Persona',
-            userAppType: 'Social Trading Desktop App'
-        }
+        // //Test Message: Sometimes devs needs to quicly test something without using the UI...
+        
+        // let profileMessage = {
+        //     profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
+        //     socialEntityHandle: 'Pepe',
+        //     socialEntityType: 'Social Persona',
+        //     userAppType: 'Social Trading Desktop App'
+        // }
 
-        let testMessage = {
-            networkService: 'Social Graph',
-            requestType: 'Profile',
-            profileMessage: JSON.stringify(profileMessage)
-        }
+        // let testMessage = {
+        //     networkService: 'Social Graph',
+        //     requestType: 'Profile',
+        //     profileMessage: JSON.stringify(profileMessage)
+        // }
         
-        let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
-        console.log(response)
-        */
+        // let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
+        // console.log(response)
+        
 
         async function initialSetupInterfaces() {
             /*
@@ -95,7 +99,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
                 thisObject.p2pNetworkInterface.eventReceived,
-                P2P_NETWORK_CLIENT_DEFINITION
+                P2P_NETWORK_CLIENT_DEFINITION,
+                SOCIALTRADING_APP_UPDATE_PROFILES
             )
         }
 
@@ -107,8 +112,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 If UI chosen is Vue Dev server, launch the development Server 
                 */
                 let port = '8000'
-                const PATH_TO_UI_ROOT = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI')
-                const PATH_TO_VITE = SA.nodeModules.path.resolve(process.cwd(), 'Social-Trading/Vue-UI/node_modules/.bin/vite')
+                const PATH_TO_UI_ROOT = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'Vue-UI')
+                const PATH_TO_VITE = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'Vue-UI/node_modules/.bin/vite')
                 console.log('this is our current working directory', PATH_TO_UI_ROOT)
                 const command = `${PATH_TO_VITE} --port ${port}` 
                 const nodeInstPromise = new Promise(() => {
@@ -130,7 +135,7 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                     child.on('exit', async () => {
                       console.log('')
                       console.log('Closing Vue Development Server....')
-                      await nodeInstPromise.catch(errorResp)
+                      await nodeInstPromise
                     })
                   } catch (e) {
                     console.log('')

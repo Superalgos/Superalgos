@@ -430,7 +430,7 @@ exports.newWeb3Server = function newWeb3Server() {
         }
     }
 
-    async function payContributors(contractAddressDict, treasuryAccountDict, contractABIDict, decimalFactorDict, paymentsArray, mnemonic) {
+    async function payContributors(contractAddressDict, treasuryAccountDict, contractABIDict, decimalFactorDict, paymentsArray, paymentsBlacklist, paymentsWhitelist, mnemonic) {
         try {
             let response = await mnemonicToPrivateKey(mnemonic)
             let privateKey = response.privateKey
@@ -463,6 +463,16 @@ exports.newWeb3Server = function newWeb3Server() {
                     PL.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
                     PL.logger.info('')
 
+                    if (paymentsBlacklist.includes(userProfile)) {
+                        PL.logger.info('User blacklisted for distribution. No need to send a transaction.')
+                        return
+                    }
+
+                    if (paymentsWhitelist.length > 0 && paymentsWhitelist.includes(userProfile) === false) {
+                        PL.logger.info('User not on defined whitelist for distribution. No need to send a transaction.')
+                        return
+                    }
+                    
                     if (tokenAmount === 0) {
                         PL.logger.info('Token amount 0. No need to send a transaction.')
                         return
@@ -556,6 +566,8 @@ exports.newWeb3Server = function newWeb3Server() {
                     if (chain === 'ETH') {
                         /* Maximum gas price in Gwei we are ready to pay */
                         const gasPriceLimit = 15
+                        /* Buffer we accept on top of gasPriceLimit to ensure submitted transactions will execute */
+                        const gasPriceBuffer = 2
                         let gasFeeOk = false
                         while (gasFeeOk === false) {
                             let currentGasPrice = await getGasPrice();
@@ -563,12 +575,14 @@ exports.newWeb3Server = function newWeb3Server() {
                                 PL.logger.info("Could not obtain current gas price, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > gasPriceLimit) {
-                                PL.logger.info("Current Gas Price", currentGasPrice, "Gwei exceeding limit of", gasPriceLimit, "Gwei. Holding transaction, retrying in 60 seconds...")
+                                PL.logger.info("Current Gas Price " + currentGasPrice + " Gwei exceeding limit of " + gasPriceLimit + " Gwei. Holding transaction, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > 0) {
-                                PL.logger.info("Current Gas Price", currentGasPrice, "Gwei, executing transaction.")
+                                PL.logger.info("Current Gas Price " + currentGasPrice +  " Gwei, executing transaction.")
+                                /* Adding 2 Gwei safety buffer to ensure executions */
+                                gasPrice = currentGasPrice + gasPriceBuffer
                                 /* Conversion to Wei */
-                                gasPrice = currentGasPrice * 1000000000
+                                gasPrice = gasPrice * 1000000000
                                 gasFeeOk = true
                             }
                         }

@@ -7,6 +7,7 @@ const getSocialPersonaId = async (req, res) => {
         response.blockchainAccount = socialPersona.blockchainAccount;
         response.userProfileId = socialPersona.userProfileId;
         response.userProfileHandle = socialPersona.userProfileHandle;
+        response.bannerPic = socialPersona.bannerPic;
     } catch (error) {
         console.log(error);
         response = {error: "Could not fetch Social Persona"}
@@ -43,36 +44,12 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
 
 }
 
-const followProfile = async (userProfileId, eventType, res) => {
-    try {
-        let eventMessage = {
-            eventType: eventType,
-            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetSocialPersonaId: userProfileId,
-            timestamp: (new Date()).valueOf()
-        }
-
-        let event = {
-            networkService: 'Social Graph',
-            requestType: 'Event',
-            eventMessage: JSON.stringify(eventMessage)
-        }
-
-        return await webAppInterface.sendMessage(
-            JSON.stringify(event)
-        );
-    } catch (e) {
-        console.log(e);
-        return {};
-    }
-};
-
-const loadProfile = async (socialPersonaId, res) => {
+const loadProfile = async (message, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId: socialPersonaId
+            originSocialPersonaId: message.targetSocialPersonaId
         }
 
         let query = {
@@ -97,12 +74,12 @@ const loadProfile = async (socialPersonaId, res) => {
     }
 }
 
-const loadProfileData = async (socialPersonaId, res) => {
+const loadProfileData = async (message, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.GET_USER_PROFILE_INFO,
-            originSocialPersonaId: socialPersonaId
+            originSocialPersonaId: message.originSocialPersonaId
         }
 
         let query = {
@@ -114,13 +91,16 @@ const loadProfileData = async (socialPersonaId, res) => {
         const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        console.log(result)
 
-        // let response = {}
-        // response.data = result.profileData;
-        // response.result = result.result;
+        let resultData = JSON.parse(result)
 
-        return {status: 'Ko', message: 'functionality not implemented'}
+        let response = {}
+        response.data = resultData.profileData;
+        response.result = resultData.result;
+
+        return response
+
+        //return {status: 'Ko', message: 'functionality not implemented'}
 
     } catch (error) {
         console.log(error);
@@ -155,12 +135,13 @@ const saveProfile = async (body, res) => {
 
 const createProfile = async (body, res) => {
 
+        console.log(JSON.stringify(body))
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
             storageProviderName: "Github",
-            storageProviderUsername: body.username,
-            storageProviderToken: body.token,
+            storageProviderUsername: body.storageProviderUsername,
+            storageProviderToken: body.storageProviderToken,
             userAppType: "Social Trading Desktop App"
         }
 
@@ -260,7 +241,6 @@ const getSocialStats = async (body) => {
 
 
 module.exports = {
-    followProfile,
     paginateProfiles,
     loadProfile,
     saveProfile,

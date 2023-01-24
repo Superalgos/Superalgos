@@ -12,12 +12,12 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
         SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
         async function processRequest(compressedBody) {
+            let fileName = unescape(requestPath[2])
             try {
                 if(compressedBody === undefined) {
                     return
                 }
                 const body = SA.nodeModules.pako.inflate(compressedBody, { to: 'string' })
-                let fileName = unescape(requestPath[2])
                 let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
                 
                 let workspace = PL.projects.foundations.utilities.credentials.storeExchangesCredentials(PL.projects.foundations.utilities.credentials.storeGithubCredentials(JSON.parse(body)))

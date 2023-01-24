@@ -146,7 +146,7 @@ Then add the following configuration within the Task Server App node's config:
 4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
-Hover over the Bitcoin Factory Forecasts node and rename it using the following name: "Testnet"
+Hover over the Bitcoin Factory Forcasts node and rename it using the following name: "Testnet"
 
 **Test Client Instance**
 6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
@@ -183,6 +183,10 @@ Go to Bitcoin-Factory-Demo Workspace, change it's name and save it (so to have y
 Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 
 
 By setting up this reference you define the identity under which the test client will run on the P2P network. In other words, the signing account held under your "Task-Server-App-1" node acts like a finger print so that other entities running on the network can identify and work with your test client.
+
+Locate the P2P Network Client node and reference the P2P Network Reference to the desired network (Testnet / Mainnet).
+
+Reference the P2P Network Node Reference to the network node in use, you must import the user profile that contains the network node prior to referencing. The user profile may also require additional port configuration within the Network Interfaces Node.
 
 ### Change the Config
 
@@ -301,7 +305,7 @@ Enlapsed Time (HH:MM:SS): 14:29
 
 Best Crowd-Sourced Predictions:
 ┌─────────┬────┬───────────┬───────────────┬─────────────────────┬─────────────────────────────────────┬─────────────────┐
-│ (index) │ id │ mainAsset │ mainTimeFrame │ percentageErrorRMSE │             predictions             │ forecastedCandle │
+│ (index) │ id │ mainAsset │ mainTimeFrame │ percentageErrorRMSE │             predictions             │ forcastedCandle │
 ├─────────┼────┼───────────┼───────────────┼─────────────────────┼─────────────────────────────────────┼─────────────────┤
 │    0    │ 14 │   'BTC'   │    '01-hs'    │       '0.59'        │  [ 43316.723, 42906.44, 43185.24 ]  │    [Object]     │
 │    1    │ 31 │   'BTC'   │    '02-hs'    │       '0.85'        │ [ 43278.008, 42785.055, 43028.305 ] │    [Object]     │

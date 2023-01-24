@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Volatility Adjusted Moving Average (VAMA) - это индикатор, который учитывает как краткосрочную, так и долгосрочную волатильность. Он создает скользящую среднюю, которая пытается определить область ценового действия, при взаимодействии с которой ожидается реакция.",
                 "updated": 1645715944178
+            },
+            {
+                "language": "DE",
+                "text": "Der volatilitätsangepasste gleitende Durchschnitt (VAMA) ist ein Indikator, der sowohl die kurzfristige als auch die langfristige Volatilität berücksichtigt. Er erstellt einen gleitenden Durchschnitt, der versucht, einen Bereich der Preisaktion zu messen, von dem erwartet wird, dass er eine Reaktion hervorruft, wenn er mit ihm interagiert.",
+                "updated": 1671346814192
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Скользящая средняя с поправкой на волатильность (VAMA) - это технический индикатор, первоначально созданный Тушаром С. Чанде. Обычно его называют скользящим средним с переменным индексом, это мощный индикатор, который использует два периода стандартного отклонения для учета недавней волатильности.",
                     "updated": 1645715962047
+                },
+                {
+                    "language": "DE",
+                    "text": "Der volatilitätsbereinigte gleitende Durchschnitt (VAMA) ist ein technischer Indikator, der ursprünglich von Tushar S. Chande entwickelt wurde. Er wird auch als Variable Index Moving Average bezeichnet und ist ein leistungsstarker Indikator, der zwei Standardabweichungszeiträume verwendet, um die jüngste Volatilität zu berücksichtigen.",
+                    "updated": 1671346932763
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Параметры Long period (L) и Short period (S) VAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Volatility Adjusted MA' Product Definition.",
                     "updated": 1645715970004
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter \"Lange Periode\" (L) und \"Kurze Periode\" (S) des VAMA können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Volatility Adjusted MA’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671347001209
                 }
             ]
         },
@@ -62,6 +77,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645715979250
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671347032019
                 }
             ]
         },
@@ -73,12 +93,24 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645715985085
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671347050284
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| Volatility Adjusted MA | VAMA | vama, trend |"
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Adjusted MA | VAMA | vama, trend |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volatility Adjusted MA | VAMA | vama, trend |",
+                    "updated": 1671347067488
+                }
+            ]
         },
         {
             "style": "Text",
@@ -88,6 +120,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645715990643
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671347090140
                 }
             ]
         },
@@ -99,6 +136,11 @@
                     "language": "RU",
                     "text": "Простая стратегия может быть построена таким образом, чтобы открывать сделку при положительном тренде:",
                     "updated": 1645715998363
+                },
+                {
+                    "language": "DE",
+                    "text": "Es könnte eine einfache Strategie entwickelt werden, um einen Handel zu eröffnen, wenn der Trend positiv ist:",
+                    "updated": 1671347110562
                 }
             ]
         },
@@ -114,6 +156,11 @@
                     "language": "RU",
                     "text": "Другой пример для стоп-лосса, когда ценовое действие идет ниже VAMA:",
                     "updated": 1645716005962
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiteres Beispiel für einen Stop-Loss, wenn der Kurs unter den VAMA fällt:",
+                    "updated": 1671347133535
                 }
             ]
         },
@@ -123,7 +170,14 @@
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671347151000
+                }
+            ]
         },
         {
             "style": "Link",

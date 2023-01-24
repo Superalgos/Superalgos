@@ -314,7 +314,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             in one minute batched files.
             */
             let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-            let eventsToSaveByTimestamp = []
+            let eventsToSaveByTimestamp = {}
     
             return new Promise(promiseWork)
 
@@ -341,9 +341,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         botEnabled: event.botEnabled
                     }
 
-                    console.log("Event to save = " + JSON.stringify(eventToSave))
                     console.log("Timestamp = " + event.timestamp)
-                    console.log('this is our events to save before adding a new event', eventsToSaveByTimestamp)
+                    console.log("Event to save = " + JSON.stringify(eventToSave))
 
                     if (event.timestamp in eventsToSaveByTimestamp) {
                         // If timestamp exists then we add this event to the timestamp's array
@@ -354,54 +353,54 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     }
                 }
 
+                // Empty que of events needing saved
+                SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.splice(0, SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.length)
+
                 saveEventsFile(eventsToSaveByTimestamp)
                 saveDataRangeFile()
 
                 function saveEventsFile(eventsToSaveByTimestamp) {
-
-                    for (let timestamp of eventsToSaveByTimestamp) {
+                    for (let timestamp in eventsToSaveByTimestamp) {
                         let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(Number(timestamp))
                         let eventsToSave = eventsToSaveByTimestamp[timestamp]
                         const fileContent = JSON.stringify(eventsToSave, undefined, 4)
                         const fileName = "Events" + ".json"
-                        console.log("EVENTS Now being saved = " + eventsToSave)
 
-                        console.log('Are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
+                        try {
+                            console.log('Are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
+                            if ( SA.nodeModules.fs.existsSync(filePath) /*check if timestamp already has a file*/ ) {
+                                // If path exists then we load old file and append new events
+                                if (eventsToSave.length !== 0) { 
+                                    // Load and merge events
+                                    let storedContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
     
-                        if ( SA.nodeModules.fs.existsSync(filePath) /*check if timestamp already has a file*/ ) {
-                            // If path exists then we load old file and append new events
-                            if (eventsToSave.length !== 0) { 
-                                // Load and merge events
-                                let storedContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
-                                console.log("Stored content = " + storedContent)
-    
-                                let eventsList = JSON.parse(storedContent)
-                                let joinedEventsArray = eventsList.concat(eventsToSave)
-                                const updatedFileContent = JSON.stringify(joinedEventsArray, undefined, 4)
+                                    let eventsList = JSON.parse(storedContent)
+                                    let joinedEventsArray = eventsList.concat(eventsToSave)
+                                    const updatedFileContent = JSON.stringify(joinedEventsArray, undefined, 4)
 
-                                // Save Events locally           
-                                console.log("Saving updated events at storage")
-                                console.log("FilePath = " + filePath)
-                                console.log("FileContent = " + updatedFileContent)
-                                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, updatedFileContent)
+                                    // Save Events locally           
+                                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, updatedFileContent)
     
-                                // Save Events in Open Storage
-                                //thisObject.openStorageClient.persistSocialGraph(filePath, fileName, updatedFileContent)
-                            }
-                            
-                        } else {
-                            // Create a new file for this timestamp
-                            if (eventsToSave.length !== 0) { 
-                                // Save Events locally                    
-                                console.log("Save events at storage")
-                                console.log("FilePath = " + filePath)
-                                console.log("FileContent = " + fileContent)
-                                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                    // Save Events in Open Storage
+                                    thisObject.openStorageClient.persistSocialGraph(filePath, fileName, updatedFileContent)
+                                }       
+                            } else {
+                                // Create a new file for this timestamp
+                                if (eventsToSave.length !== 0) { 
+                                    // Save Events locally                    
+                                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
     
-                                // Save Events in Open Storage
-                                //thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
+                                    // Save Events in Open Storage
+                                    thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
+                                }
                             }
+                        } catch (error) {
+                            // Add unsaved events back to que
+                            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(eventsToSave)
+
+                            console.log("[ERROR] Something went wrong while saving event:")
+                            console.log(error)
                         }
                     }
                 }
@@ -419,16 +418,21 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         return
                     }
 
-                    const fileContent = JSON.stringify(dataRange, undefined, 4)
-                    const fileName = "Data.Range" + ".json"
+                    try {
+                        const fileContent = JSON.stringify(dataRange, undefined, 4)
+                        const fileName = "Data.Range" + ".json"
 
-                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName
+                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName
 
-                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
-                    console.log("Local file path = " + filePath + '/' + fileName )
-                    // Save data range file in open storage
-                    //thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
+                        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                        console.log("Local file path = " + filePath + '/' + fileName )
+                        // Save data range file in open storage
+                        thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
+                    } catch (error) {
+                        console.log("[ERROR] Something went wrong while saving Data Range file:")
+                        console.log(error)
+                    }
                     resolve()
                 }
             }

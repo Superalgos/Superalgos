@@ -29,8 +29,8 @@
 
 <script>
 
-import store from '../../store/index'
-import { createProfile } from '../../services/ProfileService'
+import store from '../../../store/index'
+import { createProfile } from '../../../services/ProfileService'
 
 export default {
     name: 'create-profile',

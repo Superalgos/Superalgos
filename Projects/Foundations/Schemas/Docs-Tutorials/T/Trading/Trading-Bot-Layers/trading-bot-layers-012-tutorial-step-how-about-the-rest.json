@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Şimdi, neden daha soldaki düğümler de değerlerini göstermiyor? Çıkış Türü (Exit Type), Durum (Status), Bitiş Oranı (End Rate), Başlangıç Oranı (Begin Rate) vb.\n",
                 "updated": 1641911229332
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang, mengapa node yang lebih jauh ke kiri tidak menunjukkan nilainya juga? Seperti,  Exit Type, Status, End Rate, Begin Rate, dan sebagainya?",
+                "updated": 1673855273316
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "text": "Bunu değiştirelim!",
                     "updated": 1654394201684,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari ubah itu!",
+                    "updated": 1673855280763
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "TR",
                     "text": "\"Current Episode\" katmanını bulana kadar Ticaret Motoru (Trading Engine) katman yöneticisini kaydırın.",
                     "updated": 1641911386069
+                },
+                {
+                    "language": "ID",
+                    "text": "Gulir layer manager dari Trading Engine sampai kamu menemukan layer \"Current Episode\". Hidupkan itu!",
+                    "updated": 1673855288753
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "TR",
                     "text": "Şimdi fare işaretçinizi tekrar grafiğin üzerine, mumlara doğru kaydırın.. et voilà!",
                     "updated": 1641911418855
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang geser pointer mouse kamu lagi... et voila!",
+                    "updated": 1673855298816
                 }
             ]
         },
@@ -116,6 +136,11 @@
                     "language": "TR",
                     "text": "Katmanları açıp kapatarak, sistemin Trading Engine hiyerarşisinin farklı bölümlerindeki değerleri raporlama yeteneğini açar ve kapatırsınız!",
                     "updated": 1641911445260
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan mengaktifkan dan menonaktifkan layer, kamu mengaktifkan dan menonaktifkan kemampuan sistem untuk melaporkan nilai pada berbagai bagian hierarki Trading Engine!",
+                    "updated": 1673886819833
                 }
             ]
         }

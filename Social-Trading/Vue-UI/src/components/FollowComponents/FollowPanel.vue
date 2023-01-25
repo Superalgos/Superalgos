@@ -5,7 +5,7 @@
             <div id="follow-panel-users" v-for="user in users" v-bind:key="user" v-on:click="openUsersProfile(user)">
 
                 <img class="follow-profile-pic" v-bind:src="user.profilePic" alt="">
-                <p>{{user.name}}</p>
+                <p class="scaling-text center-up">{{user.name}}</p>
             </div>
         </div>
         
@@ -70,8 +70,8 @@ export default {
 }
 
 .follow-profile-pic {
-    width: 50px;
-    height: 50px;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 100%;
     border: solid 1px black;
 }
@@ -85,6 +85,15 @@ export default {
 #follow-panel-title {
     border-bottom: solid 1px black;
     margin-top: 2%;
+}
+
+.scaling-text {
+    font-size: 1vw;
+}
+
+.center-up {
+    justify-self: center;
+    align-self: center;
 }
 
 </style>

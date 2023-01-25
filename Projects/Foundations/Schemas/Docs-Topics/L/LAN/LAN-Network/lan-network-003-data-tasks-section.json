@@ -8,13 +8,18 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Структура узлов Data Tasks управляет ботами, которых необходимо запускать для извлечения данных с бирж и их обработки в индикаторах или технических исследованиях.",
+                "text": "Струк��ура узлов Data Tasks управляет ботами, которых необходимо запускать для извлечения данных с бирж и их обработки в индикаторах или технических исследованиях.",
                 "updated": 1638358317269
             },
             {
                 "language": "DE",
                 "text": "Die Knotenstruktur Data Tasks steuert die Bots, die Sie ausführen müssen, um Daten von den Börsen zu extrahieren und zu Indikatoren oder technischen Studien zu verarbeiten.",
                 "updated": 1651911162108
+            },
+            {
+                "language": "TR",
+                "text": "Düğümlerin Veri Görevleri ( Data Tasks ) yapısı, borsalardan veri almak ve bunları göstergelere veya teknik çalışmalara dönüştürmek için çalıştırmanız gereken botları kontrol eder.\n",
+                "updated": 1673807059655
             }
         ]
     },
@@ -116,6 +121,11 @@
                     "language": "DE",
                     "text": "Datenaufgaben können Instanzen von Indikator-Bots oder Sensor-Bots ausführen. Wir werden diese beiden auf der nächsten Seite behandeln. Einige Börsen können einen API-Schlüssel für das Herunterladen bestimmter Arten oder Mengen von Daten verlangen. Schauen wir uns den Key Reference Node an.",
                     "updated": 1651911238779
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri görevleri, Gösterge Botlarının veya Sensör Botlarının örneklerini çalıştırabilir. Bu ikisini bir sonraki sayfada ele alacağız. Bazı borsalar, belirli türde veya miktarda veriyi indirmek için bir API anahtarı gerektirebilir. Şimdi Anahtar Referansı (  Key Reference ) düğümüne bakalım.",
+                    "updated": 1673807153791
                 }
             ]
         },

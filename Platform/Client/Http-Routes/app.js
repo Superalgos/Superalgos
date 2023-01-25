@@ -587,11 +587,22 @@ exports.newAppRoute = function newAppRoute() {
             case 'Update': {
                 try {
                     // We update the local repo from remote
-                    const currentBranch = unescape(requestPath[3])
-                    update().then(() => PL.servers.RESTART_SERVER.tryRestart([
-                        process.pid,
-                        process.ppid
-                    ]))
+                    let currentBranch = unescape(requestPath[3])
+                    if(['master','develop'].indexOf(currentBranch) == -1) {
+                        currentBranch = 'develop'
+                    }
+                    update().catch(error => {
+                        PL.logger.error(error.message)
+                        PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
+            
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    })
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath

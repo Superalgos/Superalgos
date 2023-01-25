@@ -591,8 +591,8 @@ exports.newAppRoute = function newAppRoute() {
                     if(['master','develop'].indexOf(currentBranch) == -1) {
                         currentBranch = 'develop'
                     }
-                    update().catch(error => {
-                        PL.logger.error(error.message)
+                    update().catch(err => {
+                        PL.logger.error(err.message)
                         PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
                         PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
             

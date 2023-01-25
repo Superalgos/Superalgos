@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Hesap İmzalama, Superalgos ağı içindeki güvenliğin merkezidir.",
                 "updated": 1646297245130
+            },
+            {
+                "language": "DE",
+                "text": "Das Zeichnen von Knoten (Signing Accounts) sind das Zentrum der Sicherheit innerhalb des Superalgos-Netzwerks.",
+                "updated": 1674676978471
             }
         ]
     },

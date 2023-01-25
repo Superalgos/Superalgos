@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Hoş Geldiniz öğreticisinden limit emirlerinin görselleştirilmesine aşinasınız. Şimdi Piyasa emirlerinin (Market Orders) parlatma zamanı!",
                 "updated": 1642404979916
+            },
+            {
+                "language": "ID",
+                "text": "Kamu sudah familiar dengan visualisasi limit order dari Welcome tutorial. Saatnya pesanan market bersinar!",
+                "updated": 1673950637071
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Weak-hands Buster V.2 (sistemin önceki sürümlerinde doğmuş bir stratejidir) pozisyonlara girip çıkmak için tek pazar emirlerini kullanır. Bakalım bunlar grafiklere nasıl yansıyor...",
                     "updated": 1642405041097
+                },
+                {
+                    "language": "ID",
+                    "text": "Weak-hands Buster V.2—lahir dengan versi sistem sebelumnya—menggunakan pesanan pasar tunggal untuk masuk dan keluar dari posisi. Mari kita lihat bagaimana tampilannya di chart...",
+                    "updated": 1673950643768
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "\"Piyasa Alış Emirleri (Market Buy Order)\" ve \"Piyasa Satış Emirleri (Market Sell Orders)\" katmanlarını bulun ve açın!",
                     "updated": 1642405085151
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan layer \"Market Buy Orders\" dan \"Market Sell Orders\" dan aktifkan!",
+                    "updated": 1673950650796
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Limit emirlerinde olduğu gibi, kırmızı satış emri, yeşil ise satın alma emri anlamına gelir.",
                     "updated": 1642405112343
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti limit order, bullet merah berarti  sell order, dan bullet hijau berarti buy order.",
+                    "updated": 1673950657091
                 }
             ]
         }

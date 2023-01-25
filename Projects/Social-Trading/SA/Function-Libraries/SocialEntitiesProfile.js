@@ -107,6 +107,27 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             let response = {
                 result: 'Ok'
             }
+            let savedPayloadNode = {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                targetPosition: {
+                    x: 0,
+                    y: 0
+                },
+                floatingObject: {
+                    isPinned: false,
+                    isFrozen: false,
+                    isCollapsed: false,
+                    angleToParent: 2,
+                    distanceToParent: 3,
+                    arrangementStyle: 0
+                },
+                uiObject: {
+                    isRunning: false
+                }
+            }
 
             loadUserAppFile()
             if (response.result === 'Error') {
@@ -231,6 +252,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Social Personas',
                                 name: 'New Social Personas',
                                 project: 'Social-Trading',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
                                 socialPersonas: []
@@ -240,6 +262,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             type: 'Social Persona',
                             name: 'New Social Persona',
                             project: 'Social-Trading',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
@@ -253,6 +276,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'User Bots',
                                 name: 'New User Bots',
                                 project: 'Governance',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -262,6 +286,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Social Trading Bots',
                                 name: 'New Social Trading Bots',
                                 project: 'Social-Trading',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -270,6 +295,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             type: 'Social Trading Bot',
                             name: 'New Social Trading Bot',
                             project: 'Social-Trading',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
@@ -334,6 +360,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'User Storage',
                                 name: 'New User Storage',
                                 project: 'Open-Storage',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -345,6 +372,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                     type: 'Github Storage',
                                     name: 'New Github Storage',
                                     project: 'Open-Storage',
+                                    savedPayload: savedPayloadNode,
                                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                     config: '{}',
                                     githubStorageContainers: []
@@ -354,6 +382,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Github Storage Container',
                                 name: 'New Github Storage Container',
                                 project: 'Open-Storage',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: JSON.stringify(
                                     {
@@ -380,6 +409,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     type: 'Available Storage',
                     name: 'New Available Storage',
                     project: 'Open-Storage',
+                    savedPayload: savedPayloadNode,
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     storageContainerReferences: [],
                     config: '{}'
@@ -399,6 +429,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         }
                     }
                 }
+                StorageContainerReference.savedPayload.push(savedPayloadNode)
 
                 targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
             }

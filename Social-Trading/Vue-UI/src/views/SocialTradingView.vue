@@ -20,7 +20,6 @@
                 </div>
                 <!-- Selected Users Profile Header -->
                 <div class="new-post-div" v-if="$store.state.showPostComments" >
-                    <!-- TODO BREAK TO SMALLER COMPONENT -->
                     <!-- Banner Image -->
                     <div id="header-profile-data-div" v-if="$store.state.headerProfileData !== undefined" :style="`background-image: url(${usersBannerImageSrc});`"  >
                         <!-- Profile Picture / Name -->
@@ -34,7 +33,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- TODO BREAK TO SMALLER COMPONENT -->
                 <!-- New Post Button Bar -->
                 <div class="post-btn-bar" v-if="!$store.state.showPostComments">
                     <!-- Add to post Icons -->
@@ -111,10 +109,10 @@ import { createPost, getFeed } from '../services/PostService'
 import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
 import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
-import ProfilePanel from '../components/ProfileComponents/ProfilePanel.vue'
-import EmojiPicker from '../components/PostComponents/EmojiPicker.vue';
+import ProfilePanel from '../components/ProfileComponents/MyProfileComponents/ProfilePanel.vue'
+import EmojiPicker from '../components/EmojiComponents/EmojiPicker.vue';
 import UploadImagePanel from '../components/UploaderComponents/UploadImagePanel.vue'
-import UsersProfilePanel from '../components/ProfileComponents/UsersProfilePanel.vue'
+import UsersProfilePanel from '../components/ProfileComponents/UsersProfileComponents/UsersProfilePanel.vue'
 import PostComments from '../components/PostComponents/PostComments.vue';
 import LogoutComponent from '../components/LogoutComponent.vue';
 import MainMenu from '../components/MenuComponents/MainMenu.vue';
@@ -311,14 +309,13 @@ export default {
 }
 #new-post-input {
     border: solid 2px black;
-    margin-top: 1%;
-    margin-left: 2%;
     font-size: 18px;
     width: 85%;
     max-width: 750px;
     height: fit-content;
     white-space: pre-wrap;
     border-radius: 4px;
+    margin: 1% 0% 1% 2%;
 }
 
 

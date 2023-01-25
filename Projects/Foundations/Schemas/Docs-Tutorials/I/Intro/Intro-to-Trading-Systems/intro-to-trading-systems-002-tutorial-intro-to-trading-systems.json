@@ -33,6 +33,11 @@
                 "language": "NL",
                 "text": "Trading systems vormen het hart en de ziel van systematische handel, omdat ze het grootste deel van de handelsinformatie concentreren.",
                 "updated": 1670790743266
+            },
+            {
+                "language": "ID",
+                "text": "Trading System adalah hati dan jiwa dari trading sistematis, karena mereka memusatkan bagian terbesar dari trading intelligence.",
+                "updated": 1674498560253
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "NL",
                     "text": "De rest van de infrastructuur die in Superalgos is ingebouwd - datamining en visualisatie, de handelsbot en handelsengine, de visuele strategieontwerper en debugger - hebben allemaal een aanzienlijk aandeel in de intelligentietaart, maar het is redelijk om te beweren dat het is ontwikkeld om het ontwerp te ondersteunen, testen en inzetten van handelssystemen!",
                     "updated": 1670790783520
+                },
+                {
+                    "language": "ID",
+                    "text": "Infrastruktur lainnya yang dibangun ke dalam Superalgos—data mining dan visualisasi data, bot trading dan trading engine, visual strategy designer and debugger—semuanya memiliki ekuitas yang signifikan dalam bagian intelligence, tapi wajar untuk berargumen bahwa itu dikembangkan untuk mendukung desain, testing, dan men-deploy trading sistem!",
+                    "updated": 1674498568130
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "NL",
                     "text": "Deze eerste tutorial legt uit hoe Superalgos een Trading System bekijkt en behandelt. De rest van de zelfstudies in de serie leren je hoe je ze kunt bouwen!",
                     "updated": 1670790811136
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial pertama ini menjelaskan bagaimana Superalgos melihat dan menangani Trading System. Tutorial lainnya dalam seri ini mengajarkan kamu cara membuatnya!",
+                    "updated": 1674498575155
                 }
             ]
         }

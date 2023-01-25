@@ -35,6 +35,11 @@
                 "language": "NL",
                 "text": "Deze tutorial leert je hoe je een testbaar handelsidee formuleert. In zekere zin is het een inleiding tot de systematische benadering van handelen, een cruciaal concept dat u moet begrijpen om strategieën te automatiseren. Het voorbeeld in deze zelfstudie wordt later in de rest van de serie gebruikt.",
                 "updated": 1670782970695
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini mengajarkan kamu cara memformulasikan ide trading yang dapat diuji. Di satu sisi, ini adalah pengantar pendekatan sistematis untuk trading, konsep penting yang harus kamu pahami untuk mengotomatiskan strategi. Contoh yang diberikan dalam tutorial ini nantinya akan digunakan di seri selanjutnya.",
+                "updated": 1674637821698
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "IT",
                     "text": "Riguardo questo tutorial",
                     "updated": 1669885161053
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1674637834896
                 }
             ]
         },

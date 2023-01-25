@@ -159,13 +159,13 @@ const runSetup = async (tfjs=false) => {
 
 async function runInstallCommands() {
   try {
-    await executeCommand('echo Results of install at ' + process.cwd() + ' & npm ci')
+    await executeCommand('echo Results of install at ' + process.cwd() + ' & npm ci --omit=optional')
   }
   catch(err) {
     if(err.message.indexOf('package.json and package-lock.json') > -1) {
       console.error('npm ci failed package.json and package-lock.json are not in sync')
-      console.log('running npm install')
-      await executeCommand('npm install')
+      console.log('running npm install --omit=optional')
+      await executeCommand('npm install --omit=optional')
     }
     else {
       throw err

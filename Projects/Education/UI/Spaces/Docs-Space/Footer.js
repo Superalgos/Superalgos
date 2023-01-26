@@ -147,6 +147,12 @@ function newFoundationsDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'PL\')"><img src="Images/Languages/PL.png" title="Polish" class="docs-footer-language'
+        if (languageCode === 'PL') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

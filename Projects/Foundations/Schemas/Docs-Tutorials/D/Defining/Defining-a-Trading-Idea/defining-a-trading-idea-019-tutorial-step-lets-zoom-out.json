@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "We hebben een idee van wat er gaande is in het tijdsbestek van 1H. Laten we een beetje uitzoomen en naar de tussenliggende termijn kijken.",
                 "updated": 1670785614091
+            },
+            {
+                "language": "ID",
+                "text": "Kita memiliki ide tentang apa yang terjadi dalam timeframe 1H. Mari perkecil sedikit dan lihat jangka menengahnya (intermediate-term).",
+                "updated": 1674693995826
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Ik heb je zojuist naar de 4H-grafiek gebracht, op dezelfde data. Let op het volgende:",
                     "updated": 1670785644044
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawamu ke chart 4H, pada tanggal yang sama. Perhatikan hal berikut:",
+                    "updated": 1674694016064
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Breakdown: De neerwaartse uitbraak die we in de 1H-grafiek zagen, is ook duidelijk in de 4H-grafiek.",
                     "updated": 1670785690163
+                },
+                {
+                    "language": "ID",
+                    "text": "Breakdown: Breakdown yang kita lihat di chart 1H juga terlihat di chart 4H.",
+                    "updated": 1674694009722
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "Immediate past: Vóór de neerwaartse uitbraak op 10 april was de markt al een tijdje aan het schommelen.",
                     "updated": 1670785729803
+                },
+                {
+                    "language": "ID",
+                    "text": "Immediate past: Sebelum breakdown pada 10 April, market telah berkisar untuk sementara waktu.",
+                    "updated": 1674694029456
                 }
             ]
         },
@@ -183,6 +203,11 @@
                     "language": "NL",
                     "text": "Before that: De markt vertoonde een opwaartse trend, dat wil zeggen, de middellange termijn was in een opwaartse trend.",
                     "updated": 1670785753427
+                },
+                {
+                    "language": "ID",
+                    "text": "Before that: Market sedang dalam tren naik keatas—artinya, jangka menengah sedang dalam keadaan uptrend.",
+                    "updated": 1674694088338
                 }
             ]
         },
@@ -219,6 +244,11 @@
                     "language": "NL",
                     "text": "Downtrend: De neerwaartse uitbraak op 10 april markeerde het begin van een neerwaartse trend op de middellange termijn.",
                     "updated": 1670785780139
+                },
+                {
+                    "language": "ID",
+                    "text": "Downtrend: Breakdown pada 10 April menandai dimulainya tren turun dalam jangka menengah.",
+                    "updated": 1674694059069
                 }
             ]
         }

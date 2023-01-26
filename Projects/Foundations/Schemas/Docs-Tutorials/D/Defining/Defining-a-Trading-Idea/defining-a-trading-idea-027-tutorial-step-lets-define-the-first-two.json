@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Laten we verder gaan met de definitie van het handelsproces en de context waarin deze ideeën zouden moeten werken.",
                 "updated": 1670787220165
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lanjutkan dengan definisi proses trading dan konteks di mana ide-ide ini harus beroperasi.",
+                "updated": 1674700664046
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Trading process: Aangezien we vertrouwen op trends in de 24H-grafieken, wordt dit een swingstrategie, met posities die mogelijk meerdere dagen openstaan.",
                     "updated": 1670787239150
+                },
+                {
+                    "language": "ID",
+                    "text": "Proses trading: Karena kita mengandalkan tren di chart 24H, ini akan menjadi strategi swing, dengan open position—berpotensi—selama beberapa hari.",
+                    "updated": 1674700672222
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Context: De eerste hypothese is voor opwaartse trends in de 24H-grafiek. De tweede, voor neerwaartse trends en waarschijnlijk ook voor verschillende markten. We laten de definitie van hoe de trends moeten worden bepaald voor later, zodra u bekend raakt met de tools die beschikbaar zijn in Superalgos.",
                     "updated": 1670787264061
+                },
+                {
+                    "language": "ID",
+                    "text": "Konteks: Hipotesis pertama adalah untuk uptrend di chart 24H. Yang kedua, untuk downtrend dan kemungkinan juga untuk ranging market. Kita akan meninggalkan definisi tentang bagaimana tren ditentukan untuk nantinya, setelah kamu terbiasa dengan alat yang tersedia di Superalgos.",
+                    "updated": 1674700679806
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "Het doel van het idee is om bitcoin te verzamelen door BTC te verkopen om tegen een lagere prijs opnieuw te kopen.",
                     "updated": 1670787284183
+                },
+                {
+                    "language": "ID",
+                    "text": "Tujuan dari ide ini adalah untuk akumulasi bitcoin yang menjual BTC untuk dibeli kembali dengan harga yang lebih murah.",
+                    "updated": 1674700693247
                 }
             ]
         }

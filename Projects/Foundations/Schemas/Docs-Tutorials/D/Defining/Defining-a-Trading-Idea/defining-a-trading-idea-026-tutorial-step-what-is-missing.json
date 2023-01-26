@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Wat we hebben is een vage definitie van de context en de instapregels! We moeten onze hypothese nog formaliseren!",
                 "updated": 1670787044020
+            },
+            {
+                "language": "ID",
+                "text": "Apa yang kita dapatkan adalah definisi konteks dan aturan titik entry yang tidak jelas! Kita masih perlu memformalkan hipotesis kita!",
+                "updated": 1674700311876
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Onthoud dat ons handelsidee:",
                     "updated": 1670787061246
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat, ide trading kita harus:",
+                    "updated": 1674700318712
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "een handelsproces voorstelt,",
                     "updated": 1670787111111
+                },
+                {
+                    "language": "ID",
+                    "text": "mengusulkan proses trading,",
+                    "updated": 1674700324549
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "de juiste context selecteert;",
                     "updated": 1670787101510
+                },
+                {
+                    "language": "ID",
+                    "text": "pilih konteks yang sesuai;",
+                    "updated": 1674700330596
                 }
             ]
         },
@@ -183,6 +203,11 @@
                     "language": "NL",
                     "text": "de belangrijkste toegangsregels definieert;",
                     "updated": 1670787133159
+                },
+                {
+                    "language": "ID",
+                    "text": "definisikan aturan entry utama;",
+                    "updated": 1674700445610
                 }
             ]
         },
@@ -219,6 +244,11 @@
                     "language": "NL",
                     "text": "een specifieke uitkomst voorspelt;",
                     "updated": 1670787147254
+                },
+                {
+                    "language": "ID",
+                    "text": "memprediksi hasil yang spesifik;",
+                    "updated": 1674700342981
                 }
             ]
         },
@@ -255,6 +285,11 @@
                     "language": "NL",
                     "text": "een specifiek testmechanisme bied!",
                     "updated": 1670787169662
+                },
+                {
+                    "language": "ID",
+                    "text": "memberikan mekanisme pengujian yang spesifik!",
+                    "updated": 1674700352047
                 }
             ]
         },
@@ -286,6 +321,11 @@
                     "language": "NL",
                     "text": "Laten we doorgaan met het vervullen van die vereisten!",
                     "updated": 1670787183390
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari lanjutkan dengan memenuhi persyaratan tersebut!",
+                    "updated": 1674700359313
                 }
             ]
         }

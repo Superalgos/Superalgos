@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "We hebben zojuist kennis genomen van wat er gebeurde na deze neerwaartse uitbraak van de banden op de 1H-grafiek... Wat is er nog meer aan de hand met de markt?",
                 "updated": 1670785506780
+            },
+            {
+                "language": "ID",
+                "text": "Kita baru saja memperhatikan apa yang terjadi setelah breakdown dari band di chart 1H... Apa lagi yang terjadi dengan market?",
+                "updated": 1674693704635
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Kijk een paar candles eerder naar de prijsactie!",
                     "updated": 1670785524379
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat price action beberapa candle sebelumnya!",
+                    "updated": 1674693697435
                 }
             ]
         },
@@ -106,6 +116,11 @@
                     "language": "NL",
                     "text": "Er waren twee neerwaartse uitbraken voorafgaand aan degene die we controleerden, een op 9 april om 12.00 uur en daarvoor nog een op 7 april om 21.00 uur. Beide uitsplitsingen waren significant, in die zin dat de candles veel lager sloten dan de onderste band. In beide gevallen stuiterde de prijs echter terug in de bands.",
                     "updated": 1670785567206
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada dua breakdown sebelumnya yang kita periksa, satu pada 9 April pukul 12 hs, dan sebelumnya, satu lagi pada 7 April pukul 21 hs. Kedua breakdown tersebut signifikan, dalam arti bahwa candle ditutup jauh lebih rendah daripada lower band. Namun, dalam kedua kasus harga memantul kembali ke band.",
+                    "updated": 1674693692061
                 }
             ]
         }

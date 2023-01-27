@@ -42,7 +42,7 @@
                 {
                     "language": "DE",
                     "text": "Eine einzigartige und wichtige Verwendung der Signalknoten findet direkt auf der obersten Ebene der Handelssystem (Trading System) -Hierarchie statt. Der Handelssystem (Trading System) -Knoten der obersten Ebene kann entweder einen ausgehenden oder einen eingehenden Signalknoten akzeptieren. Diese Knoten spielen eine wichtige Rolle bei der Synchronisierung der Handelsbots des Anbieters und des Empfängers. Sie übermitteln die Kerze, zu der das aktuelle Signal gehört. Dadurch können die Bots des Empfängers genau dieselbe Kerze identifizieren und mit den Bots des Anbieters synchronisiert werden. Dies wird erreicht, indem eine Referenz vom Signalreferenzknoten mit dem Handelssystemsignal (Trading System Signal) -Knoten verbunden wird, der sich unter dem (Sozialen-Handels-Bot) Social Trading Bot des Anbieters befindet.",
-                    "updated": 1674679383888
+                    "updated": 1674756437556
                 }
             ]
         }

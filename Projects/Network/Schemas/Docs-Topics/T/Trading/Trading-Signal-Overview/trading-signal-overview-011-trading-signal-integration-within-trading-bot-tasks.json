@@ -85,7 +85,7 @@
                 {
                     "language": "DE",
                     "text": "Darüber hinaus muss die Handelsbot-Aufgabe auch einen Verweis auf den Sozial-Handels-Bot (Social Trading Bot) haben, über den sie entweder Signale sendet oder von dem sie Signale empfängt. Dazu wird ein Soziale-Handels-Bot-Referenz (Social Trading Bot Reference) -Knoten mit dem Knoten der Handelsbot-Instanz (Trading Bot Instance) verbunden. Dann verbinden Sie eine Referenz zwischen dem Sozial-Handels-Bot-Referenzknoten und dem Social Trading Bot-Knoten. Der Social Trading Bot-Knoten wird unter dem Profil des Anbieters gehalten, wenn er Signale empfängt, und unter dem Profil des Benutzers, wenn er Signale sendet.",
-                    "updated": 1674678662284
+                    "updated": 1674756444049
                 }
             ]
         },

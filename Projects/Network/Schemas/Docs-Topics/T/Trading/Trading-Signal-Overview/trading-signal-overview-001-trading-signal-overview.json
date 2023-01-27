@@ -105,7 +105,7 @@
                 {
                     "language": "DE",
                     "text": "Nehmen wir an, ein Anbieter sendet ein Signal, das die folgenden Informationen enthält: wann eine Position eröffnet oder geschlossen wurde, zu welchem Kurs die Position eröffnet oder geschlossen wurde und den Stop-Loss für die Position. Innerhalb Ihres Handelssystems können Sie mit diesen Signalen eine ganze Reihe von Dingen tun. Sie können dieses Signal direkt mit einem Handelsroboter verbinden, der die Position genau zur gleichen Zeit und zum gleichen Kurs wie der Signalanbieter öffnet und schließt. Sie könnten das Signal daraufhin überprüfen, wann eine Position eröffnet wird, und dann auf der Grundlage anderer Indikatoren oder der Handelslogik Ihrer eigenen Handelsstrategie die Entscheidung treffen, eine Position zu eröffnen. Außerdem können Sie eine Position auf der Grundlage des Signals eröffnen, aber Ihren eigenen Kurs berechnen. Die Informationen des Signals zwingen Ihre Bots nicht dazu, irgendetwas zu tun, es liegt ganz bei Ihnen, wie das Signal interpretiert wird!",
-                    "updated": 1674676701571
+                    "updated": 1674755622576
                 }
             ]
         },

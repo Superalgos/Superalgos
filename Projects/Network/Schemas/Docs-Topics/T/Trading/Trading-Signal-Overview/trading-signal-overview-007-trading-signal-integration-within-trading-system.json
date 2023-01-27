@@ -275,7 +275,7 @@
                 {
                     "language": "DE",
                     "text": "Ein Knoten für eingehende Signale empfängt die Signalinformationen und injiziert diese Daten dann in einen bestimmten Teil eines Handelssystems. Dies wird erreicht, indem der Referenzknoten des Signals mit dem passenden Signalknoten unter dem Sozialen-Handels-Bot (Social Trading Bot) des Anbieters verbunden wird.",
-                    "updated": 1674677432663
+                    "updated": 1674756430657
                 }
             ]
         }

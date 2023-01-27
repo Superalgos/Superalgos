@@ -8,6 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ethereumjs/util": "^8.0.3",
+    "@walletconnect/sign-client": "^2.3.0",
+    "@web3modal/standalone": "^2.0.0-rc.3",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6",
     "vuex": "^4.0.0"

@@ -41,7 +41,7 @@ node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file 
 
 ## Credentials key file
 
-The API needs to have the credentials passed in as a JSON file in the correct format for your exchange
+The API needs to have the credentials passed in as a JSON file in the correct format for your exchange. The suggested method for this is to store your keys in the My-Secrets folder in the root Superalgos directory. This folder is excluded from source control and you will not accidentally compromise your API  keys.
 
 ### Binance
 

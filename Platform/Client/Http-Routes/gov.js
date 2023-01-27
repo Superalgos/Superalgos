@@ -314,6 +314,8 @@ exports.newGOVRoute = function newGOVRoute() {
                             params.contractABIDict,
                             params.decimalFactorDict,
                             params.paymentsArray,
+                            params.paymentsBlacklist,
+                            params.paymentsWhitelist,
                             params.mnemonic
                         )
 

@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: MFI Divergence - bu gösterge, 20 dönemlik bir MFI göstergesinin en yüksek, en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
                 "updated": 1647717174041
+            },
+            {
+                "language": "DE",
+                "text": "Die MFI Divergenz - dieser Indikator analysiert die Höchst- und Tiefstwerte eines MFI-Indikators über 20 Perioden, vergleicht sie mit dem aktuellen Kurs und gibt alle gefundenen Divergenzdaten aus.",
+                "updated": 1673460775447
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Çizelgelerdeki MFI Divergence",
                     "updated": 1647717215416
+                },
+                {
+                    "language": "DE",
+                    "text": "MFI Divergenz in den Charts",
+                    "updated": 1673041333067
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
                     "updated": 1647717222457
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung zur Stärke der Kursbewegung, bei der geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673041373153
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "TR",
                     "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
                     "updated": 1647717230637
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673041443969
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
                     "updated": 1647717240090
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673041458088
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
                     "updated": 1647717250161
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator markiert ein höheres Tief, während die Preisbewegung ein niedrigeres Tief hat.",
+                    "updated": 1673041480336
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
                     "updated": 1647717259468
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673041506331
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
                     "updated": 1647717311344
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673041620853
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "TR",
                     "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
                     "updated": 1647717320444
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673041648614
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "TR",
                     "text": "Yukarıda: düşüş eğilimi (en soldaki, kırmızı) ve iki yükseliş eğilimi (yeşil).",
                     "updated": 1647717330973
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bearish difergence (links, rot) und zwei bullish differgences (grün).",
+                    "updated": 1673041676300
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "language": "TR",
                     "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'MFI Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647717339998
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinder, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ´MFI Divergence´ Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673041888371
                 }
             ]
         },
@@ -203,6 +258,11 @@
                     "language": "TR",
                     "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
                     "updated": 1647717353165
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit größer ist, je größer die Pivot-Länge und dementsprechend länger die Verzögerung bei der Bestätigung des Pivot-Höchst-/Tiefstwertes.",
+                    "updated": 1673041938600
                 }
             ]
         },
@@ -219,6 +279,11 @@
                     "language": "TR",
                     "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) ->\" MFI Divergence\" Prosedür Başlatma ( Procedure Initialization ) altında bulunup açılmasıyla değiştirilebilir.",
                     "updated": 1647717410229
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Erfassung der Divergenz kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ´CCI Divergence´ Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673041982444
                 }
             ]
         },
@@ -239,6 +304,11 @@
                     "language": "TR",
                     "text": "MFI'nin uzunluğu, 'MFI14' Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
                     "updated": 1647717428530
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des MFI kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ´MFI14´ Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673042027017
                 }
             ]
         },
@@ -255,6 +325,11 @@
                     "language": "TR",
                     "text": "Ürün ve Özellikler",
                     "updated": 1647717436600
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673042043059
                 }
             ]
         },
@@ -271,6 +346,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki özelliklere erişmek mümkündür:",
                     "updated": 1647717446698
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1673042073463
                 }
             ]
         },
@@ -282,6 +362,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler  |\n| MFI-Div | mfiDiv | durum, güç, divPerc |",
                     "updated": 1647717478039
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| MfiDiv | mfiDiv | status, strength, divPerc |",
+                    "updated": 1673042110503
                 }
             ],
             "updated": 1667785812929
@@ -299,6 +384,11 @@
                     "language": "TR",
                     "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
                     "updated": 1647717490360
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673042125316
                 }
             ]
         },
@@ -315,6 +405,11 @@
                     "language": "TR",
                     "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
                     "updated": 1647717498221
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673042138964
                 }
             ]
         },
@@ -331,6 +426,11 @@
                     "language": "TR",
                     "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
                     "updated": 1647717507389
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673042167390
                 }
             ]
         },
@@ -347,6 +447,11 @@
                     "language": "TR",
                     "text": "Örnekler:",
                     "updated": 1647717527266
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673042182836
                 }
             ]
         },
@@ -375,12 +480,24 @@
                     "language": "TR",
                     "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek için uygun bir MFI değeri bulun, örneğin bir yükseliş tespitinden sonra MFI > 50.",
                     "updated": 1647717542909
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten RSI-Wert finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673042473154
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673042245751
+                }
+            ]
         },
         {
             "style": "Link",

@@ -17,6 +17,7 @@ const http = axios.create({
                 .then(response => {
                     // If defined all is well and we save the data.
                     if (response.data.nodeCodeName !== undefined) {
+                        console.log("RESPONSE DATA " + JSON.stringify(response.data))
                         store.commit("ADD_PROFILE", response.data);
                         return;
                     } else {
@@ -27,7 +28,7 @@ const http = axios.create({
     };
 
 
-    // Creates a new profile or updates an existing one
+    // Used at the Sign Up process when to create a new Superalgos User Profile or to use an existing one.
     async function createProfile(profileData, personaName) {
         return http.post('/users/create-profile', profileData)
                 .then(response => {
@@ -48,26 +49,35 @@ const http = axios.create({
     }
 
 
-    // Creates new repo for the social persona + create social persona
+    // This is to create a Social Entity and also it's Storage. 
     async function createSocialPersona(profileData) {
         console.log("inside createSocial Persona ")
         return http.post('/users/social-entities', profileData)
     }
 
 
-    // Update profile data on github storage
+    // Save a Social Entity's information (bio, profile pic, and others) using Open Storage.
     async function updateProfile(profileData) {
         return http.post('/users/profile', profileData)
     }
 
 
+    // This is to retrieve a list of Social Personas or Social Trading Bots belonging to the User Profile created at Sign Up.
     async function getProfiles() {
-        return http.get('/users/profiles');
+        console.log("Getting profiles")
+        return http.get('/users/social-entities')
+            .then(response => {
+                return response.data
+            });
     }
 
-    // Loads Profile
-    async function getProfile(socialPersonaId) {
-        return http.get('/users/profile', undefined, socialPersonaId)
+    // TESTED WORKING but returns same data as getProfileData
+    // Load a Social Entity's information from Open Storage.
+    async function getProfile(message) {
+        return http.get('/users/profile', {params: message})
+            .then(response => {
+                return response
+            });
     }
 
     async function getPaginationProfiles(initialPaginationIndex, pagination) {
@@ -79,9 +89,20 @@ const http = axios.create({
     }
 
 
-
+    // WORKING Returns profile data as found on GitHub storage
     async function getProfileData(profileData) {
-        return http.post('/users/profileData', profileData)
+        return http.get('/users/profileData', {params: profileData})
+            .then(response => {
+                return response.data
+            });
+    }
+
+    async function getProfileStats(message) {
+        return http.post('/users/social-stats', message)
+                .then(response => {
+                    console.log("RESPONSE DATA " + JSON.stringify(response.data))
+                    return response.data
+                });
     }
 
 
@@ -94,5 +115,6 @@ export {
     getSocialPersona,
     createProfile,
     getProfileData,
-    createSocialPersona
+    createSocialPersona,
+    getProfileStats
 }

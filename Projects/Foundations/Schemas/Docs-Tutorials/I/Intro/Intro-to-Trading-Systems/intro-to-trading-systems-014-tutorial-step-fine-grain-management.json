@@ -28,6 +28,11 @@
                 "language": "NL",
                 "text": "Wanneer complexe handelslogica wordt opgesplitst in meerdere strategieën, krijgt u de mogelijkheid om de resulterende transacties anders te beheren!",
                 "updated": 1670792181283
+            },
+            {
+                "language": "ID",
+                "text": "Ketika logika trading yang rumit dibagi menjadi beberapa strategi, kamu mendapatkan kesempatan untuk mengelola trading yang dihasilkan secara berbeda!",
+                "updated": 1674626530866
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "NL",
                     "text": "We zijn nog niet ingegaan op hoe strategieën worden gedefinieerd, maar u weet wel dat Superalgos het mogelijk maakt om de take profit- en stop loss-doelen te beheren...",
                     "updated": 1670792199965
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita belum membahas bagaimana strategi didefinisikan, tetapi kamu tahu bahwa Superalgos memungkinkan pengelolaan target take profit dan stop loss...",
+                    "updated": 1674626537168
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "NL",
                     "text": "Elke strategie in een handelssysteem kan zijn eigen logica hebben voor het beheren van posities!",
                     "updated": 1670792211479
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap strategi dalam trading system mungkin memiliki logikanya sendiri untuk mengelola positions!",
+                    "updated": 1674626544136
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "NL",
                     "text": "Als u meerdere variaties van dezelfde logica hanteert, bijvoorbeeld om een positie in te nemen, dan zult u waarschijnlijk meerdere variaties moeten verwerken om de positie te beheren. Het is gemakkelijker en duidelijker om beide in afzonderlijke strategieën te doen.",
                     "updated": 1670792251826
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menangani multiple variasi dari logika yang sama misalnya, untuk mengambil posisi, kamu mungkin perlu menangani beberapa variasi untuk mengelola posisi tersebut. Lebih mudah dan lebih bersih untuk melakukan keduanya pada strategi terpisah.",
+                    "updated": 1674626553281
                 }
             ]
         }

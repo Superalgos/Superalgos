@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Divergences Veri Madeni ( Data Mine ), sapma hesaplamalarını ve bunların altında yatan momentum göstergelerini içerir. Bu göstergenin parametreleri, ilgili Veri Madenciliği Görev Düğümü ( Task Node ) altındaki Gösterge Bot örneğinde ( Indicator Bot Instance ) ayarlanabilir.",
                 "updated": 1647001692709
+            },
+            {
+                "language": "DE",
+                "text": "Die Divergences Data Mine bietet Divergenzberechnungen und die ihnen zugrunde liegenden Momentum-Indikatoren. Die Parameter dieser Indikatoren können in der Indicator Bot Instance unter dem entsprechenden Data Mining Task Node angepasst werden.",
+                "updated": 1672780989689
             }
         ]
     },
@@ -83,7 +88,14 @@
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1672781063187
+                }
+            ]
         },
         {
             "style": "Link",

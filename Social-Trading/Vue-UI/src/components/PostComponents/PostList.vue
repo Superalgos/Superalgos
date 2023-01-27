@@ -6,15 +6,17 @@
                     :timestamp="post.timestamp" 
                     :userHandle="post.originSocialPersona.socialPersonaHandle"  
                     :postBody="post.postText" 
+                    :postImage="post.postImage" 
+                    :originPostHash="post.originPostHash" 
+                    :originPost="post.originPost"
+                    :eventType="post.eventType"
+                    :commentCount='getRepliesCount(post)'
                 />
             </div>
         </div>
-
-
 </template>
 
 <script>
-
 import Post from './Post.vue'
 import { getFeed } from '../../services/PostService'
 
@@ -27,7 +29,23 @@ export default {
     computed: {
         posts() {
             return this.$store.state.posts;
-        },
+        }
+    },
+    methods: {
+        getRepliesCount(post) {
+            
+            if(post.originPost !== undefined) {
+                // If the post has a reply count we grab it.
+                if (post.originPost.repliesCount !== undefined) {
+                    console.log(post.originPost.repliesCount)
+                    return post.originPost.repliesCount
+                } else {
+                    return
+                }
+            } else {
+                console.log("[WARN] (PostComponents/PostList.vue) The origin post is undefined.")
+            }
+        }
     },
     data() {
         return {
@@ -42,9 +60,5 @@ export default {
 </script>
 
 <style>
-
-#post {
-    justify-content: center;
-}
 
 </style>

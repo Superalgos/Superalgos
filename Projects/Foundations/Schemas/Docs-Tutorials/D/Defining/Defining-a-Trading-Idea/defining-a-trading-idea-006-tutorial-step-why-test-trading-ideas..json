@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Het opzetten, testen en implementeren van een handelsstrategie kost tijd en moeite. We testen handelsideeën om verspilling van middelen te voorkomen.",
                 "updated": 1670783497923
+            },
+            {
+                "language": "ID",
+                "text": "Menyiapkan, menguji, dan menerapkan strategi trading membutuhkan waktu dan usaha. Kita menguji ide trading untuk menghindari pemborosan sumber daya.",
+                "updated": 1674687951749
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Om een handelsidee te testen, moeten we het formaliseren in een hypothese dat:",
                     "updated": 1670783515906
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menguji ide trading, kita perlu memformalkannya menjadi hipotesis bahwa:",
+                    "updated": 1674687959407
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "stelt een handelsproces voor,",
                     "updated": 1670783527869
+                },
+                {
+                    "language": "ID",
+                    "text": "mengusulkan proses trading,",
+                    "updated": 1674687966727
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "selecteert de juiste context;",
                     "updated": 1670783540067
+                },
+                {
+                    "language": "ID",
+                    "text": "memilih konteks yang sesuai;",
+                    "updated": 1674687974449
                 }
             ]
         },
@@ -183,6 +203,11 @@
                     "language": "NL",
                     "text": "definieert de belangrijkste instapregels;",
                     "updated": 1670783567880
+                },
+                {
+                    "language": "ID",
+                    "text": "mendefinisikan aturan entry utama;",
+                    "updated": 1674687983080
                 }
             ]
         },
@@ -219,6 +244,11 @@
                     "language": "NL",
                     "text": "voorspelt een specifieke uitkomst;",
                     "updated": 1670783581201
+                },
+                {
+                    "language": "ID",
+                    "text": "memprediksi hasil tertentu;",
+                    "updated": 1674687991768
                 }
             ]
         },
@@ -255,6 +285,11 @@
                     "language": "NL",
                     "text": "biedt een specifiek testmechanisme.",
                     "updated": 1670783590046
+                },
+                {
+                    "language": "ID",
+                    "text": "memberikan mekanisme pengujian yang spesifik.",
+                    "updated": 1674700405532
                 }
             ]
         },
@@ -286,6 +321,11 @@
                     "language": "NL",
                     "text": "Laten we elk van deze onderwerpen nader toelichten, zodat we duidelijke doelen kunnen stellen voor het definiëren van een handelsidee.",
                     "updated": 1670783603659
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita kembangkan masing-masing topik ini sehingga kita dapat menetapkan tujuan yang jelas untuk menentukan ide trading.",
+                    "updated": 1674688007548
                 }
             ]
         }

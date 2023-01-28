@@ -873,6 +873,12 @@
             ],
             "utilities": [
                 {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentialsFunctions",
+                    "functionName": "newFoundationsUtilitiesCredentialsFunctions",
+                    "fileName": "CredentialsFunctions.js"
+                },
+                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",

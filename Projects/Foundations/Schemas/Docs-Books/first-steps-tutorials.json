@@ -1,8 +1,8 @@
 {
     "type": "First Steps Tutorials",
     "definition": {
-        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
-        "updated": 1610915328705,
+        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tools to tackle the learning curve. Doing the tutorials in the proposed order is highly recommended.",
+        "updated": 1674742942350,
         "translations": [
             {
                 "language": "ES",
@@ -28,6 +28,11 @@
                 "language": "DE",
                 "text": "Dieses Buch führt Sie durch den Weg, der Ihnen helfen wird, Superalgos auf die effizienteste Weise zu erlernen. Interaktive Tutorien sind das beste Mittel, um die Lernkurve zu bewältigen. Es wird dringend empfohlen, die Tutorials in der vorgeschlagenen Reihenfolge zu absolvieren.",
                 "updated": 1650359318804
+            },
+            {
+                "language": "PL",
+                "text": "Książka ta przeprowadzi Cię przez ścieżkę, która pomoże Ci poznać Superalgos w najbardziej efektywny sposób. Interaktywne samouczki to bardzo dobre narzędzia aby zmierzyć się procesem nauki. Bardzo mocno sugerujemy wykonywanie samouczków w zaproponowanej kolejności.",
+                "updated": 1674743098756
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "ES",
                     "text": "Como utilizar este libro",
                     "updated": 1667506688738
+                },
+                {
+                    "language": "PL",
+                    "text": "Jak czytać tą książkę",
+                    "updated": 1674743089666
                 }
             ]
         },
@@ -92,6 +102,11 @@
                     "language": "DE",
                     "text": "Tutorials bieten die ultimative praktische Lernerfahrung. Es hat sich gezeigt, dass es am effektivsten ist, alle vorhandenen Tutorials zu absolvieren, um die Lernkurve zu bewältigen.",
                     "updated": 1650359363488
+                },
+                {
+                    "language": "PL",
+                    "text": "Samouczki dają możliwość nakui dzięki praktyce. Zostało dowiedzione, że wykonanie wszystkich samouczków jest najbardziej efektywną ścieżką nauki.",
+                    "updated": 1674743356586
                 }
             ]
         },
@@ -124,6 +139,11 @@
                     "language": "DE",
                     "text": "Um ein Tutorial zu absolvieren, laden Sie den entsprechenden Plugin-Arbeitsbereich, suchen Sie das Tutorial am unteren Rand des Designbereichs und wählen Sie im Menü die Option Abspielen.",
                     "updated": 1650359435458
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby wykonać samouczek, załaduj odpowiedni plugin workspace. Znajdź samouczek na dole Design Space i wciśnij Play w menu.",
+                    "updated": 1674743455800
                 }
             ]
         },
@@ -155,6 +175,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine kurze Auffrischung benötigen, können Sie jederzeit zurückgehen und die gesamte Anleitung oder einige Schritte erneut durchführen. Da die Tutorials aus durchsuchbaren Seiten bestehen, können Sie den Inhalt auch durchsuchen, ohne das Tutorial tatsächlich durchzuführen.",
                     "updated": 1650359481329
+                },
+                {
+                    "language": "PL",
+                    "text": "Kiedy potrzebujesz przypomnienia, możesz zawsze wrócić i wykonać samouczek jeszcze raz, w całości albo tylko wybraną część. Samouczki są stworzone ze stron, które można przeszukiwać, możesz zawsze przeszukać zawartość bez wykonywania samouczka.",
+                    "updated": 1674744922879
                 }
             ]
         },
@@ -187,6 +212,11 @@
                     "language": "DE",
                     "text": "Die empfohlene Reihenfolge ist in der nachstehenden Liste angegeben, aber in Wahrheit kommt es vor allem darauf an, alle Übungen zu absolvieren - unabhängig von der Reihenfolge.",
                     "updated": 1650359562424
+                },
+                {
+                    "language": "PL",
+                    "text": "Zalecana kolejność wykonywania jest podana poniżej, ale tak naprawdę najważniejsze jest żebyś po prostu wykonał je wszystkie.",
+                    "updated": 1674744985315
                 }
             ]
         },
@@ -218,6 +248,11 @@
                     "language": "ES",
                     "text": "Listado de Plugin Workspaces y Tutoriales",
                     "updated": 1667506752109
+                },
+                {
+                    "language": "PL",
+                    "text": "Lista Plugin Workspaces oraz Samouczków",
+                    "updated": 1674745024051
                 }
             ]
         },
@@ -250,6 +285,11 @@
                     "language": "DE",
                     "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Plugin-Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
                     "updated": 1650359610718
+                },
+                {
+                    "language": "PL",
+                    "text": "Dla Twojej wygody przedstawiamy powiązanie danego Plugin Workspace z konkretnym samouczkiem.",
+                    "updated": 1674745571190
                 }
             ]
         },

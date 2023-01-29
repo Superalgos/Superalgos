@@ -592,9 +592,9 @@ exports.newAppRoute = function newAppRoute() {
                         currentBranch = 'develop'
                     }
                     update().catch(err => {
-                        PL.logger.error(err.message)
-                        PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
-                        PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                        SA.logger.error(err.message)
+                        SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                        SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
             
                         let error = {
                             result: 'Fail Because',

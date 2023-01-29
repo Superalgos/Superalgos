@@ -16,6 +16,10 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
 
     async function run() {
 
+        /*
+        SOCIALTRADING_APP_UPDATE_PROFILES: Pull latest profiles from Github repo
+        */
+        let SOCIALTRADING_APP_UPDATE_PROFILES = true
         /* 
         Social Trading App Interfaces:
         
@@ -95,7 +99,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
                 thisObject.p2pNetworkInterface.eventReceived,
-                P2P_NETWORK_CLIENT_DEFINITION
+                P2P_NETWORK_CLIENT_DEFINITION,
+                SOCIALTRADING_APP_UPDATE_PROFILES
             )
         }
 

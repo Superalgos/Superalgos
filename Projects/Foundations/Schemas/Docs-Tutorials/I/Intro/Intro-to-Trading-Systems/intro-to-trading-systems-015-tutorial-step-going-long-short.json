@@ -28,6 +28,11 @@
                 "language": "NL",
                 "text": "We hebben de drie belangrijkste redenen behandeld waarom het een goed idee is om complexe logica op te splitsen in meer dan één strategie...",
                 "updated": 1670792283258
+            },
+            {
+                "language": "ID",
+                "text": "Kita membahas tiga alasan utama mengapa sebaiknya membagi logika kompleks menjadi lebih dari satu strategi...",
+                "updated": 1674626693718
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "NL",
                     "text": "We hebben ook een paar voorbeelden besproken van handelssystemen die precies dat doen. Er is nog een voorbeeld dat in me opkomt:",
                     "updated": 1670792296493
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita juga membahas beberapa contoh trading system yang melakukan hal itu. Ada contoh lain yang terlintas dalam pikiran:",
+                    "updated": 1674626706435
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "NL",
                     "text": "<b>Long en short gaan:</b> een strategie ontwerpen die zowel long als short gaat, is waarschijnlijk geen goed idee. Splits de logica en ontwikkel een strategie om long te gaan en een andere om short te gaan!",
                     "updated": 1670792333250
+                },
+                {
+                    "language": "ID",
+                    "text": "Long dan Short: merancang strategi yang long dan short mungkin bukan ide yang bagus. Pisahkan logika dan bangun satu strategi untuk jangka panjang dan satu lagi untuk jangka pendek!",
+                    "updated": 1674626711762
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "NL",
                     "text": "Denk aan het KISS-principe!",
                     "updated": 1670792345077
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat prinsip KISS!",
+                    "updated": 1674626740008
                 }
             ]
         }

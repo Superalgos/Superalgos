@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "De belangrijkste instapregels waren de focus van de analyse die we op de grafieken deden, maar laten we nog een paar overwegingen toevoegen.",
                 "updated": 1670787338076
+            },
+            {
+                "language": "ID",
+                "text": "Aturan entry utama adalah fokus analisis yang kita lakukan pada chart, tetapi mari tambahkan beberapa pertimbangan lagi.",
+                "updated": 1674700866870
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "NL",
                     "text": "We ontdekten dat een uitbraak in de 1H-grafiek een omkering op de middellange termijn kan voorspellen bij een dagelijkse opwaartse trend, en - bij een dagelijkse neerwaartse trend - een versnelling van de neergang. We merkten echter ook verschillende uitbraken op die dat niet opleverden. Dit betekent dat we een uitbraak als een signaal moeten zien, niet als een bevestiging op zich.",
                     "updated": 1670787411053
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita menemukan bahwa breakdown pada chart 1H dapat memprediksi reversal jangka menengah ketika berada pada tren naik harian, dan—ketika pada tren turun harian—percepatan penurunan. Namun, kita juga melihat beberapa breakdown yang tidak menghasilkan keduanya. Ini berarti bahwa kita harus menganggap breakdown sebagai sinyal, bukan sebagai konfirmasi itu sendiri.",
+                    "updated": 1674700872089
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "NL",
                     "text": "Onze bevestiging is een tweede opeenvolgende uitbraak in de 1H-grafiek!",
                     "updated": 1670787428205
+                },
+                {
+                    "language": "ID",
+                    "text": "Konfirmasi kita adalah breakdown kedua berturut-turut di chart 1H!",
+                    "updated": 1674700877604
                 }
             ]
         }

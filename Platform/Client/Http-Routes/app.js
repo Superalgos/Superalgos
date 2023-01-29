@@ -587,11 +587,22 @@ exports.newAppRoute = function newAppRoute() {
             case 'Update': {
                 try {
                     // We update the local repo from remote
-                    const currentBranch = unescape(requestPath[3])
-                    update().then(() => PL.servers.RESTART_SERVER.tryRestart([
-                        process.pid,
-                        process.ppid
-                    ]))
+                    let currentBranch = unescape(requestPath[3])
+                    if(['master','develop'].indexOf(currentBranch) == -1) {
+                        currentBranch = 'develop'
+                    }
+                    update().catch(err => {
+                        PL.logger.error(err.message)
+                        PL.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                        PL.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
+            
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    })
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath
@@ -787,13 +798,14 @@ exports.newAppRoute = function newAppRoute() {
                             // get the summary of current changes in the current repo
                             diffObj = await git.diffSummary(responce).catch(errorResp)
 
-                            // get the status of current repo compaired to upstream
-                            let raw = await git.remote(['show', 'upstream'])
+                            // get the status of current repo compaired to upstream.
+                            // adds the environemnt so git response is in English allowing us to 
+                            // inspect the response in a uniform manner
+                            let raw = await git.env('LC_ALL', 'en_US').remote(['show', 'upstream'])
                             let split = raw.split('\n')
                             // Keep only end of returned message and format for UI
                             for(let str of split) {
-                                // TODO: needs localized for all supported languages 
-                                if(str.includes('pushes') || str.includes('pousse') || str.includes('versendet')) {
+                                if(str.includes('pushes to')) {
                                     // Get name of Branch
                                     let branch = str.trim().split(' ')[0]
                                     // Get status of branch

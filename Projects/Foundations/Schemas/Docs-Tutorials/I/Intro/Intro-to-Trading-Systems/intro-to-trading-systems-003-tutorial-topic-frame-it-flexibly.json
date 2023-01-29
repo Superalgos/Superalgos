@@ -33,6 +33,11 @@
                 "language": "NL",
                 "text": "Een Trading System regelt handelsstrategieën en biedt een flexibel maar gestructureerd raamwerk om ze op te bouwen.",
                 "updated": 1670790929826
+            },
+            {
+                "language": "ID",
+                "text": "Trading System mengatur strategi trading, dan memberikan fleksibilitas—tapi terstruktur— framework untuk membuatnya.",
+                "updated": 1674498941084
             }
         ]
     },
@@ -66,6 +71,11 @@
                     "language": "NL",
                     "text": "Lees deze pagina om op de hoogte te blijven van hoe trading systems werken!",
                     "updated": 1670790953273
+                },
+                {
+                    "language": "ID",
+                    "text": "Tolong, baca halaman ini untuk mengetahui cara kerja trading system!",
+                    "updated": 1674498947240
                 }
             ]
         },
@@ -97,6 +107,11 @@
                     "language": "NL",
                     "text": "Er is geen vervanging voor kennis, dus je zult wat moeten lezen voordat ik je handen vuil maak met goede oude handelslogica!",
                     "updated": 1670790977608
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada pengganti untuk pengetahuan, jadi kamu perlu membaca beberapa sebelum aku membuatmu bekerja keras dengan logika trading yang baik!",
+                    "updated": 1674498954082
                 }
             ]
         },
@@ -128,6 +143,11 @@
                     "language": "NL",
                     "text": "Het overslaan van het lezen kan leiden tot permanente neurologische stoornissen. Jouw beslissing!",
                     "updated": 1670791010735
+                },
+                {
+                    "language": "ID",
+                    "text": "Melewatkan bacaan ini dapat mengakibatkan gangguan otak dan sistem saraf permanen. Pilihanmu!",
+                    "updated": 1674498962752
                 }
             ]
         }

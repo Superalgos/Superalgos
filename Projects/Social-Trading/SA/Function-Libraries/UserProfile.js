@@ -154,12 +154,15 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
     
             1. We will check if the storageProviderName has a fork of Superalgos already created. If not, we will create the fork.
             2. We will check for the User Profile and read that file if exists. 
-            3. If the user profile file does not exist, then we are going to create it. Create a walleet and sign the User Profile.
+            3. If the user profile file does not exist, then we are going to create it. 
+                3.1. Create a wallet and sign the User Profile.
+                3.2. TODO: If user links own wallet, use the wallet info.
             4. Add to the User Profile the User App based on userAppType.
             5. Create a Storage Container for "My-Social-Trading-Data".
             6. Create the Signing Accounts and sign them.
-            7. TODO: auto merge new profile into the main superalgos governance repo
+            7. Auto merge new profile into the main superalgos governance repo
             */
+            /* Load some helper to create the user profile nodes */
 
             /*
             Message Properties Validations
@@ -229,6 +232,27 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             let response = {
                 result: 'Ok'
             }
+            let savedPayloadNode = {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                targetPosition: {
+                    x: 0,
+                    y: 0
+                },
+                floatingObject: {
+                    isPinned: false,
+                    isFrozen: false,
+                    isCollapsed: false,
+                    angleToParent: 2,
+                    distanceToParent: 3,
+                    arrangementStyle: 0
+                },
+                uiObject: {
+                    isRunning: false
+                }
+            }
 
             await checkCreateFork()
             if (response.result === 'Error') {
@@ -236,6 +260,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 return
             }
             await checkCreateUserProfile()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
+            addGovernanceNode()
             if (response.result === 'Error') {
                 resolve(response)
                 return
@@ -265,7 +294,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response)
                 return
             }
-
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             resolve(response)
 
             async function checkCreateFork() {
@@ -360,7 +393,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         type: 'User Profile',
                         name: profileMessage.storageProviderUsername,
                         project: 'Governance',
-                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        savedPayload: savedPayloadNode
                     }
                     /*
                     Create a Wallet for the new User Profile and get the Private Key.
@@ -385,12 +419,95 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
+            async function addGovernanceNode() {
+                if (userProfile.tokenPowerSwitch === undefined) {
+                    userProfile.tokenPowerSwitch = {
+                        type: 'Token Power Switch',
+                        name: 'New Token Power Switch',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}',
+                        savedPayload: savedPayloadNode
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.financialPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.financialPrograms = {
+                        type: 'Financial Programs',
+                        name: 'New Financial Programs',
+                        project: 'Governance',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: "{}",
+                        savedPayload: savedPayloadNode,
+                        stakingProgram: {
+                            type: "Staking Program",
+                            name: "New Staking Program",
+                            config: "{}",
+                            savedPayload: savedPayloadNode,
+                            project: "Governance",
+                            tokensAwarded: {
+                                type: "Tokens Awarded",
+                                name: "New Tokens Awarded",
+                                project: "Governance",
+                                savedPayload: savedPayloadNode,
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        }
+                    }
+                }
+
+                if (userProfile.tokenPowerSwitch.liquidityPrograms === undefined) {
+                    userProfile.tokenPowerSwitch.liquidityPrograms = {
+                        type: "Liquidity Programs",
+                        name: "New Liquidity Programs",
+                        config: "{}",
+                        savedPayload: savedPayloadNode,
+                        project: "Governance",
+                        liquidityProgram: [
+                            {
+                                type: "Liquidity Program",
+                                name: "BTCB",
+                                savedPayload: savedPayloadNode,
+                                config: "{\n    \"asset\": \"BTCB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    savedPayload: savedPayloadNode,
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            },
+                            {
+                                type: "Liquidity Program",
+                                name: "BNB",
+                                savedPayload: savedPayloadNode,
+                                config: "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"PANCAKE\"\n}",
+                                project: "Governance",
+                                tokensAwarded: {
+                                    type: "Tokens Awarded",
+                                    name: "New Tokens Awarded",
+                                    project: "Governance",
+                                    savedPayload: savedPayloadNode,
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                },
+                                "id": SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            }
+                        ],
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    }  
+                }
+            }
+
             function addUserAppsNodes() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
                         type: 'User Apps',
                         name: 'New User Apps',
                         project: 'User-Apps',
+                        savedPayload: savedPayloadNode,
                         id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                         config: '{}'
                     }
@@ -405,15 +522,17 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                                 project: 'User-Apps',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
+                                savedPayload: savedPayloadNode,
                                 socialTradingDesktopApps: []
                             }
                         }
                         targetNode = {
                             type: 'Social Trading Desktop App',
-                            name: 'New Social Trading Desktop App',
+                            name: 'Social Trading Desktop App #1',
                             project: 'User-Apps',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
+                            config: '{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}',
                         }
                         userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
                         targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
@@ -425,6 +544,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                                 type: 'Mobile Apps',
                                 name: 'New Mobile Apps',
                                 project: 'User-Apps',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
                                 socialTradingDesktopApps: []
@@ -434,6 +554,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             type: 'Social Trading Mobile App',
                             name: 'New Social Trading Mobile App',
                             project: 'User-Apps',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
                         }
@@ -515,6 +636,20 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
                 SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(fileContent, undefined, 4))
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }

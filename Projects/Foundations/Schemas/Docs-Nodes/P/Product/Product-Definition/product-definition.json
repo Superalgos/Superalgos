@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Product Definition содержит все определения, составляющие продукт, в том числе то, как продукт рассчитывается, и наборы данных, из которых он состоит.",
                 "updated": 1639657776169
+            },
+            {
+                "language": "TR",
+                "text": "Ürün tanımı düğümü, ürünün nasıl hesaplandığı ve ürünün hangi veri kümelerinden oluştuğu da dahil olmak üzere bir ürünü oluşturan tüm tanımları tutar.",
+                "updated": 1674758190642
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Бот может содержать несколько продуктов, поэтому может быть несколько определений продуктов. С точки зрения продуктов необходимо определить три основных аспекта: характеристики набора данных, состав каждой записи и способ вычисления записей.",
                     "updated": 1639657804191
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bot birden fazla ürün içerebilir, dolayısıyla birden fazla ürün tanımı olabilir. Ürünler açısından üç ana hususun tanımlanması gerekir: veri kümesinin özellikleri, her bir kaydın bileşimi ve kayıtların hesaplanma şekli.",
+                    "updated": 1674758233311
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Определение продукта обычно ссылается на модуль плоттера, который обеспечивает графическое представление базового набора данных.",
                     "updated": 1639657830265
+                },
+                {
+                    "language": "TR",
+                    "text": " Bir ürün tanımı genellikle altta yatan veri kümesinin grafik temsilini sağlayan bir çizici modülüne atıfta bulunur",
+                    "updated": 1674758263201
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Конфигурация Product Definition",
                     "updated": 1639657845846
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı Yapılandırması (Product Definition Configuration)",
+                    "updated": 1674758313063
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639657854144
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674758332946
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "codeName - это название продукта, используемое в коде бота.",
                     "updated": 1639657865418
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName botun kodu içinde kullanıldığı şekliyle ürünün adıdır.",
+                    "updated": 1674758360994
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "RU",
                     "text": "pluralVariableName - это форма переменной во множественном числе.",
                     "updated": 1639657905705
+                },
+                {
+                    "language": "TR",
+                    "text": "pluralVariableName değişkenin çoğul halidir.",
+                    "updated": 1674758396045
                 }
             ]
         }

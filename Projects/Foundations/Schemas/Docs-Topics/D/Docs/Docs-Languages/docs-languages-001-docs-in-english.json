@@ -63,7 +63,7 @@
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs.",
+            "text": "To switch languages, click on the flags on the footer of the Docs.sss",
             "translations": [
                 {
                     "language": "DE",
@@ -77,7 +77,8 @@
                     "updated": 1654393551489,
                     "style": "Success"
                 }
-            ]
+            ],
+            "updated": 1674740115413
         },
         {
             "style": "Note",

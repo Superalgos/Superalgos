@@ -26,6 +26,10 @@ const http = axios.create({
             });
     }
 
+    // Working 
+    // Returns all activity, posts, likes, reposts, loves, ect.
+    // Can be sorted by eventType for conditional displaying.
+    // Full array of responses is stored in store under "posts".
     async function getFeed() {
         return  http.get('/posts/feed')
                 .then(response => {
@@ -40,12 +44,24 @@ const http = axios.create({
                 });
     }
 
-    async function reactedPost(body) {
-        return http.post('/posts/reactions', body);
+
+    // TODO the logic on the back end so we can't double like.
+    // Tested Working
+    /*
+        Expected "message":
+        {
+            originSocialPersonaId: store.state.profile.nodeId,
+            targetSocialPersonaId: this.originPost.originSocialPersonaId,
+            postHash: this.originPostHash,
+            eventType: 100,
+        }
+    */
+    async function reactedPost(message) {
+        return http.post('/posts/reactions', message);
     }
 
     async function getReplies(queryParams) {
-        return http.get('/posts/replies', queryParams);
+        return http.get('/posts/replies', {params: queryParams});
     }
 
     async function createReply(body) {

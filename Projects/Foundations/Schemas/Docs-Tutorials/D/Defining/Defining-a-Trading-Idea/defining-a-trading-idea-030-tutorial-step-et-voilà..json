@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Dat is het! We hebben eindelijk een goede hypothese die we kunnen testen om te beslissen of het idee de moeite waard is om na te streven of niet!",
                 "updated": 1670787677564
+            },
+            {
+                "language": "ID",
+                "text": "Itu dia! Kita akhirnya memiliki hipotesis yang tepat yang dapat kita uji untuk memutuskan apakah ide tersebut layak untuk dikejar atau tidak!",
+                "updated": 1674701271441
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "We nemen het vanaf daar over in de volgende zelfstudie!",
                     "updated": 1670787690277
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan mengambilnya dari sana di tutorial berikutnya!",
+                    "updated": 1674701277833
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "In de volgende zelfstudie in de serie zullen we ingaan op hoe Superalgos u begeleidt bij het opzetten van het handelsidee om te worden getest op historische gegevens. We leren over de syntaxis om voorwaarden en formules te schrijven, over het gebruik van indicatoren vanuit strategieën en alles wat we onderweg nog meer nodig hebben!",
                     "updated": 1670787718516
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tutorial berikutnya dalam seri ini, kita akan mendalami bagaimana Superalgos memandu kamu melalui proses penyiapan ide trading untuk diuji pada data historis. Kita akan belajar tentang sintaks untuk menulis conditions dan formula, tentang cara menggunakan indikator dari dalam strategi, dan apa saja yang mungkin kita perlukan selama ini!",
+                    "updated": 1674701283493
                 }
             ]
         }

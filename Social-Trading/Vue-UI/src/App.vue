@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import CreateProfile from './components/ProfileComponents/CreateProfile.vue'
+import CreateProfile from './components/ProfileComponents/MyProfileComponents/CreateProfile.vue'
 import store from './store/index'
 import { getSocialPersona } from './services/ProfileService'
 

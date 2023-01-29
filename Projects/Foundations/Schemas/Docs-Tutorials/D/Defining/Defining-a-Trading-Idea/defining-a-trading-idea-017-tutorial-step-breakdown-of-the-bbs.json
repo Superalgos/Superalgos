@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Weak-hands Buster is gebaseerd op het idee dat een neerwaartse uitbraak van de BB een verdieping van een neerwaartse trend en enkele omkeringen kan voorspellen.",
                 "updated": 1670785282237
+            },
+            {
+                "language": "ID",
+                "text": "Weak-hands Buster didasarkan pada gagasan bahwa breakdown BB dapat memprediksi pendalaman tren turun dan beberapa reversal/pembalikan.",
+                "updated": 1674693411857
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Ik heb je zojuist naar 10 april 2020 gebracht om een geval van neerwaartse uitbraak van de banden te bekijken. Zie wat er gebeurt bij de volgende candles:",
                     "updated": 1670785325669
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawa kamu ke 10 April 2020 untuk memeriksa kasus kerusakan band. Lihat apa yang terjadi pada candle berikut:",
+                    "updated": 1674693419716
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "04 hs: Een candle sluit onder de onderste band bij 7.176 USDT.",
                     "updated": 1670785348997
+                },
+                {
+                    "language": "ID",
+                    "text": "04 hs: candle ditutup di bawah lower band di 7,176 USDT.",
+                    "updated": 1674693435313
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "05 hs: Een tweede candle sluit onder de band bij 7.140 USDT.",
                     "updated": 1670785368045
+                },
+                {
+                    "language": "ID",
+                    "text": "05 hs: candle kedua ditutup di bawah band di 7.140 USDT.",
+                    "updated": 1674693447879
                 }
             ]
         },
@@ -183,6 +203,11 @@
                     "language": "NL",
                     "text": "06 hs: Er volgt een serieuzere daling, die de eerder waargenomen prijsactie accentueert.",
                     "updated": 1670785393636
+                },
+                {
+                    "language": "ID",
+                    "text": "06 hs: Penurunan yang lebih serius mengikuti, menonjolkan price action yang terlihat sebelumnya.",
+                    "updated": 1674693470433
                 }
             ]
         },
@@ -214,6 +239,11 @@
                     "language": "NL",
                     "text": "16 hs: Tien uur na de eerste neerwaartse uitbraak noteert de laagste uur sluiting van de dag 6,766 USDT, meer dan 6% lager.",
                     "updated": 1670785454526
+                },
+                {
+                    "language": "ID",
+                    "text": "16 hs: Sepuluh jam setelah breakdown pertama, penutupan per jam terendah hari ini menandai 6,766 USDT, lebih rendah dari 6%.",
+                    "updated": 1674693487218
                 }
             ]
         }

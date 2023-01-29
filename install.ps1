@@ -1,28 +1,82 @@
-function install {
-    # install pm2 globally
-    Write-Host "superalgos | info | installing pm2 globally for process management\n"
-    npm install -g pm2
+Param(
+    [Parameter(Mandatory=$true, HelpMessage="Github username")]
+    [String]
+    $username,
+    [Parameter(Mandatory=$true, HelpMessage="Github API token")]
+    [String]
+    $token
+)
 
-    # install all the local modules
-    Write-Host "superalgos | info | installing local node dependencies\n"
-    npm install
-
-    # apply security fixes to local modules
-    Write-Host "superalgos | info | applying security patches for local dependencies\n"
-    npm audit fix --force
-
-    # install the superalgos command line app
-    Write-Host "superalgos | info | installing 'superalgos' cli\n"
-    npm install -g .
-
-    Write-Host "superalgos | info | running node setup script to run prepare the app\n"
-    node setup.js
+function installGit {
+    Write-Host "Please go to https://git-scm.com/download/win and install git"
 }
 
-if (Get-Command node -errorAction SilentlyContinue) {
-    if ((node -v)) {
-        install
+function checkGit {
+    if (Get-Command git -errorAction SilentlyContinue) {
+        Write-Host ""
+        Write-Host "superalgos | info | git already installed"
+        Write-Host ""
+        return $true
     }
-} else {
-    Write-Host "node is not installed, please install nodejs to run Superalgos"
+    installGit
+    return $false
+}
+
+function installNode {
+    Write-Host "Please go to https://nodejs.org/en/download/ and install nodejs"
+}
+
+function checkNode {
+    if (Get-Command node -errorAction SilentlyContinue) {
+        Write-Host ""
+        Write-Host "superalgos | info | nodejs already installed"
+        Write-Host ""
+        return $true
+    }
+    installNode
+    return $false
+}
+
+function cloneSuperalgos {
+    Write-Host ""
+    Write-Host "superalgos | info | downloading application code"
+    Write-Host ""
+    git clone "https://github.com/$username/Superalgos.git"
+}
+
+function install {
+    # install pm2 globally
+    Write-Host ""
+    Write-Host "superalgos | info | installing pm2 globally for process management"
+    Write-Host ""
+    npm install -g pm2
+
+    Write-Host ""
+    Write-Host "superalgos | info | running node setup script to run prepare the app"
+    Write-Host ""
+    node setup.js
+
+    Write-Host ""
+    Write-Host "superalgos | info | running node setup script to run prepare the app"
+    Write-Host ""
+    node setupPlugins.js $username $token
+
+    # install the superalgos command line app
+    Write-Host ""
+    Write-Host "superalgos | info | installing 'superalgos' cli"
+    Write-Host ""
+    npm install -g . --omit=optional
+
+    # apply security fixes to local modules
+    Write-Host ""
+    Write-Host "superalgos | info | applying security patches for local dependencies"
+    Write-Host ""
+    npm audit fix --force --omit=optional
+}
+
+
+if( checkGit -and checkNode ) {
+    cloneSuperalgos
+    cd Superalgos
+    install
 }

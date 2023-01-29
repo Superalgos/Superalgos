@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "De 4H-grafiek toonde een duidelijke verschuiving in de trend na de neerwaartse beweging, maar... hoe zit het met de lange termijn? Laten we de daggrafiek eens bekijken!",
                 "updated": 1670785862699
+            },
+            {
+                "language": "ID",
+                "text": "Chart 4H menunjukkan pergeseran tren yang jelas setelah breakdown, tapi... bagaimana dengan jangka panjang? Mari kita periksa chart harian (daily chart)!",
+                "updated": 1674694466569
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Zoek de candle van 10 april en neem even de tijd om na te denken over wat het betekende - in het grote geheel - wat we zojuist in de lagere tijdsbestekken hebben geanalyseerd. Dit is wat ik zie:",
                     "updated": 1670785889963
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan candle 10 April dan luangkan waktu sejenak untuk memikirkan apa artinya—dalam gambaran besar—apa yang baru saja kita analisis dalam timeframe yang lebih rendah. Inilah yang saya lihat:",
+                    "updated": 1674694475526
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "The walk: De variërende periode die we zagen van 7 tot 10 april was eigenlijk een kleine wandeling op de dagelijkse bovenband. Volgens de BB-regels betekent dit dat de prijs in dit tijdsbestek relatief hoog is.",
                     "updated": 1670785921515
+                },
+                {
+                    "language": "ID",
+                    "text": "The walk:  Periode mulai yang kami lihat dari tanggal 7 hingga 10 April sebenarnya adalah sedikit perubahan di upper band harian. Menurut aturan BB, ini berarti harga relatif tinggi dalam timeframe ini.",
+                    "updated": 1674694488554
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "Pullback: De neerwaartse beweging in de lagere tijdframes markeerde een verlaging van de dagelijkse bovenste band.",
                     "updated": 1670785973331
+                },
+                {
+                    "language": "ID",
+                    "text": "Pullback: Breakdown pada time frame bawah menandai pullback dari upper band harian.",
+                    "updated": 1674694506330
                 }
             ]
         },
@@ -178,6 +198,11 @@
                     "language": "NL",
                     "text": "Continuation: De prijsactie in het grotere tijdsbestek werd uiteindelijk een normale terugval en voortzetting, die nauwelijks het voortschrijdend gemiddelde overschreed.",
                     "updated": 1670786008858
+                },
+                {
+                    "language": "ID",
+                    "text": "Continuation: Price range dalam timeframe yang lebih besar akhirnya menjadi pullback dan kelanjutan yang normal (continuation), hampir tidak melewati moving average.",
+                    "updated": 1674694540499
                 }
             ]
         }

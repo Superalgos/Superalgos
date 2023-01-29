@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Laten we onze eerdere hypothese herstellen en een nieuwe bedenken voor de meest recente waarnemingen!",
                 "updated": 1670786842936
+            },
+            {
+                "language": "ID",
+                "text": "Mari pulihkan hipotesis kita sebelumnya dan buat hipotesis baru untuk pengamatan terbaru!",
+                "updated": 1674699207870
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Hypothese 1: In de context van een uptrend in de daily chart, kan een uitbraak van de Bollinger Bands in de 1H chart een ommekeer in de tussenliggende trend voorspellen.",
                     "updated": 1670786952126
+                },
+                {
+                    "language": "ID",
+                    "text": "Hipotesis 1: Dalam konteks uptrend di chart harian, breakdown Bollinger Bands di chart 1H dapat memprediksi reversal dalam tren intermediate.",
+                    "updated": 1674699354383
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Hypothese 2: In de context van een neerwaartse trend in de daily chart kan een uitbraak van de Bollinger Bands in de 1H-chart een versnelling van de downtrend voorspellen.",
                     "updated": 1670786974367
+                },
+                {
+                    "language": "ID",
+                    "text": "Hipotesis 2: Dalam konteks downtrend di chart harian, breakdown Bollinger Bands di chart 1H dapat memprediksi percepatan downtrend.",
+                    "updated": 1674699379082
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "We kunnen deze twee beschouwen als de kern van twee verschillende handelsideeën! Maar dat is niet alles, toch?",
                     "updated": 1670786989095
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita mungkin menganggap keduanya sebagai inti dari dua ide trading yang berbeda! Tapi itu belum semuanya, kan?",
+                    "updated": 1674699297867
                 }
             ]
         }

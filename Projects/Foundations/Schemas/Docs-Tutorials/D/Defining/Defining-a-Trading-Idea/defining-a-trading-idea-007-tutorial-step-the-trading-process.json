@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "De eerste dimensie die we moeten definiëren, is op welk type strategie de hypothese gericht is.",
                 "updated": 1670783648259
+            },
+            {
+                "language": "ID",
+                "text": "Dimensi pertama yang harus kita definisikan adalah jenis strategi apa yang menjadi sasaran hipotesis.",
+                "updated": 1674688184627
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "Een eenvoudige vuistregel bepaalt of het een scalpeer-, daghandel-, swinghandel- of positiehandelstrategie is.",
                     "updated": 1670783666508
+                },
+                {
+                    "language": "ID",
+                    "text": "Aturan praktis yang sederhana adalah menentukan apakah itu strategi scalping, day-trading, swing trading, atau position trading.",
+                    "updated": 1674688191829
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Deze definitie geeft een idee van de verwachte periode van bezit, dat wil zeggen het gemiddelde tijdsbestek dat verwacht wordt voor elke openstaande positie.",
                     "updated": 1670783699104
+                },
+                {
+                    "language": "ID",
+                    "text": "Definisi ini memberikan pengertian mengenai ekspektasi holding period, yaitu rentang waktu rata-rata yang diharapkan untuk setiap posisi terbuka.",
+                    "updated": 1674688199031
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "NL",
                     "text": "De waarde van een dergelijke definitie is dat het een richtlijn biedt voor de tijdsbestekken die moeten worden geanalyseerd om het bestaan van trends vast te stellen.",
                     "updated": 1670783719027
+                },
+                {
+                    "language": "ID",
+                    "text": "NIlai dari definisi semacam itu adalah memberikan panduan tentang time frame apa yang harus dianalisis untuk menentukan keberadaan tren.",
+                    "updated": 1674688233490
                 }
             ]
         }

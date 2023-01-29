@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Önceki sayfalarda tartışılan tüm ticaret sinyal mekaniği, Superalgos eşler arası ağ üzerinde çalışır.",
                 "updated": 1646300647855
+            },
+            {
+                "language": "DE",
+                "text": "Alle Handelssignal-Mechanismen, die auf den vorherigen Seiten besprochen wurden, laufen über das Superalgos Peer-to-Peer-Netzwerk.",
+                "updated": 1674678997130
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Sonuç olarak, geliştirmenin şu andaki aşamasında, ağa erişmeye başlamak için kendi ağ düğümünüzü çalıştırmanız gerektiğini belirtmek önemlidir. Ağ büyüdükçe ve düğümler eklendikçe, her bireyin kendi düğümünü çalıştırması gerekli olmayacak.",
                     "updated": 1646300695690
+                },
+                {
+                    "language": "DE",
+                    "text": "Daher ist es wichtig, darauf hinzuweisen, dass es im derzeitigen Entwicklungsstadium notwendig ist, einen eigenen Netzknoten zu betreiben, um Zugang zum Netz zu erhalten. Wenn das Netz wächst und weitere Knoten hinzukommen, wird es nicht für jede Person notwendig sein, einen eigenen Knoten zu betreiben.",
+                    "updated": 1674679008292
                 }
             ]
         }

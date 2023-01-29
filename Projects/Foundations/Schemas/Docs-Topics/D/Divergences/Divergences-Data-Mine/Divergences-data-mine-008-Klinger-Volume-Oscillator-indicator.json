@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Bu gösterge, orijinal olarak Stephen Klinger tarafından geliştirilen Klinger Volume Osilatörünü üretir. Bu gösterge, hacmi pozitif veya negatif değer olarak atamak için önceki çubuğun anahtar fiyatına kıyasla anahtar fiyatını kullanır.",
                 "updated": 1647718278910
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt den Klinger Volume Oszillator, der ursprünglich von Stephen Klinger entwickelt wurde. Dieser Indikator verwendet den aktuellen Kurs im Vergleich zum des vorherigen Balkens, um das Volumen als positiven oder negativen Wert einzustufen.",
+                "updated": 1673460040763
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Klinger Volume Oscillator",
                     "updated": 1647718289058
+                },
+                {
+                    "language": "DE",
+                    "text": "Klinger-Volumen-Oszillator in den Charts",
+                    "updated": 1673460059155
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Klinger Volume Oscillator (KVO) sınırsız bir osilatördür. Investopedia'ya göre: Kısa vadeli dalgalanmaları tespit edecek kadar hassas kalırken para akışının uzun vadeli eğilimini belirlemek için geliştirildi. Gösterge, menkul kıymetlerden akan hacmi menkul kıymetin fiyat hareketleriyle karşılaştırır ve ardından sonucu bir osilatöre dönüştürür. Klinger osilatörü, fiyattan fazlasını temel alan iki hareketli ortalama arasındaki farkı gösterir.",
                     "updated": 1647718296709
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Klinger-Volumen-Oszillator (KVO) ist ein unbeschränkter Oszillator. Laut Investopedia wurde er entwickelt, um den langfristigen Trend des Geldflusses zu bestimmen und gleichzeitig sensibel genug zu sein, um kurzfristige Schwankungen zu erkennen. Der Indikator vergleicht das durch Wertpapiere fließende Volumen mit den Kursbewegungen des Wertpapiers und wandelt das Ergebnis dann in einen Oszillator um. Der Klinger-Oszillator zeigt die Differenz zwischen zwei gleitenden Durchschnitten an, die auf mehr als nur dem Preis beruhen.",
+                    "updated": 1673460076233
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "TR",
                     "text": "KVO'nun parametreleri, \\\"Klinger\\\" Ürün Tanımı altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
                     "updated": 1647718314816
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der KVO können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Klinger\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1673460119521
                 }
             ]
         },
@@ -92,6 +112,11 @@
                     "language": "TR",
                     "text": "Klinger Volume Oscillator Ürün ve Özellikler",
                     "updated": 1647718328931
+                },
+                {
+                    "language": "DE",
+                    "text": "Klinger Volume Oszillator Produkte & Eigenschaften",
+                    "updated": 1673460132329
                 }
             ]
         },
@@ -108,6 +133,11 @@
                     "language": "TR",
                     "text": "| Ürün Ayarı | Ürün Değişkeni | Özellikler |\n| KlingerOsc | ko | değer, sinyal |",
                     "updated": 1647718355645
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| KlingerOsc | ko | value, signal |",
+                    "updated": 1673460163248
                 }
             ]
         },
@@ -124,6 +154,11 @@
                     "language": "TR",
                     "text": "Örnek:",
                     "updated": 1647718367871
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673460170489
                 }
             ]
         },
@@ -140,6 +175,11 @@
                     "language": "TR",
                     "text": "Osilatör değeri aşağıdan 0'ı geçtiğinde bir ticaret girerek basit bir strateji oluşturulabilir:",
                     "updated": 1647718379867
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der Oszillatorwert von unten nach oben 0 überschreitet:",
+                    "updated": 1673460183980
                 }
             ]
         },
@@ -160,6 +200,11 @@
                     "language": "TR",
                     "text": "Diğer birçok osilatör gibi, bu gösterge de fiyat hareketi trendsiz olduğunda yanlış sinyallere eğilimlidir. Farklılığın kullanılması, Stokastik, Parabolik SAR (PSAR) veya bir EMA geçişi gibi diğer göstergelerle birleştirmenin yanı sıra başarı olasılıklarını artırabilir.",
                     "updated": 1647718388689
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie viele andere Oszillatoren neigt auch dieser Indikator zu false (Fehlsignalen), wenn die Kursbewegung trendlos ist. Die Verwendung der Divergenz kann die Erfolgswahrscheinlichkeit erhöhen, ebenso wie die Kombination mit anderen Indikatoren wie der Stochastik, dem Parabolic SAR (PSAR) oder einem EMA-Crossover.",
+                    "updated": 1673460291648
                 }
             ]
         }

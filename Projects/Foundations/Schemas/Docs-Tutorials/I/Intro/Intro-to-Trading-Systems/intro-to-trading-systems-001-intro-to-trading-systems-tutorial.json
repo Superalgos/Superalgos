@@ -30,6 +30,11 @@
                 "language": "NL",
                 "text": "Deze zelfstudie is de eerste in een reeks zelfstudies die u leren hoe u handelssystemen kunt bouwen. De serie gaat diep in op meerdere onderwerpen en neemt je mee door een progressie die bedoeld is om basiskennis van handelen te matchen met bepaalde Superalgos-implementaties. Deze eerste zelfstudie behandelt theoretische concepten, legt uit hoe handelssystemen zijn gestructureerd in Superalgos en laat zien hoe u uw strategieën moet omkaderen om het meeste uit het in het systeem ingebouwde handelsraamwerk te halen.",
                 "updated": 1670790670019
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini adalah yang pertama dari serangkaian tutorial yang mengajarkan kamu cara membangun trading system. Serial ini masuk jauh ke dalam berbagai topik dan membawa kamu melalui perkembangan yang bermaksud mencocokkan pengetahuan basic tradingmu dengan implementasi Superalgos tertentu. Tutorial pertama ini mencakup konsep teoretis, menjelaskan bagaimana struktur sistem trading di Superalgos, dan menyoroti bagaimana kamu perlu frame strategimu untuk memanfaatkan framework perdagangan yang ada di dalam sistem.",
+                "updated": 1674461845687
             }
         ]
     },
@@ -54,6 +59,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394067318,
                     "style": "Title"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1674637804050
                 }
             ]
         },

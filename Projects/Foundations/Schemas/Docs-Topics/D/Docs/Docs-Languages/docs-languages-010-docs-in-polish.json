@@ -1,0 +1,76 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "10",
+    "type": "Docs In Polish",
+    "definition": {
+        "text": "The Docs pages of Superalgos and other projects integrated are originally written in English. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
+        "updated": 1613820592771,
+        "translations": [
+            {
+                "language": "PL",
+                "text": "Oryginalna dokumentacja Superalgos i innych zintegrowanych projektów jest napisana w języku angielskim. System pozwala na wyszukiwanie i przeglądanie stron także w innych językach, jeżeli inni użytkownicy przygotowali odpowiednie tłumaczenie.",
+                "updated": 1634069661035
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead.",
+            "updated": 1613820612132,
+            "translations": [
+                {
+                    "language": "PL",
+                    "text": "Domyślnym językiem jest angielski. Jeżeli zmienisz język, system wyświetli stronę w wybranym języku. Jeżeli tłumaczenie na wybrany język nie jest dostępne, strona będzie wyświetlona w języku angielskim.",
+                    "updated": 1674748000543
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Node types, variable names, the title of pages in the Docs, and a few more elements of Superalgos may not be translated, as they are unique identifiers of the said elements. You will always get those in English.",
+            "translations": [
+                {
+                    "language": "PL",
+                    "text": "Niektóre elementy Superalgos nie podlegają tłumaczeniu, ponieważ są unikalnymi identyfikatorami tych elementów. Są to: typy elementów, nazwy zmiennych, tytuły stron w dokumentacji i kilka innych. Występują one zawsze w języku angielskim.",
+                    "updated": 1634069562887
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to contribute translations, read the How to Contribute Translations page.",
+            "translations": [
+                {
+                    "language": "PL",
+                    "text": "Jeżeli chcesz uczestniczyć w tłumaczeniu, przeczytaj How to Contribute Translations.",
+                    "updated": 1634069593485
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Users can switch between languages using the links/Flags provided at the footer of every page at the Docs.",
+            "translations": [
+                {
+                    "language": "PL",
+                    "text": "Język można zmienić klikając na wybraną flagę na samym dole strony.",
+                    "updated": 1674742245450
+                }
+            ],
+            "updated": 1636749365748
+        },
+        {
+            "style": "Note",
+            "text": "You may only add or delete pages to the Docs when the language is set to English. For the translation you have to select the language you want to translate into. (In this case Polish)",
+            "updated": 1636749376271,
+            "translations": [
+                {
+                    "language": "PL",
+                    "text": "Możesz dodawać i usuwać strony tylko wtedy, kiedy wybrany język to angielski. Jeżeli chcesz przetłumaczyć jakąś stronę, wybierz najpierw docelowy język (w tym przypadku polski)",
+                    "updated": 1674742414661
+                }
+            ]
+        }
+    ]
+}

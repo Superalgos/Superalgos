@@ -12,7 +12,6 @@
     "installSocialTradingReact": "cd ./Social-Trading/React-UI && npm ci",
     "lintAll": "eslint . --ext .js",
     "lintFile": "eslint --ext .js",
-    "postinstall": "electron-builder install-app-deps",
     "postsetup": "npm start",
     "prepare": "husky install",
     "presetup": "git checkout develop && git pull upstream develop",
@@ -34,7 +33,8 @@
   "dependencies": {
     "@bundled-es-modules/axios": "^0.27.2",
     "@discordjs/rest": "^0.1.0-canary.0",
-    "@octokit/rest": "^18.12.0",
+    "@octokit/plugin-retry": "^4.0.3",
+    "@octokit/rest": "^19.0.5",
     "@reduxjs/toolkit": "^1.6.2",
     "@slack/web-api": "^6.5.1",
     "@vitejs/plugin-vue": "^3.2.0",
@@ -45,11 +45,11 @@
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
     "cli-table3": "^0.6.3",
+    "date-fns": "^2.29.3",
     "discord-api-types": "^0.25.2",
     "discord.js": "^14.6.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "electron-updater": "^4.6.1",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.5.3",
@@ -80,13 +80,18 @@
     "winston-daily-rotate-file": "^4.7.1",
     "workbox-webpack-plugin": "^6.5.4",
     "ws": "^8.4.0",
+    "xlsx": "^0.18.5",
     "yargs": "^17.6.2"
+  },
+  "optionalDependencies": {
+    "electron-updater": "^4.6.1",
+    "electron": "^21.3.1",
+    "electron-builder": "^23.6.0",
+    "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {
     "axios": "^0.18.0",
     "css-loader": "^6.7.1",
-    "electron": "^22.0.0",
-    "electron-builder": "^22.10.3",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
@@ -128,8 +133,5 @@
     "superalgos": "manageApps.js"
   },
   "homepage": "https://www.superalgos.org/",
-  "license": "Apache License 2.0",
-  "optionalDependencies": {
-    "@tensorflow/tfjs-node": "^2.8.6"
-  }
+  "license": "Apache License 2.0"
 }

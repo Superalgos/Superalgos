@@ -1326,7 +1326,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     // First we must control our path info to iterate through all data in the API response.
                                                     switch (timestampPath.length) {
                                                         case (1): {
-                                                            SA.logger.info(SA.logger.info('This data does not have anything to loop through. Please use a different save option.') )
+                                                            SA.logger.info('This data does not have anything to loop through. Please use a different save option.')
                                                             break
                                                         }
                                                         // If two we will count up and loop through all possible responses.

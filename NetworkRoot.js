@@ -59,7 +59,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         }
         SA.version = require('./package.json').version
 
-        const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
+        const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Network')
         SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'NT')
 
         /* 

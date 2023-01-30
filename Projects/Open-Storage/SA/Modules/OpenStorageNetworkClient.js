@@ -13,7 +13,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
     let thisObject = {
         availableStorage: undefined,
         persistSocialGraph: persistSocialGraph,
-        loadSocialGraphFile: loadSocialGraphFile,
+        //loadSocialGraphFile: loadSocialGraphFile,
         initialize: initialize,
         finalize: finalize
     }
@@ -75,6 +75,8 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
         }
     }
 
+    /*
+    TODO: move any github loading functions from Projects\Social-Trading\NT\Modules\Storage.js here 
     async function loadSocialGraphFile(fileKeys) {
         if (fileKeys === undefined) {
             let response = {
@@ -88,7 +90,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
         we need to fetch the text from the the storage container of the author
         of such posts, since the Network Nodes do not store that info themselves, 
         they just store the structure of the social graph.
-        */
+        
         return new Promise(loadPostAsync)
 
         async function loadPostAsync(resolve, reject) {
@@ -107,7 +109,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
                 We are going to load this file from the Storage Containers defined.
                 We are going to try to read it first from the first Storage container
                 and if it is not possible we will try with the next ones.
-                */
+                
                 let fileName = fileKey.fileName
                 let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
                 let password = fileKey.password
@@ -149,6 +151,7 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
             }
         }
     }
+    */
 
     async function saveMultipleFiles() {
         eventsByPathMap.forEach(saveOneFile)

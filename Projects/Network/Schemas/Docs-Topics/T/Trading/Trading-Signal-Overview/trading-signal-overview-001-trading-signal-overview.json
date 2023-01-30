@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret ( Trading ) sinyalleri, Superalgos ticaret ağının can damarıdır. Ticaret istihbaratının topluluk genelinde son derece güçlü ve esnek bir şekilde paylaşılmasına izin verirler.",
                 "updated": 1646296280645
+            },
+            {
+                "language": "DE",
+                "text": "Handels (Trading) -Signale sind das Lebenselixier des Superalgos-Handelsnetzwerks. Sie ermöglichen den Austausch von Trading-Intelligenz innerhalb der Community in einer extrem leistungsstarken und flexiblen Art und Weise.",
+                "updated": 1674676624241
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ticaret sinyallerini kavramsallaştırmaya başlamak için arkadaşlarınızdan veya ailenizden paketler gönderip almayı hayal edebilirsiniz. Bunun gibi paketleri açtığınızda size ne gönderdiklerini görmek sizi heyecanlandırıyor. Ticaret sinyalleri göndermek ve almak buna çok benzer!",
                     "updated": 1646296376673
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mit der Erklärung von Handelssignalen zu beginnen, stellen Sie sich vor, dass Sie Pakete von Ihren Freunden oder Ihrer Familie erhalten und versenden. Wenn Sie solche Pakete öffnen, freuen Sie sich darauf, zu sehen, was sie Ihnen geschickt haben. Das Versenden und Empfangen von Handelssignalen ist sehr ähnlich!",
+                    "updated": 1674676642091
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Paketler, ikramlar, hediyeler vb. gibi çok çeşitli güzellikleri barındırabilir. Ticaret sinyalleri, eşyaları bir karton kutuya yerleştirmek kadar esnektir. Bir sinyal sağlayıcı, bir ticaret stratejisinden, ticaret motorundan veya gösterge hesaplamalarından çıkan her türlü bilgiyi paylaşmayı seçebilir, bunlardan sadece birkaçını sayabiliriz! Bu esneklik, geleneksel sinyal sağlama hizmetlerinden farklı olarak, ticaret sinyallerinin kendilerinin büyüyebileceği ve hem sinyal sağlayıcıların hem de sinyal alıcılarının ihtiyaçlarına göre ayarlanabileceği anlamına gelir. Sinyallerin gerçekte ne kadar esnek olduğuna birazdan daha fazla gireceğiz. Ama ondan önce, sinyallerin nasıl kullanılabileceği hakkında biraz daha konuşalım.",
                     "updated": 1646296573277
+                },
+                {
+                    "language": "DE",
+                    "text": "Pakete können ein ganzes Sortiment an Leckereien wie Süßigkeiten, Geschenke usw. enthalten. Handels (Trading) -signale sind genauso flexibel, wie Dinge in einen Karton zu packen. Ein Signalanbieter kann jede Art von Information weitergeben, die aus einer Handelsstrategie, einer Handelsmaschine oder einer Indikatorberechnung stammt, um nur einige zu nennen! Diese Flexibilität bedeutet, dass die Handelssignale selbst im Gegensatz zu konventionellen Signaldiensten mit den Bedürfnissen der Signalanbieter und Signalempfänger wachsen und sich anpassen können. Wie flexibel Signale wirklich sind, werden wir gleich noch genauer erläutern. Doch zuvor wollen wir noch ein wenig darüber sprechen, wie Signale genutzt werden können.",
+                    "updated": 1674676681013
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Daha önce de belirtildiği gibi, ticaret sinyalleri özünde ticaret zekası paketleridir. Pozisyon alma oranları, zararı durdurma parametreleri veya diğer bilgiler gibi şeyler, diğer tüccarlara yardımcı olmak için sinyal sağlayıcılar tarafından gönderilebilir. Sinyaller çok geniş bir bilgi dizisine sahip olabileceğinden, Superalgos bir sinyalin alıcısını onu herhangi bir şekilde kullanmaya zorlamaz. Bir sinyal almak, ön verandanızdan bir paket alıp sizin için neyin yararlı olduğunu bulmak için ona bakmak gibidir. Sinyalleri, ticaret sistemleriniz ve botlarınız tarafından tüketilebilecek basit kaynaklar olarak düşünebilirsiniz.",
                     "updated": 1646296636101
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie bereits erwähnt, sind Handelssignale im Wesentlichen Pakete mit Handelsinformationen. Dinge wie Take-Position-Raten, Stop-Loss-Parameter oder andere Informationen können von Signalanbietern gesendet werden, um für andere Händler hilfreich zu sein. Da Signale ein so breites Spektrum an Informationen enthalten können, zwingt Superalgos den Empfänger eines Signals nicht dazu, es auf eine bestimmte Art zu nutzen. Der Empfang eines Signals ist so, als ob Sie ein Paket von Ihrer Veranda nehmen und es durchsehen, um das zu finden, was für Sie nützlich ist. Sie können die Signale einfach als Ressourcen betrachten, die von Ihren Handelssystemen und Bots genutzt werden können.",
+                    "updated": 1674676692622
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Örneğin, bir sağlayıcının şu bilgileri içeren bir sinyal gönderdiğini varsayalım: bir pozisyon açıldığında veya kapatıldığında, pozisyonun hangi oranda açıldığı veya kapatıldığı ve pozisyon için stop loss. Alım satım sisteminizde bu sinyal bilgileriyle istediğiniz kadar şey yapabilirsiniz. Bu sinyali alabilir ve sinyal sağlayıcı ile tam olarak aynı anda açılıp kapanması ve oranlanması için doğrudan bir ticaret botuna bağlayabilirsiniz. Veya bir pozisyonun ne zaman açıldığını gösteren sinyali kontrol edebilir ve ardından diğer göstergelere veya kendi alım satım stratejiniz dahilinde tutulan alım satım mantığına dayalı olarak bir pozisyon açmaya karar verebilirsiniz. Veya sinyale göre bir pozisyon açabilir, ancak kendi oranınızı hesaplayabilirsiniz. Sinyal bilgisi botlarınızı bir şey yapmaya zorlamaz, sinyalin nasıl yorumlanacağı tamamen size kalmış!",
                     "updated": 1646296716071
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, ein Anbieter sendet ein Signal, das die folgenden Informationen enthält: wann eine Position eröffnet oder geschlossen wurde, zu welchem Kurs die Position eröffnet oder geschlossen wurde und den Stop-Loss für die Position. Innerhalb Ihres Handelssystems können Sie mit diesen Signalen eine ganze Reihe von Dingen tun. Sie können dieses Signal direkt mit einem Handelsroboter verbinden, der die Position genau zur gleichen Zeit und zum gleichen Kurs wie der Signalanbieter öffnet und schließt. Sie könnten das Signal daraufhin überprüfen, wann eine Position eröffnet wird, und dann auf der Grundlage anderer Indikatoren oder der Handelslogik Ihrer eigenen Handelsstrategie die Entscheidung treffen, eine Position zu eröffnen. Außerdem können Sie eine Position auf der Grundlage des Signals eröffnen, aber Ihren eigenen Kurs berechnen. Die Informationen des Signals zwingen Ihre Bots nicht dazu, irgendetwas zu tun, es liegt ganz bei Ihnen, wie das Signal interpretiert wird!",
+                    "updated": 1674755622576
                 }
             ]
         },

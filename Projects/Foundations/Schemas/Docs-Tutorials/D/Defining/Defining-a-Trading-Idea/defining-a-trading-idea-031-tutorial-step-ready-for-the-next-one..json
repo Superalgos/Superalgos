@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "De tutorial aan de rechterkant is de volgende in de serie over het ontwerpen van handelssystemen. Zullen we doorgaan?",
                 "updated": 1670787769003
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial di sebelah kanan adalah seri berikutnya tentang merancang sistem trading. Akankah kita terus lanjut?",
+                "updated": 1674701417093
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "De volgende zelfstudie in de serie gaat over het implementeren van de ideeën die we zojuist hebben bedacht in een Trading System, zodat ze kunnen worden getest.",
                     "updated": 1670787818998
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial berikutnya dalam seri ini adalah tentang mengimplementasikan ide-ide yang baru saja kita dapatkan pada Trading System sehingga dapat diuji.",
+                    "updated": 1674701422704
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Click Next om deze zelfstudie te beëindigen, en selecteer Play in de volgende als je er klaar voor bent!",
                     "updated": 1670787890238
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik Next untuk menyelesaikan tutorial ini, dan pilih Play di tutorial berikutnya saat kamu siap!",
+                    "updated": 1674701429292
                 }
             ]
         }

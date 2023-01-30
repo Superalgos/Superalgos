@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "We zullen wat gegevens verzamelen om enkele gebeurtenissen in de grafieken te kunnen analyseren. We zullen dezelfde gegevens gebruiken om het handelsidee in de volgende zelfstudie te testen!",
                 "updated": 1670783283100
+            },
+            {
+                "language": "ID",
+                "text": "Kita akan menambang mine data untuk menganalisis beberapa event pada chart. Kita akan menggunakan data yang sama untuk menguji ide trading di tutorial berikutnya!",
+                "updated": 1674638657917
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "De sensorbot draait vanaf 1 januari 2020 op de BTC/USDT-markt (Binance), samen met de volgende indicatoren uit de Masters data mine: Candles Volumes, Bollinger Bands en Bollinger Channels.",
                     "updated": 1670783313628
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot sensor akan berjalan di pasar BTC/USDT (Binance) mulai 1 Januari 2020, bersama dengan indikator berikut dari Master data mine: Volume candle, Bollinger Bands, dan Bollinger Channels.",
+                    "updated": 1674638663646
                 }
             ]
         },
@@ -106,6 +116,11 @@
                     "language": "NL",
                     "text": "Als u gegevens heeft over deze markt/beurs maar in een ander tijdsbestek, kan dit van invloed zijn op uw gegevens! Lees de sensorbot-documentatie om te leren hoe! Als de gegevens die je hebt niet belangrijk zijn, ga dan gerust door!",
                     "updated": 1670783332872
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memiliki data di market/bursa ini tetapi pada time range yang berbeda, ini dapat memengaruhi data-mu! Baca dokumentasi bot sensor untuk mempelajari caranya! Jika data yang kamu miliki tidak penting, silakan lanjutkan!",
+                    "updated": 1674638669012
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Rate - это ставка (цена), по которой размещается ордер (заявка).",
                 "updated": 1640350111107
+            },
+            {
+                "language": "TR",
+                "text": "Rate, siparişin verildiği fiyattır.",
+                "updated": 1674916983802
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "По умолчанию это курс на момент закрытия последней свечи на момент размещения ордера. Все рыночные ордера имеют значение ставки по умолчанию.",
                     "updated": 1639379750956
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, emrin verildiği andaki son mumun kapanışındaki fiyat değeridir. Tüm piyasa emirleri varsayılan fiyat değerine sahiptir.",
+                    "updated": 1674917102213
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В случае лимитных ордеров это ставка, указанная в формуле для узла Order Rate. Если такого определения не существует, то лимитные ордера также используют значение по умолчанию.",
                     "updated": 1639379813536
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirleri söz konusu olduğunda, emir fiyatı düğümün altındaki formülde belirtilen fiyattır. Böyle bir tanım yoksa, limitli emirler de varsayılan fiyatı kullanır.",
+                    "updated": 1674917149344
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Ставка используется системой для всех внутренних расчетов, влияющих на счета, хранящиеся в обоих активах.",
                     "updated": 1639379827724
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat, sistem tarafından her iki varlıkta tutulan hesapları etkileyen tüm dahili hesaplamalar için kullanılır.",
+                    "updated": 1674917246603
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Конфигурация Rate",
                     "updated": 1639379845782
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat Yapılandırması (Rate Configuration)",
+                    "updated": 1674917307080
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639379901778
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674917329326
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1639379909340
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün başlangıç durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1674917350462
                 }
             ]
         }

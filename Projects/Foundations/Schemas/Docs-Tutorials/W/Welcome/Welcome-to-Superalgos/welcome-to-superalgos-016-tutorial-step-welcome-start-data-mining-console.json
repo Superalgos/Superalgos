@@ -38,6 +38,11 @@
                 "language": "FR",
                 "text": "Cette étape va lire une vidéo en mode plein écran.",
                 "updated": 1667203500277
+            },
+            {
+                "language": "PL",
+                "text": "Tutaj możesz zobaczyć wideo w trybie pełnoekranowym.",
+                "updated": 1674935123103
             }
         ]
     },

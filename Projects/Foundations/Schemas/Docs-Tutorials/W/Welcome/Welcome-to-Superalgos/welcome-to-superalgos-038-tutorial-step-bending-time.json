@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Ok... peut-être que ce n'est pas vraiment comme le voyage dans le temps, mais soyez indulgent avec moi... Vous allez adorer la façon dont vous pouvez façonner les time machines dans le format que vous souhaitez.",
                 "updated": 1668068257143
+            },
+            {
+                "language": "PL",
+                "text": "Ok... może to nie jest faktycznie jak zaginanie czasu, ale zrób to ze mną... Spodoba ci się sposób w jaki możesz konfigurować Time Machine.",
+                "updated": 1675084705839
             }
         ],
         "updated": 1636911171982
@@ -104,6 +109,11 @@
                     "language": "FR",
                     "text": "Passez le pointeur de votre souris sur l'un des bords du cadre turquoise définissant la machine à remonter le temps et voyez ce qui se passe. Vous voyez que le bord est surligné en jaune ?",
                     "updated": 1668068284137
+                },
+                {
+                    "language": "PL",
+                    "text": "Najedź kursorem myszy na dowolną krawędź turkusowej ramki definiującej Time Machine i zobacz, co się stanie. Widzisz jak krawędź jest podświetlona na żółto?",
+                    "updated": 1675084751505
                 }
             ]
         },
@@ -154,6 +164,11 @@
                     "language": "FR",
                     "text": "Cool ! Maintenant, faites un clic gauche sur le cadre et tirez !",
                     "updated": 1668068309600
+                },
+                {
+                    "language": "PL",
+                    "text": "Super! Teraz kliknij lewym przyciskiem myszy na ramkę i przeciągnij!",
+                    "updated": 1675084765718
                 }
             ]
         },
@@ -204,6 +219,11 @@
                     "language": "FR",
                     "text": "C'est ainsi que vous pouvez façonner les time machines à votre guise.",
                     "updated": 1668068348797
+                },
+                {
+                    "language": "PL",
+                    "text": "W ten sposób można kształtować Time Machine według własnych upodobań.",
+                    "updated": 1675084779670
                 }
             ]
         }

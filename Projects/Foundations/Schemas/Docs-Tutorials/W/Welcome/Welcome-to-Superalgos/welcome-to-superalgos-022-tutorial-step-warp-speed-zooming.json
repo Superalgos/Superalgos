@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "Il existe un outil supplémentaire qui peut vous être utile pour manipuler l'espace-temps ! La fonction de zoom de votre navigateur !",
                 "updated": 1667204874419
+            },
+            {
+                "language": "PL",
+                "text": "Jest jeszcze jedno narzędzie, które może Ci się przydać do manipulowania czasoprzestrzenią! Natywna funkcja powiększania w przeglądarce!",
+                "updated": 1674946267417
             }
         ]
     },
@@ -108,6 +113,11 @@
                     "language": "FR",
                     "text": "Il peut arriver que vous souhaitiez visualiser des sections du Design Space plus grandes que ne le permet votre écran.",
                     "updated": 1667204901560
+                },
+                {
+                    "language": "PL",
+                    "text": "Czasami możesz chcieć zobaczyć większe fragmenty Design Space niż pozwala na to Twój ekran.",
+                    "updated": 1674946291003
                 }
             ]
         },
@@ -161,6 +171,11 @@
                     "language": "FR",
                     "text": "Appuyez sur Ctrl et faites défiler la molette de la souris sous Windows ou <kbd>⌘</kbd> et - ou + sous Mac.",
                     "updated": 1667205049110
+                },
+                {
+                    "language": "PL",
+                    "text": "Naciśnij Ctrl i przewiń kółko myszy w Windows lub <key>⌘</key> i - lub + w Mac.",
+                    "updated": 1674946330296
                 }
             ]
         },
@@ -218,6 +233,11 @@
                     "language": "FR",
                     "text": " Chrome indique le niveau de zoom dans le coin supérieur droit. Lorsque vous effectuez un zoom avant ou arrière, l'espace de conception est centré sur l'écran. Utilisez la carte de l'espace de conception pour revenir là où vous étiez.",
                     "updated": 1667205092271
+                },
+                {
+                    "language": "PL",
+                    "text": "Chrome wskazuje poziom powiększenia w prawym górnym rogu. Podczas powiększania lub pomniejszania Design Space zostaje wyśrodkowana na ekranie. Użyj mapy Design Space, aby wrócić do miejsca, w którym byłeś.",
+                    "updated": 1674946386082
                 }
             ]
         }

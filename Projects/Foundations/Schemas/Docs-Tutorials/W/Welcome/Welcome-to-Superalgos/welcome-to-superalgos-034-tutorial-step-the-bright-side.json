@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": " Jusqu'à présent, vous avez été confiné au côté obscur du Superalgos. Préparez-vous à être exposé au côté lumineux : le Charting Space.",
                 "updated": 1668067544161
+            },
+            {
+                "language": "PL",
+                "text": "Do tej pory poznałeś ciemną stronę Superalgos. Przygotuj się na poznanie jasnej strony: Charting Space.",
+                "updated": 1675079747846
             }
         ]
     },
@@ -104,6 +109,11 @@
                     "language": "FR",
                     "text": "Le Charting Space se trouve au-dessus de l'espace de conception, séparé par un curseur turquoise. Comme vous pouvez l'attendre de Superalgos, l'espace graphique est configurable et très flexible. Tout ce qui s'y passe est défini dans la hiérarchie de l'espace graphique.",
                     "updated": 1668067585135
+                },
+                {
+                    "language": "PL",
+                    "text": "Charting Space znajduje się na górze Design Space, oddzielona turkusowym suwakiem. Jak można się spodziewać, Charting Space jest konfigurowalna i bardzo elastyczna. Wszystko, co się w niej dzieje, jest zdefiniowane w hierarchii Charting Space.",
+                    "updated": 1675079818280
                 }
             ]
         },
@@ -154,6 +164,11 @@
                     "language": "FR",
                     "text": "'espace graphique est connu pour faire perdre la tête aux gens. Veuillez vous abstenir de poursuivre ce tutoriel si vous êtes actuellement sous l'influence de substances psychoactives.",
                     "updated": 1668067630941
+                },
+                {
+                    "language": "PL",
+                    "text": "Charting Space jest znana z tego, że potrafi zawrócić ludziom w głowie. Proszę, powstrzymaj się od kontynuowania tego samouczka, jeśli jesteś obecnie pod wpływem substancji psychoaktywnych.",
+                    "updated": 1675079931207
                 }
             ],
             "updated": 1616416552336

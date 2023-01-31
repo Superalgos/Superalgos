@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Les Plugin Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
                 "updated": 1667986626783
+            },
+            {
+                "language": "PL",
+                "text": "Dostarczane z systemem Plugin Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
+                "updated": 1675002653309
             }
         ],
         "updated": 1629803469668
@@ -105,6 +110,11 @@
                     "language": "FR",
                     "text": "Les Workspaces enregistrent toutes les informations relatives aux structures de données qui sont incluses dans l'espace de travail.",
                     "updated": 1667986696978
+                },
+                {
+                    "language": "PL",
+                    "text": "Workspaces zapisuje wszystkie informacje dotyczące struktur danych, które znajdują się w przestrzeni roboczej.",
+                    "updated": 1675002678853
                 }
             ]
         },
@@ -144,6 +154,11 @@
                     "language": "FR",
                     "text": "Créons une copie de ce Plugin Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
                     "updated": 1667986754674
+                },
+                {
+                    "language": "PL",
+                    "text": "Utwórzmy kopię tego Plugin Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
+                    "updated": 1675002723308
                 }
             ]
         },
@@ -194,6 +209,11 @@
                     "language": "FR",
                     "text": "Maintenant, ouvrez l'onglet Workspaces sur la gauche, faites défiler jusqu'en bas, et trouvez le seul espace de travail avec un fond violet ! C'est votre espace de travail ! Mais pas besoin de cliquer dessus !",
                     "updated": 1667986790239
+                },
+                {
+                    "language": "PL",
+                    "text": "Teraz otwórz zakładkę Workspaces po lewej stronie, przewiń do dołu i znajdź jedyny obszar roboczy z fioletowym tłem! To jest twój obszar roboczy! Ale nie musisz na niego klikać!",
+                    "updated": 1675002751094
                 }
             ],
             "updated": 1629803460646

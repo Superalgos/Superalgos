@@ -53,6 +53,11 @@
                 "language": "FR",
                 "text": "Avant de commencer le minage de données, j'ai une petite question pour vous : tradez-vous sur binance.com, binance.us, ou aucun des deux ?",
                 "updated": 1667202656489
+            },
+            {
+                "language": "PL",
+                "text": "Zanim zaczniemy gromadzenie danych, mam do Ciebie małe pytanie: czy handlujesz na giełdzie binance.com, binance.us, czy na żadnej z nich?",
+                "updated": 1674934603876
             }
         ],
         "updated": 1622189667210
@@ -106,6 +111,11 @@
                     "language": "FR",
                     "text": "Si vous tradez sur binance.com ou ne tradez pas du tout avec Binance, vous pouvez sauter cette étape et la suivante !",
                     "updated": 1667202700574
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeśli handlujesz na binance.com lub w ogóle nie handlujesz na Binance, to możesz pominąć ten i następny krok!",
+                    "updated": 1674934647205
                 }
             ]
         },
@@ -158,6 +168,11 @@
                     "language": "FR",
                     "text": "Si vous tradez sur binance.us, vous devez configurer le nœud Binance à droite ! La vidéo de l'étape suivante vous montre comment faire !",
                     "updated": 1667202738390
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeśli handlujesz na binance.us musisz skonfigurować węzeł Binance po prawej stronie! Filmik na następnym kroku pokazuje jak to zrobić!",
+                    "updated": 1674934665226
                 }
             ]
         },
@@ -210,6 +225,11 @@
                     "language": "FR",
                     "text": "Accédez à la configuration et changez le codeName en \"binanceus\". Quittez l'éditeur et l'enregistrement se fera automatiquement.",
                     "updated": 1667202762357
+                },
+                {
+                    "language": "PL",
+                    "text": "Wejdź do konfiguracji i zmień codeName na \"binanceus\". Wyjdź z edytora, zmiany zapiszą się automatycznie.",
+                    "updated": 1674934707939
                 }
             ]
         },
@@ -262,6 +282,11 @@
                     "language": "FR",
                     "text": "Modifiez l'étiquette du nœud pour \"Binanceus\".",
                     "updated": 1667202791524
+                },
+                {
+                    "language": "PL",
+                    "text": "Zmień etykietę węzła na \"Binanceus\".",
+                    "updated": 1674934761114
                 }
             ]
         }

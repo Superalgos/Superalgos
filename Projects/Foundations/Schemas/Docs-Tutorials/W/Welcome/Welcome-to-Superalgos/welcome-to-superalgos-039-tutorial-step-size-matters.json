@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Pourquoi ne pas adapter la time machine au format exact de votre écran ?",
                 "updated": 1668068374855
+            },
+            {
+                "language": "PL",
+                "text": "A może by tak uformować Time Machine, by dokładnie dopasować go do proporcji ekranu?",
+                "updated": 1675084838657
             }
         ]
     },
@@ -104,6 +109,11 @@
                     "language": "FR",
                     "text": "Faire correspondre le rapport hauteur/largeur de vos time machine à celui de votre écran est crucial pour que les graphiques s'adaptent parfaitement à votre écran tout en zoomant !",
                     "updated": 1668068407955
+                },
+                {
+                    "language": "PL",
+                    "text": "Dopasowanie współczynnika proporcji Twoich Time Machine do współczynnika proporcji twojego ekranu jest kluczowe podczas powiększania wykresów!",
+                    "updated": 1675084931955
                 }
             ]
         },
@@ -155,6 +165,11 @@
                     "language": "FR",
                     "text": "Dirigez votre souris sur l'une des machines à remonter le temps et appuyez sur Ctrl + Shift + Alt + Key-A.",
                     "updated": 1668068422311
+                },
+                {
+                    "language": "PL",
+                    "text": "Najedź myszą na jedną z Time Machine i kliknij Ctrl + Shift + Alt + Key-A.",
+                    "updated": 1675084962008
                 }
             ]
         },
@@ -206,6 +221,11 @@
                     "language": "FR",
                     "text": "Sur Mac: Ctrl + Shift + Cmd + Key-A.",
                     "updated": 1668068428808
+                },
+                {
+                    "language": "PL",
+                    "text": "Na Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1675084966719
                 }
             ]
         },
@@ -234,6 +254,11 @@
                     "language": "FR",
                     "text": "Faites de même avec l'autre graphique, et laissez les deux time machines s'adapter au ratio d'aspect de votre écran à partir de maintenant !",
                     "updated": 1668068453301
+                },
+                {
+                    "language": "PL",
+                    "text": "Zrób to samo z drugim wykresem i pozostaw oba Time Machine dopasowane do proporcji ekranu!",
+                    "updated": 1675085017951
                 }
             ]
         }

@@ -31,6 +31,30 @@
             "updated": 1660521962615
         },
         {
+            "style": "List",
+            "text": "5) T3 Velocity"
+        },
+        {
+            "style": "List",
+            "text": "6) Trend Confirmation Index"
+        },
+        {
+            "style": "List",
+            "text": "7) Rahul Mohinder Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "8) Recursive Median"
+        },
+        {
+            "style": "List",
+            "text": "9) Fisher Ribbons"
+        },
+        {
+            "style": "List",
+            "text": "10) AK MACD BB"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

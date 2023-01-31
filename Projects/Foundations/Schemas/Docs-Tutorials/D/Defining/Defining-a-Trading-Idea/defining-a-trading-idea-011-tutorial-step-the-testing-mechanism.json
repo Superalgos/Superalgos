@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "De laatste zorg is het definiëren van hoe het idee moet worden getest. Ook dit is afhankelijk van het type strategie!",
                 "updated": 1670784299643
+            },
+            {
+                "language": "ID",
+                "text": "Perhatian terakhir adalah mendefinisikan bagaimana ide itu akan diuji. Ini juga tergantung pada jenis strategi!",
+                "updated": 1674689679675
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "De focus van het handelsidee is het startpunt, niet het beheer van de handel of de uitgang. Echter...",
                     "updated": 1670784322489
+                },
+                {
+                    "language": "ID",
+                    "text": "Fokus dari ide trading adalah titik entry masuknya, bukan manajemen trading atau exit-nya. Namun...",
+                    "updated": 1674689695334
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Hoe meten we of de startpunten goed of slecht zijn? Welke periode te gebruiken we voor testen?",
                     "updated": 1670784345679
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagaimana kita mengukur apakah titik entry-nya baik atau buruk? Periode apa yang kita gunakan untuk pengujian?",
+                    "updated": 1674689689185
                 }
             ]
         },
@@ -145,8 +160,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De eerste vraag brengt ons ertoe te erkennen dat we mogelijk een aantal willekeurige stop loss- en take profit doelen moeten definiëren, zodat we kunnen bepalen of de resulterende startpunten waarschijnlijk hits of fails zijn. De tweede vraag behandelen we in de volgende tutorial.",
+                    "text": "De eerste vraag brengt ons ertoe te erkennen dat we mogelijk een aantal willekeurige stop loss- en take profit doelen moeten defini��ren, zodat we kunnen bepalen of de resulterende startpunten waarschijnlijk hits of fails zijn. De tweede vraag behandelen we in de volgende tutorial.",
                     "updated": 1670784397160
+                },
+                {
+                    "language": "ID",
+                    "text": "Pertanyaan pertama membawa kita untuk mengakui bahwa kita mungkin perlu menentukan beberapa arbitrary stop loss dan target take profit sehingga kita dapat menentukan apakah titik entry yang dihasilkan kemungkinan besar akan hit atau fail. Kita akan membahas pertanyaan kedua di tutorial berikutnya.",
+                    "updated": 1674689701827
                 }
             ]
         }

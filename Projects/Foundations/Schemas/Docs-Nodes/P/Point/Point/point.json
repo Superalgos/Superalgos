@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Point (точка) - это определение координат [x,y]. Значение [x] обычно представляет собой дату и время Значение [y] может относиться к цене или какому-либо другому понятию.",
                 "updated": 1639724916649
+            },
+            {
+                "language": "TR",
+                "text": "Nokta, bir [x,y] koordinatının tanımıdır. [x] değeri genellikle bir tarih saatini temsil eder. [y] değeri bir fiyatı veya başka bir kavramı ifade edebilir.",
+                "updated": 1674139189532
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Эти координатные точки используются для определения полигонов. Значения для координат [x,y] вводятся с помощью формулы точки Point Formula.",
                     "updated": 1639724857037
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu koordinat noktaları çokgenleri tanımlamak için kullanılır. [x,y] koordinatları için değerler bir nokta formülü ile girilir.",
+                    "updated": 1674139235317
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Дайте точкам значимое имя, чтобы их было легче идентифицировать при установлении связей с вершинами полигонов.",
                     "updated": 1639724902277
+                },
+                {
+                    "language": "TR",
+                    "text": "Noktalara anlamlı bir isim verin, böylece poligon köşeleriyle referanslar oluştururken onları tanımlamak daha kolay olur.",
+                    "updated": 1674139268656
                 }
             ]
         }

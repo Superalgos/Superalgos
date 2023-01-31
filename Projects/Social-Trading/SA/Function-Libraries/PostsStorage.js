@@ -40,7 +40,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
             let timestamp = (new Date()).valueOf()
             let file = {
                 timestamp: timestamp,
-                content: eventMessage.postText
+                content: eventMessage.postText,
+                images: eventMessage.postImage
             }
 
             let web3 = new SA.nodeModules.web3()
@@ -114,6 +115,9 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                         the Network Node.
                         */
                         eventMessage.postText = undefined
+
+                        eventMessage.postImage = undefined
+
                         /*
                         The file key contains all the information needed to later retrieve this post.
                         */
@@ -176,17 +180,21 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                 let password = fileKey.password
                 let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
 
-                switch (storageContainer.parentNode.type) {
-                    case 'Github Storage': {
-                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                            .then(onFileLoaded)
-                            .catch(onFileNotLoaded)
-                        break
+                try {
+                    switch (storageContainer.parentNode.type) {
+                        case 'Github Storage': {
+                            await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                                .then(onFileLoaded)
+                                .catch(onFileNotLoaded)
+                            break
+                        }
+                        case 'Superalgos Storage': {
+                            // TODO Build the Superalgos Storage Provider
+                            break
+                        }
                     }
-                    case 'Superalgos Storage': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                } catch (err) {
+                    reject(err)
                 }
 
                 function onFileLoaded(fileData) {
@@ -194,7 +202,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                     let response = {
                         result: 'Ok',
                         message: 'Post Text Found',
-                        postText: file.content
+                        postText: file.content,
+                        postImage: file.images
                     }
                     resolve(response)
                 }

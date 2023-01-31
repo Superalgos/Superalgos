@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Laten we eens kijken naar de Bollinger Bands! Als het nog niet is ingeschakeld, zoek dan de Bollinger Bands-laag in de Masters layer manager.",
                 "updated": 1670784761519
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat Bollinger Bands! Jika belum aktif, temukan layer Bollinger Bands di Masters layer manager.",
+                "updated": 1674690302357
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "De indicator heeft een voortschrijdend gemiddelde over 20 perioden in het midden. Het heeft een lijn bovenaan die zich twee standaarddeviaties boven het voortschrijdend gemiddelde bevindt. Deze lijn noemen we de bovenband. En het heeft ook een lijn twee standaarddeviaties onder het voortschrijdend gemiddelde. We noemen dit de onderste band. Samen vormen ze de Bollinger Bands.",
                     "updated": 1670784798223
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator menampilkan 20-period moving average di tengah. Ini fitur garis di atas terletak dua standar deviasi di atas moving average. Kita menyebut garis ini upper band. Dan itu juga menampilkan garis dua standar deviasi di bawah moving average. Kita menyebutnya lower band. Bersama-sama, mereka adalah Bollinger Bands.",
+                    "updated": 1674690308412
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "Merk op hoe de prijs bereiken zijwaarts stuiteren van de bovenste en onderste banden. Soms gaat het buiten de grenzen van de banden, hoger of lager, maar meestal blijft het binnen het bereik van de banden.",
                     "updated": 1670784839039
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana price range sideways memantul dari upper dan lower band. Kadang-kadang mungkin keluar dari batas band, baik lebih tinggi atau lebih rendah, tetapi sebagian besar tetap berada dalam jangkauan band.",
+                    "updated": 1674690314894
                 }
             ]
         }

@@ -28,6 +28,11 @@
                 "language": "NL",
                 "text": "Ik noemde het concept van granulariteit tijdens de Welcome zelfstudie... weet je nog?",
                 "updated": 1670792020291
+            },
+            {
+                "language": "ID",
+                "text": "Aku menyebutkan konsep dari granularity selama Welcome tutorial...ingat?",
+                "updated": 1674625971922
             }
         ]
     },
@@ -56,6 +61,11 @@
                     "language": "NL",
                     "text": "Granulariteit is een apparaat dat helpt bij het omgaan met complexiteit. In plaats van strategieën te laten uitgroeien tot een complex web van regels en definities, verdient het altijd de voorkeur complexe logica in stukken te splitsen en met kleinere eenheden om te gaan.",
                     "updated": 1670792046363
+                },
+                {
+                    "language": "ID",
+                    "text": "Granularity adalah perangkat yang membantu dalam menangani kompleksitas. Alih-alih membiarkan strategi tumbuh menjadi jaringan aturan dan definisi yang kompleks, selalu lebih baik untuk membagi logika kompleks menjadi beberapa bagian dan berurusan dengan unit yang lebih kecil.",
+                    "updated": 1674625979955
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "NL",
                     "text": "Het opsplitsen van complexe logica in meerdere strategieën helpt om strategieën eenvoudig en begrijpelijk te houden. Het maakt strategieën gemakkelijker te debuggen en te onderhouden!",
                     "updated": 1670792060723
+                },
+                {
+                    "language": "ID",
+                    "text": "Membagi logika kompleks menjadi beberapa strategi membantu menjaga strategi tetap sederhana dan mudah dipahami. Itu membuat strategi lebih mudah untuk di-debug dan dimaintain!",
+                    "updated": 1674625986057
                 }
             ]
         },
@@ -109,6 +124,11 @@
                     "language": "NL",
                     "text": "Houd het zo eenvoudig mogelijk!",
                     "updated": 1670792071308
+                },
+                {
+                    "language": "ID",
+                    "text": "Kapan pun kamu bisa, buatlah tetap sederhana!",
+                    "updated": 1674625994107
                 }
             ]
         }

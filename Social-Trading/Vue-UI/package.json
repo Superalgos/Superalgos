@@ -1,5 +1,5 @@
 {
-  "name": "vue-ui",
+  "name": "vite-project",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@vue/cli-plugin-vuex": "^5.0.6",
     "vite": "^4.0.1"
   },

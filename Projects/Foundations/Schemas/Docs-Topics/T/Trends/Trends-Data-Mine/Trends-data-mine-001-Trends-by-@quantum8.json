@@ -83,6 +83,22 @@
             "text": "15) Keltner Baseline"
         },
         {
+            "style": "List",
+            "text": "16 ) One Sided Gauss Channels"
+        },
+        {
+            "style": "List",
+            "text": "17) T3 Moving Average"
+        },
+        {
+            "style": "List",
+            "text": "18) MavilimW"
+        },
+        {
+            "style": "List",
+            "text": "19) Gann Swing"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

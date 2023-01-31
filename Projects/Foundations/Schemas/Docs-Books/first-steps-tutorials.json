@@ -6,8 +6,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este libro lo guiará por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
-                "updated": 1668187876379
+                "text": "Este libro te guiará por el camino que te ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
+                "updated": 1675204438524
             },
             {
                 "language": "RU",
@@ -117,8 +117,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para hacer un tutorial, cargue el correspondiente plugin workspace,busque el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menu.",
-                    "updated": 1636560468727
+                    "text": "Para hacer un tutorial, carga el correspondiente Plugin Workspace, busca el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menú.",
+                    "updated": 1675204592496
                 },
                 {
                     "language": "RU",
@@ -153,8 +153,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando necesite un repaso rápido, siempre puede volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puede escanear el contenido sin hacer el tutorial.",
-                    "updated": 1636560519878
+                    "text": "Cuando necesites un repaso rápido, siempre puedes volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puedes buscar directamente el contenido sin hacer el tutorial.",
+                    "updated": 1675204643270
                 },
                 {
                     "language": "RU",
@@ -263,8 +263,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para su conveniencia, aquí tiene un listado con la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
-                    "updated": 1668187912910
+                    "text": "Para tu conveniencia, aquí tienes un listado de todos los Plugin Workspace y los tutoriales de cada uno de ellos.",
+                    "updated": 1675204702411
                 },
                 {
                     "language": "RU",

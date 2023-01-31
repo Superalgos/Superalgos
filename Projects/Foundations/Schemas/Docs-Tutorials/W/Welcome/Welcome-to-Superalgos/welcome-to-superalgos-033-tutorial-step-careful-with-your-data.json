@@ -79,8 +79,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Abre la consola y ve cómo se detienen las tareas!",
-                    "updated": 1624378638174,
+                    "text": "¡Abre la consola y comprueba cómo se detienen las tareas!",
+                    "updated": 1675208240121,
                     "style": "Callout"
                 },
                 {
@@ -288,8 +288,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
-                    "updated": 1624378837651,
+                    "text": "Puedes cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
+                    "updated": 1675208217314,
                     "style": "List"
                 },
                 {

@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En este momento, Superalgos no implementa ninguna forma de seguridad. Debe utilizar el sistema únicamente en el contexto de una red de área local restringida. Si decides ejecutar el Cliente en la nube, deberás implementar tu propia seguridad.",
-                    "updated": 1627245904561,
+                    "text": "En este momento, Superalgos no implementa ninguna forma de seguridad. Debes utilizar el sistema únicamente en el contexto de una red de área local restringida. Si decides ejecutar el Cliente en la nube, deberás implementar tu propia seguridad.",
+                    "updated": 1675206589704,
                     "style": "Warning"
                 },
                 {

@@ -618,7 +618,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     }
                     
                     const nonce = await web3.eth.getTransactionCount(fromAddress);
-                    PL.logger.info('Nonce: ' + nonce)
+                    SA.logger.info('Nonce: ' + nonce)
 
                     const rawTransaction = {
                         "from": fromAddress,
@@ -631,18 +631,18 @@ exports.newWeb3Server = function newWeb3Server() {
                     const transaction = new Tx(rawTransaction, { 'common': chainConfig })
                     transaction.sign(privateKeyBuffer)
 
-                    PL.logger.info('Transaction: ', rawTransaction)
+                    SA.logger.info('Transaction: ', rawTransaction)
                     let result
 
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
-                            PL.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
+                            SA.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
                             errorList.push(transactionDetails)
                         })
 
-                    PL.logger.info('Result: ', result)
+                    SA.logger.info('Result: ', result)
                 } catch (err) {
-                    PL.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
+                    SA.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
                     errorList.push(transactionDetails)
                 }
                 // We do not want to exceed any limits, so we take a breather in the end of each run.

@@ -7,9 +7,12 @@
 #include <fstream>
 #include <vector>
 #include <iomanip>
+#include <cstring>
 
 
 using namespace std;
+
+bool gSimpleBallances; // User has entered 0, 0 for initial ballances, won't track Holding amounts very well
 
 typedef enum
 {
@@ -24,16 +27,16 @@ int main(int argc, char* argv[])
 	ifstream tradeFile;
 	string   token;
 	char     myChar;
-	bool     endOfFile = false;
+	bool     endOfFile   = false;
 	bool     summaryOnly = false;
 	int      charCount;
 	int      tokenCount;
 	int      itr;
-	int      numDays;
-	int      numTrades;
+	int      numDays;            // "Day Number"
+	int      numTrades;          // "Trade Number"
 	double       startingTotWallet;
-	double       dailyTotWallet;
-	tm           currentDay;
+	double       dailyTotWallet; // "Daily Running Tot Profit (USDT)"
+	tm           currentDay;     // "Day Number"
 	SummaryLine  summaryLine;
 	SummaryLine  ballanceSummaryLine;
 	LineType     lineType = lineType_Unknown;
@@ -42,6 +45,8 @@ int main(int argc, char* argv[])
 
 	if ( argc <  4 || argc > 5 )
 	{
+		cout << endl;
+		cout << "Trade Analysis Ver. " << version;
 		cout << endl;
 		cout << "Usage:" << endl;
 		cout << "  TradeAnalysis filename.csv BTC_Ballance USDT_Ballance -s" << endl;
@@ -55,9 +60,19 @@ int main(int argc, char* argv[])
 	tradeFile.open((char*)argv[1]);
 
 	ballanceSummaryLine.orderAmount = atof( argv[2] );
-	ballanceSummaryLine.total = atof( argv[3] );
+	ballanceSummaryLine.total       = atof( argv[3] );
+
+	// Test double variables for zero
+	if ( ( -0.00000001 < ballanceSummaryLine.orderAmount && ballanceSummaryLine.orderAmount < 0.00000001) &&
+		 ( -0.00000001 < ballanceSummaryLine.total       &&	ballanceSummaryLine.total       < 0.00000001)    )
+		gSimpleBallances = true;
+	else
+		gSimpleBallances = false;
+
 	ballanceSummaryLine.type = buySell_buy;
 	ballanceSummaryLine.ballanceLine = true;
+	ballanceSummaryLine.calcBtcBallance();
+	ballanceSummaryLine.calcUsdtBallance();
 	if ( argc == 5 && !strcmp(argv[4], "-s") )
 	{
 		summaryOnly= true;
@@ -212,14 +227,22 @@ int main(int argc, char* argv[])
 		{
 			vectorSummaryLine[itr].firstLine = true;
 
+			vectorSummaryLine[itr].calcBtcBallance();
+			vectorSummaryLine[itr].calcUsdtBallance();
+
 			numDays = 1;
 			numTrades = 0;
 
 			startingTotWallet = vectorSummaryLine[itr].totBallances();
-			dailyTotWallet = vectorSummaryLine[itr].totBallances();
+			dailyTotWallet    = vectorSummaryLine[itr].totBallances();
 
 			if( !summaryOnly)
 				ballanceSummaryLine.printSelf();
+		}
+		else
+		{
+			vectorSummaryLine[itr].calcBtcBallance();
+			vectorSummaryLine[itr].calcUsdtBallance();
 		}
 
 		if (vectorSummaryLine[itr].type == buySell_sell)
@@ -241,23 +264,27 @@ int main(int argc, char* argv[])
 			{
 				cout << ", ";
 
-				if (vectorSummaryLine[itr].type == buySell_buy )
+				if (vectorSummaryLine[itr].type == buySell_buy)
 				{
-					if( summaryOnly )
+					if (summaryOnly)
 						cout << setprecision(5);
 					else
 						cout << setw(1) << setprecision(1);
-					cout << numTrades + 0.5 << ", ";
+					cout << numTrades + 0.5 << ", "; // "Trade Number"
 					cout << setprecision(5);
 				}
 				else
 				{
-					cout << numTrades << ", ";
+					cout << numTrades << ", "; // "Trade Number"
 				}
 
-				cout << 100 * vectorSummaryLine[itr].runDailyProfit() / dailyTotWallet << "%, "
-					<< 100 * vectorSummaryLine[itr].runTotAssChange() / startingTotWallet << "%, "
-					<< numDays;
+				if(!gSimpleBallances)
+				{
+					cout << 100 * vectorSummaryLine[itr].runDailyProfit()  / dailyTotWallet    << "%, "   // "Daily % Profit"
+						 << 100 * vectorSummaryLine[itr].runTotAssChange() / startingTotWallet << "%, ";  // "% Profit Since Start"
+				}
+
+				cout << numDays;                                                                          // "Day Number"
 
 				if (!summaryOnly)
 					cout << endl;  // Blank line for end of day

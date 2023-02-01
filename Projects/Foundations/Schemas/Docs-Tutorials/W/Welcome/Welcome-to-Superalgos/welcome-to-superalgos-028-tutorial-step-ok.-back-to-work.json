@@ -53,6 +53,11 @@
                 "language": "FR",
                 "text": "Maintenant que vous êtes à l'aise pour vous déplacer, je veux que vous fassiez un petit tour en explorant la section Data Tasks du nœud LAN Network.",
                 "updated": 1667986847452
+            },
+            {
+                "language": "PL",
+                "text": "Teraz, gdy już wiesz jak się poruszać, chciałbym, abyś udał się na małą wycieczkę, eksplorując sekcję Data Tasks w węźle LAN Network.",
+                "updated": 1675002818894
             }
         ],
         "updated": 1636911021993
@@ -106,6 +111,11 @@
                     "language": "FR",
                     "text": "Notez ce qui suit :",
                     "updated": 1667986870588
+                },
+                {
+                    "language": "PL",
+                    "text": "Zauważ, co następuje:",
+                    "updated": 1675002825021
                 }
             ]
         },
@@ -157,6 +167,11 @@
                     "language": "FR",
                     "text": "La section est organisée, avant tout, par projet, exchange et marché. Cela vous aidera à travailler avec plusieurs exchanges et plusieurs marchés de manière ordonnée.",
                     "updated": 1667986967018
+                },
+                {
+                    "language": "PL",
+                    "text": "Sekcja jest zorganizowana - przede wszystkim - według projektów, giełd i rynków. Pomoże Ci to w uporządkowany sposób na pracę z wieloma giełdami i wieloma rynkami.",
+                    "updated": 1675002881239
                 }
             ]
         },
@@ -208,6 +223,11 @@
                     "language": "FR",
                     "text": "Les nœuds Data Tasks et Market Data Tasks peuvent contrôler toutes les tâches de l'exchange et du marché respectivement.",
                     "updated": 1667986975706
+                },
+                {
+                    "language": "PL",
+                    "text": "Węzły Exchange Data Tasks i Market Data Tasks kontrolują wszystkie zadania odpowiednio na giełdzie i rynku.",
+                    "updated": 1675002914782
                 }
             ]
         },
@@ -259,6 +279,11 @@
                     "language": "FR",
                     "text": "Allez voir ces nœuds et leurs menus !",
                     "updated": 1667986996004
+                },
+                {
+                    "language": "PL",
+                    "text": "Wyjdź i sprawdź menu tych węzłów!",
+                    "updated": 1675002943244
                 }
             ]
         }

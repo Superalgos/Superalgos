@@ -55,6 +55,11 @@
                 "language": "FR",
                 "text": "Accédez au menu du nœud Data Tasks et trouvez le bouton \"Run all project data tasks\" dans le coin supérieur droit...",
                 "updated": 1667203084618
+            },
+            {
+                "language": "PL",
+                "text": "Wejdź do menu węzła Data Tasks i znajdź w prawym górnym rogu przycisk \"Run all project data tasks\"....",
+                "updated": 1674934900511
             }
         ]
     },
@@ -109,6 +114,11 @@
                     "language": "FR",
                     "text": "Cliquez sur le bouton \"Run all project data tasks\" ! Confirmez la demande en cliquant une seconde fois sur le même bouton.",
                     "updated": 1667203134092
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij przycisk \"Run all project data tasks\"! Potwierdź żądanie, klikając przycisk po raz drugi.",
+                    "updated": 1674934944272
                 }
             ]
         },
@@ -161,6 +171,11 @@
                     "language": "FR",
                     "text": "Dans environ 30 secondes, vous devriez voir le status changer sous le nœud Data Tasks indiquant \"1 / 1\" vous confirmant que l'Exchange Data Tasks est en cours d'exécution.",
                     "updated": 1667203375952
+                },
+                {
+                    "language": "PL",
+                    "text": "Po około 30 sekundach pod węzłem Data Tasks powinno pojawić się powiadomienie wskazujące, że 1 z 1 węzłów Exchange Data Tasks jest uruchomiony.",
+                    "updated": 1674935045252
                 }
             ],
             "updated": 1622190035816
@@ -214,6 +229,11 @@
                     "language": "FR",
                     "text": "Votre terminal devrait afficher quelque chose de similaire à la vidéo de l'étape suivante.",
                     "updated": 1667203420575
+                },
+                {
+                    "language": "PL",
+                    "text": "Konsola aplikacji powinna pokazać coś podobnego do filmu w następnym kroku.",
+                    "updated": 1674935099830
                 }
             ]
         }

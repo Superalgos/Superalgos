@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La idea de trading es comprar \"el cuchillo que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
-                    "updated": 1624455253344,
+                    "text": "La idea de trading es comprar \"la vela que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
+                    "updated": 1675280889826,
                     "style": "Text"
                 },
                 {

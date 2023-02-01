@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¿Entiendes? ¡El Trading botl coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
-                "updated": 1624458595413,
+                "text": "¿Entiendes? ¡El Trading Bot coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
+                "updated": 1675280806441,
                 "style": "Definition"
             },
             {
@@ -61,8 +61,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Es algo arbitrario, pero la estrategia define un cuchillo que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
-                    "updated": 1624458684445,
+                    "text": "Es algo arbitrario, pero la estrategia define un vela que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
+                    "updated": 1675280824279,
                     "style": "Text"
                 },
                 {

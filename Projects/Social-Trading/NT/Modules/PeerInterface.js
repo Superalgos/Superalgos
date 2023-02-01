@@ -161,7 +161,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                NT.logger.error('Peer Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Peer Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

@@ -315,12 +315,12 @@ exports.newTensorFlowModelsManager = function (processIndex, learningSystem) {
             if (dataReporting) {
                 let fitKeys = Object.keys(modelFitDatasetArgs);
                 let fitVals = Object.values(modelFitDatasetArgs);
-                TS.logger.info("__________________________________________________\nModel Fitting Arguments:\n==================================================");
-                fitKeys.forEach((e, i) => TS.logger.info(i + ": \"" + e + "\"=>[" + fitVals[i] + "]"));
+                SA.logger.info("__________________________________________________\nModel Fitting Arguments:\n==================================================");
+                fitKeys.forEach((e, i) => SA.logger.info(i + ": \"" + e + "\"=>[" + fitVals[i] + "]"));
             }
         }
 
-        TS.logger.info("__________________________________________________\nTraining " +
+        SA.logger.info("__________________________________________________\nTraining " +
             _learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.name +
             ":\n==================================================");
 
@@ -328,10 +328,10 @@ exports.newTensorFlowModelsManager = function (processIndex, learningSystem) {
         isTrained = true;
 
         if (dataReporting) {
-            TS.logger.info("\n__________________________________________________\nModel Fitting Report:\n==================================================");
-            TS.logger.info("First Epoch #1:\n\tacc=>" + history.history.acc[0] + "\n\tloss=>" + history.history.loss[0]);
+            SA.logger.info("\n__________________________________________________\nModel Fitting Report:\n==================================================");
+            SA.logger.info("First Epoch #1:\n\tacc=>" + history.history.acc[0] + "\n\tloss=>" + history.history.loss[0]);
             let totalEpochs = history.epoch.length;
-            TS.logger.info("Final Epoch #" + totalEpochs + ":\n\tacc=>" + history.history.acc[totalEpochs - 1] + "\n\tloss=>" + history.history.loss[totalEpochs - 1] + "\n__________________________________________________");
+            SA.logger.info("Final Epoch #" + totalEpochs + ":\n\tacc=>" + history.history.acc[totalEpochs - 1] + "\n\tloss=>" + history.history.loss[totalEpochs - 1] + "\n__________________________________________________");
         }
     }
 
@@ -367,7 +367,7 @@ exports.newTensorFlowModelsManager = function (processIndex, learningSystem) {
 
         // This callback hard coded for now:
         modelFitDatasetArgs.callbacks = {
-            onEpochEnd: (epoch, logs) => TS.logger.info("callbacks:\tEpoch:" + epoch + " | Loss=>" + logs.loss)
+            onEpochEnd: (epoch, logs) => SA.logger.info("callbacks:\tEpoch:" + epoch + " | Loss=>" + logs.loss)
         }
 
         return modelFitDatasetArgs;

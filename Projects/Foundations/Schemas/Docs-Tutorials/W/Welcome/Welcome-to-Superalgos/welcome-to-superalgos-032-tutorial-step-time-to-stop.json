@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Nous n'allons pas encore lancer une session de trading en direct, il n'y a donc aucun intérêt à maintenir notre minage de données en cours.",
                 "updated": 1667987677704
+            },
+            {
+                "language": "PL",
+                "text": "Nie zamierzamy jeszcze uruchamiać Live Trading Session, więc nie ma sensu dalej gromadzić danych.",
+                "updated": 1675079188205
             }
         ],
         "updated": 1640265234059
@@ -105,6 +110,11 @@
                     "language": "FR",
                     "text": "Il existe deux raisons principales pour miner des données:",
                     "updated": 1667987743364
+                },
+                {
+                    "language": "PL",
+                    "text": "Istnieją dwa główne powody do uruchomienia Data Tasks:",
+                    "updated": 1675079251499
                 }
             ]
         },
@@ -156,6 +166,11 @@
                     "language": "FR",
                     "text": "Pour analyser les données historiques: vous souhaitez traiter une période d'un marché donné pour exécuter une session de backtesting ou pour traiter de nouveaux indicateurs.",
                     "updated": 1667987895330
+                },
+                {
+                    "language": "PL",
+                    "text": "Przetwarzanie danych historycznych: Możesz chcieć przeanalizować dane ze zdefiniowanego zakresu z dowolnego Market aby uruchomić Backtesting Session, lub do przeanalizować nowe wskaźniki.",
+                    "updated": 1675079403379
                 }
             ]
         },
@@ -207,6 +222,11 @@
                     "language": "FR",
                     "text": "Pour exécuter une session en direct : les sessions en direct peuvent être de différents types, telles que le Paper Trading Session, la Forward Testing Session et la Live Trading Session, ont toutes besoin d'un flux de marché en direct.",
                     "updated": 1667988002478
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby uruchomić sesję na żywo: Sesje na żywo różnych typów, np. Paper Trading Session, Forward Testing Session, i Live Trading Session, wszystkie potrzebują bieżących danych.",
+                    "updated": 1675079461580
                 }
             ]
         },
@@ -257,6 +277,11 @@
                     "language": "FR",
                     "text": "Lorsque tous les processus sont à jour, sélectionnez \"Stop All Tasks\" dans le nœud Market Data Tasks. Notez que nous pouvons arrêter les tâches à partir d'un nœud différent de celui que nous avons utilisé pour les démarrer !",
                     "updated": 1667988053679
+                },
+                {
+                    "language": "PL",
+                    "text": "Gdy wszystkie procesy są aktualne, wybierz \"Stop All Tasks\" w węźle Market Data Tasks. Zauważ, że możemy zatrzymać zadania z innego węzła niż ten, którego użyliśmy do ich uruchomienia!",
+                    "updated": 1675079511248
                 }
             ],
             "updated": 1622197433719

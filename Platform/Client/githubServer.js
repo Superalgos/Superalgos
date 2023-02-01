@@ -119,25 +119,25 @@ exports.newGithubServer = function newGithubServer() {
                                         break
                                     }
                                 }
-                                //PL.logger.info(listItem)
+                                //SA.logger.info(listItem)
 
                                 githubListArray.push(githubUsername)
                             }
-                            // PL.logger.info('Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
-                            // PL.logger.info('Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
+                            // SA.logger.info('Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
+                            // SA.logger.info('Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
 
                         } catch (err) {
-                            PL.logger.error(err)
+                            SA.logger.error(err)
 
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->username = ' + username)
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
-                                PL.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->username = ' + username)
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
+                                SA.logger.error('Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
                                 return
                             }
@@ -147,12 +147,12 @@ exports.newGithubServer = function newGithubServer() {
             }
 
         } catch (err) {
-            PL.logger.error('Github Server -> getRepoInfo -> Method call produced an error.')
-            PL.logger.error('Github Server -> getRepoInfo -> err.stack = ' + err.stack)
-            PL.logger.error('Github Server -> getRepoInfo -> repository = ' + repository)
-            PL.logger.error('Github Server -> getRepoInfo -> username = ' + username)
-            PL.logger.error('Github Server -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
-            PL.logger.error('Github Server -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+            SA.logger.error('Github Server -> getRepoInfo -> Method call produced an error.')
+            SA.logger.error('Github Server -> getRepoInfo -> err.stack = ' + err.stack)
+            SA.logger.error('Github Server -> getRepoInfo -> repository = ' + repository)
+            SA.logger.error('Github Server -> getRepoInfo -> username = ' + username)
+            SA.logger.error('Github Server -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
+            SA.logger.error('Github Server -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',
@@ -187,8 +187,8 @@ exports.newGithubServer = function newGithubServer() {
                         owner: username,
                         repo: repo,
                     }).catch(async err => {
-                        PL.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
-                        PL.logger.warn('Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
+                        SA.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                        SA.logger.warn('Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
                         // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
                         await octokit.repos.createFork({
                             owner: 'Superalgos',
@@ -198,16 +198,16 @@ exports.newGithubServer = function newGithubServer() {
                     })
                 } catch (err) {
                     if (err === undefined) { return }
-                    PL.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                    SA.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
                 }
             }
         } catch (err) {
-            PL.logger.error('Github Server -> createGithubFork -> Method call produced an error.')
-            PL.logger.error('Github Server -> createGithubFork -> err.stack = ' + err.stack)
-            PL.logger.error('Github Server -> createGithubFork -> repository = ' + repository)
-            PL.logger.error('Github Server -> createGithubFork -> username = ' + username)
-            PL.logger.error('Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
-            PL.logger.error('Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
+            SA.logger.error('Github Server -> createGithubFork -> Method call produced an error.')
+            SA.logger.error('Github Server -> createGithubFork -> err.stack = ' + err.stack)
+            SA.logger.error('Github Server -> createGithubFork -> repository = ' + repository)
+            SA.logger.error('Github Server -> createGithubFork -> username = ' + username)
+            SA.logger.error('Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
+            SA.logger.error('Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',
@@ -294,26 +294,26 @@ exports.newGithubServer = function newGithubServer() {
                                 if (listResponse.data.length < 100) {
                                     lastPage = true
                                 }
-                                PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
+                                SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
                                 for (let i = 0; i < listResponse.data.length; i++) {
                                     let pullRequest = listResponse.data[i]
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
                                     githubPrListArray.push(pullRequest)
                                 }
-                                PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
+                                SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
 
                             } catch (err) {
-                                PL.logger.error(err)
+                                SA.logger.error(err)
 
                                 if (err.stack.indexOf('last page') >= 0) {
                                     return
                                 } else {
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
-                                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
+                                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                     error = err
                                     return
                                 }
@@ -331,7 +331,7 @@ exports.newGithubServer = function newGithubServer() {
 
                         We will go through the list of open PRs and run the validations at each one of them.
                         */
-                        PL.logger.info('Github Server -> mergeGithubPullRequests -> Ready to Validate ' + githubPrListArray.length + ' pull requests. ')
+                        SA.logger.info('Github Server -> mergeGithubPullRequests -> Ready to Validate ' + githubPrListArray.length + ' pull requests. ')
 
                         for (let i = 0; i < githubPrListArray.length; i++) {
                             let pullRequest = githubPrListArray[i]
@@ -384,9 +384,9 @@ exports.newGithubServer = function newGithubServer() {
                             */
 
                             if (await mergePullRequest() === false) {
-                                PL.logger.warn('Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
+                                SA.logger.warn('Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                             } else {
-                                PL.logger.info('Github Server -> mergeGithubPullRequests -> Merge Succeed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
+                                SA.logger.info('Github Server -> mergeGithubPullRequests -> Merge Succeed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.rest.issues.createComment({
                                     owner: owner,
@@ -402,7 +402,7 @@ exports.newGithubServer = function newGithubServer() {
                                 merge it.
                                 */
                                 if (filesChanged.length !== 1) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + filesChanged.length)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + filesChanged.length)
                                     /*
                                     We will close PRs that contains any User Profile file together with other files in the same Pull Request.
                                     This will avoid manual merges to include User Profile files.
@@ -444,7 +444,7 @@ exports.newGithubServer = function newGithubServer() {
                                     /*
                                     If it is not a user profile then there is no need to auto merge.
                                     */
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request is not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request is not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
                                     return false
                                 }
 
@@ -455,7 +455,7 @@ exports.newGithubServer = function newGithubServer() {
                                 githubUsername = pullRequest.user.login
 
                                 if (githubUsername.toLowerCase() !== fileName.toLowerCase()) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
 
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -485,7 +485,7 @@ exports.newGithubServer = function newGithubServer() {
                                 try {
                                     userProfile = JSON.parse(fileContent)
                                 } catch(err) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified it is not in a valid JSON format. -> err = ' + err.message)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified it is not in a valid JSON format. -> err = ' + err.message)
                                     
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -506,7 +506,7 @@ exports.newGithubServer = function newGithubServer() {
                                 }
                                 
                                 if (userProfile.type !== 'User Profile') {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
                                     return false
                                 }
                             }
@@ -518,7 +518,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let config = JSON.parse(userProfile.config)
                                 let messageSigned = config.signature.message
                                 if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
 
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -552,7 +552,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let signatureHash = config.signature.messageHash
 
                                 if (messageSignedHash !== signatureHash) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
 
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -578,7 +578,7 @@ exports.newGithubServer = function newGithubServer() {
                                 Validation #6: The name of the User Profile node is not the Github Username.
                                 */
                                 if (userProfile.name.toLowerCase() !== githubUsername.toLowerCase()) {
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
 
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -626,7 +626,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (testUserProfile === undefined) { return true }
                                 if (testUserProfile !== userProfile.name) {
 
-                                    PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
 
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -687,7 +687,7 @@ exports.newGithubServer = function newGithubServer() {
                                     if (testUserProfile === undefined) { return true }
                                     if (testUserProfile !== userProfile.name) {
 
-                                        PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
+                                        SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
 
                                         await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                         await octokit.rest.issues.createComment({
@@ -707,7 +707,7 @@ exports.newGithubServer = function newGithubServer() {
                                         return false
                                     }
                                 } catch (err) {
-                                    PL.logger.error(err.stack)
+                                    SA.logger.error(err.stack)
                                 }
                             }
 
@@ -726,7 +726,7 @@ exports.newGithubServer = function newGithubServer() {
                                         let messageSigned = config.signature.message
 
                                         if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
-                                            PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #9 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
+                                            SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #9 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
 
                                             await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
@@ -755,7 +755,7 @@ exports.newGithubServer = function newGithubServer() {
                                         let signatureHash = config.signature.messageHash
 
                                         if (messageSignedHash !== signatureHash) {
-                                            PL.logger.info('Github Server -> mergeGithubPullRequests -> Validation #10 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
+                                            SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #10 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
 
                                             await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
@@ -778,7 +778,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                     return true
                                 } catch (err) {
-                                    PL.logger.error(err.stack)
+                                    SA.logger.error(err.stack)
                                 }
                             }
 
@@ -824,13 +824,13 @@ exports.newGithubServer = function newGithubServer() {
                             if (listResponse.data.length < 100) {
                                 lastPage = true
                             }
-                            PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Receiving Page = ' + page)
+                            SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Receiving Page = ' + page)
                             for (let i = 0; i < listResponse.data.length; i++) {
                                 let pullRequest = listResponse.data[i]
-                                PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
+                                SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
                                 githubPrListMaster.push(pullRequest)
                             }
-                            PL.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Received = ' + listResponse.data.length)
+                            SA.logger.info('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Received = ' + listResponse.data.length)
 
                             for (let i = 0; i < githubPrListMaster.length; i++) {
                                 let pullRequest = githubPrListMaster[i]
@@ -856,12 +856,12 @@ exports.newGithubServer = function newGithubServer() {
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
-                                PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
+                                SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
                                 return
                             }
@@ -871,17 +871,17 @@ exports.newGithubServer = function newGithubServer() {
 
                 } catch (err) {
                     if (err === undefined) { return }
-                    PL.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
+                    SA.logger.error('Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }
             }
 
         } catch (err) {
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> Method call produced an error.')
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> repository = ' + repo)
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> username = ' + username)
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
-            PL.logger.error('Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> Method call produced an error.')
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> repository = ' + repo)
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> username = ' + username)
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
+            SA.logger.error('Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',

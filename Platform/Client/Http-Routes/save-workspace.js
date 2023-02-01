@@ -34,8 +34,8 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
 
                 function onFileWritten(err) {
                     if(err) {
-                        PL.logger.error('SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
-                        PL.logger.error('SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
+                        SA.logger.error('SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
+                        SA.logger.error('SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
                         let error = {
                             result: 'Fail Because',
                             message: err.message,
@@ -48,8 +48,8 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
                 }
 
             } catch(err) {
-                PL.logger.error('SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
-                PL.logger.error('SaveWorkspace -> err.stack = ' + err.stack)
+                SA.logger.error('SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
+                SA.logger.error('SaveWorkspace -> err.stack = ' + err.stack)
                 let error = {
                     result: 'Fail Because',
                     message: err.message,

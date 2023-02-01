@@ -19,9 +19,18 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
     }
 
     async function broadcastSignal(node, formulaValue) {
-        if (node === undefined) { return }
-        if (node.outgoingSignals === undefined) { return }
-        if (node.outgoingSignals.outgoingSignalReferences === undefined) { return }
+        if (node === undefined) { 
+            SA.logger.error('[Error] - OutgoingTradingSignals.js - node is undefined.')
+            return 
+        }
+        if (node.outgoingSignals === undefined) { 
+            SA.logger.error('[Error] - OutgoingTradingSignals.js - node.outgoingSignals is undefined.')
+            return 
+        }
+        if (node.outgoingSignals.outgoingSignalReferences === undefined) { 
+            SA.logger.error('[Error] - OutgoingTradingSignals.js - node.outgoingSignals.outgoingSignalReferences is undefined.')
+            return 
+        }
         /*
         A single event might trigger multiple signals. That's fine. 
         */
@@ -30,7 +39,10 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             Run some validations
             */
             let signalReference = node.outgoingSignals.outgoingSignalReferences[i]
-            if (signalReference.referenceParent === undefined) { return }
+            if (signalReference.referenceParent === undefined) {
+                SA.logger.error('[Error] - OutgoingTradingSignals.js - signalReference.referenceParent is undefined.')
+                return 
+            }
             let signalDefinition = signalReference.referenceParent
             let socialTradingBot = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(signalDefinition, 'Social Trading Bot')
 
@@ -75,7 +87,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             }
 
             if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS === undefined) {
-                TS.logger.error('In order to be able to broadcast signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
+                SA.logger.error('In order to be able to broadcast signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
                 return
             }
             TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastSignal(tradingSignalMessage, socialTradingBot)

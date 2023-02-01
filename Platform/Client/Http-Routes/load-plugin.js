@@ -41,9 +41,9 @@ exports.newLoadPluginRoute = function newLoadPluginRoute() {
                     })
 
             } catch(err) {
-                PL.logger.error('httpInterface -> LoadPlugin -> Method call produced an error.')
-                PL.logger.error('httpInterface -> LoadPlugin -> err.stack = ' + err.stack)
-                PL.logger.error('httpInterface -> LoadPlugin -> Params Received = ' + body)
+                SA.logger.error('httpInterface -> LoadPlugin -> Method call produced an error.')
+                SA.logger.error('httpInterface -> LoadPlugin -> err.stack = ' + err.stack)
+                SA.logger.error('httpInterface -> LoadPlugin -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

@@ -4,10 +4,11 @@ This is a simple script initially buit to pull trade history from Binance but it
 
 ## Execution
 
-The script has 2 required parameters:
+The script has 3 required parameters:
 
 - --exchange or -e
 - --key-file, --keyFile or -f
+- --trades or --orders only one can be selected depending on whether you want the trade history or order history
 
 and 2 optional parameters
 
@@ -17,22 +18,30 @@ and 2 optional parameters
 Here some run options for running the script:
 
 ```sh
-# generated data for current month with results output to the command line
-node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE>
+# generated data for current month trades with results output to the command line
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --trades
+# generated data for current month orders with results output to the command line
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --orders
 
-# generated data for current month with output writen to the provided outfile -> this file will be created or overwritten
-node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE>
+# generated data for current month traders with output writen to the provided outfile -> this file will be created or overwritten
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE> --trades
+# generated data for current month orders with output writen to the provided outfile -> this file will be created or overwritten
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE> --orders
 
-# generated data for the previous month with results output to the command line
-node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --last-month
+# generated data for the previous month traders with results output to the command line
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --last-month --trades
+# generated data for the previous month orders with results output to the command line
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --last-month --orders
 
-# generated data for the previous month with output writen to the provided outfile -> this file will be created or overwritten
-node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE> --last-month
+# generated data for the previous month trades with output writen to the provided outfile -> this file will be created or overwritten
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE> --last-month --trades
+# generated data for the previous month orders with output writen to the provided outfile -> this file will be created or overwritten
+node index --exchange binance --key-file <PATH_TO_EXCHANGE_KEY_FILE> --out-file <PATH_TO_OUTPUT_FILE> --last-month --orders
 ```
 
 ## Credentials key file
 
-The API needs to have the credentials passed in as a JSON file in the correct format for your exchange
+The API needs to have the credentials passed in as a JSON file in the correct format for your exchange. The suggested method for this is to store your keys in the My-Secrets folder in the root Superalgos directory. This folder is excluded from source control and you will not accidentally compromise your API  keys.
 
 ### Binance
 

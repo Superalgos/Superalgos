@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <cstring>
+#include "TradeAnalysis.h"
 
 
 using namespace std;
@@ -44,7 +44,7 @@ void SummaryLine::feedToken(int tokenNumber, string token)
 	    break;
 	}
 	case 2: // orderNumber
-		orderNumber = atol(token.c_str());
+		orderNumber = atoll(token.c_str());
 		break;
 	case 3: // pair
 		pair = token;
@@ -85,9 +85,12 @@ void SummaryLine::feedToken(int tokenNumber, string token)
 
 void SummaryLine::printSelf()
 {
+	calcBtcBallance();
+	calcUsdtBallance();
+
 	if (ballanceLine)
 	{
-		cout << ",,,,,,,,,,,,,,,," << btcBallance() << ", " << usdtBallance() << endl;
+		cout << ",,,,,,,,,,,,,,,," << btcBallance << ", " << usdtBallance << endl;
 
 	}
 	else
@@ -112,7 +115,7 @@ void SummaryLine::printSelf()
 
 		cout << orderNumber << ", " << pair << ", ";
 
-		if (type == buySell_buy)
+		if (type == buySell_buy) // "Type"
 		{
 			cout << "BUY , ";
 		}
@@ -126,18 +129,18 @@ void SummaryLine::printSelf()
 		}
 
 		cout << std::setprecision(2)
-			<< orderPrice << ", "
+			<< orderPrice << ", "       // "Order Price"
 			<< std::fixed
 			<< std::setprecision(8)
-			<< orderAmount << ", "
+			<< orderAmount << ", "     // "Order Amount"
 			<< std::setprecision(3)
-			<< avgTradingPrice << ", "
+			<< avgTradingPrice << ", " // "Avg Trading Price"
 			<< std::setprecision(8)
-			<< filled << ", "
+			<< filled << ", "          // "Filled"
 			<< std::setprecision(5)
-			<< total << ", ";
+			<< total << ", ";          // "Total"
 
-		if (status == orderStatus_filled)
+		if (status == orderStatus_filled) // "Status"
 		{
 			cout << "Filled, ";
 		}
@@ -150,41 +153,66 @@ void SummaryLine::printSelf()
 
 		if (type == buySell_buy)
 		{
-			cout << btcReceive() << ", " << ", , " << usdtPay() << ", ";
+			cout << btcReceive() << ", "          // "BTC Receive"
+				 << ", , " << usdtPay() << ", ";  // "USDT Pay"
 		}
 		else
 		{
-			cout << ", " << btcPay() << ", " << usdtReceive() << ", " << ", ";
+			cout << ", " << btcPay()      << ", "           // "BTC Pay"
+				         << usdtReceive() << ", " << ", ";  // "USDT Receive"
 		}
 
-		cout << btcBallance() << ", " << usdtBallance() << ", " << btcBalEquiv() << ", "
-			<< totBallances() << ", " << totAssChange() << ", " << runTotAssChange() << ", "
-			<< runDailyProfit();
+		cout << btcBallance << ", "     // "BTC Wallet Ballance"
+			 << usdtBallance << ", "    // "USDT Wallet Ballance"
+			 << btcBalEquiv() << ", "   // "BTC Wallet Ballance Est USDT"
+			 << totBallances() << ", "  // "Both Wallet Ballance (USDT)"
+			 << totAssChange() << ", "; // "Spot Profit (USDT)"
+
+		if (firstLine)
+			cout << ", , ";
+		else
+		    if (type == buySell_sell)
+		    {
+		    	cout << simpleTotAssChangePercent() << "%, "; // "Simple Spot Profit (%)"
+		    }
+		    else
+		    {
+		    	cout << " , ";
+		    }
+
+		if ( !gSimpleBallances )
+		{
+			if (firstLine)
+				cout << ", , ";
+			else
+				cout << complexTotAssChangePercent() << "%, "; // "Complex Spot Profit (%)"
+		}
+
+	    cout << runTotAssChange() << ", "  // "Running Tot Profit (USDT)"
+			 << runDailyProfit();  // "Daily Running Tot Profit (USDT)"
 	}
 }
 
 void SummaryLine::printSummarySelf()
 {
-	cout
-		<< std::setw(2) << std::setfill('0')
-		<< dateTime.tm_mday << "/"
+	cout << std::setw(2) << std::setfill('0')
+		 << dateTime.tm_mday << "/"
+		 
+		 << std::setw(2) << std::setfill('0')
+		 << dateTime.tm_mon + 1 << "/"
+		 
+		 << dateTime.tm_year + 1900 << ", ";
 
-		<< std::setw(2) << std::setfill('0')
-		<< dateTime.tm_mon + 1 << "/"
 
-		<< dateTime.tm_year + 1900 << ", ";
-
-
-	cout 
-		<< totBallances() << ", " 
-		<< runTotAssChange() << ", "
-		<< runDailyProfit();
+	cout << totBallances() << ", "    // "Wallet Ballance (USDT)"
+		 << runTotAssChange() << ", " // "Profit Since Start (USDT)"
+		 << runDailyProfit();         // "Daily Profit (USDT)"
 }
 
 void SummaryLine::printHeader()
 {
 	cout
-		<< "Date(UTC),"
+		<< "Date (UTC),"
 		<< "Time,"
 		<< "Order No,"
 		<< "Pair,"
@@ -202,28 +230,45 @@ void SummaryLine::printHeader()
 		<< "USDT Pay,"
 		<< "BTC Wallet Ballance,"
 		<< "USDT Wallet Ballance,"
-		<< "BTC Wallet Ballance Est USDT,"
+		<< "BTC Wallet Ballance Est (USDT),"
 		<< "Both Wallet Ballance (USDT),"
 		<< "Spot Profit (USDT),"
+		<< "Simple Spot Profit (%),";
+
+	if (!gSimpleBallances)
+		cout << "Complex Spot Profit (%),";
+
+	cout
 		<< "Running Tot Profit (USDT),"
 		<< "Daily Running Tot Profit (USDT),"
-		<< "Trade Number,"
-		<< "Daily % Profit,"
-		<< "% Profit Since Start,"
+		<< "Trade Number,";
+
+	if (!gSimpleBallances)
+		cout
+			<< "Complex Daily Profit (%),"
+			<< "Complex Since Start Profit (%),";
+
+	cout
 		<< "Day Number,"
+		<< "v" << version
 		<< endl;
 }
 
 void SummaryLine::printSummaryHeader()
 {
 	cout
-		<< "Date(UTC),"
+		<< "Date (UTC),"
 		<< "Wallet Ballance (USDT),"
 		<< "Profit Since Start (USDT),"
 		<< "Daily Profit (USDT),"
-		<< "Number Of Trades,"
-		<< "Daily % Profit,"
-		<< "% Profit Since Start,"
+		<< "Number Of Trades,";
+
+	if (!gSimpleBallances)
+		cout << "Complex Daily Profit (%),"
+			 << "Complex Since Start Profit (%),";
+
+	cout
 		<< "Day Number,"
+		<< "v" << version
 		<< endl;
 }

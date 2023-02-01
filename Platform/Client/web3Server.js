@@ -347,7 +347,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 return undefined
             }
         } catch(err) {
-            PL.logger.error("Gas Price Query Error: ", err)
+            SA.logger.error("Gas Price Query Error: ", err)
         }
     }
 
@@ -435,9 +435,9 @@ exports.newWeb3Server = function newWeb3Server() {
             let response = await mnemonicToPrivateKey(mnemonic)
             let privateKey = response.privateKey
 
-            PL.logger.info('----------------------------------------------------------------------------------------------')
-            PL.logger.info('PAYING CONTRIBUTORS')
-            PL.logger.info('----------------------------------------------------------------------------------------------')
+            SA.logger.info('----------------------------------------------------------------------------------------------')
+            SA.logger.info('PAYING CONTRIBUTORS')
+            SA.logger.info('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
                 let payment = paymentsArray[i]
@@ -457,29 +457,29 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     tokenAmount = Math.trunc(tokenAmount / decimalFactorDict[chain])
 
-                    PL.logger.info('')
-                    PL.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    PL.logger.info(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' + parseFloat(tokenAmount).toLocaleString('en') + ' - Address: ' + toAddress + ' - Blockchain: ' + chain)
-                    PL.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    PL.logger.info('')
+                    SA.logger.info('')
+                    SA.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    SA.logger.info(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' + parseFloat(tokenAmount).toLocaleString('en') + ' - Address: ' + toAddress + ' - Blockchain: ' + chain)
+                    SA.logger.info('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    SA.logger.info('')
 
                     if (paymentsBlacklist.includes(userProfile)) {
-                        PL.logger.info('User blacklisted for distribution. No need to send a transaction.')
+                        SA.logger.info('User blacklisted for distribution. No need to send a transaction.')
                         return
                     }
 
                     if (paymentsWhitelist.length > 0 && paymentsWhitelist.includes(userProfile) === false) {
-                        PL.logger.info('User not on defined whitelist for distribution. No need to send a transaction.')
+                        SA.logger.info('User not on defined whitelist for distribution. No need to send a transaction.')
                         return
                     }
                     
                     if (tokenAmount === 0) {
-                        PL.logger.info('Token amount 0. No need to send a transaction.')
+                        SA.logger.info('Token amount 0. No need to send a transaction.')
                         return
                     }
 
                     if (parseFloat(tokenAmount) <= 10000) {
-                        PL.logger.info('Filtered out. No need to send a transaction.')
+                        SA.logger.info('Filtered out. No need to send a transaction.')
                         return
                     }
 
@@ -495,7 +495,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
                             break
                         default:
-                            PL.logger.error('No RPC URI configured for chain ' + chain)
+                            SA.logger.error('No RPC URI configured for chain ' + chain)
                             return
                     }
                     
@@ -555,7 +555,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             );
                             break
                         default:
-                            PL.logger.error('No chain configuration present for chain ' + chain)
+                            SA.logger.error('No chain configuration present for chain ' + chain)
                             return
                     }                    
 
@@ -572,13 +572,13 @@ exports.newWeb3Server = function newWeb3Server() {
                         while (gasFeeOk === false) {
                             let currentGasPrice = await getGasPrice();
                             if (currentGasPrice === undefined) {
-                                PL.logger.info("Could not obtain current gas price, retrying in 60 seconds...")
+                                SA.logger.info("Could not obtain current gas price, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > gasPriceLimit) {
-                                PL.logger.info("Current Gas Price " + currentGasPrice + " Gwei exceeding limit of " + gasPriceLimit + " Gwei. Holding transaction, retrying in 60 seconds...")
+                                SA.logger.info("Current Gas Price " + currentGasPrice + " Gwei exceeding limit of " + gasPriceLimit + " Gwei. Holding transaction, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                             } else if (currentGasPrice > 0) {
-                                PL.logger.info("Current Gas Price " + currentGasPrice +  " Gwei, executing transaction.")
+                                SA.logger.info("Current Gas Price " + currentGasPrice +  " Gwei, executing transaction.")
                                 /* Adding 2 Gwei safety buffer to ensure executions */
                                 gasPrice = currentGasPrice + gasPriceBuffer
                                 /* Conversion to Wei */
@@ -590,7 +590,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     
                     
                     const nonce = await web3.eth.getTransactionCount(fromAddress);
-                    PL.logger.info('Nonce:', nonce)
+                    SA.logger.info('Nonce:', nonce)
 
                     const rawTransaction = {
                         "from": fromAddress,
@@ -603,18 +603,18 @@ exports.newWeb3Server = function newWeb3Server() {
                     const transaction = new Tx(rawTransaction, { 'common': chainConfig })
                     transaction.sign(privateKeyBuffer)
 
-                    PL.logger.info('Transaction:', rawTransaction)
+                    SA.logger.info('Transaction:', rawTransaction)
                     let result
 
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
-                            PL.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
+                            SA.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
                         })
 
-                    PL.logger.info('Result:', result)
+                    SA.logger.info('Result:', result)
                     return result
                 } catch (err) {
-                    PL.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
+                    SA.logger.error('web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
                 // We do not want to exceed any limits, so we take a breather in the end of each run.
                 await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)

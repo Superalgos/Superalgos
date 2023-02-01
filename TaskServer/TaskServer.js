@@ -44,12 +44,12 @@ exports.newTaskServer = function newTaskServer() {
                             TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess();
                         } catch (err) {
-                            TS.logger.error('Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
+                            SA.logger.error('Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    TS.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    TS.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
             else {
@@ -71,12 +71,12 @@ exports.newTaskServer = function newTaskServer() {
                             bootingProcess()
 
                         } catch (err) {
-                            TS.logger.error('Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
+                            SA.logger.error('Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    TS.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    TS.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
         }
@@ -93,19 +93,19 @@ exports.newTaskServer = function newTaskServer() {
                 function initializeProjectDefinitionNode() {
                     TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE === undefined) {
-                        TS.logger.error('Task Server -> Task -> bootingProcess -> Project Definition not found. ')
+                        SA.logger.error('Task Server -> Task -> bootingProcess -> Project Definition not found. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
                     }
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === undefined) {
-                        TS.logger.error('Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ')
+                        SA.logger.error('Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition with codeName undefined. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
                     }
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === '') {
-                        TS.logger.error('Task Server -> Task -> bootingProcess -> Project Definition without codeName. ')
+                        SA.logger.error('Task Server -> Task -> bootingProcess -> Project Definition without codeName. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition without codeName. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
@@ -122,6 +122,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupTradingSignals function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
@@ -143,6 +144,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupOpenStorage function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
@@ -157,6 +159,7 @@ exports.newTaskServer = function newTaskServer() {
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.p2pNetworkClient has undefined values at setupP2PNetworkClient function.')
                         return
                     }
                     /*
@@ -168,7 +171,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount === undefined
                     ) {
-                        TS.logger.error('Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a taskServerAppReference referencing an App Server with a Signing Account in order for this task to be able to connect to the P2P Network. ')
+                        SA.logger.error('Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a taskServerAppReference referencing an App Server with a Signing Account in order for this task to be able to connect to the P2P Network. ')
                         throw ('Fatal Error')
                     }
                     /*
@@ -180,7 +183,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.config.codeName === undefined
                     ) {
-                        TS.logger.error('Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a p2pNetworkReference referencing a P2P Network or Permissioned P2P Network with a codeName config property in order for this task to be able to connect to the P2P Network. ')
+                        SA.logger.error('Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a p2pNetworkReference referencing a P2P Network or Permissioned P2P Network with a codeName config property in order for this task to be able to connect to the P2P Network. ')
                         throw ('Fatal Error')
                     }
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
@@ -241,32 +244,32 @@ exports.newTaskServer = function newTaskServer() {
                         and that nodes in the middle have whatever config is mandatory.
                         */
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
                             continue
                         }
 
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
                             continue
                         }
 
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Bot Definition without parent Mine. -> Bot Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Bot Definition without parent Mine. -> Bot Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
                             continue
                         }
 
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
                             continue
                         }
 
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
                             continue
                         }
 
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                            TS.logger.error("Task Server -> Task -> bootingProcess -> Mine without a codeName defined. -> Mine Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+                            SA.logger.error("Task Server -> Task -> bootingProcess -> Mine without a codeName defined. -> Mine Definition = " + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
                             continue
                         }
 
@@ -274,7 +277,7 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
             } catch (err) {
-                TS.logger.error('Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> err = ' + err + ' -> err.message = ' + err.message + ' -> err.stack = ' + err.stack + '.')
+                SA.logger.error('Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> err = ' + err + ' -> err.message = ' + err.message + ' -> err.stack = ' + err.stack + '.')
             }
         }
 

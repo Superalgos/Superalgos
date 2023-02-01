@@ -17,8 +17,8 @@ const customLevels = {
     }
 };
 
-const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
-    let msg = `${timestamp} | ${level} | ${message} `
+const myFormat = (type) => printf(({ level, message, timestamp, ...metadata }) => {
+    let msg = `${timestamp} | ${type} | ${level} | ${message} `
     if (Object.keys(metadata).length > 0) {
         msg += JSON.stringify(metadata)
     }
@@ -28,6 +28,7 @@ const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
 /**
  * 
  * @param {string} logFileDirectory 
+ * @param {string} type
  * @returns {{
  *   info: (message: string) => void,
  *   debug: (message: string) => void,
@@ -35,7 +36,7 @@ const myFormat = printf(({ level, message, timestamp, ...metadata }) => {
  *   error: (message: string, stack: any) => void
  * }}
  */
-exports.loggerFactory = function loggerFactory(logFileDirectory) {
+exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
     const filePathParts = logFileDirectory.split('/')
     addColors(customLevels.colors)
     return createLogger({
@@ -43,7 +44,7 @@ exports.loggerFactory = function loggerFactory(logFileDirectory) {
         format: combine(
             splat(),
             timestamp(),
-            myFormat
+            myFormat(type)
         ),
         transports: [
             new transports.DailyRotateFile({

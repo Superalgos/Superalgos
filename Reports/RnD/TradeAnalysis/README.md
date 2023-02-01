@@ -1,6 +1,7 @@
 # Trade Analysis
 Starting with the pair BTC / USDT on the Binance Exchange, this program sets out to add additional information to the basic trade log provided by exchanges. Information like Profit and Wallet balances.
 
+Current Version: 0.8.1
 ## Installation
 TradeAnalysis is now paired with the work done by Alex White, "Trade Fetcher", to allow quick and easy downloading of trade/order data.
 ### Linux version (Raspberry Pi)

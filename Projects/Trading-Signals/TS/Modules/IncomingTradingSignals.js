@@ -19,12 +19,15 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
 
     async function getAllSignals(node) {
         if (node === undefined) {
+            SA.logger.error('[Error] - IncomingTradingSignals.js - node is undefined.')
             return  
         }
         if (node.incomingSignals === undefined) {
+            SA.logger.error('[Error] - IncomingTradingSignals.js - node.incomingSignals is undefined.')
             return
         }
         if (node.incomingSignals.incomingSignalReferences === undefined) {
+            SA.logger.error('[Error] - IncomingTradingSignals.js - node.incomingSignals.incomingSignalReferences is undefined.')
             return 
         }
 

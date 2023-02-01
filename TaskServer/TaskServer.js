@@ -122,6 +122,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupTradingSignals function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
@@ -143,6 +144,7 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupOpenStorage function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
@@ -157,6 +159,7 @@ exports.newTaskServer = function newTaskServer() {
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient === undefined
                     ) {
+                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.p2pNetworkClient has undefined values at setupP2PNetworkClient function.')
                         return
                     }
                     /*

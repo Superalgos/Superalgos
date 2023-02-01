@@ -453,26 +453,26 @@ exports.newWeb3Server = function newWeb3Server() {
                 )
             }
 
-            PL.logger.info('')
-            PL.logger.info('Distribution complete.')
+            SA.logger.info('')
+            SA.logger.info('Distribution complete.')
             /* Check if errors occurred while sending and provide verbose output */
             if (errorList.length > 0) {
-                PL.logger.warn('')
-                PL.logger.warn('*** WARNING *** Errors have occurred while sending payments. No confirmation of execution is available for these transactions:')
+                SA.logger.warn('')
+                SA.logger.warn('*** WARNING *** Errors have occurred while sending payments. No confirmation of execution is available for these transactions:')
                 for (let e = 0; e < errorList.length; e++) {
-                    PL.logger.warn(e + 1 + ') ' + parseFloat(errorList[e].tokenAmount).toLocaleString('en') + ' SA to ' + errorList[e].userProfile + ', Address: ' + errorList[e].toAddress + ' (' + errorList[e].chain + ')')
+                    SA.logger.warn(e + 1 + ') ' + parseFloat(errorList[e].tokenAmount).toLocaleString('en') + ' SA to ' + errorList[e].userProfile + ', Address: ' + errorList[e].toAddress + ' (' + errorList[e].chain + ')')
                 }
-                PL.logger.warn('')
-                PL.logger.warn('Please verify the execution status of payments to these users manually using a blockchain explorer.')
-                PL.logger.warn('After confirming no payments have been sent, you may re-issue payments to affected users via the whitelist feature.')
+                SA.logger.warn('')
+                SA.logger.warn('Please verify the execution status of payments to these users manually using a blockchain explorer.')
+                SA.logger.warn('After confirming no payments have been sent, you may re-issue payments to affected users via the whitelist feature.')
                 let errorUsers = errorList.map(elem => elem.userProfile).join()
-                PL.logger.warn('')
-                PL.logger.warn('Usage example:')
-                PL.logger.warn('gov.pay whitelist:' + errorUsers)
-                PL.logger.warn('')
-                PL.logger.warn('Above command would send payments again to *all* affected users. Modify users contained in whitelist as needed, based on your manual review.')
+                SA.logger.warn('')
+                SA.logger.warn('Usage example:')
+                SA.logger.warn('gov.pay whitelist:' + errorUsers)
+                SA.logger.warn('')
+                SA.logger.warn('Above command would send payments again to *all* affected users. Modify users contained in whitelist as needed, based on your manual review.')
             } else {
-                PL.logger.info('All transactions sent, no errors recorded while sending.')
+                SA.logger.info('All transactions sent, no errors recorded while sending.')
             }
 
             async function sendTokens(number, userProfile, chain, fromAddress, toAddress, tokenAmount) {

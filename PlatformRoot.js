@@ -67,12 +67,8 @@ async function runRoot() {
     pako: require('pako')
   }
 
-  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
-  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
-
-  const plLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'PL')
-  PL.logger = require('./loggerFactory').loggerFactory(plLogsPath)
-
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Platform')
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'SA')
 
   /* 
   Setting up the App Schema Memory Map. 

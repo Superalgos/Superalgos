@@ -70,11 +70,13 @@ async function runRoot() {
   }
   SA.version = require('./package.json').version
 
-  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'SA')
-  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath)
-
-  const tsLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'TS')
-  TS.logger = require('./loggerFactory').loggerFactory(tsLogsPath)
+  /**
+   * creates a path for the log file under a Tasks folder and each task will be in a subfolder 
+   * using the taskId as a folder name
+   * `<PATH_TO_LOG_FILES>/Tasks/<TASK_ID>`
+   */
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Tasks', process.argv[2])
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'TS')
   
   /* 
   Setting up the App Schema Memory Map. 

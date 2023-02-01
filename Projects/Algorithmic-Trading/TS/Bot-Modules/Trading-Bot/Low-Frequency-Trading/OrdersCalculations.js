@@ -84,8 +84,8 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
 
 
             // Uncomment when debugging
-            // TS.logger.info('The order placed in OrdersCalculation is:')
-            // TS.logger.info(order)
+            // SA.logger.info('The order placed in OrdersCalculation is:')
+            // SA.logger.info(order)
 
 
         }
@@ -188,10 +188,10 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
     
                     if (defaultType == 'inverse') {
                         tradingEngineOrder.orderStatistics.actualRate.value = order.amount / order.price
-                        // TS.logger.info('ORDER AMOUNT/AVERAGE CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
+                        // SA.logger.info('ORDER AMOUNT/AVERAGE CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
                     } else {
                         tradingEngineOrder.orderStatistics.actualRate.value = order.price
-                        // TS.logger.info('STD CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
+                        // SA.logger.info('STD CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
                     } 
                 }
             }  else {tradingEngineOrder.orderStatistics.actualRate.value = order.price}

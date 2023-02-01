@@ -63,12 +63,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function addToforecastCases(testCase) {
         try {
-            TS.logger.debug('{ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
-            if (testCase.ratio_validate !== undefined) TS.logger.debug('{ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
-            TS.logger.debug('{ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
+            SA.logger.debug('{ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
+            if (testCase.ratio_validate !== undefined) SA.logger.debug('{ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
+            SA.logger.debug('{ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
-                TS.logger.debug('{ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
+                SA.logger.debug('{ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
 
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
@@ -82,9 +82,9 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                         }
                     //RL     
                     } else if (testCase.ratio_validate !== undefined) {
-                        TS.logger.info('Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
+                        SA.logger.info('Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
                         if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
-                            TS.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
+                            SA.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
                             addForecastCase(testCase)
@@ -102,7 +102,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         } finally {
             saveForecastCasesFile()
 
-            TS.logger.info('Testserver: Current Forecast table:')
+            SA.logger.info('Testserver: Current Forecast table:')
             console.table(thisObject.forecastCasesArray)    
         }
 
@@ -250,8 +250,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         try {
             let forecastCase = thisObject.forecastCasesMap.get(forecastResult.id)
             if ((forecastCase == undefined) && (forecastResult.id != undefined) && (forecastResult.id > 0) ) {
-                TS.logger.info('' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                TS.logger.info('This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
+                SA.logger.info('' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                SA.logger.info('This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
@@ -294,15 +294,15 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     }
                     logQueue.push(forecastCase)
                 }
-                TS.logger.info('{Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                TS.logger.info('{Test-Server} Updated partial table of Forecast Cases:')
+                SA.logger.info('{Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                SA.logger.info('{Test-Server} Updated partial table of Forecast Cases:')
                 console.table(logQueue)
                 saveForecastReportFile()
                 saveForecastCasesFile()    
             }
         } catch (err) {
-            TS.logger.error('{Test-Server} Error processing forecast results. Err = ' + err.stack)
-            TS.logger.error('{Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
+            SA.logger.error('{Test-Server} Error processing forecast results. Err = ' + err.stack)
+            SA.logger.error('{Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
         }
 
         function calculatePercentageErrorRMSE(forecastResult) {
@@ -326,10 +326,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             axios
                 .post('http://' + Test_Server_BOT_CONFIG.targetSuperalgosHost + ':' + Test_Server_BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
-                    TS.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                    SA.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
                 })
                 .catch(error => {
-                    TS.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                    SA.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
                 })
         }
 

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Supongamos que desea probar una estrategia con diferentes conjuntos de parámetros, por lo que realizas una copia de seguridad del nodo Trading Parameters!",
-                "updated": 1626351504520,
+                "text": "Supongamos que deseas probar una estrategia con diferentes conjuntos de parámetros, por lo que realizas una copia de seguridad del nodo Trading Parameters!",
+                "updated": 1675376059061,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Haz el respaldo! Ahora que tiene una copia de seguridad de todos Trading Parameters, puedes cambiaros sabiendo que siempre puedes volver a su copia de seguridad. En Chrome, debe estar visible en la esquina inferior izquierda de la ventana del navegador.",
-                    "updated": 1626352562721,
+                    "text": "¡Haz el Backup! Ahora que tienes una copia de seguridad de todos Trading Parameters, puedes cambiaros sabiendo que siempre puedes volver a su copia de seguridad. En Chrome, debe estar visible en la esquina inferior izquierda de la ventana del navegador.",
+                    "updated": 1675376090745,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora arrastre el archivo de respaldo y suéltelo en el Design Space! ¡Así es como restaura una copia de seguridad!",
-                    "updated": 1626352187525,
+                    "text": "Ahora arrastra el archivo de Backup y suéltelo en el Design Space! ¡Así es como restaura una copia de seguridad!",
+                    "updated": 1675376086227,
                     "style": "Callout"
                 },
                 {

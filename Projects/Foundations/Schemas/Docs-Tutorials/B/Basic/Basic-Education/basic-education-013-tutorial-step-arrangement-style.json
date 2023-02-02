@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "El botón recorre varias opciones de disposición que afectan la ubicación de un nodo en relación con su padre.",
-                "updated": 1625958297786,
+                "text": "El botón recorre varias opciones de disposición que afectan la ubicación de un nodo en relación con su nodo padre.",
+                "updated": 1675375835742,
                 "style": "Definition"
             },
             {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Concave: El nodo adopta una ranura en una circunferencia alrededor de su nodo principal.",
-                    "updated": 1626038471028,
+                    "text": "Cóncave: El nodo adopta una ranura en una circunferencia alrededor de su nodo principal.",
+                    "updated": 1675375851693,
                     "style": "List"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Convex: La ranura está en una curva convexa.",
-                    "updated": 1625958342457,
+                    "text": "Convexo: La ranura está en una curva convexa.",
+                    "updated": 1675375847368,
                     "style": "List"
                 },
                 {
@@ -195,8 +195,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Vertical-Right: Sobre una línea vertical a la derecha.",
-                    "updated": 1625958412828,
+                    "text": "Vertical-Derecha: Sobre una línea vertical a la derecha.",
+                    "updated": 1675375861124,
                     "style": "List"
                 },
                 {
@@ -239,8 +239,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Vertical-Left: La ranura está en una línea vertical a la izquierda.",
-                    "updated": 1625958432042,
+                    "text": "Vertical-Izquierda: La ranura está en una línea vertical a la izquierda.",
+                    "updated": 1675375865987,
                     "style": "List"
                 },
                 {
@@ -283,8 +283,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Horizontal-Bottom: En una línea horizontal debajo.",
-                    "updated": 1625958446725,
+                    "text": "Horizontal-Abajo: En una línea horizontal debajo.",
+                    "updated": 1675375870164,
                     "style": "List"
                 },
                 {
@@ -327,8 +327,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Horizontal-Top: La ranura está en una línea horizontal arriba.",
-                    "updated": 1625958461412,
+                    "text": "Horizontal-Arriba: La ranura está en una línea horizontal arriba.",
+                    "updated": 1675375874819,
                     "style": "List"
                 },
                 {

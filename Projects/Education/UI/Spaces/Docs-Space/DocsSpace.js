@@ -281,7 +281,6 @@ function newEducationDocSpace() {
 
     function changeLanguage(pLanguage) {
         UI.projects.education.spaces.docsSpace.language = pLanguage
-        let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
         UI.projects.education.spaces.docsSpace.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type)
 
         let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode

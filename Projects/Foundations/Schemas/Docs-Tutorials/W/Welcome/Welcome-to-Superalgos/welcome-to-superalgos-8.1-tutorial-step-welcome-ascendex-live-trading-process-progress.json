@@ -26,6 +26,11 @@
                 "language": "ID",
                 "text": "Step ini akan menjalankan video mode layar penuh.",
                 "updated": 1671601576394
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675362486991
             }
         ]
     },

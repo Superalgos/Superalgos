@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Te daré unos minutos para que juegues con tu sesión en vivo, y cuando estés listo, ¡pasaremos a otras cosas!",
-                "updated": 1624485287716,
+                "text": "Te daré unos minutos para que juegues con tu sesión en vivo y, cuando estés listo, terminaremos el tutorial.",
+                "updated": 1675362893516,
                 "style": "Definition"
             },
             {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que esté listo para seguir adelante, siéntase libre de detener el Live Trading Session y Data Tasks. Puede dejar la sesión activa si lo desea, ¡pero no confiaría indefinidamente el dinero que tanto me costó ganar en la estrategia de demostración!",
-                    "updated": 1624485377425,
+                    "text": "Una vez que estés listo para seguir adelante, no dudes en detener la Live Trading Session y las Data Tasks.",
+                    "updated": 1675362929661,
                     "style": "Important"
                 },
                 {
@@ -166,6 +166,11 @@
                     "language": "NL",
                     "text": "Je mag de sessie laten lopen als je wilt, maar ik zou mijn zuurverdiende geld niet voor onbepaalde tijd aan de demo-strategie toevertrouwen!",
                     "updated": 1667136370625
+                },
+                {
+                    "language": "ES",
+                    "text": "Si lo deseas, puedes dejar la sesión en marcha, pero yo no confiaría indefinidamente mi dinero a la estrategia de demostración.",
+                    "updated": 1675362948992
                 }
             ]
         }

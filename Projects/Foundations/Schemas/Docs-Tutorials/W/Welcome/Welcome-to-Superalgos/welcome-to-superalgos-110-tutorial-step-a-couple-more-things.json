@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Hay más cosas de las que quiero contarte antes de dejarte ir! ¡Ten paciencia conmigo!",
-                "updated": 1625934470264,
+                "text": "Aprenderás más sobre los Docs en otros tutoriales. Ahora, ¡te mostraré un par de cosas más antes de ejecutar una Live Trading Session!",
+                "updated": 1675364580331,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Te daré una breve introducción sobre en qué estamos trabajando para las próximas versiones de Superalgos! Mencioné los algoritmos de aprendizaje automático, ¡pero hay más! ¡Tiene que ver con la integración de proyectos criptográficos!",
-                    "updated": 1624487373295,
+                    "text": "Te daré una rápida introducción sobre algunos servicios premium en los que la Comunidad está trabajando actualmente.",
+                    "updated": 1675364594851,
                     "style": "List"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
-                    "updated": 1625934723800,
+                    "text": "También quiero que sepas que - si aprecias lo que estamos haciendo - ¡puedes ayudar!",
+                    "updated": 1675364602521,
                     "style": "List"
                 },
                 {
@@ -162,6 +162,11 @@
                     "language": "TR",
                     "text": "Superalgos'u inşa etmek ve bugünkü haline getirmek için on binlerce saat emek harcandı. Umarım geri bildirim vermek için birkaç dakikanızı ayırabilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyarım! Haydi başlayalım!",
                     "updated": 1670013824109
+                },
+                {
+                    "language": "ES",
+                    "text": "Decenas de miles de horas de duro trabajo se han invertido en construir Superalgos y llevarlo a su estado actual. Espero que dediques un par de minutos de tu tiempo a retribuirlo, ¡y estaré encantado de indicarte por dónde empezar! ¡Manos a la obra!",
+                    "updated": 1675364620387
                 }
             ]
         }

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "La forma inequívoca de verificar si las cosas están funcionando bien es iniciar sesión en Binance y verificar tu historial de pedidos para BTC / USDT.",
-                "updated": 1624497071539,
+                "text": "La forma inequívoca de verificar si las cosas están funcionando bien es iniciar sesión en el exchange y comprobar tu historial de órdenes de BTC/USDT.",
+                "updated": 1675362535652,
                 "style": "Definition"
             },
             {
@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Ve a Binance y echa un vistazo a lo que está pasando!",
-                    "updated": 1624484856566,
+                    "text": "Accede a la plataforma web del exchange y echa un vistazo.",
+                    "updated": 1675362587264,
                     "style": "Callout"
                 },
                 {
@@ -106,8 +106,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso!",
-                    "updated": 1624484917412,
+                    "text": "En cualquier momento, deberías ver una orden abierta y un número de ordenes canceladas acumulándose en tu historial de órdenes, ¡casi como en el video del siguiente paso!",
+                    "updated": 1675362634552,
                     "style": "Note"
                 },
                 {

@@ -95,6 +95,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                 if (response.result === "Ok") {
                                     event.postText = response.postText
                                     event.postImage = response.postImage
+                                    event.userName = response.userName
                                     eventsWithNoProblem.push(event)
                                 }
                             } else {
@@ -153,6 +154,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
                             if (response.result === "Ok") {
                                 post.postText = response.postText
+                                post.userName = response.userName
                                 postsWithNoProblem.push(post)
                             }
                         }

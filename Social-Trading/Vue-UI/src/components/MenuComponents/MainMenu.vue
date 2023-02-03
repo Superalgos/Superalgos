@@ -39,7 +39,7 @@
 
 <script>
 import store from '../../store/index'
-import { getFeed } from '../../services/PostService'
+import { getPosts } from '../../services/PostService'
 export default {
     name: 'main-menu',
     data() {
@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         openFeed() {
-            getFeed();
+            getPosts();
             store.commit("SHOW_POSTS_COMMENTS", false);
         },
         openProfile() {

@@ -66,7 +66,6 @@ export default {
     },
     methods: {
         closeUsersProfile() {
-            console.log("TRYING TO CLOSE")
             store.commit("CLOSE_USERS_PROFILE");
         },
         followOrUnfollow() {

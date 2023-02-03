@@ -1,16 +1,18 @@
 <template>
     <div id="post-comments-component-div">
-        <post :timestamp="postData.timestamp" 
-                :userHandle="postData.userHandle"  
+        <!-- We render in the post we are looking at -->
+        <post-component 
+                :timestamp="postData.timestamp" 
+                :userName="postData.userName"  
                 :postBody="postData.postBody" 
                 :postImage="postData.postImage" 
                 :originPostHash="postData.originPostHash" 
-                :originPost="postData.originPost"
-                :eventType="postData.eventType"
-                :commentCount='postData.commentCount'
-            />
-
+        />
+        <!-- We add the post-button-bar to this post -->
+        <post-button-bar :id="postData.id" :reactions="postData.reactions" />
+        <!-- We display all comments this post has. -->
         <comment-list />
+        <!-- We display the input field for adding new comments. -->
         <comment-input />
     </div>
 </template>
@@ -18,9 +20,10 @@
 <script>
 import CommentInput from '../CommentComponents/CommentInput.vue'
 import commentList from '../CommentComponents/CommentList.vue'
-import Post from './Post.vue'
+import PostButtonBar from './PostButtonBar.vue'
+import PostComponent from './PostComponent.vue'
 export default {
-  components: { Post, commentList, CommentInput },
+    components: { commentList, CommentInput, PostComponent, PostButtonBar },
     name: 'post-comments',
     props: [ 'postData' ],
     data() {

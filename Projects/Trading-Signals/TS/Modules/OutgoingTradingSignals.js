@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex) {
+exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) {
 
     let thisObject = {
         broadcastSignal: broadcastSignal,
@@ -19,17 +19,14 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
     }
 
     async function broadcastSignal(node, formulaValue) {
-        if (node === undefined) { 
-            SA.logger.error('[Error] - OutgoingTradingSignals.js - node is undefined.')
-            return 
+        if (node === undefined) {
+            return
         }
-        if (node.outgoingSignals === undefined) { 
-            SA.logger.error('[Error] - OutgoingTradingSignals.js - node.outgoingSignals is undefined.')
-            return 
+        if (node.outgoingSignals === undefined) {
+            return
         }
-        if (node.outgoingSignals.outgoingSignalReferences === undefined) { 
-            SA.logger.error('[Error] - OutgoingTradingSignals.js - node.outgoingSignals.outgoingSignalReferences is undefined.')
-            return 
+        if (node.outgoingSignals.outgoingSignalReferences === undefined) {
+            return
         }
         /*
         A single event might trigger multiple signals. That's fine. 
@@ -40,8 +37,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             */
             let signalReference = node.outgoingSignals.outgoingSignalReferences[i]
             if (signalReference.referenceParent === undefined) {
-                SA.logger.error('[Error] - OutgoingTradingSignals.js - signalReference.referenceParent is undefined.')
-                return 
+                return
             }
             let signalDefinition = signalReference.referenceParent
             let socialTradingBot = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(signalDefinition, 'Social Trading Bot')
@@ -69,7 +65,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                                 },
                                 context: context,
                                 candle: {
-                                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value, 
+                                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
                                     end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
                                     open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
                                     close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,

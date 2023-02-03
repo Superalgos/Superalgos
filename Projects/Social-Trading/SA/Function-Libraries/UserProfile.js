@@ -149,6 +149,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             storageProviderUsername         Must be the Github username, not email or anything else.
             storageProviderToken            Must be a valid Github Token.
             userAppType                     Possible values for this field are: "Social Trading Desktop App", "Social Trading Mobile App"
+            userSignature               If user has linked own wallet, carries the signature from wallet
                   
             At this function we are going to:
     
@@ -397,25 +398,37 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         savedPayload: savedPayloadNode
                     }
                     /*
-                    Create a Wallet for the new User Profile and get the Private Key.
+                    Check if the user has linked to own wallet
                     */
-                    const Web3 = SA.nodeModules.web3
-                    let web3 = new Web3()
-                    let account = web3.eth.accounts.create()
-                    let address = account.address
-                    let privateKey = account.privateKey
-                    /*
-                    Sign the User Profile with the Wallet Private Key.
-                    */
-                    let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
-                    let config = {
-                        codeName: profileMessage.storageProviderUsername,
-                        signature: signature
+                    if (profileMessage.userSignature) {
+                        let config = {
+                            codeName: profileMessage.storageProviderUsername,
+                            signature: JSON.parse(profileMessage.userSignature)
+                        }
+                        userProfile.config = JSON.stringify(config)
+                        response.message = "New User Profile Created."
+                    } else {
+                        /*
+                        Create a Wallet for the new User Profile and get the Private Key.
+                        */
+                        const Web3 = SA.nodeModules.web3
+                        let web3 = new Web3()
+                        let account = web3.eth.accounts.create()
+                        let address = account.address
+                        let privateKey = account.privateKey
+                        /*
+                        Sign the User Profile with the Wallet Private Key.
+                        */
+                        let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
+                        let config = {
+                            codeName: profileMessage.storageProviderUsername,
+                            signature: signature
+                        }
+                        userProfile.config = JSON.stringify(config)
+                        response.message = "New User Profile Created."
+                        response.address = address
+                        response.privateKey = privateKey
                     }
-                    userProfile.config = JSON.stringify(config)
-                    response.message = "New User Profile Created."
-                    response.address = address
-                    response.privateKey = privateKey
                 }
             }
 

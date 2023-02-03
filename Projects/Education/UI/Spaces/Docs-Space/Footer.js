@@ -31,10 +31,9 @@ function newFoundationsDocsFooter() {
         if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.sharePage()"><button>SHARE</button></span>'
         }
+
         HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if (UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'
-        }
+        
         if (UI.projects.education.spaces.docsSpace.currentBookBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
         }

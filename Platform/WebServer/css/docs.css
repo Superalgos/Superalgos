@@ -403,6 +403,34 @@ background: white;
 width: 100%;
 }
 
+.docs-content-box {
+background: ghostwhite;
+font-size: 20px;
+padding: 10px;
+border: 1px solid lightgray;
+margin: 10px;
+height: 800px;
+overflow:auto;
+}
+
+/* Backward/Forward Navigation */
+
+.docs-back-forward-navigation {
+height: 10px;
+width: 850px;
+margin:0 auto;
+}
+
+.docs-back-forward-navigation button{
+border: 0px;
+background-color: transparent;
+}
+
+.docs-back-forward-navigation button:hover{
+background-color: #0295aa;
+cursor: pointer;
+}
+
 /* Topic Navigation */
 
 .docs-topic-navigation {

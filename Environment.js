@@ -61,7 +61,7 @@ exports.newEnvironment = function () {
         EXTERNAL_SCRIPTS: [
             'https://code.jquery.com/jquery-3.6.0.js',
             'https://code.jquery.com/ui/1.13.0/jquery-ui.js'
-        ]
+        ],
     }
 
     setProfileOverrideValues()
@@ -72,13 +72,15 @@ exports.newEnvironment = function () {
         thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Workspaces')
     }
 
+    setLogLevelIfAvailable()
+
     // Validating all variables have values
     for (const envVariable in thisObject) {
         if (thisObject[envVariable] === undefined) {
             throw new Error(`Environment variable ${envVariable} is not defined`)
         }
     }
-
+    
     return thisObject
 
     function setProfileOverrideValues() {
@@ -102,5 +104,38 @@ exports.newEnvironment = function () {
         if(profile.storeData !== undefined) { thisObject.PATH_TO_DATA_STORAGE = profile.storeData }
         if(profile.storeLogs !== undefined) { thisObject.PATH_TO_LOG_FILES = profile.storeLogs }
         if(profile.storeWorkspaces !== undefined) { thisObject.PATH_TO_MY_WORKSPACES = profile.storeWorkspaces }
+        if(profile.logLevel !== undefined) { thisObject.LOG_LEVEL = profile.logLevel }
+    }
+
+    function setLogLevelIfAvailable() {
+        if(process.env.LOG_LEVEL){
+            thisObject.LOG_LEVEL = process.env.LOG_LEVEL
+        }
+
+        const allArgs = process.argv.join(' ')
+        if(allArgs.indexOf('logLevel') > -1) {
+            const regexMatch = /(-?-?logLevel\s?=?\s?[A-Za-z]{4,5}\b)/g
+            const allMatches = [...allArgs.matchAll(regexMatch)].reduce((a, m) => { 
+                a.push(m[1]) 
+                return a 
+            }, [])
+            if(allMatches.length == 0) {
+                console.log('The logLevel argument has not been supplied correctly it must match one of the following patterns with <VALUE> as any one of [error, warn, info, debug]')
+                console.log('\tlogLevel=<VALUE>')
+                console.log('\t-logLevel=<VALUE>')
+                console.log('\t--logLevel=<VALUE>')
+                console.log('\tlogLevel = <VALUE>')
+                console.log('\t-logLevel = <VALUE>')
+                console.log('\t--logLevel = <VALUE>')
+                console.log('\tlogLevel <VALUE>')
+                console.log('\t-logLevel <VALUE>')
+                console.log('\t--logLevel <VALUE>')
+                console.log('')
+                return
+            }
+            const first = allMatches[0]
+            const level = first.indexOf('=') > -1 ? first.split('=')[1].trim() : first.split(' ')[1].trim()
+            thisObject.LOG_LEVEL = level.toLowerCase()
+        }
     }
 }

@@ -1,18 +1,18 @@
 let networkCodeName = process.argv[2]
 if (networkCodeName === undefined) {
-    TS.logger.error('You need to provide a Network CodeName as a parameter to this script.')
+    SA.logger.error('You need to provide a Network CodeName as a parameter to this script.')
     return
 }
 
 let initialForecastCaseId = process.argv[3]
 if (initialForecastCaseId === undefined) {
-    TS.logger.error('You need to provide a initialForecastCaseId as a parameter to this script.')
+    SA.logger.error('You need to provide a initialForecastCaseId as a parameter to this script.')
     return
 }
 
 let finalForecastCaseId = process.argv[4]
 if (finalForecastCaseId === undefined) {
-    TS.logger.error('You need to provide a finalForecastCaseId as a parameter to this script.')
+    SA.logger.error('You need to provide a finalForecastCaseId as a parameter to this script.')
     return
 }
 
@@ -27,7 +27,7 @@ function run() {
     if (fileContent !== undefined) {
         forecastCasesArray = JSON.parse(fileContent)
     } else {
-        TS.logger.error('Forecast Cases File NOT Found.')
+        SA.logger.error('Forecast Cases File NOT Found.')
         return
     }
 

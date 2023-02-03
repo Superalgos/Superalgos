@@ -24,7 +24,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
 
             function onConnection(socket) {
                 if (LOG_INFO === true) {
-                    DS.logger.info('New Websocket Connection.')
+                    SA.logger.info('New Websocket Connection.')
                 }
 
                 socket.on('message', onMessage)
@@ -45,11 +45,11 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                         if (origin !== "UI") {
                             if (messageType === "Info") {
                                 if (LOG_INFO === true) {
-                                    DS.logger.info(timestamp + ' ' + origin + ' --> ' + messageString)
+                                    SA.logger.info(timestamp + ' ' + origin + ' --> ' + messageString)
                                 }
 
                             } else if (messageType === "Error") {
-                                DS.logger.error(timestamp + ' ' + origin + ' --> ' + messageString)
+                                SA.logger.error(timestamp + ' ' + origin + ' --> ' + messageString)
 
                             } else if (messageType === "Data") {
                                 // Generic handlier for incoming data
@@ -63,7 +63,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                             dataContent.push(messageObject)
                                         } 
                                         catch (err) {
-                                            DS.logger.error('Dashboard App -> Cannot parse data -> Data from: ', dataKey, ' -> ', err)
+                                            SA.logger.error('Dashboard App -> Cannot parse data -> Data from: ', dataKey, ' -> ', err)
                                         }
                                     }
                                     
@@ -72,36 +72,36 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                         let message = timestamp + '|*|' + dataKey + '|*|' + JSON.stringify(dataContent)
                                         UISocket.send(message)
                                     } else {
-                                        DS.logger.error('Dashboard App -> UI not connected -> can not forward data')
+                                        SA.logger.error('Dashboard App -> UI not connected -> can not forward data')
                                     }
                                 }
                                 catch (err) {
-                                    DS.logger.error('Dashboard App -> Something went wrong while receiving data -> Data from: ', dataKey, ' -> ', err)
+                                    SA.logger.error('Dashboard App -> Something went wrong while receiving data -> Data from: ', dataKey, ' -> ', err)
                                 }
                             }
 
                         } else if (origin === "UI") {
                             // messages coming from UI
                             if (messageType === "Info") {
-                                DS.logger.info('messageType Info ' + messageString)
+                                SA.logger.info('messageType Info ' + messageString)
                                 if (UISocket === undefined) {
                                     UISocket = socket // Store UI socket for message forwarding
                                 }
                                 
                             } else if (messageType === "Startup") {
-                                DS.logger.info('messageType Startup ' + messageString)
+                                SA.logger.info('messageType Startup ' + messageString)
                                 UISocket = socket // Store UI socket for message forwarding
                             }
                         }
 
                     } catch (err) {
-                        DS.logger.error('Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMessage. err = ' + err.stack)
+                        SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMessage. err = ' + err.stack)
                     }
                 }
             }
         } catch (err) {
-            DS.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.message)
-            DS.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.stack)
+            SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.message)
+            SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.stack)
         }
     }
 

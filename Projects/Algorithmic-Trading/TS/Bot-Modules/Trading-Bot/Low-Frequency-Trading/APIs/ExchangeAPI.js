@@ -127,14 +127,14 @@
         if (sandBox) {
             exchange.setSandboxMode(sandBox)
             /* Uncomment to log
-            TS.logger.info('ExchangeAPI connection starting.... ')
-            TS.logger.info('Sandbox mode is: ' + sandBox)
-            TS.logger.info(exchange.urls.api)
-            TS.logger.info('')
-            TS.logger.info('exchangeConstructorParams:')
-            TS.logger.info(exchangeConstructorParams)
-            TS.logger.info('')
-            TS.logger.info('limit is: ' + limit)
+            SA.logger.info('ExchangeAPI connection starting.... ')
+            SA.logger.info('Sandbox mode is: ' + sandBox)
+            SA.logger.info(exchange.urls.api)
+            SA.logger.info('')
+            SA.logger.info('exchangeConstructorParams:')
+            SA.logger.info(exchangeConstructorParams)
+            SA.logger.info('')
+            SA.logger.info('limit is: ' + limit)
             */
         }
         
@@ -221,7 +221,7 @@
         } else {amount = tradingEngineOrder.orderBaseAsset.size.value}
 
         // Uncomment for debug
-        // TS.logger.info('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
+        // SA.logger.info('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
         
         
         // Some exchanges need additional params once connected
@@ -231,15 +231,15 @@
         let orderParams = tradingSystemOrder.config.orderParams
         
         // Uncomment for debug
-        // TS.logger.info(positionParams)
-        // TS.logger.info(orderParams)
+        // SA.logger.info(positionParams)
+        // SA.logger.info(orderParams)
 
         // Above params are merged and passed to ccxt
         let params = {...positionParams, ...orderParams};
         
         // Uncomment for debug
-        // TS.logger.info('Merged Params from Market + Order Close Stage')
-        // TS.logger.info(params)
+        // SA.logger.info('Merged Params from Market + Order Close Stage')
+        // SA.logger.info(params)
 
 
         switch (tradingSystemOrder.type) {
@@ -288,10 +288,10 @@
             let order = await (exchange.createOrder(symbol, type, side, amount, price, params))
 
             // Uncomment for debugging
-            // TS.logger.info(order.info)
-            // TS.logger.info(exchange.market(symbol))
-            // TS.logger.info('The order placed in ExchangeAPI is:')
-            // TS.logger.info(order)
+            // SA.logger.info(order.info)
+            // SA.logger.info(exchange.market(symbol))
+            // SA.logger.info('The order placed in ExchangeAPI is:')
+            // SA.logger.info(order)
 
             logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id

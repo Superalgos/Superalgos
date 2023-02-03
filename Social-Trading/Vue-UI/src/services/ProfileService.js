@@ -31,11 +31,11 @@ const http = axios.create({
     // Used at the Sign Up process when to create a new Superalgos User Profile or to use an existing one.
     async function createProfile(profileData, personaName) {
         return http.post('/users/create-profile', profileData)
-                .then(response => {
+                .then(async response => {
                     if (response.data.address !== undefined) {
                         console.log('A new user profile has been created! This is your address: ', response.data.address, 'and private key: ', response.data.privateKey)
                     }
-                    createSocialPersona(personaName);
+                    await createSocialPersona(personaName);
                     getSocialPersona();
                     return;
                 }).finally(response => {

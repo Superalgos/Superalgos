@@ -5,8 +5,6 @@
         </div>
         <!-- Send Comment Button -->
         <input id="send-comment-button" type="button" value="Send" v-on:click="sendNewComment">
-        
-
     </div>
 </template>
 
@@ -43,7 +41,7 @@ export default {
         sendNewComment() {
             let myNodeId = store.state.profile.nodeId
             let postHash = store.state.postCommentProps.originPostHash
-            let targetSocialPersonaId = store.state.postCommentProps.originPost.originSocialPersonaId
+            let targetSocialPersonaId = store.state.postCommentProps.originSocialPersonaId
 
             let message = {
                 originSocialPersonaId: myNodeId,
@@ -54,13 +52,10 @@ export default {
 
             createReply(message)
             .then(response => {
-                console.log(response)
                 this.commentBody = '';
-                
                 let commentToClear = document.getElementById("new-comment-input")
                 commentToClear.innerText = '';
             });
-
         }
     },
     computed: {
@@ -68,7 +63,6 @@ export default {
             return this.commentBody
         }
     }
-
 }
 </script>
 
@@ -79,21 +73,25 @@ export default {
     height: auto;
     display: flex;
     flex-direction: column;
+    border-bottom: solid 1px black;
+    padding: 1% 0% 2% 0%;
 }
 
 #new-comment-input {
     width: 90%;
+    max-width: 45vw;
     height: auto;
     border: solid 1px black;
     border-radius: 5px;
     margin: 1% auto 0% auto;
+    padding-left: 1%;
 }
 
 #send-comment-button {
     align-self: end;
     width: auto;
     margin-right: 6%;
-    margin-top: 3px;
+    margin-top: 10px;
     font-size: 1vw;
     font-weight: 600;
     border: solid 1px black;

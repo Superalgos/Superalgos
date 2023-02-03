@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="update-profile-option">
         <label class="update-profile-labels" for="name">Name: </label>
         <input type="text" name="name" id="name-input" v-model="profileData.name" :placeholder="$store.state.profile.name">
@@ -7,6 +8,7 @@
         <label class="update-profile-labels" for="bio">Bio: </label>
         <textarea name="bio" id="bio-text-area" cols="60" rows="5" v-model="profileData.bio"></textarea>
     </div>
+</div>
 </template>
 
 <script>
@@ -41,6 +43,9 @@ export default {
         },
         isUpdatingProfileData() {
             return store.state.updatingProfile;
+        },
+        bannerImageSrc() {
+            return store.state.profile.bannerPic;
         }
     },
     watch: {

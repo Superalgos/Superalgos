@@ -90,6 +90,7 @@ const createPost = async (body, res) => {
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             postText: body.postText,
             postImage: body.postImage,
+            userName: body.userName,
             timestamp: (new Date()).valueOf()
         }
 
@@ -115,7 +116,7 @@ const getReplies = async (body, res) => {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST_REPLIES,
             originSocialPersonaId: body.originSocialPersonaId,
-            targetSocialPersonaId: body.targetSocialPersonaId,
+            targetSocialPersonaId: body.originSocialPersonaId,
             targetPostHash: body.originPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,

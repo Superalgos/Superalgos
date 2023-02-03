@@ -11,17 +11,30 @@ const http = axios.create({
 
 
     async function createPost(body) {
-        return http.post('/posts', body);
+        return http.post('/posts', body)
+                .then(response => {
+                    console.log(`Create new post response status = ${response.status}`)
+                });
+
     }
 
     async function getPosts() {
-        return http.get('/posts');
+        return http.get('/posts')
+                .then(response => {
+                    let postsArray = response.data.data;
+                    let postsToStore = []
+                    for (let i = 0; i < postsArray.length; i++) {
+                        let thisPost = postsArray[i];
+                        postsToStore.push(thisPost)
+                    }
+                    store.commit("ADD_POST", postsToStore)
+                    return response.data.data;
+                });
     }
 
     async function getPost(queryParams) {
         return http.get('/posts/post', queryParams)
             .then(response => {
-                console.log(response.data)
                 return response.data
             });
     }
@@ -57,11 +70,16 @@ const http = axios.create({
         }
     */
     async function reactedPost(message) {
-        return http.post('/posts/reactions', message);
+        return http.post('/posts/reactions', message)
+                .then(response => {
+                    return response
+                })
     }
 
     async function getReplies(queryParams) {
-        return http.get('/posts/replies', {params: queryParams});
+        return http.get('/posts/replies', {params: queryParams}).then(result => {
+            return result;
+        })
     }
 
     async function createReply(body) {

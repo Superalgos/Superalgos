@@ -238,7 +238,6 @@ function newEducationDocSpace() {
         thisObject.paragraphMap = undefined
         thisObject.menuLabelsMap = undefined
 
-        thisObject.maxHistoryEntries = undefined
         thisObject.browseHistoryIndex = undefined
         thisObject.historyOfVisitedDocuments = undefined
 

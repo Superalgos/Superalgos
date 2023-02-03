@@ -30,6 +30,11 @@
                 "language": "ID",
                 "text": "Mari lakukan sebuah backtesting! Seharusnya ini berlalu dengan cepat, karena kita sedang menguji data historis selama enam bulan pada file harian.",
                 "updated": 1673831422575
+            },
+            {
+                "language": "ES",
+                "text": "¡Hagamos un Backtesting! Esto debería ser bastante rápido, ya que estamos probando seis meses de datos históricos en archivos diarios.",
+                "updated": 1675463418664
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Menjalankan trading task sangat mirip dengan menjalankan data mining task. Perbedaannya terletak pada — setelah menjalankan tugas — kamu juga perlu menjalankan trading session.",
                     "updated": 1673831429604
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una tarea de trading es bastante similar a ejecutar una tarea de minería de datos. La diferencia radica en que, después de ejecutar la tarea, también es necesario ejecutar la sesión de trading.",
+                    "updated": 1675463445518
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "ID",
                     "text": "Pilih Run pada menu Task dan lalu pilih Run pada menu Backtesting Session.",
                     "updated": 1673831437190
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Run (Ejecutar) en el menú Task (Tarea) y luego selecciona Run (Ejecutar) en el menú Backtesting Session (Sesión de Backtesting).",
+                    "updated": 1675463473908
                 }
             ]
         },
@@ -112,6 +127,11 @@
                     "language": "ID",
                     "text": "Ketika Backtesting Session menginformasikan telah selesai, hentikan tugas dan klik Next untuk melanjutkan.",
                     "updated": 1673831449629
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando la Backtesting Session informe de que ha finalizado, detén la tarea y haz clic en Next para continuar.",
+                    "updated": 1675463495287
                 }
             ]
         }

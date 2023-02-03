@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Sebelum kita pergi lebih jauh, mari kita pastikan bahwa kita memulai dengan workspace yang baru!",
                 "updated": 1673828266343
+            },
+            {
+                "language": "ES",
+                "text": "Pero antes de seguir adelante, ¡asegurémonos de que empezamos con un Workspace nuevo!",
+                "updated": 1675462748591
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Workspaces yang ditandai sebagai Plugin Workspace menyatu bersama perangkat lunak. Yang lainnya adalah milikmu. Saat kamu membuka plugin workspace, salinannya dibuat untuk kamu seorang saja. dan Plugin-nya tetap tidak akan berubah.",
                     "updated": 1673828276493
+                },
+                {
+                    "language": "ES",
+                    "text": "Los Workspaces marcados como Plugin Workspaces se suministran con el software. El resto son suyos. Cuando abre un Plugin Workspaces, se hace una copia del mismo. Los plugins siempre permanecen inalterados.",
+                    "updated": 1675462781502
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "ID",
                     "text": "Tutorial ini harus dimulai dengan Plugin Trading Bot Layers Tutorial workspace yang baru. Jadi, kecuali kamu memuat plugin workspace tepat sebelum memulai, silahkan pilih itu dari panel workspace di sebelah kiri dan kembali ke aku setelah workspace dimuat - cukup klik Resume pada menu-ku!",
                     "updated": 1673828330402
+                },
+                {
+                    "language": "ES",
+                    "text": "Este tutorial requiere comenzar con un Workspace Plugin Trading Bot Layers Tutorial nuevo. Así que, a menos que hayas cargado el workspace plugin justo antes de empezar, por favor selecciónalo en el panel del workspace de la izquierda y vuelve tras cargar el workspace - ¡simplemente haz clic en Resume en mi menú!",
+                    "updated": 1675462862253
                 }
             ]
         }

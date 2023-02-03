@@ -77,6 +77,7 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
+                level: consoleLogLevel == 'debug' ? 'debug' : 'info'
             }),
             new transports.Console({level: consoleLogLevel})
         ]

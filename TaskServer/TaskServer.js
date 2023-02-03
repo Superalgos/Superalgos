@@ -33,6 +33,7 @@ exports.newTaskServer = function newTaskServer() {
                 try {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
+
                     function eventReceived(message) {
                         try {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
@@ -51,14 +52,14 @@ exports.newTaskServer = function newTaskServer() {
                     SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
                     SA.logger.error('Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
-            }
-            else {
+            } else {
 
                 try {
                     /*
                     When the user starts the task at the UI using the DEBUG menu item, it runs from here, intead of from above.
                     */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
+
                     function startDebugging(message) {
                         try {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
@@ -122,7 +123,6 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
-                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupTradingSignals function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
@@ -144,7 +144,6 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
-                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.bot has undefined values at setupOpenStorage function.')
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
@@ -159,7 +158,6 @@ exports.newTaskServer = function newTaskServer() {
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient === undefined
                     ) {
-                        SA.logger.warn('[Warning] - TaskServer.js - TASK_NODE.p2pNetworkClient has undefined values at setupP2PNetworkClient function.')
                         return
                     }
                     /*
@@ -187,17 +185,17 @@ exports.newTaskServer = function newTaskServer() {
                         throw ('Fatal Error')
                     }
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
-                    /*
-                    We set up the P2P Network Client.
-                    */
+                        /*
+                        We set up the P2P Network Client.
+                        */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
-                    /*
-                    We setup the callback function for the circunstances that we receive a message comming from the P2P Network that is not the response to a request sent, but a notification.
-                    */
+                        /*
+                        We setup the callback function for the circunstances that we receive a message comming from the P2P Network that is not the response to a request sent, but a notification.
+                        */
                     let eventReceivedCallbackFunction
-                    /*
-                    For now, if Trading Signals is activated, then we will assume that the incoming notifications are in fact Signals. In the future this assumption should be removed once we have another use case for notifications and this should be generalized. 
-                    */
+                        /*
+                        For now, if Trading Signals is activated, then we will assume that the incoming notifications are in fact Signals. In the future this assumption should be removed once we have another use case for notifications and this should be generalized. 
+                        */
                     if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
                         eventReceivedCallbackFunction = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
                     }

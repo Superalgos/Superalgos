@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex) {
+exports.newTradingSignalsModulesIncomingTradingSignals = function(processIndex) {
 
     let thisObject = {
         getAllSignals: getAllSignals,
@@ -19,16 +19,13 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
 
     async function getAllSignals(node) {
         if (node === undefined) {
-            SA.logger.error('[Error] - IncomingTradingSignals.js - node is undefined.')
-            return  
+            return
         }
         if (node.incomingSignals === undefined) {
-            SA.logger.error('[Error] - IncomingTradingSignals.js - node.incomingSignals is undefined.')
             return
         }
         if (node.incomingSignals.incomingSignalReferences === undefined) {
-            SA.logger.error('[Error] - IncomingTradingSignals.js - node.incomingSignals.incomingSignalReferences is undefined.')
-            return 
+            return
         }
 
         let allSignals = []
@@ -38,10 +35,10 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
             Run some validations
             */
             let signalReference = node.incomingSignals.incomingSignalReferences[i]
-            if (signalReference.referenceParent === undefined) { 
+            if (signalReference.referenceParent === undefined) {
                 SA.logger.error('There is a node of type ' + signalReference.type + ' and name ' + signalReference.name + ' that either is not referencing any node or the referenced node is not present at the workspace. Signals can not be received at the moment because of this. Please fix this and run this Task again.')
-                return []  
-             }
+                return []
+            }
             let signalDefinition = signalReference.referenceParent
 
             let candle = {

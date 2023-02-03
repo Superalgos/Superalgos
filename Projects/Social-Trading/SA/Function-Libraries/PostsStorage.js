@@ -39,6 +39,7 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
             */
             let timestamp = (new Date()).valueOf()
             let file = {
+                userName: eventMessage.userName,
                 timestamp: timestamp,
                 content: eventMessage.postText,
                 images: eventMessage.postImage
@@ -114,9 +115,11 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                         and a hash of the content was generated, and that is what is going to
                         the Network Node.
                         */
-                        eventMessage.postText = undefined
+                        eventMessage.postText = undefined;
 
-                        eventMessage.postImage = undefined
+                        eventMessage.postImage = undefined;
+
+                        eventMessage.userName = undefined;
 
                         /*
                         The file key contains all the information needed to later retrieve this post.
@@ -203,7 +206,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                         result: 'Ok',
                         message: 'Post Text Found',
                         postText: file.content,
-                        postImage: file.images
+                        postImage: file.images,
+                        userName: file.userName
                     }
                     resolve(response)
                 }

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
-                "updated": 1628194149826,
+                "text": "Para que el app.contribute comando funcione, debes autenticarte en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
+                "updated": 1675454184901,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Necesitas autenticarte en GitHub.com para el Client para crear el Pull Request en tu nombre. Para hacer eso, crearás un Personal Access Token en GitHub.com:",
-                    "updated": 1628194254004,
+                    "text": "Necesitas autenticarte en GitHub.com para que el Cliente cree el Pull Request en tu nombre. Para ello, utilizarás el Token de Acceso Personal a Github que creaste al instalar la plataforma o crearás uno nuevo si lo perdiste.",
+                    "updated": 1675454209716,
                     "style": "Text"
                 },
                 {
@@ -119,6 +119,11 @@
                     "language": "NL",
                     "text": "Maak een persoonlijk toegangstoken voor GitHub.com->github.com/settings/tokens/new",
                     "updated": 1669749405931
+                },
+                {
+                    "language": "ES",
+                    "text": "Crea un Personal Access Token en GitHub.com->github.com/settings/tokens/new",
+                    "updated": 1675454237212
                 }
             ]
         },
@@ -135,8 +140,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic en el enlace y sigue las instrucciones. Asegúrate de darle al token el repositorio y los alcances del flujo de trabajo. Mira el clip en el siguiente paso para mayor claridad…",
-                    "updated": 1628194375782,
+                    "text": "Asegúrate de dar al token los ámbitos de repo y workflow. ¡Comprueba el clip en el siguiente paso!",
+                    "updated": 1675454271912,
                     "style": "Callout"
                 },
                 {
@@ -179,8 +184,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sugiero que lo nombres  \"Superalgos\" para referencia futura, asegúrate de marcar la casilla de verificación del repositorio para definir el alcance del token.",
-                    "updated": 1628195225900,
+                    "text": "Te sugiero que le pongas el nombre de Superalgos para que lo reconozcas más adelante. ",
+                    "updated": 1675454293847,
                     "style": "Text"
                 },
                 {

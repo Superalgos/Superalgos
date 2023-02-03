@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
-                "updated": 1628191613869,
+                "text": "¡Increíble! ¡Has aprendido a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda desde tu PC y contribuir con Superalgos!",
+                "updated": 1675454078889,
                 "style": "Definition"
             },
             {
@@ -239,8 +239,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a unexistente Pull Request.",
-                    "updated": 1628191970494,
+                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a un existente Pull Request.",
+                    "updated": 1675454109254,
                     "style": "List"
                 },
                 {

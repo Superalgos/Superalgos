@@ -71,6 +71,11 @@
                     "text": "Çalışma alanı: Başlarken Eklenti Çalışma Alanı.",
                     "updated": 1654393881519,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+                    "updated": 1675448884756
                 }
             ]
         },
@@ -83,6 +88,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654393887009,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675448895422
                 }
             ]
         }

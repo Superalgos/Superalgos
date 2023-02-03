@@ -175,15 +175,10 @@ export default {
                     y: event.pageY
             }
 
-            if (clickLocation !== undefined) {
-                this.emojiDisplayLocation = clickLocation
-                this.originSocialPersonaId = store.state.profile.nodeId
-                store.commit("SHOW_EMOJI_PICKER_NEW_POST", !isDisplayed);
+            this.emojiDisplayLocation = clickLocation
+            this.originSocialPersonaId = store.state.profile.nodeId
+            store.commit("SHOW_EMOJI_PICKER_NEW_POST", !isDisplayed);
             }
-
-            
-        }
-            //store.commit("SHOW_EMOJI_PICKER_NEW_POST", !isDisplayed);
         },
         updatePostBody() {
             let postMessage = document.getElementById("new-post-input")

@@ -149,13 +149,11 @@ export default {
                     y: event.pageY
             }
 
-            if (clickLocation !== undefined) {
-                this.displayLocation = clickLocation
 
-                this.showEmojiReactionTable == true
-                    ? this.showEmojiReactionTable = false
-                    : this.showEmojiReactionTable = true
-                }
+            this.displayLocation = clickLocation
+            this.showEmojiReactionTable == true
+                ? this.showEmojiReactionTable = false
+                : this.showEmojiReactionTable = true
             }
         }
     },

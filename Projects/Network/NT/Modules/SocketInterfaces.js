@@ -133,8 +133,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         response = await NT.networkApp.socialGraphNetworkService.clientInterface.messageReceived(
                                             payload,
                                             caller.userProfile,
-                                            thisObject.networkClients,
-                                            thisObject.networkPeers
+                                            thisObject.networkClients
                                         )
                                         boradcastTo = response.boradcastTo
                                         response.boradcastTo = undefined
@@ -243,10 +242,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         response.result === 'Ok' &&
                         boradcastTo !== undefined
                     ) {
-                        // add filter to only broadcast events from social graph for now
-                        if (payload.networkService === 'Social Graph' || socketMessage.networkService === 'Social Graph') {
-                            broadcastToPeers(socketMessage, caller)
-                        }
+                        broadcastToPeers(socketMessage, caller)
                         broadcastToClients(socketMessage, boradcastTo)
                     }
                     break

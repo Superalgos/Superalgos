@@ -213,7 +213,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
         }
         /*
-        We will check that the Social Entity exists.
+        We wiil check that the Social Entity exists.
         */
         if (socialEntityId === undefined) {
             let response = {
@@ -291,8 +291,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
 
             event.finalize()
-            // TODO: need to work on follower broadcast returns empty on current tests
-            let boradcastToFollowers = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
+            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
                 connectedUserProfiles,
                 socialEntity
             )

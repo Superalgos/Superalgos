@@ -20,6 +20,8 @@ function newEducationDocSpace() {
         currentBookBeingRendered: undefined,
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials, Reviews or Books Schema in order to find it when we need to update them.
         textArea: undefined,
+        browseHistoryIndex: undefined,
+        browseHistoryArray: undefined, // Here we will store all visited documents
         sharePage: sharePage,
         changeLanguage: changeLanguage,
         changeCurrentBranch: changeCurrentBranch,
@@ -28,6 +30,8 @@ function newEducationDocSpace() {
         exitEditMode: exitEditMode,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
+        navigateBack: navigateBack,
+        navigateForward: navigateForward,
         searchPage: searchPage,
         scrollToElement: scrollToElement,
         physics: physics,
@@ -60,6 +64,9 @@ function newEducationDocSpace() {
         let promise = new Promise((resolve, reject) => {
 
             thisObject.menuLabelsMap = new Map()
+
+            thisObject.browseHistoryIndex = 0
+            thisObject.browseHistoryArray = new Array(0)
 
             setupSidePanelTab()
             setUpMenuItemsMap()
@@ -230,6 +237,11 @@ function newEducationDocSpace() {
         thisObject.previousDocumentBeingRendered = undefined
         thisObject.paragraphMap = undefined
         thisObject.menuLabelsMap = undefined
+
+        thisObject.maxHistoryEntries = undefined
+        thisObject.browseHistoryIndex = undefined
+        thisObject.historyOfVisitedDocuments = undefined
+
         isInitialized = false
     }
 
@@ -331,7 +343,8 @@ function newEducationDocSpace() {
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type,
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor,
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId,
-                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.placeholder
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.placeholder,
+                /*updateHistory*/ false, // This avoids reset the history index so forward navigation is still possible after reopen the Docs
             )
         }
     }
@@ -362,12 +375,16 @@ function newEducationDocSpace() {
         thisObject.mainSearchPage.render()
     }
 
-    function navigateTo(project, category, type, anchor, nodeId, placeholder) {
+    function navigateTo(project, category, type, anchor, nodeId, placeholder, updateHistory = true) {
 
         EDITOR_ON_FOCUS = false // forced exit
         UI.projects.education.spaces.docsSpace.paragraphMap = new Map()
 
         getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
+
+        if(updateHistory === true) {
+            addToBrowseHistory(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered)
+        }
 
         UI.projects.education.spaces.docsSpace.documentPage.render()
 
@@ -406,6 +423,34 @@ function newEducationDocSpace() {
             anchor: anchor,
             nodeId: nodeId,
             placeholder: placeholder
+        }
+    }
+
+    function addToBrowseHistory(document) {
+        thisObject.browseHistoryArray = thisObject.browseHistoryArray.slice(0, thisObject.browseHistoryIndex + 1)
+        thisObject.browseHistoryArray.push(document)
+        thisObject.browseHistoryIndex = thisObject.browseHistoryArray.length - 1
+    }
+
+    function navigateBack() {
+        if(thisObject.browseHistoryIndex > 0) {
+            thisObject.browseHistoryIndex = thisObject.browseHistoryIndex - 1
+            let pageToBeLoaded = thisObject.browseHistoryArray.at(thisObject.browseHistoryIndex)
+            thisObject.navigateTo(pageToBeLoaded.project, pageToBeLoaded.category, pageToBeLoaded.type, undefined, undefined, undefined, /*updateHistory*/ false)
+        } else {
+            // should not happen as Back button shall not be visible in that case
+            thisObject.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type, undefined, undefined, undefined, true)
+        }
+    }
+
+    function navigateForward() {
+        if(thisObject.browseHistoryIndex < thisObject.browseHistoryArray.length - 1) {
+            thisObject.browseHistoryIndex = thisObject.browseHistoryIndex + 1
+            let pageToBeLoaded = thisObject.browseHistoryArray.at(thisObject.browseHistoryIndex)
+            thisObject.navigateTo(pageToBeLoaded.project, pageToBeLoaded.category, pageToBeLoaded.type, undefined, undefined, undefined, /*updateHistory*/ false)
+        } else {
+            // should not happen as Forward button shall not be visible in that case
+            thisObject.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type, undefined, undefined, undefined, true)
         }
     }
 

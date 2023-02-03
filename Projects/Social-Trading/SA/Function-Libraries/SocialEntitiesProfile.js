@@ -421,13 +421,13 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     project: 'Open-Storage',
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     config: '{}',
-                    savedPayload: {
+                    savedPayload: [{
                         referenceParent: {
                             type: storageContainer.type,
                             name: storageContainer.name,
                             id: storageContainer.id
                         }
-                    }
+                    }]
                 }
                 StorageContainerReference.savedPayload.push(savedPayloadNode)
 

@@ -110,14 +110,16 @@ exports.newGithubServer = function newGithubServer() {
                                 let listItem = listResponse.data[i]
                                 let githubUsername
                                 switch (endpoint) {
-                                    case 'activity': {
-                                        githubUsername = listItem.login
-                                        break
-                                    }
-                                    case 'repos': {
-                                        githubUsername = listItem.owner.login
-                                        break
-                                    }
+                                    case 'activity':
+                                        {
+                                            githubUsername = listItem.login
+                                            break
+                                        }
+                                    case 'repos':
+                                        {
+                                            githubUsername = listItem.owner.login
+                                            break
+                                        }
                                 }
                                 //SA.logger.info(listItem)
 
@@ -163,25 +165,25 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(username, token, repo='Superalgos') {
+    async function createGithubFork(username, token, repo = 'Superalgos') {
         try {
             token = unescape(token)
             username = unescape(username)
             await doGithub()
             await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
-              return doGithub(v.repo)
+                return doGithub(v.repo)
             }))
 
-            async function doGithub(repo='Superalgos') {
+            async function doGithub(repo = 'Superalgos') {
                 try {
                     let Octokit
                     if (SA && SA.nodeModules && SA.nodeModules.octokit) Octokit = SA.nodeModules.octokit.Octokit
                     else Octokit = require('@octokit/rest').Octokit
                     const octokit = new Octokit({
-                        auth: token,
-                        userAgent: 'Superalgos ' + SA.version
-                    })
-                    // check if repo already exists
+                            auth: token,
+                            userAgent: 'Superalgos ' + SA.version
+                        })
+                        // check if repo already exists
 
                     octokit.repos.get({
                         owner: username,
@@ -189,7 +191,7 @@ exports.newGithubServer = function newGithubServer() {
                     }).catch(async err => {
                         SA.logger.error('Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
                         SA.logger.warn('Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
-                        // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
+                            // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
                         await octokit.repos.createFork({
                             owner: 'Superalgos',
                             repo: repo
@@ -255,7 +257,7 @@ exports.newGithubServer = function newGithubServer() {
                 }
             }
 
-            async function doGithub(repo='Governance-Plugins') {
+            async function doGithub(repo = 'Governance-Plugins') {
                 try {
                     const owner = 'Superalgos'
                     const { Octokit } = SA.nodeModules.octokit
@@ -335,9 +337,9 @@ exports.newGithubServer = function newGithubServer() {
 
                         for (let i = 0; i < githubPrListArray.length; i++) {
                             let pullRequest = githubPrListArray[i]
-                            /*
-                            Lets get the files changed at this Pull Request.
-                            */
+                                /*
+                                Lets get the files changed at this Pull Request.
+                                */
                             let filesChanged = []
                             const per_page = 100 // Max
                             let page = 0
@@ -362,11 +364,11 @@ exports.newGithubServer = function newGithubServer() {
                                     filesChanged.push(listItem)
                                 }
                             }
-                            let fileContentUrl  // URL to the only file at the PR
-                            let fileContent     // File content of the only file at the PR
-                            let userProfile     // User Profile Object
-                            let githubUsername  // The Github user name of who is submitting the Pull Request
-                            let mergeResponse   // The response received from the call to Github to merge the Pull Request
+                            let fileContentUrl // URL to the only file at the PR
+                            let fileContent // File content of the only file at the PR
+                            let userProfile // User Profile Object
+                            let githubUsername // The Github user name of who is submitting the Pull Request
+                            let mergeResponse // The response received from the call to Github to merge the Pull Request
 
                             if (await validatePrHasMoreThanOneFile() === false) { continue }
                             if (await validateFileNameEqualsGithubUsername() === false) { continue }
@@ -403,10 +405,10 @@ exports.newGithubServer = function newGithubServer() {
                                 */
                                 if (filesChanged.length !== 1) {
                                     SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + filesChanged.length)
-                                    /*
-                                    We will close PRs that contains any User Profile file together with other files in the same Pull Request.
-                                    This will avoid manual merges to include User Profile files.
-                                    */
+                                        /*
+                                        We will close PRs that contains any User Profile file together with other files in the same Pull Request.
+                                        This will avoid manual merges to include User Profile files.
+                                        */
                                     for (let j = 0; j < filesChanged.length; j++) {
                                         let pullRequestFile = filesChanged[j]
                                         let fileContentUrl = pullRequestFile.raw_url
@@ -484,9 +486,9 @@ exports.newGithubServer = function newGithubServer() {
                                 fileContent = await SA.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
                                 try {
                                     userProfile = JSON.parse(fileContent)
-                                } catch(err) {
+                                } catch (err) {
                                     SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified it is not in a valid JSON format. -> err = ' + err.message)
-                                    
+
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
@@ -504,7 +506,7 @@ exports.newGithubServer = function newGithubServer() {
                                     });
                                     return false
                                 }
-                                
+
                                 if (userProfile.type !== 'User Profile') {
                                     SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
                                     return false
@@ -516,6 +518,28 @@ exports.newGithubServer = function newGithubServer() {
                                 Validation #4: The message signed at the config is not the Github Username.
                                 */
                                 let config = JSON.parse(userProfile.config)
+
+                                if (config.signature === undefined) {
+                                    SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile config does not include a Signature. Maybe the user did not follow the procedure to create his User Profile but commited the User Profile file to the Governance repo anyways.')
+
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.issues.createComment({
+                                        owner: owner,
+                                        repo: repo,
+                                        issue_number: pullRequest.number,
+                                        body: 'Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile config does not include a Signature. Maybe the user did not follow the procedure to create his User Profile but commited the User Profile file to the Governance repo anyways.'
+                                    });
+
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.pulls.update({
+                                        owner: owner,
+                                        repo: repo,
+                                        pull_number: pullRequest.number,
+                                        state: 'closed'
+                                    });
+                                    return false
+                                }
+
                                 let messageSigned = config.signature.message
                                 if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
                                     SA.logger.info('Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
@@ -719,10 +743,10 @@ exports.newGithubServer = function newGithubServer() {
                                     for (let i = 0; i < userProfile.signingAccounts.signingAccounts.length; i++) {
                                         let signingAccount = userProfile.signingAccounts.signingAccounts[i]
                                         let config = JSON.parse(signingAccount.config)
-                                        /*
-                                        Validation #9 Signing accounts of the User Profile 
-                                        must have a signature of the same Github username of the User Profile.
-                                        */
+                                            /*
+                                            Validation #9 Signing accounts of the User Profile 
+                                            must have a signature of the same Github username of the User Profile.
+                                            */
                                         let messageSigned = config.signature.message
 
                                         if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {

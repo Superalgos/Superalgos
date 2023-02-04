@@ -28,6 +28,11 @@
                 "language": "ID",
                 "text": "Itulah keseluruhannya teman-teman! Kita telah membahas semuanya! Sekarang saatnya untuk keluar dan bermain! Selamat bersenang-senang!",
                 "updated": 1674112043152
+            },
+            {
+                "language": "ES",
+                "text": "¡Eso es todo amigos! Lo hemos cubierto todo. Es hora de salir a jugar. Diviértete.",
+                "updated": 1675468969976
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ID",
                     "text": "Luangkan waktu untuk menjelajahi layer ini, berikan perhatian khusus pada layer yang menurutmu paling berguna.",
                     "updated": 1674112050485
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate tu tiempo para explorar estas capas, prestando especial atención a las que consideres más útiles.",
+                    "updated": 1675468986379
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "ID",
                     "text": "Layer Trading Bot adalah alat fundamental saat merancang, menguji, dan men-debug strategi! Kamu akan mempelajari lebih lanjut tentang mereka dan memanfaatkannya dengan baik dalam tutorial yang mengajarkanmu cara membangun Trading Systems, tersedia di Trading System Design Tutorials Plugin Workspace.",
                     "updated": 1674112057223
+                },
+                {
+                    "language": "ES",
+                    "text": "Las capas del Trading Bot son una herramienta fundamental a la hora de diseñar, probar y depurar estrategias. Aprenderás más sobre ellas y les darás un buen uso en los tutoriales que te enseñan a construir Sistemas de Trading, disponibles en los Trading System Design Tutorials Plugin Workspaces.",
+                    "updated": 1675469035698
                 }
             ]
         },
@@ -108,6 +123,11 @@
                     "language": "ID",
                     "text": "Kunjungi dokumentasi untuk info lebih lanjut!",
                     "updated": 1674112068021
+                },
+                {
+                    "language": "ES",
+                    "text": "Visita la documentación para obtener más información.",
+                    "updated": 1675469048258
                 }
             ]
         }

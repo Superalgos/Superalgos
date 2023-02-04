@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Ada satu layer yang terlupakan... Episodes! Ini menandai durasi episode dan menampilkan fitur untuk beberapa panel plotter...",
                 "updated": 1673951701186
+            },
+            {
+                "language": "ES",
+                "text": "Queda una capa... ¡Episodios! Marca la duración del episodio y presenta varios paneles de trazado...",
+                "updated": 1675467520527
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "ID",
                     "text": "Aktifkan layer \"Episode\"!",
                     "updated": 1673951708917
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Activa la capa \"Episodios\"!",
+                    "updated": 1675467570473
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "ID",
                     "text": "Dalam hal ini, episode tersebut berdurasi enam bulan, jadi yang akan kamu lihat hanyalah garis di bagian bawah layar, dan ikon episode di kedua sisi, menandakan episode tersebut lebih panjang dari periode yang ditampilkan di layar.",
                     "updated": 1673951715971
+                },
+                {
+                    "language": "ES",
+                    "text": "En este caso, el episodio dura seis meses, por lo que todo lo que verás es una línea en la parte inferior de la pantalla, y el icono del episodio a ambos lados, señalando que el episodio es más largo que el periodo representado en pantalla.",
+                    "updated": 1675467573788
                 }
             ]
         },
@@ -110,6 +125,11 @@
                     "language": "ID",
                     "text": "Seperti biasa, panel plotter menampilkan informasi yang dijelaskan di bagian Dokumentasi Trading Engine.",
                     "updated": 1673951723348
+                },
+                {
+                    "language": "ES",
+                    "text": "Como es habitual, los paneles del plotter contienen información que se explica en la sección Trading Engine de la documentación.",
+                    "updated": 1675467596011
                 }
             ]
         }

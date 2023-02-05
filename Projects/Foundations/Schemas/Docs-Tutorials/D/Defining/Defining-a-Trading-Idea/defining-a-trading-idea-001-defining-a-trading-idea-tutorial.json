@@ -69,6 +69,11 @@
                     "language": "ID",
                     "text": "Tentang Tutorial Ini",
                     "updated": 1674637834896
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620814456
                 }
             ]
         },
@@ -98,6 +103,11 @@
                     "language": "NL",
                     "text": "Beheerder: @julianmolina (Telegram).",
                     "updated": 1670782985914
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675620492493
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Şimdiye kadar, tüm işlemler %100 tamamlanmış olmalıdır. Grafiklerle çalışmaya devam edebilmemiz için verilere ihtiyacımız var!",
                 "updated": 1641653038053
+            },
+            {
+                "language": "ES",
+                "text": "En este momento, todos los procesos deberían estar al 100%. Necesitamos que los datos estén listos para poder ir a trabajar en los gráficos.",
+                "updated": 1675622251334
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Önceki öğreticide yapmadığınız için veri madenciliği yapıyorsanız, tüm işlemlerin %100'de olduğundan emin olmak için etrafınıza bakın. Eğer öyleyse, veri madenciliğini durdurun!",
                     "updated": 1641653048518
+                },
+                {
+                    "language": "ES",
+                    "text": "Si estás extrayendo datos porque no lo hiciste en el tutorial anterior, mira a tu alrededor y comprueba si todos los procesos están al 100%. Si todos lo están, ¡entonces detén la minería de datos!",
+                    "updated": 1675622272359
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Devam etmeden önce tüm süreçlerin %100 işaretine ulaşmasını bekleyin!",
                     "updated": 1641653061884
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Espera hasta que todos los procesos alcancen el 100% antes de continuar!",
+                    "updated": 1675622280601
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Hadi grafiklere geçelim!",
                     "updated": 1641653074590
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a los gráficos!",
+                    "updated": 1675622286619
                 }
             ]
         }

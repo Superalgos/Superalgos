@@ -14,8 +14,8 @@
             },
             {
                 "language": "ES",
-                "text": "Este tutorial te guiará a través de las capas que ofrece el Trading Bot en los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - \"Weak-hands Buster\" - WHB de trading y exploraremos alguno de los trades mientras aprendes como usar las capas.",
-                "updated": 1675462544789
+                "text": "Este tutorial te guiará a través de las capas que ofrece el Trading Bot en los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - \"Weak-hands Buster\" (WHB) de trading y exploraremos alguno de los trades mientras aprendes como usar las capas.",
+                "updated": 1675620887237
             },
             {
                 "language": "RU",
@@ -50,6 +50,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394184884,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620862994
                 }
             ]
         },

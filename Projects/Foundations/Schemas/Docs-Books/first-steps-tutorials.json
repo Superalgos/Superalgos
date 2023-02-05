@@ -301,7 +301,14 @@
         {
             "style": "Chapter",
             "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
-            "updated": 1617207891956
+            "updated": 1617207891956,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "I->Foundations->Tutorial->Welcome to Superalgos!->Este tutorial te introduce en el universo Superalgos. Te guía a través de las principales áreas del sistema, te enseña el funcionamiento básico, te guía a través del proceso de Backtesting de un Sistema de Trading de prueba, e incluso te prepara para tu primera Sesión de Trading en Vivo.",
+                    "updated": 1675627707815
+                }
+            ]
         },
         {
             "style": "Chapter",

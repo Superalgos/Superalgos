@@ -33,6 +33,11 @@
                 "language": "ID",
                 "text": "Specialization adalah konsep yang sangat menarik yang dapat mengarah pada perancangan trading system yang lebih efisien!",
                 "updated": 1674626352114
+            },
+            {
+                "language": "ES",
+                "text": "La especialización es un concepto muy interesante que puede llevar a diseñar sistemas de trading más eficientes.",
+                "updated": 1675619843343
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "ID",
                     "text": "Sudah menjadi fakta umum bahwa sebagian besar strategi berkinerja lebih baik pada kondisi pasar tertentu.",
                     "updated": 1674626232133
+                },
+                {
+                    "language": "ES",
+                    "text": "Es un hecho bien conocido que la mayoría de las estrategias funcionan mejor en determinadas condiciones de mercado.",
+                    "updated": 1675619864038
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "ID",
                     "text": "Seperti halnya BB Top Bounce, satu trading system dapat menampilkan beberapa strategi, masing-masing mengkhususkan pada tren tertentu, rentang volatilitas, atau parameter market lainnya.",
                     "updated": 1674626219313
+                },
+                {
+                    "language": "ES",
+                    "text": "Al igual que con BB Top Bounce, un único sistema de trading puede incluir múltiples estrategias, cada una especializada en tendencias específicas, rangos de volatilidad o cualquier otro parámetro del mercado.",
+                    "updated": 1675619885191
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "ID",
                     "text": "Alih-alih merancang strategi untuk mengevaluasi berbagai kondisi dari market conditions, tetap fokus!",
                     "updated": 1674626225730
+                },
+                {
+                    "language": "ES",
+                    "text": "En lugar de diseñar una estrategia para evaluar una serie de condiciones de mercado, mantenlas concentradas.",
+                    "updated": 1675619912295
                 }
             ]
         }

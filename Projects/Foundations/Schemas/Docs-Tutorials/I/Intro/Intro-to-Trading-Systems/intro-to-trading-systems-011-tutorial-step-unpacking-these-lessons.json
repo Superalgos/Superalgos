@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Hemos cubierto dos ejemplos de trading systems con múltiples estrategias ... ¿qué podemos aprender de ellos?",
-                "updated": 1629679940921
+                "text": "Hemos cubierto dos ejemplos de Trading System con múltiples estrategias... ¿Qué podemos aprender de ellos?",
+                "updated": 1675619711184
             },
             {
                 "language": "DE",
@@ -84,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En los próximos pasos, analizaremos las implicaciones de usar múltiples estrategias dentro del mismo trading system y, finalmente, responderemos la pregunta candente: ¿por qué querríamos usar una configuración de este tipo?",
-                    "updated": 1629680767976
+                    "text": "En los próximos pasos, analizaremos las implicaciones de usar múltiples estrategias dentro del mismo Trading System y, finalmente, responderemos la pregunta candente: ¿por qué querríamos usar una configuración de este tipo?",
+                    "updated": 1675619733548
                 },
                 {
                     "language": "DE",

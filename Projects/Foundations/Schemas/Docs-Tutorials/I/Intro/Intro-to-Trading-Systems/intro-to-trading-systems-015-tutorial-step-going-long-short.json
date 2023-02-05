@@ -33,6 +33,11 @@
                 "language": "ID",
                 "text": "Kita membahas tiga alasan utama mengapa sebaiknya membagi logika kompleks menjadi lebih dari satu strategi...",
                 "updated": 1674626693718
+            },
+            {
+                "language": "ES",
+                "text": "Cubrimos las tres razones principales por las que es una buena idea dividir la lógica compleja en más de una estrategia...",
+                "updated": 1675620024986
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "ID",
                     "text": "Kita juga membahas beberapa contoh trading system yang melakukan hal itu. Ada contoh lain yang terlintas dalam pikiran:",
                     "updated": 1674626706435
+                },
+                {
+                    "language": "ES",
+                    "text": "También cubrimos un par de ejemplos de sistemas de trading que hacen justamente eso. Hay otro ejemplo que viene a la mente:",
+                    "updated": 1675620045860
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "ID",
                     "text": "Long dan Short: merancang strategi yang long dan short mungkin bukan ide yang bagus. Pisahkan logika dan bangun satu strategi untuk jangka panjang dan satu lagi untuk jangka pendek!",
                     "updated": 1674626711762
+                },
+                {
+                    "language": "ES",
+                    "text": "Ir en largo y en corto: diseñar una estrategia que vaya tanto en largo como en corto probablemente no sea una buena idea. Divide la lógica y construye una estrategia para ir largo y otra para ir corto.",
+                    "updated": 1675620067309
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "ID",
                     "text": "Ingat prinsip KISS!",
                     "updated": 1674626740008
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda el principio KISS.",
+                    "updated": 1675620085548
                 }
             ]
         }

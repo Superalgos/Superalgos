@@ -42,7 +42,12 @@
                     </div>
                     <!-- Emoji Picker -->
                     <div id="emoji-component" v-if="getEmojiPicker"  >
-                            <emoji-picker />
+                            <emoji-picker 
+                                :postReaction="false" 
+                                :location="emojiDisplayLocation" 
+                                :originSocialPersonaId="originSocialPersonaId"
+                            
+                            />
                     </div>
                     <!-- Submit Post Button -->
                     <div id="submit-btn-div">
@@ -75,7 +80,7 @@
             <div id="home-view-main" class="social-main-view content-container" v-if="!showPostComments">
                 <!-- Post-List Component -->
                 <div id="post-list-container">
-                    <post-list id="post-list" />
+                    <post-list />
                 </div>
                 <!-- Temp Refresh Needed Message -->
                 <p class="center" v-if="$store.state.posts.length == 0">Refresh the webpage once network node connects to retrieve posts.</p>
@@ -105,7 +110,7 @@
 <script>
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
-import { createPost, getFeed } from '../services/PostService'
+import { createPost, getPosts } from '../services/PostService'
 import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
 import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
@@ -127,33 +132,53 @@ export default {
         let settings = false;
         let postBody = "";
         let postData = undefined;
+        let emojiDisplayLocation = undefined;
+        let originSocialPersonaId = undefined;
         return {
             postBody: '',
-            postData: undefined
+            postData: undefined,
+            emojiDisplayLocation: undefined,
+            originSocialPersonaId: undefined,
         }
     },
     methods: {
         sendPost() {
             let message = {
                 originSocialPersonaId: this.$store.state.profile.nodeId,
+                userName: store.state.profile.userProfileHandle
+                            + ' '
+                            + store.state.profile.nodeCodeName,
                 postText: this.postBody,
                 postImage: store.state.postImage
             }
             // If the post is not empty we will send it.
-            if (message.postText !== '') {
+            if (message.postText !== '' || store.state.postImage !== undefined) {
             createPost(message)
                 .then(response => {
                     this.postBody = ''
-                    getFeed()
+                    getPosts()
+                    store.commit("ADD_POST_IMAGE", "");
+                    let postMessage = document.getElementById("new-post-input")
+                    postMessage.innerText = "";
+                    this.updatePostBody()
                 });
             }
         },
         scrollUp() {
             window.scrollTo(window.innerHeight, 0);
         },
-        showEmojiPicker() {
-            let isDisplayed = store.state.showEmojiPicker;
-            store.commit("SHOW_EMOJI_PICKER", !isDisplayed);
+        showEmojiPicker(event) {
+            let isDisplayed = store.state.showEmojiPickerNewPost;
+            if (event !== undefined) {
+            let clickLocation = {
+                    x: event.pageX,
+                    y: event.pageY
+            }
+
+            this.emojiDisplayLocation = clickLocation
+            this.originSocialPersonaId = store.state.profile.nodeId
+            store.commit("SHOW_EMOJI_PICKER_NEW_POST", !isDisplayed);
+            }
         },
         updatePostBody() {
             let postMessage = document.getElementById("new-post-input")
@@ -172,13 +197,11 @@ export default {
         },
         toggleUploadImage() {
             let isDisplayed = store.state.showImageUploader;
-            console.log("Image uploader state = " + store.state.showImageUploader)
             store.commit("SHOW_IMAGE_UPLOADER", !isDisplayed);
         },
         addImage() {
             let el = this.$refs.editableDiv;
             el.focus();
-            console.log("Adding IMAGE")
             let html = `<img src="${store.state.postImage}" style="max-width: 100%; max-height: 500px display: block; margin:auto" class="post-message" />`;
             let range = document.createRange();
             range.selectNodeContents(el);
@@ -201,7 +224,7 @@ export default {
             return store.state.showSettings
         },
         getEmojiPicker() {
-            return store.state.showEmojiPicker
+            return store.state.showEmojiPickerNewPost
         },
         insertEmoji() {
             if(store.state.selectedEmoji !== undefined) {
@@ -250,11 +273,12 @@ export default {
             }
         
         },
-
         showPostComments(newValue, oldValue) {
             this.postData = store.state.postCommentProps
+            console.log("THIS POST DATA")
+            console.log(this.postData)
         }
-  }
+    }
 
 }
 </script>
@@ -316,6 +340,7 @@ export default {
     white-space: pre-wrap;
     border-radius: 4px;
     margin: 1% 0% 1% 2%;
+    padding-left: 1%;
 }
 
 

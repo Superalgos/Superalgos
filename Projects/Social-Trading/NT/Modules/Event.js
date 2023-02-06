@@ -308,11 +308,15 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LOVE ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_WOW ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SAD ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_ANGRY ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SMILE_SMALL_EYES ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SMILE_BIG_EYES
+
+                //TODO handle old reactions...
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_WOW ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SAD ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_ANGRY ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
                 let socialEntityId
@@ -328,7 +332,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100, socialEntityId)
+                targetPost.addReaction(thisObject.eventType - 700, socialEntityId)
 
                 return true
             }

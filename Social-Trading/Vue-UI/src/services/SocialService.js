@@ -32,7 +32,6 @@ const http = axios.create({
             // We look through the response array and gather each user profile into an array to store in the vuex store.
             for (let i = 0; i < responseArray.length; i++) {
                 let thisProfileData = responseArray[i].profileData
-                console.log(thisProfileData)
                 userArray.push(thisProfileData)
 
                 // We check to see if it is our own profile and if so update it in the store.

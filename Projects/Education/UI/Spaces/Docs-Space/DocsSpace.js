@@ -9,6 +9,7 @@ function newEducationDocSpace() {
         searchResultsPage: undefined,
         footer: undefined,
         documentPage: undefined,
+        navigationElements: undefined,
         commandInterface: undefined,
         contextMenu: undefined,
         language: undefined,
@@ -32,6 +33,7 @@ function newEducationDocSpace() {
         navigateTo: navigateTo,
         navigateBack: navigateBack,
         navigateForward: navigateForward,
+        onDocsScrolled: onDocsScrolled,
         searchPage: searchPage,
         scrollToElement: scrollToElement,
         physics: physics,
@@ -77,6 +79,7 @@ function newEducationDocSpace() {
             thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
             thisObject.documentPage = newFoundationsDocsDocumentPage()
             thisObject.footer = newFoundationsDocsFooter()
+            thisObject.navigationElements = newFoundationsDocsNavigationElements()
             thisObject.commandInterface = newFoundationsDocsCommmandInterface()
             thisObject.contextMenu = newFoundationsDocsContextMenu()
 
@@ -222,6 +225,7 @@ function newEducationDocSpace() {
         thisObject.searchResultsPage.finalize()
         thisObject.documentPage.finalize()
         thisObject.footer.finalize()
+        thisObject.navigationElements.finalize()
         thisObject.commandInterface.finalize()
         thisObject.contextMenu.finalize()
 
@@ -230,6 +234,7 @@ function newEducationDocSpace() {
         thisObject.searchResultsPage = undefined
         thisObject.documentPage = undefined
         thisObject.footer = undefined
+        thisObject.navigationElements = undefined
         thisObject.commandInterface = undefined
         thisObject.contextMenu = undefined
 
@@ -331,6 +336,7 @@ function newEducationDocSpace() {
     }
 
     function onOpening() {
+        DOCS_PAGE_ON_FOCUS = true
         thisObject.isVisible = true
         if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
@@ -349,6 +355,7 @@ function newEducationDocSpace() {
     }
 
     function onClosing() {
+        DOCS_PAGE_ON_FOCUS = false
         thisObject.contextMenu.removeContextMenuFromScreen()
         thisObject.isVisible = false
     }
@@ -386,6 +393,8 @@ function newEducationDocSpace() {
         }
 
         UI.projects.education.spaces.docsSpace.documentPage.render()
+
+        updateNavigationElements()
 
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.
@@ -450,6 +459,54 @@ function newEducationDocSpace() {
         } else {
             // should not happen as Forward button shall not be visible in that case
             thisObject.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type, undefined, undefined, undefined, true)
+        }
+    }
+
+    function updateNavigationElements() {
+        let goBackBtn = document.getElementById("docs-navigation-go-back-btn")
+        let goForwardBtn = document.getElementById("docs-navigation-go-forward-btn")
+        let shareBtn = document.getElementById("docs-navigation-share-btn")
+        let goToBookBtn = document.getElementById("docs-navigation-to-book-btn")
+        
+        goBackBtn.disabled = true
+        goForwardBtn.disabled = true
+        shareBtn.disabled = true
+        goToBookBtn.disabled = true
+
+        if (thisObject.browseHistoryIndex > 0) {
+            goBackBtn.disabled = false
+        }
+
+        if (thisObject.browseHistoryIndex < thisObject.browseHistoryArray.length - 1) {
+            goForwardBtn.disabled = false
+        }
+
+        if (thisObject.currentDocumentBeingRendered !== undefined) {
+            shareBtn.disabled = false
+        }
+
+        if (thisObject.currentBookBeingRendered !== undefined) {
+            goToBookBtn.onclick = function() { thisObject.navigateTo(thisObject.currentBookBeingRendered.project, thisObject.currentBookBeingRendered.category, thisObject.currentBookBeingRendered.type) }
+            goToBookBtn.disabled = false
+        }
+    }
+
+    function onDocsScrolled(event) {
+        let toBottomBtn = document.getElementById("docs-navigation-to-bottom-btn")
+        let toTopBtn = document.getElementById("docs-navigation-to-top-btn")
+        let content = document.getElementById("docs-space-div")
+
+        // Update buttons state
+        if (content.scrollTop > 20) {
+            toTopBtn.disabled = false
+        } else {
+            toTopBtn.disabled = true
+        }
+
+        if ((window.innerHeight + content.scrollTop) >= content.scrollHeight) {
+            toBottomBtn.disabled = true
+        } else {
+            toBottomBtn.disabled = false
         }
     }
 

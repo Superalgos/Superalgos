@@ -202,14 +202,14 @@
             if (sandBox) {                
                 exchange.setSandboxMode(sandBox)
                 /* Uncomment to log
-                TS.logger.info('Exchange HistoricOHLCVs connection starting.... ')
-                TS.logger.info('Sandbox mode is: ' + sandBox)
-                TS.logger.info(exchange.urls.api)
-                TS.logger.info('')
-                TS.logger.info('exchangeConstructorParams:')
-                TS.logger.info(exchangeConstructorParams)
-                TS.logger.info('')
-                TS.logger.info('limit is: ' + limit)
+                SA.logger.info('Exchange HistoricOHLCVs connection starting.... ')
+                SA.logger.info('Sandbox mode is: ' + sandBox)
+                SA.logger.info(exchange.urls.api)
+                SA.logger.info('')
+                SA.logger.info('exchangeConstructorParams:')
+                SA.logger.info(exchangeConstructorParams)
+                SA.logger.info('')
+                SA.logger.info('limit is: ' + limit)
                 */
             }
             
@@ -221,13 +221,13 @@
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
 
             /* CCXT Supported Exchanges */
-            TS.logger.error('CCXT Library current supported exchanges:')
+            SA.logger.error('CCXT Library current supported exchanges:')
             for (const property in ccxt) {
-                TS.logger.error(`${property}`);
+                SA.logger.error(`${property}`);
             }
-            TS.logger.error('For more info please check: https://github.com/ccxt/ccxt/wiki/Manual')
-            TS.logger.error('Exchange Class ' + exchangeId)
-            TS.logger.error(exchangeClass)
+            SA.logger.error('For more info please check: https://github.com/ccxt/ccxt/wiki/Manual')
+            SA.logger.error('Exchange Class ' + exchangeId)
+            SA.logger.error(exchangeClass)
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }

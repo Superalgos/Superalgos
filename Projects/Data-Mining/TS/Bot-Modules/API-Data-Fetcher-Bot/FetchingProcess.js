@@ -701,7 +701,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             if (obj !== undefined) {
                                                 dataA.push(obj)
                                             }
-                                            //TS.logger.info(obj)      // Uncomment to log response to console
+                                            //SA.logger.info(obj)      // Uncomment to log response to console
 
                                         })
                                         // When we hit the end of the data received we proceed to saving.
@@ -1266,9 +1266,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     saveData(existingFile)
                                 } catch (err) {
                                     if (err) {
-                                        TS.logger.error('[ERROR]' + err.message + err.stack)
+                                        SA.logger.error('[ERROR]' + err.message + err.stack)
                                     } else {
-                                        TS.logger.error('[Success] Files Updated')
+                                        SA.logger.error('[Success] Files Updated')
                                     }
                                 }
                             }
@@ -1290,10 +1290,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                         if (thisConfig.nodePath !== undefined && thisConfig.nodePath !== '') {
                                                             pathToTimestamp = thisConfig.nodePath
                                                         } else {
-                                                            TS.logger.error('The path to the timestamp is not defined.')
+                                                            SA.logger.error('The path to the timestamp is not defined.')
                                                         }
                                                     } else {
-                                                        TS.logger.error('We have encountered a problem with the apiResponseFieldReference.')
+                                                        SA.logger.error('We have encountered a problem with the apiResponseFieldReference.')
                                                     }
                                                 } else {
                                                     /**If the record is not a timestamp we will assume it is data. */
@@ -1303,10 +1303,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                             let thisPath = thisConfig.nodePath
                                                             pathToData.push(thisPath)
                                                         } else {
-                                                            TS.logger.error('The path to the data record is not defined.')
+                                                            SA.logger.error('The path to the data record is not defined.')
                                                         }
                                                     } else {
-                                                        TS.logger.error('We have encountered a problem with the apiResponseFieldReference.')
+                                                        SA.logger.error('We have encountered a problem with the apiResponseFieldReference.')
                                                     }
                                                 }
                                             }
@@ -1326,7 +1326,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     // First we must control our path info to iterate through all data in the API response.
                                                     switch (timestampPath.length) {
                                                         case (1): {
-                                                            TS.logger.info(TS.logger.info('This data does not have anything to loop through. Please use a different save option.') )
+                                                            SA.logger.info('This data does not have anything to loop through. Please use a different save option.')
                                                             break
                                                         }
                                                         // If two we will count up and loop through all possible responses.
@@ -1350,7 +1350,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
         
                                                         switch (dataPath.length) {
                                                             case (1): {
-                                                                TS.logger.info('This data does not have anything to loop through. Please use a different save option.')
+                                                                SA.logger.info('This data does not have anything to loop through. Please use a different save option.')
                                                                 break
                                                             }
                                                             // If two we will count up and loop through all possible responses.
@@ -1449,7 +1449,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 }
                                             }
                                     } else {
-                                        TS.logger.error('dataReceivedObject is not defined. We have no data to save.')
+                                        SA.logger.error('dataReceivedObject is not defined. We have no data to save.')
                                     }
                                 }
 
@@ -1530,7 +1530,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                             saveDatasetFile("/" + dateForPath)
                                             writeStatusReport()
-                                            TS.logger.info('[Success] API Response Saved.')
+                                            SA.logger.info('[Success] API Response Saved.')
                                             return
 
                                         } else {
@@ -1575,7 +1575,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                         if ((content.length - 1) === c) {
                                             writeStatusReport()
-                                            TS.logger.info('[Success] API Response Saved.')
+                                            SA.logger.info('[Success] API Response Saved.')
                                             return
                                         }
                                     }

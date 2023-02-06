@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Nu u de implicaties begrijpt van het uitvoeren van deze dataminingoperatie, laten we ermee aan de slag gaan!",
                 "updated": 1670783376204
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu memahami implikasi menjalankan operasi data mining ini, mari kita lanjutkan!",
+                "updated": 1674638831703
             }
         ]
     },
@@ -76,6 +81,11 @@
                     "language": "NL",
                     "text": "Selecteer \"Run All Project Data Tasks\" in het knooppuntmenu Data Tasks!",
                     "updated": 1670783416736
+                },
+                {
+                    "language": "ID",
+                    "text": "Pilih \"Run All Project Data Tasks\" pada menu Data Tasks node!",
+                    "updated": 1674638838265
                 }
             ]
         },
@@ -107,6 +117,11 @@
                     "language": "NL",
                     "text": "Als je deze zelfstudie doet nadat je andere zelfstudies hebt gedaan, is de kans groot dat je al een deel van de vereiste gegevens hebt, waardoor dingen sneller kunnen gaan! Hoe dan ook, u hoeft niet te wachten tot de datamining de huidige tijd bereikt... u kunt doorgaan met de tutorial!",
                     "updated": 1670783452588
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu melakukan tutorial ini setelah melakukan tutorial lainnya, kemungkinan besar kamu sudah memiliki sebagian dari data yang diperlukan, yang dapat membuat segalanya lebih cepat! Adapun lainnya, tidak perlu menunggu data mine sampai saat ini... kamu dapat melanjutkan dengan tutorialnya!",
+                    "updated": 1674687740293
                 }
             ]
         }

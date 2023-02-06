@@ -23,14 +23,14 @@ exports.newSecretsRoute = function newSecretsRoute() {
                         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
 
-                        PL.logger.info('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                        SA.logger.info('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
 
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                     } catch (err) {
-                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
-                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
-                        PL.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
+                        SA.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
+                        SA.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
+                        SA.logger.error('httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',

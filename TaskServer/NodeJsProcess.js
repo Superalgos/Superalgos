@@ -9,16 +9,16 @@ exports.newNodeJsProcess = function () {
     function initialize() {
 
         process.on('uncaughtException', function (err) {
-            TS.logger.error('Task Server -> Node JS Process -> uncaughtException -> err.message = ' + err.message)
-            TS.logger.error('Task Server -> Node JS Process -> uncaughtException -> err.stack = ' + err.stack)
-            if (err !== undefined) { TS.logger.error(err.stack) }
+            SA.logger.error('Task Server -> Node JS Process -> uncaughtException -> err.message = ' + err.message)
+            SA.logger.error('Task Server -> Node JS Process -> uncaughtException -> err.stack = ' + err.stack)
+            if (err !== undefined) { SA.logger.error(err.stack) }
             TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess()
         })
 
         process.on('unhandledRejection', (reason, p) => {
-            TS.logger.error('Task Server -> Node JS Process -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-            TS.logger.error('Task Server -> Node JS Process -> unhandledRejection -> p = ' + JSON.stringify(p))
-            if (reason !== undefined) { TS.logger.error(reason.stack) }
+            SA.logger.error('Task Server -> Node JS Process -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+            SA.logger.error('Task Server -> Node JS Process -> unhandledRejection -> p = ' + JSON.stringify(p))
+            if (reason !== undefined) { SA.logger.error(reason.stack) }
             TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess()
         })
 
@@ -33,7 +33,7 @@ exports.newNodeJsProcess = function () {
                 TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT = undefined
             }
 
-            //TS.logger.debug('Task Server -> Node JS Process -> process.on.exit -> About to exit -> config = ' + config)
+            //SA.logger.debug('Task Server -> Node JS Process -> process.on.exit -> About to exit -> config = ' + config)
         })
 
         /* Here we listen for the message to stop this Task / Process coming from the Task Manager, which is the parent of this node js process. */
@@ -47,7 +47,7 @@ exports.newNodeJsProcess = function () {
                 In order to be sure that the process will be terminated, we schedule one forced exit in 2 minutes from now.
                 */
                 let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.type
-                TS.logger.info('Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
+                SA.logger.info('Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
                 setTimeout(TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess, 60000);
             }
         });

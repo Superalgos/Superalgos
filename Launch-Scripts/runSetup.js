@@ -12,41 +12,6 @@ const errorResp = (e) => {
   process.exit()
 }
 
-// the prepare and postinstall package.json scripts are breaking this from 
-// installing automatically during node setup
-const installSuperalgosAsGlobalCli = () => {
-  const command = 'npm install -g .'
-  const nodeInstPromise = new Promise(() => {
-    const child = exec(command, 
-      {cwd: process.cwd()}, 
-      (error, stdout) => {
-        if (error) {
-          console.log('')
-          console.log('There was an error installing superalgos as a global package: ')
-          console.log('')
-          console.log(error)
-          process.exit(1)
-        }
-        console.log('')
-        console.log(stdout)
-      })
-    try {
-      child.stdout.pipe(process.stdout)
-      child.on('exit', async () => {
-        console.log('')
-        console.log('Finished installing superalgos as a global package')
-        console.log('You can now run superalgos --help')
-        await nodeInstPromise.catch(errorResp)
-      })
-    } catch (e) {
-      console.log('')
-      console.log('Event error: ')
-      console.log('')
-      console.log(e)
-      process.exit(1)
-    }})
-}
-
 // ** export setup piece by piece for more robust tests **
 const installExternalScripts = () => {
   for (let i = 0; i<externalScriptsURLs.length; i++) {
@@ -159,7 +124,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   return 'Set upstream and origin for github'
 }
 
-const runSetup = (tfjs=false) => {
+const runSetup = async (tfjs=false) => {
   // Output the Logo
   showLogo()
 
@@ -179,60 +144,57 @@ const runSetup = (tfjs=false) => {
   }
 
   let dir = process.cwd()
-  let command = 'echo Results of install at ' + dir + ' & npm ci'
-  let nodeInstPromise = new Promise(() => {
-    let child = exec(command,
-      {
-          cwd: dir
-      },
-      (error, stdout) => {
-        if (error) {
-          console.log('')
-          console.log('There was an error installing some dependencies: ')
-          console.log('')
-          console.log(error)
-          process.exit(1)
-        }
-        console.log('')
-        console.log(stdout)
-      })
-
-    try {
-      child.stdout.pipe(process.stdout)
-      child.on('exit', async () => {
-        console.log('')
-        console.log('Finished npm ci command')
-        console.log('')
-        // Set upstream and origin
-        setUpstreamAndOrigin().then(async () => {
-          // wait npm ci to finish
-          await nodeInstPromise.catch(errorResp)
-        }).catch(errorResp)
-      })
-    } catch (e) {
-      console.log('')
-      console.log('Event error: ')
-      console.log('')
-      console.log(e)
-      process.exit(1)
-    }
-  })
-  /*
-  Here we will go and clone all the plugins repositories that have not been cloned yet.
-  Temporarily commenting this section as source for githubUserName and token in this script are not clear.
-
-  const SETUP_PLUGINS_MODULE = require('./setupPlugins.js')
-  SETUP_PLUGINS_MODULE.run(githubUserName, token)
-  */
+  
+  await runInstallCommands()
+    .then(() => setUpstreamAndOrigin())
+    .catch(errorResp)
 
   // Donload external scripts
   console.log('')
   console.log('Setting up your environment …')
   console.log('')
   installExternalScripts()
-  // installSuperalgosAsGlobalCli()
   return 'Setup complete'
+}
 
+async function runInstallCommands() {
+  try {
+    await executeCommand('echo Results of install at ' + process.cwd() + ' & npm ci --omit=optional')
+  }
+  catch(err) {
+    if(err.message.indexOf('package.json and package-lock.json') > -1) {
+      console.error('npm ci failed package.json and package-lock.json are not in sync')
+      console.log('running npm install --omit=optional')
+      await executeCommand('npm install --omit=optional')
+    }
+    else {
+      throw err
+    }
+  }
+}
+
+function executeCommand(command) {
+  return new Promise((resolve, reject) => {
+    const child = exec(command, {cwd: process.cwd()}, (err, stdout) => {
+      if(err) {
+        reject(err)
+        return
+      }
+      resolve()
+    })
+
+    try {
+      child.stdout.pipe(process.stdout)
+      child.on('exit', () => {
+        console.log('')
+        console.log('Finished ' + command)
+        console.log('')
+      })
+    }
+    catch(e) {
+      reject(e)
+    }
+  })
 }
 
 function showLogo () {

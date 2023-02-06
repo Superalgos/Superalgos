@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Полигон содержит определения, из которых состоят фигуры и их стили.",
                 "updated": 1636746899276
+            },
+            {
+                "language": "TR",
+                "text": "Bir polygonun, şekilleri ve stillerini oluşturan tanımları vardır.",
+                "updated": 1674590416602
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Полигоны определяются двумя или более вершинами, которые отображают точки в точке диаграммы. Графическое представление полигонов создается стилями, применяемыми к телу полигонов Polygon Body и их границам.",
                     "updated": 1639728182619
+                },
+                {
+                    "language": "TR",
+                    "text": "Polygon'lar, bir grafik noktasındaki noktaları eşleyen iki veya daha fazla köşe ile tanımlanır. Polygonların grafik temsili, polygon gövdelerine ve polygon kenarlıklarına ya da her ikisine birden uygulanan stillerden kaynaklanır.",
+                    "updated": 1674590514057
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Порядок, в котором полигоны располагаются вокруг родительского узла фигуры, определяет порядок их отрисовки на экране. В случаях, когда полигоны пересекаются, полигоны, нарисованные последними, рисуются поверх полигонов, нарисованных первыми.",
                     "updated": 1639727439429
+                },
+                {
+                    "language": "TR",
+                    "text": "Polygonların ana şekiller düğümü etrafında sıralanma sırası, ekranda çizilme sıralarını belirler. Polygonların kesiştiği durumlarda, son çizilenler ilk çizilenlerin üzerine çizilir.",
+                    "updated": 1674590702377
                 }
             ]
         }

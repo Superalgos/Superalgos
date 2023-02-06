@@ -31,7 +31,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                             If we have a problem reading this folder we will assume that it is
                             because this project does not need this folder and that's it.
                             */
-                            //PL.logger.warn('Error reading a directory content. filePath = ' + dirPath)
+                            //SA.logger.warn('Error reading a directory content. filePath = ' + dirPath)
                         } else {
                             for(let i = 0; i < fileList.length; i++) {
                                 let name = 'Plugin \u2192 ' + fileList[i]
@@ -45,8 +45,8 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                         }
                     }
                 } catch(err) {
-                    PL.logger.error('Error reading a directory content. filePath = ' + dirPath)
-                    PL.logger.error('err.stack = ' + err.stack)
+                    SA.logger.error('Error reading a directory content. filePath = ' + dirPath)
+                    SA.logger.error('err.stack = ' + err.stack)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
                 }
@@ -76,8 +76,8 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                     }
                 }
             } catch(err) {
-                PL.logger.error('Error reading a directory content. filePath = ' + dirPath)
-                PL.logger.error('err.stack = ' + err.stack)
+                SA.logger.error('Error reading a directory content. filePath = ' + dirPath)
+                SA.logger.error('err.stack = ' + err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 return
             }

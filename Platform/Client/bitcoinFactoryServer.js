@@ -28,14 +28,14 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
     function updateForecastedCandles(bestPredictionsData) {
 
-        PL.logger.debug('{BitcoinFactoryServer} Updating DataMine with new results')
+        SA.logger.debug('{BitcoinFactoryServer} Updating DataMine with new results')
 
         let bestPredictions
 
         try {
             bestPredictions = JSON.parse(bestPredictionsData)
         } catch (err) {
-            PL.logger.warn('{BitcoinFactoryServer} Error parsing JSON data ' + err.stack)
+            SA.logger.warn('{BitcoinFactoryServer} Error parsing JSON data ' + err.stack)
             return {
                 result: 'JSON Parse error'
             }            
@@ -46,13 +46,13 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
         for (let j = 0; j < bestPredictions.length; j++) {
             let bestPrediction = bestPredictions[j]
-            PL.logger.debug('{BitcoinFactoryServer} Updating No', j+1 ,'Prediction now')
+            SA.logger.debug('{BitcoinFactoryServer} Updating No', j+1 ,'Prediction now')
 
             let newForecastedCandles = []
             let newRLPredictions = []
             //LSTM
             if (bestPrediction.percentageErrorRMSE != undefined) { 
-                PL.logger.debug('{BitcoinFactoryServer} It is LSTM')
+                SA.logger.debug('{BitcoinFactoryServer} It is LSTM')
 
                 let forecastedCandlesFileContent
                 let percentageError = Number(bestPrediction.percentageErrorRMSE)
@@ -113,7 +113,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         */
                         newForecastedCandles.push(newForecastedCandle)
                     } else {
-                        PL.logger.error('Cound not update Superalgos. ' + err.stack)
+                        SA.logger.error('Cound not update Superalgos. ' + err.stack)
                         return
                     }
                 }  
@@ -160,7 +160,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
             //RL      
             } else if (bestPrediction.ratio_validate != undefined) {     
-                PL.logger.debug('{BitcoinFactoryServer} It is RL')
+                SA.logger.debug('{BitcoinFactoryServer} It is RL')
 
                 let RLPredictionsFileContent 
                 let newRLPrediction = {
@@ -208,8 +208,8 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         */
                         newRLPredictions.push(newRLPrediction)
                     } else {
-                        PL.logger.error('{BitcoinFactoryServer} Cound not update Superalgos. Error-Code: ' +err.code)
-                        PL.logger.error('{BitcoinFactoryServer} Error-Stack' + err.stack)
+                        SA.logger.error('{BitcoinFactoryServer} Cound not update Superalgos. Error-Code: ' +err.code)
+                        SA.logger.error('{BitcoinFactoryServer} Error-Stack' + err.stack)
                         return
                     }
                 }
@@ -336,7 +336,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
             reportsDirectory = SA.nodeModules.fs.readdirSync('./Bitcoin-Factory/Reports')
         }
         catch(err) {
-            PL.logger.warn("Cannot access directory for Bitcoin Factory Reports: ./Bitcoin-Factory/Reports/")
+            SA.logger.warn("Cannot access directory for Bitcoin Factory Reports: ./Bitcoin-Factory/Reports/")
             return {
                 result: 'Not Ok'
             }
@@ -353,7 +353,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                     rewardsFile = SA.nodeModules.fs.readFileSync('./Bitcoin-Factory/Reports/' + reportsDirectory[f])
                 }
                 catch(err) {
-                    PL.logger.error("Unable to open Governance Rewards File ./Bitcoin-Factory/Reports/" + reportsDirectory[f])
+                    SA.logger.error("Unable to open Governance Rewards File ./Bitcoin-Factory/Reports/" + reportsDirectory[f])
                     continue
                 }
 
@@ -394,12 +394,12 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 }
                 /* Check if file contained any malformed lines */
                 if (parsingError > 0) {
-                    PL.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
+                    SA.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
                     continue
                 }             
                 /* Check if file contains mandatory columns */             
                 if (!headers.includes("assignedTimestamp") || !headers.includes("testedByProfile") || !headers.includes("status")) {
-                    PL.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
+                    SA.logger.warn("Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
                     continue
                 }
 
@@ -422,15 +422,15 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 }
                 if (debugMode === true) {
                     if (recordsCounter === 0) {
-                        PL.logger.info("Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
+                        SA.logger.info("Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
                     } else {
-                        PL.logger.info("Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
+                        SA.logger.info("Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
                     }
                 }
             }
         }
         if (debugMode === true) {
-            PL.logger.info("Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
+            SA.logger.info("Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
         }
         return {
             result: 'Ok',

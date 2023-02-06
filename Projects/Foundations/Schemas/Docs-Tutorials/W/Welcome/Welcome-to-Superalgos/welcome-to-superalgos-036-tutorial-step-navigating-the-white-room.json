@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Tout comme l'espace de conception, l'espace de création de graphiques comporte une vaste zone où vous pouvez créer des graphiques... autant que votre ordinateur peut en supporter !",
                 "updated": 1668067798278
+            },
+            {
+                "language": "PL",
+                "text": "Podobnie jak Design Space, Charting Space charakteryzuje się ogromną przestrzenią, gdzie możesz dodwawać wykresy... tak wiele, że jedynym ograniczeniem jest moc obliczeniowa Twojego sprzętu!",
+                "updated": 1675080895079
             }
         ]
     },
@@ -104,6 +109,11 @@
                     "language": "FR",
                     "text": "Pour simplifier la tâche des nouveaux venus, l'espace de travail des didacticiels de démarrage ne comporte que deux graphiques. Les utilisateurs avancés suivent les graphiques de plusieurs bourses et de plusieurs marchés.",
                     "updated": 1668067836003
+                },
+                {
+                    "language": "PL",
+                    "text": "Jako ułatwienie dla nowych użytkowników, w tym obszarze roboczym znajdują się tylko dwa wykresy. Zaawansowani użytkownicy monitorują wykresy z wielu giełd i wielu rynków.",
+                    "updated": 1675080993731
                 }
             ]
         },
@@ -154,6 +164,11 @@
                     "language": "FR",
                     "text": "Pour vous déplacer dans la fenêtre de visualisation, cliquez et faites glisser la zone vide à l'aide de votre souris. Le raccourci clavier est Shift plus les touches fléchées ↑ ← → ↓",
                     "updated": 1668067953428
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby poruszać się po Viewport, kliknij i przeciągnij na pustym obszarze za pomocą myszy. Kombinacja klawiszy to Shift plus klawisze strzałek ↑ ← → ↓",
+                    "updated": 1675081022765
                 }
             ],
             "updated": 1622198195729

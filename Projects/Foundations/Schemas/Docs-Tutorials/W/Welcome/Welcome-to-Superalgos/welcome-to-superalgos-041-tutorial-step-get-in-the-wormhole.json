@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Il est temps de plonger dans une Time Machine et de voir ce qui se passe ! Êtes-vous prêt pour une expérience immersive complète ?",
                 "updated": 1668068568212
+            },
+            {
+                "language": "PL",
+                "text": "Czas zagłębić się w Time Machine i zobaczyć co się stanie! Czy jesteś gotowy na to doświadczenie?",
+                "updated": 1675085319743
             }
         ]
     },
@@ -103,6 +108,11 @@
                     "language": "FR",
                     "text": "L'espace graphique est comme le Google Maps des graphiques de marché. Comme vous le savez déjà, vous cliquez et glissez avec le bouton gauche de la souris pour vous déplacer dans le paysage... mais comment zoomer pour voir les détails ?",
                     "updated": 1668068592992
+                },
+                {
+                    "language": "PL",
+                    "text": "Charting Space jest jak Google Maps wykresów rynkowych. Jak już wiesz, klikasz lewym przyciskiem myszy i przeciągasz, aby poruszać się w terenie... ale jak powiększyć, aby zobaczyć szczegóły?",
+                    "updated": 1675085387979
                 }
             ]
         },
@@ -153,6 +163,11 @@
                     "language": "FR",
                     "text": "Avec la roue de la souris ! Essayez!",
                     "updated": 1668068608640
+                },
+                {
+                    "language": "PL",
+                    "text": "Za pomocą kółka myszy! Spróbuj!",
+                    "updated": 1675085399324
                 }
             ]
         },
@@ -204,6 +219,11 @@
                     "language": "FR",
                     "text": "Exactement ! Tout comme dans Google Maps ! Pointer la souris sur la zone qui nous intéresse, puis faire tourner la roue de la souris vers l'avant pour faire un zoom avant, et vers l'arrière pour faire un zoom arrière !",
                     "updated": 1668068625761
+                },
+                {
+                    "language": "PL",
+                    "text": "Dokładnie! Zupełnie jak w Google Maps! Wskaż myszką interesujący Cię obszar, następnie przewiń w górę aby powiększyć lub w dół aby pomniejszyć!",
+                    "updated": 1675085466758
                 }
             ]
         }

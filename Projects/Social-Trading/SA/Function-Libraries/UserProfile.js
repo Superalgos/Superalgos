@@ -149,17 +149,21 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             storageProviderUsername         Must be the Github username, not email or anything else.
             storageProviderToken            Must be a valid Github Token.
             userAppType                     Possible values for this field are: "Social Trading Desktop App", "Social Trading Mobile App"
+            userSignature               If user has linked own wallet, carries the signature from wallet
                   
             At this function we are going to:
     
             1. We will check if the storageProviderName has a fork of Superalgos already created. If not, we will create the fork.
             2. We will check for the User Profile and read that file if exists. 
-            3. If the user profile file does not exist, then we are going to create it. Create a walleet and sign the User Profile.
+            3. If the user profile file does not exist, then we are going to create it. 
+                3.1. Create a wallet and sign the User Profile.
+                3.2. TODO: If user links own wallet, use the wallet info.
             4. Add to the User Profile the User App based on userAppType.
             5. Create a Storage Container for "My-Social-Trading-Data".
             6. Create the Signing Accounts and sign them.
-            7. TODO: auto merge new profile into the main superalgos governance repo
+            7. Auto merge new profile into the main superalgos governance repo
             */
+            /* Load some helper to create the user profile nodes */
 
             /*
             Message Properties Validations
@@ -228,6 +232,27 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             let targetNodeTypeCount
             let response = {
                 result: 'Ok'
+            }
+            let savedPayloadNode = {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                targetPosition: {
+                    x: 0,
+                    y: 0
+                },
+                floatingObject: {
+                    isPinned: false,
+                    isFrozen: false,
+                    isCollapsed: false,
+                    angleToParent: 2,
+                    distanceToParent: 3,
+                    arrangementStyle: 0
+                },
+                uiObject: {
+                    isRunning: false
+                }
             }
 
             await checkCreateFork()
@@ -369,28 +394,41 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         type: 'User Profile',
                         name: profileMessage.storageProviderUsername,
                         project: 'Governance',
-                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        savedPayload: savedPayloadNode
                     }
                     /*
-                    Create a Wallet for the new User Profile and get the Private Key.
+                    Check if the user has linked to own wallet
                     */
-                    const Web3 = SA.nodeModules.web3
-                    let web3 = new Web3()
-                    let account = web3.eth.accounts.create()
-                    let address = account.address
-                    let privateKey = account.privateKey
-                    /*
-                    Sign the User Profile with the Wallet Private Key.
-                    */
-                    let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
-                    let config = {
-                        codeName: profileMessage.storageProviderUsername,
-                        signature: signature
+                    if (profileMessage.userSignature) {
+                        let config = {
+                            codeName: profileMessage.storageProviderUsername,
+                            signature: JSON.parse(profileMessage.userSignature)
+                        }
+                        userProfile.config = JSON.stringify(config)
+                        response.message = "New User Profile Created."
+                    } else {
+                        /*
+                        Create a Wallet for the new User Profile and get the Private Key.
+                        */
+                        const Web3 = SA.nodeModules.web3
+                        let web3 = new Web3()
+                        let account = web3.eth.accounts.create()
+                        let address = account.address
+                        let privateKey = account.privateKey
+                        /*
+                        Sign the User Profile with the Wallet Private Key.
+                        */
+                        let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
+                        let config = {
+                            codeName: profileMessage.storageProviderUsername,
+                            signature: signature
+                        }
+                        userProfile.config = JSON.stringify(config)
+                        response.message = "New User Profile Created."
+                        response.address = address
+                        response.privateKey = privateKey
                     }
-                    userProfile.config = JSON.stringify(config)
-                    response.message = "New User Profile Created."
-                    response.address = address
-                    response.privateKey = privateKey
                 }
             }
 
@@ -401,7 +439,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         name: 'New Token Power Switch',
                         project: 'Governance',
                         id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                        config: '{}'
+                        config: '{}',
+                        savedPayload: savedPayloadNode
                     }
                 }
 
@@ -412,15 +451,18 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         project: 'Governance',
                         id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                         config: "{}",
+                        savedPayload: savedPayloadNode,
                         stakingProgram: {
                             type: "Staking Program",
                             name: "New Staking Program",
                             config: "{}",
+                            savedPayload: savedPayloadNode,
                             project: "Governance",
                             tokensAwarded: {
                                 type: "Tokens Awarded",
                                 name: "New Tokens Awarded",
                                 project: "Governance",
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             },
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -433,17 +475,20 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         type: "Liquidity Programs",
                         name: "New Liquidity Programs",
                         config: "{}",
+                        savedPayload: savedPayloadNode,
                         project: "Governance",
                         liquidityProgram: [
                             {
                                 type: "Liquidity Program",
                                 name: "BTCB",
+                                savedPayload: savedPayloadNode,
                                 config: "{\n    \"asset\": \"BTCB\",\n    \"exchange\": \"PANCAKE\"\n}",
                                 project: "Governance",
                                 tokensAwarded: {
                                     type: "Tokens Awarded",
                                     name: "New Tokens Awarded",
                                     project: "Governance",
+                                    savedPayload: savedPayloadNode,
                                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 },
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -451,12 +496,14 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             {
                                 type: "Liquidity Program",
                                 name: "BNB",
+                                savedPayload: savedPayloadNode,
                                 config: "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"PANCAKE\"\n}",
                                 project: "Governance",
                                 tokensAwarded: {
                                     type: "Tokens Awarded",
                                     name: "New Tokens Awarded",
                                     project: "Governance",
+                                    savedPayload: savedPayloadNode,
                                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 },
                                 "id": SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -473,6 +520,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         type: 'User Apps',
                         name: 'New User Apps',
                         project: 'User-Apps',
+                        savedPayload: savedPayloadNode,
                         id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                         config: '{}'
                     }
@@ -487,6 +535,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                                 project: 'User-Apps',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
+                                savedPayload: savedPayloadNode,
                                 socialTradingDesktopApps: []
                             }
                         }
@@ -494,6 +543,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             type: 'Social Trading Desktop App',
                             name: 'Social Trading Desktop App #1',
                             project: 'User-Apps',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}',
                         }
@@ -507,6 +557,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                                 type: 'Mobile Apps',
                                 name: 'New Mobile Apps',
                                 project: 'User-Apps',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
                                 socialTradingDesktopApps: []
@@ -516,6 +567,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             type: 'Social Trading Mobile App',
                             name: 'New Social Trading Mobile App',
                             project: 'User-Apps',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
                         }

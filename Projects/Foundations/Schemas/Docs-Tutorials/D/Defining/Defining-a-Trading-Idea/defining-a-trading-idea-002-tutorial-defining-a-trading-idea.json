@@ -39,6 +39,11 @@
                 "language": "NL",
                 "text": "Voordat u een Trading Strategy kunt opstellen, moet u eerst met een duidelijk en testbaar handelsidee komen.",
                 "updated": 1670783046377
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu dapat membangun Trading Strategy, pertama-tama kamu harus memiliki ide trading yang jelas dan dapat diuji.",
+                "updated": 1674638112509
             }
         ]
     },
@@ -77,6 +82,11 @@
                     "language": "NL",
                     "text": "Een handelsidee is een voorloper van een handelsstrategie. Hoewel een volledige strategie de regels omvat voor het innemen, beheren en verlaten van een positie, heeft een handelsidee alleen betrekking op de eerste van deze kwesties.",
                     "updated": 1670783074649
+                },
+                {
+                    "language": "ID",
+                    "text": "Ide trading adalah pendahulu untuk trading strategy. Sementara strategi lengkap memerlukan aturan untuk mengambil, mengelola, dan keluar dari posisi, ide trading hanya berkaitan dengan masalah pertama saja.",
+                    "updated": 1674638147492
                 }
             ]
         },
@@ -114,6 +124,11 @@
                     "language": "NL",
                     "text": "Het is een logische aanpak om een handelsidee te testen alvorens een complete strategie op te bouwen, omdat het beheren en beëindigen van mislukte transacties niet is waar u naar zou moeten streven!",
                     "updated": 1670783101261
+                },
+                {
+                    "language": "ID",
+                    "text": "Menguji ide trading sebelum berkomitmen untuk membangun strategi yang lengkap adalah pendekatan logis karena mengelola dan keluar dari entri yang gagal bukanlah tujuanmu!",
+                    "updated": 1674638126729
                 }
             ]
         },
@@ -151,6 +166,11 @@
                     "language": "NL",
                     "text": "In deze tutorial wordt uitgelegd hoe u een handelsidee op de juiste manier formuleert dat later kan worden getest.",
                     "updated": 1670783113868
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial ini menjelaskan cara merumuskan ide trading dengan benar yang nantinya dapat diuji.",
+                    "updated": 1674638137223
                 }
             ]
         }

@@ -404,12 +404,13 @@ width: 100%;
 }
 
 .docs-content-box {
-background: ghostwhite;
+background: whitesmoke;
 font-size: 20px;
 padding: 10px;
 border: 1px solid lightgray;
 margin: 10px;
-height: 800px;
+min-height: 100px;
+max-height: 800px;
 overflow:auto;
 }
 

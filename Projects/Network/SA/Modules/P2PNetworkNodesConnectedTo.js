@@ -66,11 +66,14 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
                 if (peer.p2pNetworkNode.node.config.host === undefined) {
                     continue
-                }
-                if (peer.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined) {
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
                     continue
-                }
-                if (isPeerConnected(peer) === true) {
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined) {
+                    continue
+                    
+                } else if (isPeerConnected(peer) === true) {
                     continue
                 }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()

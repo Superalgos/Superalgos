@@ -243,8 +243,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         response.result === 'Ok' &&
                         boradcastTo !== undefined
                     ) {
-                        // add filter to only broadcast events from social graph for now
-                        if (payload.networkService === 'Social Graph' || socketMessage.networkService === 'Social Graph') {
+                        // add filter to only broadcast events from social graph if network node for now
+                        if (socketMessage.networkService === 'Social Graph') {
                             broadcastToPeers(socketMessage, caller)
                         }
                         broadcastToClients(socketMessage, boradcastTo)

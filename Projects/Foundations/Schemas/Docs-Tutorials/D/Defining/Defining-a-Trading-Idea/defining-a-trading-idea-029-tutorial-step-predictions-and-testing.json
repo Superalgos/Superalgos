@@ -38,6 +38,11 @@
                 "language": "NL",
                 "text": "Het is niet alsof we de toekomst proberen te voorspellen en beoordeeld zullen worden op onze nauwkeurigheid! De voorspelling is meer een verwachting!",
                 "updated": 1670787465606
+            },
+            {
+                "language": "ID",
+                "text": "Ini tidak seperti kita mencoba untuk meramalkan masa depan dan akan dinilai berdasarkan akurasi kita! Prediksinya lebih seperti ekspektasi!",
+                "updated": 1674701130564
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "NL",
                     "text": "<b>Voorspelling:</b> we verwachten dat een van deze ideeën minstens twee keer per maand handeld, met een hitratio van 50%.",
                     "updated": 1670787515165
+                },
+                {
+                    "language": "ID",
+                    "text": "Prediksi: Kita mengharapkan salah satu dari ide ini untuk trade setidaknya dua kali per bulan, dengan rasio hit 50%.",
+                    "updated": 1674701137284
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "language": "NL",
                     "text": "<b>Testen:</b> Voor uptrends stellen we deze doelen: stop loss op 3% en take profit op 5%. Voor neerwaartse trends zouden we optimistischer moeten zijn, aangezien de strategie gericht is op het opvangen van grote marktbewegingen: we zullen een stop loss doelstelling van 3% en een take-profit doelstelling van 10% stellen.",
                     "updated": 1670787571508
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengujian: Untuk tren naik, kita akan menetapkan target berikut: stop loss di 3% dan take profit di 5%. Untuk tren turun kita harus lebih optimis karena strategi ini bertujuan untuk menangkap pergerakan market yang lebih besar: kita akan menetapkan target stop loss 3% dan target profit 10%.",
+                    "updated": 1674701144481
                 }
             ]
         },
@@ -142,6 +157,11 @@
                     "language": "NL",
                     "text": "Herinner! Dit betekent niet dat we de posities zo zouden beheren! Het is alleen om de instappunten te evalueren!",
                     "updated": 1670787611012
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat! Ini tidak berarti cara beginilah kami mengelola posisi! Ini hanya untuk mengevaluasi titik entry!",
+                    "updated": 1674701150342
                 }
             ]
         }

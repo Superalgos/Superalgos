@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "Avant d'entrer dans le vif du sujet, laissez-moi vous expliquer comment fonctionnent nos tutoriels.",
                 "updated": 1667205142517
+            },
+            {
+                "language": "PL",
+                "text": "Zanim przejdziemy do rzeczy, pozwól, że powiem Ci kilka rzeczy o tym, jak działają nasze samouczki.",
+                "updated": 1674946410562
             }
         ]
     },
@@ -108,6 +113,11 @@
                     "language": "FR",
                     "text": "En bref, c'est vous le patron !",
                     "updated": 1667205155463
+                },
+                {
+                    "language": "PL",
+                    "text": "Krótko mówiąc, to ty jesteś szefem!",
+                    "updated": 1674946415872
                 }
             ]
         },
@@ -160,6 +170,11 @@
                     "language": "FR",
                     "text": "Vous pouvez arrêter un tutoriel et sauter des étapes - ou des sujets entiers - à tout moment. Lorsque vous êtes prêt à reprendre la leçon, retrouvez-nous dans la section inférieure de l'espace de conception. Sélectionnez Reprendre dans le menu pour reprendre là où vous vous êtes arrêté, ou à la première étape que vous avez sautée. Sélectionnez Lecture pour recommencer depuis le début si besoin !",
                     "updated": 1667205196866
+                },
+                {
+                    "language": "PL",
+                    "text": "W dowolnym momencie możesz zatrzymać samouczek i pominąć kroki lub całe tematy. Gdy będziesz gotowy do wznowienia lekcji, znajdź samouczek w dolnej części Design Space. Wybierz Resume z menu, aby zacząć od miejsca, w którym skończyłeś, lub od pierwszego kroku, który pominąłeś. Wybierz Play, aby zacząć od początku!",
+                    "updated": 1674946491704
                 }
             ]
         },
@@ -212,6 +227,11 @@
                     "language": "FR",
                     "text": "Essayons ça ! Cliquez sur le bouton Stop ci-dessous, et une fois que je suis parti, ouvrez mon menu et sélectionnez Resume.",
                     "updated": 1667205222095
+                },
+                {
+                    "language": "PL",
+                    "text": "Spróbujmy! Kliknij przycisk Stop poniżej, a gdy już zniknę, otwórz moje menu i wybierz opcję Resume.",
+                    "updated": 1674946521014
                 }
             ]
         }

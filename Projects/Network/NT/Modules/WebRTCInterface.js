@@ -68,7 +68,7 @@ exports.newNetworkModulesWebRTCInterface = function newNetworkModulesWebRTCInter
                 }
             }
         } catch (err) {
-            NT.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

@@ -19,6 +19,10 @@
                 <!-- Submit Button -->
                 <input id="create-profile-submit-btn" type="button" value="Submit" v-on:click="createNewProfile">
 
+                <!-- Checkbox own Wallet -->
+                <input id="connect-wallet-chk" type="checkbox" v-model="checked">
+                <label for="connect-wallet-chk">Link to Wallet {{ checked }}</label>
+
                 <!-- Abort Button -->
                 <input id="create-profile-abort-btn" type="button" value="Abort" v-on:click="abort">
             </form>
@@ -31,6 +35,7 @@
 
 import store from '../../../store/index'
 import { createProfile } from '../../../services/ProfileService'
+import { walletClient } from '../../../services/WalletService'
 
 export default {
     name: 'create-profile',
@@ -38,11 +43,12 @@ export default {
     return {
         githubUsername: '',
         gitToken: '',
-        socialPersonaName: ''
+        socialPersonaName: '',
+        checked: true,
         };
     },
     methods: {
-        createNewProfile() {
+        async createNewProfile() {
             // Prepare to createProfile message
             const appType = "Social Trading Desktop App"
             const gitHubProvider = "Github"
@@ -53,6 +59,13 @@ export default {
                 userAppType: appType
             }
 
+            if (this.checked) {
+                this.signature = await walletClient(this.githubUsername)
+                if (this.signature) {
+                    console.log('YOUR SIGNED MESSAGE: ', this.signature)
+                    userInfo.userSignature = this.signature
+                }
+            }
             // Prepare to create social persona
             const message = {
                 name: this.socialPersonaName
@@ -68,6 +81,7 @@ export default {
             this.username = '';
             this.gitToken = '';
             this.socialPersonaName = '';
+            this.signature = '';
         },
         abort() {
             store.commit("SHOW_CREATE_PROFILE", false);

@@ -61,6 +61,11 @@
                 "language": "TR",
                 "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazı makine ve donanımlar aktif çalışma için yeterli olmayabilir!",
                 "updated": 1644848540119
+            },
+            {
+                "language": "PL",
+                "text": "Minimalistyczny sprzęt, taki jak Raspberry Pi, może obsłużyć Client Superalgos tak, aby przetwarzać zarówno dane, jak i zdefiniowane zadania handlowe, niektóre jednak mogą jednak nie wystarczać do wydajnej pracy!",
+                "updated": 1674909789946
             }
         ]
     },
@@ -115,6 +120,11 @@
                     "language": "TR",
                     "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür durumlarda, kullanıcı arayüzü ( UI ) minimum düzeyde kullanılır.",
                     "updated": 1644848608661
+                },
+                {
+                    "language": "PL",
+                    "text": "Podstawową ideą uruchamiania Client na mikrokomputerach lub wirtualnych maszynach jest minimalizacja kosztów energii we wdrożeniach produkcyjnych. W takich przypadkach, UI jest używane w minimalnym stopniu.",
+                    "updated": 1674910008853
                 }
             ]
         },
@@ -174,6 +184,11 @@
                     "language": "TR",
                     "text": "Superalgos'u donanımı iyi bir makinede öğrenmenizi şiddetle tavsiye ederiz. Bu eğitim sırasında donanımınızın çok yavaş olduğunu fark ederseniz, sistemi öğrenene, ilk stratejilerinizi oluşturana ve dağıtıma hazır olana kadar normal donanıma yüklemeyi düşünün. Aksi takdirde, sinir bozucu olabilir.",
                     "updated": 1669836693772
+                },
+                {
+                    "language": "PL",
+                    "text": "Zalecamy naukę Superalgos na standardowej maszynie. Jeśli zauważysz, że Twój mikrokomputer jest zbyt wolny podczas tego samouczka, rozważ zainstalowanie go na zwykłym sprzęcie, dopóki nie nauczysz się systemu, nie zbudujesz swoich pierwszych strategii i nie będziesz gotowy do wdrożenia. W przeciwnym razie może to być frustrujące.",
+                    "updated": 1674910136533
                 }
             ]
         }

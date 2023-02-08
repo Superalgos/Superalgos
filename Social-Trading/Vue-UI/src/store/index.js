@@ -9,6 +9,7 @@ export default createStore({
     showSettings: false,
     showImageUploader: false,
     showEmojiPicker: false,
+    showEmojiPickerNewPost: false,
     showUsersProfile: false,
     showPostComments: false,
 
@@ -29,6 +30,8 @@ export default createStore({
     postCommentProps: undefined,
     postComments: undefined,
     selectedEmoji: undefined,
+    emojiReactionKey: undefined,
+    emojiOriginPostHash: undefined,
     usersProfileToOpen: undefined,
     headerProfileData: undefined,
     postImage: undefined,
@@ -62,6 +65,9 @@ export default createStore({
     },
     SHOW_EMOJI_PICKER(state, show) {
       state.showEmojiPicker = show;
+    },
+    SHOW_EMOJI_PICKER_NEW_POST(state, show) {
+      state.showEmojiPickerNewPost = show;
     },
     SHOW_POSTS_COMMENTS(state, show) {
       state.showPostComments = show;
@@ -130,6 +136,12 @@ export default createStore({
     SET_ADD_PROFILE_BANNER(state, show) {
       state.addProfileBanner = show;
     },
+    SET_EMOJI_REACTION_KEY(state, keyNum) {
+      state.emojiReactionKey = keyNum;
+    },
+    SET_EMOJI_ORIGIN_POST_HASH(state, hash) {
+      state.emojiOriginPostHash = hash;
+    }
     
   },
   actions: {

@@ -55,9 +55,9 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
         if (sandBox) {
             exchange.setSandboxMode(sandBox);
         }
-        // TS.logger.debug('Sandbox mode = ' + sandBox);
+        // SA.logger.debug('Sandbox mode = ' + sandBox);
         // uncomment the following line if you want to log the exchange api being used
-        // TS.logger.debug(exchange.urls.api);
+        // SA.logger.debug(exchange.urls.api);
     }
   
     function finalize() {
@@ -83,7 +83,7 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
                 type: 'TS LF Portfolio Bot Error - ' + message,
                 placeholder: {}
             }
-            TS.logger.error("Error: " + message + "\nerr=>" + err);
+            SA.logger.error("Error: " + message + "\nerr=>" + err);
         }
         return false;
     }

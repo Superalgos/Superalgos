@@ -1,4 +1,5 @@
 <template>
+<div>
     <div id="post-comments-list" v-for="comment in getPostComments" v-bind:key="comment.index">
         <comment
                 :timestamp="comment.timestamp" 
@@ -10,6 +11,7 @@
                 :eventType="comment.eventType"
             />
     </div>
+</div>
 </template>
 
 <script>

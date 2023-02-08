@@ -142,7 +142,8 @@ const createProfile = async (body, res) => {
             storageProviderName: "Github",
             storageProviderUsername: body.storageProviderUsername,
             storageProviderToken: body.storageProviderToken,
-            userAppType: "Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App",
+            userSignature: body.userSignature
         }
 
         let query = {

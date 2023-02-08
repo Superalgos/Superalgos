@@ -17,7 +17,6 @@ const http = axios.create({
                 .then(response => {
                     // If defined all is well and we save the data.
                     if (response.data.nodeCodeName !== undefined) {
-                        console.log("RESPONSE DATA " + JSON.stringify(response.data))
                         store.commit("ADD_PROFILE", response.data);
                         return;
                     } else {
@@ -31,11 +30,11 @@ const http = axios.create({
     // Used at the Sign Up process when to create a new Superalgos User Profile or to use an existing one.
     async function createProfile(profileData, personaName) {
         return http.post('/users/create-profile', profileData)
-                .then(response => {
+                .then(async response => {
                     if (response.data.address !== undefined) {
                         console.log('A new user profile has been created! This is your address: ', response.data.address, 'and private key: ', response.data.privateKey)
                     }
-                    createSocialPersona(personaName);
+                    await createSocialPersona(personaName);
                     getSocialPersona();
                     return;
                 }).finally(response => {
@@ -100,7 +99,6 @@ const http = axios.create({
     async function getProfileStats(message) {
         return http.post('/users/social-stats', message)
                 .then(response => {
-                    console.log("RESPONSE DATA " + JSON.stringify(response.data))
                     return response.data
                 });
     }

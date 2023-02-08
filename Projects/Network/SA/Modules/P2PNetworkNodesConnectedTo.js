@@ -13,7 +13,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     of our pool of connected nodes. 
     */
     let thisObject = {
-        peers: undefined,
+        peers: [],
         sendMessage: sendMessage,
 
         /* Framework Functions */
@@ -64,10 +64,16 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
 
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
-                if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
+                if (peer.p2pNetworkNode.node.config.host === undefined) {
                     continue
-                }
-                if (isPeerConnected(peer) === true) {
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
+                    continue
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined) {
+                    continue
+                    
+                } else if (isPeerConnected(peer) === true) {
                     continue
                 }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
@@ -83,6 +89,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
                 function addPeer() {
                     thisObject.peers.push(peer)
+                    console.log('this is our connected network peers', thisObject.peers)
                 }
 
                 function onError(err) {
@@ -92,9 +99,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                         /*
                         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                         */      
-                        /*                  
-                        SA.logger.warn('P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
-                        */
+                        //SA.logger.debug           
+                        console.log('P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
+                        
                     }
                 }
 

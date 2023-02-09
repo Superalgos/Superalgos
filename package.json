@@ -41,7 +41,7 @@
     "bootstrap": "*",
     "bootstrap-vue": "*",
     "boxen": "^5.1.2",
-    "ccxt": "^1.92.75",
+    "ccxt": "^2.7.62",
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
     "cli-table3": "^0.6.3",

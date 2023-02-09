@@ -347,7 +347,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 return undefined
             }
         } catch(err) {
-            SA.logger.error("Gas Price Query Error: ", err)
+            SA.logger.error('Gas Price Query Error: ', err.stack)
         }
     }
 

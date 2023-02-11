@@ -32,8 +32,8 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
   
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
-                key = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
-                secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                key = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName)
+                secret = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret)
                 uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
             }

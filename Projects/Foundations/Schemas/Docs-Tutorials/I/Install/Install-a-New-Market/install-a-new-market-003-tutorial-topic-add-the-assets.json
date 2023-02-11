@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Если активы, с которыми вы хотите работать, не перечислены в разделе Exchange Assets, вы должны сначала добавить и настроить их.",
                 "updated": 1643090228970
+            },
+            {
+                "language": "NL",
+                "text": "Als de tokens waarmee u wilt werken niet worden vermeld onder Exchange Assets, moet u deze eerst toevoegen en configureren.",
+                "updated": 1676120620240
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "RU",
                     "text": "В этом разделе учебника вы научитесь определять, с какими активами вы хотите работать.",
                     "updated": 1643090238384
+                },
+                {
+                    "language": "NL",
+                    "text": "In dit gedeelte van de zelfstudie leert u definiëren met welke middelen u wilt werken.",
+                    "updated": 1676120641232
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "RU",
                     "text": "На каждой бирже могут быть представлены сотни активов, однако вас, скорее всего, будут интересовать лишь некоторые из них. Некоторые автоматизированные операции могут питаться вашими определениями, поэтому держать их свободными от мусора - всегда хорошая идея.",
                     "updated": 1643090267732
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke beurs kan honderden tokens bevatten, maar u zult waarschijnlijk in slechts een paar geïnteresseerd zijn. Sommige geautomatiseerde bewerkingen kunnen uw definities voeden, dus het is altijd een goed idee om ze vrij van rommel te houden.",
+                    "updated": 1676120704128
                 }
             ]
         }

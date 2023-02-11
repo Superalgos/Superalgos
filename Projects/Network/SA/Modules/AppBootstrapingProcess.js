@@ -390,43 +390,24 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         }
 
         function calculateProfileRankings() {
-            let rankingArray = []
             /*
             Transfer all profiles to the ranking array.
             */
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-            for (let i = 0; i < userProfiles.length; i++) {
-                let userProfile = userProfiles[i][1]
 
-                let added = false
-                for (let j = 0; j < rankingArray.length; j++) {
-                    let rankingProfile = rankingArray[j]
-                    if (userProfile.balance > rankingProfile.balance) {
-                        rankingArray.splice(j, 0, userProfile)
-                        added = true
-                        break
-                    }
+            userProfiles.sort((p1, p2) => p2[1].balance - p1[1].balance)
+
+            const rankingTable = userProfiles.map((up, index) => {
+                // add ranking to existing item
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(up[1].id).ranking = index + 1
+                // return user friendly item for console table output
+                return {
+                    userProfile: up[1].name,
+                    balance: SA.projects.governance.utilities.balances.toSABalanceString(up[1].balance),
+                    ranking: index + 1
                 }
-                if (added === false) {
-                    rankingArray.push(userProfile)
-                }
-            }
-            /*
-            We calculate the User Profile Ranking based on the posotion at the rankingArray
-            */
-            let rankingTable = []
-            for (let j = 0; j < rankingArray.length; j++) {
-                let rankingProfile = rankingArray[j]
-                rankingProfile.ranking = j + 1
-                let rankingTableRow = {
-                    userProfile: rankingProfile.name,
-                    balance: SA.projects.governance.utilities.balances.toSABalanceString(rankingProfile.balance),
-                    ranking: rankingProfile.ranking
-                }
-                if (rankingTableRow.balance !== '0 SA') {
-                    rankingTable.push(rankingTableRow)
-                }
-            }
+            })
+
             SA.logger.info('User Profiles ranking table calculated based on latest User Profile Balances: ')
             SA.logger.info('')
             console.table(rankingTable)

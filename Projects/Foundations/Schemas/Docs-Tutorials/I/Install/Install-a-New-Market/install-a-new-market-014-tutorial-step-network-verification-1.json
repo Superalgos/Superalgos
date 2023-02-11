@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что задачи Data Tasks для соответствующего рынка (Market) были успешно созданы.",
                 "updated": 1643090766160
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Data Tasks taken voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676125483228
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Найдите следующие структуры данных:",
                     "updated": 1643090773502
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676125496240
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Узел Market Data Tasks для нового рынка.",
                     "updated": 1643090784230
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt Market Data Tasks voor de nieuwe markt.",
+                    "updated": 1676125510675
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "RU",
                     "text": "Один узел Data Mine Tasks для каждого Data Mine, включенного в рабочее пространство.",
                     "updated": 1643090800726
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Data Mine Tasks knooppunt voor elke Data Mine die is opgenomen in de Workspace.",
+                    "updated": 1676125542803
                 }
             ]
         },
@@ -133,6 +153,11 @@
                     "language": "RU",
                     "text": "Один Task Manager (Менеджер задач) для каждого Data Mine и одна задача (Task) для каждого бота, определенного в каждом Data Mine.",
                     "updated": 1643090852174
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Task Manager per Data Mine en één Task voor elke bot die in elke datamijn is gedefinieerd.",
+                    "updated": 1676125595258
                 }
             ]
         }

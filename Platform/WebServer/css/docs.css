@@ -187,6 +187,7 @@ font-weight:500;
 font-size:150%; 
 margin-top: 40px;
 margin-bottom: 20px;
+line-height: 1.2em;
 }
 
 .docs-h4 {
@@ -1110,3 +1111,82 @@ max-width: 830px;
 max-height: 476px;
 }
 
+/* Navigation elements*/
+.docs-navigation-elements-top-table {
+display: table;
+border: 0px;
+width: inherit;
+margin: 0 auto;
+position: fixed;
+z-index: 99;
+text-align: center;
+background-color: #365558;
+line-height: 160%;
+border-bottom: 5px solid #0295aa;
+}
+
+.docs-navigation-elements-top-table-row {
+display: table-row;
+}
+
+.docs-navigation-elements-top-table-cell {
+border: 1px;
+display: table-cell;
+width: 16.5%;
+vertical-align:middle;
+}
+
+.docs-navigation-elements-top-table-body {
+display: table-row-group;
+}
+
+.docs-navigation-elements-top-table button {
+font: 400 20px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #e6eaea; 
+border: 0px;
+background-color: transparent;
+cursor: pointer;
+opacity: 0.6;
+}
+
+.docs-navigation-elements-top-table button:hover {
+opacity: 1;
+}
+
+.docs-navigation-elements-right-table {
+display: table;
+border: 0px;
+margin: 0 auto;
+position: fixed;
+z-index: 99;
+top: 40vh;
+}
+
+.docs-navigation-elements-right-table-row {
+display: table-row;
+}
+
+.docs-navigation-elements-right-table-cell {
+border: 0px;
+display: table-cell;
+}
+
+.docs-navigation-elements-right-table-body {
+display: table-row-group;
+}
+
+.docs-navigation-elements-right-table button {
+border: 0px;
+background-color: transparent;
+cursor: pointer;
+opacity: 0.4;
+}
+
+.docs-navigation-elements-right-table button:hover {
+opacity: 1;
+}
+
+.docs-navigation-elements-right-table button:disabled {
+opacity: 0.2;
+cursor: default;
+}

@@ -1,0 +1,50 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 51,
+    "type": "Superalgos Review - Superalgos by MarkTradeink",
+    "definition": {
+        "text": "When I discovered Superalgos, I just got amazed from the first impression. How powerful this software is and it's unique approach.",
+        "updated": 1675469732532
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        },
+        {
+            "style": "Text",
+            "text": "by MarkTradeink",
+            "updated": 1675469558695
+        },
+        {
+            "style": "Note",
+            "text": "Will update my Review soon:)",
+            "updated": 1675469861700
+        },
+        {
+            "style": "Title",
+            "text": "Title 1",
+            "updated": 1675469886062
+        },
+        {
+            "style": "Text",
+            "text": "text"
+        },
+        {
+            "style": "Title",
+            "text": "Title 2"
+        },
+        {
+            "style": "Text",
+            "text": "text"
+        },
+        {
+            "style": "Title",
+            "text": "Title 3"
+        },
+        {
+            "style": "Text",
+            "text": "Text"
+        }
+    ]
+}

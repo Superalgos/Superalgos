@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Sekarang kamu memahami implikasi dari menjalankan operasi data mining ini, mari kita lanjutkan!",
                 "updated": 1673830752765
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que entiendes las implicaciones de ejecutar esta operación de extracción de datos, ¡vamos a ello!",
+                "updated": 1675463159819
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Pilih \"Run All Project Data Tasks\" pada node Data Tasks di menu!",
                     "updated": 1673830758887
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Selecciona \" Run All Project Data Tasks\" en el menú del nodo de 'Data Tasks'!",
+                    "updated": 1675463248800
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "ID",
                     "text": "Jika kamu melakukan tutorial ini setelah melakukan tutorial Getting Started, kemungkinan besar kamu sudah memiliki sebagian data yang diperlukan, yang dapat mempercepat ini!",
                     "updated": 1673830767457
+                },
+                {
+                    "language": "ES",
+                    "text": "Si estás haciendo este tutorial después de hacer el \"Getting Started Tutorial\", lo más probable es que ya tengas parte de los datos necesarios, ¡lo que puede hacer las cosas más rápidas!",
+                    "updated": 1675463305069
                 }
             ]
         }

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa!",
-                "updated": 1628190493254,
+                "text": "Antes de escribir una novela, asegúrate de guardar la página de vez en cuando. No arriesgues tu prosa.",
+                "updated": 1675453948750,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cada párrafo que escribes se almacena en el nivel de la sesión del navegador tan pronto como sale del modo de edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en un eventual bloqueo del navegador, ejecute este comando:",
-                    "updated": 1628190531998,
+                    "text": "Cada párrafo que escribas se guarda en el navegador tan pronto como salgas del modo Edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en una eventual caída del navegador, ejecute este comando:",
+                    "updated": 1675454043933,
                     "style": "Text"
                 },
                 {

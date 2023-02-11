@@ -33,6 +33,11 @@
                 "language": "ID",
                 "text": "Ketika logika trading yang rumit dibagi menjadi beberapa strategi, kamu mendapatkan kesempatan untuk mengelola trading yang dihasilkan secara berbeda!",
                 "updated": 1674626530866
+            },
+            {
+                "language": "ES",
+                "text": "Cuando una lógica de trading compleja se divide en múltiples estrategias, tienes la oportunidad de gestionar las operaciones resultantes de forma diferente.",
+                "updated": 1675619949061
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "ID",
                     "text": "Kita belum membahas bagaimana strategi didefinisikan, tetapi kamu tahu bahwa Superalgos memungkinkan pengelolaan target take profit dan stop loss...",
                     "updated": 1674626537168
+                },
+                {
+                    "language": "ES",
+                    "text": "Todavía no hemos entrado en cómo se definen las estrategias, pero ya sabes que Superalgos permite gestionar los objetivos de Take Profit y Stop Loss...",
+                    "updated": 1675619971215
                 }
             ]
         },
@@ -96,6 +106,11 @@
                     "language": "ID",
                     "text": "Setiap strategi dalam trading system mungkin memiliki logikanya sendiri untuk mengelola positions!",
                     "updated": 1674626544136
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada estrategia de un sistema de trading puede tener su propia lógica de gestión de las posiciones.",
+                    "updated": 1675619981236
                 }
             ]
         },
@@ -127,6 +142,11 @@
                     "language": "ID",
                     "text": "Jika kamu menangani multiple variasi dari logika yang sama misalnya, untuk mengambil posisi, kamu mungkin perlu menangani beberapa variasi untuk mengelola posisi tersebut. Lebih mudah dan lebih bersih untuk melakukan keduanya pada strategi terpisah.",
                     "updated": 1674626553281
+                },
+                {
+                    "language": "ES",
+                    "text": "Si manejas múltiples variaciones de la misma lógica, por ejemplo, para tomar una posición, entonces es probable que necesites manejar múltiples variaciones para gestionar la posición. Es más fácil y limpio hacer ambas cosas en estrategias separadas.",
+                    "updated": 1675619998826
                 }
             ]
         }

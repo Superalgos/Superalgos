@@ -104,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Vaya hacia abajo y encienda el Limit Buy Orders layer. Ahora deslice el mouse sobre algunas de las órdenes de compra y verifique el efecto en los nodos en el espacio de diseño.",
-                    "updated": 1624464208051,
+                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Ve hacia abajo y enciende el Limit Buy Orders layer. Ahora desliza el mouse sobre algunas de las órdenes de compra y verifica el efecto en los nodos en el espacio de diseño.",
+                    "updated": 1675361310549,
                     "style": "Callout"
                 },
                 {
@@ -147,8 +147,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el trading bot?",
-                    "updated": 1624464130332,
+                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el Trading Bot?",
+                    "updated": 1675361326335,
                     "style": "Text"
                 },
                 {

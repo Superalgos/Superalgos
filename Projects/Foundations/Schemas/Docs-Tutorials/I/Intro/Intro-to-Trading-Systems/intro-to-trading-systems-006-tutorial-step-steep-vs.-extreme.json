@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Encontraste la diferencia? ¡No te preocupe si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
-                "updated": 1629589533343
+                "text": "¿Encontraste la diferencia? ¡No te preocupes si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
+                "updated": 1675618972661
             },
             {
                 "language": "DE",
@@ -84,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Puedes arrastrar el  Trigger On Event de una estrategia y fíjela más cerca del evento de la otra estrategia para facilitar la comparación.",
-                    "updated": 1629589881277
+                    "text": "Puedes arrastrar el Trigger On Event de una estrategia y anclarla más cerca del evento de la otra estrategia para facilitar la comparación.",
+                    "updated": 1675619133893
                 },
                 {
                     "language": "DE",

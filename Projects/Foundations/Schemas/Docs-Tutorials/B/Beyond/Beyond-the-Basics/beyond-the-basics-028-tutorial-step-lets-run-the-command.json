@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En Windows, aparece un cuadro de inicio de sesión de GitHub que ofrece la posibilidad de autenticarse con un token o contraseña. ¡Cualquiera debería funcionar! ¡Se requiere la última versión de Git! Si tienes problemas, reiniciar la PC puede ayudar. En Mac y Linux, es la Terminal la que solicita las credenciales. Si habilitaste la autenticación de dos factores en GitHub, usa el token incluso si se le solicita la contraseña.",
-                    "updated": 1628198214740,
+                    "text": "En Windows, aparece un cuadro de inicio de sesión de GitHub que ofrece la posibilidad de autenticarse con un token o contraseña. ¡Cualquiera debería funcionar! ¡Se requiere la última versión de Git! Si tienes problemas, reiniciar la PC puede ayudar. En Mac y Linux, es la Terminal la que solicita las credenciales. Si habilitaste la autenticación de dos factores en GitHub, usa el token incluso si te solicita la contraseña.",
+                    "updated": 1675454563750,
                     "style": "Important"
                 },
                 {

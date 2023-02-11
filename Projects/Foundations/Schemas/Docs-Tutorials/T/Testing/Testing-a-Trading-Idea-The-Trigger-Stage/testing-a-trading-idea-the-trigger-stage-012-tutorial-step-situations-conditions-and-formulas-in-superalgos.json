@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bir olayı neyin tetiklediğinin tanımlamasına geçmeden önce, bu temel konulara aşina olmanız gerekir!",
                 "updated": 1641652431572
+            },
+            {
+                "language": "ES",
+                "text": "Antes de llegar a escribir definiciones para el evento trigger on, ¡necesitas obtener la educación básica sobre estos temas fundamentales!",
+                "updated": 1675621935453
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Henüz yapmadıysanız, lütfen durum(situations), koşul(conditions) ve formül(formulas) kavramlarını özetleyen bu sayfayı okuyun. Bunlar, bir stratejideki çoğu tanımı oluşturan anahtar kavramlardır!",
                     "updated": 1641652442299
+                },
+                {
+                    "language": "ES",
+                    "text": "Si aún no lo has hecho, por favor lee esta página que describe los conceptos de situaciones, condiciones y fórmulas. ¡Estos son los conceptos clave que componen la mayoría de las definiciones en una estrategia!",
+                    "updated": 1675621956736
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Örneklerdeki sözdizimi hakkında endişelenmeyin. Buna birazdan geleceğiz! Geliştirici değilseniz, basit örneklere odaklanın.",
                     "updated": 1641652452166
+                },
+                {
+                    "language": "ES",
+                    "text": "No te preocupes por la sintaxis de los ejemplos. Llegaremos a eso pronto. Si no eres desarrollador, céntrate en los ejemplos sencillos.",
+                    "updated": 1675621968165
                 }
             ]
         }

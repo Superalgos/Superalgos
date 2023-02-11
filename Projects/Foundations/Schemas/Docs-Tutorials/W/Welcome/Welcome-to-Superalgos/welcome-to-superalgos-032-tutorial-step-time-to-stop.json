@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "No vamos a ejecutar un Live Trading Session todavía, por lo que no tiene sentido mantener nuestra minería de datos en funcionamiento en este momento.",
-                "updated": 1624375464430,
+                "text": "Todavía no vamos a ejecutar una Live Trading Session, por lo que no tiene sentido mantener nuestra extracción de datos en marcha.",
+                "updated": 1675208094657,
                 "style": "Definition"
             },
             {
@@ -81,8 +81,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hay dos usos principales por los que ejecutar Data Tasks:",
-                    "updated": 1624376528739,
+                    "text": "Hay dos usos principales por los que ejecutar el nodo Data Tasks:",
+                    "updated": 1675208106380,
                     "style": "Text"
                 },
                 {
@@ -137,8 +137,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "To process historic data: Para procesar un rango de fecha y hora de un mercado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
-                    "updated": 1625878938645,
+                    "text": "Procesar un historial de datos : Para procesar un rango de fecha y hora de un mercado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
+                    "updated": 1675208149717,
                     "style": "List"
                 },
                 {
@@ -193,8 +193,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "To run a live session: Paper Trading Session, Forward Testing Session, y Live Trading Session, por ejemplo, necesitan información en vivo.",
-                    "updated": 1624376178230,
+                    "text": "Ejecutar una sesión en vivo: Paper Trading Session, Forward Testing Session, y Live Trading Session, por ejemplo, necesitan información en vivo.",
+                    "updated": 1675208200127,
                     "style": "List"
                 },
                 {

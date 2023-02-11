@@ -136,8 +136,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra!",
-                    "updated": 1624383472672,
+                    "text": "Dirige el ratón a una de las máquinas del tiempo y pulsa Ctrl + Shift + Alt + Key-A",
+                    "updated": 1675276810651,
                     "style": "Callout"
                 },
                 {
@@ -192,8 +192,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante!",
-                    "updated": 1624383547817,
+                    "text": "En Mac: Ctrl + Shift + Cmd + Key-A",
+                    "updated": 1675276818845,
                     "style": "Success"
                 },
                 {
@@ -259,6 +259,11 @@
                     "language": "PL",
                     "text": "Zrób to samo z drugim wykresem i pozostaw oba Time Machine dopasowane do proporcji ekranu!",
                     "updated": 1675085017951
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz lo mismo con el otro gráfico y, a partir de ahora, ¡deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla!",
+                    "updated": 1675276852804
                 }
             ]
         }

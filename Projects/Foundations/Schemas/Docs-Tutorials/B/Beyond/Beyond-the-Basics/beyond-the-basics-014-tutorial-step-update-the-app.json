@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "El App Update Command obtiene la última versión del software del repositorio upstream en el Current Branch!",
-                "updated": 1628186697267,
+                "text": "Es una buena práctica estar al día antes de contribuir, solucionar problemas o informar de errores de cualquier tipo.",
+                "updated": 1675452243054,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eso significa que puede usar este comando en cualquiera de las ramas! Eso es todo:",
-                    "updated": 1628186724646,
+                    "text": "App Update Command (sólo para la instalación de contribuidores) obtiene la última versión del software del repositorio principal en la rama actual.",
+                    "updated": 1675452292565,
                     "style": "Text"
                 },
                 {
@@ -112,8 +112,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Copia y ejecuta el comando!",
-                    "updated": 1628186919347,
+                    "text": "Si estás en la Instalación de Contribuidores, copia y ejecuta el comando en el cuadro de búsqueda/comando en la parte superior de los Documentos.",
+                    "updated": 1675452330501,
                     "style": "Callout"
                 },
                 {
@@ -156,8 +156,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que se realiza la actualización, deberás cerrar la aplicación nuevamente, reiniciarla, buscar el tutorial y hacer clic en Resume, ¡como hiciste antes!",
-                    "updated": 1628186790847,
+                    "text": "Deberías estar al día después del cambio.",
+                    "updated": 1675452357891,
                     "style": "Success"
                 },
                 {

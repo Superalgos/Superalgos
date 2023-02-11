@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estas carpetas están exentas de ser aportadas: My-Workspaces, Data-Storage y Log-Files.",
-                    "updated": 1628192469502,
+                    "text": "Estas carpetas están exentas de contribución: My-Workspaces, My-Data-Storage y My-Log-Files, dentro de la carpeta Platform.",
+                    "updated": 1675454504667,
                     "style": "Callout"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡No use la carpeta de Superalgos para almacenar cosas personales o archivos que no deben ser parte del software de Superalgos! Lo que incluyas en la carpeta de Superalgos (excepto las carpetas exentas indicadas) está sujeto a enviarse a tu fork en GitHub.com e incluirse en una solicitud de extracción, ¡ambos de acceso público!",
-                    "updated": 1628194028189,
+                    "text": "¡No uses la carpeta de Superalgos para almacenar cosas personales o archivos que no deben ser parte del software de Superalgos! Lo que incluyas en la carpeta de Superalgos (excepto las carpetas exentas indicadas) está sujeto a enviarse a tu fork en GitHub.com e incluirse en una solicitud de extracción, ¡ambos de acceso público!",
+                    "updated": 1675454526336,
                     "style": "Important"
                 },
                 {

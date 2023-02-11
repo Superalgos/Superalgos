@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
-                "updated": 1626643106064,
+                "text": "Para colocar un Plugin en un Workspace ¡debes seleccionar la opción para agregar los Plugins que faltan en el nodo del tipo correspondiente!",
+                "updated": 1675377720796,
                 "style": "Definition"
             },
             {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Foundations\\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File que no necesita y conservar los que necesite! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar la jerarquía del plugin.  ",
-                    "updated": 1633282144023,
+                    "text": "Los nuevos nodos Plugin File se crean para cada Plugin en <i>\\Plugins\\Algorithmic-Trading\\Trading-Systems</i>. Puedes eliminar los nodos Plugin File que no necesites y conservar los que quieras.",
+                    "updated": 1675377805299,
                     "style": "Text"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
-                    "updated": 1626643436449,
+                    "text": "Los Plugins se agregarán la próxima vez que cargues el Workspace. Si deseas probarlo, ¡actualiza!",
+                    "updated": 1675377787309,
                     "style": "Success"
                 },
                 {

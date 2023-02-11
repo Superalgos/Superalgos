@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco!",
-                "updated": 1624384343958,
+                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico alineado con tu pantalla, ¿verdad? No te preocupes... ¡prueba este truco!",
+                "updated": 1675277216757,
                 "style": "Definition"
             },
             {
@@ -70,8 +70,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Adjust the aspect ratio: apunta al gráfico Backtesting Session (está en la parte superior) y presiona Ctrl + Shift + Key-A",
-                    "updated": 1627304634273,
+                    "text": "Ajusta la relación de aspecto: Apunta con el ratón al gráfico de la Backtesting Session (el de la parte superior) y pulsa Ctrl + Shift + Alt + Key-A",
+                    "updated": 1675277119980,
                     "style": "List"
                 },
                 {
@@ -174,8 +174,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Double-click once: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
-                    "updated": 1624384580827,
+                    "text": "Double-click una vez: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
+                    "updated": 1675277171972,
                     "style": "List"
                 },
                 {
@@ -225,8 +225,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Double-click again: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
-                    "updated": 1624404060794,
+                    "text": "Double-click otra vez: esto te lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
+                    "updated": 1675277187452,
                     "style": "List"
                 },
                 {

@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¿Pensaste que te permitiría monitorear el Live Trading Session viendo la desagradable lista de órdenes en el exchange? ¡De ninguna manera!",
-                "updated": 1624485064261,
+                "text": "¿Creías que te dejaría seguir la Live Trading Session viendo la lista de órdenes en la exchange? ¡Imposible!",
+                "updated": 1675362680600,
                 "style": "Definition"
             },
             {
@@ -149,8 +149,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Te acabo de traer al presente, en el gráfico de 1 minuto. Deberías poder ver la última formación de velas y algunos pedidos ya. El Rate Scale está en modo automático en ambos extremos. Siéntete libre de cambiar las escalas a tu gusto.",
-                    "updated": 1624497121831,
+                    "text": "Te acabo de traer al presente, en el gráfico de 1 minuto. Deberías poder ver la última formación de velas y algunas órdenes. El Rate Scale está en modo automático en ambos extremos. Siéntete libre de cambiar las escalas a tu gusto.",
+                    "updated": 1675362723772,
                     "style": "Note"
                 },
                 {

@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Esta configuración te permite ejecutar la versión estable para tus tareas de producción y la versión en otra rama para contribuir y probar nuevas funciones! No puedes ejecutar dos versiones al mismo tiempo a menos que cambies los puertos.",
-                    "updated": 1628185065000,
+                    "text": "Esta configuración te permite ejecutar la versión estable para tus tareas de producción, y la versión en otra rama para contribuir y probar nuevas características. Pero no puedes ejecutar dos versiones al mismo tiempo, ¡a menos que cambies los puertos!",
+                    "updated": 1675451568801,
                     "style": "Success"
                 },
                 {

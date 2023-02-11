@@ -105,8 +105,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "De cualquier manera, no ocurre nada catastrófico si intenta ejecutar una sesión de negociación en vivo cuando los indicadores requeridos no están actualizados. Habría un error y se le notificará el motivo. ¡Así que no es gran cosa!",
-                    "updated": 1624483313088,
+                    "text": "De cualquier manera, no ocurre nada catastrófico si intentas ejecutar una Live Trading Session (Sesión de trading en vivo) cuando los indicadores requeridos no están actualizados. Habría un error y se notificará el motivo en la consola. ¡Así que no es gran cosa!",
+                    "updated": 1675362406060,
                     "style": "Note"
                 },
                 {
@@ -149,8 +149,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora, te pediré que inicies el Task y y el Live Trading Sesion. Si decides no hacerlo, continúa con el tutorial como si lo hubieras hecho...",
-                    "updated": 1624483457452,
+                    "text": "Ahora, te pediré que inicies el Task y y el Live Trading Session. Si decides no hacerlo, continúa con el tutorial como si lo hubieras hecho...",
+                    "updated": 1675362416327,
                     "style": "Success"
                 },
                 {

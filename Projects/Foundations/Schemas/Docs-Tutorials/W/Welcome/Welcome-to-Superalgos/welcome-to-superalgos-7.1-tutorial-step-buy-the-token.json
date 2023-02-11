@@ -40,6 +40,11 @@
                 "language": "NL",
                 "text": "Als je de mensen wilt steunen die Superalgos bouwen, is het kopen van tokens in PancakeSwap of 1Inch de juiste keuze! Dit is waarom...",
                 "updated": 1667137312855
+            },
+            {
+                "language": "ES",
+                "text": "Si quieres apoyar a la gente que construye Superalgos, ¡compra tokens en PancakeSwap o 1Inch! Este es el motivo...",
+                "updated": 1675364335296
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "NL",
                     "text": "Superalgos is een cryptoproject dat eigendom is van de gemeenschap. Het native token wordt gebruikt om bijdragen te stimuleren, wat inhoudt dat het project het token exclusief distribueert onder open-source deelnemers.",
                     "updated": 1667137353350
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos es un proyecto criptográfico propiedad de la comunidad. El token nativo se utiliza para incentivar las contribuciones, lo que significa que el proyecto distribuye el token exclusivamente entre los contribuyentes de código abierto.",
+                    "updated": 1675364357337
                 }
             ]
         },
@@ -110,6 +120,11 @@
                     "language": "ID",
                     "text": "Setiap dollar yang kamu habiskan untuk membeli token Superalgos SA pergi langsung ke orang-orang yang membawakanmu software luar biasa ini!",
                     "updated": 1671602815150
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada dólar que gastes en la compra de Superalgos SA Token se destinará directamente a la gente que te ofrece este increíble software.",
+                    "updated": 1675364387763
                 }
             ]
         },

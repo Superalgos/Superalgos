@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los datos se almacenan en el disco en la carpeta ./Platform/My-Data-Storage y están organizados por Project, Data Mine, bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
-                    "updated": 1628017724144,
+                    "text": "Los datos se almacenan en el disco en la carpeta./Platform/My-Data-Storage y están organizados por Project, Data Mine, Bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
+                    "updated": 1675378363165,
                     "style": "Text"
                 },
                 {
@@ -150,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
-                    "updated": 1628019703596,
+                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utiliza tu sistema de archivos!",
+                    "updated": 1675378375629,
                     "style": "Success"
                 },
                 {

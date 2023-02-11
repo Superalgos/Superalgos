@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en tu haber! ¡Ya eres familia! Bienvenido a la Community!",
-                "updated": 1628112222837,
+                "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en el bolsillo! ¡Ya eres familia! Bienvenido a la Community!",
+                "updated": 1675448973927,
                 "style": "Definition"
             },
             {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Las habilidades que aprenderás también te permitirán comenzar a contribuir al proyecto! Recuerda, este es un proyecto comunitario ... ¡Se espera que todos retribuyamos y ayudemos a mejorar el software!",
-                    "updated": 1628112441113,
+                    "text": "Este tutorial cubre características relevantes para los usuarios de la Instalación para Colaboradores y Desarrolladores. Si está utilizando las versiones empaquetadas o Docker, muchas de las características descritas a continuación no funcionarán para ti. Dicho esto, por favor continúa, ya que también aprenderás a utilizar los Documentos.",
+                    "updated": 1675449045352,
                     "style": "Note"
                 },
                 {
@@ -163,6 +163,11 @@
                     "language": "NL",
                     "text": "Trouwens, door bij te dragen aan het project verdien je Superalgos (SA) tokens! Klik om er meer over te leren!->superalgos.org/token-overview.shtml",
                     "updated": 1669573107218
+                },
+                {
+                    "language": "ES",
+                    "text": "Por cierto, contribuir al proyecto te permite ganar tokens de Superalgos (SA). Haz clic para saber más->https://superalgos.org/token-overview.shtml",
+                    "updated": 1675452122572
                 }
             ]
         }

@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "plotter"
         },
-        "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!",
+        "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!\n",
         "translations": [
             {
                 "language": "IT",
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Y así es como se construyen los trazadores! Los trazadores crean representaciones gráficas de datos ... ¡desde velas hasta todo lo demás!",
-                "updated": 1624413955983,
+                "text": "¡Y así es como se construyen los plotters! Los plotters crean representaciones gráficas de datos... ¡desde velas, hasta todo lo demás! Please update this translation.",
+                "updated": 1675278226298,
                 "style": "Definition"
             },
             {
@@ -51,7 +51,8 @@
                 "text": "Et c'est ainsi que les traceurs sont construits ! Les traceurs créent des représentations graphiques des données... depuis les bougies à tout le reste !",
                 "updated": 1668414570996
             }
-        ]
+        ],
+        "updated": 1675278169952
     },
     "paragraphs": [
         {
@@ -66,8 +67,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez más, guiones visuales en su máxima expresión. Los trazadores utilizan polígonos estilizados hechos de puntos de coordenadas para pintar líneas y formas que representan datos. Cada capa disponible en los gráficos se crea con un conjunto de definiciones del tipo que estas viendo en este momento. El caso particular del bot Resistances y Supports es bastante complejo, ¡pero muestra el poder de la herramienta!",
-                    "updated": 1624414165332,
+                    "text": "De nuevo, ¡scripting visual en su máxima expresión! Los plotters utilizan polígonos estilizados hechos de puntos de coordenadas para pintar líneas y formas que representan datos. Cada capa disponible en los gráficos se crea con un conjunto de definiciones del tipo que está viendo ahora mismo. El caso particular del bot Resistencias y Soportes es bastante complejo, pero muestra la potencia de la herramienta.",
+                    "updated": 1675278236252,
                     "style": "Text"
                 },
                 {
@@ -100,7 +101,8 @@
                     "text": "Encore une fois, le script visuel à son meilleur! Les traceurs utilisent des polygones stylisés constitués de points de coordonnées pour peindre des lignes et des formes qui représentent des données. Chaque calque mise à disposition sur les graphiques est créée avec un ensemble de définitions tel que ceux que vous consultez actuellement. Le cas particulier du bot Resistances and Supports est assez complexe, mais met en valeur la puissance de l'outil !",
                     "updated": 1668414647743
                 }
-            ]
+            ],
+            "updated": 1675278161644
         },
         {
             "style": "Callout",
@@ -115,8 +117,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Encuentra el Resistance Zone 5 Polygon (a la izquierda), amplíalo y trepa por las ramas para echar un vistazo a cómo se construyó esta belleza.",
-                    "updated": 1624414251258,
+                    "text": "Busca el polígono de la zona de soporte 5 (a la izquierda), expándelo y trepa por las ramas para ver cómo se construyó esta belleza",
+                    "updated": 1675278018093,
                     "style": "Callout"
                 },
                 {

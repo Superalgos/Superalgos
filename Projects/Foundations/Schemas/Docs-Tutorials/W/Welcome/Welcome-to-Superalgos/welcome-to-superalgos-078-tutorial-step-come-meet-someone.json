@@ -61,8 +61,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage.Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
-                    "updated": 1624458987851,
+                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage. Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
+                    "updated": 1675280965318,
                     "style": "Text"
                 },
                 {
@@ -104,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas!",
-                    "updated": 1627314866507,
+                    "text": "Tómate unos minutos para explorar los nodos posteriores al algoritmo de ejecución, comprueba las fórmulas y condiciones, ¡y a ver qué puedes hacer con ellos!",
+                    "updated": 1675280937606,
                     "style": "Callout"
                 },
                 {

@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ejecutaremos un Backtesting Session con un montón de parámetros preconfigurados para que pueda echar un vistazo rápido a cómo funcionan las simulaciones.",
-                "updated": 1624451768858,
+                "text": "Ejecutaremos un Backtesting Session con un montón de parámetros preconfigurados para que puedas echar un vistazo rápido a cómo funcionan las simulaciones.",
+                "updated": 1675279739181,
                 "style": "Definition"
             },
             {
@@ -105,8 +105,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La sesiónde trading se ve afectada por varios parámetros. ¡Echa un vistazo rápido a sus configuraciones seleccionando Configure en el menú!",
-                    "updated": 1624452190136,
+                    "text": "La sesión de trading se ve afectada por varios parámetros. ¡Echa un vistazo rápido a sus configuraciones seleccionando Configure en el menú!",
+                    "updated": 1675279757277,
                     "style": "Callout"
                 },
                 {

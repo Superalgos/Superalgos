@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención!",
-                "updated": 1626374249599,
+                "text": "Las References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención!",
+                "updated": 1675376285003,
                 "style": "Definition"
             },
             {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "a direction: saliente o entrante,",
-                    "updated": 1626374361958,
+                    "text": "una dirección: saliente o entrante,",
+                    "updated": 1675376304597,
                     "style": "List"
                 },
                 {
@@ -194,8 +194,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "and a scope: Interno o externo.",
-                    "updated": 1626374390593,
+                    "text": "y un enfoque: Interno o externo.",
+                    "updated": 1675376317342,
                     "style": "List"
                 },
                 {

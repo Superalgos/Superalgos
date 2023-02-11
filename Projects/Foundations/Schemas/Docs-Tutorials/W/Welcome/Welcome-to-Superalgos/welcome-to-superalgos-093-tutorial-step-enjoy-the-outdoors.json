@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hablando de claves API, cuando cree su clave API Exchange en el exchange, considere lo siguiente:",
-                    "updated": 1624472510571,
+                    "text": "Hablando de claves API, cuando crees tu clave API Exchange en el exchange, considera lo siguiente:",
+                    "updated": 1675361991526,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Exclusive for Superalgos: Crea una clave para usar excusivamente con Superalgos. Te ayudará a rastrear lo que Superalgos hace con tu cuenta y evitar conflictos con otros bots que puedas estar usando.",
-                    "updated": 1624472659237,
+                    "text": "Exclusiva para Superalgos: Crea una clave para usar excusivamente con Superalgos. Te ayudará a rastrear lo que Superalgos hace con tu cuenta y evitar conflictos con otros bots que puedas estar usando.",
+                    "updated": 1675361947292,
                     "style": "List"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No IP Restrictions: Es para evitar problemas al realizar el tutorial; puedes agregar restricciones más adelante, cuando sepas cómo funciona el sistema.",
-                    "updated": 1624472927607,
+                    "text": "Sin Restricciones de IP: Es para evitar problemas al realizar el tutorial; puedes agregar restricciones más adelante, cuando sepas cómo funciona el sistema.",
+                    "updated": 1675362027062,
                     "style": "List"
                 },
                 {
@@ -195,8 +195,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No Withdrawals: Superalgos aún no maneja transferencias de fondos, por lo que no tiene sentido permitir retiros. Eliminar retiros por razones de seguridad.",
-                    "updated": 1624472633689,
+                    "text": "Sin Retiradas: Superalgos aún no maneja transferencias de fondos, por lo que no tiene sentido permitir retiros. Eliminar retiros por razones de seguridad.",
+                    "updated": 1675362037279,
                     "style": "List"
                 },
                 {

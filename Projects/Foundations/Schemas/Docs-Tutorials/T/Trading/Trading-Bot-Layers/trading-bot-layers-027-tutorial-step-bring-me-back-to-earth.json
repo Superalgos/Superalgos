@@ -28,6 +28,11 @@
                 "language": "ID",
                 "text": "Aku tahu! Ini semua terdengar terlalu abstrak! Izinkan aku memberimu beberapa contoh!",
                 "updated": 1673966238532
+            },
+            {
+                "language": "ES",
+                "text": "¡Ya lo sé! Todo esto suena demasiado abstracto. Permítanme exponer algunos ejemplos.",
+                "updated": 1675468190983
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "ID",
                     "text": "Saat bekerja dalam sub-hour time frames dan concept atau event—misalnya, position—spans selama beberapa hari:",
                     "updated": 1673966245630
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando trabajamos en plazos inferiores a una hora y un concepto o acontecimiento -por ejemplo, una posición- abarca varios días:",
+                    "updated": 1675468209710
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "ID",
                     "text": "Kamu mungkin melihat banyak segitiga! Satu segitiga digambar pada penutupan setiap hari, dan satu segitiga terakhir digambar pada penutupan position, atau—kalau position-nya belum ditutup—pada datetime saat ini.",
                     "updated": 1673966251980
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que veas varios triángulos. Un triángulo se dibuja al cierre de cada día, y un último triángulo se dibuja al cierre de la posición o, en caso de que la posición no se haya cerrado todavía, en la fecha y hora actuales.",
+                    "updated": 1675468227560
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "ID",
                     "text": "Statistics dan metrics juga terfragmentasi! Misalnya, ROI, Profit Loss, dan evaluasi posisi sebagai hit atau fail ditentukan setiap hari!",
                     "updated": 1673966258662
+                },
+                {
+                    "language": "ES",
+                    "text": "Las estadísticas y métricas también están fragmentadas. Por ejemplo, el ROI, el Profit Loss y la evaluación de la posición como éxito o fracaso se determinan diariamente.",
+                    "updated": 1675468255076
                 }
             ]
         }

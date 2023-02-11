@@ -28,6 +28,11 @@
                 "language": "ID",
                 "text": "Layer lainnya sudah cukup jelas setelah kamu memahami cara kerja standarnya... jadi, aku akan menjelaskannya secara singkat saja!",
                 "updated": 1674104741593
+            },
+            {
+                "language": "ES",
+                "text": "El resto de las capas son prácticamente autoexplicativas una vez que se entiende el funcionamiento estándar... así que, ¡seré breve!",
+                "updated": 1675468865885
             }
         ]
     },
@@ -56,6 +61,11 @@
                     "language": "ID",
                     "text": "Status: untuk node yang memilikinya!",
                     "updated": 1674104777275
+                },
+                {
+                    "language": "ES",
+                    "text": "Estado: para los nodos que tienen uno.",
+                    "updated": 1675468885024
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "ID",
                     "text": "Progress: untuk node yang mungkin menampilkan indikasi kemajuan!",
                     "updated": 1674104788504
+                },
+                {
+                    "language": "ES",
+                    "text": "Progreso: para los nodos que pueden presentar una indicación de progreso.",
+                    "updated": 1675468893729
                 }
             ]
         },
@@ -110,6 +125,11 @@
                     "language": "ID",
                     "text": "Running: untuk node yang dievaluasi pada titik waktu tertentu!",
                     "updated": 1674104798817
+                },
+                {
+                    "language": "ES",
+                    "text": "En ejecución: para los nodos que se evalúan en determinados momentos.",
+                    "updated": 1675468901191
                 }
             ]
         },
@@ -137,6 +157,11 @@
                     "language": "ID",
                     "text": "Announcements: untuk pengumuman yang dipasang di trading system, yang saat ini disiarkan melalui Telegram!",
                     "updated": 1674104810269
+                },
+                {
+                    "language": "ES",
+                    "text": "Anuncios: para anuncios establecidos en el sistema de trading, ¡actualmente emitidos a través de Telegram!",
+                    "updated": 1675468917204
                 }
             ]
         },
@@ -164,6 +189,11 @@
                     "language": "ID",
                     "text": "Warnings: ketika sesuatu yang tidak biasa terjadi tetapi tidak dianggap sebagai kesalahan! sebuah mode verbose, jika kamu mau.",
                     "updated": 1674104823073
+                },
+                {
+                    "language": "ES",
+                    "text": "Advertencias: ¡cuando ocurre algo inusual pero no se considera un error! Un modo verboso, por así decirlo.",
+                    "updated": 1675468928646
                 }
             ]
         },
@@ -191,6 +221,11 @@
                     "language": "ID",
                     "text": "System Info: dapat ditampilkan di banyak node, seperti mode verbose.",
                     "updated": 1674104833800
+                },
+                {
+                    "language": "ES",
+                    "text": "Información del sistema: puede mostrarse en muchos nodos, algo así como un modo verboso.",
+                    "updated": 1675468938864
                 }
             ]
         }

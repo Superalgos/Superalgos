@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Esto significa que puede mantener tantas estructuras de nodos separados de las jerarquías, durante el tiempo que desee, manteniéndolos a mano para su uso posterior o por cualquier motivo.",
-                    "updated": 1626359243013,
+                    "text": "Esto significa que puedes mantener tantas estructuras de nodos separados de las jerarquías, durante el tiempo que desees, manteniéndolos a mano para su uso posterior o por cualquier motivo.",
+                    "updated": 1675376193190,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puede conservar varias versiones de estrategias completas!",
-                    "updated": 1626359279818,
+                    "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puedes conservar varias versiones de estrategias completas!",
+                    "updated": 1675376212078,
                     "style": "Success"
                 },
                 {

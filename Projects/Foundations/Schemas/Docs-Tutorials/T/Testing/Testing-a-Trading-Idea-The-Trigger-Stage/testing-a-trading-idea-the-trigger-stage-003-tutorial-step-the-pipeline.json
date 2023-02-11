@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım!",
                 "updated": 1641062340210
+            },
+            {
+                "language": "ES",
+                "text": "Vamos a tratar varios temas. Hagamos una lista rápida para usarla como guía a lo largo del camino.",
+                "updated": 1675621170274
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Üç olayı ile ( The Trigger Stage )Tetikleme Aşaması (Trigger On Event, Trigger Off Event ve Take Position Event).",
                     "updated": 1641062463720
+                },
+                {
+                    "language": "ES",
+                    "text": "El Trigger Stage con sus tres eventos (Trigger On Event, Trigger Off Event, y Take Position Event).",
+                    "updated": 1675621259786
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "TR",
                     "text": "Durum ( Situation ), Koşul ( Condition ) ve Formülün ( Formula ) ne olduğunu içeren temel tanımlar.",
                     "updated": 1641062561112
+                },
+                {
+                    "language": "ES",
+                    "text": "Definiciones básicas, incluyendo qué es una Situación, una Condición y una Fórmula.",
+                    "updated": 1675621266549
                 }
             ]
         },
@@ -83,6 +98,11 @@
                     "language": "TR",
                     "text": "Sözdizimi veya koşulların ve formüllerin nasıl yazılacağı.",
                     "updated": 1641062578694
+                },
+                {
+                    "language": "ES",
+                    "text": "Sintaxis, o cómo escribir condiciones y fórmulas.",
+                    "updated": 1675621271623
                 }
             ]
         },
@@ -104,6 +124,11 @@
                     "language": "TR",
                     "text": "Gösterge özellikleri ve bunların nasıl kullanılacağı.",
                     "updated": 1641062602263
+                },
+                {
+                    "language": "ES",
+                    "text": "Propiedades de los indicadores y cómo utilizarlas.",
+                    "updated": 1675621277158
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "TR",
                     "text": "Açma ( Open ), Yönetme ve Aşamaları Kapatma ( Close ) temelleri.",
                     "updated": 1641062681418
+                },
+                {
+                    "language": "ES",
+                    "text": "Conceptos básicos de las Etapas Open, Manage y Close.",
+                    "updated": 1675621283256
                 }
             ]
         },
@@ -146,6 +176,11 @@
                     "language": "TR",
                     "text": " İpucu: Bu konular hakkında bir şeyler okudunuz mu? Endişeye... Yapacaksınız!",
                     "updated": 1641062721859
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Has leído sobre estos temas? No te preocupes... ¡lo harás!",
+                    "updated": 1675621242038
                 }
             ]
         }

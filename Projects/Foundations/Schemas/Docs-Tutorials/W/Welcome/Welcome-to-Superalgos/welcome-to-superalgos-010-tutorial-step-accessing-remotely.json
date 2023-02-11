@@ -140,8 +140,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en Configurar en la esquina superior derecha del menú LAN Network Node",
-                    "updated": 1667509289047,
+                    "text": "Haz clic en Configurar en la esquina superior derecha del menú LAN Network Node",
+                    "updated": 1675206646096,
                     "style": "List"
                 },
                 {
@@ -204,8 +204,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cambie el parámetro de host por la dirección IP de la máquina que ejecuta el servidor",
-                    "updated": 1667509326047,
+                    "text": "Cambia el parámetro de host por la dirección IP de la máquina que ejecuta el servidor",
+                    "updated": 1675206651980,
                     "style": "List"
                 },
                 {
@@ -276,8 +276,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si utiliza un proxy inverso, añada este parámetro...",
-                    "updated": 1667509348953
+                    "text": "Si utilizas un proxy inverso, añade este parámetro...",
+                    "updated": 1675206662613
                 },
                 {
                     "language": "PL",
@@ -309,8 +309,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora cierre el editor. Si la configuración es correcta, ¡el mensaje de error debería desaparecer en un minuto!",
-                    "updated": 1667509390663,
+                    "text": "Ahora cierra el editor. Si la configuración es correcta, ¡el mensaje de error debería desaparecer en un minuto!",
+                    "updated": 1675206672045,
                     "style": "List"
                 },
                 {

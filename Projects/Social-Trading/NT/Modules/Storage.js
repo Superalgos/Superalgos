@@ -62,7 +62,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function syncronizeOurStorageWithAnUpToDateNode() {
-            console.log("syncronizing storage")
+            SA.logger.info("Synchronizing storage")
             /*
             Our mission here is to update this node storage and to do that we need to
             know which is the single node that has the most complete history. Note
@@ -85,18 +85,18 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 // This means the file does not exist.
             }
 
-            console.log("MOST UP TO DATE NETWORK NODE = " + p2pNetworkNodeMostUpToDate)
+            SA.logger.info("MOST UP TO DATE NETWORK NODE = " + p2pNetworkNodeMostUpToDate)
 
             for (let i = 0; i < p2pNetworkReachableNodes.p2pNodesToConnect.length; i++) {
                 let p2pNetworkNode = p2pNetworkReachableNodes.p2pNodesToConnect[i]
                 let p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
                 let userProfileCodeName = p2pNetworkNode.userProfile.config.codeName
                 let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
-                console.log(userProfileCodeName)
+                SA.logger.info(userProfileCodeName)
                 /*
                 Searching for the node that is most up-to-date
                 */
-               console.log("IS DATA RANGE FILE UNDEFINED? " + dataRangeFile)
+               SA.logger.info("IS DATA RANGE FILE UNDEFINED? " + dataRangeFile)
                 if (dataRangeFile !== undefined) {
                     if (maxDataRangeEnd < dataRangeFile.end) {
                         maxDataRangeEnd = dataRangeFile.end
@@ -107,7 +107,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             /*
             We can not continue if we cannot identify the most up to date node.
             */
-            console.log("MOST UP TO DATE NETWORK NODE #2 = " + p2pNetworkNodeMostUpToDate)
+            SA.logger.info("MOST UP TO DATE NETWORK NODE #2 = " + p2pNetworkNodeMostUpToDate)
             if (p2pNetworkNodeMostUpToDate === undefined){
                 return
             }
@@ -119,7 +119,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 There is no need to update ourselves from some other node, because no other
                 is more up to date than ourselves.
                 */
-               console.log("WE ARE THE MOST UP TO DATE NETWORK NODE")
+               SA.logger.info("WE ARE THE MOST UP TO DATE NETWORK NODE")
                 return
             }
             /*
@@ -127,14 +127,14 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             */
             let p2pNetworkNodeCodeName = p2pNetworkNodeMostUpToDate.node.config.codeName
             let userProfileCodeName = p2pNetworkNodeMostUpToDate.userProfile.config.codeName
-            console.log("USER PROFILE MOST UPDATED = " + userProfileCodeName)
+            SA.logger.info("USER PROFILE MOST UPDATED = " + userProfileCodeName)
             await cloneNetworkNodeRepo(userProfileCodeName)
             await transferFilesFromClonnedRepo(p2pNetworkNodeCodeName)
             deleteTemporaryFiles()
 
             async function loadFileFromGithubRepository(fileName, filePath, owner) {
 
-                console.log("loading files from github repo")
+                SA.logger.info("Loading files from Github repo")
 
                 const completePath = filePath + '/' + fileName + '.json'
                 const repo = 'My-Network-Nodes-Data'
@@ -162,7 +162,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             async function cloneNetworkNodeRepo(username) {
 
-                console.log("Cloning the repo!!")
+                SA.logger.info("Cloning the repo!")
 
                 return new Promise(promiseWork)
 
@@ -184,12 +184,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         async function (error) {
                             if (error) {
                                 SA.logger.error('')
-                                SA.logger.error("[ERROR] There was an error clonning this Network node repo. " + repoURL);
+                                SA.logger.error("There was an error cloning this Network node repo. " + repoURL);
                                 SA.logger.error('')
                                 SA.logger.error(error)
                                 throw (error)
                             } else {
-                                SA.logger.info('Clonning repo ' + repoURL + ' succeed.')
+                                SA.logger.info('Cloning repo ' + repoURL + ' succeeded.')
                                 resolve()
                             }
                         })
@@ -200,7 +200,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 const path = require("path")
                 const repo = 'My-Network-Nodes-Data'
 
-                console.log("Transfering from cloned repo!")
+                SA.logger.info("Transferring from cloned repo!")
 
                 let originPath = path.join('./Temp', repo, 'Nodes', p2pNetworkNodeCodeName)
                 let targetPath = path.join(repo, 'Nodes', thisObject.p2pNetworkNode.node.config.codeName)
@@ -243,7 +243,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function loadEventsFromStorageAndApplyThemToTheSocialGraph() {
-                console.log("loading events to apply to social graph!")
+                SA.logger.info("Loading events to apply to social graph!")
             return new Promise(promiseWork)
 
             function promiseWork(resolve, reject) {
@@ -259,7 +259,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                             filePath = filePath.replace('\\', '/')
                         }
 
-                        console.log("load events filePath = " + filePath)
+                        SA.logger.info("Load events filePath = " + filePath)
 
                         let fileContent = SA.nodeModules.fs.readFileSync(filePath)
 
@@ -270,13 +270,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         for (let j = 0; j < eventsList.length; j++) {
                             let storedEvent = eventsList[j]
 
-                            console.log("Stored Event = " + JSON.parse(storedEvent))
+                            SA.logger.info("Stored Event = " + JSON.parse(storedEvent))
 
                             try {
                                 let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                                 event.initialize(storedEvent)
 
-                                console.log("EVENT = " + JSON.parse(event))
+                                SA.logger.info("EVENT = " + JSON.parse(event))
 
                                 if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(storedEvent.eventId) === undefined) {
                                     event.run()
@@ -305,7 +305,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     }
 
     async function saveEventsAtStorage() {
-        console.log("Saving events at storage!")
+        SA.logger.debug('Saving events at storage!')
         await saveOneMinuteOfEvents()
 
         function saveOneMinuteOfEvents() {
@@ -341,8 +341,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         botEnabled: event.botEnabled
                     }
 
-                    console.log("Timestamp = " + event.timestamp)
-                    console.log("Event to save = " + JSON.stringify(eventToSave))
+                    SA.logger.info("Timestamp = " + event.timestamp)
+                    SA.logger.info("Event to save = " + JSON.stringify(eventToSave))
 
                     if (event.timestamp in eventsToSaveByTimestamp) {
                         // If timestamp exists then we add this event to the timestamp's array
@@ -367,7 +367,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         const fileName = "Events" + ".json"
 
                         try {
-                            console.log('Are we saving to an old file?', SA.nodeModules.fs.existsSync(filePath))
+                            SA.logger.info('Are we saving to an old file? ' + SA.nodeModules.fs.existsSync(filePath))
                             if ( SA.nodeModules.fs.existsSync(filePath) /*check if timestamp already has a file*/ ) {
                                 // If path exists then we load old file and append new events
                                 if (eventsToSave.length !== 0) { 
@@ -399,8 +399,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                             // Add unsaved events back to que
                             SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(eventsToSave)
 
-                            console.log("[ERROR] Something went wrong while saving event:")
-                            console.log(error)
+                            SA.logger.error("Something went wrong while saving event:")
+                            SA.logger.error(error)
                             continue
                         }
                     }
@@ -427,12 +427,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
-                        console.log("Local file path = " + filePath + '/' + fileName )
+                        SA.logger.info("Local file path = " + filePath + '/' + fileName )
                         // Save data range file in open storage
                         thisObject.openStorageClient.persistSocialGraph(filePath, fileName, fileContent)
                     } catch (error) {
-                        console.log("[ERROR] Something went wrong while saving Data Range file:")
-                        console.log(error)
+                        SA.logger.error("Something went wrong while saving Data Range file:")
+                        SA.logger.error(error)
                     }
                     resolve()
                 }

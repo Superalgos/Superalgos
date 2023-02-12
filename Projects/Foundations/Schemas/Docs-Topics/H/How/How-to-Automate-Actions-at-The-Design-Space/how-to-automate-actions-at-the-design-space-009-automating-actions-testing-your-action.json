@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Чтобы проверить новое действие, нужно просто перезагрузить пользовательский интерфейс, найти узел с новым пунктом меню и щелкнуть на нем...",
                 "updated": 1640766350734
+            },
+            {
+                "language": "TR",
+                "text": "Yeni Eyleminizi ( Action ) test etmek için kullanıcı arayüzünü ( UI ) yeniden yüklemeniz, yeni Menü (  Menu Item ) Öğesinin bulunduğu düğümü bulmanız ve üzerine tıklamanız yeterlidir.\n",
+                "updated": 1670939524285
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Отладка",
                     "updated": 1640766359987
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Ayıklama",
+                    "updated": 1670939546470
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Чтобы сделать отладку вашего действия (Action), вам нужно открыть инструмент разработчика (\"Developer Tool\") и на вкладке \"Sources\" найти файл Function Library, в который вы добавили ваше действие, поставить точку останова в начале вашей функции, перейти и щелкнуть на добавленном вами узле Menu Item.",
                     "updated": 1640766436465
+                },
+                {
+                    "language": "TR",
+                    "text": "Eyleminizde hata ayıklamak için geliştirici aracını açmanız ve Kaynaklar sekmesinde eyleminizi eklediğiniz İşlev Kitaplığı ( Function Library ) dosyasını bulmanız, işlevinizin başına bir kesme noktası yerleştirmeniz ve eklediğiniz düğüm Menü Öğesine ( Menu Item ) gidip tıklamanız gerekecektir.",
+                    "updated": 1670939803616
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Если вы измените код своей функции, перезагрузите пользовательский интерфейс (UI) и вы сможете проводить отладку снова с новыми изменениями.",
                     "updated": 1640766490565
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlevinizin kodunu değiştirirseniz, kullanıcı arayüzünü yeniden yükleyin ve yeni değişikliklerle tekrar hataları ayıklayabilirsiniz.",
+                    "updated": 1670939848536
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Более подробную информацию о настройке и отладке вы можете найти в этой теме:",
                     "updated": 1640766525631
+                },
+                {
+                    "language": "TR",
+                    "text": "Kurulum ve hata ayıklama hakkında daha fazla bilgiyi bu başlıkta bulabilirsiniz:",
+                    "updated": 1670939880164
                 }
             ]
         },

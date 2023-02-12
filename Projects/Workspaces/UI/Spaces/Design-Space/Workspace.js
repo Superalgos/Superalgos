@@ -317,7 +317,7 @@ function newWorkspace() {
             console.log((new Date()).toISOString(), '[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return
         }
-        httpRequest(textToSave, url, onResponse)
+        httpCompressedRequest(textToSave, url, onResponse)
         savePlugins()
         return true
 

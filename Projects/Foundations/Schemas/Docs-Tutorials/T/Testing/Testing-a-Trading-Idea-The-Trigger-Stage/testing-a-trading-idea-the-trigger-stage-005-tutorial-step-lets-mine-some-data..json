@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Artık bu veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
                 "updated": 1641062954800
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que entiendes las implicaciones de ejecutar esta operación de minería de datos, ¡manos a la obra!",
+                "updated": 1675621405640
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Serideki ikinci öğreticiyi yapmadıysanız, Veri Görevleri ( Data Tasks ) düğüm menüsünden \"Tüm Proje Veri Görevlerini Çalıştır ( All Project Data Tasks )\" ı seçin!",
                     "updated": 1641063044508
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no has hecho el segundo tutorial de la serie, selecciona \" Run All Project Data Tasks\" en el menú del nodo de Data Tasks.",
+                    "updated": 1675621443326
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğretici ile devam edebilirsiniz!",
                     "updated": 1641063083080
+                },
+                {
+                    "language": "ES",
+                    "text": "Si estás haciendo este tutorial después de hacer otros tutoriales, lo más probable es que ya tengas parte de los datos necesarios, ¡lo que puede hacer las cosas más rápidas! De cualquier manera, no hay necesidad de esperar a que la minería de datos llegue al momento actual... ¡puedes seguir con el tutorial!",
+                    "updated": 1675621465888
                 }
             ]
         }

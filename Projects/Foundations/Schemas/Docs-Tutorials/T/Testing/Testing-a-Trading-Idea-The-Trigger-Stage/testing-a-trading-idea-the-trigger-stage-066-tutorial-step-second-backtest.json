@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman aralığı(Time Range): Ocak ayının ilk 19. gününde hatalardan kaçınmak için ilk DateTime(initialDateTime) değerini 2020-02-01 olarak değiştirin.",
-                    "updated": 1641663876587
+                    "text": "Zaman aralığı (Time Range): Ocak ayının ilk 19. gününde hatalardan kaçınmak için ilk tarih (initialDateTime) değerini 2020-02-01 olarak değiştirin.",
+                    "updated": 1669666591528
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman Çerçevesi(Time Frame): Geçerli tanımlara uyması için adı 01-hs olarak değiştirin.",
-                    "updated": 1641663889810
+                    "text": "Zaman Çerçevesi (Time Frame): Geçerli koşullara uyması için  01-hs olarak değiştirin.",
+                    "updated": 1669666706868
                 },
                 {
                     "language": "RU",
@@ -101,8 +101,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Yürütme ile ilgili olan Açık Aşamayı tanımlamadığımızdan, parametrelerin geri kalanını henüz ele almıyoruz.",
-                    "updated": 1641663899893
+                    "text": "Yürütme ile ilgili olan Açık Aşamayı (Open Stage) tanımlamadığımız için parametrelerin geri kalanına henüz değinmiyoruz.",
+                    "updated": 1669666782033
                 },
                 {
                     "language": "RU",

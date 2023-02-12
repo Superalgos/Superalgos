@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa!",
-                "updated": 1628190493254,
+                "text": "Antes de escribir una novela, asegúrate de guardar la página de vez en cuando. No arriesgues tu prosa.",
+                "updated": 1675453948750,
                 "style": "Definition"
             },
             {
@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Roman uzunluğunda bir yazı yazmadan önce, arada bir sayfayı kaydettiğinizden emin olun! Yazdıklarınızıı riske atmaya gerek yok!",
                 "updated": 1640611553238
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu ke menulis tulisan panjang seperti novel, pastikan kamu selalu menyimpan halaman sesekali! Tidak perlu mengambil resiko prose-mu!",
+                "updated": 1668930539375
+            },
+            {
+                "language": "NL",
+                "text": "Zorg ervoor dat je de pagina zo nu en dan opslaat voordat je aan een nieuw soort artikel begint! U hoeft uw proza niet op het spel te zetten!",
+                "updated": 1669748174361
             }
         ]
     },
@@ -53,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cada párrafo que escribes se almacena en el nivel de la sesión del navegador tan pronto como sale del modo de edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en un eventual bloqueo del navegador, ejecute este comando:",
-                    "updated": 1628190531998,
+                    "text": "Cada párrafo que escribas se guarda en el navegador tan pronto como salgas del modo Edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en una eventual caída del navegador, ejecute este comando:",
+                    "updated": 1675454043933,
                     "style": "Text"
                 },
                 {
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Yazdığınız her paragraf, Düzenleme modundan çıkar çıkmaz tarayıcı oturumu düzeyinde saklanır. Ancak, sayfayı diske kaydetmek ve olası bir tarayıcı çökmesinde işinizi kaybetmemek için aşağıdaki şu komutu çalıştırın:",
                     "updated": 1640611584314
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap paragraf yang kamu tulis tersimpan dalam sesi browser segera setelah kamu keluar dari mode Edit. Adapun, untuk menyimpan dalam diska dan menghindari kehilangan kerja saat terjadi kerusakan pada browser, jalankan perintah ini:",
+                    "updated": 1668930549582
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke alinea die u schrijft, wordt opgeslagen op het niveau van de browsersessie zodra u de bewerkingsmodus verlaat. Voer deze opdracht uit om de pagina op schijf op te slaan en te voorkomen dat u werk verliest bij een eventuele browsercrash:",
+                    "updated": 1669748198464
                 }
             ]
         },
@@ -109,6 +129,16 @@
                     "language": "TR",
                     "text": "Herhangi bir nedenle sayfayı gözden kaybederseniz, docs.reindex komutunu çalıştırın ve eklerken verdiğiniz başlığı arayın! Ayrıca sayfanın alt kısmındaki GERİ düğmesini de kullanabilirsiniz!",
                     "updated": 1640611894985
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika karena alasan apapun kamu kehilangan halamanmu, jalankan perintah docs.reindex dan cari judul yang kamu berikan saat menambahkannya! Kamu juga dapat menggunakan tombol BACK di footer halaman!",
+                    "updated": 1668930558088
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u om welke reden dan ook de pagina uit het oog verliest, voer dan de opdracht docs.reindex uit en zoek naar de titel die u eraan hebt gegeven terwijl u deze toevoegt! U kunt ook de knop BACK in de voettekst van de pagina gebruiken!",
+                    "updated": 1669748238266
                 }
             ]
         }

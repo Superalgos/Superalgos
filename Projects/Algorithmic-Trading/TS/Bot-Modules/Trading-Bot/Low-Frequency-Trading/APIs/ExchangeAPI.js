@@ -82,8 +82,8 @@
         
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
-                key = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
-                secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                key = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName)
+                secret = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret)
                 uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
             }
@@ -127,14 +127,14 @@
         if (sandBox) {
             exchange.setSandboxMode(sandBox)
             /* Uncomment to log
-            console.log('ExchangeAPI connection starting.... ')
-            console.log('Sandbox mode is: ' + sandBox)
-            console.log(exchange.urls.api)
-            console.log('')
-            console.log('exchangeConstructorParams:')
-            console.log(exchangeConstructorParams)
-            console.log('')
-            console.log('limit is: ' + limit)
+            SA.logger.info('ExchangeAPI connection starting.... ')
+            SA.logger.info('Sandbox mode is: ' + sandBox)
+            SA.logger.info(exchange.urls.api)
+            SA.logger.info('')
+            SA.logger.info('exchangeConstructorParams:')
+            SA.logger.info(exchangeConstructorParams)
+            SA.logger.info('')
+            SA.logger.info('limit is: ' + limit)
             */
         }
         
@@ -221,7 +221,7 @@
         } else {amount = tradingEngineOrder.orderBaseAsset.size.value}
 
         // Uncomment for debug
-        // console.log ('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
+        // SA.logger.info('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
         
         
         // Some exchanges need additional params once connected
@@ -231,15 +231,15 @@
         let orderParams = tradingSystemOrder.config.orderParams
         
         // Uncomment for debug
-        // console.log (positionParams)
-        // console.log (orderParams)
+        // SA.logger.info(positionParams)
+        // SA.logger.info(orderParams)
 
         // Above params are merged and passed to ccxt
         let params = {...positionParams, ...orderParams};
         
         // Uncomment for debug
-        // console.log ('Merged Params from Market + Order Close Stage')
-        // console.log (params)
+        // SA.logger.info('Merged Params from Market + Order Close Stage')
+        // SA.logger.info(params)
 
 
         switch (tradingSystemOrder.type) {
@@ -288,10 +288,10 @@
             let order = await (exchange.createOrder(symbol, type, side, amount, price, params))
 
             // Uncomment for debugging
-            // console.log (order.info)
-            // console.log(exchange.market(symbol))
-            // console.log ('The order placed in ExchangeAPI is:')
-            // console.log (order)
+            // SA.logger.info(order.info)
+            // SA.logger.info(exchange.market(symbol))
+            // SA.logger.info('The order placed in ExchangeAPI is:')
+            // SA.logger.info(order)
 
             logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id
@@ -367,7 +367,8 @@
         /* Basic Logging */
         logInfo("cancelOrder -> Entering function. orderId = " + orderId);
 
-        const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+        // const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+        const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {

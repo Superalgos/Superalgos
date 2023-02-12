@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret ( Trading ) Sinyalleri, Superalgos Ticaret Sistemlerine sorunsuz bir şekilde entegre olur",
                 "updated": 1646297648279
+            },
+            {
+                "language": "DE",
+                "text": "Handelssignale (Trading Signals) fügen sich nahtlos in Superalgos Handels (Trading) -Systeme ein",
+                "updated": 1674677218846
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ticaret sinyallerinin gerçek düğüm yapısı, bir Ticaret Sisteminin ( Trading System ) bir uzantısı olarak düşünülebilir. Superalgos'taki Ticaret Sistemlerine aşina değilseniz, nasıl çalıştıkları ve neler yapabilecekleri hakkında daha fazla bilgi edinmek için bu konuyu okuyabilirsiniz.",
                     "updated": 1646297749656
+                },
+                {
+                    "language": "DE",
+                    "text": "Die eigentliche Knotenstruktur von Handelssignalen kann als eine Erweiterung eines Handelssystems (Trading System) betrachtet werden. Wenn Sie mit den Handels (Trading) -Systemen in Superalgos nicht vertraut sind, können Sie dieses Thema nachlesen, um mehr darüber zu erfahren, wie sie funktionieren und was sie tun können.",
+                    "updated": 1674677234586
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Ticaret sinyalleri, iki ana düğüm kullanarak doğrudan Ticaret Sistemlerine bağlanır",
                     "updated": 1646297794472
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handels (Trading) -Signale werden über zwei Hauptknotenpunkte direkt ins Tradings Systems eingebunden",
+                    "updated": 1674677264035
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Gelen Sinyaller ( Incoming Signals ) düğümü",
                     "updated": 1646297832700
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Signal (Incoming Signals) -Knoten",
+                    "updated": 1674677275851
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Giden Sinyaller ( Outgoing Signals ) düğümü",
                     "updated": 1646297853841
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Signal (Outgoing Signals) -Knoten",
+                    "updated": 1674677283329
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Bu tür düğümlerin, Sinyal Referansı düğümü (sırasıyla Gelen Sinyal  Referansı ( Incoming Signal Reference ) ve Giden Sinyal  Referansı ( Outgoing Signal Reference ) adı verilen bir alt düğümü vardır. Bu Sinyal Referans düğümleri, ticaret sistemi içinde sinyal verilerinin nereyi besleyeceğini veya alacağını söylemek için bir sağlayıcının profili altında tutulan Sosyal Ticaret Botları ile bağlantı kurar.",
                     "updated": 1646298213353
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Arten von Knoten haben einen untergeordneten Knoten, der Signalreferenzknoten genannt wird (Incoming Signal Reference and Outgoing Signal Reference respectively). Diese Signalreferenzknoten stellen eine Verbindung zu den Social Trading Bots her, die unter dem Profil eines Anbieters geführt werden, um dem System mitzuteilen, wo es Signaldaten innerhalb des Handelssystems einspeisen oder empfangen soll.",
+                    "updated": 1674677295609
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "TR",
                     "text": "Bu düğümlerin nasıl çalıştığına dair örnekler şu şekildedir:",
                     "updated": 1646298041694
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für die Funktionsweise dieser Knoten sind die folgenden:",
+                    "updated": 1674677308554
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "TR",
                     "text": "Bir sağlayıcı, ticaret sistemi her tetiklendiğinde bir sinyal göndermek ister. Bunu başarmak için Tetikleyici Olaylarına ( Trigger On Event ) bir Giden Sinyal Düğümü ( Outgoing Signal Reference ) eklerler (bir duyuru düğümü eklemek gibi). Ardından, alt Giden Sinyal Referans düğümünü eklerler. Bundan sonra, Giden Sinyal Referans düğümünü, bu sinyali gönderecek olan Sosyal Ticaret Botunun ( Social Trading Bot ) Sinyalini  Tetikleyici düğümüne bağlarlar.",
                     "updated": 1646298809074
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Anbieter möchte jedes Mal, wenn sein Handelssystem ausgelöst wird, ein Signal senden. Um dies zu erreichen, fügt er einen Knoten (Node) mit ausgehendem Signal zu seinem Trigger-On-Ereignis (Trigger On Event) hinzu (ähnlich wie beim Hinzufügen eines Ankündigungsknotens). Dann fügen sie den untergeordneten Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference) hinzu. Danach verbinden sie den Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference) mit dem Knoten Auslöser-Ein-Signal (Trigger On Signal) des Sozialen-Handels-Bot (Social Trading Bot), der dieses Signal senden wird.",
+                    "updated": 1674677319548
                 }
             ]
         },
@@ -145,6 +185,11 @@
                     "language": "TR",
                     "text": "Sinyalleri almak çok benzer şekilde çalışır. Bir alıcı yukarıda açıklanan Tetikleme Açık sinyalini almak isterse, ticaret sistemi içinde Tetikleme Açık olayına ( Trigger On Event ) bir Gelen Ticaret Sinyali düğümü ekler. Ardından Gelen Sinyal Referans ( Incoming Signal Reference ) düğümünü alt öğe olarak ekleyin. Son olarak, Sinyal referans düğümünü, sağlayıcının profili altında sinyali gönderen Sosyal Ticaret Botunun ( Social Trading Bot ) Sinyalde Tetikleyici düğümüne bağlayacaklardır.",
                     "updated": 1646299256145
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Empfang von Signalen funktioniert ganz ähnlich. Wenn ein Empfänger das oben beschriebene Auslöser-Ein-Signal (Trigger On-Signal) empfangen möchte, fügt er in seinem Handelssystem einen Knoten Eingehendes Handels (Trading) -Signal zu seinem Trigger On-Ereignis (Trigger On event) hinzu. Dann fügen Sie dem Knoten die Eingehende Signalreferenz (Incoming Signal Reference) als untergeordnetes Element hinzu. Schließlich verbinden sie den Signalreferenzknoten mit demselben Auslöser-Ein (Trigger On) -Signal-Knoten des Sozialer Handels-Bot (Social Trading Bot), der das Signal unter dem Profilnamen des Anbieters sendet.",
+                    "updated": 1674677330526
                 }
             ]
         },
@@ -161,6 +206,11 @@
                     "language": "TR",
                     "text": "Sinyalleri yönlendirmeye yönelik bu yöntem, Ticater Sisteminin ( Trading System ) her yerinde çalışır. Sinyal eklemek için uygun yerlerin listesi aşağıdadır:",
                     "updated": 1646299322205
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Methode zur Weiterleitung von Signalen funktioniert überall innerhalb des Handelssystems (Trading System). Hier ist die Liste der verfügbaren Stellen, an denen Signale angebracht werden können:",
+                    "updated": 1674677343069
                 }
             ]
         },
@@ -178,6 +228,11 @@
                     "language": "TR",
                     "text": "Uyarı: Uyumlu ek düğümlerini buraya ekleyin",
                     "updated": 1646299357546
+                },
+                {
+                    "language": "DE",
+                    "text": "Kompatible Anhangsknoten hier einfügen",
+                    "updated": 1674677361228
                 }
             ]
         },
@@ -195,6 +250,11 @@
                     "language": "TR",
                     "text": "Not: Sinyallerin eklenebileceği bu konumların her biri, Sosyal Ticaret Botları ( Social Trading Bot ) altında bulunan eşleşen Sinyal düğümlerine de sahiptir.",
                     "updated": 1646299383979
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu jedem dieser Orte, an denen Signale angehängt werden können, gibt es auch passende Signalknoten unter den Sozialen-Handels-Bot´s (Social Trading Bots).",
+                    "updated": 1674677370510
                 }
             ]
         },
@@ -211,6 +271,11 @@
                     "language": "TR",
                     "text": "Gelen Sinyal düğümü, sinyal bilgilerini alır ve ardından bu verileri bir ticaret sisteminin belirli bir bölümüne enjekte eder. Bu, Sinyalin Referans düğümünü, Sağlayıcının Sosyal Ticaret Botu ( Social Trading Bot ) altındaki eşleşen Sinyaller düğümüne bağlayarak elde edilir.",
                     "updated": 1646299425984
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten für eingehende Signale empfängt die Signalinformationen und injiziert diese Daten dann in einen bestimmten Teil eines Handelssystems. Dies wird erreicht, indem der Referenzknoten des Signals mit dem passenden Signalknoten unter dem Sozialen-Handels-Bot (Social Trading Bot) des Anbieters verbunden wird.",
+                    "updated": 1674756430657
                 }
             ]
         }

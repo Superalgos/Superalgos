@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Alım satım atamanız devam ediyorsa, Backtesting Session menüsünden Run'u seçin. Değilse, önce Görev menüsünden Çalıştır'ı seçin.",
-                    "updated": 1641663951125
+                    "text": "\"Trading Task\" çalışıyorsa, \"Backtesting Session\" (Geriye Dönük Test Oturumu) menüsünde Run (Çalıştır) öğesini seçin. Değilse, önce Görev \"Trading Task\" menüsünden Çalıştır'ı seçin.",
+                    "updated": 1669668167368
                 },
                 {
                     "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: İşlem Süreci Eşgörünümü ( Trading Process Instance ) ilerleme çubuğu %100 işaretine ulaştığında görevi durdurun ve İleri'ye tıklayın.",
-                    "updated": 1641663973652
+                    "text": "İşlem Süreci Örneği ( Trading Process Instance ) ilerleme çubuğu %100 değerine ulaştığında görevi durdurun ve İleri'ye tıklayın.",
+                    "updated": 1669668218192
                 },
                 {
                     "language": "RU",

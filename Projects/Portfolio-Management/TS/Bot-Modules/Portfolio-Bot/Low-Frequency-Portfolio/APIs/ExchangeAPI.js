@@ -32,8 +32,8 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
   
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
-                key = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
-                secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                key = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName)
+                secret = TS.projects.foundations.utilities.credentialsFunctions.getCredentialValue(TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret)
                 uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
             }
@@ -55,9 +55,9 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
         if (sandBox) {
             exchange.setSandboxMode(sandBox);
         }
-        // console.log('Sandbox mode = ' + sandBox);
+        // SA.logger.debug('Sandbox mode = ' + sandBox);
         // uncomment the following line if you want to log the exchange api being used
-        // console.log(exchange.urls.api);
+        // SA.logger.debug(exchange.urls.api);
     }
   
     function finalize() {
@@ -83,7 +83,7 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
                 type: 'TS LF Portfolio Bot Error - ' + message,
                 placeholder: {}
             }
-            console.log("Error: " + message + "\nerr=>" + err);
+            SA.logger.error("Error: " + message + "\nerr=>" + err);
         }
         return false;
     }

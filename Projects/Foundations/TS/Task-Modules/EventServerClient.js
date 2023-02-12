@@ -42,32 +42,32 @@
         try {
 
             if (INFO_LOG === true) {
-                console.log('setuptWebSockets at ' + host + ':' + port)
+                SA.logger.info('setuptWebSockets at ' + host + ':' + port)
             }
             WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
 
             WEB_SOCKETS_CLIENT.onerror = err => {
-                console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .Environment.js  file inside the TaskServer folder. After that run the app again. ')
-                console.log((new Date()).toISOString(), '[ERROR] If you are debugging, it can also mean that the Superalgos Platform Client is not running. ')
+                SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
+                SA.logger.error('This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .Environment.js  file inside the TaskServer folder. After that run the app again. ')
+                SA.logger.error('If you are debugging, it can also mean that the Superalgos Platform Client is not running. ')
             }
             WEB_SOCKETS_CLIENT.onopen = () => {
                 try {
                     if (INFO_LOG === true) {
-                        console.log('Websocket connection opened.')
+                        SA.logger.info('Websocket connection opened.')
                     }
     
                     if (callBackFunction !== undefined) {
                         callBackFunction()
                     }
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onopen -> err = ' + err.stack) 
+                    SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets ->  onopen -> err = ' + err.stack) 
                 }
             }
             WEB_SOCKETS_CLIENT.onmessage = e => {
                 try {
                     if (INFO_LOG === true) {
-                        console.log('Websocket Message Received: ' + e.data.substring(0, 1000))
+                        SA.logger.info('Websocket Message Received: ' + e.data.substring(0, 1000))
                     }
 
                     let message = JSON.parse(e.data)
@@ -80,8 +80,10 @@
                             key = message.eventHandlerName + '-' + message.eventType
                         }
                         let handler = eventListeners.get(key)
-                        if (handler) {             
+                        if (handler) {
                             handler.callBack(message)
+                        //} else {
+                        //    SA.logger.error(`handler not found in eventListeners. key = ${key}`)
                         }
                         return
                     }
@@ -90,15 +92,17 @@
                         let handler = responseWaiters.get(message.callerId)
                         if (handler) {
                             handler(message)
+                        //} else {
+                        //    SA.logger.error(`handler not found in responseWaiters. message.callerId = ${message.callerId}`)
                         }
                         return
                     }
                 } catch (err) {
-                     console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onmessage -> err = ' + err.stack) 
+                     SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets ->  onmessage -> err = ' + err.stack) 
                 }
             }
         } catch (err) {
-             console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  err = ' + err.stack) 
+             SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets ->  err = ' + err.stack) 
         }
     }
 
@@ -144,10 +148,10 @@
                 WEB_SOCKETS_CLIENT.send("Task Server" + "|*|" + "|*|"  + JSON.stringify(command))
     
             } else {
-                console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
+                SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
             }
         } catch(err) {
-             console.log((new Date()).toISOString(), '[ERROR] Task Server -> Event Server Client -> sendCommand ->  err = ' + err.stack) 
+             SA.logger.error('Task Server -> Event Server Client -> sendCommand ->  err = ' + err.stack) 
         }
     }
 

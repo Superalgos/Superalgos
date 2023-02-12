@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Over het bouwen van blokken gesproken, we bevinden ons nu binnen de grenzen van de Masters Data Mine. Links van je, zie je de definitie van een van de bots die je minuten geleden aan het minen hebt gezet.",
                 "updated": 1666788217273
+            },
+            {
+                "language": "FR",
+                "text": "En parlant de construction de blocs, nous sommes maintenant dans les confins de la Masters Data Mine. À votre gauche, la définition de l'un des bots que vous avez envoyé il y a quelques minutes.",
+                "updated": 1668414371634
             }
         ]
     },
@@ -72,8 +77,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Grafik alanının ( Charting Space )'in Lego benzeri olduğu gibi, botlarda görsel bir ortamda tanımlanmıştır.",
-                    "updated": 1636105839670
+                    "text": "Grafik alanının yapısının ( Charting Space ) Lego benzeri olduğu gibi, botlarda görsel bir ortamda tanımlanmıştır.",
+                    "updated": 1669920146189
                 },
                 {
                     "language": "RU",
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Net als bij de Lego-achtige definities van de Charting Space, zijn bots te gedefinieerd in een visuele omgeving.",
                     "updated": 1666788244598
+                },
+                {
+                    "language": "FR",
+                    "text": "Un peu comme avec les définitions de type Lego de l'espace graphique, les bots aussi sont définis sur un environnement visuel.",
+                    "updated": 1668414392668
                 }
             ]
         },
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Het enige dat ontwikkelaars hoeven te programmeren, is de feitelijke Data Building Procedure.",
                     "updated": 1666788289279
+                },
+                {
+                    "language": "FR",
+                    "text": "Tout ce dont les développeurs ont besoin pour coder est la procédure de construction de données ( Data Building Procedure).",
+                    "updated": 1668414428600
                 }
             ]
         },

@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Artık her şeyi hallettiğimize göre, geçiş yapalım ve bundan sonra olacaklara hazırlanalım!",
                 "updated": 1640419466455
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang semuanya sudah jelas, Ayo ubah dan bersiaplah dengan yang terjadi selanjutnya!",
+                "updated": 1668786105221
+            },
+            {
+                "language": "NL",
+                "text": "Nu alles duidelijk is, gaan we overstappen en ons voorbereiden op wat komen gaat!",
+                "updated": 1669746788158
             }
         ]
     },
@@ -72,6 +82,16 @@
                     "text": "Yapmanız gereken şey bu:",
                     "updated": 1654393904677,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Inilah yang harus kamu lakukan:",
+                    "updated": 1668786118051
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is wat u moet doen:",
+                    "updated": 1669746798901
                 }
             ]
         },
@@ -88,8 +108,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Regresa al pie de página y selecciona Plugins-Docs como tu Current Branch.",
-                    "updated": 1628128266760,
+                    "text": "Vuelve al pie de página y selecciona Develop como rama actual.",
+                    "updated": 1675451605603,
                     "style": "List"
                 },
                 {
@@ -106,6 +126,16 @@
                     "language": "TR",
                     "text": "Bu syafanın en altına gidin ve Current Branch dalını \"Develop\" olarak değiştirin.",
                     "updated": 1640419547094
+                },
+                {
+                    "language": "ID",
+                    "text": "Kembali ke footer dan pilih Develop sebagai Current Branch.",
+                    "updated": 1668786129103
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga terug naar de voettekst en selecteer Develop als uw huidige branch.",
+                    "updated": 1669746831849
                 }
             ]
         },
@@ -140,6 +170,16 @@
                     "language": "TR",
                     "text": "Ne yapıldığını açıklayan bir sayfa göreceksiniz. Ardından, uygulamayı yeniden başlatmanız gerektiğini bildiren başka bir sayfa daha göreceksiniz..",
                     "updated": 1640419607946
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu akan mendapati halaman yang menjelaskan bahwa telah berhasil. Lalu kamu akan mendapatkan halaman berikutnya yang memberitahumu untuk mengulang aplikasi.",
+                    "updated": 1668786139036
+                },
+                {
+                    "language": "NL",
+                    "text": "U krijgt een pagina waarop wordt uitgelegd wat er wordt gedaan. Vervolgens krijgt u een andere pagina met de uitkomst waarin wordt uitgelegd dat u de app opnieuw moet opstarten.",
+                    "updated": 1669746848709
                 }
             ]
         },
@@ -174,6 +214,16 @@
                     "language": "TR",
                     "text": "Uygulamayı kapatın ve yeniden başlatın (tarayıcıda ve konsolda).",
                     "updated": 1640419636012
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutup aplikasi dan jalankan kembali (browser & konsol).",
+                    "updated": 1668786155121
+                },
+                {
+                    "language": "NL",
+                    "text": "Sluit de app en start deze opnieuw (browser & console).",
+                    "updated": 1669746860717
                 }
             ]
         },
@@ -208,6 +258,16 @@
                     "language": "TR",
                     "text": "Çalışma alanının sağ alt köşesinde Beyond The Basics Tutorial Eğitimini bulun ve menüden Resune'u (Devam Et) seçin! Resum (Devam Et) çalışmıyorsa, \"Welcome Back!\" Butonunu bulun. Branches Konusu'nun altına girin ve menüden \"Oynat\"a tıklayın!",
                     "updated": 1640424871004
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan Beyond the Basics Tutorial di bagian bawah kanan workspace dan pilih \"Resume\" di menu! Jika \"Resume\" tidak bekerja, Temukan step \"Welcome Back!\" dibawah Branches Topic dan klik \"Play\" di menu!",
+                    "updated": 1668786164761
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek de Beyond the Basics Tutorial in de rechterbenedenhoek van de werkruimte en selecteer \"Resume\" in het menu! Als \"Resume\" niet werkt, zoek dan de \"Welcome Back!\" stap onder het Branches-onderwerp en klik op \"Play\" in het menu!",
+                    "updated": 1669746914765
                 }
             ]
         }

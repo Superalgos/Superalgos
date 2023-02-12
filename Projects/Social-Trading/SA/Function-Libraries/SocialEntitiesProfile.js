@@ -107,6 +107,27 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             let response = {
                 result: 'Ok'
             }
+            let savedPayloadNode = {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                targetPosition: {
+                    x: 0,
+                    y: 0
+                },
+                floatingObject: {
+                    isPinned: false,
+                    isFrozen: false,
+                    isCollapsed: false,
+                    angleToParent: 2,
+                    distanceToParent: 3,
+                    arrangementStyle: 0
+                },
+                uiObject: {
+                    isRunning: false
+                }
+            }
 
             loadUserAppFile()
             if (response.result === 'Error') {
@@ -118,7 +139,9 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -157,6 +180,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { 
                 resolve(response) 
                 return
+            }
+            reloadSecretsArray()
+            if (response.result === 'Error') {
+                resolve(response)
+                return 
             }
 
             resolve(response)
@@ -224,6 +252,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Social Personas',
                                 name: 'New Social Personas',
                                 project: 'Social-Trading',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}',
                                 socialPersonas: []
@@ -233,6 +262,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             type: 'Social Persona',
                             name: 'New Social Persona',
                             project: 'Social-Trading',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
@@ -246,6 +276,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'User Bots',
                                 name: 'New User Bots',
                                 project: 'Governance',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -255,6 +286,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Social Trading Bots',
                                 name: 'New Social Trading Bots',
                                 project: 'Social-Trading',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -263,6 +295,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             type: 'Social Trading Bot',
                             name: 'New Social Trading Bot',
                             project: 'Social-Trading',
+                            savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
@@ -327,6 +360,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'User Storage',
                                 name: 'New User Storage',
                                 project: 'Open-Storage',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
@@ -338,6 +372,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                     type: 'Github Storage',
                                     name: 'New Github Storage',
                                     project: 'Open-Storage',
+                                    savedPayload: savedPayloadNode,
                                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                     config: '{}',
                                     githubStorageContainers: []
@@ -347,6 +382,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 type: 'Github Storage Container',
                                 name: 'New Github Storage Container',
                                 project: 'Open-Storage',
+                                savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: JSON.stringify(
                                     {
@@ -373,6 +409,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     type: 'Available Storage',
                     name: 'New Available Storage',
                     project: 'Open-Storage',
+                    savedPayload: savedPayloadNode,
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     storageContainerReferences: [],
                     config: '{}'
@@ -384,14 +421,15 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     project: 'Open-Storage',
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     config: '{}',
-                    savedPayload: {
+                    savedPayload: [{
                         referenceParent: {
                             type: storageContainer.type,
                             name: storageContainer.name,
                             id: storageContainer.id
                         }
-                    }
+                    }]
                 }
+                StorageContainerReference.savedPayload.push(savedPayloadNode)
 
                 targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
             }
@@ -404,7 +442,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     GOVERNANCE_PLUGINS_REPO_NAME,
                     storageProviderUsername,
                     'User-Profiles',
-                    storageProviderUsername
+                    storageProviderUsername,
+                    GOVERNANCE_PLUGINS_REPO_BRANCH
                 )
                     .then()
                     .catch(profileNotPushed)
@@ -412,7 +451,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 function profileNotPushed(err) {
                     response = {
                         result: 'Error',
-                        message: 'Error pushing the User Profile to Github.',
+                        message: 'Error pushing the updated User Profile to Github.',
                         stack: err.stack
                     }
                     resolve(response)
@@ -433,6 +472,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+
+            function reloadSecretsArray() {
+                try {
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(SA.nodeModules.path.join(global.env.PATH_TO_SECRETS, 'SigningAccountsSecrets.json')))
+                    SA.secrets.signingAccountSecrets.array = fileContent.secrets
+                } catch (err) {
+                    // some magic handling
+                } 
+                
+                for (let i = 0; i < SA.secrets.signingAccountSecrets.array.length; i++) {
+                    let secret = SA.secrets.signingAccountSecrets.array[i]
+                    SA.secrets.signingAccountSecrets.map.set(secret.nodeCodeName, secret)
+                }
             }
         }
     }
@@ -547,7 +600,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
             async function loadUserProfileFromMemory() {
                 /*
-                We will get the user profile from an in meomry map.
+                We will get the user profile from an in memory map.
                 */
                 userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(userProfileId)
 

@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Проект будет успешным, если ему удастся наладить глобальное сотрудничество. Мы приветствуем всевозможные пожертвования, чтобы каждый мог получить отдачу!",
                 "updated": 1640154907740
+            },
+            {
+                "language": "ID",
+                "text": "Proyek ini akan berhasil jika kita bisa memanajemen dalam mendorong kolaborasi secara global. Kami sangat menyambut baik segala bentuk kontribusi dan memberikan umpan balik!",
+                "updated": 1668502048907
+            },
+            {
+                "language": "NL",
+                "text": "Het project zal slagen als het erin slaagt om wereldwijde samenwerking te bevorderen. We verwelkomen alle soorten bijdragen, zodat iedereen kan teruggeven!",
+                "updated": 1669573542673
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "RU",
                     "text": "Короче говоря, все, что добавляет ценность, это хорошо!",
                     "updated": 1640154943935
+                },
+                {
+                    "language": "ID",
+                    "text": "Singkatnya, semua yang menambahkan nilai adalah kebaikan!",
+                    "updated": 1668502088975
+                },
+                {
+                    "language": "NL",
+                    "text": "Kortom, alles wat waarde toevoegt is goed!",
+                    "updated": 1669573553538
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "RU",
                     "text": "Исправление опечатки, неработающей ссылки и улучшение документации.",
                     "updated": 1640154958323
+                },
+                {
+                    "language": "ID",
+                    "text": "Memperbaiki typo, link mati, dan improvisasi Docs.",
+                    "updated": 1668502531660
+                },
+                {
+                    "language": "NL",
+                    "text": "Een typefout, een dode link corrigeren en de documenten verbeteren.",
+                    "updated": 1669573566549
                 }
             ]
         },
@@ -139,6 +169,16 @@
                     "language": "RU",
                     "text": "Перевод страницы на ваш родной язык.",
                     "updated": 1640154987810
+                },
+                {
+                    "language": "ID",
+                    "text": "Menerjemahkan halaman ke bahasa lain.",
+                    "updated": 1668502551035
+                },
+                {
+                    "language": "NL",
+                    "text": "Een pagina vertalen naar uw moedertaal.",
+                    "updated": 1669573576266
                 }
             ]
         },
@@ -172,6 +212,16 @@
                     "language": "RU",
                     "text": "Разработка иконок, работа над улучшением UX/UI.",
                     "updated": 1640155003488
+                },
+                {
+                    "language": "ID",
+                    "text": "Merancang ikon, bekerja untuk improvisasi UX/UI.",
+                    "updated": 1668502563514
+                },
+                {
+                    "language": "NL",
+                    "text": "Pictogrammen ontwerpen, werken aan het verbeteren van de UX/UI.",
+                    "updated": 1669573586082
                 }
             ]
         },
@@ -206,6 +256,16 @@
                     "language": "RU",
                     "text": "Производство контента в виде обучающих материалов или видеороликов для приложения.",
                     "updated": 1640155041742
+                },
+                {
+                    "language": "ID",
+                    "text": "Memproduksi konten untuk tutorial dan video dalam aplikasi.",
+                    "updated": 1668502580471
+                },
+                {
+                    "language": "NL",
+                    "text": "Inhoud produceren als in-app tutorials of video's.",
+                    "updated": 1669573595623
                 }
             ]
         },
@@ -240,6 +300,16 @@
                     "language": "RU",
                     "text": "Ведение блога о Superalgos и распространение информации.",
                     "updated": 1640155056460
+                },
+                {
+                    "language": "ID",
+                    "text": "Membuat blog tentang Superalgos dan memberitahu orang lain.",
+                    "updated": 1668502591838
+                },
+                {
+                    "language": "NL",
+                    "text": "Bloggen over Superalgos en de boodschap verspreiden.",
+                    "updated": 1669573609815
                 }
             ]
         },
@@ -256,8 +326,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Compartiendo un Data Mine o un Trading System!",
-                    "updated": 1628119096734,
+                    "text": "¡Compartir un Data Mine o un Trading System!",
+                    "updated": 1675449425707,
                     "style": "List"
                 },
                 {
@@ -274,6 +344,16 @@
                     "language": "RU",
                     "text": "Распространение Data Mine или торговой системы (Trading System)!",
                     "updated": 1640155183174
+                },
+                {
+                    "language": "ID",
+                    "text": "Membagikan Data Mine atau Trading System!",
+                    "updated": 1668502603667
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Data Mine of een Trading System delen!",
+                    "updated": 1669573638802
                 }
             ]
         },
@@ -308,6 +388,16 @@
                     "language": "RU",
                     "text": "Тестирование, устранение ошибок, интеграция криптопроектов и внесение вклада в кодовую базу.",
                     "updated": 1640155202216
+                },
+                {
+                    "language": "ID",
+                    "text": "Uji coba, memperbaiki bug, mengintegrasikan proyek crypto, dan kontribusi ke kodebasis.",
+                    "updated": 1668502615520
+                },
+                {
+                    "language": "NL",
+                    "text": "Testen, bugs verwijderen, crypto-projecten integreren en bijdragen aan de codebase.",
+                    "updated": 1669573648827
                 }
             ]
         }

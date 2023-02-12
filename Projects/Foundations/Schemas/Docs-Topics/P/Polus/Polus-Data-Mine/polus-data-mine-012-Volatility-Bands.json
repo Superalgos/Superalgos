@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Полосы волатильности используют скользящую среднюю с поправкой на волатильность (VAMA) для создания полос, аналогичных полосам Боллинджера и каналу Кельтнера.",
                 "updated": 1645716087917
+            },
+            {
+                "language": "DE",
+                "text": "Volatilitätsbänder verwenden einen Volatility Adjusted Moving Average (VAMA), um ähnliche Bänder wie Bollinger Bänder und den Keltner Kanal zu erzeugen.",
+                "updated": 1671347930875
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "RU",
                     "text": "Параметры длинного периода (L), короткого периода (S) и центра (C) VAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Volatility Bands' Product Definition.",
                     "updated": 1645716106562
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter \"Lange Periode\" (L), \"Kurze Periode\" (S) und \"Zentrum\" (C) des VAMA können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Volatility Bands’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671348043234
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645716112124
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671348109763
                 }
             ]
         },
@@ -66,12 +81,24 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645716117483
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671348138951
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| Volatility Bands | Volatility_Bands | vama, up, low |"
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Bands | Volatility_Bands | vama, up, low |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volatility Bands | Volatility_Bands | vama, up, low |",
+                    "updated": 1671348160170
+                }
+            ]
         },
         {
             "style": "Text",
@@ -81,6 +108,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645716126293
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671348179301
                 }
             ]
         },
@@ -92,6 +124,11 @@
                     "language": "RU",
                     "text": "Можно построить простую стратегию для открытия сделки, когда свеча закрывается выше верхней полосы:",
                     "updated": 1645716133164
+                },
+                {
+                    "language": "DE",
+                    "text": "Es könnte eine einfache Strategie entwickelt werden, um einen Handel zu eröffnen, wenn eine Kerze oberhalb des oberen Bandes schließt:",
+                    "updated": 1671348200890
                 }
             ]
         },
@@ -101,7 +138,14 @@
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671348220386
+                }
+            ]
         },
         {
             "style": "Link",

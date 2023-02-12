@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bu, grafiklerde oynadığımız Zaman Makinesinin Grafik Alanı hiyerarşi kurulumudur.",
-                "updated": 1636103063884
+                "text": "Bu, grafikler üzerinde oynadığımız Zaman Makinesinin (Time Machine) Grafik Alanı (Charting Space) hiyerarşi kurulumudur.",
+                "updated": 1669919848854
             },
             {
                 "language": "RU",
@@ -46,6 +46,11 @@
                 "language": "NL",
                 "text": "Dit is de hiërarchieconfiguratie van de Charting Space van de Time Machine waarmee we in de grafieken hebben uitgeprobeerd.",
                 "updated": 1666787963590
+            },
+            {
+                "language": "FR",
+                "text": "Voici la configuration hiérarchique de l'espace graphique de la Time Machine avec laquelle nous avons joué sur les graphiques.",
+                "updated": 1668414177349
             }
         ]
     },
@@ -91,6 +96,11 @@
                     "language": "NL",
                     "text": "Besteed een paar minuten aan het verkennen van deze definities! Neem een kijkje in de menu's van de verschillende nodes!",
                     "updated": 1666787988477
+                },
+                {
+                    "language": "FR",
+                    "text": "Passez quelques minutes à explorer ces définitions ! Jetez un coup d'œil aux menus des différents nœuds !",
+                    "updated": 1668414181872
                 }
             ]
         },
@@ -107,8 +117,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
-                    "updated": 1624412890132,
+                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, vamos a configurar un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
+                    "updated": 1675277880497,
                     "style": "Text"
                 },
                 {
@@ -135,6 +145,11 @@
                     "language": "NL",
                     "text": "Ik hoop dat de structuur van knooppunten intuïtief genoeg is om te begrijpen hoe krachtig het concept van de Design Space is. U stelt een time machine in door een Timeline Chart knooppunt en de gewenste as-schalen toe te voegen. Stel vervolgens de laagmanagers en lagen in die verwijzen naar de bijbehorende Data Mine Products, zodat de gewenste gegevens beschikbaar komen op een bepaalde laagmanager in de grafieken. Het is als  Legoland® onder de handelsgrafieken! U zult later leren om de grafieken aan te passen!",
                     "updated": 1666788133657
+                },
+                {
+                    "language": "FR",
+                    "text": "J'espère que la structure des nœuds est suffisamment intuitive pour comprendre à quel point le concept d'espace de conception est puissant. Vous configurez une Time Machine en ajoutant des nœuds de graphique et les échelles souhaitées. Configurez ensuite les gestionnaires de calques et les calques référençant les produits Data Mine correspondants afin que les données souhaitées soient disponibles sur un gestionnaire de calques particulier sur les graphiques. C'est comme le Legoland® des graphiques ! Vous apprendrez à personnaliser les graphiques plus tard !",
+                    "updated": 1668414297873
                 }
             ]
         }

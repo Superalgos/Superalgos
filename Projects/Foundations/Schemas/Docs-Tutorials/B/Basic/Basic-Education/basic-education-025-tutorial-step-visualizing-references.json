@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ketika kamu mengarahkan mouse pointer ke atas node dengan referensi keluaran, referensi menjadi terlihat.",
                 "updated": 1644948389690
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer u de muisaanwijzer over een knooppunt met een uitgaande verwijzing beweegt, wordt de verwijzing zichtbaar.",
+                "updated": 1668341332862
             }
         ]
     },
@@ -76,6 +81,11 @@
                     "language": "ID",
                     "text": "Tetapi ada juga cara untuk membuat semua referensi terlihat!",
                     "updated": 1644948407709
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar er is ook een manier om alle referenties zichtbaar te maken!",
+                    "updated": 1668341343398
                 }
             ]
         },
@@ -92,8 +102,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Presiona la siguiente combinación de teclas: Ctrl + Shift + Alt + Key-R",
-                    "updated": 1626532976069,
+                    "text": "Pulsa la siguiente combinación de teclas: Ctrl + Shift + Key-R o Cmd + Shift + Key-R en Mac.",
+                    "updated": 1675376456911,
                     "style": "Callout"
                 },
                 {
@@ -115,6 +125,11 @@
                     "language": "ID",
                     "text": "Tekan kombinasi tombol berikut: Ctrl + Shift + Key-R atau Cmd + Shift + Key-R pada Mac",
                     "updated": 1644948435735
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-R or Cmd + Shift + Key-R op een Mac",
+                    "updated": 1668341380038
                 }
             ]
         },
@@ -131,8 +146,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora puede ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
-                    "updated": 1626533039571,
+                    "text": "Ahora puedes ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
+                    "updated": 1675376471308,
                     "style": "Text"
                 },
                 {
@@ -154,6 +169,11 @@
                     "language": "ID",
                     "text": "Sekarang kamu dapat melihat referensi yang keluar dari node  Trading System Reference dan node Trading Engine Reference.",
                     "updated": 1644948489785
+                },
+                {
+                    "language": "NL",
+                    "text": "Nu kunt u de referenties zien uitgaan van zowel het Trading System Reference als het Trading Engine Reference knooppunt.",
+                    "updated": 1668341424086
                 }
             ]
         },
@@ -193,6 +213,11 @@
                     "language": "ID",
                     "text": "Klik kanan untuk mengakses map Design Space dan perhatikan referensi lain yang mungkin terlihat.",
                     "updated": 1644948528001
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik met de rechtermuisknop om de werkruimte van de Design Space te openen en andere verwijzingen op te merken die mogelijk zichtbaar zijn.",
+                    "updated": 1668341470878
                 }
             ]
         }

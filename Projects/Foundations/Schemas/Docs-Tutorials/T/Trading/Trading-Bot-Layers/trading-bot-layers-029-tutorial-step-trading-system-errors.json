@@ -23,6 +23,16 @@
                 "language": "TR",
                 "text": "Özet: Koşullar ve formüller yazarken hata yapabilirsiniz. Koşulların doğru veya yanlış olarak değerlendirilmesi gerektiğini ve formüllerin bir sayı olarak değerlendirilmesi gerektiğini hatırlıyor musunuz?",
                 "updated": 1642514186871
+            },
+            {
+                "language": "ID",
+                "text": "Saat menulis condition dan formulas, Kamu mungkin saja membuat kesalahan. Ingat condition harus dievaluasi menjadi true atau false dan formulas menjadi number?",
+                "updated": 1673967036886
+            },
+            {
+                "language": "ES",
+                "text": "Al escribir condiciones y fórmulas, puedes cometer errores. ¿Recuerdas que las condiciones deben evaluarse como verdadero o falso y las fórmulas como un número?",
+                "updated": 1675468385300
             }
         ]
     },
@@ -45,6 +55,16 @@
                     "language": "TR",
                     "text": "Peki, yapmazlarsa, <bir hata alırsınız! Bir strateji oluşturmak ve test etmek için ileri geri giderken bu katmanı açmak bir zorunluluktur!",
                     "updated": 1642514252905
+                },
+                {
+                    "language": "ID",
+                    "text": "Nah, jika tidak, Kamu akan mendapatkan error! Mengaktifkan layer ini saat kamu bolak-balik menyusun dan menguji strategi adalah suatu keharusan!",
+                    "updated": 1673967043115
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no es así, se producirá un error. ¡Activar esta capa cuando estás yendo y viniendo en la creación y prueba de una estrategia es imprescindible!",
+                    "updated": 1675468420018
                 }
             ]
         },
@@ -66,6 +86,16 @@
                     "language": "TR",
                     "text": "Bu ticaret sisteminde hata yok, ancak nasıl rapor edildiğini görebilmeniz için sadece sahte bir tane yerleştirdim! Soldaki Formüle (Formula) bakın!",
                     "updated": 1642514406373
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada kesalahan dalam trading system ini, tetapi aku baru saja menanam yang fake sehingga kamu dapat melihat bagaimana laporannya! Lihat Formula di sebelah kiri!",
+                    "updated": 1673967048833
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No hay errores en este sistema de trading, pero acabo de plantar uno falso para que puedas ver cómo se reportan! ¡Mira la fórmula de la izquierda!",
+                    "updated": 1675468451408
                 }
             ]
         },
@@ -87,6 +117,16 @@
                     "language": "TR",
                     "text": "Şimdi, hiyerarşinin bölümü çökerse ne olur? Hala hata mesajlarını görebilecek misiniz? Hızlı bir test yapalım! İlk Hedefler (Initial Targets) düğümünü daraltın!",
                     "updated": 1642514362129
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang, bagaimana jika bagian hierarki itu collapsed? Apakah kamu masih dapat melihat pesan kesalahan?Mari kita jalankan quick test! Collapse node Initial Targets!",
+                    "updated": 1673967062910
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora, ¿qué pasa si la sección de la jerarquía se colapsó? ¿Todavía podrías ver los mensajes de error? Hagamos una prueba rápida. Colapsa el nodo Initial Targets.",
+                    "updated": 1675468537734
                 }
             ]
         }

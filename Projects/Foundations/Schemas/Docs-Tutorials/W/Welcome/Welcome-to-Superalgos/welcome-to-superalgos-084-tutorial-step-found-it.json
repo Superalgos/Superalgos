@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Así es como el Trading Engine hace que toda la información sea procesada por el Trading Bot available to trading systems.",
-                "updated": 1624461890814,
+                "text": "Así es como el Trading Engine hace que toda la información disponible en el Trading System sea procesada por el Trading Bot.",
+                "updated": 1675361119844,
                 "style": "Definition"
             },
             {
@@ -104,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Abre el menú del nodo Exit Target Ratea la izquierda y haga clic en Copy Node Path. Ahora, abra un editor de texto y pegue lo que copió.",
-                    "updated": 1624463350863,
+                    "text": "Accede al menú del nodo Exit Target Rate, a la izquierda, y haz clic en \"Copiar ruta de nodo\". Ahora, abre un editor de texto externo y pega lo que has copiado.",
+                    "updated": 1675361187678,
                     "style": "Callout"
                 },
                 {
@@ -115,8 +115,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın. Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
-                    "updated": 1639225333761
+                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın (Copy Node Path). Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
+                    "updated": 1670011034151
                 },
                 {
                     "language": "ID",

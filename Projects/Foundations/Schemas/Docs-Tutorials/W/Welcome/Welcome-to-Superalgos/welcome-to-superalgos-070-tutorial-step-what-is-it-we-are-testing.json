@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System )tartışmadık! Temel bilgileri gözden geçirelim!",
-                "updated": 1636201414712
+                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System ) tartışmadık! Temel bilgileri gözden geçirelim!",
+                "updated": 1670006845739
             },
             {
                 "language": "RU",
@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La idea de trading es comprar \"el cuchillo que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
-                    "updated": 1624455253344,
+                    "text": "La idea de trading es comprar \"la vela que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
+                    "updated": 1675280889826,
                     "style": "Text"
                 },
                 {
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret fikri \"düşen bıçağı\" satın almak ve \"geri tepkiyi\" satmaktır. Strateji, fiyatın biraz altına bir Limitli Alış Emri ( Limit Buy Order ) yerleştirir. Emir bir sonraki dakikaya kadar yerine getirilmezse, emir iptal edilir ve potansiyel olarak ayarlanmış bir oranda yeni bir emir verilir. Fiyat aniden düşerse, siparişin doldurulma ihtimali vardır. Bu olursa, strateji daha yüksek bir fiyattan satmaya çalışır.",
-                    "updated": 1636201723387
+                    "text": "Ticaret fikri \"düşen bıçağı\" satın almak ve \"toparlanmayı\" satmaktır. Strateji, fiyatın biraz altına bir Limitli Alış Emri (Limit Buy Order) yerleştirir. Emir bir sonraki dakikaya kadar yerine getirilmezse, emir iptal edilir ve potansiyel olarak ayarlanmış bir oranda yeni bir emir verilir. Fiyat aniden düşerse, siparişin doldurulma ihtimali vardır. Bu olursa, strateji daha yüksek bir fiyattan satmaya çalışır.",
+                    "updated": 1670007011024
                 },
                 {
                     "language": "RU",
@@ -121,8 +121,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret fikrinin esasını değil, uygulamasını tartışalım. Bu, kendi başına stratejiyi değil, Ticaret Botunun kapasitelerini gösteren bir demodur. Bu strateji doğru olmaya bilir, ya da beğenmeyebilirsiniz. Kendi fikirlerinizle yeni stratejiler oluşturabilirsiniz.",
-                    "updated": 1636201810582
+                    "text": "Ticaret fikrinin esasını değil, uygulamasını tartışalım. Bu, kendi başına stratejiyi değil Ticaret Botunun kapasitelerini gösteren bir demodur. Bu strateji doğru olmayabilir, ya da beğenmeyebilirsiniz. Kendi fikirlerinizle yeni stratejiler oluşturabilirsiniz.",
+                    "updated": 1670007040114
                 },
                 {
                     "language": "RU",

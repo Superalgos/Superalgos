@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir düğüm sabitlendiğinizde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
-                "updated": 1636699565557
+                "text": "Bir düğüm sabitlendiğinde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
+                "updated": 1670337762210
             },
             {
                 "language": "RU",
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ketika sebuah node disematkan, ia menjadi tetap pada suatu posisi terlepas dari aturan terhadap properti pengaturan lainnya!",
                 "updated": 1641095066263
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer een knooppunt is vastgemaakt, wordt deze vastgezet op een positie, ongeacht de instelling van de rest van de rangschikkingseigenschappen!",
+                "updated": 1668334906698
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu dapat menyematkan node, structure nodes, dan bahkan hierarchy lengkap. Mari kita coba yang lain...",
                     "updated": 1641095118415
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt een knooppunt vastzetten, een structuur van knooppunten en zelfs de volledige hiërarchie. Laten we iets anders proberen...",
+                    "updated": 1668334927479
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Sematkan Trading Parameters node dan seret!",
                     "updated": 1641095154161
+                },
+                {
+                    "language": "NL",
+                    "text": "Pin het knooppunt Trading Parameters en sleep het weg!",
+                    "updated": 1668334945465
                 }
             ]
         },
@@ -146,8 +161,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümü konumunda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
-                    "updated": 1636699753332
+                    "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümünü az önce başka bir yere sabitlediğimiz için sabitlenen konumda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
+                    "updated": 1670337844284
                 },
                 {
                     "language": "RU",
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Perhatikan bagaimana semua nodes keturunan mengikuti node induk. Namun, Session Base Asset node tetap dalam posisi! Sebelum kita melanjutkan, unpin semua node untuk menjaga workspace  tetap rapi!",
                     "updated": 1641095251482
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe alle sub-knooppunten het bovenliggende knooppunt volgen. Het Session Base Asset knooppunt blijft echter op zijn plaats! Voordat we verder gaan, maakt u alle knooppunten los om de werkruimte op orde te houden!",
+                    "updated": 1668334999432
                 }
             ]
         }

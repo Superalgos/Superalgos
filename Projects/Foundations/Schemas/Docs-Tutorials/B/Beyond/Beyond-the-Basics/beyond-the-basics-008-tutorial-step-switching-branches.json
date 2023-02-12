@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Superalgos, doğrudan uygulama içinden dallar ( Branch ) arasında geçiş yapmanızı sağlar! Ama neden Branch değiştirmek isteyesiniz?",
                 "updated": 1640382531378
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos memperbolehkan kamu untuk mengubah branches secara langsung dari dalam aplikasi! Tapi, kenapa kamu harus mengubah branches?",
+                "updated": 1668503848752
+            },
+            {
+                "language": "NL",
+                "text": "Met Superalgos kun je rechtstreeks vanuit de app van branche wisselen! Maar waarom zou je van branche willen wisselen?",
+                "updated": 1669574241143
             }
         ]
     },
@@ -53,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desee probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
-                    "updated": 1628122074246,
+                    "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desees probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
+                    "updated": 1675451051591,
                     "style": "Text"
                 },
                 {
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Superalgos sürekli gelişiyor. Bir noktada, geliştirme dalında ( Develop Branch ) yazılım sürümünü denemek isteyebilirsiniz. Belki yeni bir özellik vardır ya da henüz ana dalda ( Master Branch ) olmayan, bir hata için bir düzeltme vardır...",
                     "updated": 1640382663346
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos secara konstan terimprov. Dalam satu poin, kamu ingin mencoba versi software dari branch develop. Mungkin ada fitur baru, atau perbaikan bug yang belum ada di branch master...",
+                    "updated": 1668503857080
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos wordt voortdurend verbeterd. Op een gegeven moment wil je misschien de softwareversie proberen in de ontwikkel branche. Misschien is er een nieuwe mogelijkheid, of een oplossing voor een bug die nog niet in de master branch is opgenomen...",
+                    "updated": 1669574278372
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Veya şu anda bizim durumumuzda olduğu gibi bir katkı sunmak isteyebilirsiniz! Haydi Yapalım şunu!",
                     "updated": 1640382681608
+                },
+                {
+                    "language": "ID",
+                    "text": "Atau kamu ingin coba mengirimkan kontribusi, seperti dalam kasus kita sekarang ini! Ayo lakukan!",
+                    "updated": 1668503871835
+                },
+                {
+                    "language": "NL",
+                    "text": "Of misschien wilt u een bijdrage leveren, zoals nu in ons geval! Laten we het doen!",
+                    "updated": 1669574290369
                 }
             ]
         },
@@ -121,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Desplázate hacia abajo en Docs hasta el pie de página y selecciona Plugins-Docs. ¡Es la opción del lado derecho, no del centro!",
-                    "updated": 1628122390826,
+                    "text": "Desplázate por la página Docs hasta el pie de página y selecciona Desarrollar como tu rama de contribuciones. Es la opción de la derecha, no la del centro.",
+                    "updated": 1675451074702,
                     "style": "Callout"
                 },
                 {
@@ -139,6 +169,16 @@
                     "language": "TR",
                     "text": "Dokümanlar sayfasını ( bu sayfayı yani ) aşağı kaydırın ve Contributions Branch olarak Develop 'ı seçin! Ortadaki \"Choose The Current Branch\" altındaki seçeneklerde değil , sağ taraftaki seçenek!",
                     "updated": 1640382892211
+                },
+                {
+                    "language": "ID",
+                    "text": "Gulir kebawah halaman Docs di footer dan pilih Develop sebagai Contribution Branch! Opsi itu ada disisi sebelah kanan bukan ditengah!",
+                    "updated": 1668503880687
+                },
+                {
+                    "language": "NL",
+                    "text": "Scrol omlaag op de Docs pagina naar de voettekst en selecteer Develop als uw Contributions Branch! Het is de optie aan de rechterkant, niet in het midden!",
+                    "updated": 1669574336106
                 }
             ]
         }

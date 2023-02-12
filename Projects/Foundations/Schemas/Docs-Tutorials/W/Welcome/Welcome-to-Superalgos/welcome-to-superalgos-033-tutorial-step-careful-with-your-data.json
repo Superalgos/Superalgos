@@ -47,6 +47,16 @@
                 "language": "NL",
                 "text": "Het kan een minuut duren voordat alle taken gestopt zijn. Sluit het systeem nooit voordat alle taken zijn gestopt.",
                 "updated": 1638780340286
+            },
+            {
+                "language": "FR",
+                "text": "Il peut s'écouler jusqu'à une minute avant que toutes les tâches ne s'arrêtent. Vous ne devez jamais fermer le système avant l'arrêt de toutes les tâches.",
+                "updated": 1668067352894
+            },
+            {
+                "language": "PL",
+                "text": "Zatrzymanie wszystkich zadań może potrwać do jednej minuty. Nigdy nie należy zamykać systemu przed zatrzymaniem wszystkich zadań.",
+                "updated": 1675079550858
             }
         ]
     },
@@ -69,8 +79,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Abre la consola y ve cómo se detienen las tareas!",
-                    "updated": 1624378638174,
+                    "text": "¡Abre la consola y comprueba cómo se detienen las tareas!",
+                    "updated": 1675208240121,
                     "style": "Callout"
                 },
                 {
@@ -93,6 +103,11 @@
                     "language": "NL",
                     "text": "Controleer de console app of de taken stoppen!",
                     "updated": 1638780387554
+                },
+                {
+                    "language": "PL",
+                    "text": "Sprawdź konsolę, aby sprawdzić czy zadania są zatrzymane!",
+                    "updated": 1675079580686
                 }
             ],
             "updated": 1616416021973
@@ -138,6 +153,16 @@
                     "language": "IT",
                     "text": "Il modo corretto per chiudere Superalgos è:",
                     "updated": 1666389151256
+                },
+                {
+                    "language": "FR",
+                    "text": "La façon correcte de fermer Superalgos est :",
+                    "updated": 1668067410695
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby poprawnie zamknąć Superalgos wykonaj następujące kroki:",
+                    "updated": 1675079646894
                 }
             ]
         },
@@ -183,6 +208,16 @@
                     "language": "IT",
                     "text": "Interrompi tutte le attività e aspetta un paio di minuti.",
                     "updated": 1666389191816
+                },
+                {
+                    "language": "FR",
+                    "text": "Arrêtez toutes les tâches et attendez quelques minutes.",
+                    "updated": 1668067422860
+                },
+                {
+                    "language": "PL",
+                    "text": "Zatrzymaj wszystkie zadania i daj sobie kilka minut.",
+                    "updated": 1675079623369
                 }
             ]
         },
@@ -228,6 +263,16 @@
                     "language": "IT",
                     "text": "Quando tutte le attività si fermano, puoi chiudere l'app della console o interrompere il processo con Ctrl + <kbd>Tasto-C</kbd>.",
                     "updated": 1666389337697
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque toutes les tâches sont arrêtées, vous pouvez fermer l'application console ou arrêter le processus avec Ctrl + Key-C.",
+                    "updated": 1668067471689
+                },
+                {
+                    "language": "PL",
+                    "text": "Po zakończeniu wszystkich zadań możesz zamknąć konsolę lub zatrzymać proces za pomocą Ctrl + Key-C.",
+                    "updated": 1675079665014
                 }
             ]
         },
@@ -243,8 +288,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
-                    "updated": 1624378837651,
+                    "text": "Puedes cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
+                    "updated": 1675208217314,
                     "style": "List"
                 },
                 {
@@ -255,8 +300,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tarayıcıyı istediğiniz zaman kapatabilir ve görevlerin arka planda işlenmesini bırakabilirsiniz.",
-                    "updated": 1636033884326
+                    "text": "Tarayıcıyı istediğiniz zaman kapatabilir ve görevleri arka planda işlenmeye bırakabilirsiniz.",
+                    "updated": 1669838987165
                 },
                 {
                     "language": "RU",
@@ -272,6 +317,16 @@
                     "language": "IT",
                     "text": "È possibile chiudere il browser in qualsiasi momento e lasciare l'elaborazione delle attività in background.",
                     "updated": 1666389384070
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez fermer le navigateur à tout moment et laisser les tâches se dérouler en arrière-plan.",
+                    "updated": 1668067487282
+                },
+                {
+                    "language": "PL",
+                    "text": "W każdej chwili możesz zamknąć przeglądarkę i pozostawić zadania przetwarzane w tle.",
+                    "updated": 1675079679541
                 }
             ]
         },
@@ -317,6 +372,16 @@
                     "language": "IT",
                     "text": "La chiusura del Client prima dell'interruzione delle attività può causare la corruzione dei dati!",
                     "updated": 1666389415403
+                },
+                {
+                    "language": "FR",
+                    "text": "La fermeture du Client avant l'arrêt des tâches peut entraîner la corruption de vos données !",
+                    "updated": 1668067506949
+                },
+                {
+                    "language": "PL",
+                    "text": "Zamknięcie Client przed zakończeniem zadań może spowodować uszkodzenie danych!",
+                    "updated": 1675079688903
                 }
             ]
         }

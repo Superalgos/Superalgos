@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡La comunidad también puede contribuir con Trading Systems! En este punto, solo quedan unos pocos, ¡pero esperamos que surjan más pronto!",
-                "updated": 1628032965847,
+                "text": "¡La comunidad también puede contribuir con Trading System! En este punto, solo existen unos pocos, ¡pero esperamos que surjan más pronto!",
+                "updated": 1675378803092,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Community juga dapat berkontribusi pada Trading Systems! Pada titik ini, hanya ada beberapa, tetapi kami berharap lebih banyak akan segera muncul!",
                 "updated": 1645562277953
+            },
+            {
+                "language": "NL",
+                "text": "De Community kan ook bijdragen aan Trading Systems! Op dit moment zijn er nog maar een paar, maar we hopen dat er snel meer zullen verschijnen!",
+                "updated": 1669553024415
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Cari dalam Docs untuk Community Trading Systems!",
                     "updated": 1645562295619
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek in de Docs naar Community Trading Systems!",
+                    "updated": 1669553055636
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Strategies contribuidas por el Community están documentados para que pueda usarlos para aprender.",
-                    "updated": 1628033107293,
+                    "text": "Las Strategies contribuidas por la Community están documentados para que puedas usarlas para aprender.",
+                    "updated": 1675378830716,
                     "style": "Text"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Strategies yang dikontribusi oleh Community sepenuhnya didokumentasikan sehingga kamu dapat menggunakannya untuk belajar!",
                     "updated": 1645562334387
+                },
+                {
+                    "language": "NL",
+                    "text": "Strategies die door de Community zijn bijgedragen, zijn volledig gedocumenteerd, zodat u ze kunt gebruiken om te leren!",
+                    "updated": 1669553082519
                 }
             ]
         },
@@ -136,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Recuerda que mientras Trading Systems en Superalgos pueden ser completamente funcionales, ¡están disponibles solo con fines educativos! ¡Eres completamente responsable de cómo lo usas! ¡Trading es un negocio arriesgado!",
-                    "updated": 1628033267499,
+                    "text": "Recuerda que mientras los Trading System en Superalgos pueden ser completamente funcionales, ¡están disponibles solo con fines educativos! ¡Eres completamente responsable de cómo lo usas! ¡Trading es un negocio arriesgado!",
+                    "updated": 1675378856855,
                     "style": "Warning"
                 },
                 {
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa sementara Trading Systems yang cocok dengan Superalgos dapat berfungsi penuh, mereka disediakan hanya untuk educational purposes! Kamu bertanggung jawab penuh atas cara kamu menggunakannya! Trading adalah bisnis yang berisiko!",
                     "updated": 1645562423796
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat hoewel de verzending van Trading Systems met Superalgos volledig functioneel kan zijn, ze alleen voor educatieve doeleinden beschikbaar worden gesteld! U bent volledig verantwoordelijk voor het gebruik ervan! Trading is een risicovolle onderneming!",
+                    "updated": 1669553116769
                 }
             ]
         }

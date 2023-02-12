@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
-                "updated": 1626643106064,
+                "text": "Para colocar un Plugin en un Workspace ¡debes seleccionar la opción para agregar los Plugins que faltan en el nodo del tipo correspondiente!",
+                "updated": 1675377720796,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Untuk menempatkan plugin di workspace kamu harus memilih opsi untuk menambahkan plugin yang hilang pada node dari jenis yang cocok!",
                 "updated": 1645558570486
+            },
+            {
+                "language": "NL",
+                "text": "Om een plugin in een werkruimte te plaatsen, moet u de optie selecteren om de ontbrekende plugins toe te voegen aan het knooppunt van het overeenkomende type!",
+                "updated": 1669546597108
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Mari kita coba! Pilih Add Missing Trading Systems di node Plugin Trading Systems!",
                     "updated": 1645558708434
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het proberen! Selecteer Add Missing Trading Systems in het knooppunt Plugin Trading Systems!",
+                    "updated": 1669546655066
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Foundations\\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File que no necesita y conservar los que necesite! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar la jerarquía del plugin.  ",
-                    "updated": 1633282144023,
+                    "text": "Los nuevos nodos Plugin File se crean para cada Plugin en <i>\\Plugins\\Algorithmic-Trading\\Trading-Systems</i>. Puedes eliminar los nodos Plugin File que no necesites y conservar los que quieras.",
+                    "updated": 1675377805299,
                     "style": "Text"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Node Plugin File baru dibuat untuk setiap plugin di \\Foundations\\Plugins\\Trading-Systems. Kamu dapat menghapus node Plugin File yang tidak kamu butuhkan dan menyimpan yang kamu inginkan! Sekarang tambahkan dan pin node Plugin File Position di mana kamu ingin menempatkannya pada hirarki plugin!",
                     "updated": 1645562669620
+                },
+                {
+                    "language": "NL",
+                    "text": "Nieuwe Plugin File knooppunten worden gemaakt voor elke plugin in \\Plugins\\Algorithmic-Trading\\Trading-Systems. U kunt de Plugin File knooppunten die u niet nodig hebt, verwijderen en de gewenste behouden!",
+                    "updated": 1669546732672
                 }
             ]
         },
@@ -136,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
-                    "updated": 1626643436449,
+                    "text": "Los Plugins se agregarán la próxima vez que cargues el Workspace. Si deseas probarlo, ¡actualiza!",
+                    "updated": 1675377787309,
                     "style": "Success"
                 },
                 {
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Plugin akan ditambahkan saat sesi berikutnya kamu memuat workspace! Jika kamu ingin mengujinya, refreshlah!",
                     "updated": 1645558864735
+                },
+                {
+                    "language": "NL",
+                    "text": "De volgende keer dat u de werkruimte laadt, worden de Plugins toegevoegd! Als je het wilt testen, ververs dan!",
+                    "updated": 1669546765413
                 }
             ]
         }

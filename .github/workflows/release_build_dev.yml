@@ -8,6 +8,7 @@ on:
 
 jobs:
   create-release:
+    if: github.repository == 'superalgos/superalgos'
     runs-on: ubuntu-latest
     steps:
       - name: Download a file
@@ -33,6 +34,7 @@ jobs:
           keep_tags: false
 
   build-release:
+    if: github.repository == 'superalgos/superalgos'
     runs-on: ${{ matrix.os }}
     needs: create-release
     strategy:

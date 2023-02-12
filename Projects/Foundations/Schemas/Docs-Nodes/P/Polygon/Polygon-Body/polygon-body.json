@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Polygon Body - это заливка фигуры, состоящей как минимум из трех вершин.",
                 "updated": 1639728055098
+            },
+            {
+                "language": "TR",
+                "text": "Bir polygon gövdesi, en az üç köşeden oluşan bir şeklin dolgusudur.",
+                "updated": 1674590191822
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Для определения тела полигона необходимо как минимум три вершины. Тело служит для создания заливки контуров любого многоугольника, как замкнутого, так и открытого, задавая ему стиль.",
                     "updated": 1639727983687
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir polygon gövdesinin tanımlanabilmesi için en az üç köşesi olması gerekir. Bir gövde, kapalı veya açık herhangi bir polygonun dış hatları için bir stil vererek dolgu oluşturmaya yarar.",
+                    "updated": 1674590264856
                 }
             ]
         }

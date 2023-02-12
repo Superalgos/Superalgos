@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Pozisyonlarla ilgili üç farklı katman olduğunu fark ettiniz mi? \"Position\", \"Position Base Asset\" ve \"Position Quoted Asset\"!\nDid you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
                 "updated": 1642171754938
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu memperhatikan ada tiga layer berbeda tentang posisi? \"Position\", \"Position Base Asset\", dan \"Position Quoted Asset\"!",
+                "updated": 1673882497008
+            },
+            {
+                "language": "ES",
+                "text": "¿Te has dado cuenta de que hay tres capas diferentes sobre las posiciones? ¡ Position, Position Base Asset, y Position Quoted Asset!",
+                "updated": 1675466972398
             }
         ]
     },
@@ -46,6 +56,16 @@
                     "language": "TR",
                     "text": "Size kısa versiyonunu göstereceğim:",
                     "updated": 1642171785582
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan memberimu versi rangkumannya:",
+                    "updated": 1673882520913
+                },
+                {
+                    "language": "ES",
+                    "text": "Le resumiré la historia:",
+                    "updated": 1675466964382
                 }
             ]
         },
@@ -67,6 +87,16 @@
                     "language": "TR",
                     "text": "Sistem, hem temel varlığa hem de kote edilen varlığa göre hesapları tutar. Ayrıca her iki varlığın (dolayısıyla pozisyon) konsolide bir hesabını tutar. Hangi hesapların sizinle alakalı olduğu, stratejinin nasıl tasarlandığına bağlıdır!",
                     "updated": 1642171813874
+                },
+                {
+                    "language": "ID",
+                    "text": "Sistem membuat akun relatif terhadap base asset dan quoted asset. Itu juga menyimpan akun konsolidasi dari kedua aset (hence, position). Kumpulan akun apa yang relevan bagimu bergantung pada bagaimana strategi dirancang!",
+                    "updated": 1673882528079
+                },
+                {
+                    "language": "ES",
+                    "text": "El sistema mantiene las cuentas relativas tanto al activo base como al activo cotizado. También mantiene una relación consolidada de ambos activos (por lo tanto, posición). ¡Qué conjunto de cuentas es relevante para ti depende de cómo está diseñada la estrategia!",
+                    "updated": 1675467021177
                 }
             ]
         },
@@ -88,6 +118,16 @@
                     "language": "TR",
                     "text": "Bu kavramı tam olarak anlamak için bu dokümantasyon sayfasını okumak bir zorunluluktur.",
                     "updated": 1642171829448
+                },
+                {
+                    "language": "ID",
+                    "text": "Membaca halaman dokumentasi ini adalah suatu keharusan untuk memahami konsep ini sepenuhnya.",
+                    "updated": 1673882544298
+                },
+                {
+                    "language": "ES",
+                    "text": "La lectura de esta página de documentación es imprescindible para entender completamente este concepto.",
+                    "updated": 1675467034120
                 }
             ]
         }

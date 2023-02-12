@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Zaman Çerçevesi Ölçeği ( Time Frame Scale ) hakkında flaş haber: otomatik mod yok!",
-                "updated": 1636095177127
+                "text": "Zaman Dilimi Ölçeği ( Time Frame Scale ) hakkında flaş haber: otomatik mod yok!",
+                "updated": 1669841956378
             },
             {
                 "language": "RU",
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Nieuwsflits over de Time Frame Scale: er is geen automatische modus!",
                 "updated": 1666701049120
+            },
+            {
+                "language": "FR",
+                "text": "Flash info sur l'échelle des Time Frame : il n'y a pas de mode automatique !",
+                "updated": 1668069497822
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "U kunt door alle beschikbare tijdframes bladeren met het muiswiel of de pijlen omhoog en omlaag ↑ ↓ — In aflopende volgorde: 24, 12, 8, 6, 4, 3, 2 en 1 uur, en 45, 40, 30, 20 , 15, 10, 5, 4, 3, 2 en 1 minuut.",
                     "updated": 1666701077714
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez parcourir toutes les périodes disponibles à l'aide de la molette de la souris ou des flèches haut et bas ↑ ↓ — Par ordre décroissant : 24, 12, 8, 6, 4, 3, 2 et 1 heures, et 45, 40, 30, 20 , 15, 10, 5, 4, 3, 2 et 1 minutes.",
+                    "updated": 1668069593532
                 }
             ],
             "updated": 1616505407890
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Pas op wanneer u de tijdframeschaal omschakelt naar lagere tijdframes! Als u tijdframes te snel laat vallen en de tijdschaal niet aanpast, kan dit ertoe leiden dat er te veel informatie tegelijk op het scherm wordt weergegeven, waardoor uw computer trager wordt. Hoeveel informatiedichtheid uw hardware aankan, hangt af van de CPU- en GPU-prestaties.",
                     "updated": 1666701138055
+                },
+                {
+                    "language": "FR",
+                    "text": "Faites attention lorsque vous changez l'échelle des time frame vers des time frame inférieures ! Si vous descendez des time frame trop rapidement et sans ajuster l'échelle de temps, vous risquez d'afficher trop d'informations à l'écran à la fois, ce qui ralentira votre ordinateur. La densité d'informations que votre matériel peut gérer dépend des performances de son CPU et de son GPU",
+                    "updated": 1668069673970
                 }
             ]
         }

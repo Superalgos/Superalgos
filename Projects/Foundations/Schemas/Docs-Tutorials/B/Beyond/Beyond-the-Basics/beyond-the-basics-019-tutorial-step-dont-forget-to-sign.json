@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Superalgos'taki ilk izlenimlerinizle ilgili bu yorumlar sizin ilk katkınızdır ve bunun için size teşekkür ederiz!",
                 "updated": 1640610855166
+            },
+            {
+                "language": "ID",
+                "text": "Dokumentasi tentang impresi pertamamu terhadap Superalgos adalah kontribusi pertamamu, dan untuk itu kami berterima kasih!",
+                "updated": 1668928956479
+            },
+            {
+                "language": "NL",
+                "text": "Deze opmerkingen over uw eerste indrukken op Superalgos zijn uw eerste bijdrage, en daarvoor danken wij u!",
+                "updated": 1669747847361
             }
         ]
     },
@@ -71,13 +81,23 @@
                     "language": "TR",
                     "text": "İncelemenizin Superalgos deposunda birleştirilmesi için sayfanın son paragrafında GitHub.com kullanıcı adınızla imzalamanız gerekir! Bu, daha sonra aramayı kullanarak sayfayı bulabilmeniz için önemlidir! Superalgos ile ilerledikçe, her zaman geri gelip düzenleyebilirsiniz.",
                     "updated": 1640610982807
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk ulasanmu agar masuk ke repository Superalgos, kamu harus masuk dengan GitHub.com dengan nama pengguna di paragraf terakhir halaman! Hal ini penting agar nantinya kamu dapat menemukan kembali halaman menggunakan pencarian! Saat kamu berproses dengan Superalgos, kamu akan kembali dan mengedit itu.",
+                    "updated": 1668928963544
+                },
+                {
+                    "language": "NL",
+                    "text": "Om uw recensie te laten samenvoegen in de Superalgos repository, moet u deze ondertekenen met uw GitHub.com-gebruikersnaam in de laatste alinea van de pagina! Dit is belangrijk, zodat u de pagina later kunt vinden met de zoekfunctie! Naarmate je verder komt met Superalgos, kun je altijd terugkomen om het te bewerken.",
+                    "updated": 1669747897992
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Contributions earn you <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> and are subject to the terms of the <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
-            "updated": 1635149331814,
+            "text": "Contributions earn you Superalgos SA Tokens and are subject to the terms of the Apache Licence 2.0. In short, Contributors provide an express grant of copyright/patent rights.",
+            "updated": 1675461643131,
             "translations": [
                 {
                     "language": "IT",
@@ -87,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Las contribuciones te hacen ganar <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> y están sujetos a los términos de la <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. En resumen, los Colaboradores brindan una concesión expresa de derechos de autor / derechos de patente.",
-                    "updated": 1628190213182,
+                    "text": "Las contribuciones te permiten ganar Tokens de Superalgos SA y están sujetas a los términos de la Licencia Apache 2.0. En resumen, los colaboradores otorgan expresamente derechos de autor/patente.",
+                    "updated": 1675461703143,
                     "style": "Note"
                 },
                 {
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Katkılar size Superalgos SA Tokenleri kazandırır ve Apache Lisansı 2.0'ın koşullarına tabidir. Kısacası, Katkıda Bulunanlar, telif hakkı/patent haklarının açık bir şekilde devretmiş olurlar.",
                     "updated": 1640611462549
+                },
+                {
+                    "language": "ID",
+                    "text": "Kontribusi mendapatkanmu token Superalgos SA dan sesuai dengan peraturan dari Apache Licence 2.0. Secara singkat, Kontributor membawa hak cipta/hak paten yang tegas.",
+                    "updated": 1668929450272
+                },
+                {
+                    "language": "NL",
+                    "text": "Met bijdragen verdiend u Superalgos <a href='http://localhost:34248/%22https://superalgos.org/token-overview.shtml/%22'>SA Tokens</a> en zijn onderworpen aan de voorwaarden van de <a href='http://localhost:34248/%22https://github.com/Superalgos/Superalgos/blob/master/LICENSE/%22'>Apache Licence 2.0.</a> Kortom, bijdragers verlenen uitdrukkelijk auteursrecht-/octrooirechten.",
+                    "updated": 1669748097417
                 }
             ]
         }

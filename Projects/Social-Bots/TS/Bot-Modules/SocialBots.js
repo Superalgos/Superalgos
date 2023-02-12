@@ -25,10 +25,10 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                             socialBot.botInstance = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
                             socialBot.botInstance.initialize(config)
                                 .then(response => {
-                                    console.log('Discord bot ready', response)
+                                    SA.logger.warn('Discord bot ready', response)
                                 })
                                 .catch(err => {
-                                    console.error(err)
+                                    SA.logger.error(err)
                                 })
                         } else if (socialBot.type === "Slack Bot") {
                             socialBot.botInstance = SA.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot()
@@ -56,7 +56,7 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                                             .catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Bot error -> err = " + err))
                                     }
                                 } catch (err) {
-                                    SA.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> announce -> err = " + err.stack);
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> announce -> err = " + err.stack);
                                 }
                             }
                         }

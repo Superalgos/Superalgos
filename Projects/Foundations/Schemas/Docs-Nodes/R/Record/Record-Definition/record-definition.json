@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "In der record definition (Datensatzdefinition) legen die Indikatoren fest, wie viele properties (Eigenschaften), welche properties und in welcher Reihenfolge diese properties in jedem record (Datensatz) zur Verfügung gestellt werden sollen.",
                 "updated": 1640035265551
+            },
+            {
+                "language": "TR",
+                "text": "Kayıt tanımı, göstergelerin her bir kayıtta kaç özellik, hangi özellikler ve bu özelliklerin hangi sırayla sunulacağını tanımladığı yerdir.",
+                "updated": 1674929371582
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Bots speichern Daten in Form von Arrays von records (Datensätzen), in einer minimierten Klartextdatei( plain text file) und im Standard JSON Format, allerdings nicht als Objekte mit benannten properties (Eigenschaften), sondern als Arrays.",
                     "updated": 1640035363032
+                },
+                {
+                    "language": "TR",
+                    "text": "Botlar verileri kayıt dizileri biçiminde, küçültülmüş düz metin dosyasında ve standart JSON biçiminde, ancak adlandırılmış özelliklere sahip nesneler olarak değil, diziler olarak depolar.",
+                    "updated": 1674929435054
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Die Wahl von Klartext(Text Datei) für die Speicherung großer Informationsmengen hat den Vorteil, dass keine ausgefeilte Technologie für die Speicherung und Bereitstellung der Daten erforderlich ist (d. h. es wird keine Datenbank benötigt).",
                     "updated": 1640035544388
+                },
+                {
+                    "language": "TR",
+                    "text": "Büyük hacimli bilgilerin depolanması için düz metin seçiminin, verilerin depolanması ve sunulması için herhangi bir sofistike teknoloji gerektirmemesi açısından faydaları vardır (yani: veritabanı gerekmez).",
+                    "updated": 1674929471583
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "DE",
                     "text": "Bewährte Verfahren zeigen, dass ein Gleichgewicht zwischen der Menge der gespeicherten Daten und den Berechnungen, die zur Laufzeit durchgeführt werden können, bestehen muss.",
                     "updated": 1640035572898
+                },
+                {
+                    "language": "TR",
+                    "text": "En iyi uygulama, depolanan veri miktarı ile çalışma zamanında gerçekleştirilebilecek hesaplamalar arasında bir denge olması gerektiğini gösterir.",
+                    "updated": 1674929501183
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "DE",
                     "text": "Die Speicherung von Objekten mit benannten properties (Eigenschaften) im JSON-Format wäre unangemessen, da sich die labels (Bezeichnungen) immer wieder wiederholen würden, wodurch eine absurde Menge an unnötigen Informationen entstehen würde.  Die Speicherung von Arrays im JSON-Standard erleichtert jedoch die Handhabung von Dateien im Kontext von JavaScript und Node.JS.",
                     "updated": 1640035925577
+                },
+                {
+                    "language": "TR",
+                    "text": "JSON formatında adlandırılmış özelliklere sahip nesneleri saklamak, etiketler tekrar tekrar yineleneceğinden ve saçma miktarda gereksiz bilgi oluşturacağından uygunsuz olacaktır. Ancak, dizileri JSON standardında saklamak, JavaScript ve Node.JS bağlamında dosyaların işlenmesini kolaylaştırır.",
+                    "updated": 1674929573844
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "DE",
                     "text": "Wofür werden die Record Properties (Datensatzeigenschaften) verwendet?",
                     "updated": 1640035956015
+                },
+                {
+                    "language": "TR",
+                    "text": "Kayıt Özellikleri ne için kullanılır? (What are the Record Properties used for?)",
+                    "updated": 1674929615423
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "DE",
                     "text": "Im Allgemeinen ist dies der Mechanismus, mit dem festgelegt wird, welche Informationen den Nutzern der Daten dieses Produkts zur Verfügung gestellt werden sollen.",
                     "updated": 1640036109563
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak, bu ürünün verilerinin tüketicileri için hangi bilgilerin mevcut olacağını tanımlayan mekanizmadır.",
+                    "updated": 1674929696750
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "DE",
                     "text": "Wenn properties (Eigenschaften) keine Formel haben, definieren sie das Format der Datei, in der diese Daten auf der Festplatte gespeichert werden. Diese record properties(Datensatzeigenschaften) definieren den Datentyp (String, Zahl usw.) und die Reihenfolge, in der die Daten gespeichert werden. In der Datei gibt es keine Kopfzeilen, sondern nur die Daten, da die Kopfzeileninformationen hier für jeden Prozess, der die Daten von der Festplatte schreibt oder liest, verfügbar sind.",
                     "updated": 1640036261551
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerin bir Formülü ( Formula ) olmadığında, bu verileri diskte saklayan dosyanın biçimini tanımlarlar. Bu kayıt özellikleri, veri türünü (dize, sayı, vb.) ve verilerin hangi sırayla kaydedileceğini tanımlar. Dosyada başlık yoktur, sadece veri vardır, çünkü başlık bilgileri, diskten veri yazan veya okuyan herhangi bir işlem için burada mevcuttur.",
+                    "updated": 1674929760499
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "language": "DE",
                     "text": "Die dortigen Formel-Nodes dienen dazu, die record definition (Datensatzdefinition) um Felder zu erweitern, die nicht auf der Festplatte gespeichert werden, um den Platzbedarf zu minimieren, und die zur Laufzeit berechnet werden. Auf die Weise können Prozesse, die diese Daten verbrauchen, alle Felder zur Laufzeit zur Verfügung haben, auch wenn einige nicht auf der Festplatte gespeichert wurden.",
                     "updated": 1640036903820
+                },
+                {
+                    "language": "TR",
+                    "text": "Buradaki formül düğümleri, kullanılan alanı en aza indirmek için aslında diske kaydedilmeyecek alanları ekleyerek kayıt tanımını genişletmek için kullanılır ve bunlar çalışma zamanında hesaplanacaktır. Böylelikle bu verileri kullanan süreçler, bazıları gerçekte diske kaydedilmemiş olsa bile çalışma zamanında tüm alanların kullanılabilir olmasını sağlar.",
+                    "updated": 1674929879434
                 }
             ]
         }

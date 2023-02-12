@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora que comprende las implicaciones de ejecutar esta operación de minería de datos, ¡sigamos adelante!",
-                "updated": 1636723961413
+                "text": "Ahora que comprendes las implicaciones de ejecutar esta operación de minería de datos, ¡sigamos adelante!",
+                "updated": 1675205383523
             },
             {
                 "language": "DE",
@@ -28,6 +28,21 @@
                 "language": "TR",
                 "text": "Artık bu veri madenciliği operasyonunu yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
                 "updated": 1640863987889
+            },
+            {
+                "language": "IT",
+                "text": "Ora che comprendi le implicazioni dell'esecuzione di questa operazione di data mining, procediamo!",
+                "updated": 1669885648657
+            },
+            {
+                "language": "NL",
+                "text": "Nu u de implicaties begrijpt van het uitvoeren van deze dataminingoperatie, laten we ermee aan de slag gaan!",
+                "updated": 1670783376204
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu memahami implikasi menjalankan operasi data mining ini, mari kita lanjutkan!",
+                "updated": 1674638831703
             }
         ]
     },
@@ -39,8 +54,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Seleccionar \"Run All Project Data Tasks\"en el menú  Data Tasks!",
-                    "updated": 1636723999566
+                    "text": "Selecciona \"Run All Project Data Tasks\"en el menú Data Tasks!",
+                    "updated": 1675205389068
                 },
                 {
                     "language": "DE",
@@ -56,6 +71,21 @@
                     "language": "TR",
                     "text": "Veri Görevleri ( Data Tasks ) düğüm menüsünde \"Tüm Proje Veri Görevlerini ( Project Data Tasks ) Çalıştır\"ı seçin!",
                     "updated": 1640864070221
+                },
+                {
+                    "language": "IT",
+                    "text": "Seleziona \"Run All Project Data Tasks\" sul menù del nodo Data Tasks !",
+                    "updated": 1669885666250
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer \"Run All Project Data Tasks\" in het knooppuntmenu Data Tasks!",
+                    "updated": 1670783416736
+                },
+                {
+                    "language": "ID",
+                    "text": "Pilih \"Run All Project Data Tasks\" pada menu Data Tasks node!",
+                    "updated": 1674638838265
                 }
             ]
         },
@@ -65,8 +95,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si está realizando este tutorial después de realizar otros tutoriales, es probable que ya tenga parte de los datos necesarios, ¡lo que puede hacer las cosas más rápido! De cualquier manera, no es necesario esperar a que la minería de datos llegue al presente ... ¡puede continuar con el tutorial!",
-                    "updated": 1636724042227
+                    "text": "Si estás realizando este tutorial después de realizar otros tutoriales, es probable que ya tengas parte de los datos necesarios, ¡lo que puede hacer las cosas más rápido! De cualquier manera, no es necesario esperar a que la minería de datos llegue al presente... ¡puedes continuar con el tutorial!",
+                    "updated": 1675205412797
                 },
                 {
                     "language": "DE",
@@ -82,6 +112,16 @@
                     "language": "TR",
                     "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğreticiye devam edebilirsiniz!",
                     "updated": 1640864703636
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je deze zelfstudie doet nadat je andere zelfstudies hebt gedaan, is de kans groot dat je al een deel van de vereiste gegevens hebt, waardoor dingen sneller kunnen gaan! Hoe dan ook, u hoeft niet te wachten tot de datamining de huidige tijd bereikt... u kunt doorgaan met de tutorial!",
+                    "updated": 1670783452588
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu melakukan tutorial ini setelah melakukan tutorial lainnya, kemungkinan besar kamu sudah memiliki sebagian dari data yang diperlukan, yang dapat membuat segalanya lebih cepat! Adapun lainnya, tidak perlu menunggu data mine sampai saat ini... kamu dapat melanjutkan dengan tutorialnya!",
+                    "updated": 1674687740293
                 }
             ]
         }

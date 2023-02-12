@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Superalgos Protokolünü izleyerek ticaret stratejilerini belirlersiniz!",
                 "updated": 1641063263189
+            },
+            {
+                "language": "ES",
+                "text": "¡Define estrategias de trading siguiendo el Protocolo Superalgos!",
+                "updated": 1675621486164
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Lütfen ticaret stratejileriyle ilgili bu sayfayı okuyun. Bu tartışacağımız her şeyin temelidir!",
                     "updated": 1641063292838
+                },
+                {
+                    "language": "ES",
+                    "text": "Por favor, lee esta página sobre estrategias de trading. ¡Es la base de todo lo que vamos a discutir!",
+                    "updated": 1675621500860
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": " Not: Sayfadaki son paragraf, çerçevenin bir pozisyonun ne olduğunu katı bir şekilde yorumlayan tanımları kabul edecek kadar esnek olduğunu belirtir. Bu öğreticide, bir stratejinin tipik bir kitap tanımına, yani çerçevenin optimize edilmiş olması durumuna odaklanacağız. Diğer öğreticilerde diğer durumları ele alacağız!",
                     "updated": 1641063353890
+                },
+                {
+                    "language": "ES",
+                    "text": "El último párrafo de la página establece que el marco es lo suficientemente flexible como para aceptar definiciones que doblan la interpretación rígida de lo que es una posición. En este tutorial, nos centraremos en una definición típica de una estrategia, es decir, el caso para el que el marco está optimizado. Trataremos otros casos en otros tutoriales.",
+                    "updated": 1675621521910
                 }
             ]
         }

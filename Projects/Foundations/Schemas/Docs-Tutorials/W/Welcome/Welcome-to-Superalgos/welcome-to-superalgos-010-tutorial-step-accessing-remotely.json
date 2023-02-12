@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si estas accediendo al cliente desde el mismo Equipo, puedes saltarte este paso!",
-                "updated": 1618433417604,
+                "text": "Si estas accediendo al Client desde el mismo equipo, puedes saltarte este paso!",
+                "updated": 1667509163737,
                 "style": "Definition"
             },
             {
@@ -54,6 +54,11 @@
                 "language": "TR",
                 "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
                 "updated": 1635579026048
+            },
+            {
+                "language": "PL",
+                "text": "Jeżeli łączysz się do Client z tego samego komputera, możesz kliknąć Next i pominąć ten krok!",
+                "updated": 1674835718728
             }
         ]
     },
@@ -77,8 +82,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si está accediendo al Cliente desde un equipo remoto, debes configurar el Network Node antes de continuar.",
-                    "updated": 1618433278478,
+                    "text": "Si está accediendo al Client desde un equipo remoto, debes configurar el LAN Network Node. ",
+                    "updated": 1667509246348,
                     "style": "Text"
                 },
                 {
@@ -106,8 +111,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \"LAN Network Node\" düğümünün yapılandırmasını ayarlamanız gerekir.",
-                    "updated": 1644848777652
+                    "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \" LAN Network Node \" düğümünün yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1669758282791
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeżeli łączysz się do Client z innego komputera, musisz dostosować konfigurację LAN Network Node.",
+                    "updated": 1674835808698
                 }
             ]
         },
@@ -130,8 +140,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic en Configure en la esquina superior derecha del menú del Network Node.",
-                    "updated": 1624490907285,
+                    "text": "Haz clic en Configurar en la esquina superior derecha del menú LAN Network Node",
+                    "updated": 1675206646096,
                     "style": "List"
                 },
                 {
@@ -165,8 +175,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın. ",
-                    "updated": 1644848838505
+                    "text": "Ağ Düğümü menüsünün (LAN Network Node ) sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
+                    "updated": 1669758312596
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij Configure w prawym górnym rogu menu LAN Network Node.",
+                    "updated": 1674835836809
                 }
             ]
         },
@@ -189,8 +204,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cambia el parámetro de host por la dirección IP del equipo que corre el backend.",
-                    "updated": 1624490919268,
+                    "text": "Cambia el parámetro de host por la dirección IP de la máquina que ejecuta el servidor",
+                    "updated": 1675206651980,
                     "style": "List"
                 },
                 {
@@ -220,6 +235,11 @@
                     "language": "RU",
                     "text": "Измените параметр host на IP-адрес устройства, на котором выполняется серверная часть.",
                     "updated": 1641803399273
+                },
+                {
+                    "language": "PL",
+                    "text": "Zmień parametr host na adres IP maszyny, na której działa backend.",
+                    "updated": 1674835881448
                 }
             ]
         },
@@ -253,6 +273,16 @@
                     "language": "NL",
                     "text": "Wanneer je een reverse proxy gebruikt, voeg dan deze instelling toe.",
                     "updated": 1666611522719
+                },
+                {
+                    "language": "ES",
+                    "text": "Si utilizas un proxy inverso, añade este parámetro...",
+                    "updated": 1675206662613
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeśli używasz reverse proxy, dodaj ten parametr...",
+                    "updated": 1674835894303
                 }
             ]
         },
@@ -279,8 +309,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sal de la configuración quitando el cursor de la burbuja de configuración. Si la configuración es correcta, el mensaje de error en el Network Node debería desaparecer en un instante.",
-                    "updated": 1624490929744,
+                    "text": "Ahora cierra el editor. Si la configuración es correcta, ¡el mensaje de error debería desaparecer en un minuto!",
+                    "updated": 1675206672045,
                     "style": "List"
                 },
                 {
@@ -316,6 +346,11 @@
                     "language": "TR",
                     "text": "Şimdi düzenleyiciyi kapatın. Yapılandırma doğruysa, hata mesajı bir dakika içinde kaybolacaktır!",
                     "updated": 1644848933672
+                },
+                {
+                    "language": "PL",
+                    "text": "Teraz zamknij edytor. Jeśli konfiguracja jest poprawna, komunikat o błędzie powinien za chwilę zniknąć!",
+                    "updated": 1674835922922
                 }
             ]
         }

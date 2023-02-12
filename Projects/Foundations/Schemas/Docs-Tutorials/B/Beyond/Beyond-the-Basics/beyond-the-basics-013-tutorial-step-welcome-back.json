@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si has seguido mis instrucciones al pie de la letra, ¡ahora deberías estar ejecutando el software en la rama plugins-docs! ¡Increíble!",
-                "updated": 1628185547039,
+                "text": "Si has seguido mis instrucciones al pie de la letra, ahora deberías estar ejecutando el software en la rama de desarrollo. ¡Espléndido!",
+                "updated": 1675451665067,
                 "style": "Definition"
             },
             {
@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Talimatlarıma harfi harfine uyduysanız, yazılımı Geliştirme ( Develop ) şubesinde çalıştırıyor olmalısınız! Mükemmel!",
                 "updated": 1640554184937
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu mengikuti intruksi saya dengan benar, seharusnya kamu telah menjalankan software di branch Develop! Luar Biasa!",
+                "updated": 1668786730579
+            },
+            {
+                "language": "NL",
+                "text": "Als je mijn instructies tot op de letter hebt gevolgd, zou je nu de software moeten draaien in de Develop branch! Geweldig!",
+                "updated": 1669746964157
             }
         ]
     },
@@ -53,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡El software que estás ejecutando actualmente es la versión de Superalgos que estaba en la rama plugins-docs el día que hiciste fork el proyecto! Esto se debe a que el proceso de cambio de rama descarga el software de tu rama y no del repositorio ascendente.",
-                    "updated": 1628185634260,
+                    "text": "El software que estás ejecutando actualmente es la versión de Superalgos que estaba en la rama de Desarrollo en el momento en que cambiaste de rama. Esto es bueno, ya que ahora sabes que tienes la última versión del software.",
+                    "updated": 1675451687889,
                     "style": "Text"
                 },
                 {
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "Şu anda çalıştırmakta olduğunuz yazılım, şube değiştirdiğiniz anda Develop şubesinde bulunan Superalgos'un sürümüdür! Bu iyi, çünkü artık yazılımın en son sürümüne sahip olduğunuzu biliyorsunuz!",
                     "updated": 1640554149760
+                },
+                {
+                    "language": "ID",
+                    "text": "Software yang kamu jalankan sekarang berada di versi terkini Superalgos yang ada di Develop branch setelah kamu mengubah branch! Itu baik, seperti yang kamu ketahui sekarang kamu memiliki software versi terbaru!",
+                    "updated": 1668786740430
+                },
+                {
+                    "language": "NL",
+                    "text": "De software die u momenteel gebruikt, is de versie van Superalgos die in de Develop branch stond op het moment dat u van branch wisselde! Dit is goed, want je weet nu dat je de nieuwste versie van de software hebt!",
+                    "updated": 1669747001468
                 }
             ]
         },
@@ -87,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Necesitas actualizar para poder ejecutar la última versión! Esto es particularmente importante cuando tienes la intención de contribuir al proyecto. ¡Siempre debes trabajar en la última versión para que los cambios que realices incluyan los últimos cambios producidos por otros colaboradores!",
-                    "updated": 1628186597672,
+                    "text": "Esto es especialmente importante porque estás a punto de contribuir al proyecto. Deberías trabajar siempre con la última versión para que los cambios que hagas incluyan los últimos cambios realizados por otros colaboradores.",
+                    "updated": 1675451726807,
                     "style": "Success"
                 },
                 {
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Bu özellikle önemlidir çünkü projeye katkıda bulunmak üzeresiniz. Yaptığınız değişikliklerin diğer katkıda bulunanlar tarafından üretilen en son değişiklikleri içermesi için her zaman en son sürüm üzerinde çalışmalısınız!",
                     "updated": 1640554077493
+                },
+                {
+                    "language": "ID",
+                    "text": "Secara khusus hal ini sangat penting karena kamu akan berkontribusi ke proyek. Kamu harus selalu bekerja dengan versi terkini sehingga perubahan yang kamu lakukan masuk ke perubahan terkini dari kontributor lainnya!",
+                    "updated": 1668786751495
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is vooral belangrijk omdat u op het punt staat bij te dragen aan het project. U moet altijd aan de nieuwste versie werken, zodat de wijzigingen die u aanbrengt ook de laatste wijzigingen bevatten die door andere bijdragers zijn gemaakt!",
+                    "updated": 1669747016485
                 }
             ]
         }

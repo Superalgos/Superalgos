@@ -8,7 +8,7 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
 
     return thisObject
 
-    function taskHearBeat(status) {
+    function taskHearBeat(status, outputToConsole) {
 
         let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.id
 
@@ -18,7 +18,9 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
             status: status
         }
         TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Heartbeat', event)
-        console.log((new Date()).toISOString(), '[INFO] taskHearBeat -> status = ' + status)
+        if (outputToConsole === undefined || outputToConsole === true) {
+            SA.logger.info('taskHearBeat -> status = ' + status)
+        }
 
     }
 

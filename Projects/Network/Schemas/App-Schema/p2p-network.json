@@ -30,5 +30,15 @@
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
-    "childrenNodesProperties": []
+    "childrenNodesProperties": [],
+    "alternativeIcons": [
+        {
+            "codeName": "Mainnet",
+            "iconName": "p2p-network-mainnet"
+        },
+        {
+            "codeName": "Testnet",
+            "iconName": "p2p-network-testnet"
+        }
+    ]
 }

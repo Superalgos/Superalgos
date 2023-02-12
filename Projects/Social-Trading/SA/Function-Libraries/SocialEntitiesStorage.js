@@ -148,6 +148,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
         return new Promise(loadSocialEntityAsync)
 
         async function loadSocialEntityAsync(resolve, reject) {
+            console.log("LOADING SOCIAL ENTITY ASYNC")
             /*
             Each Social Entity must have a Storage Container so that we can here
             use it to load content on it. 

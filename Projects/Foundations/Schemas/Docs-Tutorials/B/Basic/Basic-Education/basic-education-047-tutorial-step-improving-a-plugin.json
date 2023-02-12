@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si eres un desarrollador y estás probando un nuevo exchange. Deseas modificar el Sensor Bot para introducir una nueva característica o parámetro.",
-                "updated": 1626710809333,
+                "text": "Sobre el segundo escenario: digamos que estás probando el indicador EMA, has encontrado un error y sabes cómo solucionarlo. Tu intención es contribuir con la solución para que todo el mundo se beneficie de ella.",
+                "updated": 1675378022448,
                 "style": "Definition"
             },
             {
@@ -42,6 +42,11 @@
                 "language": "ID",
                 "text": "Tentang skenario kedua: katakanlah kamu sedang menguji indikator EMA, menemukan bug dan tahu cara memperbaikinya. Kamu bermaksud berkontribusi untuk memperbaiki sehingga semua orang mendapat manfaat dari hal itu!",
                 "updated": 1645559461122
+            },
+            {
+                "language": "NL",
+                "text": "Het tweede scenario: stel dat u de EMA-indicator aan het testen bent, een bug hebt gevonden en weet hoe u deze moet oplossen. Je bent van plan om de oplossing bij te dragen zodat iedereen er baat bij heeft!",
+                "updated": 1669547814537
             }
         ]
     },
@@ -59,8 +64,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El Sensor Bot es parte del Candles Data Mine, que generalmente se incluye como plugin en la mayoría de los workspaces de plugins. En tal caso, debes proceder como en el caso anterior: eliminar el nodo Plugin File correspondiente a los  Candles Data Mine y restaurar el archivo de mina de datos desde la carpeta   Plugins\\Data-Mines como si fuera un backup.",
-                    "updated": 1626709343670,
+                    "text": "Este Indicator Bot forma parte de Sparta Data Mine, que suele incluirse como plugin en algunos Plugin Workspaces. Para modificar el plugin desde la interfaz de usuario y guardar los cambios, tienes dos opciones:",
+                    "updated": 1675378058478,
                     "style": "Text"
                 },
                 {
@@ -83,6 +88,11 @@
                     "language": "ID",
                     "text": "Indikator Bot ini adalah bagian dari Sparta Data Mine, yang biasanya dimasukkan sebagai plugin di beberapa workspaces plugin. Untuk memodifikasi plugin dari dalam UI dan menyimpan perubahan, Kamu memiliki dua opsi :",
                     "updated": 1645559526844
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze Indicator Bot maakt deel uit van de Sparta Data Mine, die meestal als plugin is opgenomen in sommige werkruimten voor plugins. Om de plugin vanuit de UI te wijzigen en de wijzigingen op te slaan, hebt u twee opties:",
+                    "updated": 1669547861719
                 }
             ]
         },
@@ -115,6 +125,16 @@
                     "language": "IT",
                     "text": "Vai al Plugin File corrispondente nella gerarchia Plugin e seleziona <i>Enable Saving With Workspace</i> nel menu. Ora il file del plug-in viene aggiornato ogni volta che salvi l'area di lavoro per includere le modifiche che potresti aver introdotto!",
                     "updated": 1666641552303
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het bijbehorende Plugin File in de Plugins hiërarchie en selecteer </i>Enable Saving With Workspace in het menu. Nu wordt het plugin bestand elke keer dat u de werkruimte opslaat bijgewerkt met de wijzigingen die u mogelijk hebt aangebracht!",
+                    "updated": 1669547955640
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al Plugin File correspondiente en la jerarquía de Plugins y selecciona Enable Saving With Workspace en el menú. ¡Ahora el archivo del plugin se actualiza cada vez que guardas el espacio de trabajo para incluir los cambios que hayas podido introducir!",
+                    "updated": 1675378090445
                 }
             ]
         },
@@ -148,6 +168,16 @@
                     "language": "IT",
                     "text": "Oppure usa l'opzione <i>Save Plugin File</i> per salvare manualmente il file del plugin ogni volta che lo desideri!",
                     "updated": 1666641598961
+                },
+                {
+                    "language": "NL",
+                    "text": "Of gebruik de </i>Save Plugin File optie om het plugin bestand handmatig op te slaan wanneer je maar wilt!",
+                    "updated": 1669547989335
+                },
+                {
+                    "language": "ES",
+                    "text": "O utiliza la opción Save Plugin File para guardar manualmente el archivo del plugin cada vez que lo desees.",
+                    "updated": 1675378109006
                 }
             ]
         }

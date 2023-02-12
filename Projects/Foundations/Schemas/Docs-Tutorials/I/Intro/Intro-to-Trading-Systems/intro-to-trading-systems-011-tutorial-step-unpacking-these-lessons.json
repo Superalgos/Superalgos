@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Hemos cubierto dos ejemplos de trading systems con múltiples estrategias ... ¿qué podemos aprender de ellos?",
-                "updated": 1629679940921
+                "text": "Hemos cubierto dos ejemplos de Trading System con múltiples estrategias... ¿Qué podemos aprender de ellos?",
+                "updated": 1675619711184
             },
             {
                 "language": "DE",
@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "Мы рассмотрели два примера торговых систем с несколькими стратегиями... чему мы можем у них научиться?",
                 "updated": 1640885818372
+            },
+            {
+                "language": "NL",
+                "text": "We hebben twee voorbeelden besproken van handelssystemen met meerdere strategieën... wat kunnen we hiervan leren?",
+                "updated": 1670791873243
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah membahas dua contoh trading system yang menampilkan berbagai strategi... apa yang dapat kita pelajari darinya?",
+                "updated": 1674625750777
             }
         ]
     },
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "В случае с Weak-hands Buster каждая стратегия представляет собой частный случай одной и той же торговой идеи. В случае BB Top Bounce каждая стратегия специализируется на конкретных рыночных условиях.",
                     "updated": 1640885833211
+                },
+                {
+                    "language": "NL",
+                    "text": "In het geval van Weak-hands Buster vertegenwoordigt elke strategie een specifiek geval van hetzelfde handelsidee. In het geval van BB Top Bounce is elke strategie gespecialiseerd in specifieke marktomstandigheden.",
+                    "updated": 1670791894219
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam kasus Weak-hands Buster, setiap strategi mewakili kasus tertentu dari ide trading yang sama. Dalam kasus BB Top Bounce, setiap strategi berspesialisasi dalam kondisi market tertentu.",
+                    "updated": 1674625757021
                 }
             ]
         },
@@ -64,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En los próximos pasos, analizaremos las implicaciones de usar múltiples estrategias dentro del mismo trading system y, finalmente, responderemos la pregunta candente: ¿por qué querríamos usar una configuración de este tipo?",
-                    "updated": 1629680767976
+                    "text": "En los próximos pasos, analizaremos las implicaciones de usar múltiples estrategias dentro del mismo Trading System y, finalmente, responderemos la pregunta candente: ¿por qué querríamos usar una configuración de este tipo?",
+                    "updated": 1675619733548
                 },
                 {
                     "language": "DE",
@@ -79,8 +99,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "В следующих нескольких шагах мы расскажем о последствиях использования нескольких стратегий в рамках одной торговой системы и, наконец, ответим на животрепещущий вопрос: зачем нам нужна такая система?",
+                    "text": "В следующих нескольких шагах мы расскажем о последствиях использования нескольких стратегий в рамках одной торговой системы и, наконец, ответим на животре��ещущий вопрос: зачем нам нужна такая система?",
                     "updated": 1640885850270
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende paar stappen zullen we de implicaties van het gebruik van meerdere strategieën binnen hetzelfde handelssysteem ontrafelen en - tot slot - de brandende vraag beantwoorden: waarom zouden we zo'n opstelling willen gebruiken?",
+                    "updated": 1670791914672
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam beberapa langkah berikutnya, kita akan membongkar implikasi penggunaan multiple strategies dalam trading system yang sama dan—akhirnya—menjawab pertanyaan yang sangat hangat: mengapa kita ingin menggunakan setup seperti itu?",
+                    "updated": 1674625791172
                 }
             ]
         }

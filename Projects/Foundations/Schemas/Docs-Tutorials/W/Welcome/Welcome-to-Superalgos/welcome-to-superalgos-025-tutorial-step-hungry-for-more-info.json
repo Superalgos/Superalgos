@@ -48,6 +48,16 @@
                 "language": "NL",
                 "text": "Tijdens onze reis zal ik niet op alle details ingaan, voor meer info over een node, klik dan op het vraagteken in het menu van de node.",
                 "updated": 1636977477286
+            },
+            {
+                "language": "FR",
+                "text": "Je n'entrerai pas dans tous les détails au fur et à mesure, mais si vous avez besoin de plus d'informations sur un nœud, le bouton d'aide du menu vous renvoie directement à sa documentation.",
+                "updated": 1667986101678
+            },
+            {
+                "language": "PL",
+                "text": "Nie będę się zagłębiał w każdy szczegół, ale jeśli potrzebujesz więcej informacji na temat danego węzła, przycisk pomocy w menu przeniesie Cię prosto do jego dokumentacji.",
+                "updated": 1675002229519
             }
         ]
     },
@@ -95,6 +105,16 @@
                     "language": "NL",
                     "text": "De documentate van een node kan één of meerdere van de volgende secties bevatten:",
                     "updated": 1636977595624
+                },
+                {
+                    "language": "FR",
+                    "text": "La documentation d'un nœud peut inclure une ou plusieurs des sections suivantes :",
+                    "updated": 1667986183222
+                },
+                {
+                    "language": "PL",
+                    "text": "Dokumentacja węzła może zawierać jedną lub więcej z poniższych sekcji:",
+                    "updated": 1675002251227
                 }
             ]
         },
@@ -116,8 +136,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Definition: describe que es o que hace el nodo",
-                    "updated": 1618437935444,
+                    "text": "Definición: describe que es o que hace el nodo",
+                    "updated": 1675206978851,
                     "style": "List"
                 },
                 {
@@ -141,6 +161,16 @@
                     "language": "NL",
                     "text": "Definition: beschrijft wat de node is of doet.",
                     "updated": 1636977528905
+                },
+                {
+                    "language": "FR",
+                    "text": "Définition : décrit ce qu'est ou fait le nœud.",
+                    "updated": 1667986215225
+                },
+                {
+                    "language": "PL",
+                    "text": "Definition: opisuje czym jest lub co robi węzeł.",
+                    "updated": 1675002266449
                 }
             ]
         },
@@ -162,8 +192,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Content: describe como funciona el nodo",
-                    "updated": 1618437948010,
+                    "text": "Contenido: describe como funciona el nodo",
+                    "updated": 1675206986991,
                     "style": "List"
                 },
                 {
@@ -187,6 +217,16 @@
                     "language": "NL",
                     "text": "Content: beschrijft hoe de noe werkt.",
                     "updated": 1636977620505
+                },
+                {
+                    "language": "FR",
+                    "text": "Contenu : décrit le fonctionnement du nœud.",
+                    "updated": 1667986226399
+                },
+                {
+                    "language": "PL",
+                    "text": "Content: opisuje sposób działania węzła.",
+                    "updated": 1675002274300
                 }
             ]
         },
@@ -209,8 +249,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Configuration: Algunos nodos pueden tenerla",
-                    "updated": 1618437961538,
+                    "text": "Configuración: Algunos nodos pueden tenerla",
+                    "updated": 1675206997938,
                     "style": "List"
                 },
                 {
@@ -234,6 +274,16 @@
                     "language": "NL",
                     "text": "Configuration: sommige nodes hebben een configuratie.",
                     "updated": 1636977660661
+                },
+                {
+                    "language": "FR",
+                    "text": "Configuration : certains nœuds peuvent en avoir une.",
+                    "updated": 1667986236368
+                },
+                {
+                    "language": "PL",
+                    "text": "Configuration: szczegóły dotyczące konfiguracji.",
+                    "updated": 1675002319653
                 }
             ]
         },
@@ -256,8 +306,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Technical: El resto de la info es de caracter técnico, orientada a desarrolladores",
-                    "updated": 1618438001044,
+                    "text": "Técnico: El resto de la info es de caracter técnico, orientada a desarrolladores",
+                    "updated": 1675207010534,
                     "style": "List"
                 },
                 {
@@ -281,6 +331,16 @@
                     "language": "NL",
                     "text": "Technical: de rest van de informatie is meestal van technische aard, voor ontwikkelaars.",
                     "updated": 1636977733206
+                },
+                {
+                    "language": "FR",
+                    "text": "Technique : le reste de l'information est généralement de nature technique, orientée pour les développeurs.",
+                    "updated": 1667986245669
+                },
+                {
+                    "language": "PL",
+                    "text": "Technical: reszta informacji ma zwykle charakter techniczny, skierowane do programistów.",
+                    "updated": 1675002369064
                 }
             ]
         },
@@ -327,6 +387,16 @@
                     "language": "NL",
                     "text": "Klik op help in het menu van de Data Tasks node!",
                     "updated": 1636977849517
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur le bouton d'aide du nœud Data Tasks !",
+                    "updated": 1667986271757
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij przycisk pomocy na węźle Data Tasks!",
+                    "updated": 1675002393309
                 }
             ]
         }

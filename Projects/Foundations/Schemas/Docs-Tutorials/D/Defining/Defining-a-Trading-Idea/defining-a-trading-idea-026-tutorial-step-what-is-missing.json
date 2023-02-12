@@ -23,6 +23,26 @@
                 "language": "TR",
                 "text": "Elimizde, bağlamın ve giriş noktası kurallarının belirsiz bir tanımı var! Hala varsayımımızı resmileştirmeye ihtiyacımız var!",
                 "updated": 1640950261673
+            },
+            {
+                "language": "ES",
+                "text": "Lo que tenemos es una vaga definición del contexto y de las reglas de entrada. Todavía tenemos que formalizar nuestra hipótesis.",
+                "updated": 1668193381494
+            },
+            {
+                "language": "IT",
+                "text": "Quello che abbiamo è una definizione vaga del contesto e delle regole del punto di ingresso! Dobbiamo ancora formalizzare la nostra ipotesi!",
+                "updated": 1669901256309
+            },
+            {
+                "language": "NL",
+                "text": "Wat we hebben is een vage definitie van de context en de instapregels! We moeten onze hypothese nog formaliseren!",
+                "updated": 1670787044020
+            },
+            {
+                "language": "ID",
+                "text": "Apa yang kita dapatkan adalah definisi konteks dan aturan titik entry yang tidak jelas! Kita masih perlu memformalkan hipotesis kita!",
+                "updated": 1674700311876
             }
         ]
     },
@@ -45,6 +65,26 @@
                     "language": "TR",
                     "text": "Unutmayın, ticaret fikrimiz şunları yapmalıdır:",
                     "updated": 1640950521792
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que nuestra idea de trading debe:",
+                    "updated": 1675206015054
+                },
+                {
+                    "language": "IT",
+                    "text": "Ricorda, la nostra idea di trading dovrebbe:",
+                    "updated": 1669901274523
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat ons handelsidee:",
+                    "updated": 1670787061246
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat, ide trading kita harus:",
+                    "updated": 1674700318712
                 }
             ]
         },
@@ -66,6 +106,26 @@
                     "language": "TR",
                     "text": "bir ticaret süreci önermek,",
                     "updated": 1640950587997
+                },
+                {
+                    "language": "ES",
+                    "text": "proponer un proceso de trading,",
+                    "updated": 1668193312567
+                },
+                {
+                    "language": "IT",
+                    "text": "proporre un processo di trading,",
+                    "updated": 1669901291352
+                },
+                {
+                    "language": "NL",
+                    "text": "een handelsproces voorstelt,",
+                    "updated": 1670787111111
+                },
+                {
+                    "language": "ID",
+                    "text": "mengusulkan proses trading,",
+                    "updated": 1674700324549
                 }
             ]
         },
@@ -87,6 +147,26 @@
                     "language": "TR",
                     "text": "uygun içeriği seçin;",
                     "updated": 1640950592011
+                },
+                {
+                    "language": "ES",
+                    "text": "seleccionar el contexto adecuado;",
+                    "updated": 1668193323276
+                },
+                {
+                    "language": "IT",
+                    "text": "selezionare il contesto appropriato;",
+                    "updated": 1669901308087
+                },
+                {
+                    "language": "NL",
+                    "text": "de juiste context selecteert;",
+                    "updated": 1670787101510
+                },
+                {
+                    "language": "ID",
+                    "text": "pilih konteks yang sesuai;",
+                    "updated": 1674700330596
                 }
             ]
         },
@@ -108,6 +188,26 @@
                     "language": "TR",
                     "text": "ana giriş kurallarını tanımlayın;",
                     "updated": 1640950607750
+                },
+                {
+                    "language": "ES",
+                    "text": "definir las principales reglas de entrada;",
+                    "updated": 1668193335595
+                },
+                {
+                    "language": "IT",
+                    "text": "definire le principali regole di ingresso;",
+                    "updated": 1669901326235
+                },
+                {
+                    "language": "NL",
+                    "text": "de belangrijkste toegangsregels definieert;",
+                    "updated": 1670787133159
+                },
+                {
+                    "language": "ID",
+                    "text": "definisikan aturan entry utama;",
+                    "updated": 1674700445610
                 }
             ]
         },
@@ -129,6 +229,26 @@
                     "language": "TR",
                     "text": "belirli bir sonucu tahmin etmek;",
                     "updated": 1640950618594
+                },
+                {
+                    "language": "ES",
+                    "text": "predecir un resultado específico;",
+                    "updated": 1668193350387
+                },
+                {
+                    "language": "IT",
+                    "text": "prevedere un risultato specifico;",
+                    "updated": 1669901342528
+                },
+                {
+                    "language": "NL",
+                    "text": "een specifieke uitkomst voorspelt;",
+                    "updated": 1670787147254
+                },
+                {
+                    "language": "ID",
+                    "text": "memprediksi hasil yang spesifik;",
+                    "updated": 1674700342981
                 }
             ]
         },
@@ -150,6 +270,26 @@
                     "language": "TR",
                     "text": "özel bir test mekanizması sunun!",
                     "updated": 1640950628599
+                },
+                {
+                    "language": "ES",
+                    "text": "ofrecer un mecanismo de prueba específico.",
+                    "updated": 1668193363166
+                },
+                {
+                    "language": "IT",
+                    "text": "offrire un meccanismo di test specifico!",
+                    "updated": 1669901356638
+                },
+                {
+                    "language": "NL",
+                    "text": "een specifiek testmechanisme bied!",
+                    "updated": 1670787169662
+                },
+                {
+                    "language": "ID",
+                    "text": "memberikan mekanisme pengujian yang spesifik!",
+                    "updated": 1674700352047
                 }
             ]
         },
@@ -171,6 +311,21 @@
                     "language": "TR",
                     "text": "Haydi bu gereksinimleri yerine getirmeye devam edelim!",
                     "updated": 1640950750111
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Procedamos a cumplir esos requisitos!",
+                    "updated": 1668193246608
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we doorgaan met het vervullen van die vereisten!",
+                    "updated": 1670787183390
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari lanjutkan dengan memenuhi persyaratan tersebut!",
+                    "updated": 1674700359313
                 }
             ]
         }

@@ -85,7 +85,7 @@ from ray.rllib.policy.sample_batch import SampleBatch
 
 location: str = "/tf/notebooks/"
 instructions_file: str = "instructions.csv"
-run_forcast: bool = False
+run_forecast: bool = False
 res_dir: str = location + "/ray_results/"
 RESUME = False # Resume training from the last checkpoint if any exists  [True, False, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
 
@@ -313,8 +313,8 @@ class SimpleTradingEnv(gym.Env):
         # NOT USED ANYMORE, KEPT FOR REFERENCE
         # self.obs_shape = ((OBSERVATION_WINDOW_SIZE * self.features.shape[1] + 3),) 
 
-        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 3 (quote_asset, base_asset, net_worth)
-        self.obs_shape = (self.window_size, self.features.shape[1] + 3)
+        # The shape of the observation is number of candles to look back, and the number of features (candle_features) + 3 (quote_asset, base_asset, base_asset_short, net_worth)
+        self.obs_shape = (self.window_size, self.features.shape[1] + 4)
 
         # Action space
         #self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([3.0, 1.0]), dtype=np.float32)
@@ -666,7 +666,7 @@ class SimpleTradingEnv(gym.Env):
         self._current_candle += 1
 
         # Update observation history
-        self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+        self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
         self._done = self._net_worth <= self._net_worth_at_begin * MAX_LOSS_FACTOR or self._current_candle >= self._end_candle #(len(self.df_normal.loc[:, 'open'].values) - 30)# We assume that the last observation is not the last row of the dataframe, in order to avoid the case where there are no calculated indicators.
 
@@ -744,7 +744,7 @@ class SimpleTradingEnv(gym.Env):
 
     def _initial_obs_data(self):
         for i in range(self.window_size - len(self._obs_env_history)):
-            self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
+            self._obs_env_history.append([self._net_worth, self._base_asset, self._base_asset_short, self._quote_asset])
 
     def _get_position(self,asset,posType="Long"):
         if len(self.positions) > 0:
@@ -1048,7 +1048,11 @@ except:
     raise
 
 #policy = agent.get_policy()
-#model = policy.model #complexinputmodel 
+#model = policy.model # ray.rllib.models.tf.complex_input_net.ComplexInputNetwork 
+#model.flatten[0] #ray.rllib.models.tf.fcnet.FullyConnectedNetwork https://github.com/ray-project/ray/blob/master/rllib/models/tf/fcnet.py
+#model.flatten[0].base_model.summary()
+#model.post_fc_stack # ray.rllib.models.tf.fcnet.FullyConnectedNetwork
+#model.post_fc_stack.base_model.summary()
 
 json_dict = {}
 episodes_to_run = 2

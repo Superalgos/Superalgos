@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Moet ik je vertellen hoe de Rate Scale werkt of kun je er zelf achter komen? Oké... ik zal je een hint geven...",
                 "updated": 1666700855640
+            },
+            {
+                "language": "FR",
+                "text": " Dois-je vous expliquer comment fonctionne l'échelle des prix ou pouvez-vous le découvrir par vous-même ? Ok... Je vais vous donner un indice...",
+                "updated": 1668069325531
             }
         ]
     },
@@ -72,8 +77,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarını tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
-                    "updated": 1636094888142
+                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarının tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
+                    "updated": 1669841862711
                 },
                 {
                     "language": "RU",
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "De rate scale werkt net als de tijdschaal, maar -wanneer u het toetsenbord gebruikt- moet u de pijltjestoetsen omkeren! Gebruik de pijlen naar links en rechts ← → om door de automatische modi te bladeren en de pijlen omhoog en omlaag ↑ ↓ om de schaal te beïnvloeden! Check de volgende video voor de duidelijkheid!",
                     "updated": 1666700896536
+                },
+                {
+                    "language": "FR",
+                    "text": "L'échelle de prix fonctionne comme l'échelle de temps, mais -lorsque vous utilisez le clavier- vous devez inverser les touches fléchées ! Utilisez les flèches gauche et droite ← → pour basculer entre les modes automatiques et les flèches haut et bas ↑ ↓ pour affecter l'échelle ! Consultez la vidéo à venir pour plus de clarté !",
+                    "updated": 1668069397188
                 }
             ],
             "updated": 1616505192799
@@ -105,8 +115,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Juega también con los modos de escala semiautomáticos! Ya sabes, cuando un pequeño triángulo permanece visible después de unos pocos movimientos de la rueda del mouse.",
-                    "updated": 1624407734966,
+                    "text": "¡Juega también con los modos de escala semiautomáticos! Ya sabes, cuando un pequeño triángulo permanece visible después de mover la rueda del mouse.",
+                    "updated": 1675277449013,
                     "style": "Success"
                 },
                 {
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Probeer ook de semi-automatische schaalmodi! Je weet wel, wanneer een enkel klein driehoekje zichtbaar blijft na een paar bewegingen met het muiswiel.",
                     "updated": 1666700940231
+                },
+                {
+                    "language": "FR",
+                    "text": "Jouez aussi avec les modes semi-automatiques aussi! Vous savez, quand un seul petit triangle reste visible après quelques coups de roulette de la souris.",
+                    "updated": 1668069423066
                 }
             ]
         }

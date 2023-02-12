@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Desing Space.",
-                "updated": 1618435736486,
+                "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Design Space.",
+                "updated": 1668195651585,
                 "style": "Definition"
             },
             {
@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "D'accord, vous n'allez pas vraiment vous téléporter, ni courber l'espace-temps, mais c'est presque comme ça ! Il est temps d'apprendre à utiliser la carte du Design Space.",
                 "updated": 1667204715686
+            },
+            {
+                "language": "PL",
+                "text": "Ok, w rzeczywistości nie będziesz się teleportował, ani nie będziesz zaginał czasoprzestrzeni, ale prawie tak się poczujesz! Nadszedł czas, aby nauczyć się korzystać z mapy Design Space.",
+                "updated": 1674946213147
             }
         ]
     },
@@ -107,6 +112,11 @@
                     "language": "FR",
                     "text": "J'ai dit plus tôt que le Design Space était énorme, et je le pensais vraiment ! Pour aller d'un coin à l'autre, il faudrait des centaines de clics et de glissements. Bien que l'utilisation du clavier vous permette de développer des vitesses vertigineuses, ce n'est pas aussi cool que la téléportation ! Voici comment cela fonctionne :",
                     "updated": 1667204755351
+                },
+                {
+                    "language": "PL",
+                    "text": "Powiedziałem wcześniej, że Design Space jest ogromny i to miałem na myśli! Przejście z jednego rogu do drugiego zajęłoby setki kliknięć i przeciągnięć. O ile używanie klawiatury pozwala na rozwijanie karkołomnych prędkości, to nie jest to tak fajne jak teleportacja! Oto jak to działa:",
+                    "updated": 1674946181641
                 }
             ],
             "updated": 1616414991030
@@ -161,6 +171,11 @@
                     "language": "FR",
                     "text": "Cliquez avec le bouton droit de la souris pour ouvrir la carte et cliquez avec le bouton gauche n'importe où pour aller à cet endroit précis !",
                     "updated": 1667204773927
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij prawym przyciskiem myszy, aby otworzyć mapę i kliknij lewym przyciskiem myszy w dowolnym miejscu, aby przejść do tego konkretnego miejsca!",
+                    "updated": 1674946131590
                 }
             ]
         },
@@ -213,6 +228,11 @@
                     "language": "FR",
                     "text": "Vous me voyez dans le coin inférieur gauche de l'espace de conception ? Vous savez maintenant où me trouver !",
                     "updated": 1667204803655
+                },
+                {
+                    "language": "PL",
+                    "text": "Spójrz na mnie. Jestem w lewym dolnym rogu Design Space? Teraz już wiesz, gdzie mnie znaleźć!",
+                    "updated": 1674946119586
                 }
             ]
         }

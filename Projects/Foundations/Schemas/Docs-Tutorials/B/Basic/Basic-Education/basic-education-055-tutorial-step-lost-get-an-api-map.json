@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
-                "updated": 1628032498537,
+                "text": "¿Te preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
+                "updated": 1675378698039,
                 "style": "Definition"
             },
             {
@@ -40,6 +40,11 @@
                 "language": "IT",
                 "text": "Ti stai chiedendo come ottenere dati da fonti diverse dagli scambi in CCXT? Messari? Twitter? Ti abbiamo coperto!",
                 "updated": 1666642139624
+            },
+            {
+                "language": "NL",
+                "text": "Vraagt u zich af hoe u gegevens in CCXT uit andere bronnen dan handelsplatformen kunt halen? Messari? Twitteren? We hebben het geregeld!",
+                "updated": 1669552862655
             }
         ]
     },
@@ -51,8 +56,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos le permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
-                    "updated": 1628032719618,
+                    "text": "Superalgos te permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
+                    "updated": 1675378714251,
                     "style": "Text"
                 },
                 {
@@ -79,6 +84,11 @@
                     "language": "IT",
                     "text": "Superalgos ti consente di recuperare i dati da qualsiasi API su Internet e non è necessario programmare per farlo! Invece, puoi progettare una API Map o utilizzare quelle fornite con il sistema!",
                     "updated": 1666642177495
+                },
+                {
+                    "language": "NL",
+                    "text": "Met Superalgos kunt u gegevens ophalen van elke API op internet, en u hoeft hiervoor niet te coderen! In plaats daarvan kunt u een API Map ontwerpen of degene gebruiken die bij het systeem worden geleverd!",
+                    "updated": 1669552894757
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "IT",
                     "text": "Una API Map è un insieme di definizioni che determinano come un bot può accedere a una particolare API e come interpretare le risposte dal server.",
                     "updated": 1666642202732
+                },
+                {
+                    "language": "NL",
+                    "text": "Een API Map is een reeks definities die bepalen hoe een bot toegang kan krijgen tot een bepaalde API en hoe de antwoorden van de server moeten worden geïnterpreteerd.",
+                    "updated": 1669552920694
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "IT",
                     "text": "Immergiti in questa sezione dell'argomento Data Mining quando sei pronto per esplorare il panorama delle API!",
                     "updated": 1666642220093
+                },
+                {
+                    "language": "NL",
+                    "text": "Duik in dit gedeelte van het onderwerp Data Mining wanneer u klaar bent om het API-landschap te verkennen!",
+                    "updated": 1669552954766
                 }
             ]
         }

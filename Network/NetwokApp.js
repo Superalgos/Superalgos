@@ -23,15 +23,15 @@ exports.newNetworkApp = function newNetworkApp() {
         await setupNetworkServices()
         setupNetworkInterfaces()
 
-        console.log('Network Node User Profile Code Name .......................................... ' + thisObject.p2pNetworkNode.userProfile.config.codeName)
-        console.log('Network Node User Profile Balance ............................................ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.userProfile.balance))
-        console.log('Network Node Code Name ....................................................... ' + thisObject.p2pNetworkNode.node.config.codeName)
-        console.log('Minimum User Profile Balance Required to Connect to this Network Node ........ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.node.config.clientMinimunBalance))
-        console.log('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
-        console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
-        console.log('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)
-        console.log('Network App .................................................................. Running')
-        console.log(' ')
+        SA.logger.info('Network Node User Profile Code Name .......................................... ' + thisObject.p2pNetworkNode.userProfile.config.codeName)
+        SA.logger.info('Network Node User Profile Balance ............................................ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.userProfile.balance))
+        SA.logger.info('Network Node Code Name ....................................................... ' + thisObject.p2pNetworkNode.node.config.codeName)
+        SA.logger.info('Minimum User Profile Balance Required to Connect to this Network Node ........ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.node.config.clientMinimunBalance))
+        SA.logger.info('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
+        SA.logger.info('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
+        SA.logger.info('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)
+        SA.logger.info('Network App .................................................................. Running')
+        SA.logger.info(' ')
 
         async function setupNetwork() {
             /*
@@ -45,7 +45,7 @@ exports.newNetworkApp = function newNetworkApp() {
             This is what we call the bootstrap process.
             */
             let appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode, true)
+            await appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode, true, true)
             /*
             Let's discover which are the nodes at the p2p network and have an array of nodes
             to which we can connect to. This module will run the rules of who we can connect to.
@@ -81,7 +81,7 @@ exports.newNetworkApp = function newNetworkApp() {
                     thisObject.p2pNetworkNode,
                     thisObject.p2pNetworkReachableNodes
                 )
-                console.log('Social Graph Network Service ................................................. Running')
+                SA.logger.info('Social Graph Network Service ................................................. Running')
             }
 
             if (
@@ -93,7 +93,7 @@ exports.newNetworkApp = function newNetworkApp() {
                     thisObject.p2pNetworkNode,
                     thisObject.p2pNetworkReachableNodes
                 )
-                console.log('Machine Learning Network Service ............................................. Running')
+                SA.logger.info('Machine Learning Network Service ............................................. Running')
             }
 
             if (
@@ -102,7 +102,7 @@ exports.newNetworkApp = function newNetworkApp() {
             ) {
                 thisObject.tradingSignalsNetworkService = NT.projects.tradingSignals.modules.tradingSignalsNetworkService.newTradingSignalsModulesTradingSignalsNetworkService()
                 await thisObject.tradingSignalsNetworkService.initialize()
-                console.log('Trading Signals Network Service .............................................. Running')
+                SA.logger.info('Trading Signals Network Service .............................................. Running')
             }
         }
 
@@ -116,7 +116,7 @@ exports.newNetworkApp = function newNetworkApp() {
                  */
                 thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
                 thisObject.webSocketsInterface.initialize()
-                console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
+                SA.logger.info('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
             }
 /*
 TODO this breaks the network if uncommented with a complete p2p node tree setted up
@@ -129,7 +129,7 @@ TODO this breaks the network if uncommented with a complete p2p node tree setted
                  *!/
                 thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebRTCInterface()
                 thisObject.webSocketsInterface.initialize()
-                console.log('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
+                SA.logger.info('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
             }
 */
             if (
@@ -141,7 +141,7 @@ TODO this breaks the network if uncommented with a complete p2p node tree setted
                 */
                 thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
                 thisObject.httpInterface.initialize()
-                console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort)
+                SA.logger.info('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort)
             }
         }
     }

@@ -873,6 +873,12 @@
             ],
             "utilities": [
                 {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentialsFunctions",
+                    "functionName": "newFoundationsUtilitiesCredentialsFunctions",
+                    "fileName": "CredentialsFunctions.js"
+                },
+                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -957,7 +963,14 @@
             ]
         },
         "PL": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentials",
+                    "functionName": "newFoundationsUtilitiesCredentials",
+                    "fileName": "CredentialsFunctions.js"
+                }
+            ]
         },
         "SA": {
             "globals": [
@@ -1016,6 +1029,12 @@
                     "propertyName": "encryption",
                     "functionName": "newFoundationsUtilitiesEncryption",
                     "fileName": "Encryption.js"
+                },
+                {
+                    "name": "Icons",
+                    "propertyName": "icons",
+                    "functionName": "newFoundationsUtilitiesIcons",
+                    "fileName": "Icons.js"
                 }
             ]
         },
@@ -1714,7 +1733,16 @@
             ]
         },
         "TS": {},
-        "PL": {},
+        "PL": {
+            "functionLibraries": [
+                {
+                    "name": "Pr Merge Bot",
+                    "propertyName": "prMergeBot",
+                    "functionName": "newGovernanceFunctionLibraryPrMergeBot",
+                    "fileName": "PrMergeBot.js"
+                }
+            ]
+        },
         "plugins": [
             "User Profiles",
             "Pools",
@@ -2107,7 +2135,7 @@
                 }
             ]
         },
-        "DK": {
+        "ST": {
             "globals": [],
             "modules": [],
             "utilities": []
@@ -2297,10 +2325,17 @@
         "SA": {
             "modules": [
                 {
-                    "name": "Open Storage Client",
-                    "propertyName": "openStorageClient",
-                    "functionName": "newOpenStorageModulesOpenStorageClient",
-                    "fileName": "OpenStorageClient.js",
+                    "name": "Open Storage Task Server Client ",
+                    "propertyName": "openStorageTaskServerClient",
+                    "functionName": "newOpenStorageModulesOpenStorageTaskServerClient",
+                    "fileName": "OpenStorageTaskServerClient.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Open Storage Network Client",
+                    "propertyName": "openStorageNetworkClient",
+                    "functionName": "newOpenStorageModulesOpenStorageNetworkClient",
+                    "fileName": "OpenStorageNetworkClient.js",
                     "folderName": ""
                 }
             ],

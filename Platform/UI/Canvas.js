@@ -258,6 +258,8 @@ function newCanvas() {
             window.addEventListener('keydown', onKeyDown, true)
             window.addEventListener('keyup', onKeyUp, true)
 
+            window.addEventListener('scroll', onWindowScrolled, true)
+
             if (browserCanvas.addEventListener) {
                 canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
 
@@ -378,16 +380,23 @@ function newCanvas() {
         }
 
         function centerCanvas() {
-            return
             let top = (window.innerHeight - browserCanvas.height) / 2
             let left = (window.innerWidth - browserCanvas.width) / 2
             browserCanvas.style = "position:absolute; top:" + top + "px; left:" + left + "px; z-index:1"
+            return
         }
     }
 
     function onKeyUp(event) {
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key up'
+    }
+
+    async function onWindowScrolled(event) {
+        if(DOCS_PAGE_ON_FOCUS === true) {
+            UI.projects.education.spaces.docsSpace.onDocsScrolled(event)
+        }
+        return
     }
 
     async function onKeyDown(event) {

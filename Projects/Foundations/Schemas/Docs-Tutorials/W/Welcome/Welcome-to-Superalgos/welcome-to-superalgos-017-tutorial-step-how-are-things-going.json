@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
-                "updated": 1618434622270,
+                "text": "Acabo de arrastrarte a los confines de la operación de minería de datos. ¡Observa el progreso del Sensor Bot Instance a su derecha!",
+                "updated": 1668195246807,
                 "style": "Definition"
             },
             {
@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "Je viens de vous entraîner dans les confins du minage de données. Voyez la progression de l'instance Sensor Bot à votre droite !",
                 "updated": 1667203693793
+            },
+            {
+                "language": "PL",
+                "text": "Właśnie wciągnąłem cię w głąb gromadzenia danych. Zobacz postępy Sensor Bot Instance po swojej prawej stronie!",
+                "updated": 1674935183111
             }
         ],
         "updated": 1660143357794
@@ -108,6 +113,11 @@
                     "language": "FR",
                     "text": "Le Sensor Bot est en train d'extraire des données de l'échange. Dès qu'il aura terminé l'extraction pour la plage de dates définie, quelque chose de vraiment cool se produira... automatiquement !",
                     "updated": 1667203745020
+                },
+                {
+                    "language": "PL",
+                    "text": "Sensor Bot właśnie gromadzi dane z giełdy. Jak tylko zakończy operację dla zdefiniowanego zakresu czasu, wydarzy się coś naprawdę fajnego... automatycznie!",
+                    "updated": 1674935271418
                 }
             ]
         },
@@ -160,6 +170,11 @@
                     "language": "FR",
                     "text": "Pouvez-vous deviner ce que c'est ?",
                     "updated": 1667203766026
+                },
+                {
+                    "language": "PL",
+                    "text": "Czy wiesz co to może być?",
+                    "updated": 1674935286370
                 }
             ]
         },
@@ -182,8 +197,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
-                    "updated": 1625933743042,
+                    "text": "No debería tardar más de 5 a 10 minutos en extraer los datos de la bolsa, o un poco más, dependiendo de tu hardware. ¿No puedes esperar? No hay problema. Haz clic en Siguiente para obtener una pista rápida.",
+                    "updated": 1668195338360,
                     "style": "Success"
                 },
                 {
@@ -206,13 +221,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Verilerin borsadan çekilmesi 5 ila 10 dakikadan uzun sürmemeli. Ancak Bu süre donanımınıza bağlı olarak biraz daha uzun sürebilir. Bekleyemez misin? O zaman hızlı bir ipucu için İleri'ye tıkla!",
-                    "updated": 1644850340098
+                    "text": "Verilerin borsadan alınması 5 ila 10 dakikadan uzun sürmemeli. Ancak Bu süre donanımınıza ve verileri almak istediğiniz başlangıç tarihine bağlı olarak biraz daha uzun sürebilir. Bekleyemez misin? O zaman hızlı bir ipucu için İleri'ye tıkla!",
+                    "updated": 1669837136952
                 },
                 {
                     "language": "FR",
                     "text": "L'extraction des données de l'échange ne devrait pas prendre plus de 5 à 10 minutes, ou un peu plus, en fonction de votre matériel. Vous ne pouvez pas attendre ? Très bien ! Cliquez sur Suivant pour un aperçu rapide !",
                     "updated": 1667203819462
+                },
+                {
+                    "language": "PL",
+                    "text": "Zgromadzenie danych z giełdy nie powinno zająć więcej niż 5 do 10 minut, lub nieco dłużej, w zależności od Twojego sprzętu. Nie możesz się doczekać? Dobrze! Kliknij Next, aby uzyskać szybką podpowiedź!",
+                    "updated": 1674935332517
                 }
             ]
         }

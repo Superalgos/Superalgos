@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Mari kita lihat skenario pertama: tipikal kasus dimana ketika kamu ingin memperkenalkan perubahan pada pengiriman strategi dengan sistem untuk memulai dengan pengaturan yang terbukti!",
                 "updated": 1645559252341
+            },
+            {
+                "language": "NL",
+                "text": "Laten we eens kijken naar het eerste scenario: een typisch geval is wanneer u wijzigingen wilt aanbrengen in een strategie die met het systeem wordt verzonden om te beginnen met een bewezen strategie!",
+                "updated": 1669547591326
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
-                    "updated": 1633283766269,
+                    "text": "Supongamos que quieres construir una estrategia. Quieres empezar con una ya existente e introducir modificaciones para entender cómo funcionan las cosas. No tienes intención de aportar los cambios. Sólo deseas jugar con ella y afinarla a tu gusto. Entonces, haz lo siguiente:",
+                    "updated": 1675377997361,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Katakanlah kamu siap untuk mulai bermain dengan strategi. Kamu ingin memulai dengan yang sudah ada dan memperkenalkan modifikasi untuk memahami cara kerja berbagai hal. Kamu tidak bermaksud berkontribusi terhadap perubahan. Kamu hanya ingin bermain dengannya dan menyetelnya sesuai keinginanmu! Kemudian, lakukan hal berikut:",
                     "updated": 1645559301189
+                },
+                {
+                    "language": "NL",
+                    "text": "Stel dat u een strategie wilt ontwikkelen. U wilt beginnen met een bestaande en wijzigingen aanbrengen, om te begrijpen hoe dingen werken. U bent niet van plan om de wijzigingen aan het project bij te dragen. Je wilt er gewoon mee spelen en afstemmen op je eigen smaak! Doe dan het volgende:",
+                    "updated": 1669547645420
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
-                    "updated": 1633283708150,
+                    "text": "Elimina el nodo Plugin File del Trading System y restaura el archivo plugin original (\\Plugins\\Algorithmic-Trading\\Trading-Systems) como si fuera una copia de seguridad: ¡arrastra el archivo y suéltalo en el Design Space! La estrategia ahora vive en el espacio de trabajo y puede modificarla y guardarla.",
+                    "updated": 1675377955610,
                     "style": "Success"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Delete node Plugin File yang sesuai dengan Trading System dan restore file plugin asli (di folder \\Plugins\\Trading-Systems folder) seolah-olah itu adalah cadangan: seret file dan letakkan di Design Space! Strategi-nya sekarang hidup di workspace dan kamu dapat memodifikasi dan menyimpannya!",
                     "updated": 1645562741733
+                },
+                {
+                    "language": "NL",
+                    "text": "Verwijder het knooppunt van het Plugin File van het Trading System en herstel het originele plugin bestand (\\Plugins\\Algorithmic-Trading\\Trading-Systems) alsof het een backup is: sleep het bestand en zet het neer in de Design Space! De strategie staat nu in de werkruimte en u kunt deze wijzigen en opslaan!",
+                    "updated": 1669547728260
                 }
             ]
         }

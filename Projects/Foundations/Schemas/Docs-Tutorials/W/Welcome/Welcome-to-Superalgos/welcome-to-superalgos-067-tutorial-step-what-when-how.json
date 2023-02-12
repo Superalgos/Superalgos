@@ -39,6 +39,11 @@
                 "language": "NL",
                 "text": "Trading Parameters bepalen de belangrijkste aspecten van hoe de handelssessie wordt uitgevoerd. Laten we een snelle, oppervlakkige blik werpen....",
                 "updated": 1666875371447
+            },
+            {
+                "language": "ES",
+                "text": "Los Trading Parameters determinan aspectos clave del funcionamiento de la sesión de trading. Echemos un vistazo breve y superficial...",
+                "updated": 1675279923471
             }
         ]
     },
@@ -55,8 +60,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Session Base Asset: no se asigna capital en BTC.",
-                    "updated": 1627313513547,
+                    "text": "Session Base Asset : no se asigna capital en BTC.",
+                    "updated": 1675279969900,
                     "style": "List"
                 },
                 {
@@ -66,8 +71,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye belirlenmez.",
-                    "updated": 1640627828558
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye tahsis edilmemiştir.",
+                    "updated": 1669921572178
                 },
                 {
                     "language": "RU",
@@ -272,8 +277,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Fee Structure: 0.1% es el nivel inferior de Binance.",
-                    "updated": 1624453402067,
+                    "text": "Fee Structure: 0.1% es solamente un ejemplo",
+                    "updated": 1675280026678,
                     "style": "List"
                 },
                 {
@@ -312,8 +317,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters consulte la documentación.",
-                    "updated": 1624453528622,
+                    "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters puedes consultar la documentación.",
+                    "updated": 1675280001073,
                     "style": "Text"
                 },
                 {

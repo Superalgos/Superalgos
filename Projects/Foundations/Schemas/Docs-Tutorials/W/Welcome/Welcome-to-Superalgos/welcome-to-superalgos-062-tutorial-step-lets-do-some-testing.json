@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Estamos de vuelta en la jerarquia del  Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
-                "updated": 1624414541186,
+                "text": "Estamos de vuelta en la jerarquia del LAN Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
+                "updated": 1675278652712,
                 "style": "Definition"
             },
             {
@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión de rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
-                    "updated": 1624414924601,
+                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
+                    "updated": 1675278673366,
                     "style": "Text"
                 },
                 {
@@ -149,8 +149,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por exchange, mercado y mina de trading, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples exchanges.",
-                    "updated": 1624414880776,
+                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por Exchange, Market y Trading Mine, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples Exchanges.",
+                    "updated": 1675278735349,
                     "style": "Text"
                 },
                 {
@@ -160,8 +160,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Aslında Veri Görevleri (Data Tasks) bölümüne benzerdir. Görevler borsa, piyasa ve ticaret madeni tarafından düzenlenir, böylece farklı pazarlar için optimize edilmiş herhangi bir sayıda stratejiyi birden fazla borsada test edebilirsiniz.",
-                    "updated": 1636107114239
+                    "text": "Aslında Veri Görevleri (Data Tasks) bölümüne benzerdir. Görevler borsa, piyasa ve ticaret madeni tarafından düzenlenir. Böylece farklı işlem çiftleri için optimize edilmiş herhangi bir sayıda stratejiyi birden fazla borsada test edebilirsiniz.",
+                    "updated": 1669920521517
                 },
                 {
                     "language": "RU",

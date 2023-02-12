@@ -1,6 +1,6 @@
 exports.newSocialTradingUtilitiesBroadcastingFilter = function newSocialTradingUtilitiesBroadcastingFilter() {
     /*
-    This module helps us filer which user profiles needs to be notified.
+    This module helps us filter which user profiles needs to be notified.
     */
     let thisObject = {
         filterFollowersFromUserProfiles: filterFollowersFromUserProfiles

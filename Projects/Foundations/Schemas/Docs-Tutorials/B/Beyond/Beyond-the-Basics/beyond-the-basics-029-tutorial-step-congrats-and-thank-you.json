@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Esto es asombroso! ¡Ya estás ayudando al proyecto! ¡Estamos agradecidos por tu primera contribución y esperamos que haya más por venir!",
-                "updated": 1628198352736,
+                "text": "¡Ya estás ayudando al proyecto! Te agradecemos tu primera contribución y esperamos que haya más.",
+                "updated": 1675454615664,
                 "style": "Definition"
             },
             {
@@ -36,6 +36,16 @@
                 "language": "RU",
                 "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все!",
                 "updated": 1640163557924
+            },
+            {
+                "language": "ID",
+                "text": "Kamu pada akhirnya telah membantu proyek! Kami sangat berterima kasih dengan kontribusi pertamamu dan berharap terus ada dimasa mendatang!",
+                "updated": 1668997205176
+            },
+            {
+                "language": "NL",
+                "text": "Je helpt het project al! We zijn dankbaar voor je eerste bijdrage en hopen dat er nog meer volgen!",
+                "updated": 1669750298722
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "RU",
                     "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done!",
                     "updated": 1640163574867
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semua berjalan lancar dengan otentikasi, kamu seharusnya mendapatkan halaman  App Message - Contribution Done!",
+                    "updated": 1668997216327
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alles goed is gegaan met uw authenticatie, zou u de pagina App Message - Contribution Done moeten zien!",
+                    "updated": 1669750322671
                 }
             ]
         },
@@ -87,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuar en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
-                    "updated": 1628198467452,
+                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuarán en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
+                    "updated": 1675454598062,
                     "style": "Success"
                 },
                 {
@@ -105,6 +125,16 @@
                     "language": "RU",
                     "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com!",
                     "updated": 1640163619040
+                },
+                {
+                    "language": "ID",
+                    "text": " Pemelihara proyek akan mengulas Pull Request dan bertindak sesuai seharusnya. Jika memiliki kemungkinan untuk menggabungkannya tanpa konflik, Seharusnya itu segera tayang! Tetap perhatikan notifikasi dari GitHub.com!",
+                    "updated": 1668997224948
+                },
+                {
+                    "language": "NL",
+                    "text": "Project beheerders zullen uw Pull Request beoordelen en dienovereenkomstig handelen. Als het mogelijk is om het zonder conflicten samen te voegen, zou het binnenkort live moeten gaan! Houd notificaties van GitHub.com in de gaten!",
+                    "updated": 1669750350678
                 }
             ]
         },
@@ -133,6 +163,16 @@
                     "language": "RU",
                     "text": "Если что-то пошло не так с аутентификацией Git, пожалуйста, следуйте инструкциям на странице ошибки для устранения проблемы или обратитесь за помощью в группу разработчиков Develop Group.",
                     "updated": 1640163658875
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika sesuatu berjalan tidak sesuai dengan otentikasi Git, ikuti petunjuk pada halaman kesalahan untuk memecahkan masalah atau meminta bantuan di Develop Group.",
+                    "updated": 1668997234762
+                },
+                {
+                    "language": "NL",
+                    "text": "Als er iets mis is gegaan met de Git-authenticatie, volg dan de instructies op de foutpagina om het probleem op te lossen of vraag om hulp in de Develop Group.",
+                    "updated": 1669750375182
                 }
             ]
         }

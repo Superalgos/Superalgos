@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Nachdem Sie sich vergewissert haben, dass Sie den Inhalt des Profile Constructor gesichert haben, ist es an der Zeit, aufzuräumen.",
                 "updated": 1640077414615
+            },
+            {
+                "language": "ID",
+                "text": "Setelah kamu memastikan cadangan konten dari Profile Constructor saatnya untuk membersihkannya.",
+                "updated": 1671443069826
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Sobald Sie mit der Sicherung des privaten Schlüssels zufrieden sind, löschen Sie den Profile Constructor Knoten!",
                     "updated": 1640077435100
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu puas dengan cadangan private key kamu, hapus node Profile Constructor!",
+                    "updated": 1671443076474
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Es ist nicht sicher, Ihren privaten Schlüssel im Workspace zu speichern, da Sie ihn versehentlich mit einem Ihrer Beiträge an GitHub.com übermitteln könnten. Denken Sie auch daran, dass Workspaces auf der Festplatte als unverschlüsselte JSON-Dateien gespeichert werden, die keinerlei Sicherheit bieten.",
                     "updated": 1640077482550
+                },
+                {
+                    "language": "ID",
+                    "text": "Sangat tidak aman untuk menyimpan private key kamu pada Workspace, karena kamu mungkin secara tidak sengaja mengirimkannya ke GitHub.com dengan salah satu kontribusimu. Juga, ingat bahwa workspace disimpan di diska sebagai file JSON yang tidak terenkripsi, tanpa keamanan apa pun.",
+                    "updated": 1671443083035
                 }
             ]
         },

@@ -36,6 +36,16 @@
                 "language": "TR",
                 "text": "Müthiş incelemenizi yazmaya başlamadan önce, ne yaptığınızı anlamanız için komutu incelememe izin verin!",
                 "updated": 1640609570442
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu menulis review yang keren, Biarkan aku menjelaskan perintah yang ada sehingga kamu mengerti apa yang baru saja kamu lakukan!",
+                "updated": 1668848278685
+            },
+            {
+                "language": "NL",
+                "text": "Voordat je verder gaat met het schrijven van je geweldige recensie, wil ik de opdracht ontleden zodat je begrijpt wat je net hebt gedaan!",
+                "updated": 1669747486411
             }
         ]
     },
@@ -71,6 +81,16 @@
                     "language": "TR",
                     "text": "docs.add: Docs Add Command kök sözdizimi.",
                     "updated": 1640609613550
+                },
+                {
+                    "language": "ID",
+                    "text": "docs.add: root syntax dari Docs Add Command.",
+                    "updated": 1668848329662
+                },
+                {
+                    "language": "NL",
+                    "text": "docs.add: root syntax van het Docs Add Command.",
+                    "updated": 1669747521482
                 }
             ]
         },
@@ -105,6 +125,16 @@
                     "language": "TR",
                     "text": "Review: Sayfanın kategorisi. ( Docs Page Category )",
                     "updated": 1640609711999
+                },
+                {
+                    "language": "ID",
+                    "text": "Review: Docs Page Category dari halaman.",
+                    "updated": 1668848341996
+                },
+                {
+                    "language": "NL",
+                    "text": "Review: de Docs Page Category van de pagina.",
+                    "updated": 1669747549903
                 }
             ]
         },
@@ -139,6 +169,16 @@
                     "language": "TR",
                     "text": "to: okunabilirliği artırmak için bir konuşma dili bağlayıcısı.",
                     "updated": 1640609736194
+                },
+                {
+                    "language": "ID",
+                    "text": "to: Bahasa sehari-hari untuk menyatukan dan improvisasi pembacaan.",
+                    "updated": 1668848357897
+                },
+                {
+                    "language": "NL",
+                    "text": "to: een informele connector om de leesbaarheid te verbeteren.",
+                    "updated": 1669747570610
                 }
             ]
         },
@@ -167,6 +207,21 @@
                     "language": "TR",
                     "text": "Foundations:Vakıflar: Sayfanın eklendiği proje ( Project )",
                     "updated": 1640609759564
+                },
+                {
+                    "language": "ID",
+                    "text": "Foundations: Project dimana halaman itu ditambahkan.",
+                    "updated": 1668848373007
+                },
+                {
+                    "language": "NL",
+                    "text": "Foundations: het Project waaraan de pagina is toegevoegd.",
+                    "updated": 1669747625706
+                },
+                {
+                    "language": "ES",
+                    "text": "Foundations: el Proyecto al que se añade la página.",
+                    "updated": 1675452596781
                 }
             ]
         },
@@ -201,6 +256,16 @@
                     "language": "TR",
                     "text": "Superalgos Project Review: Superalgos Proje İncelemesi: İncelemenin ait olduğu sayfa koleksiyonunun adı.",
                     "updated": 1640609778188
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos Project Review: nama dari kumpulan halaman tempat review tersebut berada.",
+                    "updated": 1668848385662
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos Project Review: de naam van de verzameling pagina's waartoe de recensie behoort.",
+                    "updated": 1669747596255
                 }
             ]
         },
@@ -235,6 +300,16 @@
                     "language": "TR",
                     "text": "->: ->: iki kullanıcı tanımlı parametre gerektiren komutlarda kullanılan bir ayırıcı (bu durumda, sayfa koleksiyonunun adı ve sayfanın adı).",
                     "updated": 1640609803436
+                },
+                {
+                    "language": "ID",
+                    "text": "->: pemisah yang digunakan dalam perintah yang memerlukan dua parameter yang ditentukan pengguna (dalam hal ini, nama kumpulan halaman, dan nama halaman).",
+                    "updated": 1668848396875
+                },
+                {
+                    "language": "NL",
+                    "text": "->: een scheidingsteken dat wordt gebruikt in opdrachten die twee door de gebruiker gedefinieerde parameters vereisen (in dit geval de naam van de verzameling pagina's en de naam van de pagina).",
+                    "updated": 1669747618058
                 }
             ]
         },
@@ -269,6 +344,16 @@
                     "language": "TR",
                     "text": "Superalgos Review - Your Review Title: Superalgos İncelemesi - İnceleme Başlığınız: bu, Dokümanlar Sayfa Adıdır; Yinelenen adların olasılığını azaltmak için sayfa adında Superalgos İncelemesini tekrarlıyoruz",
                     "updated": 1640609834844
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos Review - Your Review Title: inilah Docs Page Name: kami ulangi Superalgos Review di nama halaman untuk menurunkan kemungkinan nama duplikat",
+                    "updated": 1668848410468
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos Review - Your Review Title: dit is de naam van de Docs Page Name; we herhalen Superalgos Review in de paginanaam om de kans op dubbele namen te verkleinen",
+                    "updated": 1669747687986
                 }
             ]
         }

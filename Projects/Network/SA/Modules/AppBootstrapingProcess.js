@@ -387,6 +387,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     return Number(balance)
                 }
             }
+            /* Calculate available token power per node (incl. delegated power) and add information to node payloads */
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
         }
 
         function calculateProfileRankings() {

@@ -336,8 +336,8 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         let forecasterList
         if (activeTestServerOperators.size === 0) { testServerList = "none" } else { testServerList = Array.from(activeTestServerOperators).join(', ') }
         if (activeForecasterOperators.size === 0) { forecasterList = "none" } else { forecasterList = Array.from(activeForecasterOperators).join(', ') }
-        SA.logger.info('Active Test Server Operators: ', testServerList)
-        SA.logger.info('Active Forecaster Operators: ', forecasterList)
+        SA.logger.info('Active Test Server Operators: ' + testServerList)
+        SA.logger.info('Active Forecaster Operators: ' + forecasterList)
         activeTestServerOperators.clear()
         activeForecasterOperators.clear()
 
@@ -353,7 +353,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
         }
         if (purgeCounter > 0) {
-            SA.logger.info('Deleted', purgeCounter, 'messages older than ' + MAXAGEMINUTES + ' minutes from the queue.')
+            SA.logger.info('Deleted ' + purgeCounter + ' messages older than ' + MAXAGEMINUTES + ' minutes from the queue.')
         }
     }
 

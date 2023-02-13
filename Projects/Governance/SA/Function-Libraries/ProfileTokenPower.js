@@ -1,11 +1,18 @@
 exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFunctionLibraryProfileTokenPower() {
     
+    /* The purpose of this function is to make information about Token Power available on SA level, different to UI where Governance is primarily handled.
+    This allows e.g. for Token Power-driven access control to Network Services, such as Trading Signals.
+    This part of the code *duplicates* Governance functionality which is also available on UI level. If fundamental changes are made to Token Power or
+    Delegations logic, such changes must be executed in code snippets of both UI and SA level. */
+    
     let thisObject = {
         calculateTokenPower: calculateTokenPower,
+        outboundDelegatedPower: outboundDelegatedPower,
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', , 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
+    const MAX_GENERATIONS = 3
     return thisObject
 
     function calculateTokenPower(
@@ -22,7 +29,10 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             let userProfile = userProfiles[i][1]
             distributeProfileTokenPower(userProfile)
         }
-        console.log("Yeehah! Received ", userProfiles.length, "User Profiles to calculate the token power for.")
+        /* Handle outbound delegations of token power to other users */
+        outboundDelegatedPower(userProfiles)
+        /* Recalculate token power with incoming token power delegations */
+        calculateDelegatedPower(userProfiles)
         return userProfiles
     }
 
@@ -56,7 +66,9 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
-            node.type === 'Airdrop Program'
+            node.type === 'Airdrop Program' ||
+            node.type === 'Social Trading Bot' ||
+            node.type === 'Task Server App'
         ) { return }
         /*
         We will reset token power of children.
@@ -97,11 +109,11 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
 
     function distributeProfileTokenPower(userProfile) {
         if (userProfile.payload === undefined) { return }
-        if (userProfile.payload.blockchainTokens === undefined) { return }
+        if (userProfile.balance === undefined) { return }
         /*
         The tokenPower is coming from blockchainTokens.
         */
-        let tokenPower = userProfile.payload.blockchainTokens
+        let tokenPower = userProfile.balance
         /*
         Before we start we will do some validations:
         */
@@ -122,7 +134,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
 
     function distributeProfileDelegatedPower(userProfile) {
         if (userProfile.payload === undefined) { return }
-        if (userProfile.payload.blockchainTokens === undefined) { return }
+        if (userProfile.balance === undefined) { return }
         if (userProfile.payload.delegationProgram === undefined) { return }
         /*
         The Delegated Power is already accumulated at userProfile.payload.tokenPower
@@ -156,7 +168,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.tokenPower = node.payload.tokenPower + tokenPower
- /*       drawTokenPower(node, node.payload.tokenPower, switchPercentage) */
         /*
         When we reach certain node types, we will halt the distribution, 
         because these are targets for token power.
@@ -171,7 +182,9 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
-            node.type === 'Airdrop Program'
+            node.type === 'Airdrop Program' ||
+            node.type === 'Social Trading Bot' ||
+            node.type === 'Task Server App'
         ) { return }
         /*
         We will redistribute token power among children.
@@ -303,40 +316,258 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             }
         }
     }
-/*
-    function getPercentage(node) {
-        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(node, 'percentage')
-        return percentage
-    }
-*/
-    function drawTokenPower(node, tokenPower, percentage) {
-        if (node.payload !== undefined) {
-            if (node.type === 'User Profile') {
 
-                let incomingPower = node.payload.tokenPower - node.payload.blockchainTokens
-                const ownPowerText = parseFloat(node.payload.blockchainTokens.toFixed(0)).toLocaleString('en') + ' ' + 'Blockchain Power'
-                const incomingPowerText = parseFloat(incomingPower.toFixed(0)).toLocaleString('en') + ' ' + 'Incoming Delegated Power'
+    function outboundDelegatedPower(userProfiles) {
+        /*
+        This function is the SA equivalent to UI.projects.governance.functionLibraries.delegationProgram.calculate()
+        We will first reset all the delegate power, and then distribute it.
+        */
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i][1]
 
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = false
-                node.payload.uiObject.setStatus(ownPowerText + ' + ' + incomingPowerText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = SA.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Delegation Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-                return
+            resetProgram(program)
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i][1]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = SA.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Delegation Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            program.payload.delegationProgram.programPower = program.payload.tokenPower
+
+            distributeProgram(program)
+        }
+
+        /* Different to UI, we are not calculating Bonuses on SA level */
+
+        function resetProgram(node) {
+            resetNode(node, 0)
+
+            function resetNode(node, generation) {
+
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
+                if (node === undefined) { return }
+                if (node.payload === undefined) { node.payload = {} }
+                if (node.payload.delegationProgram === undefined) {
+                    node.payload.delegationProgram = {
+                        programPower: 0,
+                        ownPower: 0,
+                        usedPower: 0
+                    }
+                } else {
+                    node.payload.delegationProgram.programPower = 0
+                    node.payload.delegationProgram.ownPower = 0
+                    node.payload.delegationProgram.usedPower = 0
+                }
+
+                if (node.type === 'User Profile') {
+                    return
+                }
+                if (node.referenceParent !== undefined) {
+                    resetNode(node.referenceParent, generation + 1)
+                    return
+                }
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
+
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                resetNode(childNode, generation)
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        resetNode(childNode, generation)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                }
             }
+        }
 
-            const tokenPowerText = parseFloat(tokenPower.toFixed(0)).toLocaleString('en') + ' ' + 'Token Power'
+        function distributeProgram(programNode) {
+            if (programNode.payload === undefined) { return }
 
-            node.payload.uiObject.valueAngleOffset = 180
-            node.payload.uiObject.valueAtAngle = true
+            /*
+            Here we will convert Token Power into programPower. 
+            As per system rules programPower = tokensPower
+            */
+            let programPower = programNode.payload.tokenPower
+            /*
+            The Own Power is the power generated by the same User Profile tokens, not inherited from others.
+            */
+            programNode.payload.delegationProgram.ownPower = programPower
+            distributeProgramPower(programNode, programNode, programPower, undefined, 0)
 
-            node.payload.uiObject.setValue(tokenPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
+            function distributeProgramPower(
+                currentProgramNode,
+                node,
+                programPower,
+                percentage,
+                generation
+            ) {
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
+                if (node === undefined) { return }
+                // if (node.payload === undefined) { return }
+                // if (node.payload.delegationProgram === undefined) { return }
 
-            if (percentage !== undefined) {
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
-                node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                )
+                node.payload.delegationProgram.programPower = node.payload.delegationProgram.programPower + programPower
+               /* drawPower(node, node.payload.delegationProgram.programPower, percentage) */
+                /*
+                When we reach certain node types, we will halt the distribution, because these are targets for 
+                delegate power.
+                */
+                if (
+                    node.type === 'User Profile'
+                ) {
+                    return
+                }
+                /*
+                If there is a reference parent defined, this means that the delegate power is 
+                transferred to it and not distributed among children.
+                */
+                if (
+                    node.referenceParent !== undefined &&
+                    node.type === 'User Delegate'
+                ) {
+                    currentProgramNode.payload.delegationProgram.usedPower = currentProgramNode.payload.delegationProgram.usedPower + programPower
+                    distributeProgramPower(
+                        currentProgramNode, 
+                        node.referenceParent, 
+                        programPower / 10,
+                        undefined,
+                        generation + 1
+                        )
+                    return
+                }
+                /*
+                If there is no reference parent we will redistribute delegate power among children.
+                */
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
+
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    /*
+                    Before distributing the delegate power, we will calculate how the power 
+                    is going to be switched between all nodes. The first pass is about
+                    scanning all sibling nodes to see which ones have a percentage defined
+                    at their config, and check that all percentages don't add more than 100.
+                    */
+                    let totalPercentage = 0
+                    let totalNodesWithoutPercentage = 0
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
+                                }
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
+                                            totalPercentage = totalPercentage + percentage
+                                        } else {
+                                            totalNodesWithoutPercentage++
+                                        }
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                    if (totalPercentage > 100) {
+                        return
+                    }
+                    let defaultPercentage = 0
+                    if (totalNodesWithoutPercentage > 0) {
+                        defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /*
+                    Here we do the actual distribution.
+                    */
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeProgramPower(
+                                    currentProgramNode, 
+                                    childNode, 
+                                    programPower * percentage / 100, 
+                                    percentage,
+                                    generation
+                                    )
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                            percentage = defaultPercentage
+                                        }
+                                        distributeProgramPower(
+                                            currentProgramNode, 
+                                            childNode, 
+                                            programPower * percentage / 100, 
+                                            percentage,
+                                            generation
+                                            )
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                }
             }
         }
     }

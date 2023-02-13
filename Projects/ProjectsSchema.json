@@ -1729,6 +1729,12 @@
                     "propertyName": "balances",
                     "functionName": "newGovernanceUtilitiesBalances",
                     "fileName": "Balances.js"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesSAValidations",
+                    "fileName": "Validations.js"
                 }
             ]
         },

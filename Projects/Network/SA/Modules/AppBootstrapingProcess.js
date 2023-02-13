@@ -22,6 +22,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
 
     const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
+    let tempRanking = new Map()
     return thisObject
 
     async function initialize(
@@ -170,8 +171,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 if (userProfile === undefined) {
                     SA.logger.warn('User Profile Plugin could not be loaded into memory: ' + userProfilePlugin.name)
                     continue
-                }
+                }   
 
+                /* If we have a ranking from earlier loads, temporary restore until blockchain balances will have reloaded */
+                if (tempRanking.get(userProfile.id) !== undefined) { 
+                    userProfile.ranking = tempRanking.get(userProfile.id)
+                }
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
             }
         }
@@ -397,9 +402,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
             userProfiles.sort((p1, p2) => p2[1].balance - p1[1].balance)
 
+            tempRanking.clear()
             const rankingTable = userProfiles.map((up, index) => {
                 // add ranking to existing item
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(up[1].id).ranking = index + 1
+                // Build temporary table which will retain rankings during balance reloads. This avoids users to drop to end of queue when connecting during balance loads.
+                tempRanking.set(up[1].id, index + 1)
                 // return user friendly item for console table output
                 return {
                     userProfile: up[1].name,

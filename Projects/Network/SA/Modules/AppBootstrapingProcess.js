@@ -22,6 +22,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
 
     const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
+    let tempBalanceRanking = new Map()
     return thisObject
 
     async function initialize(
@@ -170,8 +171,18 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 if (userProfile === undefined) {
                     SA.logger.warn('User Profile Plugin could not be loaded into memory: ' + userProfilePlugin.name)
                     continue
-                }
+                }   
 
+                /* If we have a ranking from earlier loads, temporary restore until blockchain balances will have reloaded */
+                let tempBalanceObject = tempBalanceRanking.get(userProfile.id)
+                if (tempBalanceObject !== undefined) {
+                    if (tempBalanceObject.hasOwnProperty('ranking')) { 
+                        userProfile.ranking = tempBalanceObject.ranking
+                    }
+                    if (tempBalanceObject.hasOwnProperty('balance')) { 
+                        userProfile.balance = tempBalanceObject.balance
+                    }
+                } 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
             }
         }
@@ -399,9 +410,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
             userProfiles.sort((p1, p2) => p2[1].balance - p1[1].balance)
 
+            tempBalanceRanking.clear()
             const rankingTable = userProfiles.map((up, index) => {
                 // add ranking to existing item
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(up[1].id).ranking = index + 1
+                // Build temporary table which will retain rankings during balance reloads. This avoids users to drop to end of queue when connecting during balance loads.
+                tempBalanceRanking.set(up[1].id, {ranking: index + 1, balance: up[1].balance})
                 // return user friendly item for console table output
                 return {
                     userProfile: up[1].name,
@@ -410,10 +424,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 }
             })
 
-            SA.logger.info('User Profiles ranking table calculated based on latest User Profile Balances: ')
-            SA.logger.info('')
-            console.table(rankingTable)
-            SA.logger.info('')
+            if (thisObject.loadAllUserProfileBalances === true) {
+                SA.logger.info('User Profiles ranking table calculated based on latest User Profile Balances: ')
+                SA.logger.info('')
+                console.table(rankingTable)
+                SA.logger.info('')
+            }
         }
 
         function setupPermissionedNetwork() {

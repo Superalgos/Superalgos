@@ -70,6 +70,7 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
+                handleExceptions: true
             }),
             new transports.DailyRotateFile({
                 filename: filePathParts.concat(['combined', '%DATE%.log']).join('/'),
@@ -80,6 +81,7 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
                 level: consoleLogLevel == 'debug' ? 'debug' : 'info'
             }),
             new transports.Console({level: consoleLogLevel})
-        ]
+        ],
+        exitOnError: false
     })
 }

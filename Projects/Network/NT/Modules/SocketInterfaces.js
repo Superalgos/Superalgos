@@ -524,25 +524,19 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         result: 'Error',
                         message: 'Unable to determine Token Power Allocation of Task Server App for User ' + userProfileByBlockchainAccount.config.codeName 
                     }
-                    /* Commenting out, we don't want to enforce this requirement during testing yet
                     caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
                     return
-                    */
                 }
                 else if (clientTokenAllocation < nodeMinimumTokenAllocation) {
+                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation))
                     let response = {
                         result: 'Error',
                         message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation)
                     }
-                    /* Commenting out, we don't want to enforce this requirement during testing yet
                     caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
                     return
-                    */
-                    SA.logger.info('TEST: ' + callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' would be prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation))
-                } else {
-                    SA.logger.info('TEST: ' + callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' is granted access to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' exceeds the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation))
                 }
             }
 

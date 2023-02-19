@@ -11,7 +11,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', , 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
     const MAX_GENERATIONS = 3
     return thisObject
 
@@ -67,7 +67,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*
@@ -183,7 +183,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*

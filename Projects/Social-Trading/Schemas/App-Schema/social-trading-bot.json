@@ -27,7 +27,15 @@
             "label": "Add Available Storage",
             "relatedUiObject": "Available Storage",
             "relatedUiObjectProject": "Open-Storage"
-        },    
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Followed Bot Reference",
+            "relatedUiObject": "Followed Bot Reference",
+            "relatedUiObjectProject": "Social-Trading"
+        },     
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -71,6 +79,13 @@
             "type": "node",
             "childType": "Available Storage",
             "actionProject": "Open-Storage",
+            "autoAdd": false
+        },
+        {
+            "name": "followedBotReference",
+            "type": "node",
+            "childType": "Followed Bot Reference",
+            "actionProject": "Social-Trading",
             "autoAdd": false
         }
     ]

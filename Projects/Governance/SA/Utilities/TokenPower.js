@@ -15,8 +15,10 @@ exports.newGovernanceUtilitiesTokenPower = function newGovernanceUtilitiesTokenP
 
         for (let j = 0; j < signingAccounts.length; j++) {
             let signingAccount = signingAccounts[j]
-            let networkClient = signingAccount.parentNode
-            if (networkClient.blockchainAccount === blockchainAccount) {
+            let config = signingAccount.config
+            let signatureObject = config.signature
+            let clientBlockchainAccount = web3.eth.accounts.recover(signatureObject)
+            if (clientBlockchainAccount === blockchainAccount) {
                 let tokenPowerAllocation = networkClient.payload.tokenPower
                 return tokenPowerAllocation
             }

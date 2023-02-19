@@ -87,8 +87,6 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 callerRole: thisObject.callerRole,
                 callerProfileHandle: SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
                 callerTimestamp: callerTimestamp,
-                callerp2pNetworkClientCodeName: thisObject.p2pNetworkClientCodeName,
-                callerp2pNetworkClientNodeId: thisObject.p2pNetworkClientIdentity.node.id,
                 step: 'One'
             }
             thisObject.socket.send(JSON.stringify(message))

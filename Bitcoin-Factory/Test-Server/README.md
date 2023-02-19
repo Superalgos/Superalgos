@@ -14,7 +14,7 @@ For best results and to help keep things organised it is recommended to create a
 2. Rename the workspace to something related to the server eg: yourusername-mining-servername
 3. Delete the 3 tutorials
 4. Locate the Plugins/Data-Mining node and "Add specified plugin data mine"
-5. Add the specified data mine you plan to enable within the test server sensor bot, along with candles and masters.
+5. Add the specified data mine you plan to enable within the test server sensor bot, along with Bitcoin-Factory, candles and masters.
 6. Save and reload the workspace.
 7. Locate the Crypto Ecosystem node and expand then find Exchange Markets, Hover over BTC/USDT and select "Install Market".
 8. Locate the data tasks node inside my computer node, then continue and expand BTC/USDT/Candles/Candles/Exchange Raw Data/Exchange Raw Data Sensor Bot and configure as follows:

@@ -97,6 +97,21 @@ Congratulations the test server is now running !
 ```
 
 
+##Test Server Config Generation Script
+
+A script can be found at ```/Superalgos/Bitcoin-Factory/Test-Server/GenerateServerConfig.js```.
+This script will loop through all data mine plugins and generate a new up-to-date test server config file.
+
+#### Running Script
+
+To run the script navigate to the files location in the terminal and run ``` node GenerateServerConfig.js```
+
+After completion the newly generated test server config can be found at ```/Superalgos/Bitcoin-Factory/Test-Server/TestServerConfig.json```. 
+
+The contents of this file can be copy/pasted into the test servers configuration inside of Superalgos. (don't forget to turn on the desired "ON" indicators!)
+
+
+
 ## Governance
 
 Machine learning test cases are deployed to users and all test data is stored within your Bitcoin-Factory/Test-Server/YOUR-SERVER-NAME

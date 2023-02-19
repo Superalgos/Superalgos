@@ -10,6 +10,7 @@ exports.newGovernanceUtilitiesTokenPower = function newGovernanceUtilitiesTokenP
         /*
          Determine the Token Power allocated to a Task Server App which is behind a defined Blockchain Account.
         */
+        let web3 = new SA.nodeModules.web3()
         let signingAccounts = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile, 'Signing Account')
         if (signingAccounts === undefined || signingAccounts.length === 0) { return }
 

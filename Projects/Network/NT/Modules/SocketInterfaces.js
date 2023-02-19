@@ -500,6 +500,49 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
             /*
+            We verify if the caller has allocated the min Token Power to the Task Server App as required by the Network Node Configuration 
+            */
+            switch (caller.role) {
+                case 'Network Client': {
+                    let nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.clientMinTokenAllocation | 0
+                    if (nodeMinimumTokenAllocation > 0) {
+                        let clientTokenAllocation = SA.projects.governance.utilities.tokenpower.getTaskServerAppTokenPower(userProfileByBlockchainAccount, caller.userAppBlockchainAccount)
+                        if (clientTokenAllocation < nodeMinimumTokenAllocation) {
+                            let response = {
+                                result: 'Error',
+                                message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation)
+                            }
+                            /* Commenting out, we don't want to enforce this requirement during testing yet
+                            caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
+                            return
+                            */
+                           SA.logger.info('TEST: User ' + userProfileByBlockchainAccount.config.codeName + ' would be prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation) + ' SA.')
+                        } else {
+                           SA.logger.info('TEST: User ' + userProfileByBlockchainAccount.config.codeName + ' is granted access to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is exceeding the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation) + ' SA.')
+                        }
+                    }
+                    break
+                }
+                /*
+                case 'Network Peer': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+                */
+            }            
+
+
+            /*
             Parse the signed Message
             */
             let signedMessage = JSON.parse(signature.message)

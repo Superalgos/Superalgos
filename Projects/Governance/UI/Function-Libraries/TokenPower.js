@@ -4,7 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks', 'Available Signals', 'Available Storage']
     return thisObject
 
     function calculateTokenPower(

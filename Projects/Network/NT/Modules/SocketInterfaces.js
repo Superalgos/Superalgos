@@ -747,7 +747,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         }
     }
 
-    async function broadcastSignalsToClients(socketMessage) {
+    async function broadcastSignalsToClients(socketMessage, sendingBot) {
         /*
         TODO: Replace this function with a mechanism to broadcast signals only to Followers.
         */

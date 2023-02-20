@@ -41,6 +41,11 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
         */
         let response = SA.projects.tradingSignals.utilities.signalSignatureValidations.validateSignatures(messageHeader)
 
+        /* Determine by which Social Trading Bot this signal was signed */
+        let senderBlockchainaccount = web3.eth.accounts.recover(messageHeader.signature)
+        let senderUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(senderBlockchainaccount)
+        let sendingBot = SA.projects.tradingSignals.utilities.signalSignatureValidations.getSigningNode(senderUserProfile, senderBlockchainaccount)
+
         switch (messageHeader.requestType) {
             case 'Signal': {
                 return await signalReceived()
@@ -51,7 +56,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
             /*
             Broadcast the Signal to all clients connected to this Network Node.
             */
-            if (await NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToClients(socketMessage) !== true) {
+            if (await NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToClients(socketMessage, sendingBot) !== true) {
                 response = {
                     result: 'Error',
                     message: 'Signal Could Not be Broadcasted to Network Clients.'

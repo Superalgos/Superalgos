@@ -752,6 +752,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         TODO: Replace this function with a mechanism to broadcast signals only to Followers.
         */
         try {
+            let followerMinTokenPower = sendingBot.config.followerMinTokenPower | 0
+            SA.logger.info('Sender token requirement: ' + followerMinTokenPower + ' SA')
             const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
             const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size
             let DELAY_BETWEEN_USER_PROFILES = 1000 // milliseconds

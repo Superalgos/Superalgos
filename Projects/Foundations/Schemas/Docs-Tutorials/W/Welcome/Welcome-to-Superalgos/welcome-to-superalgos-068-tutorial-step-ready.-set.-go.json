@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Laten we starten! Dit gaat hoe dan ook snel, aangezien we een enkele dag aan historische gegevens testen.",
                 "updated": 1666875706230
+            },
+            {
+                "language": "FR",
+                "text": "C'est parti ! Cela va être rapide de toute façon, car nous testons une seule journée de données historiques.",
+                "updated": 1676898611578
             }
         ]
     },
@@ -84,6 +89,11 @@
                     "language": "NL",
                     "text": "Het uitvoeren van een handelstaak lijkt veel op het uitvoeren van een dataminingtaak. Het verschil is dat u - na het uitvoeren van de taak - ook de Trading Session moet uitvoeren.",
                     "updated": 1666875750605
+                },
+                {
+                    "language": "FR",
+                    "text": "L'exécution d'une tâche de trading est assez similaire à celle d'une tâche de Data Mining. La différence réside dans le fait que, après avoir exécuté la tâche, vous devez également exécuter la session de Trading.",
+                    "updated": 1676898658576
                 }
             ],
             "updated": 1660148890490
@@ -129,6 +139,11 @@
                     "language": "NL",
                     "text": "Selecteer Run in het Lightning Strike Task menu! <br><br>Selecteer nu Run in het Backtesting Session menu!",
                     "updated": 1666875836968
+                },
+                {
+                    "language": "FR",
+                    "text": "Sélectionnez Run (Exécuter) dans le noeud Lightning Strike Task et sélectionnez Run (Exécuter) dans le menu Backtesting Session.",
+                    "updated": 1676898712827
                 }
             ]
         },
@@ -172,6 +187,11 @@
                     "language": "NL",
                     "text": "Wanneer de Backtesting Session aangeeft dat de verwerking is voltooid, stopt u de Task en klikt u op Next.",
                     "updated": 1666875897909
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque la session de backtesting indique que le traitement est terminé, arrêtez la tâche et cliquez sur Suivant.",
+                    "updated": 1676898766827
                 }
             ],
             "updated": 1622201246283

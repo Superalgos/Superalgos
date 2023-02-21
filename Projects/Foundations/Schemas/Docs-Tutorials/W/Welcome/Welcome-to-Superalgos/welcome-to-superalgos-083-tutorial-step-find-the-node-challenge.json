@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "De Trading Engine beheert de complexiteit die gepaard gaat met geautomatiseerde handel door informatie toegankelijk te maken voor gebruikers en handelssystemen.",
                 "updated": 1667128343136
+            },
+            {
+                "language": "FR",
+                "text": "Le Trading Engine gère la complexité inhérente au trading automatisé en rendant les informations accessibles aux utilisateurs et aux systèmes de trading.",
+                "updated": 1676958407017
             }
         ]
     },
@@ -90,6 +95,11 @@
                     "language": "NL",
                     "text": "Herinner je je mijn opmerkingen over granulariteit nog? Weet je nog hoe de formule op het handelssysteem de waarde van de exit-streefwaarde ophaalde? Hier is een snelle herinnering:",
                     "updated": 1667128400200
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous vous souvenez de mes commentaires sur la granularité ? Vous vous souvenez que la formule du système de trading permettait d'obtenir la valeur du taux cible de sortie ? Voici un petit rappel :",
+                    "updated": 1676958441424
                 }
             ]
         },
@@ -138,6 +148,11 @@
                     "language": "NL",
                     "text": "Deze string bevat het pad naar dat stukje informatie in de datastructuur van de Trading Engine hiërarchie! Kunt u het knooppunt Exit Target Rate vinden? Klap de hiërarchie uit en volg het pad door de verschillende knooppunten!",
                     "updated": 1667128494615
+                },
+                {
+                    "language": "FR",
+                    "text": "Cette formule contient le chemin d'accès à cet élément d'information dans la structure de données de la hiérarchie du Trading Engine ! Pouvez-vous trouver le nœud Exit Target Rate ? Développez la hiérarchie et suivez le fil d'Ariane !",
+                    "updated": 1676958479360
                 }
             ]
         }

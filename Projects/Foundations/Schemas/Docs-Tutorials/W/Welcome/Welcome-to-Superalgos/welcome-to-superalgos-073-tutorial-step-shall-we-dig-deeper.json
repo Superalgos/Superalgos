@@ -46,6 +46,11 @@
                 "language": "NL",
                 "text": "De logica achter het plaatsen van kooporders wordt beïnvloed door de Resistance en Support indicatorbot van de Masters Data Mine die u eerder heeft uitgevoerd.",
                 "updated": 1666878587844
+            },
+            {
+                "language": "FR",
+                "text": "La logique qui sous-tend le placement des ordres d'achat est influencée par le robot indicateur des résistances et des supports de la mine de données Masters que vous avez exécutée précédemment.",
+                "updated": 1676899227273
             }
         ]
     },
@@ -90,6 +95,11 @@
                     "language": "NL",
                     "text": "Ik heb de vrijheid genomen om de Supports laag aan te zetten om je deze schoonheid te laten zien... Ik hoop dat je het niet erg vindt!",
                     "updated": 1666878618043
+                },
+                {
+                    "language": "FR",
+                    "text": "J'ai pris la liberté d'activer le calque Supports pour vous montrer cette beauté... J'espère que cela ne vous dérange pas !",
+                    "updated": 1676899253913
                 }
             ]
         },
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "De indicator identificeert niveaus (prijs bereiken) waarop de prijs wordt afgewezen, en houdt een teller bij van het aantal afwijzingen totdat het niveau wordt overschreden.",
                     "updated": 1666878667043
+                },
+                {
+                    "language": "FR",
+                    "text": "L'indicateur identifie les niveaux ( zones de prix ) sur lesquels le prix est rejeté, et garde un compteur du nombre de rejets qui se produisent jusqu'à ce que le niveau soit franchi.",
+                    "updated": 1676899294752
                 }
             ]
         },
@@ -176,6 +191,11 @@
                     "language": "NL",
                     "text": "De manier waarop niveaus op het scherm worden weergegeven, hangt af van het aantal afwijzingen dat het niveau heeft meegemaakt, wat ons een visueel idee geeft van hoe sterk elk ondersteuningsniveau kan zijn. Zodra een niveau wordt overschreden, verdwijnt het.",
                     "updated": 1666878708940
+                },
+                {
+                    "language": "FR",
+                    "text": "La façon dont les niveaux sont représentés à l'écran varie en fonction du nombre de rejets dont le niveau a fait l'objet, ce qui nous donne un indice visuel de la force de chaque niveau de soutien. Lorsqu'un niveau est franchi, il disparaît.",
+                    "updated": 1676899315967
                 }
             ]
         }

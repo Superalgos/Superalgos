@@ -46,6 +46,11 @@
                 "language": "NL",
                 "text": "De nieuwste versie van Superalgos bevat een experimentele integratie van TensorFlow om ML vanuit de app te benutten!",
                 "updated": 1666786652446
+            },
+            {
+                "language": "FR",
+                "text": "La dernière version de Superalgos propose une intégration expérimentale de TensorFlow pour tirer parti de l'analyse ML à partir de l'application !",
+                "updated": 1676897985416
             }
         ]
     },
@@ -91,6 +96,11 @@
                     "language": "NL",
                     "text": "De integratie brengt de definitie van een NodeJS TensorFlow Library met een Supervised Learning algoritme en het Artificial Neural Network in kaart in dezelfde soort knooppuntenstructuur die typisch is voor Superalgos.",
                     "updated": 1666786747652
+                },
+                {
+                    "language": "FR",
+                    "text": "L'intégration correspond à la définition d'une bibliothèque TensorFlow comportant un algorithme d'apprentissage supervisé et son réseau neuronal artificiel dans le même type de structure de nœuds typique de Superalgos.",
+                    "updated": 1676898025030
                 }
             ]
         },
@@ -135,6 +145,11 @@
                     "language": "NL",
                     "text": "De integratie maakt gebruik van de rest van de Superalgos-infrastructuur, zodat u uw datasets kunt gebruiken om ML-algo's te trainen en de resulterende modellen te gebruiken in handelssystemen!",
                     "updated": 1666786808238
+                },
+                {
+                    "language": "FR",
+                    "text": "L'intégration s'appuie sur le reste de l'infrastructure de Superalgos afin que vous puissiez utiliser vos ensembles de données pour entraîner des algos ML et utiliser les modèles résultants dans les systèmes de trading!",
+                    "updated": 1676898085649
                 }
             ]
         },
@@ -179,6 +194,11 @@
                     "language": "NL",
                     "text": "Word lid van de Superalgos Develop Group als je wilt helpen de integratie af te werken en te testen!",
                     "updated": 1666786831445
+                },
+                {
+                    "language": "FR",
+                    "text": "Rejoignez le groupe de développement Superalgos si vous souhaitez aider à terminer et à tester l'intégration!",
+                    "updated": 1676898090736
                 }
             ]
         }

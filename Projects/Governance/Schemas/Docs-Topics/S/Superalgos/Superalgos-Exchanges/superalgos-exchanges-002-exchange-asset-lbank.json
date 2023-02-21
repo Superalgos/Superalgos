@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Tam adı Ledger Bank Exchange olan LBank Exchange, 2015 yılında kurulmuş ve Virgin Adaları'na kayıtlıdır. Güvenli, profesyonel ve kullanışlı kripto varlık değişim hizmetleri, türev hizmetleri, para birimi ölçümü, para birimi sağlayan, NFA、ABD MSB, Kanada MSB，Avustralya kripto lisansına sahip, dünya çapında yüksek teknoloji kripto varlık ticaret platformudur. küresel kullanıcılar için faiz oluşturma ve diğer işletmeler.",
                 "updated": 1646307053383
+            },
+            {
+                "language": "DE",
+                "text": "LBank Exchange, mit vollem Namen Ledger Bank Exchange, wurde 2015 mit Sitz auf den Jungferninseln gegründet. Es ist eine der größten Handelsplattformen für Krypto-Assets weltweit und verfügt über eine NFA- und MSB-Lizenz für die USA, eine MSB-Lizenz für Kanada und eine Krypto-Lizenz für Australien. Sie bietet sichere, professionelle und bequeme Dienstleistungen für den Austausch von Krypto-Assets, Derivaten, die Quantifizierung von Währungen, die Generierung von Währungszinsen und andere Geschäfte für globale Nutzer.",
+                "updated": 1676912531144
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "TR",
                     "text": "Liste Özeti",
                     "updated": 1646307103753
+                },
+                {
+                    "language": "DE",
+                    "text": "Abschließend",
+                    "updated": 1676912675647
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Exchange listeleme ekibiyle tanıştık ve yakında görüşeceğiz.",
                     "updated": 1646307108372
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wurden dem Börsenteam vorgestellt und werden uns demnächst treffen.",
+                    "updated": 1676912664346
                 }
             ]
         }

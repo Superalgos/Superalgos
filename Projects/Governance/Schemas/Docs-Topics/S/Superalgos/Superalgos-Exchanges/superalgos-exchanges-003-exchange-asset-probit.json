@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Probit Exchange (www.probit.com), kendisini küresel bir madeni paradan madeni paraya kripto para birimi değişimi olarak tanımlar. ProBit Exchange, yalnızca 'nitelikli ve hak eden' kripto para projelerini listeler. ProBit Exchange'in saniyede 1,5 milyonun üzerinde sipariş eşleştirme hızına ve özelleştirilebilir bir kullanıcı arayüzüne sahip olduğu bildiriliyor. Ayrıca ProBit Exchange, kullanıcılara 2 Faktörlü Kimlik Doğrulamaya ek olarak bir donanım güvenlik anahtarı seçeneği sunduğunu iddia ediyor.",
                 "updated": 1646307150838
+            },
+            {
+                "language": "DE",
+                "text": "Probit Exchange (www.probit.com) beschreibt sich selbst als eine globale Coin-to-Coin-Kryptowährungsbörse. ProBit Exchange listet nur Kryptowährungsprojekte auf, die es für \"qualifiziert und wertvoll\" hält. ProBit Exchange hat Berichten zufolge eine Auftragsabgleichsgeschwindigkeit von über 1,5 Millionen Aufträgen pro Sekunde und eine anpassbare Benutzeroberfläche. Darüber hinaus kann ProBit Exchange den Benutzern neben der 2-Faktor-Authentifizierung, auch die Möglichkeit eines Hardware-Sicherheitsschlüssels anbieten. ",
+                "updated": 1676913011793
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
                     "updated": 1646307176555
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Text um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie den Befehl docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Hauptrepository zu senden.",
+                    "updated": 1676913081757
                 }
             ]
         }

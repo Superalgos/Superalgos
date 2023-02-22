@@ -40,7 +40,6 @@ For best results and to help keep things organised it is recommended to create a
     "networkCodeName": "Testnet",
     "targetSuperalgosHost": "localhost",
     "targetSuperalgosHttpPort": 34248,
-    "pythonScriptName": "Bitcoin_Factory_LSTM.py",
     "serverInstanceName": "YOUR-SERVER-NAME",
     "timeSeriesFile": {
         "labels": [

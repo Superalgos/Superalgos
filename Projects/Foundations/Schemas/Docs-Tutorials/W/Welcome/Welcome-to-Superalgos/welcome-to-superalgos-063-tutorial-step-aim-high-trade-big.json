@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Stel je een leger van bots voor die werken met meerdere handelsplatformen, markten en strategieën, draaiend op een netwerk à la een handels centrum.",
                 "updated": 1666786393792
+            },
+            {
+                "language": "FR",
+                "text": "Imaginez une armée de robots travaillant avec de multiples exchanges, marchés et stratégies, fonctionnant sur un réseau à la manière d'une ferme de Trading.",
+                "updated": 1676897831281
             }
         ],
         "updated": 1622200549490
@@ -91,6 +96,11 @@
                     "language": "NL",
                     "text": "Dat is waar de LAN Network Node over gaat. Wat je tot nu toe hebt gezien, draait op een enkele machine. Maar...",
                     "updated": 1666786416495
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est l'objet du nœud LAN Network. Ce que vous avez vu jusqu'à présent fonctionne sur une seule machine. Mais...",
+                    "updated": 1676897872686
                 }
             ]
         },
@@ -135,6 +145,11 @@
                     "language": "NL",
                     "text": "Superalgos ondersteunt het verdelen en coördineren van taken over netwerken van knooppunten waarop de Client draait! Dit maakt schaalbare bewerkingen mogelijk: elke machine waarop de UI draait, kan de onderneming besturen!",
                     "updated": 1666786515191
+                },
+                {
+                    "language": "FR",
+                    "text": "Superalgos permet de distribuer et de coordonner des tâches sur des réseaux de nœuds exécutant le Client ! Cela permet des opérations évolutives : n'importe quelle machine exécutant l'interface utilisateur peut contrôler la totalité de la production !",
+                    "updated": 1676897915456
                 }
             ]
         },
@@ -178,6 +193,11 @@
                     "language": "NL",
                     "text": "U kunt een netwerk opzetten met een paar Raspberry Pi's, een datacenter van industriële kwaliteit of iets daartussenin.",
                     "updated": 1666786561759
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez configurer un réseau avec quelques Raspberry Pi, un datacenter de niveau industriel, ou tout ce qui se trouve entre les deux.",
+                    "updated": 1676897948177
                 }
             ],
             "updated": 1629821982211

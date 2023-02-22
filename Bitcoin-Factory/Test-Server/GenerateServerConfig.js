@@ -7,7 +7,6 @@ const fs = require("fs");
 const networkCodeName = "Testnet";
 const targetSuperalgosHost = "localhost";
 const targetSuperalgosHttpPort = 34248;
-const pythonScriptName = "Bitcoin_Factory_LSTM.py";
 const labels = [
         {
             "dataMine": "Candles",
@@ -239,7 +238,6 @@ function generateServerConfig(features) {
         "targetSuperalgosHost": targetSuperalgosHost,
         "targetSuperalgosHttpPort": targetSuperalgosHttpPort,
         "serverInstanceName": "Server Name Here",
-        "pythonScriptName": pythonScriptName,
         "timeSeriesFile": {
             "labels": labels,
             "features": features

@@ -105,8 +105,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Desliza el puntero del ratón sobre el gráfico y mira la propiedad Pendiente en el panel del trazador del indicador. ¡Actívala en caso de que esté desactivada!",
-                    "updated": 1675622682821
+                    "text": "Desliza el puntero del ratón sobre el gráfico y observa la propiedad Pendiente (Slope) en el plotter del indicador. ¡Actívala en caso de que esté desactivada! ",
+                    "updated": 1677099936460
                 }
             ]
         }

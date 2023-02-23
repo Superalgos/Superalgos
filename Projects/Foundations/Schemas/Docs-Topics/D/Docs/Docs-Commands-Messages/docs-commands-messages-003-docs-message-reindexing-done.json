@@ -56,8 +56,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Der Index wurde neu erstellt und enthält nun alle Änderungen, die Sie seit dem Öffnen der Benutzeroberfläche (UI) oder seit der letzten Ausführung des Befehls docs.reindex vorgenommen haben. Das bedeutet, dass neu erstellte Inhalte jetzt durchsuchbar sind. Änderungen im Workspace wurden ebenfalls in den Index aufgenommen.",
-                    "updated": 1633903028672,
+                    "text": "Der Index wurde neu erstellt und enthält nun alle Änderungen, die sie seit dem Öffnen der Benutzeroberfläche (UI) oder seit der letzten Ausführung des Befehls docs.reindex vorgenommen haben. Das bedeutet, dass neu erstellte Inhalte jetzt durchsuchbar sind. Änderungen im Workspace wurden ebenfalls in den Index aufgenommen.",
+                    "updated": 1677190932198,
                     "style": "Success"
                 },
                 {
@@ -67,7 +67,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Индекс был перестроен и теперь включает все последние изменения, внесенные вами с момента открытия пользовательского интерфейса UI или с момента последнего запуска команды docs.reindex. Это означает, что новый созданный контент теперь доступен для поиска. Изменения в Workspace  также были внесены в индекс.",
+                    "text": "Индекс был ��ерестроен и теперь включает все последние изменения, внесенные вами с момента открытия пользовательского интерфейса UI или с момента последнего запуска команды docs.reindex. Это означает, что новый созданный контент теперь доступен для поиска. Изменения в Workspace  также были внесены в индекс.",
                     "updated": 1638461517763
                 }
             ]

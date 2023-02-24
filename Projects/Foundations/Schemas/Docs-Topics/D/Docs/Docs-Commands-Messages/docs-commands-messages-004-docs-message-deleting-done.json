@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Seite wurde als zu löschen gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
-                    "updated": 1633903396975
+                    "text": "Die Seite wurde als \"zu löschen\" gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
+                    "updated": 1677190977964
                 },
                 {
                     "language": "RU",

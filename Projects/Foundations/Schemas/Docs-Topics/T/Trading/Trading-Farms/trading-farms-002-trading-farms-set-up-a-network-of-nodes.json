@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Installieren Sie Superalgos auf jedem Rechner, um dann für jeden Rechner eine Netzwerknode (Netzwerk Knoten) zu erstellen und einzurichten.\nIns deutsche Übersetzt von gitforkgit.",
-                "updated": 1637876698345
+                "text": "Installieren Sie Superalgos auf jedem Rechner, um dann für jeden Rechner einen Netzwerk Knoten (Network Node) zu erstellen und einzurichten.",
+                "updated": 1677259398975
             },
             {
                 "language": "RU",
@@ -142,8 +142,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das Verfahren wird auch auf jede Network Node im Workspace angewandt, vorausgesetzt, Sie löschen später die tasks oder andere nicht benötigte branches. Dazu müssen Sie aber wissen, was als Ergebnis dieser Ausführung hinzugefügt wird.",
-                    "updated": 1637876635609
+                    "text": "Das Verfahren wird auch auf jede Network Node im Workspace angewandt, vorausgesetzt, sie löschen später die tasks oder andere nicht benötigte branches. Dazu müssen Sie aber wissen, was als Ergebnis dieser Ausführung hinzugefügt wird.",
+                    "updated": 1677260041916
                 },
                 {
                     "language": "RU",
@@ -258,8 +258,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie alle vorherigen Beziehungen verstehen, können Sie einen Markt in allen Network Node s gleichzeitig installieren und dann versuchen, alle duplizierten Definitionen zu löschen. Wenn Ihnen das nicht klar ist, empfiehlt es sich, alle markets in einer einzigen Network Node zu installieren und dann die gewünschten branches von einer Networknode zur anderen zu verschieben.",
-                    "updated": 1637877260476
+                    "text": "Wenn Sie alle vorherigen Beziehungen verstehen, können Sie einen Markt in allen Network Node ´s gleichzeitig installieren und dann versuchen, alle duplizierten Definitionen zu löschen. Wenn Ihnen das nicht klar ist, empfiehlt es sich, alle markets in einer einzigen Network Node zu installieren und dann die gewünschten branches von einer Networknode zur anderen zu verschieben.",
+                    "updated": 1677260079762
                 },
                 {
                     "language": "RU",

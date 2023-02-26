@@ -34,7 +34,7 @@ const fileFormat = printf(({ level, message, timestamp, ...metadata }) => {
 });
 
 const getLogLevel = () => {
-    if(global.env.LOG_LEVEL !== undefined && customLevels.levels[global.env.LOG_LEVEL] !== undefined) {
+    if (global.env.LOG_LEVEL !== undefined && customLevels.levels[global.env.LOG_LEVEL] !== undefined) {
         return global.env.LOG_LEVEL
     }
     return 'info'
@@ -70,6 +70,7 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
+                handleExceptions: true
             }),
             new transports.DailyRotateFile({
                 filename: filePathParts.concat(['combined', '%DATE%.log']).join('/'),
@@ -79,7 +80,11 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
                 zippedArchive: true,
                 level: consoleLogLevel == 'debug' ? 'debug' : 'info'
             }),
-            new transports.Console({level: consoleLogLevel})
-        ]
+            new transports.Console({
+                level: consoleLogLevel, 
+                handleExceptions: true
+            })
+        ],
+        exitOnError: false
     })
 }

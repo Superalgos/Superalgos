@@ -1,3 +1,5 @@
+const { isNullOrUndefined } = require("util")
+
 exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function newTradingSignalsModulesTradingSignalsNetworkServiceClient() {
     /*
     This module represents the Client of the Trading Signals Network Service
@@ -15,24 +17,86 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
     return thisObject
 
     function finalize() {
+        clearInterval(thisObject.timer)
+        thisObject.timer = undefined
         thisObject.userAppSigningAccountCodeName = undefined
         thisObject.tradingSignalsNetworkServiceProxy = undefined
         thisObject.p2pNetworkInterface = undefined
+        thisObject.p2pNetworkNodesConnectedTo = undefined
+        thisObject.openConnections = undefined
+        thisObject.socialTradingBotReference = undefined
     }
 
     function initialize(
         userAppSigningAccountCodeName,
-        tradingSignalsNetworkServiceProxy
+        tradingSignalsNetworkServiceProxy,
+        p2pNetworkNodesConnectedTo,
+        socialTradingBotReference
     ) {
         thisObject.userAppSigningAccountCodeName = userAppSigningAccountCodeName
         thisObject.tradingSignalsNetworkServiceProxy = tradingSignalsNetworkServiceProxy
+        thisObject.p2pNetworkNodesConnectedTo = p2pNetworkNodesConnectedTo
+        thisObject.openConnections = thisObject.p2pNetworkNodesConnectedTo.length
+        thisObject.socialTradingBotReference = socialTradingBotReference
         /*
         This is where we will process all the signals comming from the p2p network.
         */
         thisObject.p2pNetworkInterface = SA.projects.tradingSignals.modules.p2pNetworkInterface.newTradingSignalsModulesP2PNetworkInterface()
         thisObject.p2pNetworkInterface.initialize()
+
+        if (thisObject.p2pNetworkNodesConnectedTo.peers.length > 0) {
+            followSignals(thisObject.socialTradingBotReference)
+        }
+        thisObject.timer = setInterval(monitorConnection, 1000)
     }
 
+    function monitorConnection() {
+        if (thisObject.p2pNetworkNodesConnectedTo.peers.length !== thisObject.openConnections) {
+            thisObject.openConnections = thisObject.p2pNetworkNodesConnectedTo.peers.length
+            SA.logger.info("YAY, connection status change! New connection count: " + thisObject.openConnections)
+            if (thisObject.openConnections > 0) { followSignals(thisObject.socialTradingBotReference) }
+        }
+    }
+    
+    
+    async function followSignals(socialTradingBotReference) {
+        /*
+        If we have a Social Trading Bot referenced, verify if we want to follow someone and initiate subscription to the sender's signals
+        */
+        if (socialTradingBotReference === undefined) { return }
+        if (socialTradingBotReference.referenceParent === undefined) { return }
+        if (socialTradingBotReference.referenceParent.followedBotReference === undefined || socialTradingBotReference.referenceParent.followedBotReference.length === 0) { return }
+        let listeningBotId = socialTradingBotReference.referenceParent.id
+        let web3 = new SA.nodeModules.web3()
+
+        /* Send a subscription request for each Social Trading Bot we are following */
+        let response
+        for (let i = 0; i < socialTradingBotReference.referenceParent.followedBotReference.length; i++) {
+            let followedBotReference = socialTradingBotReference.referenceParent.followedBotReference[i]
+            if (followedBotReference.referenceParent === undefined) { continue }
+            if (followedBotReference.referenceParent.signingAccount.config.signature !== undefined) {
+                let blockchainAccount = web3.eth.accounts.recover(followedBotReference.referenceParent.signingAccount.config.signature)
+                let message = {
+                    messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    listeningBotId: listeningBotId,
+                    followedBotReferenceId: followedBotReference.id,
+                    followedBotRequest: {
+                        followedBotBlockchainAccount: blockchainAccount,
+                        id: followedBotReference.referenceParent.id
+                    }
+                }
+                let messageHeader = {
+                    networkService: 'Trading Signals',
+                    requestType: 'Follow',
+                    queryMessage: message
+                }
+                response = await thisObject.p2pNetworkNodesConnectedTo.sendMessage(JSON.stringify(messageHeader))
+            }
+        }
+
+        return response
+    }
+    
     async function sendMessage(messageHeader) {
 
         switch (messageHeader.requestType) {

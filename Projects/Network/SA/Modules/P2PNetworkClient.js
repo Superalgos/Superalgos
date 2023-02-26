@@ -142,7 +142,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.tradingSignalsNetworkServiceClient = SA.projects.tradingSignals.modules.tradingSignalsNetworkServiceClient.newTradingSignalsModulesTradingSignalsNetworkServiceClient()
                 await thisObject.tradingSignalsNetworkServiceClient.initialize(
                     userAppSigningAccountCodeName,
-                    thisObject.p2pNetworkStart
+                    thisObject.p2pNetworkStart,
+                    thisObject.p2pNetworkNodesConnectedTo,
+                    socialTradingBotReference
                 )
             }
         }

@@ -213,6 +213,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             Social Trading Nodes
             */
             'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
+            'Followed Bot Reference->Social Trading Bot->Signing Account->' +
             /*
             Open Storage Nodes
             */

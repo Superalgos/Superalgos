@@ -83,9 +83,9 @@
         },
         {
             "name": "followedBotReference",
-            "type": "node",
+            "type": "array",
             "childType": "Followed Bot Reference",
-            "actionProject": "Social-Trading",
+            "project": "Social-Trading",
             "autoAdd": false
         }
     ]

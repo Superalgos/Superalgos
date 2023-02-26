@@ -140,7 +140,7 @@ function newFoundationsDocsDocumentPage() {
             let orderedReviewPageIndexArray = []
             let HTML = ''
 
-            HTML = HTML + UI.projects.education.spaces.docsSpace.navigationElements.getRightPanel()
+            HTML = HTML + UI.projects.education.spaces.docsSpace.navigationElements.getRightNavPanel()
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()

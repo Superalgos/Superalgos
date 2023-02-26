@@ -8,7 +8,7 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function() {
     return thisObject
 
     function truncateToThisPrecision(floatNumber, precision) {
-        if (isNull(floatNumber)) {
+        if (floatNumber == null) {
             floatNumber = 0
         }
         if (isNaN(floatNumber)) {

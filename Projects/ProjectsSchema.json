@@ -1735,6 +1735,12 @@
                     "propertyName": "validations",
                     "functionName": "newGovernanceUtilitiesSAValidations",
                     "fileName": "Validations.js"
+                },
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenpower",
+                    "functionName": "newGovernanceUtilitiesTokenPower",
+                    "fileName": "TokenPower.js"
                 }
             ]
         },

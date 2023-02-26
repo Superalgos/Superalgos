@@ -500,6 +500,47 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
             /*
+            We verify if the caller has allocated the min Token Power to the Task Server App as required by the Network Node Configuration 
+            */
+            let nodeMinimumTokenAllocation
+            let callerType
+            switch (caller.role) {
+                case 'Network Client': {
+                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.clientMinTokenAllocation | 0
+                    callerType = 'Client'
+                    break
+                }
+                case 'Network Peer': {
+                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.peerMinTokenAllocation | 0
+                    callerType = 'Peer'
+                    break
+                }
+            }
+            if (nodeMinimumTokenAllocation !== undefined && nodeMinimumTokenAllocation > 0) {
+                let clientTokenAllocation = SA.projects.governance.utilities.tokenpower.getTaskServerAppTokenPower(userProfileByBlockchainAccount, caller.userAppBlockchainAccount)
+                if (clientTokenAllocation === undefined) {
+                    SA.logger.warn('Unable to determine Token Power Allocation of Task Server App for User ' + userProfileByBlockchainAccount.config.codeName)
+                    let response = {
+                        result: 'Error',
+                        message: 'Unable to determine Token Power Allocation of Task Server App for User ' + userProfileByBlockchainAccount.config.codeName 
+                    }
+                    caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
+                    return
+                }
+                else if (clientTokenAllocation < nodeMinimumTokenAllocation) {
+                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation))
+                    let response = {
+                        result: 'Error',
+                        message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation)
+                    }
+                    caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
+                    return
+                }
+            }
+
+            /*
             Parse the signed Message
             */
             let signedMessage = JSON.parse(signature.message)

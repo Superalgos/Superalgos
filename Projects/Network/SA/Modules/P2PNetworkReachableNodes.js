@@ -94,6 +94,17 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                         SA.logger.info('')
                         continue
                     }
+                    /* Check if we have enough Token Power allocated to the Task Server app to connect to this Network Node. */
+                    let nodeMinimumTokenAllocation = p2pNetworkNode.node.config.clientMinTokenAllocation | 0
+                    if (nodeMinimumTokenAllocation > 0) {
+                        let clientTokenAllocation = SA.projects.governance.utilities.tokenpower.getTaskServerAppTokenPower(p2pNetworkClientIdentity.userProfile, p2pNetworkClientIdentity.blockchainAccount)
+                        if (clientTokenAllocation === undefined || clientTokenAllocation < nodeMinimumTokenAllocation) {
+                            SA.logger.info('Network Node ' + p2pNetworkNode.node.name + ' requires an allocation of min. ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation) + ' Token Power to the referenced Task Server App. Your current allocation is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + '.')
+                            SA.logger.info('For enabling access to this node for the task you just started, allocate Token Power to "' + p2pNetworkClientIdentity.node.name + '" and contribute your updated profile.')
+                            SA.logger.info('')
+                            continue
+                        }
+                    }
 
                     checkForPermissions(p2pNetworkNode)
                 }

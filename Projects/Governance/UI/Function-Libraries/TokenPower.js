@@ -313,6 +313,10 @@ function newGovernanceFunctionLibraryTokenPower() {
 
             node.payload.uiObject.setValue(tokenPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
+            if (node.type === 'Task Server App' || node.type === 'Social Trading Bot') {
+                node.payload.uiObject.setStatus(tokenPowerText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+            }
+
             if (percentage !== undefined) {
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true

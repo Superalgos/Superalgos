@@ -27,6 +27,7 @@ exports.newNetworkApp = function newNetworkApp() {
         SA.logger.info('Network Node User Profile Balance ............................................ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.userProfile.balance))
         SA.logger.info('Network Node Code Name ....................................................... ' + thisObject.p2pNetworkNode.node.config.codeName)
         SA.logger.info('Minimum User Profile Balance Required to Connect to this Network Node ........ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.node.config.clientMinimunBalance))
+        SA.logger.info('Minimum Token Power Allocation Required to Connect to this Network Node ...... ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.node.config.clientMinTokenAllocation))
         SA.logger.info('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
         SA.logger.info('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
         SA.logger.info('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)

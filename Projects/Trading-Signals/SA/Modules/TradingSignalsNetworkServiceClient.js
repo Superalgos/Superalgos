@@ -1,5 +1,3 @@
-const { isNullOrUndefined } = require("util")
-
 exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function newTradingSignalsModulesTradingSignalsNetworkServiceClient() {
     /*
     This module represents the Client of the Trading Signals Network Service

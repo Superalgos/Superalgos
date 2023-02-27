@@ -33,7 +33,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.senderMap = new Map()
 
         intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
-        tokenPowerIntervalId = setInterval(refreshTokenPower, 60 * 1000) // runs every ten minutes
+        tokenPowerIntervalId = setInterval(refreshTokenPower, 60 * 10 * 1000) // runs every ten minutes
 
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()

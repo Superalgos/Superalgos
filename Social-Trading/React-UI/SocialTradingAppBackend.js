@@ -109,6 +109,9 @@ It provides access to all modules built for this App.
             */
             let P2P_NETWORK_CLIENT_DEFINITION = require('./Client/P2PNetworkClient2.json')
 
+            let SOCIALTRADING_APP_UPDATE_PROFILES = false   /* Update all profiles from Github Repo */
+            let SOCIALTRADING_BOT_REFERENCE                 /* Referenced Social Trading Bots connected to Task Servers, remains undefined here */
+
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
                 global.env.SOCIALTRADING_APP_SIGNING_ACCOUNT,
@@ -117,7 +120,9 @@ It provides access to all modules built for this App.
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_PEERS,
                 global.env.SOCIALTRADING_APP_MAX_OUTGOING_START_PEERS,
                 thisObject.p2pNetworkInterface.eventReceived,
-                P2P_NETWORK_CLIENT_DEFINITION
+                P2P_NETWORK_CLIENT_DEFINITION,
+                SOCIALTRADING_APP_UPDATE_PROFILES,
+                SOCIALTRADING_BOT_REFERENCE
             )
         }
 

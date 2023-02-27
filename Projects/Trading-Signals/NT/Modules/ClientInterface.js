@@ -89,7 +89,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                         followedBotReference = followedBotReferences[i]
                     }
                 }
-                if (followedBotReference.payload.tokenPower !== undefined) {
+                if (followedBotReference?.payload?.tokenPower !== undefined) {
                     allocatedTokenPower = followedBotReference.payload.tokenPower
                 }
 

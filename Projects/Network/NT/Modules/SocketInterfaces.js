@@ -62,7 +62,6 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 thisObject.followerMap.set(followerList[i], followerDetails)
             }
             sortFollowers()
-            SA.logger.info('Follower Token Powers refreshed from User Profiles.')
 
             function sortFollowers() {
                 if (thisObject.senderMap === undefined || thisObject.senderMap.size === 0) { return }
@@ -1040,9 +1039,6 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             let positionInQueue = 0
             let positionInFollowerQueue = 0
             let queueSize = thisObject.networkClients.length
-            /* ###REMOVE THIS### */
-            let testresult = getFollowerTokenPower(Array.from(thisObject.followerMap.keys()))
-
 
             /* Obtain Signal Identifier */
             let signalId

@@ -50,7 +50,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         function refreshTokenPower() {
             /* Periodically refreshes the Token Power allocated to Followed Bot References from User Profiles */
             let followerList = Array.from(thisObject.followerMap.keys())
-            if (followerList === undefined || followerList.length === 0) { return }
+            if (followerList.length === 0) { return }
             let currentTokenPower = getFollowerTokenPower(followerList)
             if (currentTokenPower === undefined) {
                 SA.logger.warn('Failed updating follower token powers from user profiles.')
@@ -68,7 +68,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 for (let [sendingBotId, senderDetails] of thisObject.senderMap) {
                     let followerList = senderDetails.followerList
                     if (followerList.length < 2) {
-                        followerStats(sendingBotId, followerList)
+                        followerStats(sendingBotId)
                         continue 
                     }
                     let sortArray= []

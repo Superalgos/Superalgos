@@ -21,7 +21,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         run: run
     }
 
-    const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 3
+    const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
     let tempBalanceRanking = new Map()
     return thisObject
 

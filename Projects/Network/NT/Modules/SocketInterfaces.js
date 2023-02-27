@@ -1055,7 +1055,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             let receiverList = []
             let followerList = []
             let followerMinTokenPower = sendingBot.config.followerMinTokenPower || 0
-            if (thisObject.senderMap.get(sendingBot.id).followerList !== undefined) {
+            if (thisObject.senderMap.get(sendingBot.id)?.followerList !== undefined) {
                 followerList = thisObject.senderMap.get(sendingBot.id).followerList
             }
             

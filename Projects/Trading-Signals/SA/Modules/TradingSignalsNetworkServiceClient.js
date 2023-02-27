@@ -53,7 +53,6 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
     function monitorConnection() {
         if (thisObject.p2pNetworkNodesConnectedTo.peers.length !== thisObject.openConnections) {
             thisObject.openConnections = thisObject.p2pNetworkNodesConnectedTo.peers.length
-            SA.logger.info("YAY, connection status change! New connection count: " + thisObject.openConnections)
             if (thisObject.openConnections > 0) { followSignals(thisObject.socialTradingBotReference) }
         }
     }

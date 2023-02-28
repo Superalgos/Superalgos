@@ -80,7 +80,7 @@
                 }
             }
             async function onError(err) {
-                SA.logger.error('Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
+                SA.logger.error('Failed to get a Test Case. Err:' + err + 'Retrying in 30 seconds...')
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
         }

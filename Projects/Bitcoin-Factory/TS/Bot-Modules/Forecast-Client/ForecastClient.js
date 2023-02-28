@@ -739,7 +739,7 @@
         logQueue()
 
         if (reforecasting === true) {
-            SA.logger.info('Already Working on Reforecasting', 'Retrying in 60 seconds...')
+            SA.logger.info('Already Working on Reforecasting' + ' Retrying in 60 seconds...')
             return
         }
         reforecasting = true
@@ -749,10 +749,10 @@
             let timestamp = (new Date()).valueOf()
 
             if (timestamp < forecastCase.expiration) {
-                SA.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' not expired yet. No need to Reforecast.', 'Reviewing this in 60 seconds...')
+                SA.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' not expired yet. No need to Reforecast.' + ' Reviewing this in 60 seconds...')
                 continue
             } else {
-                SA.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' expired.', 'Reforecasting now.')
+                SA.logger.info('Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' expired.' + ' Reforecasting now.')
                 await reforecast(forecastCase, i)
                     .then(onSuccess)
                     .catch(onError)
@@ -832,7 +832,7 @@
 
                     let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
                     if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
-                        SA.logger.info('The file provided by the Test Server is the same we already have.', 'Retrying the forecasting of case ' + thisForecastCase.id + ' in 60 seconds...')
+                        SA.logger.info('The file provided by the Test Server is the same we already have. Retrying the forecasting of case ' + thisForecastCase.id + ' in 60 seconds...')
                         reject('The same file that we already made a prediction with.')
                         return
                     }
@@ -851,7 +851,7 @@
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {
-                                SA.logger.info('Got response on TrialNo: ', curSendTries)
+                                SA.logger.info('Got response on TrialNo: ' + curSendTries)
                                 if ((response != undefined) && (response !== 'No response')) {
                                     if ((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.response != undefined)) {
                                         try {
@@ -869,7 +869,7 @@
                                                 forecastResultAccepted = true
             
                                                 SA.logger.info(' ')
-                                                SA.logger.info('Result on REforecasting: Best Crowd-Sourced Predictions:')
+                                                SA.logger.info('Result on Reforecasting: Best Crowd-Sourced Predictions:')
                                                 console.table(bestPredictions)
             
                                                 let statusText = 'Published Forecast Case ' + forecastResult.id + ' to ' + forecastResult.testServer.instance
@@ -904,7 +904,7 @@
                             }
                             async function onError(err) {
                                 SA.logger.error('Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
-                                SA.logger.error('Err: ', err, ' TrialNo: ', curSendTries)
+                                SA.logger.error('Err: ' + err + ' TrialNo: ' + curSendTries)
                                 SA.logger.error('Retrying to send the Forecast Report.')
                             }
                             curSendTries++
@@ -913,7 +913,7 @@
                         else reject()
                     }
                     async function onError(err) {
-                        SA.logger.error('Failed to produce a Reforecast for Case Id ' + forecastCase.id + '. Err:', err)
+                        SA.logger.error('Failed to produce a Reforecast for Case Id ' + forecastCase.id + '. Err: ' + err)
                         //if reforecast didnt work, remove the case from array (looks like model is wrong) and start again new with building model
                         if (removeForecastCase(forecastCase.id,forecastCase.testServer.instance)) {
                             SA.logger.error('was removed')
@@ -927,7 +927,7 @@
                 }
             }
             async function onError(err) {
-                SA.logger.error('Failed to get the Forecast Case Id ' + forecastCase.id + '. Err:', err)
+                SA.logger.error('Failed to get the Forecast Case Id ' + forecastCase.id + '. Err: ' + err)
                 reject(err)
             }
         }
@@ -969,11 +969,11 @@
             //remove local forecast cases, which aren't available on testserver anymore
             for (let j = 0; j < thisObject.forecastCasesArray.length; j++) {
                 if (thisObject.forecastCasesArray[j].testServer == undefined) {
-                    SA.logger.debug('[DEBUG] Testserver undefined j: ', j)
+                    SA.logger.debug('[DEBUG] Testserver undefined j: ' + j)
                     continue
                 }
                 if (thisObject.forecastCasesArray[j].testServer.instance == undefined) { 
-                    SA.logger.debug('[DEBUG] Testserver undefined j: ', j)
+                    SA.logger.debug('[DEBUG] Testserver undefined j: ' + j)
                     continue 
                 }
                 //SA.logger.debug('Look for local id ' + thisObject.forecastCasesArray[j].id + ' from ' + thisObject.forecastCasesArray[j].testServer.instance)

@@ -4,7 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks', 'Available Signals', 'Available Storage']
     return thisObject
 
     function calculateTokenPower(
@@ -54,7 +54,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*
@@ -165,7 +165,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*
@@ -313,7 +313,7 @@ function newGovernanceFunctionLibraryTokenPower() {
 
             node.payload.uiObject.setValue(tokenPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-            if (node.type === 'Task Server App' || node.type === 'Social Trading Bot') {
+            if (node.type === 'Task Server App' || node.type === 'Followed Bot Reference') {
                 node.payload.uiObject.setStatus(tokenPowerText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
 

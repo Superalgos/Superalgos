@@ -1,7 +1,8 @@
 exports.newTradingSignalsUtilitiesSignalSignatureValidations = function () {
 
     let thisObject = {
-        validateSignatures: validateSignatures
+        validateSignatures: validateSignatures,
+        getSigningNode: getSigningNode
     }
 
     return thisObject
@@ -57,6 +58,24 @@ exports.newTradingSignalsUtilitiesSignalSignatureValidations = function () {
                 message: 'Signal Hash Does Not Match Signature Hash.'
             }
             return response
+        }
+    }
+
+    function getSigningNode(userProfile, blockchainAccount) {
+        /* Function returns the parent node which is behind a signing blockchainAccount */
+        let web3 = new SA.nodeModules.web3()
+        let signingAccounts = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile, 'Signing Account')
+        if (signingAccounts === undefined || signingAccounts.length === 0) { return }
+
+        for (let j = 0; j < signingAccounts.length; j++) {
+            let signingAccount = signingAccounts[j]
+            let networkClient = signingAccount.parentNode
+            let config = signingAccount.config
+            let signatureObject = config.signature
+            let clientBlockchainAccount = web3.eth.accounts.recover(signatureObject)
+            if (clientBlockchainAccount === blockchainAccount)  {
+                return networkClient
+            }
         }
     }
 }

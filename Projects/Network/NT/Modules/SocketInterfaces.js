@@ -8,8 +8,12 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         networkPeers: undefined,
         callersMap: undefined,
         userProfilesMap: undefined,
+        followerMap: undefined,
+        senderMap: undefined,
         onMenssage: onMenssage,
         onConnectionClosed: onConnectionClosed,
+        addFollower: addFollower,
+        removeFollower: removeFollower,
         broadcastSignalsToClients: broadcastSignalsToClients,
         initialize: initialize,
         finalize: finalize
@@ -25,8 +29,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
         thisObject.userProfilesMap = new Map()
+        thisObject.followerMap = new Map()
+        thisObject.senderMap = new Map()
 
         intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
+        tokenPowerIntervalId = setInterval(refreshTokenPower, 60 * 10 * 1000) // runs every ten minutes
 
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()
@@ -39,14 +46,90 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
         }
+
+        function refreshTokenPower() {
+            /* Periodically refreshes the Token Power allocated to Followed Bot References from User Profiles */
+            let followerList = Array.from(thisObject.followerMap.keys())
+            if (followerList.length === 0) { return }
+            let currentTokenPower = getFollowerTokenPower(followerList)
+            if (currentTokenPower === undefined) {
+                SA.logger.warn('Failed updating follower token powers from user profiles.')
+                return
+            }
+            for (let i = 0; i < followerList.length; i++) {
+                let followerDetails = thisObject.followerMap.get(followerList[i])
+                followerDetails.tokenPower = currentTokenPower.get(followerList[i]) || 0
+                thisObject.followerMap.set(followerList[i], followerDetails)
+            }
+            sortFollowers()
+
+            function sortFollowers() {
+                if (thisObject.senderMap === undefined || thisObject.senderMap.size === 0) { return }
+                for (let [sendingBotId, senderDetails] of thisObject.senderMap) {
+                    let followerList = senderDetails.followerList
+                    if (followerList.length < 2) {
+                        followerStats(sendingBotId)
+                        continue 
+                    }
+                    let sortArray= []
+                    for (let i = 0; i < followerList.length; i++) {
+                        let sortObject = {}
+                        sortObject.referenceBotId = followerList[i]
+                        sortObject.tokenPower = currentTokenPower.get(followerList[i])
+                        sortArray.push(sortObject)
+                    }
+                    sortArray.sort((a, b) => {
+                        return b.tokenPower - a.tokenPower
+                    })
+                    senderDetails.followerList = sortArray.map(a => a.tokenPower)
+                    thisObject.senderMap.set(sendingBotId, senderDetails)
+                    followerStats(sendingBotId)
+                }
+            }
+        }
+    }
+
+    function followerStats(sendingBotId) {
+        if (sendingBotId === undefined) { return }
+        let senderDetails = thisObject.senderMap.get(sendingBotId)
+        let senderUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(senderDetails.senderUserProfileId)
+        
+        let sendingBot
+        let sendingBots = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(senderUserProfile.userBots, 'Social Trading Bot')
+        if (sendingBots !== undefined) {
+            for (let i = 0; i < sendingBots.length; i++) {
+                if (sendingBots[i].id === sendingBotId) {
+                    sendingBot = sendingBots[i]
+                }
+            }
+        }
+
+        let followerList = senderDetails.followerList
+        if (followerList === undefined || followerList.length === 0) { return }
+
+        SA.logger.info('')
+        SA.logger.info('Current Followers for Bot \'' + sendingBot.name + '\' of Broadcaster ' + senderUserProfile.name)
+        let rankingTable = []
+        for (let i = 0; i < followerList.length; i++) {
+            let rankingObj = {}
+            let followerDetails = thisObject.followerMap.get(followerList[i])
+            rankingObj.rank = i + 1
+            rankingObj.userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name
+            rankingObj.tokenPower = SA.projects.governance.utilities.balances.toSABalanceString(followerDetails.tokenPower)
+            rankingTable.push(rankingObj)
+        }
+        console.table(rankingTable)
     }
 
     function finalize() {
         clearInterval(intervalId)
+        clearInterval(tokenPowerIntervalId)
         thisObject.networkClients = undefined
         thisObject.networkPeers = undefined
         thisObject.callersMap = undefined
         thisObject.userProfilesMap = undefined
+        thisObject.followerMap = undefined
+        thisObject.senderMap = undefined
         web3 = undefined
     }
 
@@ -176,6 +259,24 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                     break
                                 }
                                 case 'Trading Signals': {
+                                    if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                        response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(
+                                            payload,
+                                            caller
+                                        )
+                                        response.boradcastTo = undefined
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                    } else {
+                                        response = {
+                                            result: 'Error',
+                                            message: 'Trading Signals Network Service not running.'
+                                        }
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                        caller.socket.close()                                   
+                                        return
+                                    }
                                     break
                                 }
                                 default: {
@@ -473,7 +574,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             */
             switch (caller.role) {
                 case 'Network Client': {
-                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.clientMinimunBalance | 0
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.clientMinimunBalance || 0
                     if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
                         let response = {
                             result: 'Error',
@@ -486,7 +587,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     break
                 }
                 case 'Network Peer': {
-                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance | 0
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance || 0
                     if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
                         let response = {
                             result: 'Error',
@@ -506,12 +607,12 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             let callerType
             switch (caller.role) {
                 case 'Network Client': {
-                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.clientMinTokenAllocation | 0
+                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.clientMinTokenAllocation || 0
                     callerType = 'Client'
                     break
                 }
                 case 'Network Peer': {
-                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.peerMinTokenAllocation | 0
+                    nodeMinimumTokenAllocation = NT.networkApp.p2pNetworkNode.node.config.peerMinTokenAllocation || 0
                     callerType = 'Peer'
                     break
                 }
@@ -666,7 +767,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             /*
             We will increase the counter of how many connections belog to this user profile.
             */
-            let count = thisObject.userProfilesMap.get(userProfile.id) | 0
+            let count = thisObject.userProfilesMap.get(userProfile.id) || 0
             count++
             thisObject.userProfilesMap.set(userProfile.id, count)
         }
@@ -676,6 +777,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         if (caller === undefined) { return }
 
         thisObject.callersMap.delete(caller.socket.id)
+        checkFollowerSubscriptions(caller)
 
         switch (caller.role) {
             case 'Network Client': {
@@ -686,6 +788,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             case 'Network Peer': {
                 removeFromArray(thisObject.networkPeers, caller)
                 break
+            }
+        }
+
+        function checkFollowerSubscriptions(caller) {
+            if (caller.followingBots === undefined) { return }
+            for (let i = 0; i < caller.followingBots.length; i++) { 
+                removeFollower(caller, caller.followingBots[i])
+                caller.followingBots[i]
             }
         }
 
@@ -703,7 +813,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             /*
             We will decrease the counter of how many connections belog to this user profile.
             */
-            let count = thisObject.userProfilesMap.get(userProfile.id) | 0
+            let count = thisObject.userProfilesMap.get(userProfile.id) || 0
             count--
             if (count > 0) {
                 thisObject.userProfilesMap.set(userProfile.id, count)
@@ -747,7 +857,173 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         }
     }
 
-    async function broadcastSignalsToClients(socketMessage) {
+    function addFollower(caller, followerReference, listeningBot, sendingBot, senderUserProfile) {
+        if (caller === undefined) { return false }
+        if (followerReference === undefined ) { return false }
+        if (listeningBot === undefined) { return false }
+        if (sendingBot === undefined) { return false }
+        if (senderUserProfile === undefined) { return false }
+        
+        try {
+            /* Update Map of Senders - Add new Followers */
+            let followerList = []
+            let senderDetails = {}
+            if (thisObject.senderMap.has(sendingBot.id)) {
+                senderDetails = thisObject.senderMap.get(sendingBot.id)
+                followerList = senderDetails.followerList
+            }
+            /* Add new follower in sequence of subscribers according to Token Power */
+            if (!followerList.includes(followerReference.id)) {
+                if (followerList.length > 0) {
+                    let currentTokenPower = getFollowerTokenPower(followerList)
+                    for (let i = 0; i < followerList.length; i++) {
+                        if (followerReference.tokenPower > currentTokenPower.get(followerList[i])) {
+                            followerList.splice(i, 0, followerReference.id)
+                            break
+                        }
+                    }
+                } 
+                if (!followerList.includes(followerReference.id)) {
+                    followerList.push(followerReference.id)
+                }
+            }
+            senderDetails = {
+                followerList: followerList,
+                senderUserProfileId: senderUserProfile.id
+            }
+            thisObject.senderMap.set(sendingBot.id, senderDetails)
+
+            /* Update Map of Receivers */
+            let followerConnections = []
+            let followerDetails = {}
+            if (thisObject.followerMap.has(followerReference.id)) {
+                followerConnections = thisObject.followerMap.get(followerReference.id).followerConnections
+            }
+            if (!followerConnections.includes(caller.socket.id)) {
+                followerConnections.push(caller.socket.id)
+            }
+            followerDetails = {
+                tokenPower: followerReference.tokenPower || 0,
+                sendingBot: sendingBot.id,
+                listeningBot: listeningBot.id,
+                userProfileId: caller.userProfile?.id,
+                followerConnections: followerConnections
+            }
+            thisObject.followerMap.set(followerReference.id, followerDetails)
+
+            /* Establish reference between caller and subscription */
+            let followingBots = []
+            let callerDetails = thisObject.callersMap.get(caller.socket.id)
+            if (callerDetails.followingBots !== undefined) {
+                followingBots = callerDetails.followingBots
+            }
+            if (!followingBots.includes(followerReference.id)) {
+                followingBots.push(followerReference.id)
+            }
+            callerDetails.followingBots = followingBots
+            thisObject.callersMap.set(caller.socket.id, callerDetails)
+            return true
+        } catch (err) {
+            return false
+        }
+    }
+
+    function removeFollower(caller, followedBotReferenceId) {
+        try {
+            let followerConnections = []
+            let followerDetails = thisObject.followerMap.get(followedBotReferenceId)
+            if (followerDetails.followerConnections !== undefined) {
+                followerConnections = followerDetails.followerConnections
+            }
+            let idx = followerConnections.indexOf(caller.socket.id)
+            if (idx >  -1) {
+                followerConnections.splice(idx, 1)
+            }
+            /* Check if any further connections are behind this subscription. If not, remove entirely, otherwise just the single connection. */
+            if (followerConnections.length === 0) {
+                thisObject.followerMap.delete(followedBotReferenceId)
+                
+                /* Also remove the listener from the sender map */
+                let followerList = []
+                let senderDetails = thisObject.senderMap.get(followerDetails.sendingBot)
+                if (senderDetails?.followerList !== undefined) {
+                    followerList = senderDetails.followerList
+                }
+                let idx = followerList.indexOf(followedBotReferenceId)
+                if (idx > -1) {
+                    followerList.splice(idx, 1)
+                }
+                /* Check if this sender has any further followers. If not, remove entirely, otherwise just the single follower. */
+                if (followerList.length === 0) {
+                    thisObject.senderMap.delete(followerDetails.sendingBot)
+                } else {
+                    senderDetails.followerList = followerList
+                    thisObject.senderMap.set(followerDetails.sendingBot, senderDetails)
+                }
+            } else {
+                followerDetails.followerConnections = followerConnections
+                thisObject.followerMap.set(followedBotReferenceId, followerDetails)
+            }
+            /* This function may be called both from dropping connections and from unfollow requests from connections remaining open.
+            We therefore check if the caller record still exists (connection open), and if so, remove the subscription from it. */
+            let callerDetails = thisObject.callersMap.get(caller.socket.id)
+            if (callerDetails === undefined) { return true }
+            if (callerDetails.followerConnections !== undefined) {
+                let followerConnections = callerDetails.followerConnections
+                let idx = followerConnections.indexOf(followedBotReferenceId)
+                if (idx > -1) {
+                    followerConnections.splice(idx, 1)
+                }
+                callerDetails.followerConnections = followerConnections
+                thisObject.callersMap.set(caller.socket.id, callerDetails)
+            }
+            return true
+        } catch(err) {
+            return false
+        }
+    }
+
+    function getFollowerTokenPower(followedBotReferenceList) {
+        /* This function takes an array of Follow Bot Reference IDs and returns a Map with Bot ID and Token Power. 
+        To achieve this, it crawls through the Social Trading Bot nodes of all active followers.
+        The function will return 0 power for inactive or unknown followers. */
+        if (followedBotReferenceList === undefined) { return }
+        let resultMap = new Map()
+        try {
+            for (let i = 0; i < followedBotReferenceList.length; i++) {
+                let followedBotReferenceId = followedBotReferenceList[i]
+                let followerDetails = thisObject.followerMap.get(followedBotReferenceId)
+                if (followerDetails === undefined || followerDetails?.listeningBot === undefined || followerDetails?.userProfileId === undefined) {
+                    resultMap.set(followedBotReferenceId, 0)
+                    continue
+                }
+                let userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId)
+                if (userProfile?.userBots === undefined) {
+                    resultMap.set(followedBotReferenceId, 0)
+                    continue
+                }
+                let followedBotReference
+                let followedBotReferences = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userBots, 'Followed Bot Reference')
+                if (followedBotReferences !== undefined) {
+                    for (let j = 0; j < followedBotReferences.length; j++) {
+                        if (followedBotReferences[j].id === followedBotReferenceId) {
+                            followedBotReference = followedBotReferences[j]
+                        }
+                    }
+                }
+                if (followedBotReference?.payload?.tokenPower === undefined) {
+                    resultMap.set(followedBotReferenceId, 0)
+                } else {
+                    resultMap.set(followedBotReferenceId, followedBotReference.payload.tokenPower)
+                }
+            }
+            return resultMap
+        } catch(err) {
+            return
+        }
+    }
+
+    async function broadcastSignalsToClients(socketMessage, sendingBot) {
         /*
         TODO: Replace this function with a mechanism to broadcast signals only to Followers.
         */
@@ -761,11 +1037,93 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             let lastUserProfileId
             let accumulatedDelay = 0
             let positionInQueue = 0
+            let positionInFollowerQueue = 0
             let queueSize = thisObject.networkClients.length
 
+            /* Obtain Signal Identifier */
+            let signalId
+            try {
+                let messagePayload = JSON.parse(socketMessage.payload)
+                messagePayload = JSON.parse(messagePayload.signalMessage)
+                signalId = messagePayload.signalId
+                signalId = signalId.split(/[-]+/).shift()
+            } catch(err) {
+                signalId = '<unknown>'
+            }
+
+            /* Send signals to subscribed followers */
+            let receiverList = []
+            let followerList = []
+            let followerMinTokenPower = sendingBot.config.followerMinTokenPower || 0
+            if (thisObject.senderMap.get(sendingBot.id)?.followerList !== undefined) {
+                followerList = thisObject.senderMap.get(sendingBot.id).followerList
+            }
+            
+            /* Count connections for stats - this can be simplified once only transmissions to followers will be active */
+            let followerQueueSize = 0
+            for (let i = 0; i < followerList.length; i++) {
+                let followerDetails = thisObject.followerMap.get(followerList[i])
+                if (followerDetails?.followerConnections !== undefined) {
+                    followerQueueSize = followerQueueSize + followerDetails.followerConnections.length
+                }
+            }       
+
+            for (let i = 0; i < followerList.length; i++) {
+                let followerDetails = thisObject.followerMap.get(followerList[i])
+                if (followerDetails === undefined) { continue }
+                if (followerDetails.followerConnections === undefined) { continue }
+                let followerUserHandle = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name || ''
+                /* Double-check for sufficient token power allocation before sending signal */
+                let tokenPower = followerDetails.tokenPower || 0
+                if (tokenPower < followerMinTokenPower) {
+                    SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + SA.projects.governance.utilities.balances.toSABalanceString(tokenPower) + ' is below sender requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) )
+                    continue
+                }
+                let followerConnections = followerDetails.followerConnections
+                positionInFollowerQueue = i + 1
+
+                /*
+                It is possible that many connections belong to the same user profile. When that happens, they are all together 
+                in succession because the networkClients array is ordered by the amount of tokens, which in general 
+                are different from one user to the other.
+
+                Everytime we detect that a new user user profile in the sequence of network clients we need to notify, 
+                we will apply the calculated delay.
+                */
+                if (
+                    lastUserProfileId !== undefined &&
+                    lastUserProfileId !== followerDetails.userProfileId &&
+                    DELAY_BETWEEN_USER_PROFILES <= MAX_DELAY_FOR_ZERO_RANKING
+                ) {
+                    accumulatedDelay = accumulatedDelay + DELAY_BETWEEN_USER_PROFILES
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
+                }
+                lastUserProfileId = followerDetails.userProfileId
+                socketMessage.rankingStats = {
+                    accumulatedDelay: accumulatedDelay,
+                    positionInQueue: positionInFollowerQueue,
+                    queueSize: queueSize
+                }
+                
+                for (let j = 0; j < followerConnections.length; j++) {
+                    let receiver = thisObject.callersMap.get(followerConnections[j])
+                    if (receiver === undefined) { continue }
+                    receiver.socket.send(JSON.stringify(socketMessage))
+                    receiverList.push(receiver.socket.id)
+                    SA.logger.info('Signal ' + signalId + '- sent to Follower ' + receiver.userProfile?.name + ', position ' + positionInFollowerQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
+                }
+
+            }
+            
+            let nonFollowerConnections = 0
+            /* Send signals to all connected network clients */
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
-                positionInQueue = i + 1
+
+                /* Do not send signal again if it was already sent to follower via the same connection */
+                if (receiverList.includes(networkClient.socket.id)) { continue }
+                nonFollowerConnections++
+                positionInQueue = followerQueueSize + nonFollowerConnections       
                 /*
                 It is possible that many connections belong to the same user profile. When that happens, they are all together 
                 in succession because the networkClients array is ordered by the amount of tokens, which in general 
@@ -792,18 +1150,6 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 Here we are ready to send the signal...
                 */
                 networkClient.socket.send(JSON.stringify(socketMessage))
-
-                /* Obtain Signal Identifier */
-               let signalId
-                try {
-                    let messagePayload = JSON.parse(socketMessage.payload)
-                    messagePayload = JSON.parse(messagePayload.signalMessage)
-                    signalId = messagePayload.signalId
-                    signalId = signalId.split(/[-]+/).shift()
-                } catch(err) {
-                    signalId = '<unknown>'
-                }
-
                 SA.logger.info('Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
             }
             return true

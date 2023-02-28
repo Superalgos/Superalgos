@@ -60,9 +60,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 const interval = setInterval(function ping() {
                     if (caller.socket.isAlive === false) {
                         let infostring = ''
-                        if (caller?.userProfile?.name !== undefined) {
+                        if (caller.userProfile?.name !== undefined) {
                             infostring = ' for user ' + caller.userProfile.name
-                        } else if (caller?.socket?.id !== undefined) {
+                        } else if (caller.socket.id !== undefined) {
                             infostring = ' for socket id ' + caller.socket.id
                         }
                         SA.logger.info('Server could not confirm client to be alive, terminating Websockets connection' + infostring)

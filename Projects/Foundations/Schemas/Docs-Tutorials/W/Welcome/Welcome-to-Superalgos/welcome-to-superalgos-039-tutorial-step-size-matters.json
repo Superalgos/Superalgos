@@ -42,6 +42,16 @@
                 "language": "RU",
                 "text": "Как насчет того, чтобы настроить по форме машину времени в соответствии с правильным соотношение сторон Вашего экрана?",
                 "updated": 1636202464425
+            },
+            {
+                "language": "NL",
+                "text": "Hoe zit het met het vormgeven van de time machine naar de exacte beeldverhouding van uw scherm?",
+                "updated": 1666699195764
+            },
+            {
+                "language": "FR",
+                "text": "Pourquoi ne pas adapter la time machine au format exact de votre écran ?",
+                "updated": 1668068374855
             }
         ]
     },
@@ -84,6 +94,16 @@
                     "language": "RU",
                     "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
                     "updated": 1636202715136
+                },
+                {
+                    "language": "NL",
+                    "text": "Het afstemmen van de beeldverhouding van uw time machines op de beeldverhouding van uw scherm is cruciaal om ervoor te zorgen dat grafieken goed op uw scherm passen terwijl u inzoomt!",
+                    "updated": 1666699226580
+                },
+                {
+                    "language": "FR",
+                    "text": "Faire correspondre le rapport hauteur/largeur de vos time machine à celui de votre écran est crucial pour que les graphiques s'adaptent parfaitement à votre écran tout en zoomant !",
+                    "updated": 1668068407955
                 }
             ]
         },
@@ -118,13 +138,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın!",
-                    "updated": 1636035527567
+                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın.",
+                    "updated": 1666064286573
                 },
                 {
                     "language": "RU",
-                    "text": "Наведите курсор мыши на одну из машин времени и нажмите Ctrl + Shift + Alt + A. Сделайте то же самое с другой машиной времени.",
-                    "updated": 1636202757134
+                    "text": "Наведите мышь на одну из машин времени и нажмите Ctrl + Shift + Alt + Key-A. ",
+                    "updated": 1662032665322
+                },
+                {
+                    "language": "NL",
+                    "text": "Richt je muis op een van de time machines en druk op Ctrl + Shift + Alt + Key-A.",
+                    "updated": 1666699261421
+                },
+                {
+                    "language": "FR",
+                    "text": "Dirigez votre souris sur l'une des machines à remonter le temps et appuyez sur Ctrl + Shift + Alt + Key-A.",
+                    "updated": 1668068422311
                 }
             ]
         },
@@ -164,8 +194,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "С этого момента оставьте две машины времени, соответствующие соотношению сторон Вашего экрана.",
-                    "updated": 1636202904158
+                    "text": "На Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1662032695514
+                },
+                {
+                    "language": "NL",
+                    "text": "Op een Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1666699272980
+                },
+                {
+                    "language": "FR",
+                    "text": "Sur Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1668068428808
                 }
             ]
         },
@@ -179,6 +219,21 @@
                     "text": "Aynısını diğer grafik için de yapın ve bundan sonra iki zaman makinesini ekranınızın en boy oranıyla eşleştirin!",
                     "updated": 1654394237984,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте то же самое с другой диаграммой, и отныне две машины времени будут соответствовать соотношению сторон вашего экрана!",
+                    "updated": 1662032719880
+                },
+                {
+                    "language": "NL",
+                    "text": "Doe hetzelfde met de andere grafiek en laat de twee time machines voortaan overeenkomen met de beeldverhouding van je scherm!",
+                    "updated": 1666699299533
+                },
+                {
+                    "language": "FR",
+                    "text": "Faites de même avec l'autre graphique, et laissez les deux time machines s'adapter au ratio d'aspect de votre écran à partir de maintenant !",
+                    "updated": 1668068453301
                 }
             ]
         }

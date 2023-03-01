@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "Net als de Design Space, heeft de Charting Space een grote ruimte om grafieken op te bouwen.... zoveel als je hardware aan kan!",
                 "updated": 1638782237066
+            },
+            {
+                "language": "FR",
+                "text": "Tout comme l'espace de conception, l'espace de création de graphiques comporte une vaste zone où vous pouvez créer des graphiques... autant que votre ordinateur peut en supporter !",
+                "updated": 1668067798278
             }
         ]
     },
@@ -94,6 +99,11 @@
                     "language": "NL",
                     "text": "Om het voor nieuwkomers eenvoudig te houden, zijn er slechts twee grafieken in deze Getting Started Tutorials. Gevorderde gebruikers monitoren grafieken van meerdere beurzen en meerdere markten.",
                     "updated": 1638782331057
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour simplifier la tâche des nouveaux venus, l'espace de travail des didacticiels de démarrage ne comporte que deux graphiques. Les utilisateurs avancés suivent les graphiques de plusieurs bourses et de plusieurs marchés.",
+                    "updated": 1668067836003
                 }
             ]
         },
@@ -139,6 +149,11 @@
                     "language": "NL",
                     "text": "Om te bewegen in de Viewport, klik en sleep met je muis op de blanco achtergrond. De keyboard combinatie is Shift plus de pijltjestoetsen ↑ ← → ↓",
                     "updated": 1638782443884
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour vous déplacer dans la fenêtre de visualisation, cliquez et faites glisser la zone vide à l'aide de votre souris. Le raccourci clavier est Shift plus les touches fléchées ↑ ← → ↓",
+                    "updated": 1668067953428
                 }
             ],
             "updated": 1622198195729

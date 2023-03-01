@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: 4 saatlik grafik, düşüşten sonra trendde net bir değişim gösterdi, ancak... peki ya uzun vadeli? Günlük grafiği kontrol edelim!",
                 "updated": 1640947962763
+            },
+            {
+                "language": "ES",
+                "text": "El gráfico de 4H mostró un claro cambio de tendencia tras la ruptura, pero... ¿qué pasa con el largo plazo? Revisemos el gráfico diario.",
+                "updated": 1668191695631
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "10 Nisan mumunu bulun ve daha düşük zaman dilimlerinde az önce analiz ettiğimiz şeyin büyük resimde ne anlama geldiğini düşünmek için bir dakikanızı ayırın. Benim gördüğüm şu:",
                     "updated": 1640948082107
+                },
+                {
+                    "language": "ES",
+                    "text": "Busque la vela del 10 de abril y tómese un minuto para pensar en lo que significa -en el panorama general- lo que acabamos de analizar en los marcos temporales inferiores. Esto es lo que veo:",
+                    "updated": 1668191726119
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "İlerleyiş: 7'den 10 Nisan'a kadar gördüğümüz değişen dönem, aslında günlük üst bantta biraz ilerleme oldu. BB kurallarına göre bu, bu zaman diliminde fiyatın nispeten yüksek olduğu anlamına gelir.",
                     "updated": 1640948168912
+                },
+                {
+                    "language": "ES",
+                    "text": "El paseo: El período de oscilación que vimos desde el 7 hasta el 10 de abril fue de hecho un pequeño paseo en la banda superior diaria. Según las reglas del BB, esto significa que el precio es relativamente alto en este marco de tiempo.",
+                    "updated": 1668191784150
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Geri Çekilme: alt zaman dilimlerindeki kırılma, günlük üst banttan geri çekilmeyi işaret etti.",
                     "updated": 1640948190508
+                },
+                {
+                    "language": "ES",
+                    "text": "Retroceso: La ruptura en los marcos temporales inferiores marcó el pullback desde la banda superior diaria.",
+                    "updated": 1668191798545
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Devam: Daha geniş bir zaman dilimindeki fiyat hareketi, hareketli ortalamayı zar zor geçerek normal bir geri çekilme ve devam etme haline geldi.",
                     "updated": 1640948209405
+                },
+                {
+                    "language": "ES",
+                    "text": "Continuación: La acción del precio en el marco de tiempo mayor terminó siendo un retroceso normal y una continuación, apenas cruzando la media móvil.",
+                    "updated": 1668191823413
                 }
             ]
         }

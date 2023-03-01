@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Мы прошли через контрольный список из трех пунктов и готовы к работе, так что давайте приступим!",
                 "updated": 1642771513949
+            },
+            {
+                "language": "NL",
+                "text": "We hebben de 3-punts checklist doorlopen en zijn er klaar voor, dus laten we doorgaan!",
+                "updated": 1667135081022
             }
         ]
     },
@@ -50,8 +55,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra!",
-                    "updated": 1618071413222,
+                    "text": "Esegui l'attività Lightning Strike Task, quindi esegui la Lightning Strike Live Trading Session più in basso nella gerarchia!",
+                    "updated": 1666393946847,
                     "style": "Callout"
                 },
                 {
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Запустите задачу Lightning Strike, а затем запустите торговую сессию Lightning Strike Live Trading Session дальше по иерархии!",
                     "updated": 1642771548107
+                },
+                {
+                    "language": "NL",
+                    "text": "<i>Start</i> de Lightning Strike Task en voer vervolgens de Lightning Strike Live Trading Session verder in de hiërarchie uit!",
+                    "updated": 1667135157375
                 }
             ],
             "updated": 1622233324259
@@ -89,8 +99,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Una volta lanciata la sessione, il trading bot può dover attendere fino a 60 secondi perchè gli ultimi indicatori terminino. Una volta completati, vedrai la data corrente e un progresso dello 0% sotto la Trading Process Instance, che rimarrà così per tutta la durata della sessione.",
-                    "updated": 1618071515418,
+                    "text": "Una volta eseguita la sessione, il bot di trading potrebbe dover attendere fino a 60 secondi affinché l'ultimo indicatore termini l'elaborazione. Una volta fatto, vedrai la data corrente e un avviso di avanzamento dello 0% nell'istanza del processo di trading, che rimarrà così per tutta la durata, perché non stiamo fissando un limite di tempo per la sessione.",
+                    "updated": 1666394024795,
                     "style": "Note"
                 },
                 {
@@ -118,6 +128,11 @@
                     "language": "RU",
                     "text": "После запуска сессии торговому боту может потребоваться подождать до 60 секунд, пока последний индикатор закончит обработку. Как только это произойдет, вы увидите текущую дату и уведомление о прогрессе в 0% под экземпляром торгового процесса, который останется таким на протяжении всего сеанса, поскольку мы не устанавливаем лимит времени для сеанса.",
                     "updated": 1642771583338
+                },
+                {
+                    "language": "NL",
+                    "text": "Nadat u de sessie hebt uitgevoerd, moet de handelsbot mogelijk tot 60 seconden wachten voordat de laatste indicator is verwerkt. Zodra dit het geval is, ziet u de huidige datum en een voortgangsmelding van 0% onder de Trading Process Instance, die gedurende de hele sessie zo zal blijven, omdat we geen tijdslimiet voor de sessie instellen.",
+                    "updated": 1667135232863
                 }
             ],
             "updated": 1622233370311

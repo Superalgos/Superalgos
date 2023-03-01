@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Mari kita pergi! Ini akan berlangsung cepat, karena kami sedang menguji data historis dalam satu hari.",
                 "updated": 1639747965768
+            },
+            {
+                "language": "NL",
+                "text": "Laten we starten! Dit gaat hoe dan ook snel, aangezien we een enkele dag aan historische gegevens testen.",
+                "updated": 1666875706230
             }
         ]
     },
@@ -62,18 +67,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
-                    "updated": 1636122738568
+                    "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi (Trading Tasks) çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
+                    "updated": 1666065298944
                 },
                 {
                     "language": "RU",
-                    "text": "Запуск торговой задачи очень похож на запуск задачи интеллектуального анализа данных. Разница заключается в том, что после запуска задачи, вам также необходимо запустить торговую сессию.",
-                    "updated": 1636930532553
+                    "text": "Выполнение торгового задания очень похоже на выполнение задания по поиску данных. Разница заключается в том, что после выполнения задачи необходимо также запустить торговую сессию (Trading Session).",
+                    "updated": 1662034271644
                 },
                 {
                     "language": "ID",
                     "text": "Menjalankan trading task sangat mirip dengan menjalankan tugas data mining. Perbedaannya terletak pada — setelah menjalankan tugas — kamu juga perlu menjalankan trading session.",
                     "updated": 1639748126340
+                },
+                {
+                    "language": "NL",
+                    "text": "Het uitvoeren van een handelstaak lijkt veel op het uitvoeren van een dataminingtaak. Het verschil is dat u - na het uitvoeren van de taak - ook de Trading Session moet uitvoeren.",
+                    "updated": 1666875750605
                 }
             ],
             "updated": 1660148890490
@@ -114,6 +124,11 @@
                     "language": "ID",
                     "text": "Pilih Run pada menu Lightning Strike Task! Sekarang pilih Run pada menu Backtesting Session!",
                     "updated": 1639748161485
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer Run in het Lightning Strike Task menu! <br><br>Selecteer nu Run in het Backtesting Session menu!",
+                    "updated": 1666875836968
                 }
             ]
         },
@@ -140,8 +155,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve İleri'ye tıklayın.",
-                    "updated": 1636122871481
+                    "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve öğreticide İleri'ye tıklayın.",
+                    "updated": 1665962886238
                 },
                 {
                     "language": "RU",
@@ -152,6 +167,11 @@
                     "language": "ID",
                     "text": "Ketika Backtesting Session menunjukkan selesai diproses, hentikan Task dan klik Next.",
                     "updated": 1639748239810
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer de Backtesting Session aangeeft dat de verwerking is voltooid, stopt u de Task en klikt u op Next.",
+                    "updated": 1666875897909
                 }
             ],
             "updated": 1622201246283

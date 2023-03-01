@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ti è piaciuto questo tutorial? Ti va di mostrare gratitudine alla Community dando alla repo di Superalgos una stella?",
-                "updated": 1618649022612,
+                "text": "Spero che questo tutorial ti piaccia! Vorresti dimostrare la tua gratitudine dando una stella al repository Superalgos?",
+                "updated": 1666392643048,
                 "style": "Definition"
             },
             {
@@ -40,8 +40,13 @@
             },
             {
                 "language": "RU",
-                "text": "Надеюсь, вам понравилось это руководство! Хотите выразить свою благодарность, дав звезду репозиторию Superalgos?",
-                "updated": 1642774243489
+                "text": "Надеюсь, вам понравится этот учебник! Хотите выразить свою благодарность, дав звезду репозиторию Superalgos?",
+                "updated": 1662035777297
+            },
+            {
+                "language": "NL",
+                "text": "Ik hoop dat je geniet van deze handleiding! Wilt u uw dankbaarheid tonen door een ster te geven aan de Superalgos-repo?",
+                "updated": 1667138134820
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Пользователи, которые были до вас, вкладывали время и усилия в создание руководств, чтобы вы могли получить лучший опыт! Поставить звезду нашему репозиторию - хороший способ сказать спасибо! Звезды улучшают рейтинг в поиске Github. Чем больше звезд, тем легче разработчикам найти Superalgos и в конечном итоге внести в него свой вклад! Присвоение звезды репозиторию служит и вашим собственным интересам!",
                     "updated": 1642774283314
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruikers die voor u kwamen, hebben tijd en moeite gestoken in het maken van handleidingen, zodat u een betere ervaring kunt hebben! Een ster geven aan onze repo is een leuke manier om te bedanken! Sterren verbeteren de positie in de Github-zoekopdracht. Hoe meer sterren, hoe gemakkelijker het voor ontwikkelaars is om Superalgos te vinden en er uiteindelijk aan bij te dragen! Het geven van een ster aan de repo dient ook uw eigen belangen!",
+                    "updated": 1667138173099
                 }
             ]
         },
@@ -123,6 +133,11 @@
                     "language": "RU",
                     "text": "Если вы еще не сделали этого, пожалуйста, зайдите в наш репозиторий и нажмите на звездочку в правом верхнем углу!",
                     "updated": 1642774316045
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je dat nog niet hebt gedaan, ga dan naar onze repository en klik op de sterknop in de rechterbovenhoek!",
+                    "updated": 1667138191453
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "language": "TR",
                     "text": "İşte size kolaylık sağlamak için bir bağlantı! Teşekkürler!->github.com/Superalgos/Superalgos",
                     "updated": 1639387216997
+                },
+                {
+                    "language": "NL",
+                    "text": "Hier is een link voor uw gemak! Dank je!->github.com/Superalgos/Superalgos",
+                    "updated": 1667138208923
                 }
             ]
         }

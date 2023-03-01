@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "app.contribute komutunun çalışması için iki farklı düzeyde kimlik doğrulaması yapmanız gerekir. Önce GiHub.com ile ilgileneceğiz!",
                 "updated": 1640629205391
+            },
+            {
+                "language": "ID",
+                "text": "Untuk menjalankan perintah app.contribute , kamu harus memberikan autentikasi ke beberapa level berbeda. Kita akan berurusan dengan Github.com terlebih dulu!",
+                "updated": 1668949514138
             }
         ]
     },
@@ -64,13 +69,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вам необходимо пройти аутентификацию на GitHub.com, чтобы клиент (Client) мог создать Pull Request от вашего имени. Для этого вы создадите личный токен доступа (Personal Access Token) на GitHub.com:",
-                    "updated": 1640162394295
+                    "text": "Вам необходимо авторизоваться на GitHub.com, чтобы клиент создал Pull Request от вашего имени. Для этого вы будете использовать токен Github Personal Access Token, который вы создали при установке платформы, или создадите новый, если вы его потеряли!",
+                    "updated": 1661379970457
                 },
                 {
                     "language": "TR",
                     "text": "İstemcinin sizin adınıza Çekme İsteği oluşturması için GitHub.com'da kimlik doğrulaması yapmanız gerekir. Bunu yapmak için GitHub.com'da bir Kişisel Erişim Simgesi (PPersonal Access Token) oluşturacaksınız:",
                     "updated": 1640629257214
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus memberikan autentikasi ke Github.com untuk Client untuk membuat Pull Request atas kehendakmu. Untuk melakukan itu, kamu harus menggunakan Github Personal Access Token yang kamu buat saat menginstall platform ini atau membuat baru jika kamu lupa!",
+                    "updated": 1668949520986
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "text": "GitHub.com Kişisel Erişim Belirteci oluşturma->github.com/settings/tokens/new",
                     "updated": 1654393922965,
                     "style": "Link"
+                },
+                {
+                    "language": "ID",
+                    "text": "Membuat Github Personal Access Token->github.com/settings/tokens/new",
+                    "updated": 1668949530671
                 }
             ]
         },
@@ -116,13 +131,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Нажмите на ссылку и следуйте инструкциям! Убедитесь, что вы передали токену полномочия на репозиторий и область применения. Посмотрите ролик на следующем шаге для наглядности...",
-                    "updated": 1640162608903
+                    "text": "Убедитесь, что вы предоставили токен. Посмотрите ролик на следующем шаге!",
+                    "updated": 1661380013858
                 },
                 {
                     "language": "TR",
                     "text": "Bağlantıya tıklayın ve talimatları izleyin! Oluşturduğunuz anahtarda depo (Repo) ve iş akışı alanları (Workflow Scopes) için izin  verdiğinizden emin olun. Netlik için bir sonraki adımdaki klibi kontrol edin...",
                     "updated": 1640629471975
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bahwa kamu meberikan token cakupan repo dan workflow. Periksa klip di langkah selanjutnya!",
+                    "updated": 1668949538372
                 }
             ]
         },
@@ -150,13 +170,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я предлагаю вам назвать токен именем Superalgos, чтобы вы могли узнать его позже, и убедитесь, что вы отметили флажок repo, чтобы определить область применения токена.",
-                    "updated": 1640162593892
+                    "text": "Я предлагаю вам назвать токен именем Superalgos, чтобы вы могли узнать его позже!",
+                    "updated": 1661380050573
                 },
                 {
                     "language": "TR",
                     "text": "Anahtarı daha sonra tanıyabilmeniz için Superalgos'diye adlandırmanızı ve belirtecin kapsamını tanımlamak için repo onay kutusunu işaretlediğinizden emin olmanızı öneririm.",
                     "updated": 1640629528203
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku saranku kamu memberikan nama token Superalgos yang bisa kamu kenali selanjutnya!",
+                    "updated": 1668949545386
                 }
             ]
         }

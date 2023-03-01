@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red.",
-                "updated": 1624228666520,
+                "text": "Es posible ejecutar Superalgos en una máquina, y acceder desde el navegador de otra maquina en la misma red.",
+                "updated": 1667508527286,
                 "style": "Definition"
             },
             {
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Muchos usuarios optan por ejecutar el Cliente en la nube, en máquinas sencillas como la Raspberry Pi, o en un PC dedicado que pueden dejar encendido en todo momento cuando operan en live. El nodo de red de My Computer Network representa la máquina en la que se ejecuta el Cliente.",
-                    "updated": 1613595575444,
+                    "text": "Muchos usuarios optan por ejecutar el Cliente en la nube, en máquinas sencillas como la Raspberry Pi, o en un PC dedicado que pueden dejar encendido en todo momento cuando operan en live. El nodo de red de My Computer LAN Network Node representa la máquina en la que se ejecuta el Cliente.",
+                    "updated": 1667508598251,
                     "style": "Text"
                 },
                 {
@@ -83,14 +83,14 @@
                 },
                 {
                     "language": "FR",
-                    "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le nuage, sur des machines à carte unique comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils négocient en direct. Le nœud de réseau My Computer représente la machine sur laquelle le Client est exécuté.",
-                    "updated": 1623952548227,
+                    "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le cloud, sur des machines comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils tradent en direct. Le nœud LAN Network Node / My Computer représente la machine sur laquelle le client est exécuté.",
+                    "updated": 1666253517219,
                     "style": "Text"
                 },
                 {
                     "language": "NL",
-                    "text": "Veel geruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor Live Trading. De \"My Computer\" Network Node stelt het apparaat voor waar de Client op draait.",
-                    "updated": 1633854215256,
+                    "text": "Veel gebruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor continu handelen. De My Computer LAN Network Node stelt het apparaat voor waar de Client op draait.",
+                    "updated": 1666610194202,
                     "style": "Text"
                 },
                 {
@@ -137,8 +137,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een \"restricted Local Area Network\". Als je ervoor kiest om de client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
-                    "updated": 1633854469540,
+                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een afgeschermd lokaal netwerk. Als je ervoor kiest om de Client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
+                    "updated": 1666610343426,
                     "style": "Warning"
                 },
                 {
@@ -156,6 +156,11 @@
                     "language": "TR",
                     "text": "Bu aşamada Superalgos herhangi bir güvenlik şekli uygulamamaktadır. Sistemi yalnızca kısıtlı bir Yerel Alan Ağı bağlamında kullanmalısınız. İstemciyi bulutta çalıştırmayı seçtiyseniz, kendi güvenliğinizi uygulamanız gerekir.",
                     "updated": 1635578525124
+                },
+                {
+                    "language": "FR",
+                    "text": "A ce stade, Superalgos ne met en œuvre aucune forme de sécurité. Vous devez utiliser le système uniquement dans le contexte d'un réseau local restreint. Si vous choisissez d'exécuter le client dans le cloud, vous devez mettre en œuvre votre propre sécurité.",
+                    "updated": 1666253562613
                 }
             ]
         }

@@ -3,7 +3,14 @@
     "pageNumber": 5,
     "type": "Superalgos Review - actually beginner-friendlier than your regular bot site!",
     "definition": {
-        "text": "Write a summary for this review page."
+        "text": "Write a summary for this review page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1669191223858
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,6 +22,11 @@
                     "language": "RU",
                     "text": "Я новичок в ботах и не являюсь ни опытным трейдером, ни кодером. Пытаясь запустить какого-нибудь коммерческого бота, я вскоре сдавался, потому что не понимал, что делаю. Конечно, Superalgos поначалу выглядит пугающе, и мне, безусловно, потребуется много усилий, чтобы разобраться в нем, но, опять же, здесь все разложено по полочкам для изучения - а все слишком сложные вещи были любезно скрыты от меня. А благодаря красивому дизайну создается ощущение, что ты играешь в игру ;)",
                     "updated": 1640409745244
+                },
+                {
+                    "language": "TR",
+                    "text": "Botlarda yeniyim ve ne tecrübeli bir tüccarım ne de yazılımcıyım. Ticari bir botu çalıştırmaya çalışırken, ne yaptığımı anlamadığım için kısa sürede pes ettim. Elbette, Superalgos ilk başta göz korkutucu görünüyor ve kafamı toparlamam kesinlikle çok çaba gerektirecek, ancak yine de, her şey orada çalışmak için ortaya konmuş - tüm aşırı karmaşık şeyler merhametle benden gizlenmişken. Ve güzel tasarımıyla, sanki bir oyun oynuyormuşsunuz gibi hissettiriyor ;)",
+                    "updated": 1669191182596
                 }
             ]
         },
@@ -26,6 +38,11 @@
                     "language": "RU",
                     "text": "Это всего лишь набросок. С нетерпением жду возможности внести свой вклад в этот блестящий проект!",
                     "updated": 1640409889320
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sadece bir taslak. Bu harika projeye daha fazla katkıda bulunmak için sabırsızlanıyorum!",
+                    "updated": 1669191228434
                 }
             ]
         },

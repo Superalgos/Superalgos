@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha... ",
-                "updated": 1627302836248,
+                "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha...",
+                "updated": 1668188069796,
                 "style": "Definition"
             },
             {
@@ -36,8 +36,8 @@
             },
             {
                 "language": "NL",
-                "text": "Open het \"Data Tasks\" knooppunt menu en zoek de \"Run all project data tasks\" knop in de rechter bovenhoek...",
-                "updated": 1634455832255,
+                "text": "Ga naar het \"Data Tasks\" knooppunt menu en zoek de \"Run all project data tasks\" knop in de rechter bovenhoek...",
+                "updated": 1666612506819,
                 "style": "Definition"
             },
             {
@@ -50,6 +50,11 @@
                 "language": "TR",
                 "text": "Veri Görevleri ( Data Tasks) düğüm menüsüne erişin ve sağ üst köşedeki \"\"Tüm proje veri görevlerini çalıştır\"  ( Run All Project Data Tasks ) düğmesini bulun...\n",
                 "updated": 1635850868808
+            },
+            {
+                "language": "FR",
+                "text": "Accédez au menu du nœud Data Tasks et trouvez le bouton \"Run all project data tasks\" dans le coin supérieur droit...",
+                "updated": 1667203084618
             }
         ]
     },
@@ -99,6 +104,11 @@
                     "language": "TR",
                     "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklamak onayladığınız anlamına gelir ve işlemi başlatmış olursunuz",
                     "updated": 1644849740065
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur le bouton \"Run all project data tasks\" ! Confirmez la demande en cliquant une seconde fois sur le même bouton.",
+                    "updated": 1667203134092
                 }
             ]
         },
@@ -120,8 +130,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En unos 30 segundos, deberias ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
-                    "updated": 1624452903459,
+                    "text": "En unos 30 segundos, deberías ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
+                    "updated": 1668188039270,
                     "style": "Text"
                 },
                 {
@@ -146,6 +156,11 @@
                     "language": "TR",
                     "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, Borsa Veri Görevi     (Exchange Data Tasks) düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
                     "updated": 1644849789734
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans environ 30 secondes, vous devriez voir le status changer sous le nœud Data Tasks indiquant \"1 / 1\" vous confirmant que l'Exchange Data Tasks est en cours d'exécution.",
+                    "updated": 1667203375952
                 }
             ],
             "updated": 1622190035816
@@ -168,8 +183,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tu aplicación de consola deberia mostrar algo similar a lo que aparece en el video a continuación..",
-                    "updated": 1624283587596,
+                    "text": "Tu aplicación de consola debería mostrar algo similar a lo que aparece en el video a continuación..",
+                    "updated": 1667510289638,
                     "style": "Note"
                 },
                 {
@@ -194,6 +209,11 @@
                     "language": "TR",
                     "text": "Konsol uygulamanız, bir sonraki adımdaki videoya benzer bir şey göstermelidir.",
                     "updated": 1635851222308
+                },
+                {
+                    "language": "FR",
+                    "text": "Votre terminal devrait afficher quelque chose de similaire à la vidéo de l'étape suivante.",
+                    "updated": 1667203420575
                 }
             ]
         }

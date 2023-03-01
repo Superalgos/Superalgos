@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Artık listelerdeki grupları gördüğünüze göre, bunları nasıl yorumlayıp kullanacağımızı öğreten kuralları gözden geçirelim!",
                 "updated": 1640871846120
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que ha visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
+                "updated": 1668190702123
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Bu göstergeye aşina değilseniz, kuralları okumak için kesinlikle birkaç dakika harcamaya değer,aşağıdaki link'i inceleyebilirsiniz.",
                     "updated": 1640871944748
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no está familiarizado con este indicador, merece la pena que dedique unos minutos a leer las reglas,",
+                    "updated": 1668190713896
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "text": "John Bollinger tarafından tanımlandığı gibi!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
                     "updated": 1654393952600,
                     "style": "Link"
+                },
+                {
+                    "language": "ES",
+                    "text": "tal y como las define el propio John Bollinger!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1668190751611
                 }
             ]
         },
@@ -106,6 +121,11 @@
                     "language": "TR",
                     "text": "Not: 6'dan 8'e kadar olan kurallar, daha sonra deneyeceğimiz şey için özel bir öneme sahiptir!",
                     "updated": 1640872123653
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Las reglas 6 a 8 son de particular importancia para lo que intentaremos más adelante!",
+                    "updated": 1668190782250
                 }
             ]
         }

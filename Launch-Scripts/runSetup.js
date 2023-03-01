@@ -125,6 +125,9 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
 }
 
 const runSetup = (tfjs=false) => {
+  // Output the Logo
+  showLogo()
+
   // Install Node_Modules to Main Superalgos Directory
 
   // install tensorflow if user ran tensorflow setup file
@@ -150,7 +153,7 @@ const runSetup = (tfjs=false) => {
       (error, stdout) => {
         if (error) {
           console.log('')
-          console.log('There was an error installing some dependencies error: ')
+          console.log('There was an error installing some dependencies: ')
           console.log('')
           console.log(error)
           process.exit(1)
@@ -174,8 +177,8 @@ const runSetup = (tfjs=false) => {
     } catch (e) {
       console.log('')
       console.log('Event error: ')
-      console.log(e)
       console.log('')
+      console.log(e)
       process.exit(1)
     }
   })
@@ -194,6 +197,27 @@ const runSetup = (tfjs=false) => {
   installExternalScripts()
   return 'Setup complete'
 
+}
+
+function showLogo () {
+  console.log('\x1b[31m%s\x1b[0m', '                                  ///////')
+  console.log('\x1b[31m%s\x1b[0m', '                               ,    ///////')
+  console.log('\x1b[31m%s\x1b[0m', '                                      //////')
+  console.log('\x1b[31m%s\x1b[0m', '                          *           ,/////')
+  console.log('\x1b[31m%s\x1b[0m', '                        ((             /////')
+  console.log('\x1b[31m%s\x1b[0m', '                     /((      ///      ////')
+  console.log('\x1b[31m%s\x1b[0m', '                 (((((      ((////     ////')
+  console.log('\x1b[31m%s\x1b[0m', '          ,(((((((((       (((////*     ///')
+  console.log('\x1b[31m%s\x1b[0m', '       (((((((((.        (((((/////      //')
+  console.log('\x1b[31m%s\x1b[0m', '     (((((((*         ((((((((//////      /,')
+  console.log('\x1b[31m%s\x1b[0m', '    ((((((          ((((((((((////////     /')
+  console.log('\x1b[31m%s\x1b[0m', '     ((((           ((((((((((/////////')
+  console.log('\x1b[31m%s\x1b[0m', '        (((                       /////')
+  console.log('\x1b[31m%s\x1b[0m', '                   *(((/.')
+  console.log('\x1b[31m%s\x1b[0m', '                          /(((/////            /')
+  console.log('\x1b[31m%s\x1b[0m', '                               /////////     ///')
+  console.log('\x1b[31m%s\x1b[0m', '                                  //////////////')
+  console.log('\x1b[31m%s\x1b[0m', '                                      ////////')
 }
 
 module.exports = {

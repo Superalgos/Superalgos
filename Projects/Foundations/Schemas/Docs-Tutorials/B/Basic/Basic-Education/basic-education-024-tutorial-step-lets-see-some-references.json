@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Perhatikan dua node di bawah Backtesting Session: Trading System Reference dan Trading Engine Reference. Mengapa kita membutuhkan node ini?",
                 "updated": 1644948143992
+            },
+            {
+                "language": "NL",
+                "text": "Let op de twee knooppunten onder de Backtesting Session: Trading System Reference en Trading Engine Reference. Waarom hebben we deze knooppunten nodig?",
+                "updated": 1668341110368
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Backtesting Session perlu merujuk ke Trading System sehingga dapat memperoleh aturan untuk perdagangan. Itu juga harus merujuk Trading Engine sehingga dapat menyimpan informasi relatif terhadap sesi trading. Namun, sebuah node hanya dapat membuat satu referensi keluaran!",
                     "updated": 1644948227170
+                },
+                {
+                    "language": "NL",
+                    "text": "De Backtesting Session moet verwijzen naar het Trading System zodat het de regels voor handelen kan verkrijgen. Het moet ook verwijzen naar de Trading Engine zodat het informatie met betrekking tot de handelssessie kan opslaan. Een knooppunt mag echter slechts één uitgaande referentie tot stand brengen!",
+                    "updated": 1668341165066
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Itulah sebabnya node ini ada: mereka adalah bantuan untuk node Backtesting Session sehingga masing-masing dari mereka dapat merujuk satu node!",
                     "updated": 1644948263209
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is de reden waarom deze knooppunten bestaan: ze zijn een hulpmiddel voor het knooppunt Backtesting Session, zodat elk van hen naar één knooppunt kan verwijzen!",
+                    "updated": 1668341186380
                 }
             ]
         }

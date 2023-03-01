@@ -15,13 +15,25 @@
                 "language": "RU",
                 "text": "Обзор руководства по Superalgos.\nВ целом, учебник действительно понятен и проводит вас по всем шагам. Поскольку система настолько обширна, на ее освоение, естественно, требуется некоторое время. В качестве улучшения, было бы неплохо иметь более подробный обзор того, как определенные элементы работают вместе. Провести начинающих через логические шаги: 1. Откуда поступают рыночные данные, 2. Как эти данные интерпретируются и преобразуются в индикаторы, 3. Как система может действовать на основе этих индикаторов, 4. Как эти действия возвращаются на рынок для совершения сделок. Если бы учебник был структурирован в соответствии с этими шагами, он мысленно провел бы новичка через все движения и заставил бы его понять поток. Возможно, это преждевременно, и следующие учебники будут структурированы подобным образом, однако, если сделать этот большой поток ясным уже в начале, это позволит пользователям отнести свои действия к одной из этих 4 категорий, обеспечивая ощущение того, в какой части процесса вы взаимодействуете.",
                 "updated": 1640414035567
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos öğretici incelemesi Genel olarak öğretici gerçekten açık ve sizi hamlelerden geçiriyor. Bu kadar büyük bir sistemi özümsemek doğal olarak biraz zaman alıyor. Bir iyileştirme noktası olarak, belirli öğelerin birlikte nasıl çalıştığına dair biraz daha genel bakışa sahip olmak güzel olurdu. Yeni başlayanları mantıksal adımlarla ilerletiyor: 1. Piyasa verilerinin nereden geldiği, 2. Bu verilerin nasıl yorumlandığı ve göstergelere dönüştürüldüğü, 3. Sistemin bu göstergeler üzerinde nasıl hareket edebileceği, 4. Bu eylemlerin alım satımları gerçekleştirmek için piyasalara nasıl geri beslendiği. Eğitim bu adımlara göre yapılandırılabilirse, yeni başlayan birini zihinsel olarak tüm hamlelerden geçirecek ve akışı anlamasını sağlayacaktır. Belki bu erken bir adımdır ve aşağıdaki eğitimler bu şekilde yapılandırılmıştır, ancak bu daha büyük akışı başlangıçta zaten açık hale getirmek, kullanıcıların eylemlerini bu 4 kategoriden birine yerleştirmelerine olanak tanır ve sürecin neresinde etkileşimde bulunduğunuz hakkında bir fikir verir.",
+                "updated": 1669310444349
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669310453023
+                }
+            ]
         }
     ]
 }

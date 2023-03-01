@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел заблокирован на 0,5X расстояния.",
                 "updated": 1638297416107
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm, mesafenin 0,5 katına kilitlenir.",
+                "updated": 1666967179988
             }
         ]
     },

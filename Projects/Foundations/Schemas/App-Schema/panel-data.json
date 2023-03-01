@@ -23,6 +23,11 @@
             "type": "node",
             "childType": "Text Style",
             "autoAdd": true
+        },
+        {
+            "name": "panelDataJavascriptCode",
+            "type": "node",
+            "childType": "Panel Data Javascript Code"
         }
     ],
     "menuItems": [
@@ -50,6 +55,16 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
             "relatedUiObject": "Text Style",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": false,
+            "propertyToCheckFor": "panelDataJavascriptCode",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Javascript Code",
+            "relatedUiObject": "Panel Data Javascript Code",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },

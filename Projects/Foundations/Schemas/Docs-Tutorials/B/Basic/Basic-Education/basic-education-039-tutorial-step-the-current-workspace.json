@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il workspace corrente è quello in uso in un dato momento.",
-                "updated": 1619553876743,
+                "text": "Il workspace corrente è lo User Workspace o il Plugin Workspace in uso al momento.",
+                "updated": 1666639905870,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Workspace saat ini adalah User Workspace atau Plugin Workspace yang kamu gunakan kapan saja.",
                 "updated": 1645034616173
+            },
+            {
+                "language": "NL",
+                "text": "De huidige werkruimte is de User Workspace of de Plugin Workspace die u op enig moment gebruikt.",
+                "updated": 1669545656096
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Jika kamu menutup dan me-restart aplikasi, atau menyegarkan UI, sistem memuat workspace yang terakhir digunakan.",
                     "updated": 1645034652877
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de app sluit en opnieuw start of de UI vernieuwt, laadt het systeem de werkruimte die het laatst in gebruik was.",
+                    "updated": 1669545681058
                 }
             ]
         },
@@ -91,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai al menù del nodo Workspace, fai doppio click sul label Getting Started e cambia il nome del workspace in \"Basic Education\".",
-                    "updated": 1619553975961,
+                    "text": "Vai al menù del nodo Workspace, fai doppio click sull'etichetta Getting Started e cambia il nome del workspace in \"Basic Education\".",
+                    "updated": 1666639957957,
                     "style": "Callout"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Akses menu node Workspace, klik dua kali pada label \"Getting Started Tutorials\" dan ubah menjadi \"Basic Education\".",
                     "updated": 1645034772611
+                },
+                {
+                    "language": "NL",
+                    "text": "Open het menu van het Workspace Node, dubbelklik op het label \"Getting Started Tutorials\" en wijzig dit in \"Basic Education\".",
+                    "updated": 1669545708960
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Sekarang tekan Ctrl + Shift + Alt + Key-S",
                     "updated": 1645034781934
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk nu op Ctrl + Shift + Alt + <kbd>Toets-S</kbd>",
+                    "updated": 1669545762147
                 }
             ]
         },
@@ -169,8 +189,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Hai creato un workspace! Vai alla cartella My-Workspaces e verifica che il nuovo file sia là.",
-                    "updated": 1619554083035,
+                    "text": "Vai alla cartella My-Workspaces per verificare che il nuovo file sia lì. Trovalo anche nel menù degli spazi di lavoro",
+                    "updated": 1666640010928,
                     "style": "Success"
                 },
                 {
@@ -198,6 +218,11 @@
                     "language": "ID",
                     "text": "Buka folder My-Workspaces untuk memverifikasi file baru apakah ada di sana. Temukan di workspaces tab juga!",
                     "updated": 1645034841207
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de map My-Workspaces om te controleren of het nieuwe bestand aanwezig is. Je zult het ook vinden op het tabblad workspaces!",
+                    "updated": 1669545815696
                 }
             ]
         }

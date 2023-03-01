@@ -216,7 +216,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             /*
             Open Storage Nodes
             */
-            'Available Storage->Storage Container Reference->Github Storage Container->Superalgos Storage Container->Github Storage->Superalgos Storage->'
+            'Available Storage->Storage Container Reference->Github Storage Container->Superalgos Storage Container->Github Storage->Superalgos Storage->' +
+            /*
+            P2P Network Client Nodes
+            */
+            'P2P Network Client->' +
+            'P2P Network Reference->Permissioned P2P Network->P2P Network->' +
+            'P2P Network Node Reference->P2P Network Node->' +
+            'Network Services->Social Graph->Machine Learning->Trading Signals->Online Workspaces->' +
+            'Network Interfaces->Websockets Network Interface->Webrtc Network Interface->Http Network Interface->'
 
         let taskDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -291,7 +299,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName') +
             '-' +
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
- 
+
         let dependencyFilters = []
 
         for (let i = 0; i < node.bot.processes.length; i++) {

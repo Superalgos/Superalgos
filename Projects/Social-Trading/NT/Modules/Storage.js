@@ -95,6 +95,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 }
             }
             /*
+            We can not continue if we cannot identify the most up to date node.
+            */
+            if (p2pNetworkNodeMostUpToDate === undefined){
+                return
+            }
+            /*
             We will check that the node most up to date is not ourselves.
             */
             if (p2pNetworkNodeMostUpToDate.node.id === thisObject.p2pNetworkNode.node.id) {

@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu llegada y enseñarte lo básico.",
-                "updated": 1613594456875,
+                "text": "¡Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu incorporación y enseñarte todo lo básico!",
+                "updated": 1667507185163,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "FR",
-                "text": "Je suis un tutoriel interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques!",
-                "updated": 1623946542352,
+                "text": "Je suis un tutoriel interactif, le premier d'une série conçue pour faciliter votre accueil et vous apprendre toutes les bases!",
+                "updated": 1666251987090,
                 "style": "Definition"
             },
             {
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Te pondré en marcha, te mostraré las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas geniales que Superalgos puede hacer por ti.",
-                    "updated": 1613594557989,
+                    "text": "Te enseñaré los primeros pasos, las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas interesantes que Superalgos puede hacer por ti. ",
+                    "updated": 1667507266748,
                     "style": "Text"
                 },
                 {
@@ -83,8 +83,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Je vais vous aider à démarrer, en vous montrant les outils qui vous aideront à vous déplacer facilement, et vous aider à découvrir toutes les choses que Superalgos vous faciliter.",
-                    "updated": 1623945805888,
+                    "text": "Je vais vous aider à démarrer, vous montrer les outils qui vous aideront à vous déplacer facilement et vous aider à découvrir toutes les choses intéressantes que Superalgos peut faire pour vous.",
+                    "updated": 1666252095685,
                     "style": "Text"
                 },
                 {
@@ -124,8 +124,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los tutoriales son la mejor manera de comenzar en Superalgos. Empezar de otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías recorrer todos los tutoriales antes de intentar poner en marcha tus estrategias!",
-                    "updated": 1618431788534,
+                    "text": "Los tutoriales son la herramienta definitiva para iniciarse en Superalgos. Empezar con Superalgos de cualquier otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías hacer todos los tutoriales antes de intentar implementar tus propias ideas! ",
+                    "updated": 1667507315761,
                     "style": "Callout"
                 },
                 {
@@ -136,8 +136,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Les tutoriels sont l'ultime outil d'initiation à Superalgos ! Commencer à utiliser Superalgos d'une autre manière serait une erreur, car aucune autre ressource ne vous permettra d'être opérationnel plus rapidement. Nous vous recommandons de suivre tous les tutoriels avant d'essayer de mettre en œuvre vos propres idées !",
-                    "updated": 1623946050005,
+                    "text": "Les tutoriels sont l'outil ultime d'initiation à Superalgos ! Commencer à utiliser Superalgos d'une autre manière est une erreur, car aucune autre ressource ne vous permettra d'être opérationnel plus rapidement. Vous devriez suivre tous les tutoriels avant d'essayer de mettre en œuvre vos propres idées !",
+                    "updated": 1666252220226,
                     "style": "Callout"
                 },
                 {
@@ -189,8 +189,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "S'il vous plaît, cliquez toujours sur Suivant pour continuer !",
-                    "updated": 1623950092303,
+                    "text": "Cliquez sur Next pour continuer!",
+                    "updated": 1666252287572,
                     "style": "Success"
                 },
                 {

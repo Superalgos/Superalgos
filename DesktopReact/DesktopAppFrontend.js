@@ -1,4 +1,4 @@
-exports.newDesktopAppFrontend = function newDesktopAppFrontend() {
+exports.newSocialTradingAppFrontend = function newSocialTradingAppFrontend() {
 
     let thisObject = {
         run: run
@@ -21,5 +21,5 @@ exports.newDesktopAppFrontend = function newDesktopAppFrontend() {
     }
 }
 
-let app = this.newDesktopAppFrontend();
+let app = this.newSocialTradingAppFrontend();
 app.run();

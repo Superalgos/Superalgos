@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de mostrarte el resto del menú, echaremos un vistazo a otra jerarquía: El Network.",
-                "updated": 1627322677816,
+                "text": "Antes de mostrarte el resto del menú, echaremos un vistazo a otra jerarquía: el LAN Network.",
+                "updated": 1667508391624,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "FR",
-                "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
-                "updated": 1623951418764,
+                "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie: LAN Network.",
+                "updated": 1666252917050,
                 "style": "Definition"
             },
             {
@@ -41,8 +41,8 @@
             },
             {
                 "language": "NL",
-                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
-                "updated": 1633853332041,
+                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het LAN Network.",
+                "updated": 1666609602621,
                 "style": "Definition"
             },
             {
@@ -72,8 +72,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde controlas tus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
-                    "updated": 1627322647954,
+                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde controlas tus Data Tasks, Testing Trading Tasks, y Production Trading Tasks. ",
+                    "updated": 1667508423499,
                     "style": "Text"
                 },
                 {
@@ -84,8 +84,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
-                    "updated": 1623952138963,
+                    "text": "Le LAN Network est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
+                    "updated": 1666253229824,
                     "style": "Text"
                 },
                 {
@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
-                    "updated": 1633853559028,
+                    "text": "De LAN Network hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Testing Trading Tasks, en Production Trading Tasks.",
+                    "updated": 1666609720397,
                     "style": "Text"
                 },
                 {
@@ -192,8 +192,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
-                    "updated": 1623952241074,
+                    "text": "Voyez-vous les nœuds que j'ai mentionnés plus tôt? Cool! Nous sommes ici pour commencer votre toute première opération de minage de données.",
+                    "updated": 1666253341933,
                     "style": "Text"
                 },
                 {
@@ -204,8 +204,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
-                    "updated": 1633890622350,
+                    "text": "Zie je de eerder genoemde knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
+                    "updated": 1666609770905,
                     "style": "Text"
                 },
                 {

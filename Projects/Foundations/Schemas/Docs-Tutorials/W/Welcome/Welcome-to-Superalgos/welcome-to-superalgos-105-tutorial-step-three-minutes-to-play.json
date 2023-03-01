@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ti lascio qualche minuto per divertirti con la tua live session, e quando sarai pronto passeremo ad altre cose!",
-                "updated": 1618071992282,
+                "text": "Ti darò qualche minuto per giocare con la tua sessione dal vivo e, quando sarai pronto, concluderemo tutto e finiremo il tutorial!",
+                "updated": 1666394692797,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda başka şeylere geçeceğiz!",
-                "updated": 1636633146523
+                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda, işleri toparlayıp öğreticiyi bitireceğiz!",
+                "updated": 1666066527130
             },
             {
                 "language": "ID",
@@ -39,8 +39,13 @@
             },
             {
                 "language": "RU",
-                "text": "Я дам вам несколько минут, чтобы поиграть с вашей реальной сессией, а когда вы будете готовы, мы перейдем к другим вещам!",
-                "updated": 1642772745853
+                "text": "Я дам вам несколько минут, чтобы поиграть с вашей живой сессией, а когда вы будете готовы, мы завершим обучение!",
+                "updated": 1662034486412
+            },
+            {
+                "language": "NL",
+                "text": "Ik geef je een paar minuten om je live sessie uit te proberen, en als je klaar bent, ronden we de zaken af en maken we de handleiding af!",
+                "updated": 1667136288923
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "RU",
                     "text": "Уделите некоторое время тому, что вы узнали на данный момент...",
                     "updated": 1642772758774
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd om te verwerken wat je tot nu toe hebt geleerd...",
+                    "updated": 1667136302635
                 }
             ]
         },
@@ -91,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Una volta che sei pronto a proseguire, sentiti libero di fermare Live Trading Session e Data Tasks. Puoi lasciarle proseguire se preferisci, ma io non affiderei a tempo indefinito i miei sudati soldi alla strategia demo!",
-                    "updated": 1618072064872,
+                    "text": "Quando sarai pronto per andare avanti, puoi interrompere la sessione di trading dal vivo e le attività sui dati.",
+                    "updated": 1666394787078,
                     "style": "Important"
                 },
                 {
@@ -108,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu ( Live Trading Session ) ve Veri Görevlerini ( Data Tasks ) durdurmaktan çekinmeyin. İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak zor kazanılmış paramı süresiz olarak demo stratejisine emanet etmem!",
-                    "updated": 1636633220202
+                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu (Live Trading Session) ve Veri Görevlerini (Data Tasks) durdurmaktan çekinmeyin.",
+                    "updated": 1666066626880
                 },
                 {
                     "language": "ID",
@@ -118,8 +128,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Как только вы будете готовы двигаться дальше, не забудьте остановить сеанс реальной торговли и задачи данных. Вы можете оставить сессию запущенной, если хотите, но я бы не стал доверять свои с трудом заработанные деньги демо-стратегии на неопределенный срок!",
-                    "updated": 1642772797095
+                    "text": "Как только вы будете готовы двигаться дальше, не стесняйтесь остановить Live Trading Session и Data Tasks. ",
+                    "updated": 1662034511886
+                },
+                {
+                    "language": "NL",
+                    "text": "Zodra u klaar bent om verder te gaan, kunt u de Live Trading Session en Data Tasks stoppen.",
+                    "updated": 1667136337010
                 }
             ]
         },
@@ -131,6 +146,26 @@
                     "language": "DE",
                     "text": "Wenn Sie möchten, können Sie die Session laufen lassen. Ich würde mein hart verdientes Geld aber nicht der Demo-Strategie anvertrauen!",
                     "updated": 1660479827747
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете оставить сессию запущенной, если хотите, но я бы не стал доверять свои с трудом заработанные деньги демо-стратегии на неопределенный срок!",
+                    "updated": 1662034532410
+                },
+                {
+                    "language": "TR",
+                    "text": "İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak ben zor kazandığım paramı süresiz olarak demo stratejisine emanet etmezdim!",
+                    "updated": 1666066651976
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi anche lasciare la sessione in esecuzione se lo desideri, ma non affiderei i miei sudati guadagni alla strategia demo a tempo indeterminato!",
+                    "updated": 1666395128522
+                },
+                {
+                    "language": "NL",
+                    "text": "Je mag de sessie laten lopen als je wilt, maar ik zou mijn zuurverdiende geld niet voor onbepaalde tijd aan de demo-strategie toevertrouwen!",
+                    "updated": 1667136370625
                 }
             ]
         }

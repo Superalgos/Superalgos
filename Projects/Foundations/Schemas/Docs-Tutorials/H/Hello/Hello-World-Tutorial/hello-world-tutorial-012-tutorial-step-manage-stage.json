@@ -3,7 +3,7 @@
     "pageNumber": 12,
     "type": "Tutorial Step - Manage Stage",
     "definition": {
-        "text": "The Manage Stage is where the bot check if it has to Take Profit or a Stop Loss",
+        "text": "The Manage Stage is where the bot checks if it has to Take Profit or a Stop Loss",
         "icon": {
             "name": "manage-stage",
             "project": "Foundations"
@@ -42,7 +42,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In this stage bot check if the price has hit Take Profit (TP) or Stop Loss (SL). Initial conditions for my strategy was to set a SL at 20% from entry and a TP at 100% or when MA50 cross under MA200.",
+            "text": "In this stage the bot checks if the price has hit Take Profit (TP) or Stop Loss (SL). Initial conditions for my strategy were to set a SL at 20% from entry and a TP at 100% or when MA50 cross under MA200.",
             "updated": 1614333590591,
             "translations": [
                 {

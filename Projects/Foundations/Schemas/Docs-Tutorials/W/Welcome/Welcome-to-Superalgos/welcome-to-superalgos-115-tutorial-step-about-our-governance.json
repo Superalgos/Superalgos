@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Прежде чем я оставлю вас со следующим уроком, вы должны знать, что Superalgos - это криптопроект с распределенным управлением!",
                 "updated": 1642774805232
+            },
+            {
+                "language": "IT",
+                "text": "Prima di lasciarvi con il prossimo tutorial, dovete sapere che Superalgos è un progetto crypto con governance distribuita!",
+                "updated": 1666396040405
+            },
+            {
+                "language": "NL",
+                "text": "Voordat ik je verlaat met de volgende tutorial, moet je weten dat Superalgos een cryptoproject is met gedistribueerd bestuur!",
+                "updated": 1667139247992
             }
         ]
     },
@@ -67,8 +77,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вы можете заработать токены Superalgos SA и репутацию, внося свой вклад в проект.",
-                    "updated": 1642774842895
+                    "text": "Вы можете заработать награды и репутацию Superalgos SA Token, внося свой вклад в проект.",
+                    "updated": 1662035978459
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi guadagnare Superalgos SA Token e Reputation contribuendo al progetto.",
+                    "updated": 1666396089475
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt Superalgos SA Token beloningen en Reputation verdienen door bij te dragen aan het project.",
+                    "updated": 1667139279599
                 }
             ]
         },
@@ -102,6 +122,16 @@
                     "language": "RU",
                     "text": "Затем вы можете использовать свои токены и репутацию для участия в программах управления.",
                     "updated": 1642774852208
+                },
+                {
+                    "language": "IT",
+                    "text": "Quindi puoi sfruttare i tuoi token e la tua reputazione per partecipare ai Governance Programs.",
+                    "updated": 1666396125725
+                },
+                {
+                    "language": "NL",
+                    "text": "Dan kunt u uw tokens en reputatie gebruiken om deel te nemen aan Governance Programs.",
+                    "updated": 1667139310279
                 }
             ]
         },
@@ -135,6 +165,16 @@
                     "language": "RU",
                     "text": "Участие в управлении приносит вам больше токенов, поскольку помощь в руководстве проектом сама по себе является важным вкладом!",
                     "updated": 1642774867764
+                },
+                {
+                    "language": "IT",
+                    "text": "Partecipare alla governance ti fa guadagnare più token, dato che aiutare a dirigere il progetto è un contributo importante in sé e per sé!",
+                    "updated": 1666396197583
+                },
+                {
+                    "language": "NL",
+                    "text": "Door deel te nemen aan het bestuur verdien je meer tokens, omdat het helpen van het project op zich al een belangrijke bijdrage is!",
+                    "updated": 1667139333650
                 }
             ]
         },
@@ -166,8 +206,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вы можете заработать свои первые несколько токенов по программе Airdrops, просто создав свой профиль пользователя. Но прежде чем вы это сделаете, вам нужно пройти еще несколько уроков, чтобы завершить свое обучение!",
-                    "updated": 1642774889598
+                    "text": "Вы можете заработать свои первые несколько токенов в рамках программы Airdrop, просто создав свой профиль пользователя. Но прежде чем это сделать, вам нужно пройти еще несколько уроков, чтобы завершить свое обучение!",
+                    "updated": 1662036000342
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi guadagnare i tuoi primi token con l' Airdrop Program semplicemente impostando il tuo profilo utente. Ma prima di farlo, devi fare un altro paio di tutorial per completare la tua formazione!",
+                    "updated": 1666396250141
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt uw eerste paar tokens verdienen met het Airdrop Program door uw User Profile in te stellen. Maar voordat je dat doet, moet je nog een paar handleidingen doen om je opleiding te voltooien!",
+                    "updated": 1667139379823
                 }
             ]
         }

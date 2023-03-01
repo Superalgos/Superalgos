@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "El repositorio de Superalgos presenta tres ramas principales: master, develop, y el que estamos buscando, plugins-docs.",
-                "updated": 1628121680964,
+                "text": "El repositorio de Superalgos presenta dos ramas principales: Master y Develop.",
+                "updated": 1667508718420,
                 "style": "Definition"
             },
             {
@@ -36,8 +36,8 @@
             },
             {
                 "language": "RU",
-                "text": "Репозиторий Superalgos имеет две основные ветви: master и develop.",
-                "updated": 1641802450083
+                "text": "Репозиторий Superalgos имеет две основные ветви: Master и Develop.",
+                "updated": 1662032270767
             },
             {
                 "language": "TR",
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Master Branch: Es la versión estable del software. ¡Nunca envíes contribuciones a esta rama!",
-                    "updated": 1628121827428,
+                    "text": "Master Branch: contiene la versión estable del software. ¡Nunca envíes contribuciones a esta rama! ",
+                    "updated": 1667508817851,
                     "style": "List"
                 },
                 {
@@ -78,13 +78,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Master Branch: Представляет собой стабильную версию программного обеспечения. Никогда не вносите вклад в эту ветвь!",
-                    "updated": 1641802631503
+                    "text": "Ветка Master: содержит стабильную версию программного обеспечения. Никогда не вносите вклад в эту ветку!",
+                    "updated": 1662032257468
                 },
                 {
                     "language": "TR",
-                    "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
-                    "updated": 1639942204622
+                    "text": "Master Dalı: Yazılımın kararlı sürümünü içerir. Bu dala asla katkı göndermeyin!",
+                    "updated": 1665961671895
                 }
             ]
         },
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Develop Branch: Presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten al código base.",
-                    "updated": 1628121811043,
+                    "text": "Develop Branch: presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten a la base de código, traducciones, mejoras en los Docs, Tutoriales y Plugins como Data Mine, Trading System, etc.",
+                    "updated": 1667508980371,
                     "style": "List"
                 },
                 {
@@ -119,13 +119,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Develop Branch: Представляет версию, находящуюся в разработке. Вносите свой вклад в код, затрагивающий кодовую базу, переводы, улучшения в документации, учебники и плагины, такие как источники данных, торговые системы и так далее!",
-                    "updated": 1641802871638
+                    "text": "Ветка Develop: содержит версию, находящуюся в разработке. Вносите свой вклад в код, влияющий на кодовую базу, переводы, улучшения в документации, учебники и плагины, такие как шахты данных, торговые системы и так далее!",
+                    "updated": 1662032234549
                 },
                 {
                     "language": "TR",
-                    "text": "Develop Branch: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, Dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
-                    "updated": 1639942297409
+                    "text": "Develop Dalı: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
+                    "updated": 1665961827703
                 }
             ]
         },
@@ -139,6 +139,16 @@
                     "text": "Contributors kurulumunu kullanmıyorsanız, sonraki birkaç adımdaki dal değiştirme talimatlarını dikkate almayın. Devam etmek için İleri'ye tıklayın.",
                     "updated": 1654394226195,
                     "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не используете установку Contributors, проигнорируйте инструкции по переключению ветвей на следующих нескольких шагах. Просто нажмите кнопку Далее, чтобы продолжить.",
+                    "updated": 1662032297873
+                },
+                {
+                    "language": "ES",
+                    "text": "Ignore las instrucciones para cambiar de rama de los siguientes pasos si no está utilizando la instalación de Contributors. Simplemente haga clic en Siguiente para continuar.",
+                    "updated": 1667509026793
                 }
             ]
         }

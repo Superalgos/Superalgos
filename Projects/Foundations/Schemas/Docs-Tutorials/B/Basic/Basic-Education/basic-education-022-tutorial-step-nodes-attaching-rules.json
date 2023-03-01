@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Klik tombol help pada node Trading Parameters untuk mengakses halaman node Docs. Aku akan menunjukkan sesuatu kepada kamu...",
                 "updated": 1644947308982
+            },
+            {
+                "language": "NL",
+                "text": "Klik op de help-knop op het knooppunt Trading Parameters om toegang te krijgen tot de pagina Docs van het knooppunt. Ik ga je iets laten zien...",
+                "updated": 1668338430794
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Scroll halaman sampai ke bawah hingga kamu menemukan judul \"Trading Parameters Attaching Rules\".",
                     "updated": 1644947349857
+                },
+                {
+                    "language": "NL",
+                    "text": "Scrol de pagina helemaal naar beneden totdat u de titel \"Trading Parameters Attaching Rules\" vindt.",
+                    "updated": 1668338449894
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Setiap node dapat dilampirkan ke jenis node tertentu. Aturan dalam melampirkan ini tercantum pada halaman node di Docs.",
                     "updated": 1644947384200
+                },
+                {
+                    "language": "NL",
+                    "text": "Elk knooppunt kan aan bepaalde soorten knooppunten worden gekoppeld. Deze koppelregels worden vermeld op de pagina van het knooppunt in de Docs.",
+                    "updated": 1668338478962
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Ketika ada beberapa node yang dapat menerima koneksi, setiap kandidat menampilkan cincin abu-abu yang menunjukkan kesiapan mereka untuk meng-attach. Hanya kandidat yang lebih dekat ke node yang akan di attach dan tersorot dalam warna oranye.",
                     "updated": 1644949021786
+                },
+                {
+                    "language": "NL",
+                    "text": "Als er meerdere knooppunten zijn die de verbinding kunnen accepteren, geeft elke kandidaat een grijze ring weer die aangeeft dat ze klaar zijn om de verbinding te nemen. Alleen de kandidaat die zich het dichtst bij het te koppelen knooppunt bevindt, wordt oranje gemarkeerd.",
+                    "updated": 1668338522478
                 }
             ]
         }

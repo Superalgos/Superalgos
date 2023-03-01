@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Jika kamu seorang developer dan exchange pilihan kamu belum diuji, Kamu dapat bergabung dalam upaya dan membantu dalam pengujian!",
                 "updated": 1645559894532
+            },
+            {
+                "language": "NL",
+                "text": "Als u een ontwikkelaar bent en uw voorkeurs handelsplatform niet is getest, kunt u meedoen en helpen met testen!",
+                "updated": 1669548418660
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Topik dalam Docs ini menjelaskan cara men-debug Sensor Bot untuk membuatnya mengambil data dari exchange. Jika exchange mendukung fitur dasar yang diperlukan oleh Superalgos, Kamu berakhir dengan mendapatkan solusi!",
                     "updated": 1645559962595
+                },
+                {
+                    "language": "NL",
+                    "text": "In dit onderwerp in de Docs wordt uitgelegd hoe je de Sensor Bot kunt debuggen om ervoor te zorgen dat deze gegevens van een handelsplatform ophaalt. Als de uitwisseling de basisfuncties ondersteunt die Superalgos nodig heeft, zou je een oplossing moeten hebben!",
+                    "updated": 1669548461199
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Berbagi solusi dengan Komunitas adalah kontribusi yang berharga. Setiap orang yang datang berikutnya dapat menikmati exchange favorit mereka juga!",
                     "updated": 1645559987882
+                },
+                {
+                    "language": "NL",
+                    "text": "Het delen van de oplossing met de Community is een waardevolle bijdrage. Iedereen die daarna komt, kan ook genieten van zijn favoriete handelsplatform!",
+                    "updated": 1669548487268
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Kami sangat menyarankan kamu untuk menyelesaikan edukasimu di Superalgos dengan melakukan semua tutorial sebelum kamu terjun ke dalam pengaturan exchanges lainnya.",
                     "updated": 1645560045273
+                },
+                {
+                    "language": "NL",
+                    "text": "We raden je ten zeerste aan om je training van Superalgos te voltooien door alle zelfstudies te volgen voordat je je verdiept in het opzetten van andere handelsplatformen.",
+                    "updated": 1669548536900
                 }
             ]
         }

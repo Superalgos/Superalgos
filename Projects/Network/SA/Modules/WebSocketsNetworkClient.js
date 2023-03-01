@@ -30,7 +30,12 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
         thisObject.port = thisObject.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort
 
-        console.log('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        /*
+        DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+        */
+        /*      
+         console.log('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        */
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 
@@ -46,7 +51,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         await setUpWebSocketClient(socket)
 
+        console.log('')
         console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('')
         thisObject.socketNetworkClients.isConnected = true
 
     }
@@ -62,16 +69,19 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 socket.onopen = () => { onConnectionOpened() }
                 socket.onclose = () => { onConnectionClosed() }
                 socket.onerror = err => { onError(err) }
+                socket.on('ping', heartbeat)
 
                 function onConnectionOpened() {
-
+                    heartbeat()
                     thisObject.socketNetworkClients.handshakeProcedure(resolve, reject)
-
                 }
 
                 function onConnectionClosed() {
+                    clearTimeout(socket.pingTimeout)
                     if (thisObject.socketNetworkClients.isConnected === true) {
+                        console.log('')
                         console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('')
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)
@@ -81,7 +91,12 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onError(err) {
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
+                        /*
+                        DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                        */ 
+                        /*                        
                         console.log((new Date()).toISOString(), '[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        */
                         reject()
                         return
                     }
@@ -89,6 +104,17 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
+                }
+
+                /* This function awaits a heartbeat from the server every 30 seconds + 15 seconds grace and re-initializes if not received. Prevents hidden connection drops. Ensure timeout matches with WebSocketsInterface.js
+                Longer grace period is required due to large Bitcoin Factory files being transferred, this blocking the connection for the ping for a little while. 
+                */
+                function heartbeat() {
+                    clearTimeout(socket.pingTimeout)
+                    socket.pingTimeout = setTimeout(() => {
+                        console.log((new Date()).toISOString(), '[INFO] No Websockets heartbeat received from server, re-initializing connection...')
+                        socket.terminate()
+                    }, 30000 + 15000)
                 }
 
             } catch (err) {

@@ -1,4 +1,4 @@
-# :small_orange_diamond: Superalgos 1.2.0
+# :small_orange_diamond: Superalgos 1.3.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -84,6 +84,8 @@ We will briefly describe the options available. Click the link to go to the spec
 
 3. [Developers and Contributors](#small_orange_diamond-installation-for-developers-and-contributors) | This is the default installation for developers that wish to dive into the codebase and contribute to making Superalgos better. It is also the recommended installation for non-developers who wish to contribute improvements to the Docs, translations, design work, and so on. Instructions are available further down this same file.
 
+4. [Raspberry Pi](README_RaspberryPi.md) | Raspberry Pi installations are a great economical option for running a trading system. You will need to be comfortable with either options 2 or 3 above to proceed here.
+
 > :white_check_mark: **ABOUT REMOTE INSTALLATIONS AND MINIMALIST HARDWARE:** Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation, on a full-size PC. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
 
 > :white_check_mark: **EXPERIENCING ISSUES INSTALLING SUPERALGOS?** If you're having trouble installing or running the app for the first time, do not open an issue. Instead, join the [Support Telegram Group](https://t.me/superalgossupport) and follow the instructions on the pinned message to ask for help. You may also join the [new Discord Server](https://discord.gg/CGeKC6WQQb), but bear in mind that the response time tends to be longer. Online support is provided by volunteers — please provide clear information and sufficient context about the issue you are facing, and be mindful of people's time.
@@ -104,7 +106,7 @@ All procedures (other than pre-requisites) are the same for Windows, Linux, or M
 
 You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
-Follow the installation wizards to install the latest NodeJS and Git. If desired also install Chrome.
+Follow the installation wizards to install the latest NodeJS and Git. Make sure to follow all the default and recommended settings while installing Git. If desired also install Chrome.
 
 - [Node.js download page](https://nodejs.org/en/download/)
 
@@ -383,7 +385,13 @@ At the Plugins hierarchy, new guys appear, each one with their own type of plugi
 
 # :small_orange_diamond: Pre-Requisites Notes
 
-## Windows (Optional)
+## Windows Pre-Requisites
+
+When following the windows installer for Git, it is very important to make sure that you follow all the recommended and default settings. One of the most important one of these can be found in the screenshot below:
+
+![IMG_0764](https://user-images.githubusercontent.com/55707292/189213902-7f7b3642-545f-47a7-89fc-3c45971c885d.jpg)
+
+### Optional Windows Pre-Requisites
 
 For windows users interested in testing the (partial and incomplete) TensorFlow integration, you need to install Python.
 
@@ -518,6 +526,8 @@ nvm run node <command string/var>
 
 > :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX:** If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
 
+> :white_check_mark: **NOTE FOR USERS INSTALLING ON COMPUTERS WITH 1GB OF RAM** Superalgos has just about outgrown computers with only 1GB of RAM. For Instance a Raspberry Pi 3 does run the Getting Started Tutorials, but over time (Into 2023) this may significantly slow and could even stop. If still wish to use a computer with only 1GB of RAM (you have been warned), you will need to use version 16.x of Node.js as version 18.x needs well over 1 GB of RAM during setup. 
+
 ## General Troubleshooting
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
@@ -618,6 +628,15 @@ sudo mv superalgos.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable superalgos
 sudo systemctl start superalgos
+```
+To check the service status
+```sh
+sudo systemctl status superalgos
+```
+To stop the service:
+```sh
+sudo systemctl stop superalgos
+sudo systemctl disable superalgos
 ```
 
 To see the output of Superalgos, use:

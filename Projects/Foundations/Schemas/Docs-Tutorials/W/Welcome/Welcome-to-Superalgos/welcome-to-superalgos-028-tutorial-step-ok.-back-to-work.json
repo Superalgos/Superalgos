@@ -48,6 +48,11 @@
                 "language": "NL",
                 "text": "Nu je jouw weg kan vinden, stel ik voor dat je de Data Tasks sectie van de LAN Network Node gaat verkennen.",
                 "updated": 1636979006293
+            },
+            {
+                "language": "FR",
+                "text": "Maintenant que vous êtes à l'aise pour vous déplacer, je veux que vous fassiez un petit tour en explorant la section Data Tasks du nœud LAN Network.",
+                "updated": 1667986847452
             }
         ],
         "updated": 1636911021993
@@ -96,6 +101,11 @@
                     "language": "NL",
                     "text": "Let op het volgende:",
                     "updated": 1636979045649
+                },
+                {
+                    "language": "FR",
+                    "text": "Notez ce qui suit :",
+                    "updated": 1667986870588
                 }
             ]
         },
@@ -135,13 +145,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem şiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
-                    "updated": 1644909758082
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem çiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1665962753944
                 },
                 {
                     "language": "NL",
                     "text": "De sectie is eerst en vooral georganiseerd per project, exchange en markt. Dit helpt om overzichtelijk met meerdere exchanges en markten te werken.",
                     "updated": 1636979188178
+                },
+                {
+                    "language": "FR",
+                    "text": "La section est organisée, avant tout, par projet, exchange et marché. Cela vous aidera à travailler avec plusieurs exchanges et plusieurs marchés de manière ordonnée.",
+                    "updated": 1667986967018
                 }
             ]
         },
@@ -186,8 +201,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De Exchange Data Tasks en Market Data Tasks nodes controleren alle taken in de bijbehorende exchange en markt.",
-                    "updated": 1636979270117
+                    "text": "De Exchange Data Tasks en Market Data Tasks knooppunten controleren alle taken in de bijbehorende exchange en markt.",
+                    "updated": 1666615507258
+                },
+                {
+                    "language": "FR",
+                    "text": "Les nœuds Data Tasks et Market Data Tasks peuvent contrôler toutes les tâches de l'exchange et du marché respectivement.",
+                    "updated": 1667986975706
                 }
             ]
         },
@@ -234,6 +254,11 @@
                     "language": "NL",
                     "text": "Verken de nodes en hun menu's maar eens!",
                     "updated": 1636979384554
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez voir ces nœuds et leurs menus !",
+                    "updated": 1667986996004
                 }
             ]
         }

@@ -29,8 +29,8 @@
             },
             {
                 "language": "FR",
-                "text": "Les tutoriels sont définis a l'interieur du système, et vous pouvez en créer d'autres si vous le souhaitez ! Mais nous parlerons de ces facilitées plus tard. Concentrez-vous d'abord sur les bases !",
-                "updated": 1623950810074,
+                "text": "Les tutoriels sont définis a l'intérieur du système, et vous pouvez en créer d'autres si vous le souhaitez! Mais nous parlerons de ces possibilités plus tard. Concentrez-vous d'abord sur les bases!",
+                "updated": 1666252678148,
                 "style": "Definition"
             },
             {
@@ -83,8 +83,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Superalgos est par nature un outil visuel. Le système représente l'information dans des structures hiérarchiques de nœuds interconnectés, représentés par des icônes. Ce que vous voyez à votre droite est l'une de ces hiérarchies - en particulier, une hiérarchie Tutorial. Dans ce cas, \"tutoriel\" est le type de nœud et \"Bienvenue à Superalgos !\" est le nom du nœud.",
-                    "updated": 1623951170653,
+                    "text": "Superalgos est par nature un outil visuel. Le système représente l'information dans des structures hiérarchiques de nœuds interconnectés, représentés par des icônes. Ce que vous voyez à votre droite est l'une de ces hiérarchies - en particulier, une hiérarchie Tutorial. Dans ce cas, \"tutoriel\" est le type de nœud et \"Welcome to Superalgos!\" est le nom du nœud.",
+                    "updated": 1666252755814,
                     "style": "Text"
                 },
                 {

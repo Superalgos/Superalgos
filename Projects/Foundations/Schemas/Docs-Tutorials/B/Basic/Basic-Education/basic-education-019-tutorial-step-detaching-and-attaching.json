@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Sekarang ikuti petunjukku! Kita tidak benar-benar akan menguji strategi dengan parameter yang berbeda... kita hanya mensimulasikan contoh!",
                 "updated": 1644516411526
+            },
+            {
+                "language": "NL",
+                "text": "Volg nu mijn voorbeeld! We gaan de strategie niet echt testen met verschillende parameters... we simuleren gewoon een scenario!",
+                "updated": 1668338327828
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Mari kita berpura-pura memodifikasi Trading Parameters dan sekarang kita ingin kembali menggunakan yang asli. Kita sudah memiliki cadangan di design space - terlepas dari hierarki - dan kita perlu mengganti node Trading Parameters dengan cadangan yang ada.",
                     "updated": 1644516533756
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we doen alsof we de Trading Parameters hebben gewijzigd en nu willen we teruggaan naar het gebruik van de originele. We hebben de back-up al in de ontwerpruimte - los van de hiërarchie - en we moeten het bestaande knooppunt Trading Parameters vervangen door de back-up.",
+                    "updated": 1668337848408
                 }
             ]
         },
@@ -91,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Apri il menù del nodo Trading Parameters in uso (quello attaccato al nodo Backtesting Session) e clicca il pulsante Detach Node. Il nodo si separerà dalla gerarchia, e potrai metterlo da parte!",
-                    "updated": 1619466659809,
+                    "text": "Apri il menù del nodo Trading Parameters in uso - quello attaccato al nodo Backtesting Session- e clicca due volte il pulsante Detach Node. Il nodo si separerà dalla gerarchia! Ora puoi muoverlo di lato.",
+                    "updated": 1666638463081,
                     "style": "Callout"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Buka node Trading Parameters yang saat ini digunakan - yang terpasang pada node Backtesting Session - dan klik dua kali tombol Detach Node. Node telah terpisah dari hierarki! kamu sekarang dapat memindahkannya ke samping!",
                     "updated": 1644516667771
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het knooppunt Trading Parameters dat momenteel in gebruik is - het knooppunt dat is gekoppeld aan het knooppunt Backtesting Session - en dubbelklik op de knop Detach Node. Het knooppunt scheidt zich van de hiërarchie! U kunt het nu naar de zijkant verplaatsen!",
+                    "updated": 1668337898277
                 }
             ]
         }

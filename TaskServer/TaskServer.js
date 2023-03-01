@@ -85,27 +85,27 @@ exports.newTaskServer = function newTaskServer() {
             try {
                 initializeProjectDefinitionNode()
                 setupTradingSignals()
-                await setupOpenStorage()
-                await setupP2PNetwork()
                 setupTaskHeartbeats()
+                await setupOpenStorage()
+                await setupP2PNetworkClient()
                 startProcesses()
 
                 function initializeProjectDefinitionNode() {
                     TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE === undefined) {
-                        console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ")
+                        console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
                     }
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === undefined) {
-                        console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ")
+                        console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition with codeName undefined. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
                     }
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === '') {
-                        console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition without codeName. ")
+                        console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> Project Definition without codeName. ')
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition without codeName. Fatal Error, can not continue. Fix the problem and try again.'
                         TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess
                         throw ('Fatal Error')
@@ -148,44 +148,69 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
                         SA.projects.openStorage.modules.openStorageClient.newOpenStorageModulesOpenStorageClient()
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.initialize()
-
-                    //TEST IT FROM HERE.
-
-                    //let data = "This is the File Content, test 1 file per second."
-
-                    //TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(data)
-
-                    //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(fileName, filePath)
-                    //console.log(receivedFileContent)
                 }
 
-                async function setupP2PNetwork() {
+                async function setupP2PNetworkClient() {
                     /*
-                    If we received a App Server Reference Node and a Signing Account, then we will connect to the P2P Network
+                    A Network Client will be setup only if the Task node has a P2P Network Client node.                    
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient === undefined
+                    ) {
+                        return
+                    }
+                    /*
+                    The Task needs to Identify itself against the P2P Network with a Signing Account, and for that it needs to 
+                    reference to an App Server. If we don't find that, then we can not continue.
                     */
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount === undefined
                     ) {
-                        return
+                        console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a taskServerAppReference referencing an App Server with a Signing Account in order for this task to be able to connect to the P2P Network. ')
+                        throw ('Fatal Error')
+                    }
+                    /*
+                    The Network Client needs to know which type of network and which specific network to connect to. In order to do that. 
+                    a P2P Network Reference must be present and pointing to a P2P Network. If we don't find that, then we can not continue.
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.config.codeName === undefined
+                    ) {
+                        console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> setupP2PNetworkClient -> The Task needs to have a p2pNetworkReference referencing a P2P Network or Permissioned P2P Network with a codeName config property in order for this task to be able to connect to the P2P Network. ')
+                        throw ('Fatal Error')
                     }
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
                     /*
                     We set up the P2P Network Client.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+                    /*
+                    We setup the callback function for the circunstances that we receive a message comming from the P2P Network that is not the response to a request sent, but a notification.
+                    */
                     let eventReceivedCallbackFunction
+                    /*
+                    For now, if Trading Signals is activated, then we will assume that the incoming notifications are in fact Signals. In the future this assumption should be removed once we have another use case for notifications and this should be generalized. 
+                    */
                     if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
                         eventReceivedCallbackFunction = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
                     }
+                    /*
+                    Here is where we do initialize the Network Client.
+                    */
+                    TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Synchronising User Profiles", false)
+
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
-                        global.env.DESKTOP_TARGET_NETWORK_TYPE,
-                        global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.type,
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.config.codeName,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
-                        eventReceivedCallbackFunction
+                        eventReceivedCallbackFunction,
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient // This parameter is sent only when initialized by a Tast Server. 
                     )
                 }
 

@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Теперь пришло время запустить задачу Data Tasks.",
                 "updated": 1642771016656
+            },
+            {
+                "language": "NL",
+                "text": "Nu is het tijd om uw Data Tasks operatie op te starten.",
+                "updated": 1667127403763
             }
         ]
     },
@@ -50,8 +55,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Seleziona Run All Project Data Tasks dal menù.",
-                    "updated": 1618071069199,
+                    "text": "Seleziona \"Run All Project Data Tasks\" dal menù.",
+                    "updated": 1666393729686,
                     "style": "Callout"
                 },
                 {
@@ -67,8 +72,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Menüden Tüm Proje Veri Görevlerini ( Run All Project Data Tasks ) Çalıştır'ı seçin.",
-                    "updated": 1636571851561
+                    "text": "Menüden ''Tüm Proje Veri Görevlerini Çalıştır''ı ( Run All Project Data Tasks ) seçin.",
+                    "updated": 1666065735195
                 },
                 {
                     "language": "ID",
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Выберите в меню \"Run all project data tasks\" (Выполнить все задачи данных проекта).",
                     "updated": 1642771038600
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer \"Run all project data tasks\" in het menu.",
+                    "updated": 1667127444843
                 }
             ],
             "updated": 1636911854931
@@ -118,6 +128,11 @@
                     "language": "RU",
                     "text": "Мы дадим ему несколько минут, чтобы догнать текущее время. Помните, что все индикаторы должны достигнуть 100%, прежде чем мы сможем начать торговлю!",
                     "updated": 1642771055086
+                },
+                {
+                    "language": "NL",
+                    "text": "We geven het een paar minuten om bijgewerkt te raken met het huidige moment. Onthoud dat alle indicatoren 100% moeten bereiken voordat we kunnen beginnen met handelen!",
+                    "updated": 1667127497107
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "language": "RU",
                     "text": "Если вы не собираетесь проводить реальный сеанс, вам не нужно запускать Data Tasks. Просто продолжайте, чтобы узнать, как работает процесс.",
                     "updated": 1642771104128
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de live sessie niet gaat uitvoeren, hoeft u de gegevenstaken niet te starten. Blijf gewoon doorgaan om te leren hoe het proces werkt.",
+                    "updated": 1667127525211
                 }
             ]
         }

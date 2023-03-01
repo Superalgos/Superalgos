@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Versi terbaru Superalgos menampilkan integrasi eksperimental TensorFlow untuk memanfaatkan leverage ML dari dalam aplikasi!",
                 "updated": 1639746338118
+            },
+            {
+                "language": "NL",
+                "text": "De nieuwste versie van Superalgos bevat een experimentele integratie van TensorFlow om ML vanuit de app te benutten!",
+                "updated": 1666786652446
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Integrasi tersebut memetakan definisi NodeJS TensorFlow Library yang menampilkan algoritme Supervised Learning dan Artificial Neural Network dalam jenis struktur nodes yang sama dengan Superalgos.",
                     "updated": 1639746418118
+                },
+                {
+                    "language": "NL",
+                    "text": "De integratie brengt de definitie van een NodeJS TensorFlow Library met een Supervised Learning algoritme en het Artificial Neural Network in kaart in dezelfde soort knooppuntenstructuur die typisch is voor Superalgos.",
+                    "updated": 1666786747652
                 }
             ]
         },
@@ -108,18 +118,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Entegrasyon, Superalgos altyapısından yararlanır, böylece veri kümelerinizi Makine öğrenimi (ML) algoritmalarını eğitmek için kullanabilir ve elde edilen modelleri ticaret sistemlerinizde kullanabilirsiniz!",
-                    "updated": 1636109892078
+                    "text": "Entegrasyon, Superalgos altyapısının yararlanır, böylece ML (Makine Öğrenimi) algoritmalarını eğitmek için veri kümelerinizi kullanabilir ve elde edilen modelleri ticaret sistemlerinden kullanabilirsiniz!",
+                    "updated": 1666064821513
                 },
                 {
                     "language": "RU",
-                    "text": "Интеграция использует остальную инфраструктуру Superalgos, поэтому Вы можете использовать свои наборы данных для обучения алгоритмов ML и использовать полученные модели в торговых системах.",
-                    "updated": 1636749603540
+                    "text": "Интеграция использует остальную инфраструктуру Superalgos, так что вы можете использовать свои наборы данных для обучения ML-алгоритмов и использовать полученные модели в торговых системах! ",
+                    "updated": 1662033307851
                 },
                 {
                     "language": "ID",
                     "text": "Integration leverages adalah sisa infrastruktur Superalgos, sehingga kamu dapat menggunakan kumpulan data untuk melatih ML algos dan menggunakan model yang dihasilkan dari dalam sistem trading!",
                     "updated": 1639747091448
+                },
+                {
+                    "language": "NL",
+                    "text": "De integratie maakt gebruik van de rest van de Superalgos-infrastructuur, zodat u uw datasets kunt gebruiken om ML-algo's te trainen en de resulterende modellen te gebruiken in handelssystemen!",
+                    "updated": 1666786808238
                 }
             ]
         },
@@ -152,13 +167,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Позже взгляните на ML CrossCategoricalEntropy Demo Plugin Workspace!",
-                    "updated": 1636749639894
+                    "text": "Присоединяйтесь к группе разработчиков Superalgos (Superalgos Develop Group), если вы хотите помочь завершить и протестировать интеграцию! ",
+                    "updated": 1662033349260
                 },
                 {
                     "language": "ID",
                     "text": "Nanti, lihat Ruang Kerja Plugin Demo CrossCategoricalEntropy ML!",
                     "updated": 1639746475344
+                },
+                {
+                    "language": "NL",
+                    "text": "Word lid van de Superalgos Develop Group als je wilt helpen de integratie af te werken en te testen!",
+                    "updated": 1666786831445
                 }
             ]
         }

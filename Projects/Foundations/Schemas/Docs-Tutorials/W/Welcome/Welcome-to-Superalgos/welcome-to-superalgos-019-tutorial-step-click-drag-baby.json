@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede!",
                 "updated": 1635944955783
+            },
+            {
+                "language": "FR",
+                "text": "Je veux te montrer quelque chose pendant que l'opération d'extraction de données progresse. Je vais t'apprendre à marcher... en deux secondes !",
+                "updated": 1667204284159
             }
         ]
     },
@@ -97,6 +102,11 @@
                     "language": "TR",
                     "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle-Bırak gibi.",
                     "updated": 1644850449377
+                },
+                {
+                    "language": "FR",
+                    "text": "Il suffit de cliquer et de glisser avec votre souris !",
+                    "updated": 1667204299017
                 }
             ]
         },
@@ -119,8 +129,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el espacio de diseño es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
-                    "updated": 1618435473213,
+                    "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el Design Space es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
+                    "updated": 1668195607014,
                     "style": "Text"
                 },
                 {
@@ -131,20 +141,25 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Gemakkelijk toch? Echter de ontwerpruimte is enorm en ik zou niet willen dat je muisarm krijgt als je zo rondsleept.",
-                    "updated": 1634927028615,
+                    "text": "Gemakkelijk toch? Echter de Design Space is enorm en ik zou niet willen dat je een muisarm krijgt als je zo rondsleept.",
+                    "updated": 1666613317769,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Легко, правда? Отлично! Однако пространство проектирования огромно, и я бы не хотел, чтобы вы заработали тендинит, таскаясь по нему таким образом.",
-                    "updated": 1641808583773,
+                    "text": "Легко, правда? Отлично! Однако пространство Design Space очень велико, и я бы не хотел, чтобы вы заработали тендинит, таскаясь по нему таким образом.",
+                    "updated": 1662032558703,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Kolay değil mi? Harika! Ancak tasarım alanı çok büyük bir yer.",
-                    "updated": 1635945059358
+                    "text": "Kolay değil mi? Harika! Ancak tasarım alanı çok büyük bir yer. Ama bu şekilde dolaşarak eklemlerine zarar vermeni istemem.",
+                    "updated": 1665963428174
+                },
+                {
+                    "language": "FR",
+                    "text": "Facile, non ? Génial ! Cependant, le Design Space est immense et je ne voudrais pas que vous ayez une tendinite en vous déplaçant comme cela.",
+                    "updated": 1667204335228
                 }
             ]
         },
@@ -192,6 +207,11 @@
                     "language": "TR",
                     "text": "Sonraki birkaç adımda size birkaç numara daha öğreteceğim.",
                     "updated": 1635945085983
+                },
+                {
+                    "language": "FR",
+                    "text": "Je vais t'apprendre d'autres astuces dans les prochaines étapes.",
+                    "updated": 1667204354547
                 }
             ]
         }

@@ -1,0 +1,67 @@
+{
+    "topic": "Dark Charting Space Themes",
+    "pageNumber": "2",
+    "type": "Space Grey",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1661949616257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yaratıcı",
+                    "updated": 1666641709428
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @9808us.",
+            "updated": 1661950318234
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/9808us"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/us9808"
+        },
+        {
+            "style": "Title",
+            "text": "Images",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ekran Görüntüsü",
+                    "updated": 1666641725596
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs\\Foundations\\Docs\\Charts\\dark-theme-space-grey-9808us.png",
+            "updated": 1661950288257
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Space Style Konfigürasyonu",
+                    "updated": 1666641742742
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.GREY\",\n    \"indicatorDropDownPanelOpacity\": \"0.34\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.GREY\",\n    \"indicatorFrameBackgroundOpacity\": \"0.14\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.TRUE_GREEN\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.GREEN\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.DARK\",\n    \"indicatorLayersPanelOpacity\": \"0.26\",\n    \"indicatorPanelBackgroundColor\": \"UI_COLOR.GREEN\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarOpacity\": \"0.26\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n    \"machineFrameColor\": \"UI_COLOR.GREY\",\n    \"machineFrameOpacity\": \"0.73\",\n    \"panelBackgroundColor\": \"UI_COLOR.GREY\",\n    \"panelBackgroundOpacity\": \"0.17\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n    \"panelNameColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeMachineNameColor\": \"UI_COLOR.GREY\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"minCursorSize\": \"200\",\n    \"maxCursorSize\": \"600\"\n}",
+            "updated": 1662556794104
+        }
+    ]
+}

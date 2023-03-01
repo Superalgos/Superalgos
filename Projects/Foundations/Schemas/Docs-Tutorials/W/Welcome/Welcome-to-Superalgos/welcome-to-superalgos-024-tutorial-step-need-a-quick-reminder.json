@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "Bu noktada, muhtemelen hipokampüsünüzden taşıyorum! Ama merak etmeyin... önceki herhangi bir adıma geri dönebilirsiniz!",
                 "updated": 1635952703561
+            },
+            {
+                "language": "FR",
+                "text": "A ce stade, je suis probablement en train de faire fumer votre cerveau ! Mais ne vous inquiétez pas... vous pouvez revenir à n'importe quelle étape précédente !",
+                "updated": 1667205283458
             }
         ]
     },
@@ -71,8 +76,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si necesitas un recordatorio sobre estos temas...",
-                    "updated": 1625871978228,
+                    "text": "Si alguna vez necesita un recordatorio sobre cualquiera de estos temas, puede repetir cualquier Tema o Paso del Tutorial",
+                    "updated": 1668196095962,
                     "style": "Text"
                 },
                 {
@@ -83,8 +88,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Heb je een reminder nodig over deze onderwerpen?",
-                    "updated": 1635181965170,
+                    "text": "Als je ooit een herinnering over een van deze onderwerpen nodig hebt, kun je elk Tutorial Topic of Tutorial Step herhalen.",
+                    "updated": 1666614075957,
                     "style": "Text"
                 },
                 {
@@ -97,6 +102,11 @@
                     "language": "TR",
                     "text": "Bu konulardan biri hakkında bir hatırlatmaya ihtiyacınız olursa, herhangi bir Eğitim Konusunu veya Eğitim Adımını tekrar oynatabilirsiniz.",
                     "updated": 1644908363400
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous avez besoin d'un rappel sur l'un de ces sujets, vous pouvez rejouer n'importe quel Tutorial ou étape du Tutorial.",
+                    "updated": 1667205330776
                 }
             ],
             "updated": 1636910771339
@@ -114,6 +124,21 @@
                     "language": "RU",
                     "text": "Вы можете найти меня в левом нижнем углу пространства проектирования (Design Space), просмотреть иерархию тем и шагов и нажать кнопку Play на любом из них. Темы расположены по часовой стрелке, начиная с правой стороны главного узла Tutorial.",
                     "updated": 1641809006337
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt mij vinden in de linkerbenedenhoek van de ontwerpruimte, blader door de hiërarchie van onderwerpen en stappen en klik op een van hen op Play. Onderwerpen zijn met de klok mee gerangschikt, beginnend vanaf de rechterkant van het hoofd Tutorial knooppunt.",
+                    "updated": 1666614153326
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez me trouver dans le coin inférieur gauche de l'espace de conception, parcourir la hiérarchie des sujets et des étapes, et cliquer sur Play sur l'un d'entre eux. Les sujets sont disposés dans le sens des aiguilles d'une montre, en partant de la droite du nœud principal du Tutorial.",
+                    "updated": 1667205383606
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes encontrarme en la esquina inferior izquierda del espacio de diseño, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal del Tutorial.",
+                    "updated": 1668196168066
                 }
             ]
         },
@@ -148,8 +173,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "\"Need a Quick Reminder?\" Vind deze stap onder het \"Tutorials & Help\" onderwerp. Klik dan op Stop en herstart door op Play te klikken van de Tutorial Step!",
-                    "updated": 1635182294956,
+                    "text": "\"Need a Quick Reminder?\" Vind deze stap onder het \"Tutorials & Help\" onderwerp hieronder. Klik dan op Stop en herstart door op Play te klikken van de Tutorial Step!",
+                    "updated": 1666614218818,
                     "style": "Callout"
                 },
                 {
@@ -162,6 +187,11 @@
                     "language": "TR",
                     "text": "\"Hızlı Bir Hatırlatıcıya mı ihtiyacınız var?\" Bu adımı aşağıdaki \"Tutorials\" başlığı altında bulun. Ardından Durdur'a tıklayın ve söz konusu Eğitim Adımında ( Tutorial Step ) Oynat'a tıklayarak yeniden başlatın!",
                     "updated": 1644908584946
+                },
+                {
+                    "language": "FR",
+                    "text": "\"Besoin d'un rappel rapide ?\" Trouvez cette étape dans la rubrique \"Tutoriels et aide\" ci-dessous. Cliquez ensuite sur Stop, et redémarrez en cliquant sur Play sur l'étape du tutoriel en question !",
+                    "updated": 1667205405413
                 }
             ]
         }

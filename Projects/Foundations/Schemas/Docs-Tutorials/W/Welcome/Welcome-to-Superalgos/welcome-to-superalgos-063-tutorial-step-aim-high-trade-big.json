@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Bayangkan pasukan bot bekerja dengan banyak exchanges, markets,  dan strategi, berjalan di jaringan yang dikatakan trading farm.",
                 "updated": 1639711890257
+            },
+            {
+                "language": "NL",
+                "text": "Stel je een leger van bots voor die werken met meerdere handelsplatformen, markten en strategieën, draaiend op een netwerk à la een handels centrum.",
+                "updated": 1666786393792
             }
         ],
         "updated": 1622200549490
@@ -69,8 +74,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ Düğümü bununla ilgili. Şimdiye kadar gördükleriniz tek bir makinede çalışıyor. Fakat...",
-                    "updated": 1636109072742
+                    "text": "Ağ Düğümü (Lan Network Node) bununla ilgili. Şimdiye kadar gördükleriniz tek bir makinede çalışıyor. Fakat...",
+                    "updated": 1665964343549
                 },
                 {
                     "language": "RU",
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Itulah yang dimaksud dengan Network Node. Apa yangkamu lihat sejauh ini berjalan pada satu mesin. Tetapi...",
                     "updated": 1639711924341
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is waar de LAN Network Node over gaat. Wat je tot nu toe hebt gezien, draait op een enkele machine. Maar...",
+                    "updated": 1666786416495
                 }
             ]
         },
@@ -108,18 +118,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabilmeniz anlamına gelir.",
-                    "updated": 1636109149775
+                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar olmasını sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabilmeniz anlamına gelir.",
+                    "updated": 1665964494747
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos поддерживает распределения и координацию задач между сетями узлов, на которых работает Client! Это обеспечивает интеллектуальные и масштабные операции. Любая машина, на которой работает графический интерфейс, может управлять предприятием!",
-                    "updated": 1636747776256
+                    "text": "Superalgos поддерживает распределение и координацию задач между сетями узлов, на которых запущен Client! Это обеспечивает масштабируемость операций: любая машина с UI может управлять деятельностью организации! ",
+                    "updated": 1662033255328
                 },
                 {
                     "language": "ID",
                     "text": "Superalgos mendukung pendistribusian dan koordinasi tugas di seluruh jaringan node yang menjalankan Client! Hal ini memungkinkan operasi yang cerdas dan terukur. Setiap mesin yang menjalankan GUI dapat mengontrol perusahaan!",
                     "updated": 1639712035776
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos ondersteunt het verdelen en coördineren van taken over netwerken van knooppunten waarop de Client draait! Dit maakt schaalbare bewerkingen mogelijk: elke machine waarop de UI draait, kan de onderneming besturen!",
+                    "updated": 1666786515191
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Kamu dapat mengatur jaringan dengan beberapa Raspberry Pi, industrial-grade datacenter, atau apa pun di antaranya.",
                     "updated": 1639711978226
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt een netwerk opzetten met een paar Raspberry Pi's, een datacenter van industriële kwaliteit of iets daartussenin.",
+                    "updated": 1666786561759
                 }
             ],
             "updated": 1629821982211

@@ -41,6 +41,16 @@
                 "language": "RU",
                 "text": "Итак, наконец-то, Вы находитесь внутри диаграммы. Первое, что Вым захочется сделать  - это осмотреться и узнать, что эти диаграммы могут сделать для Вас.",
                 "updated": 1636205299823
+            },
+            {
+                "language": "NL",
+                "text": "U bevindt zich dus eindelijk in een grafiek. Het eerste dat u wilt doen, is rondlopen en ontdekken wat deze grafieken voor u kunnen doen.",
+                "updated": 1666700113409
+            },
+            {
+                "language": "FR",
+                "text": " Vous êtes enfin dans un graphique. La première chose à faire est de vous déplacer et d'apprendre ce que ces graphiques peuvent faire pour vous.",
+                "updated": 1668068895116
             }
         ]
     },
@@ -81,6 +91,16 @@
                     "language": "RU",
                     "text": "В заключении процесса! Как и в пространстве проектирования, когда Вы находитесь внутри машины времени, Вы перемещаетесь с помощью мыши и клавиатуры. Как это происходит:",
                     "updated": 1636205706347
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we daarmee aan de slag gaan! Net als in de ontwerpruimte - in een time machine- beweeg je met je muis en je toetsenbord. Dit is hoe:",
+                    "updated": 1666700147331
+                },
+                {
+                    "language": "FR",
+                    "text": "Allons-y ! Comme dans l'espace de conception - à l'intérieur d'une time machine - vous vous déplacez en utilisant votre souris et votre clavier. Voilà comment :",
+                    "updated": 1668068924458
                 }
             ]
         },
@@ -120,6 +140,16 @@
                     "language": "RU",
                     "text": "С помощью мыши: щелкните левой кнопкой мыши и перетащите. С помощью клавиатуры: используйте клавиши со стрелками ← → ↑ ↓.",
                     "updated": 1636205526304
+                },
+                {
+                    "language": "NL",
+                    "text": "Met de muis, klik met de linkermuisknop en sleep. Of gebruik op het toetsenbord de pijltjestoetsen: ← → ↑ ↓",
+                    "updated": 1666700191754
+                },
+                {
+                    "language": "FR",
+                    "text": "Avec la souris, cliquez sur le bouton gauche et faites glisser. Avec le clavier, utilisez les touches fléchées : ← → ↑ ↓",
+                    "updated": 1668068949299
                 }
             ]
         },
@@ -159,6 +189,16 @@
                     "language": "RU",
                     "text": "Что? Это не работает? У Вас все еще заморожен график как на видео в следующем шаге? Не беспокойтесь! Я знаю, что происходит.",
                     "updated": 1636205608008
+                },
+                {
+                    "language": "NL",
+                    "text": "Wat? Het werkt niet? Zit je vast met een bevroren grafiek? Zoals in de video over de volgende stap? Maak je geen zorgen! Ik weet wat er aan de hand is...",
+                    "updated": 1666700223682
+                },
+                {
+                    "language": "FR",
+                    "text": "Quoi ? Ça ne marche pas ? Tu es coincé avec un graphique gelé ? Comme dans la vidéo de l'étape suivante ? Ne vous inquiétez pas ! Je sais ce qui se passe...",
+                    "updated": 1668068971099
                 }
             ]
         }

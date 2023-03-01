@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Berbicara tentang pengujian exchanges dan plugin, ada satu workspace plugin yang dapat kamu gunakan sebagai batu tulis bersih saat mendesain barang baru!",
                 "updated": 1645560408483
+            },
+            {
+                "language": "NL",
+                "text": "Over geteste handelsplatformen en plugins gesproken, er is één werkruimte voor plugins die u kunt gebruiken als een schone lei bij het ontwerpen van nieuwe dingen!",
+                "updated": 1669548607915
             }
         ]
     },
@@ -52,8 +57,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "È il Tested Exchanges Plugin Workspace!",
-                    "updated": 1619591552367,
+                    "text": "È il Blank Template Plugin Workspace!",
+                    "updated": 1666641689504,
                     "style": "Note"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Itulah Blank Template Plugin Workspace!",
                     "updated": 1645561606714
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is de Blank Template Plugin Workspace!",
+                    "updated": 1669548623802
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Setelah kamu menyelesaikan edukasi awal kamu dengan melakukan semua tutorial yang ada, kamu akhirnya akan siap untuk mulai membangun Trading System kamu sendiri. Ini adalah workspace plugin yang dapat kamu gunakan untuk tujuan tersebut!",
                     "updated": 1645560511328
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je eenmaal je initiële training hebt voltooid door alle bestaande zelfstudies te volgen, ben je uiteindelijk klaar om te beginnen met het bouwen van je eigen Trading System. Dit is de plugin werkruimte die u voor dat doel kunt gebruiken!",
+                    "updated": 1669548695322
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Ini fitur Trading System bersih langsung dari kotak, Install New Market Tutorial, dan jajaran exchanges teruji yang dapat kamu gunakan.",
                     "updated": 1645560581373
+                },
+                {
+                    "language": "NL",
+                    "text": "Het beschikt over een schoon Trading System direct uit de doos, de New Market Tutorial en de reeks geteste handelsplatformen die u mogelijk gebruikt.",
+                    "updated": 1669548778835
                 }
             ]
         }

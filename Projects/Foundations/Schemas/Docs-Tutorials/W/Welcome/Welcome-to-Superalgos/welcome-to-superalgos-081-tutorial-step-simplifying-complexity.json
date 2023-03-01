@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Мы не обсуждали торговые системы как структуру, но особенность, имеющая отношение к данному объяснению, заключается в том, что они могут работать с несколькими стратегиями.",
                 "updated": 1642768818669
+            },
+            {
+                "language": "NL",
+                "text": "We hebben handelssystemen niet als een raamwerk besproken, maar een functie die relevant is voor deze uitleg is dat ze meerdere strategieën kunnen hanteren.",
+                "updated": 1667127887994
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "В каждой стратегии есть стадия открытия (Open Stage) и стадия закрытия (Close Stage), каждая из которых имеет свои собственные определения исполнения. Каждый этап может иметь несколько алгоритмов исполнения, и каждый алгоритм может обрабатывать несколько ордеров.",
                     "updated": 1642768868693
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke strategie heeft een Open Stage en een Close Stage, elk met zijn eigen uitvoeringsdefinities. Elke fase kan meerdere uitvoeringsalgoritmen bevatten en elk algoritme kan meerdere orders verwerken.",
+                    "updated": 1667127913392
                 }
             ]
         },
@@ -155,6 +165,11 @@
                     "language": "RU",
                     "text": "Superalgos разбивает каждую проблему до минимального выражения и интегрирует решения. Таким образом, он позволяет вам разрабатывать, внедрять и управлять как простыми, так и самыми сложными торговыми сетапами, которые вы только можете себе представить.",
                     "updated": 1642769002941
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos splitst elk probleem in kleine stukken en integreert de oplossingen. Op deze manier kunt u zowel eenvoudige als de meest complexe handel strategieën die u zich kunt voorstellen, ontwerpen, implementeren en beheren.",
+                    "updated": 1667128078913
                 }
             ]
         }

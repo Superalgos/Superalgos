@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Apa yang baru saja kamu alami adalah definisi dari Limit Buy Order yang ditempatkan dan dibatalkan setiap menit hingga terisi.",
                 "updated": 1640565182226
+            },
+            {
+                "language": "NL",
+                "text": "Wat u zojuist hebt doorgenomen, is de definitie van de Limit Buy Order die elke minuut wordt geplaatst en geannuleerd totdat deze wordt gevuld.",
+                "updated": 1666880047126
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Ini adalah node yang menentukan tingkat limit order. Ingat apa yang telah kita bahas sebelumnya tentang menempatkan pesanan pada tingkat support level keempat?",
                     "updated": 1640565227794
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is het knooppunt dat de snelheid van de limietorder bepaalt. Weet je nog wat we eerder hebben besproken over het plaatsen van de order tegen het tarief van het vierde ondersteuningsniveau?",
+                    "updated": 1666880085030
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "Pergi ke Formula yang dilampirkan ke node Order Rate dan klik Edit pada menu.",
                     "updated": 1640565275893
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de Formula die is gekoppeld aan het knooppunt Order Rate en klik op Edit in het menu.",
+                    "updated": 1666880123610
                 }
             ]
         },
@@ -156,6 +171,11 @@
                     "language": "ID",
                     "text": "Nah... begitulah caranya! Seperti yang kamu lihat, syntax hampir cukup jelas! Ini melibatkan pendefinisian time frame, indicator, dan indicator property yang terlibat.",
                     "updated": 1640565373278
+                },
+                {
+                    "language": "NL",
+                    "text": "Nou... zo wordt het gedaan! Zoals u kunt zien, is de syntaxis vrijwel vanzelfsprekend! Het omvat het definiëren van het tijdsbestek, de indicator en de betreffende indicatoreigenschap.",
+                    "updated": 1666880176910
                 }
             ]
         }

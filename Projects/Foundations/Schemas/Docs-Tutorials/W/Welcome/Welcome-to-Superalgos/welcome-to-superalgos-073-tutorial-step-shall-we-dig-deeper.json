@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Logika di balik penempatan buy orders dipengaruhi oleh bot indikator Resistances and Supports dari Masters Data Mine yang kamu jalankan sebelumnya.",
                 "updated": 1640563162570
+            },
+            {
+                "language": "NL",
+                "text": "De logica achter het plaatsen van kooporders wordt beïnvloed door de Resistance en Support indicatorbot van de Masters Data Mine die u eerder heeft uitgevoerd.",
+                "updated": 1666878587844
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Aku mengambil kebebasan untuk mengaktifkan Supports layer untuk menunjukkan keindahan ini kepadamu... Aku harap kamu tidak keberatan!",
                     "updated": 1640563232488
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb de vrijheid genomen om de Supports laag aan te zetten om je deze schoonheid te laten zien... Ik hoop dat je het niet erg vindt!",
+                    "updated": 1666878618043
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "Indikator mengidentifikasi level (price ranges) di mana harga direject, dan menghitung berapa banyak rejection yang terjadi hingga level tersebut ditembus.",
                     "updated": 1640563498475
+                },
+                {
+                    "language": "NL",
+                    "text": "De indicator identificeert niveaus (prijs bereiken) waarop de prijs wordt afgewezen, en houdt een teller bij van het aantal afwijzingen totdat het niveau wordt overschreden.",
+                    "updated": 1666878667043
                 }
             ]
         },
@@ -156,6 +171,11 @@
                     "language": "ID",
                     "text": "Cara level direpresentasikan di layar bervariasi dengan jumlah rejection yang telah diperlihatkan oleh level tersebut, memberi kita petunjuk visual tentang seberapa kuat setiap level support. Setelah level dilanggar, level menghilang.",
                     "updated": 1640563629085
+                },
+                {
+                    "language": "NL",
+                    "text": "De manier waarop niveaus op het scherm worden weergegeven, hangt af van het aantal afwijzingen dat het niveau heeft meegemaakt, wat ons een visueel idee geeft van hoe sterk elk ondersteuningsniveau kan zijn. Zodra een niveau wordt overschreden, verdwijnt het.",
+                    "updated": 1666878708940
                 }
             ]
         }

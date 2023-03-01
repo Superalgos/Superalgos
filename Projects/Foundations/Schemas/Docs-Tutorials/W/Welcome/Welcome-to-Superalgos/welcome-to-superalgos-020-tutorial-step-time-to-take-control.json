@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Sí, también puede utilizar su teclado. ¡Te encantara para los desplazamientos de larga distancia en el Desing Space!",
-                "updated": 1624285512726,
+                "text": "Sí, también puedes usar tu teclado. ¡Te va a encantar esto para los viajes de larga distancia en el Design Space!",
+                "updated": 1668195543482,
                 "style": "Definition"
             },
             {
@@ -35,20 +35,25 @@
             },
             {
                 "language": "NL",
-                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte!",
-                "updated": 1634927272967,
+                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor langeafstand reizen op de Design Space!",
+                "updated": 1666613415103,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в пространстве проектирования.",
-                "updated": 1641808631433,
+                "text": "Да! Вы можете использовать и свою клавиатуру! Вам понравится это для дальних путешествий по пространству Design Space! ",
+                "updated": 1662032613224,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
-                "updated": 1644850514289
+                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde Ctrl (kontrol) [+] ← → ↑ ↓(yön tuşları) tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1666062873742
+            },
+            {
+                "language": "FR",
+                "text": "Oui, vous pouvez aussi utiliser votre clavier ! Vous allez l'adorer pour les déplacements longue distance dans le Design Space !",
+                "updated": 1667204479485
             }
         ],
         "updated": 1660143683418
@@ -99,6 +104,11 @@
                     "language": "TR",
                     "text": "Düzenli veya aceleci arkadaşlar Ctrl + ← → ↑ ↓ kombinasyonunu kulanabilir.",
                     "updated": 1644850552309
+                },
+                {
+                    "language": "FR",
+                    "text": "Les personnes normales peuvent utiliser la touche Ctrl plus les touches fléchées: ← → ↑ ↓",
+                    "updated": 1667204586597
                 }
             ]
         },
@@ -133,8 +143,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Valt het je op dat als je de toetsen ingedrukt houdt, je pas echt gaat vliegen?",
-                    "updated": 1634927471853,
+                    "text": "Als je de toetsen ingedrukt houdt, ga je pas echt vliegen!",
+                    "updated": 1666613475328,
                     "style": "Note"
                 },
                 {
@@ -147,6 +157,11 @@
                     "language": "TR",
                     "text": "Tuşlara basılı tutarak düğümü sürüklemenin, sizi tasarım alanında uçuracağına dikkat edin!",
                     "updated": 1644850601057
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez que le fait de maintenir les touches enfoncées vous fait voler !",
+                    "updated": 1667204604503
                 }
             ]
         },
@@ -169,8 +184,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Por supuesto, los fanboys de Mac saben que tienen sustituir Ctrl por Cmd",
-                    "updated": 1618435654720,
+                    "text": "Por supuesto, los fanboys de Mac saben que tienen que sustituir Ctrl por Cmd",
+                    "updated": 1668195564871,
                     "style": "Success"
                 },
                 {
@@ -195,6 +210,11 @@
                     "language": "TR",
                     "text": "Elbette Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
                     "updated": 1644850625993
+                },
+                {
+                    "language": "FR",
+                    "text": "Bien sûr, les fan de Mac doivent remplacer  Ctrl par Cmd",
+                    "updated": 1667204646715
                 }
             ]
         }

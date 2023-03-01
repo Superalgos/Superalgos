@@ -30,7 +30,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
     function finalize() {
         thisObject.peers = undefined
-        clearInterval(intervalIdConnectToPeers)
+        clearTimeout(intervalIdConnectToPeers)
         clearInterval(intervalIdCheckConnectedToPeers)
     }
 
@@ -43,14 +43,13 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     ) {
 
         thisObject.peers = []
-
         connectToPeers()
-        intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY)
         intervalIdCheckConnectedToPeers = setInterval(checkConnectedPeers, HEALTH_CHECK_DELAY)
 
         async function connectToPeers() {
 
             if (thisObject.peers.length >= maxOutgoingPeers) {
+                intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
                 return
             }
 
@@ -90,7 +89,12 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     if (err !== undefined) {
                         console.log((new Date()).toISOString(), '[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                     } else {
+                        /*
+                        DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                        */      
+                        /*                  
                         console.log((new Date()).toISOString(), '[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
+                        */
                     }
                 }
 
@@ -113,6 +117,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     }
                 }
             }
+
+            /* Reschedule execution after connectToPeers() execution finalizes. Not using intervals here to avoid duplicate connections. */
+            intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
         }
 
         function checkConnectedPeers() {

@@ -1,3 +1,5 @@
+var hyperquest = require('hyperquest')
+const ndjson = require('ndjson')
 
 exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
@@ -163,7 +165,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                         if (outputDataset.referenceParent.parentNode === undefined) {
                             continue
                         }
-                        let dataset = outputDataset.referenceParent                        // This holds the dataset that is currently being processed.
+
+                        let fileDateArray = []                                              // This holds the array of file dates to check.
+                        let dataset = outputDataset.referenceParent                         // This holds the dataset that is currently being processed.
                         let productDefinition = outputDataset.referenceParent.parentNode    // This is the Product Definition Node related to the current Output Dataset.
                         let endpointNode                                                    // This holds the Endpoint Node at the API Map 
                         let existingFileContent                                             // This holds the data of the existing dataset file.
@@ -682,32 +686,32 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 /*
                                 Look to see if there is a key reference and if so include the keys in the fetch headers
                                  */
+                                let options = getOptions(hostName)
+                                let dataA = []
+                                // We check if we are expecting a ndjson and if so fetch with hyperquest. (controlled at the Dataset Definition)
+                                // else we use the normal fetch method.
+                                if (dataset.config.ndjson === true) {
+                                    let dataResponse = getDataResponse()
 
-                                let apiAuthKey
-
-                                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
-                                    apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
-                                }
-
-                                let options = {}
-
-                                if (apiAuthKey !== undefined) {
-                                    let authKeyConfig = apiAuthKey.config
-
-                                    if (authKeyConfig !== undefined) {
-                                        if (authKeyConfig.bearer_token !== undefined) {
-                                            let token =  authKeyConfig.bearer_token
-                                            let method = "GET";
-                                            options['method'] = method
-                                            options['headers'] = {
-                                                "Content-type": "application/json",
-                                                Authorization: "Bearer " + token,
+                                    // Here we fetch our data and then process it into a regular json object.
+                                    function getDataResponse() {
+                                        hyperquest(url, options)
+                                        .pipe(ndjson.parse())
+                                        .on("data", (obj) => {
+                                            if (obj !== undefined) {
+                                                dataA.push(obj)
                                             }
-                                        }
+                                            //console.log(obj)      // Uncomment to log response to console
+
+                                        })
+                                        // When we hit the end of the data received we proceed to saving.
+                                        .on("end", () => {
+                                            dataReceivedObject = dataA
+                                            saveDataReceived()
+                                        })
                                     }
-                                }
-                                
-                                fetch(url, options)
+                                } else {
+                                    fetch(url, options)
                                     .then((response) => {
 
                                         let apiResponseSchemaNode
@@ -869,7 +873,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     resolve('PAGE_FETCHED')
                                                 }
                                             })
-                                        }
+                                        }                                        
                                     })
                                     .catch(err => {
                                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -879,10 +883,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             "[ERROR] start -> fetch -> Connection to the API Server Failed. Maybe there is no Internet connection. Retrying later.  ")
                                         resolve('NO_CONNECTION')
                                     })
-
+                                }
                             }
-                            )
-
+                        )
                             return promise
                         }
 
@@ -899,6 +902,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 }
                                 case 'One-Min': {
                                     await saveOneMinFile()
+                                    break
+                                }
+                                case 'Save-Recursively': {
+                                    await saveRecursively()
                                     break
                                 }
                                 default: {
@@ -1196,6 +1203,434 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 }
                             }
 
+
+                            /** 
+                             * This function is intended for use with API responses.
+                             * In its current state it can handle any API response with 0-1 arrays included in the path located at the API response field reference inside the data mine.
+                             * Example:     "apiResponseReceivedObject.data[0].timestamp" 
+                             *              "apiResponseReceivedObject.data.timestamp
+                             */
+                            async function saveRecursively() {
+
+                                // This will hold the information we need.
+                                let timestampArray = []
+                                let completeRecord = new Map()
+
+                                // These will hold the paths to the information we need.
+                                let pathToTimestamp
+                                let pathToData = []
+
+
+                                // Main actions are here
+                                getDataPaths()
+                                getData()
+
+                                // Here we handle making the first file if need be.
+                                let fileP = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                "/Output/" + productDefinition.config.codeName
+                                let basePath = global.env.PATH_TO_DATA_STORAGE
+                                // If the file does not exist we create it.
+                            if (SA.nodeModules.fs.existsSync(basePath + '/' + fileP) !== true && contextVariables.beginingOfMarket === undefined) {
+                                existingFileContent = []
+                                saveData()
+                            } else {
+                                thisReport.file.lastRun = new Date()
+                                // Get Timestamp ready to build path to file.
+                                let thisTimestamp = timestampArray[i]
+                                let length = timestampArray.length - 1
+                                lastTimestamp = timestampArray[length]
+                                let lastStamp = checkTimestamp(lastTimestamp)
+                                let timestamp = checkTimestamp(thisTimestamp)
+
+                                // Build file path
+                                let file = { date: new Date(timestamp) }
+                                    file.year = file.date.getUTCFullYear()
+                                    file.month = file.date.getUTCMonth() + 1
+                                    file.day = file.date.getUTCDate()
+                                    let dateForPath = file.year + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+
+                                try {
+                                    let fileName = 'Data.json'
+                                    let filePath =
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                        "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + '/' + dateForPath
+
+                                    // Here we get the existing file content.
+                                    let basePath = global.env.PATH_TO_DATA_STORAGE
+                                    let fileBuffer = SA.nodeModules.fs.readFileSync(basePath + '/' + filePath + '/' + fileName)
+                                    let existingFileContentString = fileBuffer.toString()
+                                    let existingFileContent = existingFileContentString.replaceAll(/\n/g, '')
+                                    let existingFile = JSON.parse(existingFileContent)
+                                    saveData(existingFile)
+                                } catch (err) {
+                                    if (err) {
+                                        console.log((new Date()).toISOString(), '[ERROR]' + err.message + err.stack)
+                                    } else {
+                                        console.log((new Date()).toISOString(), '[Success] Files Updated')
+                                    }
+                                }
+                            }
+
+
+                                /** This function gets the paths to the data we want as defined at the API Response Field Reference at the data mine. */
+                                function getDataPaths() {
+                                    if (productDefinition.record !== undefined) {
+                                        if (productDefinition.record.properties !== undefined) {
+                                            let record = productDefinition.record.properties
+
+                                            /**Here we loop through all record definition nodes and gather the paths to the needed information. */
+                                            for (let j = 0; j < record.length; j++) {
+                                                let thisRecord = record[j]
+                                                /** First we get the path to the timestamp. */
+                                                if (thisRecord.name === 'timestamp' || thisRecord.name === 'Timestamp') {
+                                                    if (thisRecord.apiResponseFieldReference !== undefined && thisRecord.apiResponseFieldReference.config !== undefined) {
+                                                        let thisConfig = thisRecord.apiResponseFieldReference.config
+                                                        if (thisConfig.nodePath !== undefined && thisConfig.nodePath !== '') {
+                                                            pathToTimestamp = thisConfig.nodePath
+                                                        } else {
+                                                            console.log((new Date()).toISOString(), '[ERROR] The path to the timestamp is not defined.')
+                                                        }
+                                                    } else {
+                                                        console.log((new Date()).toISOString(), '[ERROR] We have encountered a problem with the apiResponseFieldReference.')
+                                                    }
+                                                } else {
+                                                    /**If the record is not a timestamp we will assume it is data. */
+                                                    if (thisRecord.apiResponseFieldReference !== undefined && thisRecord.apiResponseFieldReference.config !== undefined) {
+                                                        let thisConfig = thisRecord.apiResponseFieldReference.config
+                                                        if (thisConfig.nodePath !== undefined && thisConfig.nodePath !== '') {
+                                                            let thisPath = thisConfig.nodePath
+                                                            pathToData.push(thisPath)
+                                                        } else {
+                                                            console.log((new Date()).toISOString(), '[ERROR] The path to the data record is not defined.')
+                                                        }
+                                                    } else {
+                                                        console.log((new Date()).toISOString(), '[ERROR] We have encountered a problem with the apiResponseFieldReference.')
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                function getData() {
+                                    if (dataReceivedObject !== undefined) {
+                                        /** Here we are going to loop through the data object received and gather all the defined information. */
+                                            if (dataReceivedObject.data !== undefined) {
+                                                for (let i = 0; i < dataReceivedObject.data.length; i++) {
+                                                    let thisTime
+                                                    let dataArray = []
+                                                    let timestampPath = pathToTimestamp.split('['|']')
+
+                                                    // First we must control our path info to iterate through all data in the API response.
+                                                    switch (timestampPath.length) {
+                                                        case (1): {
+                                                            console.log(console.log((new Date()).toISOString(), 'This data does not have anything to loop through. Please use a different save option.') )
+                                                            break
+                                                        }
+                                                        // If two we will count up and loop through all possible responses.
+                                                        case (2): {
+                                                            let tPath = timestampPath[0] + i + timestampPath[1]
+                                                            thisTime = eval(tPath)
+                                                            timestampArray.push(thisTime)
+                                                            break
+                                                        }
+                                                        case (4): {
+                                                            // TODO handle iterating through multiple arrays in the same path
+                                                            break
+                                                        }
+                                                    }
+                                                    
+
+                                                    /** Here we will loop through the rest of the data defined at the record properties. */
+                                                    for (let j = 0; j < pathToData.length; j++) {
+                                                        let thisDataP = pathToData[j]
+                                                        let dataPath = thisDataP.split('['|']')
+        
+                                                        switch (dataPath.length) {
+                                                            case (1): {
+                                                                console.log(console.log((new Date()).toISOString(), 'This data does not have anything to loop through. Please use a different save option.') )
+                                                                break
+                                                            }
+                                                            // If two we will count up and loop through all possible responses.
+                                                            case (2): {
+                                                                let dPath = dataPath[0] + i + dataPath[1]
+                                                                let thisData = eval(dPath)
+                                                                // Here we get the name to call the record.
+                                                                let nameSplit = dataPath[1].split('.')
+                                                                let recordName = nameSplit[1]
+                                                                let thisRecord = {
+                                                                    [recordName] : thisData
+                                                                }
+                                                                dataArray.push(thisData)
+                                                                break
+                                                            }
+                                                            case (4): {
+                                                                // TODO handle iterating through multiple arrays in the same path
+                                                                break
+                                                            }
+                                                        }
+                                                    }
+                                                    completeRecord.set(thisTime, dataArray)
+                                                }
+                                            }
+                                            if (dataReceivedObject.length !== undefined) {
+                                                for (let i = 0; i < dataReceivedObject.length; i++) {
+
+                                                    // Here we initialize what we need inside this loop.
+                                                    let thisTime
+                                                    let dataArray = []
+                                                    let timestampPath = pathToTimestamp.split('['|']')
+                                                    let tPath
+        
+                                                    // First we must control our path info to iterate through all timestamps in the API response.
+                                                    // Here we gather all of our defined paths and get the timestamps at those locations.
+                                                    switch (timestampPath.length) {
+                                                        case (1): {
+                                                            let thisObject = dataReceivedObject[i]
+                                                            let singlePath = pathToTimestamp.split('.')
+                                                            tPath = singlePath[1]
+                                                            thisTime = thisObject[tPath]
+                                                            
+                                                            timestampArray.push(thisTime)
+                                                            break
+                                                        }
+                                                        // If two we will count up and loop through all possible responses.
+                                                        case (2): {
+                                                            tPath = timestampPath[0] + i + timestampPath[1]
+                                                            thisTime = eval(tPath)
+                                                            timestampArray.push(thisTime)
+                                                            break
+                                                        } 
+                                                        case (4): {
+                                                            // TODO handle iterating through multiple arrays in the same path
+                                                            break
+                                                        }
+                                                    }
+
+                                                    // First we must control our path info to iterate through all data in the API response.
+                                                    // Here we gather all of our defined paths and get the data at those locations.
+                                                    for (let j = 0; j < pathToData.length; j++) {
+                                                        let thisDataP = pathToData[j]
+                                                        let dataPath = thisDataP.split('['|']')
+                                                        let dPath
+                                                        let thisData
+
+                                                        switch (dataPath.length) {
+                                                            case (1): {
+                                                                let thisObject = dataReceivedObject[i]
+                                                                let singlePath = thisDataP.split('.')
+                                                                let levelPath = singlePath[1]
+                                                                let thisData = thisObject[levelPath]
+                                                                dataArray.push(thisData)
+                                                                break
+                                                            }
+                                                            case (2): {
+                                                                let dPath = dataPath[0] + i + dataPath[1]
+                                                                thisData = eval(dPath)
+
+                                                                // Here we get the name to call the record.
+                                                                let nameSplit = dataPath[1].split('.')
+                                                                let recordName = nameSplit[1]
+                                                                let thisRecord = {
+                                                                    [recordName] : thisData
+                                                                }
+                                                                dataArray.push(thisData)
+                                                                break
+                                                            }
+                                                            case (4): {
+                                                                // TODO handle iterating through multiple arrays in the same path
+                                                                break
+                                                            }
+                                                        }
+                                                    }
+                                                    completeRecord.set(thisTime, dataArray)
+                                                }
+                                            }
+                                    } else {
+                                        console.log((new Date()).toISOString(), '[ERROR] dataReceivedObject is not defined. We have no data to save.')
+                                    }
+                                }
+
+                                
+
+                                //Now what we have all the needed info, here we loop through and build the files / save the data.
+                                function saveData(existingFile) {
+                                    
+                                    let thisFile
+                                    
+                                    // Here we will check to see if all timestamps received belong to the same file date or not.
+                                    for (let t = 0; t < timestampArray.length; t++) {
+                                        let timeToCheck = timestampArray[t]
+                                        let thisTime = checkTimestamp(timeToCheck)
+
+                                        let file = { date: new Date(thisTime) }
+                                        file.year = file.date.getUTCFullYear()
+                                        file.month = file.date.getUTCMonth() + 1
+                                        file.day = file.date.getUTCDate()
+                                        let dateForPath = file.year + '/' +
+                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+
+                                            if (fileDateArray.length > 0) {
+                                                let lastDateArrayEntryNum = fileDateArray.length - 1
+                                                let lastDateArrayEntry = fileDateArray[lastDateArrayEntryNum]
+                                                if (lastDateArrayEntry !== dateForPath) {
+                                                    fileDateArray.push(dateForPath)
+                                                }
+                                            } else {
+                                                fileDateArray.push(dateForPath)
+                                            }
+                                            
+                                    }
+                                    
+                                        /*
+                                        Note: Possible optimation is to not read daily file but to simply append to it. 
+                                        Currently loads last file date, loads current file and then looks through timestamps to determine 
+                                        if current record should be appended to file.
+                                        */
+                                        if (thisReport.file.lastFile !== undefined) {
+                                            let lastRecordDate = thisReport.file.lastFile
+                                            let lastRecordDateString = JSON.stringify(lastRecordDate)
+                                            let lastRecordDateYear = lastRecordDateString.substring(1, 5)
+                                            let lastRecordDateMonth = lastRecordDateString.substring(6, 8)
+                                            let lastRecordDateDay = lastRecordDateString.substring(9, 11)
+                                            lastDate = lastRecordDateYear + "/" + lastRecordDateMonth + "/" + lastRecordDateDay
+                                        } else {
+                                            lastDate = ""
+                                        }
+
+
+                                        if (existingFile !== undefined) {
+
+                                            // We will loop through each line of the record and see about adding it to the file for saving!
+                                            for (let c = 0; c < completeRecord.size; c++) {
+                                                let thisFile = []
+                                                let content = Array.from(completeRecord)
+                                                let thisContent = content[c]
+                                                // In order to not save duplicates we will check the last timestamp on file and not save any timestamps less than or equal to it.
+                                                let existingFileLength = existingFile.length - 1
+                                                let lastFileEntry = existingFile[existingFileLength]
+                                                let lastTimeOnFile = lastFileEntry[0]
+
+                                                let fileT = thisContent[0]
+                                                let time = checkTimestamp(fileT)
+                                                dateForPath = checkSameFileDate(time)
+                                                let fileC = thisContent[1]
+
+                                                // If timestamp is older the the last timestamp on file we save nothing and proceed through the data.
+                                                if (lastTimeOnFile < time) {
+                                                    fileC.unshift(time)
+                                                    existingFile.push(fileC)
+                                                }
+                                            }
+
+                                            existingFileContent = JSON.stringify(existingFile)
+
+                                            saveDatasetFile("/" + dateForPath)
+                                            writeStatusReport()
+                                            console.log((new Date()).toISOString(), '[Success] API Response Saved.')
+                                            return
+
+                                        } else {
+                                            // If the existingFile is not defined then this is the first time running.
+                                            for (let c = 0; c < completeRecord.size; c++) {
+                                                let runCount = c 
+                                                let content = Array.from(completeRecord)
+                                                let thisContent = content[c]
+
+                                                // This is the timestamp we use to build the path.
+                                                let fileT = thisContent[0]
+                                                let time = checkTimestamp(fileT)
+
+                                                if (runCount === 0) {
+                                                    thisFile = []
+                                                    // Here we handle the beginning of the market for our status report.
+                                                    if (contextVariables.beginingOfMarket === undefined) {
+                                                        contextVariables.beginingOfMarket = new Date(time)
+                                                    }
+                                                } 
+
+                                                dateForPath = checkSameFileDate(time)
+                                            
+                                                let fileC = thisContent[1]
+                                                fileC.unshift(time)
+                                                thisFile.push(fileC)
+
+                                            existingFileContent = JSON.stringify(thisFile)
+
+                                            // If the path to the file does not exist we get ready to make it.
+                                            let fileName = 'Data.json'
+                                            let filePath =
+                                                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                                "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + '/' + dateForPath
+                                    
+                                            let basePath = global.env.PATH_TO_DATA_STORAGE
+                                            if (SA.nodeModules.fs.existsSync(basePath + '/' + filePath + '/' + fileName) !== true) {
+                                                thisReport.file.lastRun = new Date()
+                                        }
+
+                                        saveDatasetFile("/" + dateForPath)
+
+                                        if ((content.length - 1) === c) {
+                                            writeStatusReport()
+                                            console.log((new Date()).toISOString(), '[Success] API Response Saved.')
+                                            return
+                                        }
+                                    }
+                                }
+                            } 
+
+
+                                // Here we verify the timestamp is the correct length and if it is not correct it.
+                                function checkTimestamp(thisTimestamp) {
+                                    let timestamp = thisTimestamp
+                                    let startStamp = timestamp
+                                    let numberOfDigits = 0
+
+                                    while (startStamp != 0 && startStamp > 1) {
+                                            startStamp = startStamp / 10
+                                            numberOfDigits++
+                                        }
+                                    
+                                    if (numberOfDigits == 10) {
+                                        timestamp = timestamp * 1000
+                                        return timestamp
+                                    }
+
+                                    if (numberOfDigits == 19) {
+                                        timestamp = timestamp / 1000000
+                                        return Math.trunc(timestamp)
+                                    }
+
+                                    if (numberOfDigits == 13) {
+                                        return timestamp
+                                    }
+                                }
+
+                                function checkSameFileDate(time) {
+                                    for (let e = 0; e < fileDateArray.length; e++) {
+                                        let thisFileDate = fileDateArray[e]
+
+                                        let file = { date: new Date(time) }
+                                        file.year = file.date.getUTCFullYear()
+                                        file.month = file.date.getUTCMonth() + 1
+                                        file.day = file.date.getUTCDate()
+                                        let dateForPath = file.year + '/' +
+                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+
+                                        if (dateForPath === thisFileDate) {
+                                            /* We will need to save this at the Status Report */
+                                            contextVariables.lastFile = file.date
+                                            return dateForPath
+                                        }
+                                    }
+                                }
+                            }
+
+
                             async function readDatasetFile(extraFilePath) {
                                 /*
                                 If this process already ran before, then we are going to load the data stored so as to append
@@ -1231,7 +1666,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 let fileName = 'Data.json'
                                 let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                     "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + extraFilePath
-                                let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n')
+                                let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n', false, true)
 
                                 if (response.err !== undefined && response.err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -1352,7 +1787,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     /*
-                     For Single-File Datasets there is no lastFile defined. 
+                    For Single-File Datasets there is no lastFile defined. 
                     */
                     if (contextVariables.lastFile !== undefined) {
                         thisReport.file.lastFile = contextVariables.lastFile.toISOString()
@@ -1380,6 +1815,65 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
+
+
+            /*
+            This function handles all of our custom API Access token or key needs.
+            */
+            function getOptions(hostName) {
+                let apiAuthKey
+
+                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+                    apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                }
+                /*
+                Look to see if there is a key reference and if so include the keys in the fetch headers
+                 */
+                let options = {}
+                // Depending on what API it is we need to use different methods of passing out token.
+                switch (hostName) {
+                    case ("hist.databento.com") : {
+                        if (apiAuthKey !== undefined) {
+                            let authKeyConfig = apiAuthKey.config
+        
+                            if (authKeyConfig !== undefined) {
+                                if (authKeyConfig.key !== undefined) {
+                                    let token =  authKeyConfig.key
+                                    let method = "GET";
+                                    options['method'] = method
+                                    options['headers'] = {
+                                        "Content-type": "application/json",
+                                        Authorization: 'Basic ' + btoa(token + ':'),
+                                    }
+                                }
+                            }
+                        }
+                        return options
+                    }
+                    default : {
+                        /*
+                        Look to see if there is a key reference and if so include the keys in the fetch headers
+                         */
+                        if (apiAuthKey !== undefined) {
+                            let authKeyConfig = apiAuthKey.config
+
+                            if (authKeyConfig !== undefined) {
+                                if (authKeyConfig.bearer_token !== undefined) {
+                                    let token =  authKeyConfig.bearer_token
+                                    let method = "GET";
+                                    options['method'] = method
+                                    options['headers'] = {
+                                        "Content-type": "application/json",
+                                        Authorization: "Bearer " + token,
+                                    }
+                                }
+                            }
+                        }
+                        return options
+                    }
+                }
+            }
+
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

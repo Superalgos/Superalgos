@@ -116,9 +116,14 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             the one we have on record for the user profile of the Network Node we are calling.
             */
             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
+                /*
+                DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                */
+                /*
                 console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
                 console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
                 console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
+                */
                 reject()
                 return
             }
@@ -303,9 +308,13 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 }
                 case 'Trading Signals': {
                     if (thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient !== undefined) {
+                        /*
+                        Send the signal to the Service Network Interface.
+                        */
                         thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient.p2pNetworkInterface.messageReceived(
                             messageHeader.payload,
-                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction
+                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction,
+                            messageHeader.rankingStats
                         )
                     } else {
                         console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Trading Signals Network Service Client Not Running')

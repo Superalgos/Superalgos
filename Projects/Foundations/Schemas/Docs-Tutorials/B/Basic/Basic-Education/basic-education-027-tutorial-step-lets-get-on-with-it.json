@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Bagaimana jika node jauh dari satu sama lain, bahkan mungkin dalam hierarki yang berbeda? Tonton video untuk mempelajari beberapa trik!",
                 "updated": 1644949084231
+            },
+            {
+                "language": "NL",
+                "text": "Wat als de knooppunten ver van elkaar verwijderd zijn, misschien zelfs in verschillende hiërarchieën? Bekijk de video om een paar trucjes te leren!",
+                "updated": 1669542195152
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Trik UI ini dapat membuat hidup kamu lebih mudah :",
                     "updated": 1644949107171
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze UI-trucs kunnen uw leven gemakkelijker maken:",
+                    "updated": 1669542210029
                 }
             ]
         },
@@ -91,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fissa il nodo che sposterai, così da poterlo lasciare in qualunque momento quando avrai bisogno di aprire il design space per cercare direzioni.",
-                    "updated": 1619501872996,
+                    "text": "Fissa il nodo che sposterai attraverso lo spazio di progettazione, in modo che rimanga dove lo lasci cadere!",
+                    "updated": 1666638912033,
                     "style": "List"
                 },
                 {
@@ -108,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
-                    "updated": 1639558424076
+                    "text": "Taşıyacağınız düğümü tasarım alanı boyunca sabitleyin, böylece bıraktığınız yerde kalacaktır!",
+                    "updated": 1666103508666
                 },
                 {
                     "language": "RU",
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Pin node kamu yang akan bergerak melintasi design space, sehingga akan tetap di tempat kamu menjatuhkannya!",
                     "updated": 1644949159572
+                },
+                {
+                    "language": "NL",
+                    "text": "Pin het knooppunt dat u over de ontwerpruimte gaat verplaatsen vast, zodat het blijft staan waar u het neerzet!",
+                    "updated": 1669542234745
                 }
             ]
         },
@@ -130,8 +145,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Usa Ctrl / Cmd + tasti freccia per trascinare il nodo attraverso lo schermo dopo averci cliccato sopra. Tieni premuti i tasti e il nodo volerà!",
-                    "updated": 1619501949818,
+                    "text": "Fare clic sul pulsante \"Save node to be moved\" sul nodo che vuoi spostare.",
+                    "updated": 1666639012740,
                     "style": "List"
                 },
                 {
@@ -147,8 +162,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
-                    "updated": 1639558498078
+                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın. Taşımak istediğiniz düğümün üzerindeki \"Taşınacak düğümü kaydet\" düğmesine tıklayın.",
+                    "updated": 1666103626627
                 },
                 {
                     "language": "RU",
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Klik tombol \"Save node to be moved\" pada node yang ingin kamu pindahkan.",
                     "updated": 1644949190021
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de knop \"Save node to be moved\" op de node die u wilt verplaatsen.",
+                    "updated": 1669542269472
                 }
             ]
         },
@@ -187,6 +207,16 @@
                     "text": "Uzaklaştırmak için tasarım alanı haritasını kullanın ve seyahat etmek istediğiniz düğümün yakınına tıklayın.",
                     "updated": 1654393826620,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Usa la mappa dello spazio di progettazione per ridurre lo zoom e fai clic vicino al nodo verso il quale desideri spostarti.",
+                    "updated": 1666639048273
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de ontwerpruimtekaart om uit te zoomen en klik in de buurt van het knooppunt waarnaar u wilt gaan.",
+                    "updated": 1669542302896
                 }
             ]
         },
@@ -215,6 +245,16 @@
                     "text": "\"Kaydedilen düğümü konuma yapıştır\" seçeneğine tıkladığınızda kaydettiğiniz düğüm sihirli bir şekilde bulunduğunuz düğümün üzerinde belirecektir!",
                     "updated": 1654393832697,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Clicca su \"Snap saved node to postion\" e il nodo che hai salvato apparirà magicamente sopra il nodo in cui ti trovi!",
+                    "updated": 1666639078071
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op \"Snap saved node to position\" en het knooppunt dat je hebt opgeslagen, verschijnt op magische wijze bovenop het knooppunt waar je bent!",
+                    "updated": 1669542342318
                 }
             ]
         },
@@ -242,6 +282,16 @@
                     "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra pimi çıkarın.",
                     "updated": 1654393838746,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Una volta stabilito il riferimento, rimuovi il pin con cui hai fissato il nodo in modo che torni al suo posto.",
+                    "updated": 1666639163813
+                },
+                {
+                    "language": "NL",
+                    "text": "Verwijder de pin zodra de referentie tot stand is gebracht, zodat het knooppunt terugkeert naar zijn plaats.",
+                    "updated": 1669542357727
                 }
             ]
         }

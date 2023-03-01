@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
                 "updated": 1640554335251
+            },
+            {
+                "language": "ID",
+                "text": "Itu praktek yang baik untuk selalu terupdate sebelum berkontribusi atau setelah menyelesaikan masalah atau melaporkan kesalahan apapun!",
+                "updated": 1668787138904
             }
         ]
     },
@@ -64,14 +69,19 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Команда App Update Command извлекает последнюю версию программного обеспечения из репозитория upstream в текущей ветке Current Branch!",
-                    "updated": 1640158999138
+                    "text": "Команда App Update Command получает последнюю версию программного обеспечения из репозитория upstream в текущей ветке!",
+                    "updated": 1661377958451
                 },
                 {
                     "language": "TR",
                     "text": "Uygulama Güncelleme Komutu (yalnızca Katkıda Bulunanların Kurulumu) yazılımın en son sürümünü Geçerli Daldaki yukarı akış deposundan alır!",
                     "updated": 1654393910447,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "App Update Command (hanya Penginstalan Kontributor) mengambil versi terupdate software dari repository upstream dalam Current Branch!",
+                    "updated": 1668787155150
                 }
             ]
         },
@@ -103,13 +113,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Скопируйте и запустите команду в окне поиска/команды в самом верху вкладки Docs.",
-                    "updated": 1640159069819
+                    "text": "Если вы находитесь на установке для вкладчиков, скопируйте и выполните команду в окне поиска/команды в самом верху Docs.",
+                    "updated": 1661379939089
                 },
                 {
                     "language": "TR",
                     "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
                     "updated": 1640554566255
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu di Penginstalan Kontributor, salin dan jalankan di pencarian/command box di atas Docs.",
+                    "updated": 1668787165529
                 }
             ]
         },
@@ -137,13 +152,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Поскольку вы только что сменили ветку, вы уже должны быть в курсе последних изменений!",
-                    "updated": 1640159174947
+                    "text": "После перехода у вас должна быть актуальная версия",
+                    "updated": 1661378446952
                 },
                 {
                     "language": "TR",
                     "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
                     "updated": 1640554583592
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu seharusnya sudah versi terkini setelah mengubah!",
+                    "updated": 1668787174440
                 }
             ]
         }

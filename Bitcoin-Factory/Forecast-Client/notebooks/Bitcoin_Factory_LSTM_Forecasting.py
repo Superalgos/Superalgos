@@ -1,24 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ##### Bitcoin Factory Machine Learning
-#
+# Bitcoin Factory Machine Learning
+# Forecaster
 
-# # Multivariate Time Series Forecasting with LSTMs in Keras
-
-# ## Time Series Forcasting - Multiple Lag Timesteps - Multiple Labels
-
-# Based on Tutorial from https://machinelearningmastery.com/multivariate-time-series-forecasting-lstms-keras/
-
-# # Strategy
-
-# The strategy is to predict the Candle.Max and Candle.Min of a set of Crypto Assets at the highest timeframe possible, in order to use the prediction to pick the one with higher % of predicted increase in price to take a position in it before that happens.
-
-# # Code to Run
-
-# ## Libraries Used
-
-# In[1]:
 import json
 from json import JSONEncoder
 from math import sqrt
@@ -38,9 +23,6 @@ from keras.models import load_model
 
 
 # ## Functions Used
-
-# In[2]:
-
 class NumpyArrayEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, numpy.ndarray):
@@ -74,10 +56,6 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 
 
 # ## Load the Instructions Dataset
-
-# In[3]:
-
-
 instructions_dataset = read_csv(
     '/tf/notebooks/instructions.csv',
     header=0,
@@ -85,36 +63,21 @@ instructions_dataset = read_csv(
     skipinitialspace=True
 )
 
-instructions_dataset
-
-
-# In[4]:
-
-
 # what are we going to do in the current run?
 ACTION_TO_TAKE = instructions_dataset.values[0][1]
 
 # name of the model file to load or save.
 MODEL_FILE_NAME = instructions_dataset.values[1][1]
 
-
-# ## Load the Parameters Dataset
-#
-
-# In[5]:
-
+FILENAME_parameters_dataset = instructions_dataset.values[2][1]
+FILENAME_timeseries_dataset = instructions_dataset.values[3][1]
 
 parameters_dataset = read_csv(
-    '/tf/notebooks/parameters.csv',
+    '/tf/notebooks/'+FILENAME_parameters_dataset,
     header=0,
     sep=' ',
     skipinitialspace=True
 )
-
-parameters_dataset
-
-
-# In[ ]:
 
 
 # supporting both positional access and by name
@@ -165,77 +128,26 @@ else:
 
 # ## Load the Time-Series Dataset
 
-# In[7]:
-
-
 timeseries_dataset = read_csv(
-    '/tf/notebooks/time-series.csv',
+    '/tf/notebooks/' + FILENAME_timeseries_dataset,
     header=0,
     index_col=0,    #The first colum is a timestamp that will be used to index all the data.
     sep=' ',
     skipinitialspace=True
 )
 
-timeseries_dataset
-
 
 # ## Duplicate the Last Record
-
 # The reframing process shift each record to the left of the shifting window, producing that the last record of data is ignored at the last prediction. To fix this we will duplicate the last record so that the last prediction belongs to the the last piece of information available.
-
-# In[8]:
-
-
 values = timeseries_dataset.values
-
-
-# In[9]:
-
-
 last_record = values[-1:,:]
-last_record
-
-
-# In[10]:
-
-
 all_records = concatenate((values, last_record), axis=0)
-all_records
-
-
-# In[11]:
-
-
 # ensure all data is float
 values = all_records.astype('float32')
 
 
-# ## Plot & Verify
-
-# We plot our raw data just to be sure with a glimpse that it is alright.
-
-# In[12]:
-
-
-# specify columns to plot
-groups = [0, 2]
-i = 1
-# plot each column
-pyplot.figure()
-for group in groups:
-	pyplot.subplot(len(groups), 1, i)
-	pyplot.plot(values[:, group])
-	pyplot.title(timeseries_dataset.columns[group], y=0.5, loc='right')
-	i += 1
-pyplot.show()
-
-
 # ## Normalization
-
 # Normalizing or removing the scale, is a standar prodcedure of any machine learning workflow.
-
-# In[13]:
-
 
 # normalize features
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -243,63 +155,29 @@ scaled = scaler.fit_transform(values)
 
 
 # ## Reframing as a Supervised Learning Problem
-
 # Each Raw record needs to be expanded with the previous records in order to be suitable for beeing fed into a LSTM model. Some fields of the record at time = 0 will be used as labels and the ones at time < 0 as features.
-
-# In[14]:
-
 
 # frame as supervised learning
 reframed = series_to_supervised(scaled, NUMBER_OF_LAG_TIMESTEPS, 1)
-
-
-# In[15]:
-
-
-reframed
 
 
 # ## Train and Test Dataset Preparation
 
 # The first part of the dataset will be used to train the model. The last part for calculating the prediction error. Later we will generate the predictions for the test dataset and measure how accurate they were.
 
-# In[16]:
-
-
 # get values from reframed dataset
 values = reframed.values
 record_count = len(values)
 records_for_training = int(record_count * PERCENTAGE_OF_DATASET_FOR_TRAINING / 100)
-records_for_training
-
-
-# In[17]:
-
 
 # split into train and test sets
 train = values[:records_for_training, :]
 test = values[records_for_training:, :]
 
-
-# In[18]:
-
-
-train.shape
-
-
-# In[19]:
-
-
-test.shape
-
-
 # ## Split into Input and Outputs
 
 # Here we will split both the Train and the Test datasets into features and labels.
 # Features will be all the information where time < 0. For the labels, we will pick only the first 2 fields of each set of indicator properties, which we expect them to contain the Candle Max and Candle Min for each Asset.
-
-# In[20]:
-
 
 # split into input and outputs
 n_obs = NUMBER_OF_LAG_TIMESTEPS * NUMBER_OF_FEATURES
@@ -310,25 +188,9 @@ train_y = train[:, -NUMBER_OF_FEATURES:-(NUMBER_OF_FEATURES-NUMBER_OF_LABELS)]
 test_X = test[:, :n_obs]
 test_y = test[:, -NUMBER_OF_FEATURES:-(NUMBER_OF_FEATURES-NUMBER_OF_LABELS)]
 
-
-# In[21]:
-
-
-train_X
-
-
-# In[22]:
-
-
-train_y
-
-
 # ## Reshape Inputs to fit LSTM type of Network
 
 # This type of Network Architecture requires the features to be in a 3D shape.
-
-# In[23]:
-
 
 # reshape input to be 3D [samples, timesteps, features]
 train_X = train_X.reshape((train_X.shape[0], NUMBER_OF_LAG_TIMESTEPS, NUMBER_OF_FEATURES))
@@ -338,8 +200,6 @@ test_X = test_X.reshape((test_X.shape[0], NUMBER_OF_LAG_TIMESTEPS, NUMBER_OF_FEA
 # ## Network Architecture
 
 # Here we are using an LSTM architecture for our neural network. This is the type of architecture usually used for problems involving time-series.
-
-# In[24]:
 
 
 if ACTION_TO_TAKE == "LOAD_MODEL_AND_PREDICT":
@@ -352,106 +212,75 @@ if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
     model.add(Dense(NUMBER_OF_LABELS))
     model.compile(loss='mae', optimizer='adam')
 
+# We print this output so that the caller program can get the results in a JSON object.
+#print('{')
 
 # ## Fit the Model
-
-# We print this output so that the caller program can get the results in a JSON object.
-
-# In[25]:
-
-
-
-
-
 # This is the actual process of training the neural network.
-
-# In[26]:
-
-
 if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
+    print('"trainingOutput": "')
+
     # fit network
     history = model.fit(
         train_X,
         train_y,
         epochs=NUMBER_OF_EPOCHS,
         batch_size=72,
+#        batch_size=int(NUMBER_OF_EPOCHS/5),
         validation_data=(test_X, test_y),
-        verbose=0,
+        verbose=2,
+        use_multiprocessing=True,
         shuffle=False
     )
-
-
-# ## Save the Model
-
-# In[28]:
-
-
-if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
-    # dave the entire model
+    # save the entire model
     model.save('/tf/notebooks/models/' + MODEL_FILE_NAME)
-
+    
+    print('",')
 
 # ## Plot Fitting History
+#
+#
+#if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
+#    # plot history
+#    pyplot.plot(history.history['loss'], label='train')
+#    pyplot.plot(history.history['val_loss'], label='test')
+#    pyplot.legend()
+#    pyplot.show()
 
-# In[29]:
-
-
-if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
-    # plot history
-    pyplot.plot(history.history['loss'], label='train')
-    pyplot.plot(history.history['val_loss'], label='test')
-    pyplot.legend()
-    pyplot.show()
 
 
 # ## Batch Prediction of all Test Records
 
 # Here we take all Test Records and get a prediction for each one of them.
 
-# In[30]:
-
-
 # make a prediction
 yhat = model.predict(test_X)
 test_X = test_X.reshape((test_X.shape[0], NUMBER_OF_LAG_TIMESTEPS*NUMBER_OF_FEATURES))
 
-
-# In[31]:
-
-
-yhat
 
 
 # ## Reversing Normalization
 #
 # For inverting the scale (denormalize) of a test record, we need first to unframe the test_X values so as the get the original record. Since the label was the first colum of the record, we concatenate the prediction to the last columns of the framed record.
 
-# In[32]:
 
 
 # invert scaling for forecast
 inv_yhat = concatenate((yhat, test_X[:, -(NUMBER_OF_FEATURES - NUMBER_OF_LABELS):]), axis=1)
 inv_yhat = scaler.inverse_transform(inv_yhat)
 inv_yhat = inv_yhat[:,:NUMBER_OF_LABELS]
-inv_yhat
-
-
-# In[33]:
 
 
 # invert scaling for actual
 inv_y = concatenate((test_y, test_X[:, -(NUMBER_OF_FEATURES - NUMBER_OF_LABELS):]), axis=1)
 inv_y = scaler.inverse_transform(inv_y)
 inv_y = inv_y[:,:NUMBER_OF_LABELS]
-inv_y
+
 
 
 # ## Error Calculations
 
 # ### Main Error Value
-
-# In[34]:
-
 
 # calculate RMSE
 rmse = sqrt(mean_squared_error(inv_y, inv_yhat))
@@ -461,23 +290,13 @@ rmse = sqrt(mean_squared_error(inv_y, inv_yhat))
 
 # ### Alternative Error Analisys
 
-# In[35]:
 
 
 # my way to calculating Errors
 errors = (inv_yhat - inv_y) / inv_y * 10000
 errors = errors.astype('int') / 100
-errors
 
 
-# ### Plot of the % of Error of each Predicted Value
-
-# In[36]:
-
-
-# plot errors
-pyplot.plot(errors)
-pyplot.show()
 
 
 # ### Dollar Difference Between Prediction and Actual Value
@@ -489,24 +308,13 @@ pyplot.show()
 
 diff = (inv_yhat - inv_y)
 diff = diff.astype('float32')
-diff
 
 
 # ## Returning Predictions & Errors
 
 # Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle.
 
-# In[38]:
 print('{"predictions": ', json.dumps(inv_yhat[-1], cls=NumpyArrayEncoder))
-
-
-# In[39]:
-
 
 print(',"errorRMSE": %.3f' % rmse)
 print('}')
-
-
-# #####
-
-# ######

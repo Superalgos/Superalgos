@@ -23,8 +23,14 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
 
     function messageReceived(
         message,
-        signalReceivedCallbackFunction
+        signalReceivedCallbackFunction,
+        rankingStats
     ) {
+        if (signalReceivedCallbackFunction === undefined) {
+            console.log((new Date()).toISOString(), '[ERROR] Cannot receive signals because the Trading Bot Instance does not have a Social Trading Bot Reference. Plese fix this and run this Task again. ')
+            return
+        }
+
         let messageHeader
         try {
             messageHeader = JSON.parse(message)
@@ -120,7 +126,7 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         */
         let timestamp = (new Date()).valueOf
         SA.projects.tradingSignals.globals.memory.maps.SIGNALS.set(signalReceived.signalId, timestamp)
-        signalReceivedCallbackFunction(signalReceived)
+        signalReceivedCallbackFunction(signalReceived, rankingStats)
 
     }
 }

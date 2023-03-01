@@ -47,6 +47,11 @@
                 "language": "NL",
                 "text": "De kern van een datamijn operatie bestaat uit taken van bots. Eén Task beheerd één bot, een Task Manager kan meerdere taken beheren.",
                 "updated": 1637498357325
+            },
+            {
+                "language": "FR",
+                "text": "Le cœur d'une opération de minage de données est constitué de bots exécutant des tâches . Une tâche gère un bot, et un Task Manager peut gérer plusieurs tâches.",
+                "updated": 1667987329064
             }
         ]
     },
@@ -92,8 +97,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Ondertussen heb je al 6 verschillende apparaten geleerd die je kan gebruiken om bot in een datamijn operatie te beheren. Op het hoogste niveau. beheerd de Data Tasks node alle datamijn bots in de Network Node.",
-                    "updated": 1637499321780
+                    "text": "Inmiddels heb je geleerd over zes verschillende apparaten die je kunt gebruiken om elke bot in je datamining-operatie te besturen. Op het hoogste niveau bestuurt het Data Tasks knooppunt alle datamining-bots in de LAN Network Node.",
+                    "updated": 1666615875912
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous avez maintenant appris à connaître six dispositifs différents que vous pouvez utiliser pour contrôler chaque robot de votre opération d'exploration de données. Au niveau le plus élevé, le nœud Data Tasks contrôle tous les bots de minages de données dans le nœud LAN Network.",
+                    "updated": 1667987404623
                 }
             ]
         },
@@ -139,6 +149,11 @@
                     "language": "NL",
                     "text": "We gaan de netwerk nodes zodadelijk bespreken...",
                     "updated": 1637499364707
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous parlerons des nœuds du réseau dans une minute...",
+                    "updated": 1667987435507
                 }
             ]
         },
@@ -185,6 +200,11 @@
                     "language": "NL",
                     "text": "Op het laagste niveau, beheerd een individuele Task een enkele bot. De tussenliggende nodes zijn organisatorische nodes om orde in de operatie te houden en granulaire controle over de verschillende secties bieden.",
                     "updated": 1637499812865
+                },
+                {
+                    "language": "FR",
+                    "text": "Au niveau le plus bas, une tâche individuelle contrôle un seul bot. Les nœuds intermédiaires sont des nœuds d'organisation qui aident à maintenir l'ordre dans l'opération et permettent un contrôle granulaire des différentes sections.",
+                    "updated": 1667987475254
                 }
             ]
         }

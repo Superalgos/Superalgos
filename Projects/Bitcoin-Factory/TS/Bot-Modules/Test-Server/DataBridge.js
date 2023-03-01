@@ -47,6 +47,10 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports"
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
+        }        
         /*
         Load Data Mines Files
         */
@@ -106,7 +110,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         await createTimeSeriesFile()
 
         if (forcastedCandle === undefined) {
-            console.log((new Date()).toISOString(), 'Could not produce the object forecasted candle. Please check the config that you have a minimun of 3 labels: Candle Close, Max, Min and 1 Feature: Candle Open only with the option ON. Also check that your data mining operation is running and the files needed from it already exist before running the Test Server. ' + currentClientInstance)
+            console.log((new Date()).toISOString(), 'Could not produce the object forecasted candle. Please check the config that you have a minimun of 3 labels: Candle Close, Max, Min and 1 Feature: Candle Open only with the option ON. Also check that your data mining operation is running and the files needed from it already exist before running the Test Server. ')
         }
 
         return forcastedCandle

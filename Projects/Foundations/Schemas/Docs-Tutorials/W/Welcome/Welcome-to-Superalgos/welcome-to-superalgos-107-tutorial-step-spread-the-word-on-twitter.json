@@ -41,6 +41,11 @@
                 "language": "RU",
                 "text": "Поднятие шумихи в Twitter поможет привлечь в проект больше трейдеров. Больше трейдеров, расширяющих границы программного обеспечения, - лучший двигатель эволюции!",
                 "updated": 1642773566837
+            },
+            {
+                "language": "NL",
+                "text": "Door wat lawaai te maken op Twitter, zullen meer handelaren naar het project worden getrokken. Meer handelaren die de grenzen van de software verleggen, is de beste aanjager van evolutie!",
+                "updated": 1667137093903
             }
         ]
     },
@@ -79,8 +84,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Чем больше трейдеров используют Superalgos, тем больше они будут стимулировать сообщество к разработке все более совершенных функций! Вот что вам нужно сделать:",
-                    "updated": 1642773579683
+                    "text": "Чем больше трейдеров используют Superalgos, тем больше они стимулируют сообщество к разработке все более совершенных функций! Вот что вам нужно сделать:",
+                    "updated": 1662035420442
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe meer handelaren Superalgos gebruiken, hoe meer ze de community ertoe aanzetten om steeds geavanceerdere functies te ontwikkelen! Dit is wat u moet doen:",
+                    "updated": 1667137113303
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "RU",
                     "text": "Зайдите на нашу страницу в Twitter, следуйте за нами и сделайте ретвит нашего последнего твита. Не забудьте отметить трейдеров, за которыми вы следите!",
                     "updated": 1642773601542
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar onze <a href='https://twitter.com/superalgos'>Twitter pagina</a>, volg ons en retweet onze laatste tweet. Zorg ervoor dat je de handelaren die je volgt tagt!",
+                    "updated": 1667137233437
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "RU",
                     "text": "Вот и все! Ничего сложного, правда? Мы ценим вашу помощь и желаем вам счастливой и процветающей торговли!",
                     "updated": 1642773611397
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is het! Geen probleem, toch? We stellen uw hulp op prijs en wensen u een gelukkig en voorspoedig handelen!",
+                    "updated": 1667137261799
                 }
             ]
         }

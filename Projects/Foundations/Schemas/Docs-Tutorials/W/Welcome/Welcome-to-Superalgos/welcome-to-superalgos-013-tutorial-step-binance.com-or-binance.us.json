@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
-                "updated": 1627302684720,
+                "text": "Antes de comenzar con la mineria de datos (Data Mine), tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
+                "updated": 1668194468478,
                 "style": "Definition"
             },
             {
@@ -48,6 +48,11 @@
                 "language": "TR",
                 "text": "Veri madenciliğine başlamadan önce size küçük bir sorum var: binance.com'da mı, binance.us'ta mı işlem yapıyorsunuz yoksa başka bir borsada mı?",
                 "updated": 1644849407918
+            },
+            {
+                "language": "FR",
+                "text": "Avant de commencer le minage de données, j'ai une petite question pour vous : tradez-vous sur binance.com, binance.us, ou aucun des deux ?",
+                "updated": 1667202656489
             }
         ],
         "updated": 1622189667210
@@ -77,8 +82,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Handel je op binance.com of helemaal niet op Binance, dan kan je deze stap overslaan en op \"Next\" klikken.",
-                    "updated": 1633890006155,
+                    "text": "Handel je op binance.com of helemaal niet op Binance, dan kun je deze stap overslaan en op \"Next\" klikken.",
+                    "updated": 1666612174728,
                     "style": "Text"
                 },
                 {
@@ -96,6 +101,11 @@
                     "language": "TR",
                     "text": "Binance.com'da işlem yapıyorsanız veya Binance ile hiç işlem yapmıyorsanız, bu ve sonraki adımı atlayabilirsiniz!",
                     "updated": 1635582549143
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous tradez sur binance.com ou ne tradez pas du tout avec Binance, vous pouvez sauter cette étape et la suivante !",
+                    "updated": 1667202700574
                 }
             ]
         },
@@ -118,8 +128,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
-                    "updated": 1624491042411,
+                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso te muestra cómo!",
+                    "updated": 1668194494383,
                     "style": "Callout"
                 },
                 {
@@ -143,6 +153,11 @@
                     "language": "TR",
                     "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor!",
                     "updated": 1635582592953
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous tradez sur binance.us, vous devez configurer le nœud Binance à droite ! La vidéo de l'étape suivante vous montre comment faire !",
+                    "updated": 1667202738390
                 }
             ]
         },
@@ -165,14 +180,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Accede a la configuración y cambia el codeName a \"binanceus\". Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
-                    "updated": 1627302546798,
+                    "text": "Accede a la configuración y cambia el codeName por \"binanceus\". Salga del editor y se guardará automáticamente.",
+                    "updated": 1667510167454,
                     "style": "List"
                 },
                 {
                     "language": "NL",
-                    "text": "Verander in de configuratie de \"codeName\" in \"binanceus\". Beweeg de muis uit de configuratiecirkel en het zal automatisch de configuratie opslaan en afsluiten.",
-                    "updated": 1633890351655,
+                    "text": "Wijzig de configuratie en verander de codeName in \"binanceus\". Verlaat de editor en het wordt automatisch opgeslagen.",
+                    "updated": 1666612439057,
                     "style": "List"
                 },
                 {
@@ -190,6 +205,11 @@
                     "language": "TR",
                     "text": "Yapılandırmaya (Configure) erişin ve kod adını \"binanceus\" olarak değiştirin. Düzenleyiciden çıkın, yaptığınız değişiklikler otomatik olarak kaydedilecektir. ",
                     "updated": 1644849595878
+                },
+                {
+                    "language": "FR",
+                    "text": "Accédez à la configuration et changez le codeName en \"binanceus\". Quittez l'éditeur et l'enregistrement se fera automatiquement.",
+                    "updated": 1667202762357
                 }
             ]
         },
@@ -237,6 +257,11 @@
                     "language": "TR",
                     "text": "Şimdi düğüm etiketini \"Binanceus\" olarak görüyor olmalısın.",
                     "updated": 1635582726102
+                },
+                {
+                    "language": "FR",
+                    "text": "Modifiez l'étiquette du nœud pour \"Binanceus\".",
+                    "updated": 1667202791524
                 }
             ]
         }

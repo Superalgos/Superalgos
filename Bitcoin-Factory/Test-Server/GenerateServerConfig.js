@@ -199,13 +199,26 @@ function buildServerConfig() {
                         recordProperties.forEach(property => {
                             if (property.name !== "Begin" && property.name !== "End") {
 
+                                // We get the codeName from this property
+                                let propertyConfig = JSON.parse(property.config);
+                                let propertyName = propertyConfig.codeName;
+
+                                // We check that no names have spaces in them.
+                                if (dataMineName.includes(" ") ||
+                                    indicatorName.includes(" ") ||
+                                    productName.includes(" ") ||
+                                    objectName.includes(" ") ) {
+                                        console.log("Skipping indicators that have spaces in the name.");
+                                        return;
+                                    }
+
                                 // Here we assemble the gathered data to add to the new config file.
                                 let configEntry = {
                                     "dataMine": dataMineName,
                                     "indicator": indicatorName,
                                     "product": productName,
                                     "objectName": objectName,
-                                    "propertyName": property.name,
+                                    "propertyName": propertyName,
                                     "range": [
                                         "OFF"
                                     ]

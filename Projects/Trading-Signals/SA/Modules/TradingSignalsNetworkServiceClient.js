@@ -88,7 +88,12 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
                     requestType: 'Follow',
                     queryMessage: message
                 }
-                response = await thisObject.p2pNetworkNodesConnectedTo.sendMessage(JSON.stringify(messageHeader), networkNodeUserProfile, onFollowRequestResponse)
+                try {
+                    response = await thisObject.p2pNetworkNodesConnectedTo.sendMessage(JSON.stringify(messageHeader), networkNodeUserProfile, onFollowRequestResponse)
+                } catch (err) {
+                    SA.logger.error('Trading Signals Network Service Client -> followSignals -> error: ' + err.stack)
+                }
+
             }
         }
 
@@ -96,13 +101,24 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
     }
 
     function onFollowRequestResponse(response) {
+        /* This function interprets responses to the follow request coming from the network node */
         if (response === undefined) { return }
         if (response.result === undefined) { return }
+        let followedBotReference
+        if (response.followedBotReferenceId !== undefined) {
+            for (let i = 0; i < thisObject.socialTradingBotReference.referenceParent.followedBotReference.length; i++) {
+                if (thisObject.socialTradingBotReference.referenceParent.followedBotReference[i].id === response.followedBotReferenceId) {
+                    followedBotReference = thisObject.socialTradingBotReference.referenceParent.followedBotReference[i]
+                    break
+                }
+            }
+        }   
         if (response.result === 'Ok') {
-            SA.logger.info('Signal Follow Request to ' + thisObject.socialTradingBotReference.referenceParent.name + ': ' + response.message)
+            SA.logger.info('Signal Follow Request to ' + followedBotReference?.name + ': ' + response.message)
         } else {
-            SA.logger.error('Signal Follow Request failed: ' + response.message)
-            SA.logger.error('Stopping task ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.name)
+            SA.logger.error('Signal Follow Request to ' + followedBotReference?.name + ' failed: ' + response.message)
+            TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Error while following Signal, stopping...", false)
+            SA.logger.error('Stopping task: ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.name)
             TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess()
         }
     }

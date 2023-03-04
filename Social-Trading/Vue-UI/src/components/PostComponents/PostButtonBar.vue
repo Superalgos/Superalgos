@@ -111,9 +111,9 @@ export default {
             if (emojiReactionId === undefined) {
                 targetId = event.target.id;
                 if (targetId === 'like-button' ) {
-                    reactWithEventType = 100;
+                    reactWithEventType = 700;
                 } else if (targetId === 'love-button') {
-                    reactWithEventType = 101;
+                    reactWithEventType = 701;
                 }
             } else {
                 // This is an emoji reaction. 

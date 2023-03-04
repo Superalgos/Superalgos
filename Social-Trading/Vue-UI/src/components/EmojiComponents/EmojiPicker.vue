@@ -166,7 +166,8 @@ emojis: {
 
         } else {
           store.commit("SET_SELECTED_EMOJI", `${emoji}`);
-          store.commit("SHOW_EMOJI_PICKER", false);
+          console.log("SETTING show emoji picker to false")
+          store.commit("SHOW_EMOJI_PICKER_NEW_POST", false);
         }
     }
   }

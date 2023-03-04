@@ -65,6 +65,7 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
         if (socialTradingBotReference.referenceParent.followedBotReference === undefined || socialTradingBotReference.referenceParent.followedBotReference.length === 0) { return }
         let listeningBotId = socialTradingBotReference.referenceParent.id
         let web3 = new SA.nodeModules.web3()
+        const networkNodeUserProfile = undefined
 
         /* Send a subscription request for each Social Trading Bot we are following */
         let response
@@ -87,11 +88,23 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
                     requestType: 'Follow',
                     queryMessage: message
                 }
-                response = await thisObject.p2pNetworkNodesConnectedTo.sendMessage(JSON.stringify(messageHeader))
+                response = await thisObject.p2pNetworkNodesConnectedTo.sendMessage(JSON.stringify(messageHeader), networkNodeUserProfile, onFollowRequestResponse)
             }
         }
 
         return response
+    }
+
+    function onFollowRequestResponse(response) {
+        if (response === undefined) { return }
+        if (response.result === undefined) { return }
+        if (response.result === 'Ok') {
+            SA.logger.info('Signal Follow Request to ' + thisObject.socialTradingBotReference.referenceParent.name + ': ' + response.message)
+        } else {
+            SA.logger.error('Signal Follow Request failed: ' + response.message)
+            SA.logger.error('Stopping task ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.name)
+            TS.projects.foundations.functionLibraries.nodeJSFunctions.exitProcess()
+        }
     }
     
     async function sendMessage(messageHeader) {

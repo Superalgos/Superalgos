@@ -62,6 +62,16 @@ function newGovernanceUserProfileSpace() {
         }
         let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
 
+        /* Sort user profiles alphabetically so they become easier to find in the Governance Workspace */
+        userProfiles.sort((a, b) => {
+            let na = a.name.toLowerCase()
+            let nb = b.name.toLowerCase()
+
+            if (na < nb) { return -1 }
+            if (na > nb) { return 1  }
+            return 0
+        })
+
         // Initialise the isLoading parameter for each User Profile
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -106,6 +116,7 @@ function newGovernanceUserProfileSpace() {
                 }
             }
             for (let i = 0; i < nodes.length; i++) {
+                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
                 switch (true) {
                     case (yOffset === 0): {
                         yOffset = yStep
@@ -132,7 +143,6 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                 }
-                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
             }
         }
         /*

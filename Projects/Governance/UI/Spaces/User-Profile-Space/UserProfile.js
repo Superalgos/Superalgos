@@ -460,14 +460,21 @@ function newGovernanceUserProfileSpace() {
         Load the user profiles with Token Power.
         */
         let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        /*
+        Check for information which needs to be present before drawing the workspace to prevent hangups.
+        This includes Treasury Account Transactions (Reputation) and fully loaded User Profiles.
+        */
         if (waitingForResponses !== 0) { return }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload === undefined) { return }
+        }
         /*
         We will get all the user Profiles tokens from the blockchain, making a call
         every 5 seconds so as not to exceed the rate limit.
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            if (userProfile.payload === undefined) { continue }
 
             if (userProfile.payload.bloackchainBalancesLoading === true) {
                 userProfile.payload.isLoading = true

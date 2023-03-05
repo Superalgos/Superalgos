@@ -156,6 +156,7 @@ function newGovernanceUserProfileSpace() {
         getTreasuryAccountTransactions()
 
         function getTreasuryAccountTransactions() {
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading reputation transactions from blockchain...', 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
             for (const token of SATokenList) {
                 let url = ''
                 switch(token["chain"]) {

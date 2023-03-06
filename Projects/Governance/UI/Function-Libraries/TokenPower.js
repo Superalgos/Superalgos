@@ -288,7 +288,35 @@ function newGovernanceFunctionLibraryTokenPower() {
     }
 
     function getPercentage(node) {
-        return UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
+        let tokenPower = node.payload.chainParent.payload.tokenPower
+        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
+        let fixed = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'fixed')
+
+        if ((percentage !== undefined && isNaN(percentage) !== true) && (fixed !== undefined && isNaN(fixed) !== true)) {
+            node.payload.uiObject.setErrorMessage(
+                'Both "fixed" and "percentage" are present in the config. Only one may be defined.',
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
+            return
+        }
+
+        if (percentage !== undefined && isNaN(percentage) !== true) {
+            return percentage
+        }
+        if (fixed !== undefined && isNaN(fixed) !== true) {
+            if (isFinite((fixed / tokenPower) * 100)) {
+                if (fixed / tokenPower > 1) {
+                    return 100
+                }
+                else {
+                    return (fixed / tokenPower) * 100
+                }
+            }
+            else {
+                return
+            }
+        }
+        return
     }
 
     function drawTokenPower(node, tokenPower, percentage) {

@@ -140,7 +140,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         }
     }
 
-    async function sendMessage(message, networkNodeUserProfile) {
+    async function sendMessage(message, networkNodeUserProfile, responseHandler) {
         if (thisObject.peers.length === 0) {
             SA.logger.warn('There are no network nodes available to process this message. Please try again later.')
             let response = {
@@ -190,7 +190,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
             }
         }
 
-        let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message)
+        let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message, responseHandler)
         if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
             thisObject.peers.splice(peerIndex, 1)
         }

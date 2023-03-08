@@ -1,6 +1,6 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Welcome to Superalgos Tutorial",
     "definition": {
         "text": "This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
@@ -14,8 +14,8 @@
             },
             {
                 "language": "ES",
-                "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
-                "updated": 1628897237327,
+                "text": "Este tutorial le presenta el universo Superalgos. Te guiará a través de las áreas principales del sistema, te enseñará el funcionamiento básico y te guiará a través del proceso de backtesting. Practicarás con una demostración de Trading System, e incluso podrás configurar tu primer Live Trading Session.",
+                "updated": 1667506565492,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "ID",
                 "text": "Tutorial ini memperkenalkan kamu ke Superalgos universe. Bot ini memandu kamu melalui area utama sistem, mengajarkan kamu operasi dasar, memandu kamu melalui proses backtesting Trading System demo, dan bahkan mengatur kamu dengan Live Trading Session pertama kamu.",
                 "updated": 1640567434566
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial ti introduce all'universo di Superalgos. Ti guida attraverso le aree principali del sistema, ti insegna le operazioni di base, ti guida attraverso il processo di backtesting di un sistema di trading demo e ti prepara anche con la tua prima sessione di trading dal vivo.",
+                "updated": 1666386340356
             }
         ]
     },
@@ -59,6 +64,17 @@
                     "text": "À propos de ce tutoriel :",
                     "updated": 1623946884414,
                     "style": "Title"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654394207568,
+                    "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sobre este Tutorial",
+                    "updated": 1667506139645
                 }
             ]
         },
@@ -72,6 +88,12 @@
                     "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
                     "updated": 1623949967730,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Başlarken Öğreticiler Eklenti Çalışma Alanı.",
+                    "updated": 1654394214699,
+                    "style": "List"
                 }
             ]
         },
@@ -83,6 +105,12 @@
                     "language": "FR",
                     "text": "Responsable: @julianmolina (Telegram).",
                     "updated": 1623947189422,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654394220431,
                     "style": "List"
                 }
             ]

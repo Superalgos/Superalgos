@@ -1,0 +1,34 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 34,
+    "type": "Superalgos Review - Collaboration magic",
+    "definition": {
+        "text": "Superalgos powerful architecture really enables true collaboration to profit from the collective intelligence of every contributor coming to the project. It´s conceptual base is really strong and powerful and its granular design allows for a truly permissionless ecosystem that is constantly evolving with each contribution! Glad to be contributing already in this early stage! Thanks to the founder team for having led the project until its actual phase!\n\ngustavohcorradi",
+        "updated": 1635192524617,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Мощная архитектура Superalgos действительно обеспечивает истинное сотрудничество, чтобы извлечь выгоду из коллективного интеллекта каждого участника, приходящего в проект. Его концептуальная основа действительно сильна и мощна, а его гранулированный дизайн позволяет создать действительно свободную экосистему, которая постоянно развивается с каждым вкладом! Я рад внести свой вклад уже на этой ранней стадии! Спасибо команде основателей за то, что они довели проект до его актуальной фазы!\n\ngustavohcorradi",
+                "updated": 1640418513191
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un güçlü mimarisi, projeye katkıda bulunan her katılımcının kolektif zekasından faydalanmak için gerçek işbirliğini mümkün kılıyor. Kavramsal temeli gerçekten güçlü ve kuvvetli ve granüler tasarımı, her katkı ile sürekli gelişen gerçek anlamda izinsiz bir ekosisteme izin veriyor! Bu erken aşamada katkıda bulunduğum için mutluyum! Projeyi gerçek aşamasına kadar yönettikleri için kurucu ekibe teşekkürler! \n\ngustavohcorradi",
+                "updated": 1669312622071
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669312635751
+                }
+            ]
+        }
+    ]
+}

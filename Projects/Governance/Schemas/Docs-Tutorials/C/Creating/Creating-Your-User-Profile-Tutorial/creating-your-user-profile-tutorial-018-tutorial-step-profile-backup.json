@@ -3,8 +3,8 @@
     "pageNumber": 18,
     "type": "Tutorial Step - Profile Backup",
     "definition": {
-        "text": "Your Superalgos SA Token rewards will go to the address you just generated, so you should safely store the private key that you will use to access the address.",
-        "updated": 1630658720175,
+        "text": "Your token rewards will go to the address you just generated or linked, so you should safely store the private key you need to access the address.",
+        "updated": 1660642174022,
         "icon": {
             "name": "Exchange\\exchange-account-asset",
             "project": "Foundations"
@@ -36,8 +36,8 @@
     "paragraphs": [
         {
             "style": "Important",
-            "text": "Superalgos doesn’t offer a built-in solution to securely back up your private keys. The system generates a BSC address / private key pair and delivers it in the configuration of the Profile Constructor. It is up to you to decide how you are going to handle this sensitive information.",
-            "updated": 1630658807597,
+            "text": "Superalgos doesn’t offer a built-in solution to securely back up your private keys. The system generates an EVM-compatible address / private key pair and delivers it in the configuration of the Profile Constructor. It is up to you to decide how you are going to handle this sensitive info.",
+            "updated": 1660590705041,
             "translations": [
                 {
                     "language": "ES",

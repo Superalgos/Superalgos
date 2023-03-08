@@ -1,0 +1,42 @@
+{
+    "type": "Community Themes",
+    "definition": {
+        "text": "This books features themes for the Charting Space and the Design Space contributed by Community members.",
+        "updated": 1661449758580,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu özellik Topluluk üyelerinin katkıda bulunduğu Grafik Alanı (Charting Space) ve Tasarım Alanı (Design Space) için temalar içerir.",
+                "updated": 1666640872999
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For a full list of parameters used, as well as a description of the function, take a look at the Space Style documentation.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanılan parametrelerin tam listesi ve işlevin açıklaması için Space Style belgelerine bakın.",
+                    "updated": 1666640922540
+                }
+            ]
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Dark Charting Space Themes",
+            "updated": 1661453203920
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Light Charting Space Themes",
+            "updated": 1661453218419
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Color Vision Deficiency Charting Space Themes",
+            "updated": 1661453221687
+        }
+    ]
+}

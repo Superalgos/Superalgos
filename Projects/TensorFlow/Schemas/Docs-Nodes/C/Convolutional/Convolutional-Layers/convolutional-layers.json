@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот тип слоя для создания ядра свертки.",
                 "updated": 1645196219295
+            },
+            {
+                "language": "TR",
+                "text": "Bir konvolüsyon çekirdeği oluşturmak için bu katman türünü kullanın.",
+                "updated": 1654396843290
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645196224478
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396849690,
+                    "style": "Text"
                 }
             ]
         }

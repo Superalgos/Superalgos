@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Plugin Trading Mines содержит определения торговых источников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
                 "updated": 1645165943287
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti ticaret mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek ticaret mayınlarının tanımlarını içerir.",
+                "updated": 1651952035702
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
                     "updated": 1645165951125
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1651952047568
                 }
             ]
         }

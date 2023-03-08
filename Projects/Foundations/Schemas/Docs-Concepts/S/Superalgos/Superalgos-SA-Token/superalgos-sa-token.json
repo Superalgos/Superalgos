@@ -1,13 +1,13 @@
 {
     "type": "Superalgos SA Token",
     "definition": {
-        "text": "It is BEP20 token in the Binance Smart Chain that will be used as the medium of exchange by Superalgos users while paying for products or services they buy and sell to each other.",
-        "updated": 1618832011639,
+        "text": "It is the native token of the Superalgos Project, distributed among contributors as rewards for value added to the project. You may use the token to participate in governance and to access premium Community services.",
+        "updated": 1660584831716,
         "translations": [
             {
                 "language": "RU",
-                "text": "Это токен BEP20 в сети Binance Smart Chain, который будет использоваться в качестве средства обмена пользователями Superalgos при оплате товаров или услуг, которые они покупают и продают друг другу.",
-                "updated": 1638298808232
+                "text": "Это собственный токен проекта Superalgos, распределяемый среди участников в качестве вознаграждения за добавленную в проект пользу. Вы можете использовать токен для участия в управлении и для доступа к премиум-услугам Сообщества.",
+                "updated": 1661149288535
             },
             {
                 "language": "TR",
@@ -19,18 +19,41 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Properties",
-            "updated": 1614853617940,
+            "text": "Multiple Versions",
+            "updated": 1660584602569,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Характеристики",
-                    "updated": 1638298836264
+                    "text": "Несколько версий",
+                    "updated": 1661149324833
                 },
                 {
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1642711547203
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. Currently, the token is available on BNB Smart Chain (BSC) and Ethereum (ETH). At some point, you will be able to chose on what chain to get your rewards.",
+            "updated": 1664309478481,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проект развертывает версии токена на каждой из основных блокчейн, чтобы получить доступ к различным сообществам и экосистемам. В определенный момент вы сможете выбрать, на какой цепочке получать свои вознаграждения.",
+                    "updated": 1661149347936
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Характеристика",
+                    "updated": 1661149418829
                 }
             ]
         },
@@ -85,19 +108,20 @@
         },
         {
             "style": "List",
-            "text": "Issued on Binance Smart Chain: 500,000,000",
+            "text": "BNB Smart Chain (BSC) version: 500,000,000",
             "translations": [
                 {
                     "language": "TR",
                     "text": "Binance Smart Chain'de Dağıtılacak Miktar: 500,000,000",
                     "updated": 1642711686936
                 }
-            ]
+            ],
+            "updated": 1664309488511
         },
         {
             "style": "List",
-            "text": "Contract Address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-            "updated": 1618832141201,
+            "text": "BSC Contract Address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
+            "updated": 1660584724236,
             "translations": [
                 {
                     "language": "TR",
@@ -105,6 +129,14 @@
                     "updated": 1642711670828
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "Ethereum (ETH) version: 250,000,000"
+        },
+        {
+            "style": "List",
+            "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79"
         },
         {
             "style": "Title",
@@ -125,13 +157,13 @@
         },
         {
             "style": "Text",
-            "text": "The token was deployed in March 2021 and all tokens were deposited in the project's Treasury Account. The tokens are distributed to contributors from this account, on a per-release basis.",
-            "updated": 1618832423365,
+            "text": "Once deployed, tokens are deposited in the project's Treasury Account. The tokens are distributed to contributors from this account, on a per-release basis.",
+            "updated": 1660584777903,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Токен был развернут в марте 2021 года, и все токены были депонированы на казначейском счете проекта. Токены распределяются среди участников из этой учетной записи для каждого выпуска.",
-                    "updated": 1638298947085
+                    "text": "После развертывания токены зачисляются на казначейский счет проекта. С этого счета токены распределяются среди вкладчиков на основе каждого выпуска.",
+                    "updated": 1661149448748
                 },
                 {
                     "language": "TR",
@@ -142,8 +174,8 @@
         },
         {
             "style": "List",
-            "text": "Treasury Account: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
-            "updated": 1618832329524,
+            "text": "BSC Treasury Account: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
+            "updated": 1660584788358,
             "translations": [
                 {
                     "language": "TR",
@@ -151,6 +183,10 @@
                     "updated": 1642711843176
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "ETH Treasury Account: 0xa54c30122d477589311ee28b85c0e8dc8f12680a"
         },
         {
             "style": "Success",

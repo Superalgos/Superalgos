@@ -74,6 +74,7 @@ exports.newPlatformApp = function newPlatformApp() {
             /* Network Interfaces */
             let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
             let HTTP_INTERFACE = require('./Client/httpInterface.js')
+            let DASHBOARDS_WEB_SOCKET_INTERFACE = require('./Client/dashboardsInterface.js')
             /*
             Setting up servers running inside this Client.
             */
@@ -111,9 +112,9 @@ exports.newPlatformApp = function newPlatformApp() {
             PL.servers.EVENT_SERVER.run()
             console.log('Events Server ............................................... Started')
 
-            TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
-            TASK_MANAGER_SERVER.initialize()
-            TASK_MANAGER_SERVER.run()
+            PL.servers.TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
+            PL.servers.TASK_MANAGER_SERVER.initialize()
+            PL.servers.TASK_MANAGER_SERVER.run()
             console.log('Task Manager Server ......................................... Started')
 
             PL.servers.CCXT_SERVER = CCXT_SERVER.newCCXTServer()
@@ -146,22 +147,30 @@ exports.newPlatformApp = function newPlatformApp() {
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
+
+            DASHBOARDS_WEB_SOCKET_INTERFACE = DASHBOARDS_WEB_SOCKET_INTERFACE.newDashboardsInterface()
+            DASHBOARDS_WEB_SOCKET_INTERFACE.initialize()
+            DASHBOARDS_WEB_SOCKET_INTERFACE.run()
+            console.log('Dashboard App Interface ..................................... Initializing on port ' + global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT)
+
             console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
+
+
 
             console.log('')
             console.log("You are running Superalgos Platform " + SA.version)
             console.log('')
             console.log("What's new? These are the main new features in this version:")
             console.log('')
-            console.log('Governance System ........................................... Automates the distribution of SA Tokens and allow users to vote on the direction of the project.')
-            console.log('TensorFlow Integration ...................................... Allows creating and training ML models and use them in trading strategies.')
+            console.log('Superalgos P2P Network ...................................... Allows interconnecting clients so that users may collaborate.')
+            console.log('Real-time Trading Signals ................................... Enables the broadcasting and consumption of trading signals.')
+            console.log('Portfolio Manager ........................................... Portfolio Manager bots supervise and manage Trading Bots for improved capital allocation and risk management.')
             console.log('')
             console.log("What's next? This is the current development pipeline:")
             console.log('')
-            console.log('Superalgos P2P Network ...................................... Will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.')
-            console.log('Real-time Trading Signals ................................... Will allow users to emit trading signals and be rewarded with SA Tokens.')
-            console.log('Superalgos Mobile ........................................... Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.')
-            console.log('Portfolio Manager ........................................... Will allow a Portfolio Manager bot to supervize Trading Bots deciding where and when to increase or decrease their position sizes.]')
+            console.log('Superalgos Mobile ........................................... Will allow users to consume trading signals from their mobile phones.')
+            console.log('')
+            console.log('Join the @superalgosdevelop Telegram Group to learn more!')
 
             console.log('')
 

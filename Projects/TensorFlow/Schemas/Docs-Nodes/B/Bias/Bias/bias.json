@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Значение, указывающее, насколько далеко отстоит среднее значение предсказаний от среднего значения меток в наборе данных.",
                 "updated": 1645195695451
+            },
+            {
+                "language": "TR",
+                "text": "Tahminlerin ortalamasının veri kümesindeki etiketlerin ortalamasından ne kadar uzak olduğunu gösteren bir değer.",
+                "updated": 1654396730246
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645195700986
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396736474,
+                    "style": "Text"
                 }
             ]
         }

@@ -120,8 +120,11 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             candle available since it is not considered a closed candle, but a candle
             that still can change. So effectively will be processing all closed candles.
             */
+            console.log((new Date()).toISOString(), '[INFO] Starting Simulation -> initialCandle = ' + initialCandle + ' -> finalCandle = ' + (candles.length - 2))
+
             for (let i = initialCandle; i < candles.length - 1; i++) {
- 
+                console.log((new Date()).toISOString(), '[INFO] Simulation Loop -> Candle Index = ' + i)
+
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
                     tradingEngine.tradingCurrent.tradingEpisode.candle,
@@ -129,11 +132,17 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     i,
                     processIndex
                 )
-                /* Signals */
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
+                /* Signals : If we are expecting signals, we need to get in sync with the broadcaster */
+                if (await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
                     incomingTradingSignalsModuleObject,
-                    tradingSystem
-                )
+                    tradingSystem,
+                    i
+                ) === false) {
+                    /*
+                    This candle is too early and there are no signals for it, we'll move to the next one and see...
+                    */
+                    console.log((new Date()).toISOString(), '[WARN] Simulation Candle running without Signals because the Signals for this candle did not arrive on time. -> Candle Index = ' + i)
+                }
                 /* Portfolio Manager */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(
                     portfolioManagerClientModuleObject,
@@ -141,7 +150,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     candle,
                     processIndex
                 )
-                /* We emit a heart beat so that the UI can now where we are at the overall process. */
+                /* We emit a heart beat so that the UI can know where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(
                     sessionParameters,
                     tradingEngine.tradingCurrent.tradingEpisode.candle,

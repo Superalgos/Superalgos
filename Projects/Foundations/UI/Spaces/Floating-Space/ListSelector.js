@@ -15,6 +15,9 @@ function newListSelector() {
         deactivate: deactivate,
         activate: activate,
         physics: physics,
+        enterEditMode: enterEditMode,
+        filterList: filterList,
+        exitEditMode: exitEditMode,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
         onMouseClick: onMouseClick,
@@ -36,6 +39,7 @@ function newListSelector() {
     thisObject.container.frame.position.y = 0
 
     let optionsList = {}
+    let filteredList = {}
     let current
     let icon
     let propertyName
@@ -80,6 +84,8 @@ function newListSelector() {
         }
         thisObject.payload.uiObject.container.eventHandler.stopListening(onMouseClickEventSubscriptionId)
         EDITOR_ON_FOCUS = false
+
+        exitEditMode()
     }
 
     function raiseEventParentChanged() {
@@ -98,22 +104,26 @@ function newListSelector() {
         thisObject.targetRadius = thisObject.container.frame.radius
         thisObject.currentRadius = 0
         thisObject.payload.uiObject.resetErrorMessage()
+        thisObject.payload.uiObject.resetQuickInfo()
         thisObject.payload.uiObject.uiObjectTitle.exitEditMode()
 
         onMouseClickEventSubscriptionId = eventSubscriptionId
 
         optionsList = listValues
+        filteredList = optionsList
 
-        if (optionsList.length < 1) {
+        if (filteredList.length < 1) {
             thisObject.payload.uiObject.setErrorMessage("No Valid List Entries Found")
             deactivate()
         }
 
-        if (optionsList.length < MAX_LABELS) {
-            VISIBLE_LABELS = optionsList.length
+        if (filteredList.length < MAX_LABELS) {
+            VISIBLE_LABELS = filteredList.length
         }
 
         EDITOR_ON_FOCUS = true
+
+        enterEditMode()
     }
 
     function onMouseWheel() {
@@ -162,7 +172,7 @@ function newListSelector() {
 
         selected = selected - event.delta
         if (selected < 0) { selected = 0 }
-        if (selected > optionsList.length - VISIBLE_LABELS) { selected = optionsList.length - VISIBLE_LABELS }
+        if (selected > filteredList.length - VISIBLE_LABELS) { selected = filteredList.length - VISIBLE_LABELS }
 
         if (selected !== lastSelected) {
             lastSelected = selected
@@ -196,7 +206,7 @@ function newListSelector() {
                     let event = {
                         point: pPoint,
                         parent: thisObject,
-                        selectedNode: optionsList[clickedValue]
+                        selectedNode: filteredList[clickedValue]
                     }
 
                     thisObject.payload.uiObject.container.eventHandler.raiseEvent('listSelectorClicked', event)
@@ -242,6 +252,20 @@ function newListSelector() {
         thisObject.container.frame.width = thisObject.container.frame.radius * 2 * SIZE_FACTOR
         thisObject.container.frame.height = thisObject.container.frame.radius * 2 * SIZE_FACTOR
 
+        let offset = thisObject.container.frame.radius / (8 / 5)
+
+
+        let position = {
+            x: thisObject.container.frame.radius - offset + ( SIZE * 3 / 2 ),
+            y: thisObject.container.frame.radius - offset - ( SIZE * 3 / 2 )
+        }
+
+        position = thisObject.container.frame.frameThisPoint(position)
+
+        if (thisObject.visible === true) {
+            let inputDiv = document.getElementById('inputDiv')
+            inputDiv.style = 'position:absolute; top:' + position.y + 'px; left:' + position.x + 'px; z-index:1;'
+        }
 
     }
 
@@ -273,38 +297,107 @@ function newListSelector() {
         }
     }
 
+    function enterEditMode() {
+
+        // Search Input Box
+        let offset = thisObject.container.frame.radius / (8 / 5)
+        let width = offset * 2 - ( SIZE * 3 / 2 )
+        let height = ( offset / MAX_LABELS )
+        let fontSize = FONT_SIZE
+
+        let input = document.getElementById('input')
+        input.value = ''
+
+        let backgroundColor = '28, 112, 108'
+
+        input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira Condensed; font-size: ' + fontSize / 2 + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + width + 'px; height: ' + height + 'px'
+        input.style.display = 'block'
+        input.setAttribute('autocomplete', 'off')
+        input.addEventListener('input', filterList);
+        input.focus()
+
+    }
+
+    function filterList() {
+
+        filteredList = optionsList
+
+        let input = document.getElementById('input')
+
+        filteredList = filteredList.filter(val => {
+            if (val.name !== undefined && val.subLabel !== undefined) {
+                return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1 || val.subLabel.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            } else if (val.name !== undefined) {
+                return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            } else if (typeof(val) === "string") {
+                return val.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            }
+
+        })
+
+        if (filteredList.length < MAX_LABELS) {
+            VISIBLE_LABELS = filteredList.length
+        } else {
+            VISIBLE_LABELS = MAX_LABELS
+        }
+    }
+
+    function exitEditMode() {
+
+        let input = document.getElementById('input')
+        input.style.display = 'none'
+        input.value = ''
+        input.removeAttribute('autocomplete')
+
+        let inputDiv = document.getElementById('inputDiv')
+        inputDiv.style = 'position:absolute; top:' + '-100' + 'px; left:' + '-100' + 'px; z-index:1;'
+
+        filteredList = optionsList
+
+        if (filteredList.length < MAX_LABELS) {
+            VISIBLE_LABELS = filteredList.length
+        } else {
+            VISIBLE_LABELS = MAX_LABELS
+        }
+
+    }
+
     function drawForeground() {
 
         if (thisObject.visible === true) {
 
-            let fontSize
-            let fontColor
+            let fontSize = FONT_SIZE
+            let fontColor = UI_COLOR.BLACK
             let opacity
             let offset = thisObject.container.frame.radius / (8 / 5)
+
+            let searchIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'search')
+            UI.projects.foundations.utilities.drawPrint.drawIcon(searchIcon, 1 / 2, 1 / 2, - offset + SIZE * ( 2 / 3 ), -offset - SIZE * ( 2 / 3 ), SIZE * ( 2 / 3 ), thisObject.container)
 
             for (let i = 0; i < VISIBLE_LABELS; i++) {
 
                 let index = i + selected
                 let label = ''
                 let subLabel = ''
-                if (index >= 0 && index < optionsList.length) {
-                    if (typeof (optionsList[index]) !== "string") {
+                if (index >= 0 && index < filteredList.length) {
+                    if (typeof (filteredList[index]) !== "string") {
 
-                        let path = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(optionsList[index].payload.parentNode)
+                        let path = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(filteredList[index].payload.parentNode)
 
                         for (let i = 0; i < path.length; i++) {
                             path[i].splice(1, 3)
                         }
 
-                        label = optionsList[index].name
+                        label = filteredList[index].name
                         subLabel = path.join("->")
+                        filteredList[index].subLabel = path.join("->")
 
-                        if (optionsList[index].payload.uiObject.icon !== undefined) {
-                            icon = optionsList[index].payload.uiObject.icon
+                        if (filteredList[index].payload.uiObject.icon !== undefined) {
+                            icon = filteredList[index].payload.uiObject.icon
                         }
 
                     } else {
-                        label = optionsList[index]
+                        label = filteredList[index]
                     }
                 }
 
@@ -313,8 +406,6 @@ function newListSelector() {
                 if (label.length > 35) { label = label.substring(0, 35) + " (cont...)" }
                 if (subLabel.length > 60) { subLabel = subLabel.substring(0, 60) + " (cont...)" }
 
-                fontColor = UI_COLOR.BLACK
-                fontSize = FONT_SIZE
                 opacity = 1
 
                 let listSquare = offset * 2
@@ -358,7 +449,7 @@ function newListSelector() {
                 UI.projects.foundations.utilities.drawPrint.drawLabel(subLabel, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset + subOffset, fontSize / 2, thisObject.container, fontColor, undefined, undefined, opacity)
             }
 
-            if (optionsList.length > VISIBLE_LABELS) {
+            if (filteredList.length > VISIBLE_LABELS) {
                 let scrollbarPosition = {
                     x: thisObject.container.frame.radius,
                     y: thisObject.container.frame.radius
@@ -377,10 +468,10 @@ function newListSelector() {
                 browserCanvasContext.fill();
 
                 // Scrollbar Foreground
-                let scrollbarHeight = offset * 2 / (optionsList.length - VISIBLE_LABELS)
+                let scrollbarHeight = offset * 2 / (filteredList.length - VISIBLE_LABELS)
                 if (scrollbarHeight < 25) { scrollbarHeight = 25 }
 
-                let scrollbarOffset = ((offset * 2 - scrollbarHeight) / (optionsList.length - VISIBLE_LABELS)) * selected
+                let scrollbarOffset = ((offset * 2 - scrollbarHeight) / (filteredList.length - VISIBLE_LABELS)) * selected
 
                 browserCanvasContext.beginPath()
                 browserCanvasContext.moveTo(scrollbarPosition.x + offset + 7, scrollbarPosition.y - offset + 2 + scrollbarOffset);

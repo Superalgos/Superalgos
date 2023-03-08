@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы установить ссылку на узел Feature в иерархии Features. Этим голосованием вы передаете Weight Power указанному узлу. Таким образом, узел получает больше Token Rewards, доступных в иерархии. Таким образом вы влияете на стимулирование различных областей проекта.",
                 "updated": 1639139395162
+            },
+            {
+                "language": "TR",
+                "text": "Özellikler hiyerarşisindeki bir Özellik düğümü ile referans oluşturmak için bu düğümü kullanın. Bu oylamayla, Ağırlık Gücünü başvurulan düğüme aktarırsınız. Bu şekilde, düğüm hiyerarşide bulunan Jeton Ödüllerinden daha fazlasını alır. Projenin farklı alanlarının nasıl teşvik edileceğini bu şekilde etkilersiniz.",
+                "updated": 1654394796320
             }
         ]
     },
@@ -19,7 +24,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Weight Votes->Content"
+            "text": "Governance->Concept->Weight Votes->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Ağırlık Oyları->İçerik",
+                    "updated": 1654394802133,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -29,16 +42,38 @@
                     "language": "RU",
                     "text": "Работа с несколькими рабочими пространствами",
                     "updated": 1639139410145
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden Fazla Çalışma Alanında Çalışma",
+                    "updated": 1654394807941,
+                    "style": "Subtitle"
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Kullanılabilir Yönetişim Parçacıkları->Derin Yönetişim",
+                    "updated": 1654394813384,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar 2",
+                    "updated": 1654394819190,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -52,6 +87,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639139421714
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394826931,
+                    "style": "Title"
                 }
             ]
         }

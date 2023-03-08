@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел представляет собой экземпляр процесса API Data Fetcher. При запуске он будет отображать статус процесса.",
                 "updated": 1638623675316
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, bir API Veri Alıcısı işleminin bir örneğini temsil eder. Çalıştırırken işlemin durumunu gösterecektir.",
+                "updated": 1652018711764
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, ознакомьтесь со страницей Process Definition для более подробного описания того, что такое процесс и как он работает.",
                     "updated": 1638623760705
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir işlemin ne olduğu ve nasıl çalıştığı hakkında daha ayrıntılı bir açıklama için lütfen İşlem Tanımı ( Process Definition ) sayfasına bakın.",
+                    "updated": 1652018742142
                 }
             ]
         }

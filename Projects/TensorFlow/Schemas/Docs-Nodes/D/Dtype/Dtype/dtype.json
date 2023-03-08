@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Тип данных для этого слоя. По умолчанию имеет значение 'float32'. Этот аргумент применим только к входным слоям (первый слой модели).",
                 "updated": 1645247492960
+            },
+            {
+                "language": "TR",
+                "text": "Bu katman için veri türü. Varsayılan olarak 'float32'. Bu bağımsız değişken yalnızca giriş katmanları (bir modelin ilk katmanı) için geçerlidir.",
+                "updated": 1654397008334
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645247500275
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654397015194,
+                    "style": "Subtitle"
                 }
             ]
         },

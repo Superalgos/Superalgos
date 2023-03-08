@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Chandelier Exit",
     "definition": {
-        "text": "The Chandelier exit - this indicator uses the Average True Range (ATR) to identify stop lose exit points depending on the trend direction of the position taken.",
-        "updated": 1648596219994
+        "text": "The Chandelier exit - this indicator uses the Average True Range (ATR) to identify stop loss exit points depending on the trend direction of the position taken.",
+        "updated": 1649137916107
     },
     "paragraphs": [
         {

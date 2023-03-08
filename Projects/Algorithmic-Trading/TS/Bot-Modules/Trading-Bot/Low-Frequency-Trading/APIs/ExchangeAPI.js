@@ -10,31 +10,76 @@
         finalize: finalize
     };
 
-    let tradingSystem
-
+    let tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+    let exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config
     let exchangeId
     let options = {}
     let exchange
+    let sandBox
+    let rateLimit = 500
+    let limit = 1000 // This is the default value
+    let hostname
+    let defaultType
+    let maxRate
+    
+    
+    /*
+    CCXT and its unifiedAPI require a different way to find the pair because now not only spot is supported
+    but swaps and futures too.
+    Form CCXT
+    BTC/USD         -> Could be spot
+    BTC/USDT:USDT   -> Swap Linear
+    BTC/USDT:BTC    -> Swap Inverse
+
+    This is an issue in SA at the moment, since when saving data there is no distinction in folders
+
+    -> Old code left below for a quick reverse in case of issues
+
+    let baseAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+    let quotedAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+    const symbol = baseAsset + '/' + quotedAsset
+    */
+   
+    // Following line is left for history purposes 
+    // const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+       
+    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
 
     const ccxt = SA.nodeModules.ccxt
 
     return thisObject;
 
     function initialize() {
-        tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
-
-        let exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config
-        exchangeId = exchangeConfig.codeName
+        // MOVED AT TOP tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+        // MOVED AT TOP exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config    
+        
+        // Take the codeName and check if sandBox mode is to enable
+        exchangeId = exchangeConfig.codeName        
+        sandBox = exchangeConfig.sandBox || false   // true for sandBox mode if available
+        // Check options to pass to the exchange constructor
         if (exchangeConfig.options !== undefined) {
             options = exchangeConfig.options
         }
-
+        if (exchangeConfig.maxRate !== undefined) {
+            maxRate = exchangeConfig.maxRate            // Max number of fetched candles before saving
+        }                                           
+        if (exchangeConfig.limit !== undefined) {
+            limit = exchangeConfig.limit                // Some exchanges need this parameter -> Bybit
+        }
+        if (exchangeConfig.rateLimit !== undefined) {
+            rateLimit = exchangeConfig.rateLimit        // Custom rateLimit
+        }
+        if (exchangeConfig.hostname !== undefined) {
+            hostname = exchangeConfig.hostname          // Custom hostname
+        }
+        
+        // Exchange API parameters
         let key
         let secret
         let uid
         let password
-        let sandBox = exchangeConfig.sandbox || false;
-
+        
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
                 key = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
@@ -44,6 +89,7 @@
             }
         }
 
+        // OKEX exchange compatibility
         switch (exchangeId) {
             case 'okex':
             case 'okex3':
@@ -66,14 +112,33 @@
             'adjustForTimeDifference': true,
             options: options
         }
-        exchange = new exchangeClass(exchangeConstructorParams)
-        // enable sandbox mode based on exchange sandbox param value
-        if (sandBox) {
-            exchange.setSandboxMode(sandBox);
+
+        // This code is left for retro-compatibility with the code above "API"
+        if (rateLimit !== undefined) {
+            exchangeConstructorParams.rateLimit = rateLimit
         }
-        // console.log('Sandbox mode = ' + sandBox);
-        // uncomment the following line if you want to log the exchange api being used
-        // console.log(exchange.urls.api);
+        if (hostname !== undefined) {
+            exchangeConstructorParams.hostname = hostname
+        }
+
+        // Exchange instantiation
+        exchange = new exchangeClass(exchangeConstructorParams)
+        
+        if (sandBox) {
+            exchange.setSandboxMode(sandBox)
+            /* Uncomment to log
+            console.log('ExchangeAPI connection starting.... ')
+            console.log('Sandbox mode is: ' + sandBox)
+            console.log(exchange.urls.api)
+            console.log('')
+            console.log('exchangeConstructorParams:')
+            console.log(exchangeConstructorParams)
+            console.log('')
+            console.log('limit is: ' + limit)
+            */
+        }
+        
+        
     }
 
     function finalize() {
@@ -86,11 +151,7 @@
     async function getOrder(tradingSystemOrder, tradingEngineOrder) {
 
         let orderId = tradingEngineOrder.exchangeId.value
-        const symbol =
-            TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
-            '/' +
-            TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-
+        
         /* Basic Logging */
         logInfo("getOrder -> orderId = " + orderId)
         logInfo("getOrder -> symbol = " + symbol)
@@ -139,8 +200,47 @@
         let price = tradingEngineOrder.rate.value                           // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
         let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
         let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
-        let symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
-        let amount = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
+        // let symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
+        let amount // = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
+        
+        // The above amount can be better configured?
+        // Check if market is linear or inverse?
+        // I propose to use the definition inside the exchange config -> options -> defaultType: inverse
+
+
+        if (exchangeConfig.options !== undefined) {
+            if (exchangeConfig.options.defaultType !== undefined) {
+                defaultType = exchangeConfig.options.defaultType
+
+                if (defaultType == 'inverse') {
+                    amount = tradingEngineOrder.orderQuotedAsset.size.value
+                } else {
+                    amount = tradingEngineOrder.orderBaseAsset.size.value
+                }
+            } 
+        } else {amount = tradingEngineOrder.orderBaseAsset.size.value}
+
+        // Uncomment for debug
+        // console.log ('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
+        
+        
+        // Some exchanges need additional params once connected
+        // positionParams is at the Market Config
+        // orderParams is at the Order Config in a Strategy -> Control how order is sent -> i.e. send a Reduce Only order
+        let positionParams = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.positionParams
+        let orderParams = tradingSystemOrder.config.orderParams
+        
+        // Uncomment for debug
+        // console.log (positionParams)
+        // console.log (orderParams)
+
+        // Above params are merged and passed to ccxt
+        let params = {...positionParams, ...orderParams};
+        
+        // Uncomment for debug
+        // console.log ('Merged Params from Market + Order Close Stage')
+        // console.log (params)
+
 
         switch (tradingSystemOrder.type) {
             case 'Market Buy Order': {
@@ -171,6 +271,7 @@
         logInfo("createOrder -> type = " + type);
         logInfo("createOrder -> amount = " + amount);
         logInfo("createOrder -> price = " + price);
+        logInfo("createOrder -> params = " + params);
 
         /* Basic Validations */
         if (side !== "buy" && side !== "sell") {
@@ -183,7 +284,14 @@
         }
 
         try {
-            let order = await (exchange.createOrder(symbol, type, side, amount, price))
+            // ccxt unified methods of exchanges might expect and will accept various params which affect their functionality
+            let order = await (exchange.createOrder(symbol, type, side, amount, price, params))
+
+            // Uncomment for debugging
+            // console.log (order.info)
+            // console.log(exchange.market(symbol))
+            // console.log ('The order placed in ExchangeAPI is:')
+            // console.log (order)
 
             logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id
@@ -198,6 +306,7 @@
             logError("createOrder -> type = " + type);
             logError("createOrder -> amount = " + amount);
             logError("createOrder -> price = " + price);
+            logError("createOrder -> URL = " + exchange.urls.api);
             if (
                 err.message.indexOf('API-key format invalid') >= 0 ||
                 err.message.indexOf('Invalid API-key, IP, or permissions for action.') >= 0 ||

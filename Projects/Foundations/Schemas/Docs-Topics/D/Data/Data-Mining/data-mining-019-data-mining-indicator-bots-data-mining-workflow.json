@@ -26,8 +26,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Indicators take datasets produced by sensors or by other indicators as input. These inputs are determined by the data dependencies defined. The calculations procedure and the data building procedure produce the intended transformations. The data building procedure stores the results in datasets that others may use as input, and the calculations procedure may make certain pieces of information available without ever writing it in the files.",
-            "updated": 1611427699110,
+            "text": "Indicators take datasets produced by sensors or by other indicators as inputs. These inputs are determined by the defined data dependencies. ",
+            "updated": 1652828609157,
             "translations": [
                 {
                     "language": "DE",
@@ -36,13 +36,24 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Индикаторы принимают в качестве входных данных наборы данных, полученные с помощью датчиков или других индикаторов. Эти входные данные определяются определенными зависимостями данных. Процедура вычислений и процедура построения данных производят предполагаемые преобразования. Процедура построения данных сохраняет результаты в наборах данных, которые другие могут использовать в качестве входных,и процедура вычислений может сделать некоторые части информации доступными, даже не записывая их в файлы.",
-                    "updated": 1639666827958
+                    "text": "Индикаторы принимают на вход наборы данных, созданные датчиками или другими индикаторами. Эти входы определяются определенными зависимостями данных.",
+                    "updated": 1661275946989
                 },
                 {
                     "language": "TR",
                     "text": "Göstergeler, sensörler veya diğer göstergeler tarafından üretilen veri kümelerini girdi olarak alır. Bu girdiler, tanımlanan veri bağımlılıkları tarafından belirlenir. Hesaplama prosedürü ve veri oluşturma prosedürü, amaçlanan dönüşümleri üretir. Veri oluşturma prosedürü, sonuçları, başkalarının girdi olarak kullanabileceği veri kümelerinde depolar ve hesaplama prosedürü, dosyalara hiç yazmadan belirli bilgi parçalarını kullanılabilir hale getirebilir.",
                     "updated": 1645971584660
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The calculations procedure and the data building procedure produce the intended transformations. The data building procedure stores the results in datasets that others may use as input, and the calculations procedure may make certain pieces of information available without ever writing it in the files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процедура вычислений и процедура построения данных производят необходимые преобразования. Процедура построения данных хранит результаты в наборах данных, которые другие могут использовать в качестве исходных данных, а процедура вычислений может сделать определенные части информации доступными без сохранения их в файлах.",
+                    "updated": 1661276000100
                 }
             ]
         },
@@ -90,7 +101,7 @@
         },
         {
             "style": "Text",
-            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are too separated by colons. The format in which data is stored in files aims to make files as lightweight as possible.",
+            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are separated by commas. The format in which data is stored in files aims to make files as lightweight as possible.",
             "translations": [
                 {
                     "language": "DE",
@@ -99,15 +110,16 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Наборы данных, создаваемые индикаторами, представляют собой наборы текстовых файлов с данными, хранящимися в виде массивов. Каждое значение в записи разделяется двоеточиями, а каждая запись заключена в квадратные скобки. Записи излишне разделены двоеточиями. Формат, в котором данные хранятся в файлах, направлен на то, чтобы сделать файлы как можно более легкими.",
-                    "updated": 1639666951482
+                    "text": "Наборы данных, создаваемые индикаторами, представляют собой наборы текстовых файлов с данными, хранящимися в виде массивов. Каждое значение в записи отделяется двоеточиями, а каждая запись разграничивается квадратными скобками. Записи разделяются запятыми. Формат, в котором данные хранятся в файлах, направлен на то, чтобы сделать файлы как можно более легковесными.",
+                    "updated": 1661276054558
                 },
                 {
                     "language": "TR",
                     "text": "Göstergeler tarafından üretilen veri kümeleri, diziler biçiminde depolanan verileri içeren metin dosyaları kümeleridir. Bir kayıttaki her değer iki nokta üst üste ile ayrılır ve her kayıt köşeli parantez ile sınırlandırılır. Kayıtlar iki nokta üst üste ile çok ayrılmış. Verilerin dosyalarda saklandığı format, dosyaları olabildiğince hafif hale getirmeyi amaçlar.",
                     "updated": 1645971665203
                 }
-            ]
+            ],
+            "updated": 1652828712704
         },
         {
             "style": "Text",

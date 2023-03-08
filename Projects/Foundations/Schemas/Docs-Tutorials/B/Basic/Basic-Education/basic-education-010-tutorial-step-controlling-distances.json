@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Opsi selanjutnya di kontrol menu jarak dari node kepada parent-nya. Klik tombol secara berulang di pilihan.",
                 "updated": 1643353095314
+            },
+            {
+                "language": "NL",
+                "text": "De volgende optie in het menu bepaalt de afstand van het knooppunt tot zijn bovenliggende. Als u op de knop klikt, bladert u door de opties.",
+                "updated": 1668335883690
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Jarak dari node ke parentnya diatur relatif terhadap jarak dari parent ke node parentnya. Opsi yang tersedia adalah:",
                     "updated": 1643434282958
+                },
+                {
+                    "language": "NL",
+                    "text": "De afstand van een knooppunt tot zijn bovenliggende knooppunt wordt ingesteld ten opzichte van de afstand van het bovenliggende knooppunt tot zijn bovenliggende knooppunt. De beschikbare opties zijn:",
+                    "updated": 1668335912557
                 }
             ]
         },
@@ -276,6 +286,11 @@
                     "language": "ID",
                     "text": "Katakan jika kamu memilih warna Hijau. Jarak dari node ke parent-nya akan sama dengan jarak yang memisahkan parent node dengan parent-nya!",
                     "updated": 1643473885338
+                },
+                {
+                    "language": "NL",
+                    "text": "Stel dat u kiest voor de groene optie. De afstand van het knooppunt tot het bovenliggende knooppunt is dezelfde afstand die het bovenliggende knooppunt van het bovenliggende knooppunt scheidt!",
+                    "updated": 1668335951635
                 }
             ]
         }

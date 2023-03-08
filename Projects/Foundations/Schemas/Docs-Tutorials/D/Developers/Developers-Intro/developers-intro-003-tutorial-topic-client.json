@@ -1,22 +1,46 @@
 {
     "tutorial": "Developers Intro",
-    "pageNumber": 3,
+    "pageNumber": "3",
     "type": "Tutorial Topic - Client",
     "definition": {
+        "text": "The Client has two main components: The Client and the Task Server. When you run the app, what you are running are the Client. An instance of the Task Server is put to run once a user decides to run a task.",
         "icon": {
-            "project": "Foundations",
-            "name": ""
+            "name": "",
+            "project": "Foundations"
         },
-        "text": "The Client has two main components: The Client and the Task Server. When you run the app, what you are running are the Client. An instance of the Task Server is put to run once a user decides to run a task."
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Müşterinin iki ana bileşeni vardır: İstemci ve Görev Sunucusu. Uygulamayı çalıştırdığınızda, çalıştırdığınız şey İstemcidir. Bir kullanıcı bir görevi çalıştırmaya karar verdiğinde Görev Sunucusunun bir örneği çalıştırılır.",
+                "updated": 1654393973016,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Once the services at the Client are running, the default web browser is called with the URL of the local machine so that it may load the UI and let users interact with the system."
+            "text": "Once the services at the Client are running, the default web browser is called with the URL of the local machine so that it may load the UI and let users interact with the system.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemcideki hizmetler çalıştığında, varsayılan web tarayıcısı yerel makinenin URL'si ile çağrılır, böylece kullanıcı arayüzünü yükleyebilir ve kullanıcıların sistemle etkileşime girmesine izin verebilir.",
+                    "updated": 1654393979455,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The system holds all of its data and logs in the installation folder. The system does not modify&mdash;in any way&mdash;anything outside the installation folder. Deleting this folder completely removes Superalgos from the computer."
+            "text": "The system holds all of its data and logs in the installation folder. The system does not modify&mdash;in any way&mdash;anything outside the installation folder. Deleting this folder completely removes Superalgos from the computer.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sistem tüm verilerini ve günlüklerini kurulum klasöründe tutar. Sistem, kurulum klasörü dışındaki hiçbir şeyi değiştirmez&mdash;hiçbir şekilde&mdash;değiştirmez. Bu klasörün silinmesi Superalgos'u bilgisayardan tamamen kaldırır.",
+                    "updated": 1654393986671,
+                    "style": "Note"
+                }
+            ]
         }
     ]
 }

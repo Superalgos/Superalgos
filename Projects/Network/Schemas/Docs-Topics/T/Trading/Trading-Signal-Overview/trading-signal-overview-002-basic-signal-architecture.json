@@ -1,6 +1,6 @@
 {
     "topic": "Trading Signal Overview",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Basic Signal Architecture",
     "definition": {
         "text": "Signals sent across the Superalgos peer to peer network are designed to be extensible and resource wise.",
@@ -71,6 +71,7 @@
         {
             "style": "List",
             "text": "Contents are encrypted and then uploaded to an open access storage (currently this is a public github repository).",
+            "updated": 1647054722453,
             "translations": [
                 {
                     "language": "RU",
@@ -82,8 +83,7 @@
                     "text": "İçerikler bir açık erişim deposuna yüklenir (şu anda bu bir genel github deposudur).",
                     "updated": 1646297032855
                 }
-            ],
-            "updated": 1647054722453
+            ]
         },
         {
             "style": "List",
@@ -104,6 +104,7 @@
         {
             "style": "List",
             "text": "Signal recipient bots interpret the address where the contents of the signal is stored, then downloads the signal contents.",
+            "updated": 1647054963776,
             "translations": [
                 {
                     "language": "RU",
@@ -115,13 +116,20 @@
                     "text": "Sinyal alıcıları, sinyalin adresini yorumlar ve ardından sinyal içeriğini indirir.",
                     "updated": 1646297065451
                 }
-            ],
-            "updated": 1647054963776
+            ]
         },
         {
             "style": "List",
             "text": "Using the received encryption key, data is decrypt and then made available for use withing the recipients Trading System.",
-            "updated": 1647055040815
+            "updated": 1647055040815,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alınan şifreleme anahtarı kullanılarak verilerin şifresi çözülür ve daha sonra alıcıların Ticaret Sisteminde kullanılmak üzere hazır hale getirilir.",
+                    "updated": 1654395886789,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Text",

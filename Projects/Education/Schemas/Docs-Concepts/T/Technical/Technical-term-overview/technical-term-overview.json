@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Эта статья была создана для того, чтобы показать вам, какие термины не следует переводить, потому что они являются фиксированным термином. Примером может служить слово Node. Создана и поддерживается gitforkgit.",
                 "updated": 1645079902152
+            },
+            {
+                "language": "TR",
+                "text": "Bu makale, sabit bir terim oldukları için hangi terimleri çevirmemeniz gerektiğini göstermek için oluşturulmuştur. Örnek olarak Node kelimesi verilebilir. gitforkgit tarafından oluşturulmuş ve sürdürülmüştür.",
+                "updated": 1654390445465
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Одна из наших целей - сделать Superalgos доступным для всех бесплатно и с открытым исходным кодом навсегда. Для этого переводы чрезвычайно важны и необходимы. Однако есть некоторые технические термины, которые не следует переводить. Потому что иначе могут возникнуть трудности при описании проблем другим людям, при внесении вклада, при изучении Superalgos...",
                     "updated": 1645079949133
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedeflerimizden biri Superalgos'u sonsuza kadar ücretsiz ve açık kaynak olarak herkesin kullanımına sunmaktır. Bunun için çeviriler son derece önemli ve gereklidir. Ancak, çevrilmemesi gereken bazı teknik terimler vardır.Aksi takdirde sorunları başkalarına anlatırken, katkıda bulunmaya başlarken, Superalgos'u anlamak zor olabilir...",
+                    "updated": 1656946338649,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,6 +49,12 @@
                     "language": "RU",
                     "text": "Ниже приведена таблица, в которой перечислены термины. Здесь переводчики могут сориентироваться, а каждый пользователь Superalgos добавить термины, которые, по его мнению, не следует переводить. Если вы переводите статьи, пожалуйста, заглядывайте сюда время от времени, чтобы узнать, какие термины следует оставить в оригинале. Переводы в скобках за самими терминами, конечно, законны и приветствуются читателями статей.",
                     "updated": 1645079994853
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Aşağıda terimlerin listelendiği bir tablo yer almaktadır. Burada çevirmenler kendilerini yönlendirebilir ve her Superalgos kullanıcısı çevrilmemesi gerektiğini düşündüğü terimleri ekleyebilir. Eğer makaleleri çeviriyorsanız, hangi terimleri orijinalinde olduğu gibi bırakmanız gerektiğini görmek için lütfen zaman zaman buraya bakın. Terimlerin arkasındaki parantez içindeki çeviriler elbette meşrudur ve makalelerin okuyucuları tarafından memnuniyetle karşılanır.",
+                    "updated": 1654390457320,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +67,12 @@
                     "language": "RU",
                     "text": "Не стесняйтесь добавлять термины в таблицу!",
                     "updated": 1645080010792
+                },
+                {
+                    "language": "TR",
+                    "text": "Tabloya Terimler eklemekten çekinmeyin!",
+                    "updated": 1654390463600,
+                    "style": "Success"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Термины, которые должны оставаться оригинальными в переводах статей:",
                     "updated": 1645080021108
+                },
+                {
+                    "language": "TR",
+                    "text": "Makale çevirilerinde orijinal kalması gereken terimler:",
+                    "updated": 1654390469791,
+                    "style": "Note"
                 }
             ]
         },
@@ -79,6 +108,12 @@
                     "language": "RU",
                     "text": "Термины рабочего пространства (\"Workspace terms\") -> все технические термины, относящиеся к рабочему пространству",
                     "updated": 1645080067297
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı terimleri -> Çalışma Alanıyla ilgili tüm Teknik Terimler",
+                    "updated": 1654390475627,
+                    "style": "List"
                 }
             ]
         },
@@ -90,6 +125,12 @@
                     "language": "RU",
                     "text": "термины узлов (\"node Terms\") -> все технические термины, связанные с узлами",
                     "updated": 1645080079638
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm Terimleri -> Düğümlerle ilgili tüm Teknik Terimler",
+                    "updated": 1654390483239,
+                    "style": "List"
                 }
             ]
         },
@@ -101,6 +142,12 @@
                     "language": "RU",
                     "text": "Другие технические термины -> все технические термины, которые не входят в другие категории",
                     "updated": 1645080102946
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer Teknik Terimler -> diğer kategorilere uymayan tüm Teknik Terimler",
+                    "updated": 1654390489615,
+                    "style": "List"
                 }
             ]
         },
@@ -113,6 +160,12 @@
                     "language": "RU",
                     "text": "В колонках с переводом в качестве заголовка вы можете добавить перевод на ваш язык, если ваш язык выбран в нижнем колонтитуле, иначе переводы будут глобально в таблице, что не является целью.",
                     "updated": 1645080165756
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstbilgisi çeviri olan sütunlarda, diliniz altbilgide seçiliyse çeviriyi kendi dilinize ekleyebilirsiniz, aksi takdirde çeviriler Hedef olmayan tabloda küresel olarak yer alır.",
+                    "updated": 1654390495521,
+                    "style": "Note"
                 }
             ]
         },

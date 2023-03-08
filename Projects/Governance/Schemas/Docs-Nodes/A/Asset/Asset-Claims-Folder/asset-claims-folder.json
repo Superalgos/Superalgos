@@ -25,7 +25,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Claims Folder->Content",
-            "updated": 1630259502301
+            "updated": 1630259502301,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Talepler Klasörü->İçerik",
+                    "updated": 1654394397186,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -33,7 +41,15 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394403025,
+                    "style": "Title"
+                }
+            ]
         }
     ]
 }

@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Это просто способ показать субтитры на странице документов.",
                 "updated": 1638532866465
+            },
+            {
+                "language": "TR",
+                "text": "Bu, bir dokümanlar sayfasında alt yazıları göstermenin basit yoludur.",
+                "updated": 1652384190090
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "В режиме редактирования введите все, что вы хотите отобразить в качестве субтитров на странице документов.",
                     "updated": 1638532895398
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme modunda, dokümanlar sayfasında alt yazı olarak gösterilmesini istediğiniz şeyi yazın.",
+                    "updated": 1652384243119
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533778286
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384255609
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Предыдущий - это абзац в стиле субтитров.",
                     "updated": 1638532947591
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki, altyazı tarzında bir paragraftır.",
+                    "updated": 1652384263845
                 }
             ]
         }

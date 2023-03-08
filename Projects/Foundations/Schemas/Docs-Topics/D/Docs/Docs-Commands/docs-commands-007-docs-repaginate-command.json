@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Когда вы добавляете страницу Docs Topic Page или страницу Docs Tutorial Page, вы можете указать номер страницы. Число определяет положение страницы в оглавлении. Чтобы добавить страницу между другими страницами, вы можете использовать десятичные значения. Используйте команду Repaginate, чтобы пересчитать все номера страниц и составить весь набор в целых числах.",
                 "updated": 1638465473279
+            },
+            {
+                "language": "TR",
+                "text": "Bir Dokümanlar Konu Sayfası veya Dokümanlar Öğretici ( Tutorial ) Sayfası eklediğinizde, bir sayfa numarası tanımlayabilirsiniz. Bu sayı, sayfanın içindekiler tablosundaki konumunu tanımlar. Diğer sayfaların arasına sayfa eklemek için ondalık değerleri kullanabilirsiniz. Tüm sayfa numaralarını yeniden hesaplamak ve kümenin tamamını tamsayılar halinde bırakmak için Yeniden Sayfalandır komutunu kullanın.",
+                "updated": 1652198534340
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Обязательно проконсультируйтесь с группой по документации Superalgos (Superalgos Documentation Group), прежде чем использовать команду Docs Repaginate для существующих тем или учебных пособий. При повторной компоновке изменяются все файлы в коллекции. По этой причине команда может быть подвержена конфликтам с другими пользователями, которые также могут работать с этими файлами.",
                     "updated": 1638466508210
+                },
+                {
+                    "language": "TR",
+                    "text": "Varolan konular veya öğreticiler üzerinde Dokümanlar Yeniden Sayfalandır Komutunu kullanmadan önce Superalgos Dokümantasyon Grubunu bildiğinizden  emin olun. Yeniden sayfalama, koleksiyondaki tüm dosyaları değiştirir. Bu nedenle, komut, bu dosyalar üzerinde de çalışabilecek diğer kullanıcılarla çakışmalar oluşturmaya eğilimli olabilir.",
+                    "updated": 1652198725610
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1638465802167
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652199595661
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638465812184
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652198799400
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "RU",
                     "text": "Категория: это должна быть тема Topic или учебное пособие Tutorial.",
                     "updated": 1638466087699
+                },
+                {
+                    "language": "TR",
+                    "text": "Category: Konu veya Öğretici ( Tutorial ) olmalıdır.",
+                    "updated": 1652198865935
                 }
             ]
         },
@@ -91,6 +116,11 @@
                     "language": "RU",
                     "text": "Проект: Любой существующий уже интегрированный проект.",
                     "updated": 1638465970101
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Mevcut herhangi bir entegre proje.",
+                    "updated": 1652198888042
                 }
             ]
         },
@@ -108,6 +138,11 @@
                     "language": "RU",
                     "text": "Название темы или учебного пособия: название, присвоенное теме или учебному пособию, которые вы хотите изменить.",
                     "updated": 1638466049307
+                },
+                {
+                    "language": "TR",
+                    "text": "Topic or Tutorial name: Yeniden isimlendirmek istediğiniz Konuya veya Öğreticiye ( Tutorial ) verilen ad.",
+                    "updated": 1652199065556
                 }
             ]
         },
@@ -124,6 +159,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638466112303
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1652198974101
                 }
             ]
         },
@@ -144,6 +184,11 @@
                     "language": "RU",
                     "text": "Использование",
                     "updated": 1638466140836
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanma",
+                    "updated": 1652199227058
                 }
             ]
         },
@@ -161,6 +206,11 @@
                     "language": "RU",
                     "text": "После повторной компоновки темы или учебного пособия лучший способ продолжить - вручную удалить с диска все файлы, связанные с этой темой / учебным пособием. После их удаления вы выполняете команду docs.repaginate, а затем команду docs.save.",
                     "updated": 1638466670298
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Konuyu veya Öğreticiyi ( Tutorial ) yeniden isimlendirdikten sonra devam etmenin en iyi yolu, o Konu / Öğreticiyle ( Tutorial ) ilişkili tüm dosyaları diskten manuel olarak silmektir. Bunları sildikten sonra ardından docs.save yazın.",
+                    "updated": 1652199455049
                 }
             ]
         },
@@ -178,6 +228,11 @@
                     "language": "RU",
                     "text": "Перекомпоновка помечает все файлы в этой теме / учебнике как измененные, поэтому вам не нужно беспокоиться об удаленных файлах, поскольку все они будут созданы заново.",
                     "updated": 1638466715220
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeniden isimlendirdikten , bu Konunun / Öğreticinin ( Tutorial ) tüm dosyalarını değiştirilmiş olarak işaretler, böylece silinen dosyalar hakkında endişelenmenize gerek kalmaz, çünkü hepsi yeniden oluşturulur.",
+                    "updated": 1652199377240
                 }
             ]
         },
@@ -194,6 +249,11 @@
                     "language": "RU",
                     "text": "После перекомпоновки перезагрузите пользовательский интерфейс UI, чтобы в память попала только вновь созданная версия.",
                     "updated": 1638466797706
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeniden etiketlemeden sonra, yalnızca yeniden etiketlenmiş sürümü belleğe almak için kullanıcı arayüzünü ( UI ) yeniden yükleyin.",
+                    "updated": 1652199551990
                 }
             ]
         }

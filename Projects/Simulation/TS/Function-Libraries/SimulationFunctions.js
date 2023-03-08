@@ -201,11 +201,13 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     async function syncronizeLoopIncomingSignals(
         incomingTradingSignalsModuleObject,
-        system
+        system,
+        candleIndex
     ) {
         /*
         Incoming Signals
         */
+        let allGood = true
         if (
             system.incomingSignals !== undefined &&
             system.incomingSignals.incomingSignalReferences !== undefined &&
@@ -218,6 +220,10 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Check for the signal that would allow us to syncronize the simulation
             loop with the simulation loop of the bot sending us signals.
             */
+            const MAX_RETRIES = 15000
+            const DELAY_BETWEEN_RETRIES = 10
+            let retries = 0
+
             while (true) {
                 let signals = await incomingTradingSignalsModuleObject.getAllSignals(
                     system
@@ -226,14 +232,30 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                 if (signal === undefined) {
                     /*
                     This means that the signal we are waiting for has not yet arrived, so
-                    we are going to wait for one second and check it again.
+                    we are going to wait and check it again.
                     */
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
+
+                    retries++
+                    if (retries <= MAX_RETRIES) {
+                        await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_RETRIES)
+                    }
+                    else {
+                        console.log((new Date()).toISOString(), '[WARN] Signal for current candle was NEVER received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                        console.log((new Date()).toISOString(), '[WARN] The possible reasons for this to happen are: ')
+                        console.log((new Date()).toISOString(), '[WARN]                                              1) If you never received the signals from this provider before, you might be using an outdated User Profile of the Signal Provider. ')
+                        console.log((new Date()).toISOString(), '[WARN]                                              2) If you were receiving before signals from this Signal Provider, then maybe the provider stopped sending signals. Please check the providers Telegram Group for any notifications.')
+                        
+                        allGood = false
+                        break
+                    }
                 } else {
+                    console.log((new Date()).toISOString(), '[INFO] Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                    allGood = true
                     break
                 }
             }
         }
+        return allGood
     }
 
     async function syncronizeLoopOutgoingSignals(
@@ -276,6 +298,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             let amount = diff / sessionParameters.timeFrame.config.value
 
             initialCandle = Math.trunc(amount)
+            if (candles.length - 1 - initialCandle === 0) {
+                initialCandle--
+            }
             if (initialCandle < 0) { initialCandle = 0 }
             if (initialCandle > candles.length - 1) {
                 /*

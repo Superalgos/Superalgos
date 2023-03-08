@@ -28,6 +28,8 @@ function newLayersPanel() {
     let visibleLayers = []
     let firstVisibleLayer = 1
 
+    let configStyle
+
     const LAYER_SEPARATION = 0
 
     let headerHeight = 40
@@ -493,22 +495,71 @@ function newLayersPanel() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.payload.parentNode.project, thisObject.payload.node.payload.parentNode.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
 
-        let backgroundColor = UI_COLOR.BLACK
+        // This controls the color of the panels before scrolling to open them.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        let backgroundColor
+        if (configStyle === undefined || configStyle.indicatorLayersPanelColor === undefined) {
+            backgroundColor = UI_COLOR.BLACK
+        } else {
+            backgroundColor = eval(configStyle.indicatorLayersPanelColor)
+        }
+
+        // Here we control the panel border color inside the indicator layer panels.
+        let borderColor
+        if (configStyle === undefined || configStyle.indicatorLayersPanelBorderColor === undefined) {
+            borderColor = UI_COLOR.RUSTED_RED
+        } else {
+            borderColor = eval(configStyle.indicatorLayersPanelBorderColor)
+        }
 
         let params = {
             cornerRadius: 5,
             lineWidth: 1,
             container: thisObject.container,
-            borderColor: UI_COLOR.RUSTED_RED,
+            borderColor: borderColor,
             castShadow: false,
             backgroundColor: backgroundColor,
             opacity: 1
         }
 
+        // Here we set the opacity for the indicator drop down panel if it is defined.
+        if (configStyle === undefined || configStyle.indicatorLayersPanelOpacity === undefined) {
+            const thisOpacity = 1
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        } else {
+            const thisOpacity = eval(configStyle.indicatorLayersPanelOpacity)
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        }
+
         UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
 
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
+        // Controls the color of the text in the indicator drop down panel top First line.
+        if (configStyle === undefined || configStyle.indicatorLayersPanelLabel1 === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorLayersPanelLabel1)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container, thisColor)
+        }
+        
+        // Controls the color of the text in the indicator drop down panel top second line.
+        if (configStyle === undefined || configStyle.indicatorLayersPanelLabel2 === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorLayersPanelLabel2)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container, thisColor)
+        }
 
         UI.projects.foundations.utilities.drawPrint.drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
         UI.projects.foundations.utilities.drawPrint.drawIcon(icon2, 7 / 8, 0, 0, 20, 28, thisObject.container)
@@ -555,6 +606,7 @@ function newLayersPanel() {
             browserCanvasContext.closePath()
             browserCanvasContext.setLineDash([]) // Resets Line Dash
             browserCanvasContext.lineWidth = 4
+            // Here we control the scroll bar color.
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + 1 + ')'
             browserCanvasContext.stroke()
         }

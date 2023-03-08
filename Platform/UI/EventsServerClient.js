@@ -28,6 +28,7 @@ function newEventsServerClient(lanNetworkNode) {
     let commandsSentByTimestamp = new Map()
     let nonce = 0
     let lastTryToReconnectDatetime
+    let lastUpdateCheckDatetime
 
     return thisObject
 
@@ -173,13 +174,25 @@ function newEventsServerClient(lanNetworkNode) {
                     lastTryToReconnectDatetime = (new Date()).valueOf()
                 } else {
                     let now = (new Date()).valueOf()
-                    if (now - lastTryToReconnectDatetime > 60000) {
+                    if (now - lastTryToReconnectDatetime > 15000) {
                         setuptWebSockets(onOpen)
+                        lastTryToReconnectDatetime = (new Date()).valueOf()
                     }
                 }
 
                 function onOpen() {
                     if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
+                }
+            } else {
+                if (lastUpdateCheckDatetime === undefined) {
+                    updateCheck()
+                    lastUpdateCheckDatetime = (new Date()).valueOf()
+                } else {
+                    let now = (new Date()).valueOf()
+                    if ( ( now - lastUpdateCheckDatetime ) > 15000) {
+                        updateCheck()
+                        lastUpdateCheckDatetime = (new Date()).valueOf()
+                    }
                 }
             }
         } else {
@@ -195,7 +208,7 @@ function newEventsServerClient(lanNetworkNode) {
                 if (lanNetworkNode !== undefined) {
                     if (lanNetworkNode.payload !== undefined) {
                         if (lanNetworkNode.payload.uiObject !== undefined) {
-                            lanNetworkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Platform Client via WebSockets. Retrying in 1 minute. Check at this node config if the host property has the IP address of the computer running Superalgos Platform Client.')
+                            lanNetworkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Platform Client via WebSockets. Retrying in 15 seconds. Check at this node config if the host property has the IP address of the computer running Superalgos Platform Client.')
                         }
                     }
                 }
@@ -205,6 +218,8 @@ function newEventsServerClient(lanNetworkNode) {
                 if (lanNetworkNode.payload !== undefined) {
                     if (lanNetworkNode.payload.uiObject !== undefined) {
                         lanNetworkNode.payload.uiObject.setStatus('Connected to Superalgos Platform Client via WebSockets.')
+                        /**/
+                        
                         retryCommandsPhysics()
                     }
                 }
@@ -212,6 +227,26 @@ function newEventsServerClient(lanNetworkNode) {
         }
 
         DEBUG.variable4 = 'Commands Waiting For Confirmation from WS Server: ' + commandsWaitingConfirmation.size
+    }
+
+    function updateCheck() {
+
+        let config = JSON.parse(lanNetworkNode.config)
+
+        httpRequest(undefined, 'http://' + config.host + ':' + config.webPort + '/App/RestartRequired', onResponse)
+
+        function onResponse(err, data) {
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                if (data.message === true) {
+                    lanNetworkNode.payload.uiObject.setValue('Restart Required', 15000)
+                } else {
+                    if (lanNetworkNode.payload.uiObject !== undefined) {
+                        lanNetworkNode.payload.uiObject.resetValue()
+                    }
+                }
+            }
+        }
     }
 
     function setuptWebSockets(callBackFunction) {

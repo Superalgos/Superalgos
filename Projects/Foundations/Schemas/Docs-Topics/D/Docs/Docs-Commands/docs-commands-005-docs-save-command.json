@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду для сохранения изменений, внесенных вами при добавлении, удалении или редактировании абзацев в документах или добавление / удаление страниц.",
                 "updated": 1638528419678
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'da paragraf eklerken, silerken veya düzenlerken yaptığınız değişiklikleri kaydetmek için bu komutu kullanın; veya sayfa ekleme veya silme.",
+                "updated": 1652129732714
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Страницы, которые вы создаете или изменяете, остаются только в памяти в контексте сеанса браузера, пока вы не запустите эту команду. Только после того, как вы запустите эту команду, изменения сохраняются на диск. Если вы обновите страницу или закроете браузер перед запуском команды Docs Save Command, изменения будут потеряны. Изменения применяются к индексу поисковой системы Docs Search Engine Index только после того, как вы запустите команду Docs Reindex Command.",
                     "updated": 1638528600294
+                },
+                {
+                    "language": "TR",
+                    "text": "Oluşturduğunuz veya değiştirdiğiniz sayfalar, siz bu komutu çalıştırana kadar yalnızca tarayıcı oturumu bağlamında bellekte kalır. Bu komutu yalnızca bir kez çalıştırdığınızda, değişiklikler diske kaydedilir. Dokümanları Kaydet Komutunu çalıştırmadan önce sayfayı yenilerseniz veya tarayıcıyı kapatırsanız, değişiklikler kaybolur. Değişiklikler, yalnızca Dokümanlar Yeniden İndeks ( Docs Reindex Command ) Komutunu çalıştırdıktan sonra Dokümanlar Arama Motoru Dizinine ( Docs Search Engine Index ) uygulanır.",
+                    "updated": 1652130042336
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1637927604772
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652130103364
                 }
             ]
         },

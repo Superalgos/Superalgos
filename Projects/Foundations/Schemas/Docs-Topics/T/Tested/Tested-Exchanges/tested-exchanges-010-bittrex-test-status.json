@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Bittrex прошла все тесты.",
                 "updated": 1646902563857
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bittrex tüm testleri geçti.",
+                "updated": 1650571504799
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646902570381
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571510716
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
                     "updated": 1646902593472
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650571530067
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: Проверено с 2020-01-01",
                     "updated": 1646902603200
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: 2020-01-01'den itibaren test edildi",
+                    "updated": 1650571543017
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Возможность торговли [**]: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
                     "updated": 1646902611519
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
+                    "updated": 1650571554803
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Перед использованием платформы необходимо провести KYC. Google Authenticator необходим для создания ключей API",
                     "updated": 1646902621184
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Platformu kullanmadan önce KYC gerekli. API anahtarları oluşturmak için Google Authenticator gerekli",
+                    "updated": 1650571565525
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646902627453
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571574922
                 }
             ]
         },

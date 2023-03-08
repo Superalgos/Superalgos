@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Periksa tabel di bawah ini dan lihat apakah kamu dapat memahami level support yang kamu lihat di grafik.",
                 "updated": 1640563597419
+            },
+            {
+                "language": "NL",
+                "text": "Bekijk de onderstaande tabel en kijk of u de ondersteuningsniveaus die u in de grafieken ziet, kunt interpreteren.",
+                "updated": 1666878780035
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "ID",
                     "text": "Untuk level support baru dengan satu rejection, garis putus-putus menandai level yang tepat di mana harga memantul. Untuk rejection lebih lanjut, blok menandai rate ranges di mana rejection berikutnya dihitung.",
                     "updated": 1640563863080
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor een nieuw ondersteuningsniveau met één afwijzing markeert de stippellijn het exacte niveau waarop de prijs stuiterde. Voor verdere afwijzingen markeren de blokken de prijs bereiken waarop volgende afwijzingen worden geteld.",
+                    "updated": 1666879106474
                 }
             ]
         }

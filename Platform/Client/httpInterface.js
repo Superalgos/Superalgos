@@ -165,8 +165,20 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'getUserWalletBalance': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.getUserWalletBalance(
+                                        params.chain,
                                         params.walletAddress,
                                         params.contractAddress
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                case 'getLPTokenBalance': {
+
+                                    let serverResponse = await PL.servers.WEB3_SERVER.getLPTokenBalance(
+                                        params.chain,
+                                        params.contractAddressSA,
+                                        params.contractAddressLP
                                     )
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
@@ -1096,11 +1108,11 @@ exports.newHttpInterface = function newHttpInterface() {
                         case 'Contribute': {
                             try {
                                 // We create a pull request of all active changes
-                                let commitMessage = unescape(requestPath[3])
-                                const username = unescape(requestPath[4])
-                                const token = unescape(requestPath[5])
-                                const currentBranch = unescape(requestPath[6])
-                                const contributionsBranch = unescape(requestPath[7])
+                                let commitMessage = decodeURIComponent(requestPath[3])
+                                const username = decodeURIComponent(requestPath[4])
+                                const token = decodeURIComponent(requestPath[5])
+                                const currentBranch = decodeURIComponent(requestPath[6])
+                                const contributionsBranch = decodeURIComponent(requestPath[7])
                                 let error
 
                                 // rebuild array of commit messages if committing from contribturions space
@@ -1202,9 +1214,6 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function pushFiles(git) {
                                         try {
-                                            await git.pull('origin', currentBranch)
-                                            await git.add('./*')
-
                                             // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
                                             if (commitMessage instanceof Array) {
@@ -1214,7 +1223,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 messageToSend = commitMessage
 
                                             }
-                                            await git.commit(messageToSend)
+                                            if (messageToSend === undefined || messageToSend === '') {
+                                                messageToSend = 'No commit message defined'
+                                            } 
+                                            await git.pull('origin', currentBranch)
+                                            await git.add('./*')
+
+                                            /* Deactivate Unit Tests for the Contributions Space by setting UNITTESTS environment variable within the commit call. */
+                                            const UNITTESTS = 'false'
+                                            await git
+                                            .env({...process.env, UNITTESTS})
+                                            .commit(messageToSend)
 
                                             await git.push('origin', currentBranch)
                                         } catch (err) {
@@ -1344,12 +1363,12 @@ exports.newHttpInterface = function newHttpInterface() {
                         case 'ContributeSingleRepo': {
                             try {
                                 // We create a pull request for the active changes of a particular repo
-                                let commitMessage = unescape(requestPath[3])
-                                const username = unescape(requestPath[4])
-                                const token = unescape(requestPath[5])
-                                const currentBranch = unescape(requestPath[6])
-                                const contributionsBranch = unescape(requestPath[7])
-                                const repoName = unescape(requestPath[8])
+                                let commitMessage = decodeURIComponent(requestPath[3])
+                                const username = decodeURIComponent(requestPath[4])
+                                const token = decodeURIComponent(requestPath[5])
+                                const currentBranch = decodeURIComponent(requestPath[6])
+                                const contributionsBranch = decodeURIComponent(requestPath[7])
+                                const repoName = decodeURIComponent(requestPath[8])
                                 let error
 
                                 /* Unsaving # */
@@ -1436,7 +1455,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         try {
                                             await git.pull('origin', currentBranch)
                                             await git.add('./*')
-                                            await git.commit(commitMessage)
+                                            /* Deactivate Unit Tests for the Contribution Space by setting UNITTESTS environment variable within the commit call. */
+                                            const UNITTESTS = 'false'
+                                            await git
+                                            .env({...process.env, UNITTESTS})
+                                            .commit(commitMessage)
                                             await git.push('origin', currentBranch)
                                         } catch (err) {
                                             console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
@@ -1556,6 +1579,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 result: global.CUSTOM_OK_RESPONSE.result,
                                                 message: result.message
                                             }
+                                            if(result.message.reposUpdated === true) {
+                                                SA.restartRequired = true
+                                            }
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                                         } else {
 
@@ -1647,6 +1673,27 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'RestartRequired': {
+                            try {
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: SA.restartRequired
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            } catch (err) {
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> Method call produced an error.')
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'Status': {
                             // We check the current status of changes made in the local repo
                             try {
@@ -1719,7 +1766,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         // Keep only end of returned message and format for UI
                                         for (let str of split) {
                             // TODO: needs localized for all supported languages 
-                                            if (str.includes('pushes') || str.includes('pousse')) {
+                                            if (str.includes('pushes') || str.includes('pousse') || str.includes('versendet')) {
                                                 // Get name of Branch
                                                 let branch = str.trim().split(' ')[0]
                                                 // Get status of branch
@@ -2364,22 +2411,24 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
                                 case 'mergePullRequests': {
 
-                                    let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
+                                    let serverResponse = await PL.projects.governance.functionLibraries.prMergeBot.run(
                                         params.commitMessage,
                                         params.username,
                                         params.token
                                     )
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                
+                                case 'getRewardsFile': {
 
-                                    setInterval(
-                                        PL.servers.GITHUB_SERVER.mergePullRequests,
-                                        60000,
-                                        params.commitMessage,
-                                        params.username,
-                                        params.token
+                                    let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.getRewardsFile(
+                                        params.firstTimestamp,
+                                        params.lastTimestamp
                                     )
 
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
 
@@ -2603,8 +2652,10 @@ exports.newHttpInterface = function newHttpInterface() {
 
 
                                     await PL.servers.WEB3_SERVER.payContributors(
-                                        params.contractAddress,
-                                        params.contractAbi,
+                                        params.contractAddressDict,
+                                        params.treasuryAccountDict,
+                                        params.contractABIDict,
+                                        params.decimalFactorDict,
                                         params.paymentsArray,
                                         params.mnemonic
                                     )
@@ -2884,33 +2935,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'IconNames': {
-                    let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
-                    let icons = []
-                    let totalProjects = projects.length
-                    let projectCounter = 0
-
-                    for (let i = 0; i < projects.length; i++) {
-                        let project = projects[i]
-
-                        const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
-
-                        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
-
-                        function onFilesReady(files) {
-                            for (let j = 0; j < files.length; j++) {
-                                let file = files[j]
-                                for (let i = 0; i < 10; i++) {
-                                    file = file.replace('/', '\\')
-                                }
-                                icons.push([project, file])
-                            }
-
-                            projectCounter++
-                            if (projectCounter === totalProjects) {
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(icons), httpResponse)
-                            }
-                        }
-                    }
+                    SA.projects.foundations.utilities.icons.retrieveIcons((icons) => SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(icons), httpResponse))
                 }
                     break
                 case 'PluginFileNames': {

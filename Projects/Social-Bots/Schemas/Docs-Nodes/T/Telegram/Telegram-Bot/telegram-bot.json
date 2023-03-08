@@ -1,5 +1,27 @@
 {
     "type": "Telegram Bot",
+    "definition": {
+        "text": "The Telegram Bot node is used to define the parameters used to connect to the Telegram API. This allows Superalgos to interact with Telegram to send announcements and receive incoming commands.",
+        "updated": 1618220722404,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Telegram Bot Node wird verwendet, um die Parameter für die Verbindung mit der Telegram API zu definieren. Dies ermöglicht es Superalgos, mit Telegram zu interagieren, um Ankündigungen zu senden und eingehende Befehle zu empfangen. Ins deutsche übersetzt von gitforkgit.",
+                "updated": 1634133854316,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Telegram Bot используется для определения параметров, используемых для подключения к API Telegram. Это позволяет Superalgos взаимодействовать с Telegram для отправки объявлений и получения входящих команд.",
+                "updated": 1645194528202
+            },
+            {
+                "language": "TR",
+                "text": "Telegram Bot düğümü, Telegram API'sine bağlanmak için kullanılan parametreleri tanımlamak için kullanılır. Bu, Superalgos'un duyuru göndermek ve gelen komutları almak için Telegram ile etkileşime girmesini sağlar.",
+                "updated": 1654396407075
+            }
+        ]
+    },
     "paragraphs": [
         {
             "style": "Text",
@@ -16,6 +38,12 @@
                     "language": "RU",
                     "text": "Узел Telegram Bot используется для определения параметров botToken и chatId, которые необходимы Superalgos для взаимодействия с API Telegram.",
                     "updated": 1645194539743
+                },
+                {
+                    "language": "TR",
+                    "text": "Telegram Bot düğümü, Superalgos tarafından Telegram API ile etkileşim için gerekli olan botToken ve chatId parametrelerini tanımlamak için kullanılır.",
+                    "updated": 1654396413862,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +62,12 @@
                     "language": "RU",
                     "text": "Параметр botToken предоставляется Telegram-ботом @BotFather. Он представляет собой 10-значное число, за которым следует двоеточие, а затем строка из 35 символов (буквенно-цифровых, но также может содержать тире - и подчеркивание _).",
                     "updated": 1645194557738
+                },
+                {
+                    "language": "TR",
+                    "text": "botToken parametresi Telegram Botu @BotFather tarafından sağlanır. 10 basamaklı bir sayıdır, ardından iki nokta üst üste ve ardından 35 karakterli (alfa sayısal ancak tire - ve alt çizgi _ de içerebilir) bir dize gelir.",
+                    "updated": 1654396420847,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +85,12 @@
                     "language": "RU",
                     "text": "Оно должно быть заключено в кавычки.",
                     "updated": 1645194565846
+                },
+                {
+                    "language": "TR",
+                    "text": "Tırnak içinde yer almalıdır.",
+                    "updated": 1654396427133,
+                    "style": "Text"
                 }
             ]
         },
@@ -69,6 +109,12 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645194571597
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1654396432766,
+                    "style": "Text"
                 }
             ]
         },
@@ -78,9 +124,9 @@
             "updated": 1618223916419
         },
         {
-            "style": "Text",
-            "text": "The chatId parameter is provided by the Telegram Bot @myidbot using the /getgroupid command. It is a negative 9 digit numeric number. It should be entered without quotes.",
-            "updated": 1618224061206,
+            "style": "Note",
+            "text": "Once you create your bot make sure to start it and add it to the group you wish to send messages to.",
+            "updated": 1665711951798,
             "translations": [
                 {
                     "language": "DE",
@@ -92,8 +138,18 @@
                     "language": "RU",
                     "text": "Параметр chatId предоставляется Telegram-ботом @myidbot с помощью команды /getgroupid. Это отрицательное 9-значное число. Его следует вводить без кавычек.",
                     "updated": 1645194582044
+                },
+                {
+                    "language": "TR",
+                    "text": "chatId parametresi Telegram Bot @myidbot tarafından /getgroupid komutu kullanılarak sağlanır. Negatif 9 basamaklı sayısal bir sayıdır. Tırnak işaretleri olmadan girilmelidir.",
+                    "updated": 1654396438506,
+                    "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "The chatId parameter is provided by the Telegram Bot @myidbot using the /getgroupid command. It is a negative 9 digit numeric number. It should be entered without quotes."
         },
         {
             "style": "Text",
@@ -109,6 +165,12 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645194587248
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1654396447806,
+                    "style": "Text"
                 }
             ]
         },
@@ -131,6 +193,12 @@
                     "language": "RU",
                     "text": "Пример конфигурации:",
                     "updated": 1645194593751
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek Yapılandırma:",
+                    "updated": 1654396454572,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -143,22 +211,5 @@
             "style": "Text",
             "text": ""
         }
-    ],
-    "definition": {
-        "text": "The Telegram Bot node is used to define the parameters used to connect to the Telegram API. This allows Superalgos to interact with Telegram to send announcements and receive incoming commands.",
-        "updated": 1618220722404,
-        "translations": [
-            {
-                "language": "DE",
-                "text": "Die Telegram Bot Node wird verwendet, um die Parameter für die Verbindung mit der Telegram API zu definieren. Dies ermöglicht es Superalgos, mit Telegram zu interagieren, um Ankündigungen zu senden und eingehende Befehle zu empfangen. Ins deutsche übersetzt von gitforkgit.",
-                "updated": 1634133854316,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Узел Telegram Bot используется для определения параметров, используемых для подключения к API Telegram. Это позволяет Superalgos взаимодействовать с Telegram для отправки объявлений и получения входящих команд.",
-                "updated": 1645194528202
-            }
-        ]
-    }
+    ]
 }

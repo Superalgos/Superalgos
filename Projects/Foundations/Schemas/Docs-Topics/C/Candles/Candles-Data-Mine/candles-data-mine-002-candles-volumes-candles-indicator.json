@@ -1,6 +1,6 @@
 {
     "topic": "Candles Data Mine",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Candles Volumes - Candles Indicator",
     "definition": {
         "text": "The indicator processes one-minute candles into candles and volumes information for all time frames.",
@@ -122,7 +122,15 @@
         },
         {
             "style": "Anchor",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1654393252209,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Title",

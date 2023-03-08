@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
                 "updated": 1636750109773
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un ve entegre edilen diğer projelerin Docs sayfaları orijinal olarak İngilizce yazılmıştır. Sistem, kullanıcılar daha önce ilgili çevirilere katkıda bulundukları sürece, kullanıcıların diğer dillerde de arama yapmasına ve sayfalara göz atmasına olanak tanır.",
+                "updated": 1654393648950
             }
         ]
     },
@@ -35,6 +40,12 @@
                     "language": "DE",
                     "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
                     "updated": 1636750147739
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce varsayılan dil olarak kabul edilir. Farklı bir dile geçtiğinizde, sistem içeriği yeni dilde göstermeye çalışır. Ancak, çeviri henüz mevcut değilse, bunun yerine İngilizce sürümü gösterir.",
+                    "updated": 1654393654871,
+                    "style": "Text"
                 }
             ]
         },
@@ -52,6 +63,12 @@
                     "language": "DE",
                     "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
                     "updated": 1636750157611
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm türleri, değişken adları, Dokümanlar'daki sayfaların başlığı ve Superalgos'un birkaç öğesi daha, söz konusu öğelerin benzersiz tanımlayıcıları oldukları için çevrilmeyebilir. Bunları her zaman İngilizce olarak alacaksınız.",
+                    "updated": 1654393660585,
+                    "style": "Text"
                 }
             ]
         },
@@ -69,6 +86,12 @@
                     "language": "DE",
                     "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1636750175388
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilere katkıda bulunmak istiyorsanız, Çevirilere Nasıl Katkıda Bulunulur sayfasını okuyun.",
+                    "updated": 1654393666251,
+                    "style": "Success"
                 }
             ]
         },
@@ -87,6 +110,12 @@
                     "language": "DE",
                     "text": "Der Inhalt der Docs kann von jedem übersetzt werden, der bereit ist, etwas Zeit dafür aufzuwenden. Das hilft den Nutzern, die Inhalte der Docs in ihrer Muttersprache zu lesen.",
                     "updated": 1636750252283
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs içeriği, bu işe biraz zaman ayırmak isteyen herkes tarafından çevrilebilir. Bu, kullanıcıların Dokümanların içeriğini kendi ana dillerinde okumalarına yardımcı olur.",
+                    "updated": 1654393673236,
+                    "style": "Text"
                 }
             ]
         },
@@ -97,14 +126,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per cambiare la lingua, é sufficiente cliccare sulle bandiere che si trovano in fondo a ogni pagina dei Docs.",
-                    "updated": 1614710684503,
+                    "text": "Gli utenti possono passare da una lingua all'altra utilizzando il link o bandiere presenti a piè di pagina di ogni pagina dei Documenti.",
+                    "updated": 1666615996768,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
                     "updated": 1636750268351
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar, Dokümanlar'daki her sayfanın altbilgisinde sağlanan bağlantıları / Bayrakları kullanarak diller arasında geçiş yapabilirler.",
+                    "updated": 1654393678971,
+                    "style": "Success"
                 }
             ]
         },
@@ -115,14 +150,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "É possible aggiungere o cancellare pagine dei Docs solamente quando la lingua di visualizzazione é in inglese.",
-                    "updated": 1614710793433,
+                    "text": "Puoi aggiungere o eliminare pagine dai Documenti solo quando la lingua è impostata sull'inglese. Per la traduzione devi selezionare la lingua in cui vuoi tradurre. (In questo caso italiano)",
+                    "updated": 1666616616453,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
                     "text": "Sie können nur Seiten zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten. ",
                     "updated": 1636750280116
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlara yalnızca dil İngilizce olarak ayarlandığında sayfa ekleyebilir veya silebilirsiniz. Çeviri için çevirmek istediğiniz dili seçmeniz gerekir. (Bu durumda İtalyanca)",
+                    "updated": 1654393686841,
+                    "style": "Note"
                 }
             ]
         }

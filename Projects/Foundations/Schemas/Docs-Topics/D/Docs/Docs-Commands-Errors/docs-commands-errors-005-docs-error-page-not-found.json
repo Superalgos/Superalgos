@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 5,
+    "pageNumber": "5",
     "type": "Docs Error - Page Not Found",
     "definition": {
         "text": "The page does not exist in the category specified.",
@@ -15,13 +15,26 @@
                 "language": "RU",
                 "text": "Страница не существует в указанной категории.",
                 "updated": 1638529455645
+            },
+            {
+                "language": "TR",
+                "text": "Sayfa, belirtilen kategoride mevcut değil.",
+                "updated": 1652019340093
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Page Not Found"
+            "text": "Anchor Page Not Found",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Sayfa Bulunamadı",
+                    "updated": 1654393477547,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -32,6 +45,11 @@
                     "language": "DE",
                     "text": "Der Docs Page Name den sie angegeben haben, kann nicht in der Sammlung der Seiten der angegebenen Kategorie gefunden werden.",
                     "updated": 1633896616360
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirttiğiniz Dokümanlar Sayfası Adı ( Docs Page Name ) sağladığınız Dokümanlar Sayfası Kategorisinin ( Docs Page Category ) sayfa koleksiyonunda bulunamadı.",
+                    "updated": 1652019177770
                 }
             ]
         },
@@ -49,6 +67,11 @@
                     "language": "RU",
                     "text": "Дважды проверьте правильность написания название страницы документов Docs Page Name и его принадлежность к указанной категории страниц документов Docs Page Category.",
                     "updated": 1638529581475
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Sayfası Adının ( Docs Page Name ) doğru yazıldığını ve sağlanan Dokümanlar Sayfası Kategorisine ( Docs Page Category ) ait olduğunu iki kez kontrol edin.",
+                    "updated": 1652019262557
                 }
             ]
         },
@@ -66,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529594704
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393483447,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393489691,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

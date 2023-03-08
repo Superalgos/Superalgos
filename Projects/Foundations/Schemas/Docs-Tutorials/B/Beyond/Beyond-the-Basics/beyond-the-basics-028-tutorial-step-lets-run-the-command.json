@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Давайте приступим к выполнению поставленной задачи! Скопируйте приведенную ниже команду, вставьте ее в поле поиска/команды и нажмите Enter!",
                 "updated": 1640163425317
+            },
+            {
+                "language": "ID",
+                "text": "Ayo lanjutkan dengan tugas berada di genggamanmu! Salin perintah dibawah ini, tempelkan itu dalam pencarian/perintah box, dan tekan Enter!",
+                "updated": 1668996710622
             }
         ]
     },
@@ -76,6 +81,11 @@
                     "language": "RU",
                     "text": "В Windows появится диалоговое окно входа в GitHub, предлагающее пройти аутентификацию с помощью токена или пароля. Любой из этих вариантов должен сработать! Помните, что требуется последняя версия Git! Если у вас проблемы с последней версией, перезагрузка компьютера может помочь. На Mac и Linux учетные данные запрашивает Терминал. Если вы включили двухфакторную аутентификацию на GitHub, используйте токен, даже если вас попросят ввести пароль!",
                     "updated": 1640163486555
+                },
+                {
+                    "language": "ID",
+                    "text": "Di Windows, sebuah Github dialog sign in yang muncul menawarkan untuk memberikan autentikasi token atau password. Keduanya seharusnya bekerja! Mohon diingat versi Git terbaru sangat dibutuhkan! Jika kamu memiliki masalah dengan versi terbaru, mulai ulang PC-mu mungkin membantu. Di Mac dan Linux, ada sebuah terminal yang meminta kredensial. Jika kamu menggunakan autentikasi ganda di GitHub, gunakan token bahkan saat jika kamu ditanya tentang password!",
+                    "updated": 1668996720256
                 }
             ]
         }

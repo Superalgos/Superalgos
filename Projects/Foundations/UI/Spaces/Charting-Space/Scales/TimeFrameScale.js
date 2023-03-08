@@ -38,6 +38,8 @@ function newTimeFrameScale() {
 
     let limitingContainer
 
+    let configStyle
+
     setupContainer()
 
     let wheelDeltaDirection
@@ -397,8 +399,29 @@ function newTimeFrameScale() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        let backgroundColor = UI_COLOR.BLACK
+        // This controls the color of the timeFrame scale at the bottom of a chart.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
 
-        drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        if (configStyle === undefined || configStyle.timeFrameScalePanelColor === undefined) {
+            let backgroundColor = UI_COLOR.BLACK
+            drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        } else {
+            let backgroundColor = eval(configStyle.timeFrameScalePanelColor)
+            if (configStyle.timeFramePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.timeFramePanelLabelColor)
+                drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
+        }
     }
 }

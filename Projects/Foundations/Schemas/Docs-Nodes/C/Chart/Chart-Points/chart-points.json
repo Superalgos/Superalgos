@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Chart Points группируют определения координатных точек, используемых для определения полигонов.",
                 "updated": 1638646349547
+            },
+            {
+                "language": "TR",
+                "text": "Bir grafik noktaları, çokgenleri tanımlamak için kullanılan koordinat noktalarının tanımlarını gruplandırır.",
+                "updated": 1652797517523
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Определение точки состоит из имени точки и соответствующих значений для координат x и y. Для создания таких определений используются точка и точечные формулы.",
                     "updated": 1638646404452
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir noktanın tanımı, noktanın adından ve x ve y koordinatları için karşılık gelen değerlerden oluşur. Bu tür tanımları oluşturmak için nokta ve nokta formülleri kullanılır.",
+                    "updated": 1652797526994
                 }
             ]
         }

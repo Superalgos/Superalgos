@@ -22,6 +22,11 @@
                 "language": "DE",
                 "text": "Eine Trading Mine ist eine Hierarchie, die Definitionen von Trading Bots und deren Plotter enthält. Diese Definitionen bilden die eigentlichen Programme solcher Bots - den Quellcode.",
                 "updated": 1641762683041
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret madeni, ticaret botlarının ve çizicilerinin tanımlarını içeren bir hiyerarşidir. Bu tanımlar, bu tür botların gerçek programlarını, yani kaynak kodunu oluşturur.",
+                "updated": 1651949101369
             }
         ]
     },
@@ -32,7 +37,7 @@
         },
         {
             "style": "Text",
-            "text": "Altough Superalgos is starting out with a single trading bot, the system is prepared to feature as many trading bots as developers are willing to create. As such, a trading mine is a catalog of trading bots.",
+            "text": "Although Superalgos is starting out with a single trading bot, the system is prepared to feature as many trading bots as developers are willing to create. As such, a trading mine is a catalog of trading bots.",
             "translations": [
                 {
                     "language": "RU",
@@ -48,6 +53,11 @@
                     "language": "DE",
                     "text": "Obwohl Superalgos mit einem einzigen Trading Bot startet, ist das System darauf vorbereitet, so viele Trading Bots zu enthalten, wie Entwickler bereit sind zu erstellen. Eine Trading Mine ist also ein Katalog von Trading Bots.",
                     "updated": 1641762799037
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos tek bir ticaret botu ile başlasa da, sistem geliştiricilerin yaratmaya istekli olduğu kadar çok ticaret botu içerecek şekilde hazırlanmıştır. Bu nedenle, bir ticaret madeni bir ticaret botları kataloğudur.",
+                    "updated": 1651949164355
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass im Kontext von Superalgos ein Trading-Bot nichts mit der Handelslogik zu tun hat. Stellen Sie sich die Handelslogik als die Geschäftsregeln vor, die in Superalgos in Trading Systems definiert sind. Jeder kann ein Trading-System erstellen, was bedeutet, dass die Erstellung von Trading-Systemen und den darin enthaltenen Trading-Strategien keine Kodierung erfordert.",
                     "updated": 1641762809287
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bağlamında, bir ticaret botunun ticaret mantığıyla hiçbir ilgisi olmadığına dikkat edin. Ticaret mantığını, Superalgos'ta ticaret sistemlerinde tanımlanan iş kuralları olarak düşünün. Herkes bir Ticaret Sistemi ( Trading System ) kurabilir, yani ticaret sistemleri ve içindeki ticaret stratejileri oluşturmak kodlama gerektirmez.",
+                    "updated": 1651949231362
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Trading Mines funktionieren ähnlich wie Data Mines in dem Sinne, dass sie die gleiche Art von Werkzeugen zur Strukturierung der Definitionen von Bots bereitstellen, einschließlich Prozessdefinitionen, Produktdefinitionen und Plotter.",
                     "updated": 1641762819358
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret madenleri, süreç tanımları, ürün tanımları ve çiziciler dahil olmak üzere bot tanımlarını yapılandırmak için aynı tür araçları sağladıkları anlamında veri madenlerine benzer şekilde çalışır.",
+                    "updated": 1651949279990
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "DE",
                     "text": "Trading Mine Konfiguration",
                     "updated": 1641762839499
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Madeni Yapılandırması",
+                    "updated": 1651949295995
                 }
             ]
         }

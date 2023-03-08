@@ -1,0 +1,106 @@
+{
+    "type": "P2P Network Client",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionProject": "Foundations",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkReference",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Reference",
+            "relatedUiObject": "P2P Network Reference",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkNodeReference",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Node Reference",
+            "relatedUiObject": "P2P Network Node Reference",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkServices",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Network Services",
+            "relatedUiObject": "Network Services",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkInterfaces",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Network Interfaces",
+            "relatedUiObject": "Network Interfaces",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Task->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "p2pNetworkReference",
+            "type": "node",
+            "childType": "P2P Network Reference",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "p2pNetworkNodeReference",
+            "type": "node",
+            "childType": "P2P Network Node Reference",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "networkServices",
+            "type": "node",
+            "childType": "Network Services",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "networkInterfaces",
+            "type": "node",
+            "childType": "Network Interfaces",
+            "project": "Network",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "p2pNetworkClient"
+}

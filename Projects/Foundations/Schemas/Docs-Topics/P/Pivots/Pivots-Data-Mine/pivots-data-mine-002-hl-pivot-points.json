@@ -1,0 +1,71 @@
+{
+    "topic": "Pivots Data Mine",
+    "pageNumber": "2",
+    "type": "HL Pivot Points",
+    "definition": {
+        "text": "The HL Pivots indicator analyses highs and lows of the past 14 candles and produces the current high and low in that period. It also keeps track of the previous high and low which can be used to predict a potential support or resistance level."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HL Pivots on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator analyses high and low pivots through the past 14 periods and keeps track of the value until a new pivot is found."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-hl-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the pivot finder, as well as the pivot length can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’HL Pivot Points’ Procedure Loop.",
+            "updated": 1649741707391
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-hl-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HL-Pivot-Points | HLpivot | candleHighVal, candleLowVal, candleHighValPrev, candleLowValPrev |"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy could use the previous period's high to enter a trade if that high ie expected to become a support:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.HLpivot.candleHighValPrev"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator could also be used as a stop loss value when using the previous low value as a resistance:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HLpivot.candleLowValPrev"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

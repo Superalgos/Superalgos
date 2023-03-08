@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Maaf telah menyeret kamu keluar dari charts, tapi aku ingin memperkenalkan kamu kepada seseorang: orang di sebelah kanan adalah orang yang menempatkan buy orders!",
                 "updated": 1640564914771
+            },
+            {
+                "language": "NL",
+                "text": "Sorry voor het wegslepen van de grafieken, maar ik wilde je aan iemand voorstellen: de man aan de rechterkant is degene die de kooporders plaatst!",
+                "updated": 1666879808915
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Kita berada di dalam Lightning Strike Trading System, dalam definisi Open Stage. Pada tahap ini, Execution Algorithm mengambil alih setelah keputusan untuk mengambil posisi telah dibuat pada Trigger Stage. Aku tahu kamu masih belum tahu apa itu Situation atau Condition, tapi aku tetap ingin kamu melakukan sesuatu...",
                     "updated": 1640565563790
+                },
+                {
+                    "language": "NL",
+                    "text": "We bevinden ons binnen het Lightning Strike Trading System, binnen de definities van de Open Stage. In deze fase neemt het Execution Algorithm het over nadat de beslissing om een positie in te nemen al is genomen in de Trigger Stage. Ik weet dat je nog steeds niet weet wat een Situation of een Condition is, maar ik zou toch willen dat je iets doet...",
+                    "updated": 1666879916007
                 }
             ]
         },
@@ -105,18 +115,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün!",
-                    "updated": 1636207209256
+                    "text": "Yürütme algoritmasının (Execution Algorithm) altındaki düğümleri keşfetmek, formülleri ve koşulları kontrol etmek ve bunlardan ne yapabileceğinizi görmek için birkaç dakikanızı ayırın!",
+                    "updated": 1666065481872
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать!",
-                    "updated": 1637756059992
+                    "text": "Потратьте несколько минут на изучение узлов, расположенных ниже алгоритма выполнения, проверьте формулы и условия и посмотрите, что вы можете из них сделать! ",
+                    "updated": 1662034309760
                 },
                 {
                     "language": "ID",
                     "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
                     "updated": 1640565111657
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem een paar minuten de tijd om de knooppunten stroomafwaarts van het execution algorithm te verkennen, de formules en voorwaarden te controleren en te zien wat u ervan kunt maken!",
+                    "updated": 1666879990494
                 }
             ],
             "updated": 1649168063557

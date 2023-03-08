@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: SuperalgosTranslate
+  main:
+    banner-mode: off
+    web-application-type: none
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
+    time-zone: UTC
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+logging:
+  level:
+    root: info

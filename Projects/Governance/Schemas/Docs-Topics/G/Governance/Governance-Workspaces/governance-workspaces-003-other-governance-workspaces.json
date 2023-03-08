@@ -43,21 +43,21 @@
         },
         {
             "style": "List",
-            "text": "Core Team members only, to keep the workspaces light.",
+            "text": "Founding Team members only, to keep the workspaces light.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Только для команды Core Team, чтобы рабочие места оставались легкими.",
+                    "text": "Только для команды Founding Team, чтобы рабочие места оставались легкими.",
                     "updated": 1639028955776
                 },
                 {
                     "language": "ES",
-                    "text": "Solo miembros del Core Team, para mantener los espacios de trabajo ligeros.",
+                    "text": "Solo miembros del Founding Team, para mantener los espacios de trabajo ligeros.",
                     "updated": 1640615022916
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma alanlarını hafif tutmak için yalnızca Çekirdek Ekip ( Core Team ) üyeleri.",
+                    "text": "Çalışma alanlarını hafif tutmak için yalnızca Çekirdek Ekip ( Founding Team ) üyeleri.",
                     "updated": 1646310312695
                 }
             ]
@@ -274,7 +274,15 @@
         },
         {
             "style": "List",
-            "text": "TS,"
+            "text": "TS,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395486355,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",

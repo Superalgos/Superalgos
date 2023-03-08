@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 7,
+    "pageNumber": "7",
     "type": "Docs Error - Only In English",
     "definition": {
         "text": "You may only use this command in the English version of the Docs.",
@@ -27,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Only In English",
-            "updated": 1609176190365
+            "updated": 1609176190365,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sadece İngilizce Çapa",
+                    "updated": 1654419768093,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -81,17 +89,39 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529810363
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419775510,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Docs Add Command",
-            "updated": 1609177338804
+            "updated": 1609177338804,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654419782860,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654419789351,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

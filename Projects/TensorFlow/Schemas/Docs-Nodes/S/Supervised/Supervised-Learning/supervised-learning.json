@@ -26,6 +26,12 @@
                     "language": "RU",
                     "text": "Алгоритм контролируемого обучения анализирует обучающие данные и производит выведенную функцию, которую можно использовать для сопоставления новых примеров. Оптимальный сценарий позволит алгоритму правильно определить метки классов для невидимых примеров. Это требует от алгоритма обучения \"разумного\" обобщения от обучающих данных к невидимым ситуациям (см. индуктивная предвзятость).",
                     "updated": 1645250207057
+                },
+                {
+                    "language": "TR",
+                    "text": "Denetimli bir öğrenme algoritması eğitim verilerini analiz eder ve yeni örnekleri eşlemek için kullanılabilecek bir çıkarım işlevi üretir. Optimal bir senaryo, algoritmanın görünmeyen örnekler için sınıf etiketlerini doğru bir şekilde belirlemesini sağlayacaktır. Bu, öğrenme algoritmasının eğitim verilerinden görülmeyen durumlara \"makul\" bir şekilde genelleme yapmasını gerektirir (bkz. tümevarımsal önyargı).",
+                    "updated": 1654397635630,
+                    "style": "Text"
                 }
             ]
         }

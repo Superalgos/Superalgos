@@ -1,0 +1,72 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "2",
+    "type": "DIDI",
+    "definition": {
+        "text": "This indicator was originally developed by Brazilian technical analyst Odir \"Didi\" Aguiar. Also known as \"Didi Needles\". It is considered as a Brazilian MACD.",
+        "updated": 1660519674930
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "DIDI on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The DIDI indicator consists of three moving averages. The differences between these moving averages are then calculated to produce the long and short indicator values shown on the chart."
+        },
+        {
+            "style": "Text",
+            "text": "Key Takeaways:"
+        },
+        {
+            "style": "List",
+            "text": "Used in a similar way to the MACD, a crossing of the short signal over the long signal indicates a potential upward price reversal, and vice versa."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-didi-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| DIDI | didi | value, signal |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"DIDI\" Procedure Loop.",
+            "updated": 1660520948230
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-didi-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the signal:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.didi.value > chart.at01hs.didi.signal"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

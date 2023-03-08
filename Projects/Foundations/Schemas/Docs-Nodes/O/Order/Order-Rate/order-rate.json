@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Поскольку целью лимитных ордеров является контроль над ценой, с которой выполняется ордер, определение цены исполнения ордеров требуется для всех лимитных ордеров.",
                     "updated": 1638784727764
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirlerin amacı, emrin gerçekleşme oranı üzerinde kontrol sahibi olmak olduğundan, tüm limit emirler için emir oranının tanımlanması gerekir.",
+                    "updated": 1656066171154
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, прочтите о лимитных ордерах, чтобы дополнить информацию в этом определении.",
                     "updated": 1638784756656
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tanımdaki bilgileri tamamlamak için lütfen limit emirleri hakkında bilgi edinin.",
+                    "updated": 1656066191771
                 }
             ]
         },
@@ -61,6 +71,11 @@
                     "language": "RU",
                     "text": "Конфигурация Order Rate",
                     "updated": 1638784803016
+                },
+                {
+                    "language": "TR",
+                    "text": "Sipariş Oranı (Order Rate) Yapılandırması",
+                    "updated": 1656066220619
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638784810847
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1656066230585
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638784820790
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1656066244041
                 }
             ]
         }

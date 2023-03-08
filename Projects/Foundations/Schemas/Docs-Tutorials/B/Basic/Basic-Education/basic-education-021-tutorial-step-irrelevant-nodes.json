@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Node yang tidak melekat pada hierarki tidak dihitung. Mereka ada di workspace, tetapi mereka tidak mempengaruhi cara kerja sistem di tingkat mana pun.",
                 "updated": 1644947080812
+            },
+            {
+                "language": "NL",
+                "text": "Knooppunten die niet aan een hiërarchie zijn gekoppeld, worden niet berekend. Ze bestaan in de werkruimte, maar ze hebben op geen enkel niveau invloed op de werking van het systeem.",
+                "updated": 1668338245524
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Ini berarti bahwa kamu dapat menjaga sebanyak mungkin struktur node yang terlepas dari hierarki, selama yang kamu inginkan, menyimpannya untuk digunakan nanti, atau untuk alasan apa pun.",
                     "updated": 1644947142354
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit betekent dat u zo lang als u wilt zoveel structuren van knooppunten los van hiërarchieën kunt houden, zodat u ze bij de hand kunt houden voor later gebruik of om welke reden dan ook.",
+                    "updated": 1668338264371
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Skenario umum yaitu menjaga beberapa versi definisi tertentu saat membangun strategi, sehingga kamu dapat menguji seperangkat aturan dan beralih ke aturan lain untuk menjalankan berikutnya. Kamu bahkan dapat menyimpan beberapa versi dari seluruh strategi!",
                     "updated": 1644947237970
+                },
+                {
+                    "language": "NL",
+                    "text": "Een veelvoorkomend scenario is het behouden van meerdere versies van bepaalde definities tijdens het bouwen van strategieën, zodat u een set regels kunt testen en voor de volgende run naar andere regels kunt overschakelen. U kunt zelfs meerdere versies van volledige strategieën behouden!",
+                    "updated": 1668338298619
                 }
             ]
         }

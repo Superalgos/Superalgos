@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Самообучение как парадигма машинного обучения было представлено в 1982 году вместе с нейронной сетью, способной к самообучению, названной Crossbar adaptive array (CAA). Это обучение без внешних вознаграждений и советов со стороны учителя. Алгоритм самообучения CAA вычисляет, в перекрестном порядке, как решения о действиях, так и эмоции (чувства) по поводу последствий ситуаций. Система управляется взаимодействием между познанием и эмоциями.",
                 "updated": 1645249793354
+            },
+            {
+                "language": "TR",
+                "text": "Bir makine öğrenme paradigması olarak kendi kendine öğrenme, 1982 yılında çapraz çubuk uyarlamalı dizi (CAA) adı verilen kendi kendine öğrenme yeteneğine sahip bir sinir ağı ile birlikte tanıtılmıştır. Bu, harici ödüllerin ve harici öğretmen tavsiyesinin olmadığı bir öğrenmedir. CAA kendi kendine öğrenme algoritması, çapraz çubuk tarzında, hem eylemlerle ilgili kararları hem de sonuç durumlarıyla ilgili duyguları (hisleri) hesaplar. Sistem, biliş ve duygu arasındaki etkileşim tarafından yönlendirilir.",
+                "updated": 1654397537431
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249798620
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397543780,
+                    "style": "Text"
                 }
             ]
         }

@@ -156,19 +156,20 @@
         },
         {
             "style": "Text",
-            "text": "Above: a bullish divergence(leftmost, green), a red bearish divergence (centre, red), and a bullish (green) divergence.",
+            "text": "Above: a bullish divergence (leftmost, green), a red bearish divergence (centre, red), and a bullish (green) divergence.",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Выше: бычья дивергенция (крайняя слева, зеленая), медвежья дивергенция (в центре, красная) и бычья (зеленая) дивергенция.",
-                    "updated": 1647357923160
+                    "updated": 1661276219991
                 },
                 {
                     "language": "TR",
                     "text": "Yukarıda: bir yükseliş sapma (en soldaki, yeşil), bir kırmızı düşüş sapma (ortada, kırmızı) ve bir yükseliş (yeşil) sapma.",
                     "updated": 1647716878439
                 }
-            ]
+            ],
+            "updated": 1652685465913
         },
         {
             "style": "Text",
@@ -276,14 +277,15 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| CCI-Div | cciDiv | status, strength, divPerc |",
+            "text": "| Product Name | Product Variable | Properties |\n| CciDiv | cciDiv | status, strength, divPerc |",
             "translations": [
                 {
                     "language": "TR",
                     "text": "|  Ürün Adı | Ürün Değişkeni | Özellikler |\n| CCI-Div | cciDiv | durum, güç, divPerc |",
                     "updated": 1647716999522
                 }
-            ]
+            ],
+            "updated": 1667785800257
         },
         {
             "style": "List",

@@ -76,21 +76,21 @@
         },
         {
             "style": "List",
-            "text": "Profiles of Core Team members and Community Mods.",
+            "text": "Profiles of Founding Team members and Community Mods.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pérfiles de los miembros del  Core Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
+                    "text": "Pérfiles de los miembros del  Founding Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
                     "updated": 1637406590297
                 },
                 {
                     "language": "RU",
-                    "text": "Профили основной команды Core Team и Community Mods.",
+                    "text": "Профили основной команды Founding Team и Community Mods.",
                     "updated": 1639028152519
                 },
                 {
                     "language": "TR",
-                    "text": "Çekirdek Ekip ( Core Team ) üyelerinin ve Topluluk Modlarının ( Community Mods ) profilleri.",
+                    "text": "Çekirdek Ekip ( Founding Team ) üyelerinin ve Topluluk Modlarının ( Community Mods ) profilleri.",
                     "updated": 1646307726861
                 }
             ]
@@ -201,22 +201,22 @@
         },
         {
             "style": "List",
-            "text": "Superalgos (project-wide positions such as Community Mods, Core Team, or Business Lead).",
+            "text": "Superalgos (project-wide positions such as Community Mods, Founding Team, or Business Lead).",
             "updated": 1630576271333,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Core Team, or Business Lead).",
+                    "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Founding Team, or Business Lead).",
                     "updated": 1637406807754
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos (должности в рамках проекта, такие как Community Mods, Core Team или Business Lead).",
+                    "text": "Superalgos (должности в рамках проекта, такие как Community Mods, Founding Team или Business Lead).",
                     "updated": 1639028413313
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos (Topluluk Modları ( Community Mods ), Çekirdek Ekip ( Core Team ) veya İş Lideri ( Business Lead ) gibi proje genelindeki pozisyonlar).",
+                    "text": "Superalgos (Topluluk Modları ( Community Mods ), Çekirdek Ekip ( Founding Team ) veya İş Lideri ( Business Lead ) gibi proje genelindeki pozisyonlar).",
                     "updated": 1646308782577
                 }
             ]
@@ -336,11 +336,27 @@
         {
             "style": "List",
             "text": "TS,",
-            "updated": 1630576395166
+            "updated": 1630576395166,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395474300,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docker,"
+            "text": "Docker,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docker,",
+                    "updated": 1654395480415,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",

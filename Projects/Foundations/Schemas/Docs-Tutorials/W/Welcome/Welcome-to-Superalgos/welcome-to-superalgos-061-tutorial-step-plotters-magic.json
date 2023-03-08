@@ -40,6 +40,16 @@
                 "language": "ID",
                 "text": "Dan beginilah cara plotters dibangun! Plotter membuat representasi grafis dari data... dari candles, hingga yang lainnya!",
                 "updated": 1639709684476
+            },
+            {
+                "language": "NL",
+                "text": "En zo worden plotters gebouwd! Plotters maken grafische weergaven van gegevens... van kaarsen tot al het andere!",
+                "updated": 1666785699306
+            },
+            {
+                "language": "FR",
+                "text": "Et c'est ainsi que les traceurs sont construits ! Les traceurs créent des représentations graphiques des données... depuis les bougies à tout le reste !",
+                "updated": 1668414570996
             }
         ]
     },
@@ -79,6 +89,16 @@
                     "language": "ID",
                     "text": "Sekali lagi, visual scripting yang terbaik! Plotter menggunakan polygons bergaya yang terbuat dari titik koordinat untuk melukis garis dan bentuk yang mewakili data. Setiap layer yang tersedia di charts dibuat dengan serangkaian definisi seperti yang kamu lihat sekarang. Kasus khusus bot Resistances dan Supports agak rumit, tetapi akan menunjukkan kekuatan Superalgos ini!",
                     "updated": 1639709926721
+                },
+                {
+                    "language": "NL",
+                    "text": "Nogmaals, visuele scripting op zijn best! Plotters gebruiken gestileerde polygonen gemaakt van coördinaatpunten om lijnen en vormen te tekenen die gegevens vertegenwoordigen. Elke laag die in de grafieken beschikbaar wordt gemaakt, is gemaakt met een reeks definities van het soort waar u nu naar kijkt. Het specifieke geval van de Resistances and Supports bot is nogal complex, maar laat wel de kracht van de tool zien!",
+                    "updated": 1666785793012
+                },
+                {
+                    "language": "FR",
+                    "text": "Encore une fois, le script visuel à son meilleur! Les traceurs utilisent des polygones stylisés constitués de points de coordonnées pour peindre des lignes et des formes qui représentent des données. Chaque calque mise à disposition sur les graphiques est créée avec un ensemble de définitions tel que ceux que vous consultez actuellement. Le cas particulier du bot Resistances and Supports est assez complexe, mais met en valeur la puissance de l'outil !",
+                    "updated": 1668414647743
                 }
             ]
         },
@@ -106,8 +126,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Direnç Bölgesi 5 Poligonunu (Resistances Zone) (solda) bulun, genişletin ve bu güzelliğin nasıl inşa edildiğine bir göz atın.",
-                    "updated": 1636106823729
+                    "text": "Destek  Bölgesi 5 Poligonunu (Support Zone) (solda) bulun, genişletin ve bu güzelliğin nasıl inşa edildiğine bir göz atın.",
+                    "updated": 1665964221197
                 },
                 {
                     "language": "RU",
@@ -118,6 +138,16 @@
                     "language": "ID",
                     "text": "Temukan Support Zone 5 Polygon (ke kiri), perluas, dan jelajahi cabang-cabangnya untuk mengintip bagaimana keindahan ini dibangun!",
                     "updated": 1639709793022
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek de Support Zone 5 Polygon (aan de linkerkant), breid deze uit en kruip je een weg omhoog langs de aftakkingen voor een voorproefje van hoe deze schoonheid werd gebouwd!",
+                    "updated": 1666785855321
+                },
+                {
+                    "language": "FR",
+                    "text": "Trouvez le polygone de la zone de support 5 (à gauche), développez-le et explorer le long des branches pour avoir un aperçu de la façon dont cette beauté a été construite !",
+                    "updated": 1668414674398
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Структура узлов Data Tasks управляет ботами, которых необходимо запускать для извлечения данных с бирж и их обработки в индикаторах или технических исследованиях.",
                 "updated": 1638358317269
+            },
+            {
+                "language": "DE",
+                "text": "Die Knotenstruktur Data Tasks steuert die Bots, die Sie ausführen müssen, um Daten von den Börsen zu extrahieren und zu Indikatoren oder technischen Studien zu verarbeiten.",
+                "updated": 1651911162108
             }
         ]
     },
@@ -106,6 +111,11 @@
                     "language": "RU",
                     "text": "Задачи данных могут запускать экземпляры ботов-индикаторов или ботов-датчиков. Мы рассмотрим эти два на следующей странице. Некоторым биржам может потребоваться ключ API для загрузки определенных видов или объемов данных. Давайте посмотрим на узел Key Reference.",
                     "updated": 1638359965647
+                },
+                {
+                    "language": "DE",
+                    "text": "Datenaufgaben können Instanzen von Indikator-Bots oder Sensor-Bots ausführen. Wir werden diese beiden auf der nächsten Seite behandeln. Einige Börsen können einen API-Schlüssel für das Herunterladen bestimmter Arten oder Mengen von Daten verlangen. Schauen wir uns den Key Reference Node an.",
+                    "updated": 1651911238779
                 }
             ]
         },

@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) {
+exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
 
     let thisObject = {
         broadcastSignal: broadcastSignal,
@@ -60,6 +60,9 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
             signalMessage: JSON.stringify(signalMessage)
         }
  
-        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.tradingSignalsNetworkServiceClient.sendMessage(messageHeader)
+        let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.tradingSignalsNetworkServiceClient.sendMessage(messageHeader)
+        if (response.result !== 'Ok') {
+            console.log((new Date()).toISOString(), '[ERROR] broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
+        }
     }
 }

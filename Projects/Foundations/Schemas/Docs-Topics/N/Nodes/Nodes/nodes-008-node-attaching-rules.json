@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Каждый тип узла может иметь набор правил, определяющих, к какому типу узла он может присоединиться.",
                 "updated": 1640356570141
+            },
+            {
+                "language": "TR",
+                "text": "Her Düğüm Türü ( Node Type ) kendisini hangi Düğüm Türüne ekleyebileceğini tanımlayan bir kurallar kümesine sahip olabilir.",
+                "updated": 1652901147262
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Каждый тип узла может иметь набор правил, определяющих, к каким узлам он может быть присоединен. Эти правила представляют собой буквально два списка типов узлов, один для совместимых типов, а второй - для несовместимых. Существует также возможность заменить список типов на ключевое слово *Any Node*.",
                     "updated": 1640356598217
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Düğüm Türü ( Node Type ) hangi düğümlere bağlanabileceğini tanımlayan bir kurallar kümesine sahip olabilir. Bu kurallar, biri uyumlu türler için diğeri uyumsuz türler için olmak üzere tam anlamıyla iki Düğüm Türü ( Node Type ) listesidir. *Herhangi Bir düğüm* anahtar sözcüğünün tür listesini değiştirme olanağı da vardır.",
+                    "updated": 1652901413437
                 }
             ]
         }

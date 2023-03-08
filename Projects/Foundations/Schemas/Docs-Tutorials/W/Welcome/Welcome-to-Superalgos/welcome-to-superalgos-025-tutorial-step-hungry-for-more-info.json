@@ -48,6 +48,11 @@
                 "language": "NL",
                 "text": "Tijdens onze reis zal ik niet op alle details ingaan, voor meer info over een node, klik dan op het vraagteken in het menu van de node.",
                 "updated": 1636977477286
+            },
+            {
+                "language": "FR",
+                "text": "Je n'entrerai pas dans tous les détails au fur et à mesure, mais si vous avez besoin de plus d'informations sur un nœud, le bouton d'aide du menu vous renvoie directement à sa documentation.",
+                "updated": 1667986101678
             }
         ]
     },
@@ -95,6 +100,11 @@
                     "language": "NL",
                     "text": "De documentate van een node kan één of meerdere van de volgende secties bevatten:",
                     "updated": 1636977595624
+                },
+                {
+                    "language": "FR",
+                    "text": "La documentation d'un nœud peut inclure une ou plusieurs des sections suivantes :",
+                    "updated": 1667986183222
                 }
             ]
         },
@@ -141,6 +151,11 @@
                     "language": "NL",
                     "text": "Definition: beschrijft wat de node is of doet.",
                     "updated": 1636977528905
+                },
+                {
+                    "language": "FR",
+                    "text": "Définition : décrit ce qu'est ou fait le nœud.",
+                    "updated": 1667986215225
                 }
             ]
         },
@@ -187,6 +202,11 @@
                     "language": "NL",
                     "text": "Content: beschrijft hoe de noe werkt.",
                     "updated": 1636977620505
+                },
+                {
+                    "language": "FR",
+                    "text": "Contenu : décrit le fonctionnement du nœud.",
+                    "updated": 1667986226399
                 }
             ]
         },
@@ -234,6 +254,11 @@
                     "language": "NL",
                     "text": "Configuration: sommige nodes hebben een configuratie.",
                     "updated": 1636977660661
+                },
+                {
+                    "language": "FR",
+                    "text": "Configuration : certains nœuds peuvent en avoir une.",
+                    "updated": 1667986236368
                 }
             ]
         },
@@ -281,6 +306,11 @@
                     "language": "NL",
                     "text": "Technical: de rest van de informatie is meestal van technische aard, voor ontwikkelaars.",
                     "updated": 1636977733206
+                },
+                {
+                    "language": "FR",
+                    "text": "Technique : le reste de l'information est généralement de nature technique, orientée pour les développeurs.",
+                    "updated": 1667986245669
                 }
             ]
         },
@@ -327,6 +357,11 @@
                     "language": "NL",
                     "text": "Klik op help in het menu van de Data Tasks node!",
                     "updated": 1636977849517
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur le bouton d'aide du nœud Data Tasks !",
+                    "updated": 1667986271757
                 }
             ]
         }

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
     <link rel="stylesheet" href="prism.css" type="text/css"/>
     <link rel="stylesheet" href="menu.css" type="text/css"/>
+    <link rel="shortcut icon" href ="Images/favicon.ico">
 
     <script src="externalScripts/jquery-3.6.0.js"></script>
     <script src="externalScripts/jquery-ui.js"></script>
@@ -97,47 +98,82 @@
 
         function drawSplashText() {
             const splashTextArray = [
-                {
-                    "splashTextLine1Html": '<span class="credits-red">Superalgos is open source, forever free for everyone, and is constantly improving thanks to the involvement of contributors!</span>'
+            {
+                    "splashTextLine1Html": '<span class="credits-red">Contribute to Superalgos!</span>'
                     ,
-                    "splashTextLine2Html": 'You may contribute, earn tokens, and participate in the governance of the project, no matter what your set of skills may be! It\'s as simple as sharing what you build for yourself, submitting a review, fixing a bug, or even a typo in the Docs!'
+                    "splashTextLine2Html": 'Superalgos is open source and forever free for everyone thanks to the involvement of contributors!'
                     ,
-                    "splashTextLine3Html": ''
+                    "splashTextLine3Html": 'You may contribute, earn tokens, and participate in Governance, no matter what your set of skills may be!'
                 },
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Superalgos is a community of algo traders, sharing knowledge, experience, and tools.</span>'
+                    "splashTextLine1Html": '<span class="credits-red">Join our Chat Groups!</span>'
                     ,
-                    "splashTextLine2Html": 'We negotiate with exchanges and pass on benefits to all members. Become part of the Superalgos Community by making a small contribution to the open-source project!'
+                    "splashTextLine2Html": 'Superalgos is a community project! The platform improves with everyone\'s feedback and contributions.'
                     ,
-                    "splashTextLine3Html": ''
+                    "splashTextLine3Html": 'We\'d love to know how you\'re using Superalgos!'
                 },
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Superalgos is built on core values that we embrace wholeheartedly.</span>'
+                    "splashTextLine1Html": '<span class="credits-red">We\'re on Team People!</span>'
                     ,
-                    "splashTextLine2Html": 'The software features no ads and does not collect user or usage information of any kind. Our products and services are free of charge for everyone, and always will be.'
+                    "splashTextLine2Html": 'No ads and no tracking of user or usage information.'
                     ,
-                    "splashTextLine3Html": 'Superalgos puts humans first. We respect your privacy, your freedom to use and contribute to our open-source project, and your freedom to innovate.'
+                    "splashTextLine3Html": ' We respect your privacy, your freedom to use and improve the platform, and your freedom to innovate!'
                 },
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Superalgos is permissionless.</span>'
+                    "splashTextLine1Html": '<span class="credits-red">Superalgos is Permissionless!</span>'
                     ,
-                    "splashTextLine2Html": 'Don\'t like the UI, the icons, the Charting System, the Visual Designer, the Visual Debugger, the Docs, the Trading Bot, Indicators, Plotters? No problem!'
+                    "splashTextLine2Html": 'Don\'t like the UI, the charting system, or anything else?'
                     ,
-                    "splashTextLine3Html": 'Code or integrate libraries with your version of any component! We promise we will merge your work and provide it as an alternative to users. We believe in permissionless innovation! Users, not team members, are the final judges!'
+                    "splashTextLine3Html": 'No problem! Code or integrate libraries with your version of any component and will provide it as an alternative!'
                 },
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Give Superalgos a star on GitHub!</span>'
+                    "splashTextLine1Html": '<span class="credits-red">Give Superalgos a Star on GitHub!</span>'
                     ,
-                    "splashTextLine2Html": 'Stars make the repository easier to find on GitHub.com search. The more developers find us, the more people contribute to the project, and the better the system gets for everyone!'
+                    "splashTextLine2Html": 'Stars make the repository easier to find on GitHub.com search. '
                     ,
-                    "splashTextLine3Html": ''
+                    "splashTextLine3Html": 'The more developers find us, the more people contribute to the project, and the better the system gets for everyone!'
                 },
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Would you like to join the Superalgos\'s Developer Team?.</span>'
+                    "splashTextLine1Html": '<span class="credits-red">Join the Superalgos\' Developer Team!</span>'
                     ,
-                    "splashTextLine2Html": 'Look around, find something that is missing and start coding! If you need help, ask in the chat groups to find a mentor!'
+                    "splashTextLine2Html": 'Look around, discover something is missing, and start coding! If you need help, ask in the chat groups to find a mentor!'
                     ,
                     "splashTextLine3Html": 'Follow our motto: Just code it!'
+                },
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Superalgos is a Unique Crypto Project!</span>'
+                    ,
+                    "splashTextLine2Html": 'With a collective business model around the native token and friction reduced to zero, Superalgos will eventually channel a significant fraction of the global trading volume.'
+                    ,
+                    "splashTextLine3Html": 'We designed the project to win the market cap game, and we won\'t stop until we reach the Top 10!'
+                },
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Buy the Superalgos $SA Token!</span>'
+                    ,
+                    "splashTextLine2Html": 'If you have no time to contribute but still wish to support those who do, just go to 1Inch and buy some tokens!'
+                    ,
+                    "splashTextLine3Html": 'Find the link on the website!'
+                },
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Bring a Friend!</span>'
+                    ,
+                    "splashTextLine2Html": 'Your colleagues and friends have never seen anything like Superalgos!'
+                    ,
+                    "splashTextLine3Html": 'Be the first to tell them!'
+                },
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Earn Superalgos $SA Tokens!</span>'
+                    ,
+                    "splashTextLine2Html": 'Create and submit your user profile to earn tokens on each distribution!'
+                    ,
+                    "splashTextLine3Html": 'Earn a lot more by contributing to the project!'
+                },
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Copy Trading is Now Live!</span>'
+                    ,
+                    "splashTextLine2Html": 'If you find it too hard to build your strategies, you can always follow others!'
+                    ,
+                    "splashTextLine3Html": 'Ask how in the community chats!'
                 } 
             ]
 

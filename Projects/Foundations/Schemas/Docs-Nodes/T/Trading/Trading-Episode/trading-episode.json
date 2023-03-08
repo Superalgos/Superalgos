@@ -118,7 +118,7 @@
         },
         {
             "style": "List",
-            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;",
+            "text": "rates describing each candle in the episode, such as the open, close, min and max rates.",
             "translations": [
                 {
                     "language": "RU",
@@ -130,7 +130,13 @@
                     "text": "açılış, kapanış, minimum ve maksimum oranlar gibi bölümdeki her bir mumu tanımlayan oranlar;",
                     "updated": 1641994732523
                 }
-            ]
+            ],
+            "updated": 1665995266972
+        },
+        {
+            "style": "Note",
+            "text": "When working on sub-hour time frames, the system works with daily files, therefore, in such context, a Trading Episode lasts 24 hours. If the Trading Session spans across natural days, then you will get one Trading Episode object per day. Notice that this doesn't affect the structure of nodes of the Trading Engine hierarchy.",
+            "updated": 1665995472141
         }
     ]
 }

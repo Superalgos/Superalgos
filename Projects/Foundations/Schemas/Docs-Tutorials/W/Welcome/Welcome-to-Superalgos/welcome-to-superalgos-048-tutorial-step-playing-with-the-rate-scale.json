@@ -40,6 +40,16 @@
                 "language": "ID",
                 "text": "Apakah aku perlu memberi tahu cara kerja  Rate Scale atau kamu bisa mengetahuinya? Ok... aku kasih petunjuknya...",
                 "updated": 1639585090968
+            },
+            {
+                "language": "NL",
+                "text": "Moet ik je vertellen hoe de Rate Scale werkt of kun je er zelf achter komen? Oké... ik zal je een hint geven...",
+                "updated": 1666700855640
+            },
+            {
+                "language": "FR",
+                "text": " Dois-je vous expliquer comment fonctionne l'échelle des prix ou pouvez-vous le découvrir par vous-même ? Ok... Je vais vous donner un indice...",
+                "updated": 1668069325531
             }
         ]
     },
@@ -79,6 +89,16 @@
                     "language": "ID",
                     "text": "Skala kecepatan berfungsi seperti skala waktu, tetapi —saat menggunakan keyboard—Kamu harus membalik tombol panah! Gunakan panah kiri dan kanan ← → untuk beralih melalui mode otomatis dan panah atas dan bawah ↑ ↓ untuk mengubah skalanya! Lihatlah video berikutnya agar lebih jelas!",
                     "updated": 1639585260696
+                },
+                {
+                    "language": "NL",
+                    "text": "De rate scale werkt net als de tijdschaal, maar -wanneer u het toetsenbord gebruikt- moet u de pijltjestoetsen omkeren! Gebruik de pijlen naar links en rechts ← → om door de automatische modi te bladeren en de pijlen omhoog en omlaag ↑ ↓ om de schaal te beïnvloeden! Check de volgende video voor de duidelijkheid!",
+                    "updated": 1666700896536
+                },
+                {
+                    "language": "FR",
+                    "text": "L'échelle de prix fonctionne comme l'échelle de temps, mais -lorsque vous utilisez le clavier- vous devez inverser les touches fléchées ! Utilisez les flèches gauche et droite ← → pour basculer entre les modes automatiques et les flèches haut et bas ↑ ↓ pour affecter l'échelle ! Consultez la vidéo à venir pour plus de clarté !",
+                    "updated": 1668069397188
                 }
             ],
             "updated": 1616505192799
@@ -118,6 +138,16 @@
                     "language": "ID",
                     "text": "Mainkan juga dengan mode skala semi-otomatis! Yaitu, ketika sebuah segitiga kecil tetap terlihat setelah beberapa gerakan mouse wheel.",
                     "updated": 1639585366854
+                },
+                {
+                    "language": "NL",
+                    "text": "Probeer ook de semi-automatische schaalmodi! Je weet wel, wanneer een enkel klein driehoekje zichtbaar blijft na een paar bewegingen met het muiswiel.",
+                    "updated": 1666700940231
+                },
+                {
+                    "language": "FR",
+                    "text": "Jouez aussi avec les modes semi-automatiques aussi! Vous savez, quand un seul petit triangle reste visible après quelques coups de roulette de la souris.",
+                    "updated": 1668069423066
                 }
             ]
         }

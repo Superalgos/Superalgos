@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Order Statistics Node Missing",
     "definition": {
         "text": "An Order Statistics node was expected but not found at the node where the error originated.",
-        "updated": 1611649929741
+        "updated": 1611649929741,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Sipariş İstatistikleri ( Order Statistics ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648937847053
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Order Statistics Node Missing",
-            "updated": 1611650682469
+            "updated": 1611650682469,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş İstatistikleri Düğümü Eksik. ( Order Statistics Node Missing )",
+                    "updated": 1648937887373
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648937925996
+                }
+            ]
         }
     ]
 }

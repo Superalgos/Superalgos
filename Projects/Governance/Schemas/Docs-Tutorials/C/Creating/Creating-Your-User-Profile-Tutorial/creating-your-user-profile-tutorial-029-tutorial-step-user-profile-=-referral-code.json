@@ -132,29 +132,8 @@
         },
         {
             "style": "List",
-            "text": "Most YouTube Videos: Julian-Molina",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "La mayoría de los videos de YouTube: Julian-Molina",
-                    "updated": 1632025607190
-                },
-                {
-                    "language": "DE",
-                    "text": "Die meisten YouTube-Videos: Julian-Molina",
-                    "updated": 1640079879816
-                },
-                {
-                    "language": "TR",
-                    "text": "YouTube Videoları : Julian-Molina",
-                    "updated": 1645091757229
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Blog Articles: Some by Julian-Molina, Luis-Fernando-Molina,... please check the author!",
-            "updated": 1630927812445,
+            "text": "Blog Articles: Please check the author!",
+            "updated": 1660592237451,
             "translations": [
                 {
                     "language": "ES",
@@ -180,24 +159,8 @@
         },
         {
             "style": "List",
-            "text": "Official Social Media Posts: Julian-Molina",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Redes sociales: Julian-Molina",
-                    "updated": 1632025677568
-                },
-                {
-                    "language": "DE",
-                    "text": "Offizielle Social Media Beiträge: Julian-Molina",
-                    "updated": 1640079897447
-                },
-                {
-                    "language": "TR",
-                    "text": "Resmi sosyal Medya Hesapları: Julian-Molina",
-                    "updated": 1645091789497
-                }
-            ]
+            "text": "Check with the community who may have produced the video or the social media post that hooked you!",
+            "updated": 1660592515437
         }
     ]
 }

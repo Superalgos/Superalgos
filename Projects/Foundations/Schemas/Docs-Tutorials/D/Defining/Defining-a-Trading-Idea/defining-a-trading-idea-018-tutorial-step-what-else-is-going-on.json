@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: 1H grafiğindeki grupların bu dağılımından sonra neler olduğunu not ettik... Piyasada başka neler oluyor?",
                 "updated": 1640947793962
+            },
+            {
+                "language": "ES",
+                "text": "Acabamos de tomar nota de lo que ha sucedido después de esta ruptura de las bandas en el gráfico 1H... ¿Qué más está pasando con el mercado?",
+                "updated": 1668191200497
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Birkaç mum öncesi fiyat hareketine bir bakın!",
                     "updated": 1640947810515
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echa un vistazo a la acción del precio unas velas antes!",
+                    "updated": 1668191217087
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Not: Kontrol Ettiğimizden önce iki arıza vardı, biri 9 Nisan'da saat 12'de, diğeri 7 Nisan'da saat 21'de. Her iki arıza da, mumların alt banttan çok daha düşük kapanması anlamında önemliydi. Ancak, her iki durumda da fiyat bantlara geri döndü.",
                     "updated": 1640947826988
+                },
+                {
+                    "language": "ES",
+                    "text": "Hubo dos rupturas anteriores a la que revisamos, una el 9 de abril a las 12 hs, y antes, otra el 7 de abril a las 21 hs. Ambas rupturas fueron significativas, en el sentido de que las velas cerraron muy por debajo de la banda inferior. Sin embargo, en ambos casos el precio rebotó dentro de las bandas.",
+                    "updated": 1668191262918
                 }
             ]
         }

@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Crypto Exchange содержит определения активов и рынков конкретной биржи.",
                 "updated": 1638648355387
+            },
+            {
+                "language": "TR",
+                "text": "Bir kripto Exchange düğümü, belirli bir borsadaki varlıkların ve pazarların tanımlarını tutar.",
+                "updated": 1652799015108
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "RU",
                     "text": "Проверенные биржи",
                     "updated": 1638648375474
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Edilen Exchange'ler",
+                    "updated": 1652799056133
                 }
             ]
         },
@@ -46,52 +56,137 @@
                     "language": "RU",
                     "text": "Теоретически Superalgos поддерживает десятки бирж. Однако каждый обмен должен проходить процесс тестирования, так как не все из них соответствуют стандарту, предложенному библиотекой CCXT.",
                     "updated": 1638648390810
+                },
+                {
+                    "language": "TR",
+                    "text": "Teorik olarak, Superalgos düzinelerce borsayı destekler. Ancak, hepsi CCXT kitaplığı tarafından önerilen standarda uymadığından, her değişim bir test sürecinden geçmelidir.",
+                    "updated": 1652799075432
                 }
             ]
         },
         {
             "style": "List",
             "text": "Binance Test Status",
-            "updated": 1615203667257
+            "updated": 1615203667257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance Test Durumu",
+                    "updated": 1654391518307,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Binance Futures USDⓈ-M/COIN-M Test Status",
-            "updated": 1615203667257
+            "updated": 1615203667257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance Vadeli İşlemleri USDⓈ-M/COIN-M Test Durumu",
+                    "updated": 1654391523838,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Binance-US Test Status"
+            "text": "Binance-US Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance-ABD Test Durumu",
+                    "updated": 1654391530627,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bitfinex Test Status"
+            "text": "Bitfinex Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitfinex Test Durumu",
+                    "updated": 1654391537736,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bittrex Test Status"
+            "text": "Bittrex Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bittrex Test Durumu",
+                    "updated": 1654391543303,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "CoinbasePro Test Status"
+            "text": "CoinbasePro Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CoinbasePro Test Durumu",
+                    "updated": 1654391549262,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "FTX Test Status",
-            "updated": 1615203669878
+            "updated": 1615203669878,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "FTX Test Durumu",
+                    "updated": 1654391555993,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Kraken Test Status",
-            "updated": 1615453046113
+            "updated": 1615453046113,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kraken Test Durumu",
+                    "updated": 1654391561963,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Kucoin Test Status"
+            "text": "Kucoin Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kucoin Test Durumu",
+                    "updated": 1654391569616,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Luno Test Status"
+            "text": "Luno Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Luno Test Durumu",
+                    "updated": 1654391576496,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -101,6 +196,11 @@
                     "language": "RU",
                     "text": "Конфигурация Crypto Exchange",
                     "updated": 1638648412109
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Exchange Yapılandırma",
+                    "updated": 1652799127267
                 }
             ]
         },
@@ -118,18 +218,40 @@
                     "language": "RU",
                     "text": "Для каждой биржи может потребоваться очень специфическая конфигурация. Это определяется в процессе тестирования биржи. Проконсультируйтесь со страницей каждой биржи, как указано выше. Если вы заинтересованы в тестировании новой биржи, перейдите на страницу Test New Exchanges.",
                     "updated": 1638648473771
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Exchange çok özel bir konfigürasyon gerektirebilir. Bu, değişim testi sürecinde belirlenir. Yukarıda listelenen her borsanın sayfasına bakın. Yeni bir değişimi test etmekle ilgileniyorsanız, Yeni Değişimler Nasıl Test Edilir ( How to Test New Exchanges ) sayfasına gidin.",
+                    "updated": 1652799182432
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609771684679,
+            "text": "Properties and Parameters",
+            "updated": 1650623361424,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Свойства",
-                    "updated": 1638648483805
+                    "text": "Свойства и параметры",
+                    "updated": 1661275343252
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler ve Parametreler",
+                    "updated": 1652799193595
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchange you want to use, usually in lowercase letters.",
+            "updated": 1650806161770,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos, borsalara bağlanmak için CCXT'yi (CryptoCurrency eXchange Trading Library) kullanır. Kullanıcı tarafından exchange üzerinde oluşturulan API'ler aracılığıyla bağlandığı yüzlerce exchange'i destekler. ccxt'nin en iyi özelliklerinden biri, exchange agnostik olmasıdır. İster FTX'te ister Bybit'te işlem yapın, borsaya bağlanma süreci aynıdır. Kitaplık, gerektiğinde bağlantıya ince ayar yapmak için birçok parametreyi kabul eder. Binance gibi iyi desteklenen borsalar için borsaya bağlanmak için tek yapmanız gereken kullanmak istediğiniz borsanın adı olan codeName'i genellikle küçük harflerle bildirmektir.",
+                    "updated": 1652799206992
                 }
             ]
         },
@@ -146,41 +268,258 @@
                     "language": "RU",
                     "text": "codeName - это название биржи, которое обрабатывается в коде системы.",
                     "updated": 1638648511499
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName, sistem kodunda işlendiği şekliyle Exchange adıdır.",
+                    "updated": 1652799238746
                 }
             ]
         },
         {
             "style": "List",
-            "text": "sandBox setting this parameter to true allows SuperAlgos to perform live trading on the exchanges sandbox or testnet if one is available.",
+            "text": "sandBox some exchanges have a so called testnet/sandBox mode that enables traders to try out all the exchange features in a simulated environment. Set it to true to enable it. Please note that some exchanges (like Bittrex for example) can throw an error with this parameter set to false. Simply delete that line in such cases.",
+            "updated": 1650635009708,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "sandBox установка этого параметра в значение true позволяет Superego осуществлять реальную торговлю в песочнице бирж или тестовой сети, если таковая доступна.",
-                    "updated": 1638648591939
+                    "text": "sandBox некоторые биржи имеют так называемый режим testnet/sandBox, который позволяет трейдерам опробовать все возможности биржи в симулированной среде. Установите значение true, чтобы включить этот режим. Обратите внимание, что некоторые биржи (например, Bittrex) могут выдать ошибку, если этот параметр установлен в false. В таких случаях просто удалите эту строку.",
+                    "updated": 1661275422115
+                },
+                {
+                    "language": "TR",
+                    "text": "sandBox bazı borsalarda, tüccarların simüle edilmiş bir ortamda tüm borsa özelliklerini denemelerini sağlayan testnet/sandBox modu vardır. Etkinleştirmek için true olarak ayarlayın. Lütfen bazı borsaların (örneğin Bittrex gibi) bu parametrenin false olarak ayarlanmasıyla hata verebileceğini unutmayın. Bu gibi durumlarda o satırı silmeniz yeterlidir.",
+                    "updated": 1652799269237
                 }
             ]
         },
         {
             "style": "List",
-            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to save the data more often allowing for the data mining to move forward.",
+            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and to allow to the user to save the data more often allowing for the data mining to move forward.",
+            "updated": 1650806325108,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "maxRate устанавливает максимальное количество OHCLV, которое извлекается перед сохранением данных. Это должно использоваться только тогда, когда биржа случайным образом запускает извлчение данных и позволяет пользователю сохранять данные чаще, что позволяет продвигать интеллектуальный анализ данных.",
-                    "updated": 1638648664286
+                    "text": "maxRate устанавливает максимальное количество OHCLV, которое будет извлечено перед сохранением данных. Этот параметр следует использовать только в том случае, если биржа выбрасывает data-mine случайным образом, чтобы позволить пользователю сохранять данные чаще, позволяя продвигаться вперед. ",
+                    "updated": 1661275465625
+                },
+                {
+                    "language": "TR",
+                    "text": "maxRate, veriler kaydedilmeden önce çekilen maksimum OHCLV sayısını ayarlar. Bu, yalnızca borsa veri madenciliğini rastgele başlattığında ve kullanıcının verileri daha sık kaydetmesine ve veri madenciliğinin ilerlemesine izin verdiğinde kullanılmalıdır.",
+                    "updated": 1652799278482
                 }
             ]
         },
         {
             "style": "List",
-            "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library.",
+            "text": "rateLimit to override the default value set by ccxt library.",
+            "updated": 1650806392602,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "API содержит ряд определений, используемых только в том случае, когда бот-датчик выбирает сделки (используя процесс исторических сделок) вместо процесса OHLCV, который выбирает одноминутные свечи и является текущим значением по умолчанию. В таком случае поиск правильного набора параметров для работы с конкретным обменом может оказаться сложной задачей и требует понимания того, как работают API exchange и API библиотеки CCXT. Другими словами, нет жесткого правила относительно того, какой должна быть каждая из ценностей. Для определения каждого из этих значений требуется изучить документацию API биржи, а также документацию библиотеки CCXT.",
-                    "updated": 1638648888938
+                    "language": "TR",
+                    "text": "ccxt kitaplığı tarafından ayarlanan varsayılan değeri geçersiz kılmak için rateLimit.",
+                    "updated": 1652799286994
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "limit: could be required by some exchanges in order to properly connect.",
+            "updated": 1650806388686,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "limit: düzgün bağlanmak için bazı borsalar tarafından gerekli olabilir.",
+                    "updated": 1652799302057
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "options: used as an object to pass aditional parameters to the exchange, for example when trading an inverse pair.",
+            "updated": 1650806383621,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "seçenekler: örneğin ters bir çiftle işlem yaparken, borsaya ek parametreleri iletmek için bir nesne olarak kullanılır.",
+                    "updated": 1652799310476
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "hostname: to set custom hostname for the exchange.",
+            "updated": 1650806377985,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "ana bilgisayar adı: değişim için özel ana bilgisayar adı ayarlamak için.",
+                    "updated": 1652799318231
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example of use:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanım örneği:",
+                    "updated": 1652799329113
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bybit\",\n    \"limit\": 50,\n    \"options\": {\n        \"adjustForTimeDifference\": \"true\",\n        \"defaultType\": \"inverse\"\n    }\n}",
+            "updated": 1650640075422
+        },
+        {
+            "style": "Note",
+            "text": "For well known exchanges setting up the correct codeName is enough to enable the connection and no additional parameters are usually needed!",
+            "updated": 1650806420539,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Bilinen değiş tokuşlar için, bağlantıyı etkinleştirmek için doğru kodAdı'nı ayarlamak yeterlidir ve genellikle ek parametreye gerek yoktur!",
+                    "updated": 1652799337547
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Some exchanges do not accept a standard configuration for fetching candles. In this case a possible solution can be to use a different method to fetch candles. API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging and involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library. To enable the API use, first declare its use to have access to all its parameters.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bazı borsalar, mumları getirmek için standart bir yapılandırmayı kabul etmez. Bu durumda mum getirmek için farklı bir yöntem kullanmak olası bir çözüm olabilir. API, bir dakikalık mumları getiren ve mevcut varsayılan olan OHLCV süreci yerine, yalnızca sensör botunun alım satımları (Tarihi-Ticaret sürecini kullanarak) getirmesi durumunda kullanılan bir dizi tanımı içerir. Böyle bir durumda, belirli bir değişim ile çalışmak için doğru parametre setini bulmak zor olabilir ve değişim API'sinin ve CCXT Kitaplık API'sinin nasıl çalıştığını anlamayı gerektirir. Başka bir deyişle, değerlerin her birinin ne olması gerektiğine dair kesin bir kural yoktur. Bu değerlerin her birinin belirlenmesi, değiş tokuşun API belgelerinin yanı sıra CCXT Kitaplığının belgelerinin araştırılmasını gerektirir. API kullanımını etkinleştirmek için, önce tüm parametrelerine erişim için kullanımını bildirin.",
+                    "updated": 1652799346422
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.method fetch_ohlcv is required to enable the API parameters use",
+            "updated": 1650646783132,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API parametrelerinin kullanımını etkinleştirmek için API.method fetch_ohlcv gereklidir",
+                    "updated": 1652799355867
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.class is used for declaring the \"exchangeId\"",
+            "updated": 1650646792335,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.class, \"exchangeId\" bildirmek için kullanılır",
+                    "updated": 1652799363355
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.fetchOHLCVsMethod to use the fetchOHLCVsMethod",
+            "updated": 1650629783776,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.fetchOHLCVs fetchOHLCVsYöntemini kullanma yöntemi",
+                    "updated": 1652799370821
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.firstId to declare the firstId",
+            "updated": 1650629788135,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.firstId, ilk kimliği bildirmek için",
+                    "updated": 1652799378676
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.rateLimit to change the default rateLimit",
+            "updated": 1650629792154,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varsayılan rateLimit'i değiştirmek için API.rateLimit",
+                    "updated": 1652799387406
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.limit to change the default exchange limit parameter",
+            "updated": 1650629796143,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.hostname varsayılan ana bilgisayar adını değiştirmek için",
+                    "updated": 1652799410949
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.hostname to change the default hostname",
+            "updated": 1650629800326,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.hostname varsayılan ana bilgisayar adını değiştirmek için",
+                    "updated": 1652799414732
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.fetchType is used in combination with API.useFetchTradesForFetchOHLCVs",
+            "updated": 1650629806813,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API.fetchType, API.useFetchTradesForFetchOHLCVs ile birlikte kullanılır",
+                    "updated": 1652799424949
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "API.maxTradesPerFetch to set the maxRate when using API",
+            "updated": 1650629811132,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API kullanırken maxRate değerini ayarlamak için API.maxTradesPerFetch",
+                    "updated": 1652799432735
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example of use:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanım örneği:",
+                    "updated": 1652799441752
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"exchangeName\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 100\n        }\n    ]\n}",
+            "updated": 1650646759978
         }
     ]
 }

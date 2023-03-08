@@ -36,13 +36,13 @@
         },
         {
             "style": "Text",
-            "text": "The Community currently rewards these liquidity pools on Binance Smart Chain (BSC):",
-            "updated": 1644170940175,
+            "text": "The Community currently rewards these liquidity pools on BNB Smart Chain (BSC):",
+            "updated": 1664309599264,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der Binance Smart Chain (BSC):",
-                    "updated": 1644742331561
+                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der BNB Smart Chain (BSC): ",
+                    "updated": 1664309655284
                 },
                 {
                     "language": "RU",
@@ -128,13 +128,13 @@
         },
         {
             "style": "Success",
-            "text": "If the Superalgos Token is not automatically found at the exchange of your choice, you can add it by using its token address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-            "updated": 1644164392909,
+            "text": "If the Superalgos Token is not automatically found at the exchange of your choice, you can add it by using its token addresses: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) or 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH)",
+            "updated": 1664113978301,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn das Superalgos Token auf der gewählten Börse nicht automatisch gefunden wird, kann es über seine Token-Adresse hinzugefügt werden: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-                    "updated": 1644742513688
+                    "text": "Wenn das Superalgos Token auf der gewählten Börse nicht automatisch gefunden wird, kann es über seine Token-Adresse hinzugefügt werden: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) oder 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH).",
+                    "updated": 1664114950793
                 },
                 {
                     "language": "RU",
@@ -145,13 +145,13 @@
         },
         {
             "style": "Text",
-            "text": "For providing liquidity, you are rewarded with tokens from a Liquidity Rewards Pool. There is a decicated Rewards Pool for every asset supported in the Program. The share of reward tokens you receive from the Rewards Pool is proportional to the share you are holding of the Liquidity Pool for the asset.",
-            "updated": 1644171678268,
+            "text": "For providing liquidity, you are rewarded with tokens from a Liquidity Rewards Pool. There is a decicated Rewards Pool for every combination of asset and exchange supported in the Program. The share of reward tokens you receive from the Rewards Pool is proportional to the share you are holding of the Liquidity Pool for the asset.",
+            "updated": 1648994786586,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Für die Bereitstellung von Liquidität werden Sie mit Tokens aus einem Liquidity Rewards Pool belohnt. Es besteht ein separater Rewards Pool für jedes unterstützte Asset im Liquidity Program. Der Anteil der Token, die Sie aus dem Rewards Pool erhalten, ist proportional zu Ihrem Anteil am Liquidity Pool des jeweiligen Assets.",
-                    "updated": 1644743048952
+                    "text": "Für die Bereitstellung von Liquidität werden Sie mit Tokens aus einem Liquidity Rewards Pool belohnt. Es besteht ein separater Rewards Pool für jede unterstützte Kombination von Asset und Börse im Liquidity Program. Der Anteil der Token, die Sie aus dem Rewards Pool erhalten, ist proportional zu Ihrem Anteil am Liquidity Pool des jeweiligen Assets.",
+                    "updated": 1648996491183
                 },
                 {
                     "language": "RU",
@@ -162,13 +162,13 @@
         },
         {
             "style": "Callout",
-            "text": "Click \"Add Liquidity Program\" and spawn one Liquidity Program node for each asset (BTCB, BNB...) you have pooled at supported exchanges.",
-            "updated": 1644174022853,
+            "text": "Click \"Add Liquidity Program\" and spawn one Liquidity Program node for each asset (BTCB, BNB...) you have pooled at supported exchanges. If you hold the same asset at multiple exchanges, spawn one node for each asset/exchange combination.",
+            "updated": 1648994890471,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf \"Add Liquidity Program\" und fügen Sie eine Liquidity Program Node für jedes Asset hinzu (BTCB, BNB...), über das Sie auf einer unterstützten Börse Liquidität für das Superalgos Token bereitstellen.",
-                    "updated": 1644742988988
+                    "text": "Klicken Sie auf \"Add Liquidity Program\" und fügen Sie eine Liquidity Program Node für jedes Asset hinzu (BTCB, BNB...), über das Sie auf einer unterstützten Börse Liquidität für das Superalgos Token bereitstellen. Falls Sie dasselbe Asset auf mehreren Börsen halten, legen Sie auch für jede Börse eine separate Node an.",
+                    "updated": 1648996624630
                 },
                 {
                     "language": "RU",

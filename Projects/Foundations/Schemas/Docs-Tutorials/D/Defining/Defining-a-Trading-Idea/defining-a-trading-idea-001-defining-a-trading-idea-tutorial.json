@@ -1,6 +1,6 @@
 {
     "tutorial": "Defining a Trading Idea",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Defining a Trading Idea Tutorial",
     "definition": {
         "text": "This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
@@ -38,16 +38,38 @@
                     "language": "RU",
                     "text": "Об этом учебнике",
                     "updated": 1640887463797
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393934900,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace."
+            "text": "Workspace: Trading System Design Tutorials Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Ticaret Sistemi Tasarımı Eğitimleri Eklenti Çalışma Alanı.",
+                    "updated": 1654393941299,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654393947007,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

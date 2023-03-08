@@ -49,6 +49,11 @@
                 "language": "TR",
                 "text": "İşe dönmeden önce, size eğitimlerin nasıl çalıştığı hakkında birkaç şey anlatayım.",
                 "updated": 1635952527951
+            },
+            {
+                "language": "FR",
+                "text": "Avant d'entrer dans le vif du sujet, laissez-moi vous expliquer comment fonctionnent nos tutoriels.",
+                "updated": 1667205142517
             }
         ]
     },
@@ -98,6 +103,11 @@
                     "language": "TR",
                     "text": "Patron sensin!",
                     "updated": 1644906503039
+                },
+                {
+                    "language": "FR",
+                    "text": "En bref, c'est vous le patron !",
+                    "updated": 1667205155463
                 }
             ]
         },
@@ -140,6 +150,16 @@
                     "language": "TR",
                     "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü (Resume) seçin. Baştan başlamak için Oynat'ı (Play) seçin!",
                     "updated": 1644908281439
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi interrompere un tutorial e saltare dei passaggi o interi argomenti in qualsiasi momento. Quando sei pronto per riprendere la lezione, mi trovi nella sezione inferiore dello spazio di progettazione. Seleziona Resume nel menu per iniziare da dove eri rimasto o dal primo passaggio che hai saltato. Seleziona Play per ricominciare dall'inizio!",
+                    "updated": 1666388430590
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez arrêter un tutoriel et sauter des étapes - ou des sujets entiers - à tout moment. Lorsque vous êtes prêt à reprendre la leçon, retrouvez-nous dans la section inférieure de l'espace de conception. Sélectionnez Reprendre dans le menu pour reprendre là où vous vous êtes arrêté, ou à la première étape que vous avez sautée. Sélectionnez Lecture pour recommencer depuis le début si besoin !",
+                    "updated": 1667205196866
                 }
             ]
         },
@@ -187,6 +207,11 @@
                     "language": "TR",
                     "text": "Hadi deneyelim! Aşağıdaki Durdur düğmesini tıklayın ve ben gittiğimde menüyü tekrar açın ve Devam Et'i (Resume) seçin.",
                     "updated": 1644908308806
+                },
+                {
+                    "language": "FR",
+                    "text": "Essayons ça ! Cliquez sur le bouton Stop ci-dessous, et une fois que je suis parti, ouvrez mon menu et sélectionnez Resume.",
+                    "updated": 1667205222095
                 }
             ]
         }

@@ -10,6 +10,12 @@
                 "language": "ES",
                 "text": "Este Tutorial lo guiará para agregar datos de dos mercados diferentes en el mismo gráfico. ¡No más volteretas!",
                 "updated": 1628906724604
+            },
+            {
+                "language": "TR",
+                "text": "Bu Eğitim, aynı grafiğe iki farklı piyasadan veri eklemeniz konusunda size yol gösterecektir.  Artık aralarında geçiş yapmak yok!",
+                "updated": 1654394011013,
+                "style": "Definition"
             }
         ]
     },
@@ -17,7 +23,15 @@
         {
             "style": "Text",
             "text": "This Tutorial can be found in workspace TBD.",
-            "updated": 1617376032973
+            "updated": 1617376032973,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu Öğretici TBD çalışma alanında bulunabilir.",
+                    "updated": 1654394016682,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Транспонированный сверточный слой (иногда называемый деконволюцией). Необходимость в транспонированных свертках обычно возникает из-за желания использовать преобразование, идущее в противоположном направлении от обычной свертки, т.е. от чего-то, что имеет форму выхода некоторой свертки, к чему-то, что имеет форму ее входа, сохраняя при этом схему связности, совместимую с этой сверткой.",
                 "updated": 1645196075736
+            },
+            {
+                "language": "TR",
+                "text": "Dönüştürülmüş konvolüsyonel katman (bazen Dekonvolüsyon olarak da adlandırılır). Dönüştürülmüş konvolüsyonlara duyulan ihtiyaç genellikle normal bir konvolüsyonun tersi yönde giden bir dönüşüm kullanma isteğinden kaynaklanır, yani bir konvolüsyonun çıktısının şekline sahip olan bir şeyden, söz konusu konvolüsyonla uyumlu bir bağlantı modelini korurken girdisinin şekline sahip olan bir şeye.",
+                "updated": 1654396806187
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "При использовании этого слоя в качестве первого слоя в модели предоставьте конфигурацию inputShape (массив целых чисел, не включает ось образца), например, inputShape: [128, 128, 3] для изображений RGB размером 128x128 в dataFormat:'channelsLast'.",
                     "updated": 1645196095426
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu katmanı bir modelde ilk katman olarak kullanırken, inputShape (Tamsayılar dizisi, örnek ekseni içermez) yapılandırmasını sağlayın, örn: dataFormat içinde 128x128 RGB resimler için [128, 128, 3]: 'channelsLast'.",
+                    "updated": 1654396812984,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Input shape: 4D тензор с формой: [batch, channels, rows, cols], если dataFormat is'channelsFirst'. или 4D тензор с формой [batch, rows, cols, channels], если dataFormat is'channelsLast.",
                     "updated": 1645196121214
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Şekil ile 4D tensör: dataFormat 'channelsFirst' ise [batch, channels, rows, cols]. veya dataFormat 'channelsLast' ise [batch, rows, cols, channels] şeklinde 4D tensör.",
+                    "updated": 1654396818621,
+                    "style": "List"
                 }
             ]
         },
@@ -43,6 +60,12 @@
                     "language": "RU",
                     "text": "Output shape: 4D тензор с формой: [batch, filters, newRows, newCols], если dataFormat is'channelsFirst'. или 4D тензор с формой: [batch, newRows, newCols, filters], если dataFormat is'channelsLast'.",
                     "updated": 1645196163260
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Şekil ile 4D tensör: dataFormat 'channelsFirst' ise [batch, filters, newRows, newCols]. veya 4D tensor with shape: DataFormat 'channelsLast' ise [batch, newRows, newCols, filters].",
+                    "updated": 1654396824809,
+                    "style": "List"
                 }
             ]
         }

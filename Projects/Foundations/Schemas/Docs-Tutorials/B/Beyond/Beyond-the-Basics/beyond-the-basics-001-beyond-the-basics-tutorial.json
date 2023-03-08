@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Beyond the Basics Tutorial",
     "definition": {
         "text": "This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: Bu eğitici, uygulamanın Github çatalınızla etkileşime girmesine izin verecek kurulumu, uygulamayı güncelleme komutlarını, dalları değiştirmeyi ve projeye nasıl katkıda bulunacağını kapsar.",
                 "updated": 1645104173430
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini mencakup penyiapan untuk mengizinkan aplikasi berinteraksi dengan fork Github kamu, perintah untuk memperbarui aplikasi, berpindah branch, dan cara berkontribusi pada proyek.",
+                "updated": 1669167244790
             }
         ]
     },
@@ -38,16 +43,43 @@
                     "language": "RU",
                     "text": "О данном учебнике",
                     "updated": 1640154036258
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393874503,
+                    "style": "Title"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1669167198461
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Plugin Workspace."
+            "text": "Workspace: Getting Started Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Başlarken Eklenti Çalışma Alanı.",
+                    "updated": 1654393881519,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654393887009,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

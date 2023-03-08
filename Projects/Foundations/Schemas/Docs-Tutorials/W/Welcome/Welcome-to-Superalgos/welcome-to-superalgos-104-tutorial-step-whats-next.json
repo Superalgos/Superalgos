@@ -7,12 +7,12 @@
             "name": "help",
             "project": "Foundations"
         },
-        "text": "There are tons of things we haven't covered yet, I know! Just look around! So much stuff to see! It's mind-boggling.",
+        "text": "There are tons of things we haven't covered yet, like how to run a Live Trading Session! We'll get there, no worries!",
         "translations": [
             {
                 "language": "IT",
-                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare!",
-                "updated": 1618072213077,
+                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare, come per esempio eseguire una vera Live Trading Session! Ci arriveremo, non preoccuparti!",
+                "updated": 1666391042541,
                 "style": "Definition"
             },
             {
@@ -23,13 +23,13 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben, ich weiß! Schau dich einfach um! Es gibt so viele Dinge zu sehen! Es ist verblüffend.",
-                "updated": 1634245768717
+                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben - beispielsweise wie man eine Live-Handelssession startet. Keine Sorge, wir kommen bald dazu!",
+                "updated": 1660476258637
             },
             {
                 "language": "TR",
-                "text": "Henüz ele almadığımız tonlarca şey var, biliyorum! Sadece etrafa bak! Görülecek çok şey var! ",
-                "updated": 1636638137396
+                "text": "Henüz ele almadığımız tonlarca şey var, Canlı Alım Satım Seansının nasıl yürütüleceği gibi! Oraya da geleceğiz, endişelenmeyin!",
+                "updated": 1666066283314
             },
             {
                 "language": "ID",
@@ -38,21 +38,27 @@
             },
             {
                 "language": "RU",
-                "text": "Мы еще много о чем не рассказали, я знаю! Просто оглянитесь вокруг! Столько всего интересного! Это просто умопомрачительно.",
-                "updated": 1642772196636
+                "text": "Мы еще не рассказали о многих вещах, например, о том, как проводить Live Trading Session! Мы сделаем это, не волнуйтесь!",
+                "updated": 1662034443853
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn heel veel dingen die we nog niet hebben behandeld, zoals het starten van een Live Trading Session! We komen er wel, geen zorgen!",
+                "updated": 1667136072355
             }
-        ]
+        ],
+        "updated": 1660155665756
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I'm sure you still have tons of questions floating in your head... How do I build my own strategies? How do I measure performance? How do I build an indicator? How do I deploy a trading farm? How may I integrate with TradingView? How do I set up Telegram announcements? How do I fetch data from other APIs?",
-            "updated": 1629833033808,
+            "text": "I'm sure you still have tons of questions... How do I build my own strategies? How do I build an indicator? How do I deploy a trading farm? How may I integrate with TradingView? How do I set up Telegram or Twitter announcements? How do I fetch data from other APIs?",
+            "updated": 1660158719018,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram?",
-                    "updated": 1618072291773,
+                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram o gli annunci Twitter?  Come recupero dati da altre API?",
+                    "updated": 1666391147915,
                     "style": "Text"
                 },
                 {
@@ -63,13 +69,13 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie kann ich die Leistung messen? Wie baue ich einen Indikator? Wie setze ich eine Trading-Farm ein? Wie kann ich mich mit TradingView integrieren? Wie richte ich Telegram-Ankündigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
-                    "updated": 1634245775761
+                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie baue ich einen Indikator? Wie erzeuge ich eine Trading-Farm? Wie kann ich eine Integration mit TradingView herstellen? Wie richte ich Telegram- oder Twitter-Benachrichtigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
+                    "updated": 1660476351227
                 },
                 {
                     "language": "TR",
-                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluştururum? Performansı nasıl ölçerim? Nasıl bir gösterge oluştururum? Bir ticaret çiftliğini nasıl organize edebilirim? TradingView ile nasıl entegre olabilirim? Telegram duyurularını nasıl ayarlarım? Diğer API'lerden nasıl veri alırım?",
-                    "updated": 1636638173407
+                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluşturabilirim? Nasıl bir gösterge oluşturabilirim? Bir ticaret çiftliğini nasıl dağıtabilirim? TradingView ile nasıl entegre olabilirim? Telegram veya Twitter duyurularını nasıl ayarlayabilirim? Diğer API'lardan nasıl veri alabilirim?",
+                    "updated": 1666066358527
                 },
                 {
                     "language": "ID",
@@ -78,47 +84,67 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я уверен, что у вас в голове все еще плавают тонны вопросов... Как мне строить свои собственные стратегии? Как измерить эффективность? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram? Как получить данные из других API?",
-                    "updated": 1642772226524
+                    "text": "Я уверен, что у вас все еще есть масса вопросов... Как мне создавать свои собственные стратегии? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram или Twitter? Как получить данные из других API?",
+                    "updated": 1662034359006
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik weet zeker dat je nog heel veel vragen hebt... Hoe bouw ik mijn eigen strategieën? Hoe bouw ik een indicator? Hoe zet ik een trading farm in? Hoe kan ik integreren met TradingView? Hoe stel ik Telegram- of Twitter-aankondigingen in? Hoe haal ik gegevens op uit andere APIs?",
+                    "updated": 1667136125387
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Don't worry! You'll get there my friend! There are more tutorials and a lot of reading material available! Maybe it's a good idea to give you a quick glimpse into the built-in Documentation system before I say goodbye!",
-            "updated": 1611579231884,
+            "text": "There are tutorials and over 1500 pages of documentation that cover all your questions!",
+            "updated": 1660158625875,
             "translations": [
                 {
-                    "language": "IT",
-                    "text": "Non preoccuparti! Imparerai tutto! Ci sono altri tutorial e tonnellate di materiale da leggere! Penso sia una buona idea mostrarti velocemente il sistema di documentazione prima di salutarci!",
-                    "updated": 1618072351473,
-                    "style": "Success"
-                },
-                {
-                    "language": "ES",
-                    "text": "¡No te preocupes! ¡Llegarás, amigo mío! ¡Hay más tutoriales y mucho material de lectura disponible! ¡Quizás sea una buena idea darle un vistazo rápido al sistema de documentación integrado antes de despedirme!",
-                    "updated": 1624485842059,
-                    "style": "Success"
-                },
-                {
-                    "language": "DE",
-                    "text": "Don't worry! Du schaffst das schon, mein Freund! Es gibt noch mehr Tutorials und jede Menge Lesestoff! Vielleicht ist es eine gute Idee, Ihnen einen kurzen Einblick in das integrierte Dokumentationssystem zu geben, bevor ich mich verabschiede!",
-                    "updated": 1634245783429
+                    "language": "RU",
+                    "text": "Имеются учебные пособия и более 1500 страниц документации, которые охватывают все ваши вопросы!",
+                    "updated": 1662034377425
                 },
                 {
                     "language": "TR",
-                    "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir!",
-                    "updated": 1636638320357
+                    "text": "Tüm sorularınızı kapsayan öğreticiler ve 1500 sayfadan fazla belge var! Docs'a göz atmanızda fayda var..",
+                    "updated": 1666066431352
                 },
                 {
-                    "language": "ID",
-                    "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal!",
-                    "updated": 1640596773612
+                    "language": "IT",
+                    "text": "Ci sono altri tutorial e oltre 1500 pagine di documentazione che coprono tutte le tue domande!",
+                    "updated": 1666391182472
                 },
+                {
+                    "language": "NL",
+                    "text": "Er zijn handleidingen en meer dan 1500 pagina's met documentatie die al uw vragen behandelen!",
+                    "updated": 1667136174143
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "So let's look into the built-in documentation system before we move on with other stuff!",
+            "updated": 1660158656243,
+            "translations": [
                 {
                     "language": "RU",
-                    "text": "Не волнуйся! У тебя все получится, мой друг! Есть еще больше руководств и много материалов для чтения! Может быть, это хорошая идея, чтобы дать вам быстрый обзор встроенной системы документации, прежде чем я попрощаюсь с вами!",
-                    "updated": 1642772260920
+                    "text": "Итак, давайте рассмотрим интегрированную систему документации, прежде чем переходить к другим вещам!",
+                    "updated": 1662034401247
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer konulara geçmeden önce yerleşik dokümantasyon (Docs) sistemine bir göz atalım!",
+                    "updated": 1666066466202
+                },
+                {
+                    "language": "IT",
+                    "text": "Quindi diamo un'occhiata al sistema di documentazione integrato prima di passare ad altre cose!",
+                    "updated": 1666391207835
+                },
+                {
+                    "language": "NL",
+                    "text": "Dus laten we eens kijken naar het ingebouwde documentatiesysteem voordat we verder gaan met andere dingen!",
+                    "updated": 1667136196273
                 }
             ]
         }

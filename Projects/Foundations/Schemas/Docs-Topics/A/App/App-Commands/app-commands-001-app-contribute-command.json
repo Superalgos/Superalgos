@@ -507,7 +507,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "GitHub.com Token"
+            "text": "GitHub.com Token",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "GitHub.com Belirteci",
+                    "updated": 1654393160884,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
@@ -534,7 +542,15 @@
         {
             "style": "Link",
             "text": "GitHub.com New Token Page->github.com/settings/tokens/new",
-            "updated": 1609944681129
+            "updated": 1609944681129,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "GitHub.com Yeni Belirteç Sayfası->github.com/settings/tokens/new",
+                    "updated": 1654393166272,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -878,7 +894,15 @@
         {
             "style": "Link",
             "text": "How to Cache your Git Credentials->docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git",
-            "updated": 1621085386878
+            "updated": 1621085386878,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Git Kimlik Bilgilerinizi Nasıl Önbelleğe Alırsınız->docs.github.com/tr/github/getting-started-with-github/caching-your-github-credentials-in-git",
+                    "updated": 1654393172084,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Text",

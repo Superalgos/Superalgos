@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Superalgos Network - это открытая одноранговая сеть, которая в настоящее время находится в процессе создания. Сеть позволит пользователям настраивать свой клиент (Client) для взаимодействия с другими клентами. Такая сеть обеспечивает обмен и распространение продуктов и услуг между пользователями.",
                 "updated": 1638298458130
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Ağı, şu anda yapım aşamasında olan açık, eşler arası bir ağdır. Ağ, kullanıcıların Müşterilerini diğer Müşterilerle etkileşime girecek şekilde kurmalarını sağlayacaktır. Bu tür bir bağlantı, ürün ve hizmetlerin kullanıcılardan kullanıcılara değiş tokuş edilmesini ve yayılmasını sağlar.",
+                "updated": 1666900386580
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Superalgos Network входит в дорожную карту проекта, реализация которого ожидается в 2022 году.",
                     "updated": 1638298505591
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Ağı, 2022 yılında hayata geçirilmesi beklenen projenin yol haritasında yer alıyor.",
+                    "updated": 1666900471494
                 }
             ]
         }

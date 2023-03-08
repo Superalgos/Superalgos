@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "После выполнения команды вы можете получать сообщения об ошибках разных типов, как описано в этом разделе.",
                 "updated": 1638528935355
+            },
+            {
+                "language": "TR",
+                "text": "Bir komutu çalıştırdıktan sonra, bu konuda açıklandığı gibi farklı türde hata mesajları alabilirsiniz.",
+                "updated": 1651993608457
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "В таблице ниже приведен полный список ошибок, которые могут возникнуть при выполнении команд для документов Docs. Фактически, когда возникает ошибка, вы перенаправляетесь на страницу с ошибкой.",
                     "updated": 1638529026001
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki içindekiler tablosu, Dokümanlar komutlarını çalıştırırken alabileceğiniz hataların tam listesini gösterir. Aslında, bir hata oluştuğunda, hata sayfasına yönlendirilirsiniz.",
+                    "updated": 1651993679825
                 }
             ]
         }

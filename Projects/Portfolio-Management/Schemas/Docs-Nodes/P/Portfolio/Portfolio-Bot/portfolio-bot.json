@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Portfolio Bot - это компьютерная программа, которая на основе данных, полученных от других ботов (датчиков подсчета, индикаторов и даже других портфельных ботов), применяет портфельную логику, определенную в Portfolio System, чтобы, с одной стороны, создать полную симуляцию портфеля (выводя данные, включающие сделки, действия стратегий, проверку условий и т.д.), а с другой стороны, управлять исполнением ордеров во время форвардного тестирования или реальной портфельной сессии.",
                 "updated": 1645184556534
+            },
+            {
+                "language": "TR",
+                "text": "Bir portföy botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer portföy botları) tarafından ürün olarak sunulan veri kümelerine dayalı olarak, bir tarafta eksiksiz bir portföy simülasyonu oluşturmak (alım satımları, stratejilerin eylemini, koşulların doğrulanmasını vb. içeren veri kümelerinin çıktısını almak) ve diğer tarafta ileri test veya canlı portföy oturumundayken emirlerin yerine getirilmesini yönetmek için bir Portföy Sisteminde tanımlanan portföy mantığını uygulayan bir bilgisayar programıdır.",
+                "updated": 1654019851710
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "RU",
                     "text": "В Superalgos портфельный бот - это компьютерная программа, разработанная для использования инфраструктуры Superalgos с целью предоставления интеллектуальных портфельных функций пользователям, создающим, тестирующим и развертывающим портфельные системы. Как таковой, портфельный бот не содержит логику портфеля как таковую. Вместо этого он выполняет логику, определенную в портфельных системах.",
                     "updated": 1645184578691
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta bir portföy botu, portföy sistemleri oluşturan, test eden ve dağıtan kullanıcılara akıllı portföy özellikleri sağlamak için Superalgos altyapısından yararlanmak üzere tasarlanmış bir bilgisayar programıdır. Bu nedenle, bir portföy botu kendi başına portföy mantığına sahip değildir. Bunun yerine, portföy sistemlerinde tanımlanan mantığı yürütür.",
+                    "updated": 1654019861479,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "RU",
                     "text": "Другими словами, когда пользователи Superalgos определяют портфельные системы и портфельные стратегии в них, они не создают портфельного бота. Вместо этого они определяют набор инструкций, которые портфельный бот будет интерпретировать и выполнять.",
                     "updated": 1645184595285
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Superalgos kullanıcıları portföy sistemlerini ve içindeki portföy stratejilerini tanımlarken, bir portföy botu oluşturmazlar. Bunun yerine, bir portföy botunun daha sonra yorumlayacağı ve yürüteceği bir dizi talimat tanımlıyorlar.",
+                    "updated": 1654019867999,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Портфельные боты имеют доступ ко всем объектам инфраструктуры, построенным в Superalgos. Одним из заслуживающих внимания разделов инфраструктуры, имеющих отношение к портфельным ботам, являются сами узлы Portfolio Mine. Портфельные боты могут быть довольно сложным программным обеспечением. Назовем две наиболее заметные характеристики: бот должен учитывать множество аспектов информации и должен быть очень надежным, поскольку его деятельность связана с денежными операциями.",
                     "updated": 1645184738585
+                },
+                {
+                    "language": "TR",
+                    "text": "Portföy botlarının Superalgos'ta inşa edilen her altyapı parçasına erişimi vardır. Portföy botlarıyla ilgili altyapının dikkat çekici bölümlerinden biri portföy madenlerinin kendisidir. Portföy botları oldukça karmaşık yazılım parçaları olabilir. En belirgin özelliklerinden ikisini belirtmek gerekirse: botun birden fazla bilgi boyutunu dikkate alması ve faaliyeti parasal işlemler gerektirdiği için son derece güvenilir olması gerekir.",
+                    "updated": 1654019874253,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Узлы Portfolio Mine делают создание портфельных ботов более доступным делом, предоставляя основу для создания разделенных определений для процессов и продуктов ботов, подобно тому, как Data Mines делают это для датчиков и индикаторов.",
                     "updated": 1645184711164
+                },
+                {
+                    "language": "TR",
+                    "text": "Portföy madenleri, tıpkı veri madenlerinin sensörler ve göstergeler için yaptığı gibi, botların süreçleri ve ürünleri için bölümlere ayrılmış tanımlar üretmek için bir çerçeve sağlayarak portföy botları oluşturmayı daha erişilebilir bir başarı haline getirir.",
+                    "updated": 1654019880495,
+                    "style": "Text"
                 }
             ]
         },
@@ -78,6 +107,12 @@
                     "language": "RU",
                     "text": "Конфигурация Portfolio Bot",
                     "updated": 1645184754340
+                },
+                {
+                    "language": "TR",
+                    "text": "Portföy Botu Yapılandırması",
+                    "updated": 1654019887776,
+                    "style": "Title"
                 }
             ]
         }

@@ -86,7 +86,8 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| Stoch-Div | stochDiv | status, strength, divPerc |"
+            "text": "| Product Name | Product Variable | Properties |\n| StochDiv | stochDiv | status, strength, divPerc |",
+            "updated": 1667785851220
         },
         {
             "style": "List",

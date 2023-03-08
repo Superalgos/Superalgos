@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Buka aplikasi File Explorer kamu dan cari paths berikut yang relatif terhadap folder Superalgos utama...",
                 "updated": 1645034246004
+            },
+            {
+                "language": "NL",
+                "text": "Ga naar uw File Explorer-app en zoek naar de volgende paden ten opzichte van de hoofdmap Superalgos...",
+                "updated": 1669545504117
             }
         ]
     },
@@ -65,8 +70,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questa cartella troverai un file chiamato Getting Started.json. È il workspace che stai usando in questo momento! Tutto ciò che hai fatto finora è salvato su questo file.",
-                    "updated": 1619553718618,
+                    "text": "Qui è dove troverai gli workspaces che potresti aver salvato in precedenza. Se la cartella è vuota o non esiste, significa che non hai ancora salvato alcuno workspace!",
+                    "updated": 1666639702525,
                     "style": "List"
                 },
                 {
@@ -94,6 +99,11 @@
                     "language": "ID",
                     "text": "Di sinilah kamu akan menemukan workspaces yang mungkin kamu simpan sebelumnya. Jika folder kosong atau tidak ada, itu berarti kamu belum menyimpan workspaces apa pun!",
                     "updated": 1645034289529
+                },
+                {
+                    "language": "NL",
+                    "text": "Hier vindt u de werkruimten die u mogelijk eerder hebt opgeslagen. Als de map leeg is of niet bestaat, betekent dit dat je nog geen werkruimten hebt opgeslagen!",
+                    "updated": 1669545524713
                 }
             ]
         },
@@ -108,8 +118,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Qui troverai i Plugin Workspaces originali di Superalgos. Per imparare cosa fa ognuno di essi, leggi il relativo topic nella documentazione!",
-                    "updated": 1619553810915,
+                    "text": "In questa cartella troverai i Plugin Workspaces in dotazione con Superalgos. Potresti voler leggere l'argomento \"Community Workspaces\" nella documentazione per sapere di cosa tratta ciascuno!",
+                    "updated": 1666639782473,
                     "style": "List"
                 },
                 {
@@ -137,6 +147,11 @@
                     "language": "ID",
                     "text": "Di folder ini, kamu akan menemukan Plugin Workspaces dikirim dengan Superalgos. Kamu mungkin ingin membaca topik \"Community Workspaces\" di Docs untuk mempelajari masing-masing tentang mereka!",
                     "updated": 1645035566907
+                },
+                {
+                    "language": "NL",
+                    "text": "In deze map vindt u Plugin Workspaces die standaard met Superalgos worden geleverd. Misschien wil je het onderwerp 'Community Workspaces' in de Docs lezen om erachter te komen waar ze allemaal over gaan!",
+                    "updated": 1669545573273
                 }
             ]
         },

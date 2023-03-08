@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Эта команда добавляет новую страницу в документы, позволяя указать, где и какой тип страницы вы хотите добавить. Команда определяет четыре основных свойства вашей новой страницы:",
                     "updated": 1638527766954
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komut, dokümanlara nereye ve ne tür bir sayfa eklemek istediğinizi belirtmenize olanak tanıyan yeni bir sayfa ekler. Komut, yeni sayfanızın dört ana özelliğini belirtir:",
+                    "updated": 1652128430302
                 }
             ]
         },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Page Type: Документация Superalgos разбита на множество категорий страниц. Вы можете узнать больше о различных вариантах на странице Docs Page Category.",
                     "updated": 1638527822929
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Türü: Superalgos'un belgeleri, çeşitli farklı sayfa kategorilerine ( Docs Page Category ) ayrılmıştır. Bu sayfada farklı seçenekler hakkında daha fazla bilgi edinebilirsiniz:",
+                    "updated": 1652128605299
                 }
             ]
         },
@@ -57,25 +67,43 @@
                     "language": "RU",
                     "text": "The Project within which the page will live: Каждый проект в Superalgos содержит собственную документацию. Эта опция позволяет вам выбрать проект, в который будет добавлена ​​ваша страница.",
                     "updated": 1638527862420
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfanın yer alacağı proje ( Project ): Superalgos içindeki her proje kendi belgelerini içerir. Bu seçenek, sayfanızın ekleneceği projeyi seçmenizi sağlar.",
+                    "updated": 1652128734057
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "From these projects they have to choose one",
-            "updated": 1638115759331,
+            "text": "Existing projects listed on the table below, for your convenience.",
+            "updated": 1661450740479,
             "translations": [
                 {
                     "language": "RU",
                     "text": "Из этих проектов нужно выбрать один",
                     "updated": 1638527907627
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu projelerden birini seçmek zorundalar.",
+                    "updated": 1652128756477
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Education->Concept->Current projects->current projects",
-            "updated": 1642464091134
+            "updated": 1642464091134,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğitim->Konsept->Mevcut projeler->Mevcut projeler",
+                    "updated": 1654393350484,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "List",
@@ -86,6 +114,11 @@
                     "language": "RU",
                     "text": "Topic, Tutorial, or Review Title: Коллекции страниц собраны по заголовкам тем. Эти заголовки действуют как уникальные ключи, которые делают коллекцию страниц доступной для просмотра как единое целое. Эта опция позволяет вам выбрать тему для создания или добавления вашей страницы.",
                     "updated": 1638527947204
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlık,öğretici ( Tutorial ) veya İnceleme Başlığı: Sayfa koleksiyonları konu başlıkları altında toplanmıştır. Bu başlıklar, sayfa koleksiyonunu bir birim olarak göz atılabilir hale getiren benzersiz anahtarlar olarak işlev görür. Bu seçenek, sayfanızı oluşturacağınız veya ekleyeceğiniz konuyu seçmenize olanak tanır.",
+                    "updated": 1652128989756
                 }
             ]
         },
@@ -98,6 +131,11 @@
                     "language": "RU",
                     "text": "Page Title: Каждая страница имеет уникальный заголовок. Этот заголовок должен помочь пользователям найти содержание вашей страницы. Эта опция позволяет вам выбрать этот заголовок.",
                     "updated": 1638528002800
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa başlığı: Her sayfa benzersiz bir başlıkla tanımlanır. Bu başlık, kullanıcıların sayfanızın içeriğini bulmasına yardımcı olmalıdır. Bu seçenek, bu başlığı seçmenizi sağlar.",
+                    "updated": 1652129052691
                 }
             ]
         },
@@ -110,6 +148,11 @@
                     "language": "RU",
                     "text": "Page Number: При желании номер страницы можно определить вручную для новой страницы. Если вы этого не сделаете, система автоматически сгенерирует следующий доступный номер для вашей страницы.",
                     "updated": 1638528022530
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa numarası: İsteğe bağlı olarak yeni sayfa için manuel olarak sayfa numarası tanımlanabilir. Bunu yapmazsanız, sistem otomatik olarak sayfanız için bir sonraki uygun numarayı üretecektir.",
+                    "updated": 1652129107397
                 }
             ]
         },
@@ -121,6 +164,11 @@
                     "language": "RU",
                     "text": "Одностраничный синтаксис",
                     "updated": 1638528044135
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Sayfa Sözdizimi",
+                    "updated": 1652129125211
                 }
             ]
         },
@@ -133,6 +181,11 @@
                     "language": "RU",
                     "text": "Некоторые категории страниц добавляются без названия темы. Если вы хотите добавить одну из этих одностраничных категорий, вы можете использовать следующий синтаксис.",
                     "updated": 1638528065855
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı sayfa kategorileri konu başlığı kullanılmadan eklenmiştir. Bu tek sayfalık kategorilerden birini eklemek isterseniz aşağıdaki sözdizimini kullanabilirsiniz.",
+                    "updated": 1652129154034
                 }
             ]
         },
@@ -155,6 +208,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528078571
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129166505
                 }
             ]
         },
@@ -182,6 +240,11 @@
                     "language": "RU",
                     "text": "Синтаксис коллекции страниц",
                     "updated": 1638528105384
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Koleksiyonu Sözdizimi",
+                    "updated": 1652129184302
                 }
             ]
         },
@@ -193,6 +256,11 @@
                     "language": "RU",
                     "text": "Другие категории страниц используют заголовок темы для группировки страниц. Вы можете добавить одну из этих страниц, используя этот синтаксис.",
                     "updated": 1638528132694
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer sayfa kategorileri, sayfaları bir arada gruplandırmak için bir konu başlığı kullanır. Bu söz dizimini kullanarak bu sayfalardan birini ekleyebilirsiniz.",
+                    "updated": 1652129203607
                 }
             ]
         },
@@ -215,6 +283,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528146806
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129217368
                 }
             ]
         },
@@ -225,8 +298,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Tutorial to Superalgos: How to Build Indicatiors->Intro->1",
-            "updated": 1614076317413
+            "text": "docs.add Tutorial to Superalgos: How to Build Indicators->Intro->1",
+            "updated": 1663909404098
         },
         {
             "style": "Json",

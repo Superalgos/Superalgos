@@ -201,7 +201,7 @@
         },
         {
             "style": "Text",
-            "text": "MFI enters the overbought area (default >80)",
+            "text": "MFI enters the overbought area (default >80).",
             "translations": [
                 {
                     "language": "DE",
@@ -210,10 +210,11 @@
                 },
                 {
                     "language": "RU",
-                    "text": "MFI входит в зону перекупленности (по умолчанию >80)",
-                    "updated": 1646897138768
+                    "text": "MFI заходит в зону перекупленности (по умолчанию >80).",
+                    "updated": 1661276128515
                 }
-            ]
+            ],
+            "updated": 1658275346655
         }
     ]
 }

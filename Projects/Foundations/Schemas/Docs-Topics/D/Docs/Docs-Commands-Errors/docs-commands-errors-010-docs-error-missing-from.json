@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 10,
+    "pageNumber": "10",
     "type": "Docs Error - Missing From",
     "definition": {
         "text": "The word \"from\" is part of the syntax of the command and it is missing.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Слово «from» является частью синтаксиса команды и отсутствует.",
                 "updated": 1638530031769
+            },
+            {
+                "language": "TR",
+                "text": "\"from\" sözcüğü, komutun sözdiziminin bir parçasıdır ve eksiktir.",
+                "updated": 1652037990559
             }
         ]
     },
@@ -22,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Missing From",
-            "updated": 1609177607792
+            "updated": 1609177607792,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Eksik",
+                    "updated": 1654419851047,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -32,6 +45,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Wort \"from\" fehlt.",
                     "updated": 1633897969340
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi Hatası. \"from\" kelimesi eksik. ",
+                    "updated": 1652038039951
                 }
             ]
         },
@@ -49,6 +67,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «from».",
                     "updated": 1638530058357
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutun sözdizimini kontrol edin ve \"from\" kelimesinin nereye yerleştirileceğini görün.",
+                    "updated": 1652038087841
                 }
             ]
         },
@@ -60,16 +83,38 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897980837
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419860605,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654419866794,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654419872819,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

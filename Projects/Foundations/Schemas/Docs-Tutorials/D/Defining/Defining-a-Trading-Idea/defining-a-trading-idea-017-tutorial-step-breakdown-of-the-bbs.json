@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Weak-hands Buster, BB'nin bir çöküşünün bir düşüş trendinin derinleşebileceğini ve bazı geri dönüşleri tahmin edebileceği fikrine dayanır.",
                 "updated": 1640947625302
+            },
+            {
+                "language": "ES",
+                "text": "Weak-hands Buster se basa en la idea de que una ruptura de las BB puede predecir la profundidad de una tendencia bajista y algunos retrocesos.",
+                "updated": 1668191016513
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Seni 10 Nisan 2020'ye grupların bozulmasıyla ilgili bir vakayı kontrol etmen için getirdim. Aşağıdaki mumlarda neler olduğunu görün:",
                     "updated": 1640947649403
+                },
+                {
+                    "language": "ES",
+                    "text": "Acabo de llevarle al 10 de abril de 2020 para comprobar un caso de ruptura de las bandas. Vea lo que sucede en las siguientes velas:",
+                    "updated": 1668191053828
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "04 hs: alt bandın altında bir mum 7.176 USDT'de kapanır.",
                     "updated": 1640947665565
+                },
+                {
+                    "language": "ES",
+                    "text": "04 hs: Una vela cierra por debajo de la banda inferior en 7.176 USDT.",
+                    "updated": 1668191085979
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "05 hs: Bandın altında 7.140 USDT'de ikinci bir mum kapanır.",
                     "updated": 1640947676893
+                },
+                {
+                    "language": "ES",
+                    "text": "05 hs: Una segunda vela cierra por debajo de la banda en 7.140 USDT.",
+                    "updated": 1668191080698
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "06 hs: Daha önce görülen fiyat hareketini vurgulayan daha ciddi bir düşüş.",
                     "updated": 1640947716039
+                },
+                {
+                    "language": "ES",
+                    "text": "06 hs: Sigue una caída más seria, acentuando la acción del precio vista anteriormente.",
+                    "updated": 1668191107841
                 }
             ]
         },
@@ -129,6 +154,11 @@
                     "language": "TR",
                     "text": "16 hs: İlk kırılmadan on saat sonra, günün en düşük saatlik kapanışı 6.766 USDT'yi işaret ediyor, %6'dan fazla aşağıda.",
                     "updated": 1640947733988
+                },
+                {
+                    "language": "ES",
+                    "text": "16 hs: Diez horas después de la primera ruptura, el cierre horario más bajo del día marca 6.766 USDT, más de un 6% por debajo.",
+                    "updated": 1668191139532
                 }
             ]
         }

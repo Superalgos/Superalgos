@@ -1,14 +1,14 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": 31,
+    "pageNumber": "31",
     "type": "Tutorial Step - Hammering Backups Home",
     "definition": {
         "text": "Let's go over the same examples that you just read about so that you learn this by heart!",
+        "updated": 1615824452275,
         "icon": {
             "name": "backup-entity",
             "project": "Foundations"
         },
-        "updated": 1615824452275,
         "translations": [
             {
                 "language": "IT",
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Mari kita membahas contoh yang sama yang baru saja Anda baca sehingga kamu dapat mempelajari ini dengan hati!",
                 "updated": 1644951040625
+            },
+            {
+                "language": "NL",
+                "text": "Laten we dezelfde voorbeelden bekijken waarover u zojuist hebt gelezen, zodat u dit uit uw hoofd leert!",
+                "updated": 1669544207890
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Buat cadangan dari Lightning Strike Task dan kembalikan tanpa menghapus tugas aslinya. Kemudian ulangi operasi tetapi hapus tugas asli sebelum mengembalikan cadangan.",
                     "updated": 1644951119843
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van de Lightning Strike Task en herstel deze zonder de oorspronkelijke taak te verwijderen. Herhaal vervolgens de bewerking maar verwijder de oorspronkelijke taak voordat u de back-up herstelt.",
+                    "updated": 1669544244462
                 }
             ]
         },
@@ -115,6 +125,17 @@
                     "language": "ID",
                     "text": "Terverifikasi bahwa, dalam kedua kasus, outgoing references yang berasal dari Trading System Reference dan node Trading Engine Reference dijaga.",
                     "updated": 1644951263028
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki durumda da, Ticaret Sistemi Referansı ve Ticaret Motoru Referansı düğümlerinden kaynaklanan giden referansların korunduğunu doğrulayın.",
+                    "updated": 1654393852903,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer of in beide gevallen de uitgaande referenties die afkomstig zijn van de Trading System Reference en de Trading Engine Reference knooppunten behouden blijven.",
+                    "updated": 1669544273982
                 }
             ]
         },
@@ -154,6 +175,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa outgoing references selalu dijaga!",
                     "updated": 1644951289519
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat uitgaande referenties altijd behouden blijven!",
+                    "updated": 1669544287571
                 }
             ]
         }

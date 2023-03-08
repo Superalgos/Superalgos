@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Положительное целое число, размерность выходного пространства.",
                 "updated": 1645247418904
+            },
+            {
+                "language": "TR",
+                "text": "Pozitif tamsayı, çıktı uzayının boyutluluğu.",
+                "updated": 1654396982954
             }
         ]
     },
@@ -27,6 +32,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645247424771
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396989403,
+                    "style": "Subtitle"
                 }
             ]
         },

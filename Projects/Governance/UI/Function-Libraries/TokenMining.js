@@ -115,16 +115,41 @@ function newGovernanceFunctionLibraryTokenMining() {
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS.length; j++) {
-                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS[j]
-                if (userProfile.tokenPowerSwitch === undefined) { continue }
-                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Computing Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "computingProgram")
+        }
+
+        /* Liquidity Program - Iterate per available asset-exchange-combination */
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let liquidityProgramList = UI.projects.governance.globals.saToken.SA_TOKEN_LIQUIDITY_POOL_LIST
+            for (let liqProgram of liquidityProgramList) {
+                let liqAsset = liqProgram['pairedAsset']
+                let liqExchange = liqProgram['exchange']
+                //let chain = liqProgram['chain']
+
+                let configPropertyObject = {
+                    "asset": liqAsset,
+                    "exchange": liqExchange
+                }
+                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+                /* If nothing found, interpret empty as PANCAKE for backwards compatibility */
+                if (program === undefined && liqExchange === "PANCAKE") {
+                    configPropertyObject["exchange"] = null
+                    program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject) 
+                }
                 if (program === undefined) { continue }
                 if (program.payload === undefined) { continue }
-
                 calculateProgram(userProfile, program, "liquidityProgram")
             }
-        }
+        } 
 
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]

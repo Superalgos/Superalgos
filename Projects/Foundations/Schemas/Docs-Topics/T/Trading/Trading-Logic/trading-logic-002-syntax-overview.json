@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Синтаксис для написания условий и формул объединяет ссылки на имя продукта данных, имя свойства и временной интервал.",
                 "updated": 1640089442417
+            },
+            {
+                "language": "TR",
+                "text": "Koşulları ve formülleri yazmaya yönelik sözdizimi, veri ürün adına, özelliğin adına ve zaman dilimine yapılan başvuruları birleştirir.",
+                "updated": 1653999485980
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Введение",
                     "updated": 1640089455355
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş",
+                    "updated": 1653999499303
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Различные боты, работающие в системе, производят продукты данных, которые могут потреблять другие. Эти продукты вы можете использовать в своих стратегиях.",
                     "updated": 1640089475871
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem içinde çalışan farklı botlar, diğerlerinin tüketebileceği veri ürünleri üretir. Bu ürünler stratejileriniz dahilinde kullanmanız için üretilirler.",
+                    "updated": 1653999569511
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Наборы данных хранятся как коллекция последовательных записей, и вы можете получить доступ к любому из свойств (полей) каждой записи.",
                     "updated": 1640089497632
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümeleri (Datasets) sıralı kayıtlar koleksiyonu olarak depolanır ve her kaydın özelliklerinden (alanlarından) herhangi birine erişebilirsiniz.",
+                    "updated": 1653999620677
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Для этого используется следующий синтаксис:",
                     "updated": 1640089510035
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmak için aşağıdaki sözdizimini kullanabilirsiniz:",
+                    "updated": 1653999710341
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Приведенный выше синтаксис возвращает значение свойства заявленного продукта на последней закрывшейся свече. Это одинаково для всех доступных наборов данных.",
                     "updated": 1640089674859
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sözdizimi, declare edilen ürünün özelliğinin değerini en son kapalı mumda döndürür. Bu, kullanılabilir tüm veri kümelerinde ortaktır.",
+                    "updated": 1653999841113
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "RU",
                     "text": "Каждый Indicator Bot выводит один или несколько продуктов данных, каждый из которых имеет набор свойств. Подробную информацию о продуктах и свойствах можно найти в документации каждого индикатора.",
                     "updated": 1640089727471
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Gösterge Botu, her biri bir dizi özelliğe sahip bir veya daha fazla veri ürünü ortaya çıkarır. Her göstergenin ürünleri ve özellikleri ile ilgili ayrıntıları belgelerinde bulabilirsiniz.",
+                    "updated": 1654000065903
                 }
             ]
         },
@@ -103,6 +138,11 @@
                     "language": "RU",
                     "text": "Определение таймфрейма",
                     "updated": 1640089794128
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Dilimini Belirtme",
+                    "updated": 1654000242249
                 }
             ]
         },
@@ -114,6 +154,11 @@
                     "language": "RU",
                     "text": "При составлении условий и формул вы можете захотеть использовать анализ, относящийся к разным таймфреймам. Это вполне возможно.",
                     "updated": 1640089884818
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullar ve formüller oluştururken farklı zaman dilimlerine ilişkin analizleri kullanmak isteyebilirsiniz. Bu tamamen mümkündür.",
+                    "updated": 1654001537440
                 }
             ]
         },
@@ -125,6 +170,11 @@
                     "language": "RU",
                     "text": "Переменные, описанные далее в этом разделе и написанные так, как описано для каждого индикатора, недействительны, если им не предшествует объявление таймфрейма, к которым они относятся. ",
                     "updated": 1640090397420
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölümün ilerleyen kısımlarında açıklanan, her gösterge için açıklandığı gibi yazılan değişkenler, atıfta bulundukları zaman diliminin beyanı ile devam edilmedikçe geçerli değildir.",
+                    "updated": 1654001584662
                 }
             ]
         },
@@ -136,6 +186,11 @@
                     "language": "RU",
                     "text": "Для этого необходимо продолжить приведенный выше синтаксис следующим образом:",
                     "updated": 1640090951839
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmak için, yukarıdaki sözdizimine aşağıdakilerle devam etmeniz gerekir:",
+                    "updated": 1654001600594
                 }
             ]
         },
@@ -151,6 +206,11 @@
                     "language": "RU",
                     "text": "Следовательно, полный синтаксис для построения действительного оператора:",
                     "updated": 1640091005798
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, geçerli bir ifade oluşturmak için tam sözdizimi şöyledir:",
+                    "updated": 1654001625397
                 }
             ]
         },
@@ -181,6 +241,11 @@
                     "language": "RU",
                     "text": "Приведенное выше выражение сравнивает текущую 4-часовую свечу с предыдущей 4-часовой свечой.",
                     "updated": 1640091079122
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki ifade, mevcut 4 saatlik mumu önceki 4 saatlik mumla karşılaştırır.",
+                    "updated": 1654001660809
                 }
             ]
         },
@@ -192,6 +257,11 @@
                     "language": "RU",
                     "text": "Полный список доступных таймфреймов:",
                     "updated": 1640091113520
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut zaman dilimlerinin tam listesi:",
+                    "updated": 1654688199238
                 }
             ]
         },
@@ -213,6 +283,11 @@
                     "language": "RU",
                     "text": "Cвойство Previous",
                     "updated": 1640091716742
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki Özellik",
+                    "updated": 1654001705851
                 }
             ]
         },
@@ -224,6 +299,11 @@
                     "language": "RU",
                     "text": "Свойство previous - это общее для всех продуктов свойство, которое позволяет получить значение свечи, закрывшейся перед последней.",
                     "updated": 1640091296219
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki özelliği, tüm ürünlerde ortak olan ve son mumdan önce kapanan mumun değerini almanızı sağlayan bir özelliktir.",
+                    "updated": 1654688277628
                 }
             ]
         },
@@ -236,6 +316,11 @@
                     "language": "RU",
                     "text": "Свойство работает со следующим синтаксисом:",
                     "updated": 1640091367007
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik aşağıdaki sözdizimiyle kullanılır:",
+                    "updated": 1654688291417
                 }
             ]
         },
@@ -251,6 +336,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать свойство на любых индикаторах аналогичным образом.",
                     "updated": 1640091412343
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliği göstergelerden herhangi birinde benzer şekilde kullanabilirsiniz",
+                    "updated": 1654001766519
                 }
             ]
         },
@@ -263,6 +353,11 @@
                     "language": "RU",
                     "text": "Кроме того, вы можете использовать свойство previous более одного раза, чтобы получить предыдущие значения:",
                     "updated": 1640091493180
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, geçmişteki değerleri almak için önceki özelliği bir kereden fazla kullanabilirsiniz:",
+                    "updated": 1654001807511
                 }
             ]
         },
@@ -280,6 +375,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640091502309
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak:",
+                    "updated": 1654001820465
                 }
             ]
         },
@@ -296,6 +396,11 @@
                     "language": "RU",
                     "text": "Приведенное выше выражение возвращает максимальное значение двух свечей перед последней закрытой свечой на 1-часовом графике.",
                     "updated": 1640091638490
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sözdizimi, 1 saatlik grafikte son kapalı mumdan önceki iki mumun maksimum değerini döndürür.",
+                    "updated": 1654688320245
                 }
             ]
         },
@@ -307,6 +412,11 @@
                     "language": "RU",
                     "text": "Альтернатива свойству Previous",
                     "updated": 1640091834434
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki Özelliğe Alternatif",
+                    "updated": 1654001870991
                 }
             ]
         },
@@ -318,6 +428,11 @@
                     "language": "RU",
                     "text": "Существует отличная альтернатива свойству previous, которую можно использовать для получения значения свойства за пределами последней закрытой свечи.",
                     "updated": 1640091790110
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki özelliğe göre, son kapalı mumun ötesinde bir mülkün değerini almak için kullanabileceğiniz harika bir alternatif vardır.",
+                    "updated": 1654001952309
                 }
             ]
         },
@@ -330,6 +445,11 @@
                     "language": "RU",
                     "text": "Синтаксис:",
                     "updated": 1640091844472
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi şöyledir:",
+                    "updated": 1654688349267
                 }
             ]
         },
@@ -347,6 +467,11 @@
                     "language": "RU",
                     "text": "... где tradingEngine.tradingCurrent.tradingEpisode.candle.index.value представляет последнюю закрытую свечу, а n может быть заменен любым целым числом.",
                     "updated": 1640091961040
+                },
+                {
+                    "language": "TR",
+                    "text": "... burada tradingEngine.tradingCurrent.tradingEpisode.candle.index.value son kapatılan mumu temsil eder ve n herhangi bir tamsayı ile değiştirilebilir.",
+                    "updated": 1654002014645
                 }
             ]
         },
@@ -359,6 +484,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640091979633
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak:",
+                    "updated": 1654002027183
                 }
             ]
         },
@@ -375,6 +505,11 @@
                     "language": "RU",
                     "text": "... извлекает максимальное значение пятой свечи, предшествующей последней закрытой свече на 1-часовом графике.",
                     "updated": 1640092015822
+                },
+                {
+                    "language": "TR",
+                    "text": "... 1 saatlik grafikte son kapatılan mumdan önceki beşinci mumun maksimum değerini alır.",
+                    "updated": 1654002040821
                 }
             ]
         },
@@ -387,6 +522,11 @@
                     "language": "RU",
                     "text": "Существует техническое ограничение, согласно которому вы можете получить значение свойства за предыдущие 24 часа максимум , сколько бы периодов это ни составляло, в зависимости от таймфрейма, на котором вы работаете. Например, если вы работаете на часовом таймфрейме, вы можете получить значение до 23 свечей, предшествующих последней. Если вы работаете на 1-минутном таймфрейме, вы можете получить 1439 свечей. Если вам необходимо получить информацию о более отдаленном прошлом, то вам следует подумать о создании индикатора, который сделает эти данные доступными для ваших стратегий.",
                     "updated": 1640092308943
+                },
+                {
+                    "language": "TR",
+                    "text": "Üzerinde çalıştığınız zaman dilimine bağlı olarak, hangi süreyi temsil ederse etsin, geçmişte maksimum 24 saate kadar bir özelliğin değerini alabileceğiniz teknik bir sınırlama vardır. Örneğin, 1 saatlik zaman diliminde çalışıyorsanız, son mumdan önce 23 mum getirebilirsiniz. 1 dakikalık zaman dilimi üzerinde çalışıyorsanız, 1439 mum alabilirsiniz. Geçmişte daha fazla bilgi almanız gerekiyorsa, verileri stratejileriniz için kullanılabilir hale getiren bir gösterge oluşturmayı düşünmelisiniz.",
+                    "updated": 1654002121920
                 }
             ]
         },
@@ -398,6 +538,11 @@
                     "language": "RU",
                     "text": "Сравнение и логические операторы",
                     "updated": 1640092339460
+                },
+                {
+                    "language": "TR",
+                    "text": "Karşılaştırma ve Mantıksal Operatörler",
+                    "updated": 1654002132364
                 }
             ]
         },
@@ -409,6 +554,11 @@
                     "language": "RU",
                     "text": "Для определения условий вы будете использовать операторы, использующие синтаксис, описанный выше. Вы будете использовать свойства индикаторов, которые будут представлены позже. Данные, лежащие в основе этих индикаторов, описывают то, что происходит с рынком.",
                     "updated": 1640092394197
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulları tanımlamak için yukarıda açıklanan sözdizimini kullanan ifadeler yazacaksınız. Daha sonra tanıtılacak olan göstergelerin özelliklerini kullanacaksınız. Bu göstergelerin arkasındaki veriler, piyasada neler olduğunu açıklar.",
+                    "updated": 1654002210919
                 }
             ]
         },
@@ -420,6 +570,11 @@
                     "language": "RU",
                     "text": "Помните, что условия должны возвращать значение true или false.",
                     "updated": 1640092472066
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, koşulların true (doğru) veya false (yanlış) olarak değerlendirilmesi gerekir.",
+                    "updated": 1654002241364
                 }
             ]
         },
@@ -443,6 +598,11 @@
                     "language": "RU",
                     "text": "| Operator | Description |\n| === | равно по значению и по типу|\n|!= | не равно |\n| > | больше |\n| < | меньше |\n| >= | больше или равно |\n| <= | меньше или равно |\n| && | и |\n| ∣∣ | или |",
                     "updated": 1640092745193
+                },
+                {
+                    "language": "TR",
+                    "text": "| Operator | Description |\n| === | eşit değer ve eşit tip |\n|!= | eşit değil |\n| > | daha büyük |\n| < | daha küçük |\n| >= | büyük veya eşit |\n| <= | küçük veya eşit |\n| && | ve |\n| ∣∣ | veya |",
+                    "updated": 1654002424593
                 }
             ]
         },
@@ -455,6 +615,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640092756529
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak",
+                    "updated": 1654002433179
                 }
             ]
         },
@@ -478,6 +643,11 @@
                     "language": "RU",
                     "text": "Условие A: Последняя свеча на 1-часовом графике закрылась выше скользящей средней Bollinger Bands.",
                     "updated": 1640092811303
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul A: 1 saatlik grafikteki son mum Bollinger Bantları hareketli ortalamanın üzerinde kapandı.",
+                    "updated": 1654002472588
                 }
             ]
         },
@@ -494,6 +664,11 @@
                     "language": "RU",
                     "text": "Условие Б: Максимальное значение свечи, предшествующей последней, было выше скользящей средней Bollinger Bands.",
                     "updated": 1640092852225
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul B: Sonuncusundan önceki mumun maksimum değeri, Bollinger Bantları hareketli ortalamasından daha yüksekti.",
+                    "updated": 1654002733935
                 }
             ]
         },
@@ -509,6 +684,11 @@
                     "language": "RU",
                     "text": "В приведенном выше примере условия A и Б являются аргументами сравнения, которые могут принимать значение либо true, либо false.В случае, если оба значения будут true, то ситуация 1 также будет true.",
                     "updated": 1640093879365
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki örnekte, A ve B koşulları, doğru veya yanlış olarak değerlendirilebilecek karşılaştırma ifadeleridir. Her ikisinin de doğru olarak değerlendirilmesi durumunda Durum 1 de doğru olacaktır.",
+                    "updated": 1654002776157
                 }
             ]
         },
@@ -532,6 +712,11 @@
                     "language": "RU",
                     "text": "Условие В: Вся свеча на 4-часовом графике вписывается в ценовой диапазон между 9000 и 10000.",
                     "updated": 1640093947611
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul C: 4 saatlik grafikteki mumun tamamı 9000 ile 10000 arasındaki fiyat aralığındadır.",
+                    "updated": 1654002833159
                 }
             ]
         },
@@ -547,6 +732,11 @@
                     "language": "RU",
                     "text": "В приведенном выше примере условие В будет true, если вся 4-часовая свеча попадает в диапазон между 9000 и 10000. Если это так, то ситуация 2 тоже будет true, поскольку проверять нужно только одно условие.",
                     "updated": 1640094010764
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki örnekte, 4 saatlik mumun tamamı 9000 ile 10000 aralığındaysa, C koşulu doğru olacaktır. Bu doğruysa, kontrol edilecek tek bir koşul olduğundan, durum 2 de doğrudur.",
+                    "updated": 1654002867600
                 }
             ]
         },
@@ -558,6 +748,11 @@
                     "language": "RU",
                     "text": "Код JaveScript",
                     "updated": 1640094020598
+                },
+                {
+                    "language": "TR",
+                    "text": "JaveScript Kodu",
+                    "updated": 1654002875877
                 }
             ]
         },
@@ -570,6 +765,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать любой допустимый фрагмент кода JavaScript для своих условий и формул. Система не накладывает никаких ограничений. Код условий и формул выполняется через функцию eval() следующим образом:",
                     "updated": 1640094044548
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullarınız ve formülleriniz için geçerli herhangi bir JavaScript kodu parçası kullanabilirsiniz. Sistem herhangi bir kısıtlama getirmez. Koşullar ve formüller üzerindeki kod, eval() işlevi aracılığıyla aşağıdaki gibi çalıştırılır:",
+                    "updated": 1654002930122
                 }
             ]
         },
@@ -587,6 +787,11 @@
                     "language": "RU",
                     "text": "Помните, что все условия должны иметь значение true или false, а формулы должны иметь числовое значение. Если у вас возникли проблемы с кодом, узнайте, как выполнить отладку задачи.",
                     "updated": 1640094107548
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm koşulların doğru veya yanlış olarak değerlendirilmesi gerektiğini ve formüllerin bir sayı olarak değerlendirilmesi gerektiğini unutmayın. Kodunuzla ilgili sorun yaşıyorsanız bir görevde nasıl hata ayıklayacağınızı öğrenin.",
+                    "updated": 1654002960571
                 }
             ]
         }

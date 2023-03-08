@@ -88,6 +88,16 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Check for Updates",
+            "label": "Check for Updates",
+            "iconPathOn": "update",
+            "iconPathOff": "update",
+            "iconProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,

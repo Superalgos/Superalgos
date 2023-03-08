@@ -42,6 +42,16 @@
                 "language": "RU",
                 "text": "Пришло время погрузиться в Time Machine и посмотреть, что произойдет! Готовы ли Вы к полоноценному погружению?",
                 "updated": 1636203869752
+            },
+            {
+                "language": "NL",
+                "text": "Het is tijd om in een Time Machine te duiken en te zien wat er gebeurt! Ben je klaar voor een meeslepende ervaring?",
+                "updated": 1666699610467
+            },
+            {
+                "language": "FR",
+                "text": "Il est temps de plonger dans une Time Machine et de voir ce qui se passe ! Êtes-vous prêt pour une expérience immersive complète ?",
+                "updated": 1668068568212
             }
         ]
     },
@@ -83,6 +93,16 @@
                     "language": "RU",
                     "text": "Пространство для построения графиков похоже на Google Maps рыночных графиков. Как Вы уже знаете, щелкните левой кнопокй мыши и перетащите, чтобы перемещаться по ландшафту... Но как Вы увеличиваете масштаб, чтобы увидеть детали?",
                     "updated": 1636204134363
+                },
+                {
+                    "language": "NL",
+                    "text": "De grafiekruimte is als de Google Maps van marktgrafieken. Zoals je al weet, klik en sleep je met de linkermuisknop om door het landschap te bewegen... maar hoe zoom je in om de details te zien?",
+                    "updated": 1666699653499
+                },
+                {
+                    "language": "FR",
+                    "text": "L'espace graphique est comme le Google Maps des graphiques de marché. Comme vous le savez déjà, vous cliquez et glissez avec le bouton gauche de la souris pour vous déplacer dans le paysage... mais comment zoomer pour voir les détails ?",
+                    "updated": 1668068592992
                 }
             ]
         },
@@ -123,6 +143,16 @@
                     "language": "RU",
                     "text": "С помощью колесика мыши! Пробуйте!",
                     "updated": 1636204160214
+                },
+                {
+                    "language": "NL",
+                    "text": "Met het wiel van de muis! Probeer het!",
+                    "updated": 1666699668779
+                },
+                {
+                    "language": "FR",
+                    "text": "Avec la roue de la souris ! Essayez!",
+                    "updated": 1668068608640
                 }
             ]
         },
@@ -164,6 +194,16 @@
                     "language": "RU",
                     "text": "Точно! Прямо как на Google Maps! Наведите курсор мыши на интересующую Вас область, затем прокрутите колесико мыши вперед, чтобы увеличить масштаб, и назад, чтобы уменьшить.",
                     "updated": 1636204268639
+                },
+                {
+                    "language": "NL",
+                    "text": "Precies! Net als in Google Maps! Wijs met de muis naar het interessegebied en rol vervolgens het muiswiel naar voren om in te zoomen en naar achteren om uit te zoomen!",
+                    "updated": 1666699692235
+                },
+                {
+                    "language": "FR",
+                    "text": "Exactement ! Tout comme dans Google Maps ! Pointer la souris sur la zone qui nous intéresse, puis faire tourner la roue de la souris vers l'avant pour faire un zoom avant, et vers l'arrière pour faire un zoom arrière !",
+                    "updated": 1668068625761
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Solunuzdaki fiyat hareketi bir şey çağrıştırıyor mu? Bu büyük piyasa çöküşlerini hatırlıyor musun?",
                 "updated": 1640948706186
+            },
+            {
+                "language": "ES",
+                "text": "¿Le suena la acción del precio a su izquierda? ¿Reconoce este derrumbe importante del mercado?",
+                "updated": 1668192134941
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "12-13 Mart 2020 ~%50 pandemik piyasa çöküşüne bakıyorsunuz! Günlük grafiği analiz etmek için birkaç dakika ayırın!",
                     "updated": 1640948725727
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Estás viendo la caída del mercado pandémico del-50%, el 12-13 de marzo de 2020! ¡Dedica unos minutos a analizar el gráfico diario!",
+                    "updated": 1668192216225
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Kısacası, hareketli ortalamanın güneyine yöneldiğini ve bantların kırılmasını trendin başlangıcının bir göstergesi olarak alırsak, piyasanın 25 Şubat'tan beri düşüş trendinde olduğunu görebiliriz.",
                     "updated": 1640948743841
+                },
+                {
+                    "language": "ES",
+                    "text": "En resumen, podemos ver que el mercado estaba en una tendencia bajista desde el 25 de febrero, si tomamos el giro hacia el sur de la media móvil y la ruptura de las bandas como una indicación del inicio de la tendencia.",
+                    "updated": 1668192350723
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Daha düşük zaman dilimlerine de bir göz atın",
                     "updated": 1640948755759
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Mira también los marcos temporales más bajos!",
+                    "updated": 1668192281911
                 }
             ]
         }

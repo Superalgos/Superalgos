@@ -161,7 +161,7 @@ const createShortcut = () => {
 
   // Misc Operating System
   } else {
-    console.log("Automatic shortcut creation is not currently supported on your operating system.  If you would like to see your operating system added please reachout on discord or telegram to let the devs know.")
+    console.log("Automatic shortcut creation is not currently supported on your operating system.  If you would like to see your operating system added please reach out on discord or telegram to let the devs know.")
     return 'Shortcuts not supported on your system'
   }
 }

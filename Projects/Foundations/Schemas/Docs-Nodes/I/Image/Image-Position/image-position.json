@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Image Position - это ссылка на точку, определенную в точках карты, и служит для определения положения, в которое должно быть помещено изображение.",
                 "updated": 1638969742672
+            },
+            {
+                "language": "TR",
+                "text": "Görüntü konumu düğümü, grafik noktalarında tanımlanan bir noktaya referanstır ve görüntünün yerleştirileceği konumu belirlemeye yarar.",
+                "updated": 1654419506329
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Узел расположения изображения работает аналогично вершине многоугольника в том смысле, что он должен устанавливать ссылку с точкой в ​​точке диаграммы, чтобы получить определенную координату, которая определяет, где должно быть размещено изображение.",
                     "updated": 1638969852515
+                },
+                {
+                    "language": "TR",
+                    "text": "Görüntü konumu düğümü, görüntünün nereye yerleştirileceğini belirleyen tanımlı bir koordinat elde etmek için çizelge noktasındaki bir nokta ile referans oluşturması gerektiği anlamında çokgen tepe noktasına benzer şekilde çalışır.",
+                    "updated": 1654419512620,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "См. Конфигурацию для получения дополнительной информации.",
                     "updated": 1638969865931
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha fazla ayrıntı için yapılandırmaya bakın.",
+                    "updated": 1654419520933,
+                    "style": "Note"
                 }
             ]
         },
@@ -49,6 +66,12 @@
                     "language": "RU",
                     "text": "Конфигурация  Image Position",
                     "updated": 1638969880091
+                },
+                {
+                    "language": "TR",
+                    "text": "Görüntü Konumunu Yapılandırma",
+                    "updated": 1654419527261,
+                    "style": "Title"
                 }
             ]
         },
@@ -60,24 +83,55 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
                     "updated": 1638969908203
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1654419533514,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "{"
+            "text": "{",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "{",
+                    "updated": 1654419539520,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "   \"offsetX\": 0,"
+            "text": "   \"offsetX\": 0,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"offsetX\": 0,",
+                    "updated": 1654419545842,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "   \"offsetY\": 10"
+            "text": "   \"offsetY\": 10",
+            "translations": [ ]
         },
         {
             "style": "Text",
-            "text": "}"
+            "text": "}",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "}",
+                    "updated": 1654419565398,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -87,6 +141,12 @@
                     "language": "RU",
                     "text": "offsetX - это смещение по оси X в пикселях, применяемое для смещения изображения по отношению к координатной точке, определенной ссылкой узла. Отрицательные значения смещают изображение влево, а положительные - вправо.",
                     "updated": 1638969931567
+                },
+                {
+                    "language": "TR",
+                    "text": "offsetX, X ekseninde, piksel cinsinden, düğümün referansı tarafından tanımlanan koordinat noktasına göre görüntünün yerini değiştirmek için uygulanan bir ofsettir. Negatif değerler görüntüyü sola, pozitif değerler ise sağa kaydırır.",
+                    "updated": 1654419571509,
+                    "style": "List"
                 }
             ]
         },
@@ -98,6 +158,12 @@
                     "language": "RU",
                     "text": "offsetY - это смещение по оси Y. Отрицательные значения смещают изображение вниз, а положительные значения смещают изображение вверх.",
                     "updated": 1638969944946
+                },
+                {
+                    "language": "TR",
+                    "text": "offsetY, Y ekseninde bir ofsettir. Negatif değerler görüntüyü aşağı doğru kaydırır ve pozitif değerler görüntüyü yukarı doğru kaydırır.",
+                    "updated": 1654419579509,
+                    "style": "List"
                 }
             ]
         }

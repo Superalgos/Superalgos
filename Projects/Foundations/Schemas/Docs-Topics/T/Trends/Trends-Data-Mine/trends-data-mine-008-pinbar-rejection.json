@@ -1,0 +1,81 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "8",
+    "type": "Pinbar Rejection",
+    "definition": {
+        "text": "The Pinbar rejection indicator shows potential entry points in a trade using Pinbar candlestick patterns and a simple moving average (SMA).",
+        "updated": 1659511294529
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Pinbar Rejection on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Pinbar Rejection indicator identifies pinbar candlesticks, that is rejection of lower or higher prices when the price action crosses the moving average."
+        },
+        {
+            "style": "Text",
+            "text": "If a rejection is calculated to the upside, a bullish signal is generated and displayed on the chart using an upwards pointing triangle (▲). "
+        },
+        {
+            "style": "Text",
+            "text": "Similarly, if the price is rejected downwards, a bearish signal is generated and a downwards pointing triangle (▼) is displayed on the chart.",
+            "updated": 1659510082474
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-PinbarRej.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| PinbarRejection | pbr | value, signal1, signal2 |"
+        },
+        {
+            "style": "Text",
+            "text": "The bearish signal corresponds to signal1 and has the state of true/false. ",
+            "updated": 1659510135207
+        },
+        {
+            "style": "Text",
+            "text": "The bullish signal corresponds to signal2 and has the state of true/false."
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \"Pinbar Rejection\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-PinbarRej-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the SMA and a bullish entry signal is given:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.pbr.value && chart.at01hs.pbr.signal2 == true"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

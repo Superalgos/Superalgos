@@ -33,6 +33,7 @@ function newTimelineChart() {
     timelineChartCoordinateSystem.name = 'TIMELINE CHART'
 
     let coordinateSystem
+    let configStyle
 
     let layersPanel
     let layersPanelHandle
@@ -463,7 +464,24 @@ function newTimelineChart() {
         }
     }
 
+    // I don't think this does anything color wise.
     function drawChartsBackground() {
-        UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        if (configStyle === undefined || configStyle.indicatorPanelBackgroundColor === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
+        } else {
+            let thisColor = eval(configStyle.indicatorPanelBackgroundColor)
+            UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, 0, thisObject.fitFunction)
+        }
     }
 }

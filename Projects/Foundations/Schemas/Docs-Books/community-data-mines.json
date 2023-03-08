@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Книга \"Community Data Mines\" - это сборник иcточников данных и их показателей, предоставленных сообществом.",
                 "updated": 1645086028105
+            },
+            {
+                "language": "DE",
+                "text": "Das Buch \"Community Data Mines\" ist ein Kompendium der Data Mines und ihrer Indikatoren - von der Community zur Verfügung gestellt.",
+                "updated": 1650360272469
             }
         ]
     },
@@ -76,7 +81,27 @@
         },
         {
             "style": "Chapter",
-            "text": "IX->Foundations->Topic->Divergences Data Mine->"
+            "text": "XIV->Foundations->Topic->Divergences Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XV->Foundations->Topic->Trends Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVI->Foundations->Topic->Pivots Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVII->Foundations->Topic->API Data Mines->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVIII->Foundations->Topic->Undulated Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XIX->Foundations->Topic->Volume Tools Data Mine->"
         }
     ]
 }

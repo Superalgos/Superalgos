@@ -1,13 +1,18 @@
 {
     "type": "Current projects",
     "definition": {
-        "text": "The table below contains all current projects to which you can add new docs-articles. Feel free to add projects if they are missing.",
-        "updated": 1638112235073,
+        "text": "The table in this page lists current projects.",
+        "updated": 1661450832819,
         "translations": [
             {
                 "language": "RU",
                 "text": "В таблице ниже приведены все текущие проекты, в которые вы можете добавлять новые docs-статьи. Не стесняйтесь добавлять проекты, если они отсутствуют.",
                 "updated": 1645078982515
+            },
+            {
+                "language": "TR",
+                "text": "Aşağıdaki tablo, yeni dokümanlar-makaleler ekleyebileceğiniz tüm mevcut projeleri içermektedir. Eksik olan projeler varsa eklemekten çekinmeyin.",
+                "updated": 1654390416005
             }
         ]
     },
@@ -19,8 +24,8 @@
         },
         {
             "style": "Table",
-            "text": "\n||Project|Project Explanation||\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|\n|",
-            "updated": 1642462788711,
+            "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
+            "updated": 1661450864570,
             "translations": [
                 {
                     "language": "DE",
@@ -43,6 +48,12 @@
                     "language": "RU",
                     "text": "Создан и поддерживается gitforkgit. Не стесняйтесь добавлять более конкретные описания и, при необходимости, новые проекты.",
                     "updated": 1645079493020
+                },
+                {
+                    "language": "TR",
+                    "text": "gitforkgit tarafından oluşturuldu ve sürdürüldü. Daha spesifik açıklamalar ve gerekirse yeni projeler eklemekten çekinmeyin.",
+                    "updated": 1654390421570,
+                    "style": "Text"
                 }
             ]
         },

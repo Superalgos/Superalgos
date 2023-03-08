@@ -1,0 +1,81 @@
+{
+    "topic": "Dark Charting Space Themes",
+    "pageNumber": "1",
+    "type": "Dark Charting Space Theme Example",
+    "definition": {
+        "text": "Follow the example on this page to craft the Docs page of the theme you intend to contribute!",
+        "updated": 1661450932336,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Katkıda bulunmayı düşündüğünüz temanın Dokümanlar sayfasını oluşturmak için bu sayfadaki örneği izleyin!",
+                "updated": 1666641112372
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "If you don't know how, please read about How to Contribute Themes!",
+            "updated": 1661455026442,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Nasıl yapılacağını bilmiyorsanız, lütfen Temalara Nasıl Katkıda Bulunacağınızı ( How to Contribute Themes! ) okuyun!",
+                    "updated": 1666641345621
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Author",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yaratıcı",
+                    "updated": 1666641367659
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "theblockchainarborist"
+        },
+        {
+            "style": "Title",
+            "text": "Images",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ekran Görüntüleri",
+                    "updated": 1666641383258
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/example-dark-theme.png",
+            "updated": 1661451449586
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Configuration",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Space Style Konfigürasyonu",
+                    "updated": 1666641527685
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.ULTRAMARINE_BLUE\",\n    \"panelBackgroundOpacity\": \"0.1\",\n    \"panelNameColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"indicatorPanelBackgroundColor\": \"UI_COLOR.GREEN\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"machineFrameColor\": \"UI_COLOR.RED\",\n    \"machineFrameOpacity\": \"0.1\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScaleColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.GREEN\",\n    \"indicatorDropDownPanelOpacity\": \"0\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.DARK\",\n    \"indicatorLayersPanelOpacity\": \"0.1\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.GREEN\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.RED\",\n    \"indicatorFrameBackgroundOpacity\": \"0.1\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.GREEN\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\"\n}",
+            "updated": 1661451428297
+        }
+    ]
+}

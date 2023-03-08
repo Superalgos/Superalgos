@@ -29,7 +29,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus"
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Featuring Tokens Bonus",
+                    "updated": 1654394710431,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",

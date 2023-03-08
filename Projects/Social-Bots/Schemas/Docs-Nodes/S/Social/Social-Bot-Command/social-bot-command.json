@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Social Bot Command используется для настройки слэш-команд, которые будут интерпретироваться и выполняться Superalgos.",
                 "updated": 1645194196847
+            },
+            {
+                "language": "TR",
+                "text": "Sosyal Bot Komut düğümü, Superalgos tarafından yorumlanacak ve yürütülecek eğik çizgi komutlarını yapılandırmak için kullanılır.",
+                "updated": 1654396295781
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Обзор",
                     "updated": 1645194203815
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel Bakış",
+                    "updated": 1654396302650,
+                    "style": "Title"
                 }
             ]
         },
@@ -33,6 +44,12 @@
                     "language": "RU",
                     "text": "Узел Social Bot Command используется для настройки слэш-команд, которые при запуске пользователем из приложения для обмена сообщениями будут интерпретированы и выполнены Superalgos.",
                     "updated": 1645194214666
+                },
+                {
+                    "language": "TR",
+                    "text": "Sosyal Bot Komut düğümü, bir kullanıcı tarafından mesajlaşma uygulamasından tetiklendiğinde Superalgos tarafından yorumlanacak ve yürütülecek eğik çizgi komutlarını yapılandırmak için kullanılır.",
+                    "updated": 1654396308324,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Конфигурация узла Social Bot Command определяет слэш-команду, которая регистрируется.",
                     "updated": 1645194222335
+                },
+                {
+                    "language": "TR",
+                    "text": "Sosyal Bot Komutu düğümünün yapılandırması, kaydedilen eğik çizgi komutunu tanımlar.",
+                    "updated": 1654396314562,
+                    "style": "List"
                 }
             ]
         },
@@ -56,6 +79,12 @@
                     "language": "RU",
                     "text": "Дочерний узел Formula определяет строку, которая вычисляется и отправляется при получении команды.",
                     "updated": 1645194236338
+                },
+                {
+                    "language": "TR",
+                    "text": "Alt Formül düğümü, komut alındığında değerlendirilen ve gönderilen dizeyi tanımlar.",
+                    "updated": 1654396320323,
+                    "style": "List"
                 }
             ]
         },
@@ -68,6 +97,12 @@
                     "language": "RU",
                     "text": "Формула может содержать любые пути узлов из вашего торгового движка, и они могут быть введены точно так же, как и в вашей торговой стратегии.",
                     "updated": 1645194251131
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül, Ticaret Motorunuzdaki düğüm yollarından herhangi birini içerebilir ve bunlar tam olarak Ticaret Stratejinizde olduğu gibi girilebilir.",
+                    "updated": 1654396326547,
+                    "style": "Text"
                 }
             ]
         },
@@ -79,6 +114,12 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1645194256370
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654396334766,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -91,6 +132,12 @@
                     "language": "RU",
                     "text": "В приведенном ниже примере будет задана слэш-команда \"/counters\", которая при получении отправит сообщение с текущими счетчиками торговых эпизодов.",
                     "updated": 1645194269893
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, \"/counters\" eğik çizgi komutunu ayarlayacak ve bu komut alındığında geçerli Ticaret Bölümü Sayaçlarını içeren bir mesaj gönderecektir.",
+                    "updated": 1654396340663,
+                    "style": "Text"
                 }
             ]
         },
@@ -103,6 +150,12 @@
                     "language": "RU",
                     "text": "Конфигурация Social Bot Command:",
                     "updated": 1645194313445
+                },
+                {
+                    "language": "TR",
+                    "text": "Sosyal Bot Komut Yapılandırması:",
+                    "updated": 1654396346842,
+                    "style": "Text"
                 }
             ]
         },
@@ -120,6 +173,12 @@
                     "language": "RU",
                     "text": "Формула дочернего узла:",
                     "updated": 1645194322951
+                },
+                {
+                    "language": "TR",
+                    "text": "Çocuk Düğüm Formülü:",
+                    "updated": 1654396352673,
+                    "style": "Text"
                 }
             ]
         },
@@ -137,6 +196,12 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1645194329649
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1654396358547,
+                    "style": "Title"
                 }
             ]
         },
@@ -148,12 +213,26 @@
                     "language": "RU",
                     "text": "Ниже приведены несколько примеров формул и предлагаемые имена команд.",
                     "updated": 1645194340170
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda birkaç örnek formül ve önerilen komut adları bulunmaktadır.",
+                    "updated": 1654396364499,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "/balances"
+            "text": "/balances",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "/dengeler",
+                    "updated": 1654396370646,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Json",
@@ -163,7 +242,15 @@
         {
             "style": "Subtitle",
             "text": "/statistics",
-            "updated": 1622960154435
+            "updated": 1622960154435,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "/istatistik",
+                    "updated": 1654396376447,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Json",
@@ -172,7 +259,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "/uptime"
+            "text": "/uptime",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "/uptime",
+                    "updated": 1654396382432,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Json",

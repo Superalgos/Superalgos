@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "По умолчанию начальный баланс (initialBalance) установлен на 100 USDT, что значительно превышает минимальный размер транзакции, поддерживаемый Binance.",
                 "updated": 1642770033805
+            },
+            {
+                "language": "NL",
+                "text": "De standaard initialBalance is ingesteld op 100 USDT, ruim boven de minimale transactiegrootte die door Binance wordt ondersteund.",
+                "updated": 1667126275873
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "RU",
                     "text": "Значение initialBalance определяется в конфигурации Session Quoted Asset. Проверьте его и решите для себя, хотите ли вы его изменить!",
                     "updated": 1642770066017
+                },
+                {
+                    "language": "NL",
+                    "text": "De initialBalance wordt gedefinieerd in de configuratie van de Session Quoted Asset. Bekijk het en beslis zelf of je het wilt veranderen!",
+                    "updated": 1667126299519
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "RU",
                     "text": "Binance определяет минимальный размер транзакции в BTC, поэтому требования в USDT сильно меняются со временем. Я установил сумму в 100 USDT только для того, чтобы вы не столкнулись с ошибками. Вы можете попробовать с меньшей суммой. Вы получите ошибки, если она слишком мала, но можете повторить попытку столько раз, сколько потребуется. Просто остановите задание, измените значение initialBalance в Session Quoted Asset и попробуйте снова!",
                     "updated": 1642770107860
+                },
+                {
+                    "language": "NL",
+                    "text": "Binance definieert de minimale transactiegrootte in BTC, dus de vereiste in USDT varieert sterk met de tijd. Ik heb het bedrag op 100 USDT gezet om ervoor te zorgen dat u geen fouten tegenkomt. Je bent vrij om het met een kleiner bedrag te proberen. U krijgt fouten als het te klein is, maar u kunt het zo vaak als nodig opnieuw proberen. Stop gewoon de taak, wijzig het initiële saldo in de Session Quoted Asset en probeer het opnieuw!",
+                    "updated": 1667126357562
                 }
             ]
         }

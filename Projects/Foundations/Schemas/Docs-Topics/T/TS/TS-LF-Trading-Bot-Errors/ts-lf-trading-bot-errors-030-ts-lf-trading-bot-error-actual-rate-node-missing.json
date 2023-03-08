@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Actual Rate Node Missing",
     "definition": {
         "text": "An Actual Rate node was expected but not found at the node where the error originated.",
-        "updated": 1611942592362
+        "updated": 1611942592362,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Gerçek Oran ( Actual Rate ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648938674521
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Rate Node Missing",
-            "updated": 1611650744510
+            "updated": 1611650744510,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oran Düğümü Eksik. ( Rate Node Missing )",
+                    "updated": 1648938832020
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648938851885
+                }
+            ]
         }
     ]
 }

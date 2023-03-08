@@ -3,8 +3,8 @@
     "pageNumber": 110,
     "type": "Tutorial Step - A Couple More Things!",
     "definition": {
-        "text": "There're a couple more things I want to tell you about before I let you go! Bear with me!",
-        "updated": 1619810326034,
+        "text": "You'll learn more about the Docs in other tutorials. Now, I'll show you a couple more things before we run a Live Trading Session!",
+        "updated": 1660158847846,
         "icon": {
             "name": "Strategy\\strategy-counters",
             "project": "Foundations"
@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt noch ein paar Dinge, die ich dir erzählen möchte, bevor ich dich gehen lasse! Habt Geduld mit mir!",
-                "updated": 1634246641749
+                "text": "In weiteren Tutorials werden Sie die Dokumentation noch besser kennenlernen. Nun zeige ich Ihnen noch ein paar andere Dinge, bevor wir eine Live Trading-Session starten!",
+                "updated": 1660476720149
             },
             {
                 "language": "TR",
@@ -39,16 +39,21 @@
             },
             {
                 "language": "RU",
-                "text": "Есть еще несколько вещей, о которых я хочу рассказать вам, прежде чем позволю вам уйти! Потерпите!",
-                "updated": 1642774136586
+                "text": "Вы узнаете больше о Docs в других руководствах. А сейчас я покажу вам еще несколько вещей, прежде чем мы запустим живую торговую сессию! ",
+                "updated": 1662035681001
+            },
+            {
+                "language": "NL",
+                "text": "U leert meer over de Docs in andere handleidingen. Nu zal ik je nog een paar dingen laten zien voordat we een Live Trading Session houden!",
+                "updated": 1667138002106
             }
         ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "I'll give you a quick introduction on what we are working on for upcoming versions of Superalgos! I mentioned Machine Learning algorithms, but there's more! A lot more!",
-            "updated": 1630853267198,
+            "text": "I'll give you a quick introduction about some premium services the Community is currently working on!",
+            "updated": 1660158883915,
             "translations": [
                 {
                     "language": "IT",
@@ -64,8 +69,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich gebe Ihnen eine kurze Einführung darüber, woran wir für kommende Versionen von Superalgos arbeiten! Ich habe die Machine Learning Algorithmen erwähnt, aber es gibt noch mehr! Eine Menge mehr!",
-                    "updated": 1634246651390
+                    "text": "Ich werde Ihnen eine kurze Einführung in einige Premium-Services geben, an denen die Community derzeit arbeitet.",
+                    "updated": 1660476764781
                 },
                 {
                     "language": "TR",
@@ -79,15 +84,20 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я кратко расскажу вам о том, над чем мы работаем для будущих версий Superalgos! Я упомянул алгоритмы машинного обучения (Machine Learning), но это еще не все! Намного больше!",
-                    "updated": 1642774198773
+                    "text": "Я расскажу вам о некоторых премиальных услугах, над которыми сейчас работает Сообщество!",
+                    "updated": 1662035709702
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je een korte introductie geven over enkele premium services waar de Community momenteel aan werkt!",
+                    "updated": 1667138024500
                 }
             ]
         },
         {
             "style": "List",
-            "text": "I also want to let you know that—if you appreciate what we are doing—you can help! Tens of thousands of hours of hard work have gone into building Superalgos and bringing it to its current state. I hope you can take a couple of minutes of your time to give back, and I'll be happy to tell you where to start!",
-            "updated": 1611584131359,
+            "text": "I also want to let you know that — if you appreciate what we are doing — you can help!",
+            "updated": 1660158924897,
             "translations": [
                 {
                     "language": "IT",
@@ -103,8 +113,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich möchte Sie auch wissen lassen, dass - wenn Sie schätzen, was wir tun - Sie helfen können! Zehntausende von Stunden harter Arbeit sind in den Aufbau von Superalgos geflossen und haben es zu seinem heutigen Stand gebracht. Ich hoffe, Sie können sich ein paar Minuten Zeit nehmen, um etwas zurückzugeben, und ich werde Ihnen gerne sagen, wo Sie anfangen können!",
-                    "updated": 1634246659750
+                    "text": "Ich möchte Sie auch wissen lassen, dass Sie - falls Sie mögen, was wir tun - das Projekt aktiv unterstützen können!",
+                    "updated": 1660476827622
                 },
                 {
                     "language": "TR",
@@ -118,47 +128,35 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я также хочу сообщить вам, что если вы цените то, что мы делаем, вы можете помочь! Десятки тысяч часов напряженной работы ушли на создание Superalgos и доведение его до нынешнего состояния. Я надеюсь, что вы сможете уделить пару минут своего времени, чтобы помочь нам, и я буду рад рассказать вам, с чего начать!",
-                    "updated": 1642774222286
+                    "text": "Я также хочу сообщить вам, что если вы цените то, что мы делаем, вы можете помочь!",
+                    "updated": 1662035727854
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik wil je ook laten weten dat - als je waardeert wat we doen - je kunt helpen!",
+                    "updated": 1667138043692
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Let's get on with it!",
-            "updated": 1611584148459,
+            "text": "Tens of thousands of hours of hard work have gone into building Superalgos and bringing it to its current state. I hope you can take a couple of minutes of your time to give back, and I'll be happy to tell you where to start! Let's get on with it!",
+            "updated": 1660158993877,
             "translations": [
                 {
-                    "language": "IT",
-                    "text": "Coraggio, ti faccio vedere!",
-                    "updated": 1618073296750,
-                    "style": "Success"
-                },
-                {
-                    "language": "ES",
-                    "text": "¡Sigamos adelante!",
-                    "updated": 1624487447210,
-                    "style": "Success"
-                },
-                {
                     "language": "DE",
-                    "text": "Legen wir los!",
-                    "updated": 1634246666260
-                },
-                {
-                    "language": "TR",
-                    "text": "Hadi devam edelim!",
-                    "updated": 1636643263166
-                },
-                {
-                    "language": "ID",
-                    "text": "Mari kita kesana!",
-                    "updated": 1640600086753
+                    "text": "Zehntausende Stunden harter Arbeit wurden in die Entwicklung von Superalgos investiert, um es auf seinen heutigen Stand zu bringen. Vielleicht wollen Sie einige Minuten Ihrer Zeit zurückgeben - und ich zeige Ihnen gerne, wo Sie anfangen können! Lassen Sie uns loslegen!",
+                    "updated": 1660476932037
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте приступим к делу!",
-                    "updated": 1642774229345
+                    "text": "Десятки тысяч часов упорного труда ушли на создание Superalgos и доведение его до нынешнего состояния. Я надеюсь, что вы сможете уделить пару минут своего времени, чтобы отблагодарить их, и я буду рад подсказать вам, с чего начать! Давайте продолжим!",
+                    "updated": 1662035748856
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn tienduizenden uren hard werk gestoken in het bouwen van Superalgos en het in de huidige staat brengen ervan. Ik hoop dat je een paar minuten van je tijd kunt nemen om iets terug te doen, en ik vertel je graag waar je moet beginnen! Laten we ermee aan de slag gaan!",
+                    "updated": 1667138066450
                 }
             ]
         }

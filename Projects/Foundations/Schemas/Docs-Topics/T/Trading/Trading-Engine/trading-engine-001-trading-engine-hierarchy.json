@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот обеспечивает обратную связь с торговыми системами, чтобы ваши стратегии могли использовать информацию, обработанную торговым ботом.",
                 "updated": 1640337696182
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret motoru, stratejilerinizin ticaret botu tarafından işlenen bilgilerden yararlanabilmesi için ticaret sistemlerine bir geri bildirim döngüsü sağlar.",
+                "updated": 1650574220891
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Иерархия Trading Engine глубока и велика, имеет множество разветвлений. Лучше всего изучать ее путем практических экспериментов, тестируя существующую торговую систему.",
                     "updated": 1640337744299
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ticaret motoru hiyerarşisi derin ve geniştir ve birçok sonucu vardır. Mevcut bir ticaret sistemini test ederek uygulamalı deneylerle öğrenmek en iyisidir.",
+                    "updated": 1650574260479
                 }
             ]
         }

@@ -1,5 +1,21 @@
 {
     "type": "Announcement",
+    "definition": {
+        "text": "An Announcement node is used to define the content and conditions with which messages are sent by Social Bots.",
+        "updated": 1619262332641,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Announcement используется для определения содержания и условий, на которых социальные боты отправляют сообщения.",
+                "updated": 1645185075984
+            },
+            {
+                "language": "TR",
+                "text": "Bir Duyuru düğümü, Sosyal Botlar tarafından gönderilen mesajların içeriğini ve koşullarını tanımlamak için kullanılır.",
+                "updated": 1654396100274
+            }
+        ]
+    },
     "paragraphs": [
         {
             "style": "Text",
@@ -10,6 +26,12 @@
                     "language": "RU",
                     "text": "Узел Announcement используется для настройки текстового содержания сообщения по умолчанию, которое будет отправлено всеми социальными ботами, настроенными в рамках торговой сессии.",
                     "updated": 1645185086382
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyuru düğümü, İşlem Oturumu altında yapılandırılan tüm Sosyal Botlar tarafından gönderilecek olan mesajın varsayılan metin içeriğini yapılandırmak için kullanılır.",
+                    "updated": 1654396106703,
+                    "style": "Text"
                 }
             ]
         },
@@ -22,6 +44,12 @@
                     "language": "RU",
                     "text": "Узел Announcement может также содержать дочерние узлы для определения более конкретной формулы (содержания) объявления и условий объявления.",
                     "updated": 1645185101945
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyuru düğümü isteğe bağlı olarak daha spesifik duyuru formülü (içeriği) ve duyuru koşulları tanımlamak için alt düğümler de içerebilir.",
+                    "updated": 1654396113763,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +62,12 @@
                     "language": "RU",
                     "text": "Дочерний узел Announcement Formula содержит формулу текстовой строки Javascript, которая определяет содержимое сообщения, которое будет отправлено.",
                     "updated": 1645185161762
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyuru Formülü alt düğümü, gönderilecek mesajın içeriğini tanımlayan Javascript metin dizesi formülünü içerir.",
+                    "updated": 1654396120241,
+                    "style": "List"
                 }
             ]
         },
@@ -46,6 +80,12 @@
                     "language": "RU",
                     "text": "Дочерний узел Announcement Condition определяет условие, при котором будет отправлено сообщение.",
                     "updated": 1645185195141
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Duyuru Koşulu alt düğümü, mesajın gönderileceği koşulu tanımlar.",
+                    "updated": 1654396125950,
+                    "style": "List"
                 }
             ]
         },
@@ -58,19 +98,42 @@
                     "language": "RU",
                     "text": "Если дочерний узел Announcement Formula не настроен, или если произошла ошибка при вычислении формулы объявления или условия объявления, то вместо него отправляется текстовая конфигурация по умолчанию самого родительского узла объявления.",
                     "updated": 1645185276713
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyuru formülü alt düğümü <u>yapılandırılmamışsa</u> veya; duyuru formülü veya duyuru koşulunun değerlendirilmesinde bir <u>hata</u> varsa, bunun yerine üst duyuru düğümünün varsayılan metin yapılandırması gönderilir.",
+                    "updated": 1654396132056,
+                    "style": "Warning"
                 }
             ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">text</code> content of message to be sent when there is no formula.",
+            "updated": 1665712360976
+        },
+        {
+            "style": "List",
+            "text": "onEnter define if message will be sent on node enter.",
+            "updated": 1665712405525
+        },
+        {
+            "style": "List",
+            "text": "onExit define if message will be sent on node exit.",
+            "updated": 1665712422683
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">delay</code> define the amount of delay before sending an announcement in milliseconds.",
+            "updated": 1667316202210
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
         }
-    ],
-    "definition": {
-        "text": "An Announcement node is used to define the content and conditions with which messages are sent by Social Bots.",
-        "updated": 1619262332641,
-        "translations": [
-            {
-                "language": "RU",
-                "text": "Узел Announcement используется для определения содержания и условий, на которых социальные боты отправляют сообщения.",
-                "updated": 1645185075984
-            }
-        ]
-    }
+    ]
 }

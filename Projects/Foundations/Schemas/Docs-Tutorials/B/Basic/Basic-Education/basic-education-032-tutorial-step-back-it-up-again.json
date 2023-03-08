@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Sudah kubilang aku akan menjelaskan topik ini! Mari kita coba contoh kedua!",
                 "updated": 1644951377689
+            },
+            {
+                "language": "NL",
+                "text": "Ik zei toch dat ik op dit onderwerp ging hameren! Laten we het tweede voorbeeld proberen!",
+                "updated": 1669544365942
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Ambil cadangan Lightning Strike trading system! Kembalikan cadangan tanpa menghapus yang asli. Kemudian ulangi operasi pemulihan tetapi hapus trading system asli terlebih dahulu!",
                     "updated": 1644951447502
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Lightning Strike handelssysteem! Herstel de back-up zonder het origineel te verwijderen. Herhaal vervolgens de herstelbewerking maar verwijder eerst het originele handelssysteem!",
+                    "updated": 1669544394033
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Verifikasi bagaimana incoming references dijaga hanya dalam kasus kedua!",
                     "updated": 1644951500416
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer alleen in het tweede geval hoe de inkomende referenties worden bewaard!",
+                    "updated": 1669544412558
                 }
             ]
         },
@@ -158,6 +173,11 @@
                     "language": "ID",
                     "text": "Ingatlah bahwa, agar incoming references dijaga, kamu harus menghapus struktur node asli sebelum mengembalikan cadangan!",
                     "updated": 1644951546081
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat u, om inkomende referenties te behouden, de oorspronkelijke structuur van knooppunten moet verwijderen voordat u de back-up herstelt!",
+                    "updated": 1669544434495
                 }
             ]
         }

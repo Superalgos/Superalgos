@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Я не могу не подчеркнуть, насколько важно для проекта, чтобы пользователи вносили свой вклад в развитие Superalgos!",
                 "updated": 1640163701075
+            },
+            {
+                "language": "ID",
+                "text": "Aku tidak bisa cukup menekankan betapa pentingnya bagi proyek ini bahwa pengguna berkontribusi apa saja yang mereka buat dengan Superalgos!",
+                "updated": 1669153893267
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Если вы решите участвовать в проекте и Сообществе (Community), вы сможете принять участие в коллективных усилиях по улучшению Superalgos. Но даже если вы не заинтересованы в командной работе, вы все равно будете развивать свои навыки, станете опытным пользователем и создадите много вещей, которые могут пригодиться тем, кто придет после вас!",
                     "updated": 1640163762784
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memilih untuk terlibat dengan proyek dan komunitas, kamu dapat berpartisipasi dalam upaya kolektif untuk membuat Superalgos lebih baik. Tetapi jika kamu tidak tertarik untuk bekerja secara tim, kamu masih harus mengembangkan skill, menjadi pengguna yang berpower, dan membangun banyak hal yang mungkin berguna bagi orang-orang yang menggunakan setelah kamu!",
+                    "updated": 1669153848805
                 }
             ]
         },
@@ -100,6 +110,11 @@
                     "language": "TR",
                     "text": "Superalgos'a Nasıl Katkıda Bulunulur? ( How to Contribute to Superalgos ), ticaret sistemlerine, veri madenlerine, simgelere, belgelere, çevirilere vb. katkıda bulunmayı kapsayan bir konudur. Bu arada unutmayın: tüm katkılar Superalgos jetonlarıyla teşvik edilir!",
                     "updated": 1640003058846
+                },
+                {
+                    "language": "ID",
+                    "text": "How to Contribute to Superalgos merupakan topik yang mencakup rangkaian upaya tentang bagaimana berkontribusi pada sistem trading, data mining, ikon, dokumentasi, terjemahan, dan sebagainya. Semua kontribusi diberi insentif dengan token Superalgos!",
+                    "updated": 1669153985360
                 }
             ]
         }

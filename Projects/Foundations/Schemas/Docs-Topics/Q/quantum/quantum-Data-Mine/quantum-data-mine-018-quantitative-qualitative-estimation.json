@@ -1,0 +1,69 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 18,
+    "type": "Quantitative Qualitative Estimation",
+    "definition": {
+        "text": "The Quantitative Qualitative Estimation (QQE) is is derived from Wilder's famous Relative Strength Index (RSI). In essence, the QQE is a heavily smoothed RSI.",
+        "updated": 1655081893649
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "QQE on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The QQE indicator features the standard RSI, the heavily smoothed fast value, and the slow trailing line which is smoothed again and multiplied by the Fibonacci number of 4.236.",
+            "updated": 1659415543253
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "A reading above 50 on the indicator indicates a bullish market, while a drop below 50 is a bearish market."
+        },
+        {
+            "style": "List",
+            "text": "Oversold and overbought areas operate similarly to the RSI; 70 is overbought and 30 is oversold."
+        },
+        {
+            "style": "List",
+            "text": "Divergences can be used to try and predict potential trend reversals."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the QQE indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"QQE\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "QQE Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| QQE | qqe | fast, slow, rsi |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the qqe fast value crosses above the slow value while under the 50 line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.qqe.fast > chart.at01hs.qqe.slow && chart.at01hs.qqe.previous.fast < chart.at01hs.qqe.previous.slow && chart.at01hs.qqe.fast < 50",
+            "updated": 1655081973704
+        }
+    ]
+}

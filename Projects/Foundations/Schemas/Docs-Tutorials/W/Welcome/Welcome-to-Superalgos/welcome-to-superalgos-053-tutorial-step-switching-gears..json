@@ -40,6 +40,16 @@
                 "language": "ID",
                 "text": "Tinggalkan pembahasan skala terlebih dahulu, mari kita lihat bagaimana sistem membuat data tersedia di chart.",
                 "updated": 1639586978562
+            },
+            {
+                "language": "NL",
+                "text": "Laten we de as-schaal achter ons laten en eens kijken hoe het systeem gegevens beschikbaar stelt in de grafieken.",
+                "updated": 1666787375286
+            },
+            {
+                "language": "FR",
+                "text": "Laissons de côté les échelles, examinons comment le système rend les données disponibles sur les graphiques.",
+                "updated": 1668413597977
             }
         ]
     },
@@ -79,6 +89,16 @@
                     "language": "ID",
                     "text": "Setiap Timeline Chart memiliki Layer Manager terkait, yang direpresentasikan sebagai menu bercabang yang mencantumkan banyak lapisan.",
                     "updated": 1639587068431
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke Timeline Chart heeft een bijbehorende Layer Manager, die wordt weergegeven als een vervolgkeuzemenu met meerdere lagen.",
+                    "updated": 1666787406582
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque graphique (Timeline Chart) est associé à un gestionnaire de calques (Layer Manager), qui est représenté sous la forme d'un menu déroulant répertoriant plusieurs couches.",
+                    "updated": 1668413700026
                 }
             ]
         },
@@ -117,6 +137,16 @@
                     "language": "ID",
                     "text": "Untuk membuka layers manager, scroll mouse wheel pada headernya. Gunakan mouse wheel untuk menggulir kontennya juga!",
                     "updated": 1639587173937
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een lagenmanager te openen, scrolt u met het wiel van de muis op de koptekst. Gebruik het wiel van de muis om ook door de inhoud te scrollen!",
+                    "updated": 1666787437155
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour ouvrir un gestionnaire de calques, faites défiler la molette de la souris sur son en-tête. Utilisez également la molette de la souris pour faire défiler son contenu !",
+                    "updated": 1668413695263
                 }
             ]
         },
@@ -155,6 +185,16 @@
                     "language": "ID",
                     "text": "Lihat video pada langkah selanjutnya untuk memperjelas ...",
                     "updated": 1639587199142
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie de video in de volgende stap voor meer duidelijkheid...",
+                    "updated": 1666787460059
+                },
+                {
+                    "language": "FR",
+                    "text": "Voir la vidéo sur la prochaine étape pour plus de clarté...",
+                    "updated": 1668413714449
                 }
             ]
         }

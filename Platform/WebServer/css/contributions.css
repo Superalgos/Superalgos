@@ -75,17 +75,22 @@
 
 .contributions-top-buttons{
     font-size: 150%;
-    border: 4px solid #0295aa;
-    border-radius: 5px;
-    background-color: transparent;
-    color: #365558;
+    border: 2px solid #0295aa;
+    border-radius: 20px;
+    background-color: #365558;
+    color: white;
     padding: 10px;
     margin: 4px 0 0 1px;
 }
 
 .contributions-top-buttons:hover {
     font-size: 150%;
-    border: 4px solid #324d50;
+    border: 2px solid #0295aa;
+    border-radius: 20px;
+    background-color: #10aa1d;
+    color: white;
+    padding: 10px;
+    margin: 4px 0 0 1px;
     cursor: pointer;
 }
 

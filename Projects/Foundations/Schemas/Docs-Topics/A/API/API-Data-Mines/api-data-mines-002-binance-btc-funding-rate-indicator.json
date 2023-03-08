@@ -1,0 +1,55 @@
+{
+    "topic": "API Data Mines",
+    "pageNumber": 2,
+    "type": "Binance BTC Funding Rate Indicator",
+    "definition": {
+        "text": "The Funding Rate Indicator gets data for the BTC futures market using Binance's API."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Funding Rate on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The BTC perpetual funding rate is updated on Binance's API every 8 hours and contains the percentage payment exchanged between buyers and sellers. This payment is the mechanism to keep the futures rate aligned with the spot rate. If the rate is positive, the buyers pay the sellers the current rate. When negative, the reverse is true.",
+            "updated": 1658286439285
+        },
+        {
+            "style": "Text",
+            "text": "The funding rate is closely correlated to the market sentiment; when the market is extremely bullish, funding rates across the exchange tend to go higher and vice versa. If a position is open at the end of the 8 hour time period, all open positions are subject to the funding rate fee."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/api-binance-funding-rate.png"
+        },
+        {
+            "style": "Text",
+            "text": "To install this indicator, both the data mine and API map needs to be installed."
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Funding_Rate | funding_Rate | fr1-fr6, ft1-ft6 |"
+        },
+        {
+            "style": "Text",
+            "text": "Binance returns the current funding rate and funding time as fr6 and ft6 respectively. The other returned values contain the previous 5 funding rates."
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "An example to access the data is as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at08hs.funding_Rate.fr6"
+        }
+    ]
+}

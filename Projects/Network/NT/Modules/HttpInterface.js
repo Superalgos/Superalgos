@@ -21,7 +21,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
         */
         web3 = new SA.nodeModules.web3()
 
-        let port = NT.networkApp.p2pNetworkNode.node.config.webPort
+        let port = NT.networkApp.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -180,7 +180,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                         switch (networkService) {
                             case 'Trading Signals': {
                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong" + "/"  + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + "/" + NT.networkApp.p2pNetworkNode.node.config.codeName  , httpResponse)
                                 } else {
                                     let response = {
                                         result: 'Error',
@@ -196,7 +196,24 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                     break
                 case 'Stats':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify([]), httpResponse)
+                        let networkService = unescape(requestPath[2])
+
+                        switch (networkService) {
+                            case 'Machine Learning': {
+                                if (NT.networkApp.machineLearningNetworkService !== undefined) {
+                                    response = await NT.networkApp.machineLearningNetworkService.clientInterface.getStats()
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                } else {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Trading Signals Network Service Not Running.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+                                break
+                            }
+                        }
                     }
                     break
                 default:

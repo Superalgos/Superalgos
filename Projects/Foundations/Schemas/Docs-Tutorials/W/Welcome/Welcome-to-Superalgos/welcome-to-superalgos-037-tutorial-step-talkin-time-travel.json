@@ -42,6 +42,16 @@
                 "language": "RU",
                 "text": "Я упоминал ранее, что в этом рабочем пространстве имеется две диаграммы. В Superalgos мы называем каждую из них - Time Machine.",
                 "updated": 1636199639429
+            },
+            {
+                "language": "NL",
+                "text": "Ik heb eerder gezegd dat er twee grafieken in deze werkruimte zijn. In Superalgos noemen we elk van deze een Time Machine.",
+                "updated": 1666698742920
+            },
+            {
+                "language": "FR",
+                "text": "J'ai mentionné plus tôt qu'il y a deux graphiques dans cet espace de travail. Dans Superalgos, nous appelons chacun d'eux une Time Machine.",
+                "updated": 1668067979518
             }
         ]
     },
@@ -83,6 +93,16 @@
                     "language": "RU",
                     "text": "Машина времени может содержать одну или несколько Timeline Chart. Мы называем их машиной времени, потому что все графики временной шкалы в машине времени синхронизированы во времени. Эта особенность машин времени позволяет накладывать различные слои данных, используя один и тот же Time Scale.",
                     "updated": 1636199955416
+                },
+                {
+                    "language": "NL",
+                    "text": "Een time machine kan één of meer Timeline Chart bevatten. We noemen ze time machines omdat alle tijdlijndiagrammen binnen een time machine in de tijd worden gesynchroniseerd. Deze functie van time machines maakt het mogelijk om verschillende gegevenslagen over elkaar heen te leggen die dezelfde Time Scale delen.",
+                    "updated": 1666698848582
+                },
+                {
+                    "language": "FR",
+                    "text": "Une machine temporelle peut contenir une Timeline Chart ou plus. Nous les appelons machines temporelles parce que tous les diagrammes chronologiques dans une machine temporelle sont synchronisés dans le temps. Cette caractéristique des machines temporelles permet de superposer différentes couches de données partageant la même échelle de temps.",
+                    "updated": 1668068068271
                 }
             ]
         },
@@ -123,6 +143,16 @@
                     "language": "RU",
                     "text": "Наведите указатель мыши на машины времени!",
                     "updated": 1636201484840
+                },
+                {
+                    "language": "NL",
+                    "text": "Beweeg uw muisaanwijzer over de tijdmachines!",
+                    "updated": 1666698869358
+                },
+                {
+                    "language": "FR",
+                    "text": "Passez le pointeur de votre souris sur les time machines !",
+                    "updated": 1668068093438
                 }
             ]
         },
@@ -164,6 +194,16 @@
                     "language": "RU",
                     "text": "Обратите внимание на появившуюся слева метку, которая указывает на то, с какими биржами и рынками связаны данные. Одна машина времени может содержать данные с множества рынков и бирж.",
                     "updated": 1636201607160
+                },
+                {
+                    "language": "NL",
+                    "text": "Let op het label dat aan de linkerkant verschijnt en laat zien aan welke handelsplatformen en markten de gegevens zijn gekoppeld. Een enkele tijdmachine kan gegevens bevatten van meerdere markten en meerdere handelsplatformen!",
+                    "updated": 1666698952119
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez l'étiquette qui apparaît sur le côté gauche et qui indique à quelles exchanges et à quels marchés les données sont associées. Une seule time machine peut contenir des données provenant de plusieurs marchés et de plusieurs exchanges !",
+                    "updated": 1668068145044
                 }
             ]
         }

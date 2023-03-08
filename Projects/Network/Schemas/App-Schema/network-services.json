@@ -24,6 +24,16 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "machineLearning",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Machine Learning",
+            "relatedUiObject": "Machine Learning",
+            "relatedUiObjectProject": "Network"
+        },          
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tradingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Trading Signals",
@@ -60,13 +70,19 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Node->"
+        "compatibleTypes": "->P2P Network Node->P2P Network Client->"
     },
     "childrenNodesProperties": [
         {
             "name": "socialGraph",
             "type": "node",
             "childType": "Social Graph",
+            "autoAdd": false
+        },
+        {
+            "name": "machineLearning",
+            "type": "node",
+            "childType": "Machine Learning",
             "autoAdd": false
         },
         {

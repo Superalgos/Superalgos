@@ -47,6 +47,7 @@ function newLayer() {
     let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)'
     let LOADED_STROKE_STYLE = 'rgba(45, 232, 28, @Opacity)'
     let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)'
+    let configStyle
 
     let marketFileProgressBar = {
         value: 0,
@@ -194,7 +195,7 @@ function newLayer() {
                 'Polygon Vertex->Point->' +
                 'Image->Image Condition->Image Position->Image Formula->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
+                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Panel Data Javascript Code->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
@@ -660,10 +661,26 @@ function newLayer() {
             label1 = label1.substring(0, 30)
         }
 
-        let backgroundColor = UI_COLOR.BLACK
+        // This controls the color of the drop down indicator panels inside the chart.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        let backgroundColor
+
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelColor === undefined) {
+            backgroundColor = UI_COLOR.BLACK
+        } else {
+            backgroundColor = eval(configStyle.indicatorDropDownPanelColor)
+        }
 
         const RED_LINE_HIGHT = 4
-        const OPACITY = 0.75
+        
 
         let params = {
             cornerRadius: 0,
@@ -672,10 +689,30 @@ function newLayer() {
             borderColor: UI_COLOR.RUSTED_RED,
             castShadow: false,
             backgroundColor: backgroundColor,
-            opacity: OPACITY
+            opacity: 0
         }
 
-        UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        // Here we set the opacity for the indicator drop down panel if it is defined.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelOpacity === undefined) {
+            const thisOpacity = 0.75
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        } else {
+            const thisOpacity = eval(configStyle.indicatorDropDownPanelOpacity)
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+    }
+
+        // Here we set the top and bottom border color for the indicator drop down panel.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelBorderColor === undefined) {
+            let thisBorderColor = UI_COLOR.RUSTED_RED
+            params.borderColor = thisBorderColor
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        } else {
+            let thisBorderColor = eval(configStyle.indicatorDropDownPanelBorderColor)
+            params.borderColor = thisBorderColor
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        }
 
         let parentLabel1FontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'label1FontSize')
         let parentlabelTwoFontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'labelTwoFontSize')
@@ -711,9 +748,32 @@ function newLayer() {
             label3FontSize = 9
         }
 
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel1Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel1Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container, thisColor)
+        }
+
+        // This controls the text color of the MidSized font size in the drop down indicator layers panels.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel2Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel2Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container, thisColor)
+        }
+
+        // This controls the text color of the ON/OFF font size in the drop down indicator layers panels.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel3Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel3Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container, thisColor)
+        }
+
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
+        // UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)
         drawProgressBar(dailyFileProgressBar, 2, -46 + 18)

@@ -1,0 +1,72 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 13,
+    "type": "Know Sure Thing Oscillator",
+    "definition": {
+        "text": "The Know Sure Thing Oscillator indicator was developed by Martin Pring in 1992 to make rate of change readings easier for traders to interpret.",
+        "updated": 1652685074675
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Know Sure Thing On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is an unbound momentum oscillator that uses the rate of change from four time periods, giving more weight to the longer time periods. The output value can then be used to gauge the bullish or bearish momentum of the asset's price. A Simple Moving Average is then taken of the output value to create a signal line. The indicator can be used in the following ways:",
+            "updated": 1652685082560
+        },
+        {
+            "style": "List",
+            "text": "Divergence or convergence"
+        },
+        {
+            "style": "List",
+            "text": "Signal crossover"
+        },
+        {
+            "style": "List",
+            "text": "Zero crossover"
+        },
+        {
+            "style": "Link",
+            "text": "Know Sure Thing Oscillator(investopedia)->www.investopedia.com/terms/k/know-sure-thing-kst.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst-divergence.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the KST can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"KST\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| KST | kst | value, signal |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the oscillator value crosses the signal line when below zero:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.kst.value < 0 && chart.at01hs.kst.previous.value < chart.at01hs.kst.previous.signal && chart.at01hs.kst.value > chart.at01hs.kst.signal"
+        }
+    ]
+}

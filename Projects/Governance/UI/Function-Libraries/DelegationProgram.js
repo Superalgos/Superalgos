@@ -183,7 +183,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = getPercentage(childNode)
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -198,7 +198,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = getPercentage(childNode)
+                                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
@@ -212,7 +212,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     }
                     if (totalPercentage > 100) {
                         node.payload.uiObject.setErrorMessage(
-                            'Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            'Delegate Power Switching Error. Total Percentage of children nodes is greater that 100.',
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                             )
                         return
@@ -232,7 +232,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = getPercentage(childNode)
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -252,7 +252,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = getPercentage(childNode)
+                                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                             percentage = defaultPercentage
                                         }
@@ -271,37 +271,6 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     }
                 }
             }
-        }
-        function getPercentage(node) {
-            let tokenPower = node.payload.parentNode.payload.delegationProgram.programPower
-            let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
-            let fixed = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'fixed')
-    
-            if ((percentage !== undefined && isNaN(percentage) !== true) && (fixed !== undefined && isNaN(fixed) !== true)) {
-                node.payload.uiObject.setErrorMessage(
-                    'Both "fixed" and "percentage" are present in the config. Only one may be defined.',
-                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
-                return
-            }
-    
-            if (percentage !== undefined && isNaN(percentage) !== true) {
-                return percentage
-            }
-            if (fixed !== undefined && isNaN(fixed) !== true) {
-                if (isFinite((fixed / tokenPower) * 100)) {
-                    if (fixed / tokenPower > 1) {
-                        return 100
-                    }
-                    else {
-                        return (fixed / tokenPower) * 100
-                    }
-                }
-                else {
-                    return
-                }
-            }
-            return
         }
 
         function drawPower(node, programPower, percentage) {

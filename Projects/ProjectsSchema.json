@@ -1677,7 +1677,13 @@
                     "name": "Chains",
                     "propertyName": "chains",
                     "functionName": "newGovernanceUtilitiesChains"
+                },
+                {
+                    "name": "Node Calculations",
+                    "propertyName": "nodeCalculations",
+                    "functionName": "newGovernanceUtilitiesNodeCalculations"
                 }
+
             ],
             "spaces": [
                 {

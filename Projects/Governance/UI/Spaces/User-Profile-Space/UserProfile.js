@@ -6,6 +6,8 @@ function newGovernanceUserProfileSpace() {
         githubWatchers: undefined,
         githubForks: undefined,
         container: undefined,
+        waitingForResponses: undefined,
+        reputationByAddress: undefined,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -16,9 +18,8 @@ function newGovernanceUserProfileSpace() {
     }
 
     //const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
-    let reputationByAddress = new Map()
     const SATokenList = UI.projects.governance.globals.saToken.SA_TOKEN_LIST
-    let waitingForResponses = SATokenList.length
+    let loadInProgress
 
     return thisObject
 
@@ -48,6 +49,10 @@ function newGovernanceUserProfileSpace() {
         thisObject.container.initialize(MODULE_NAME)
         thisObject.container.isDraggeable = false
 
+        /* Set the number of blockchains for which reputation transactions need to be loaded */
+        thisObject.waitingForResponses = SATokenList.length
+        thisObject.reputationByAddress = new Map()
+
         /*
         We are going to collapse all User rootNodes to save processing resources at the UI
         */
@@ -61,6 +66,16 @@ function newGovernanceUserProfileSpace() {
             }
         }
         let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
+        /* Sort user profiles alphabetically so they become easier to find in the Governance Workspace */
+        userProfiles.sort((a, b) => {
+            let na = a.name.toLowerCase()
+            let nb = b.name.toLowerCase()
+
+            if (na < nb) { return -1 }
+            if (na > nb) { return 1  }
+            return 0
+        })
 
         // Initialise the isLoading parameter for each User Profile
         for (let i = 0; i < userProfiles.length; i++) {
@@ -106,6 +121,7 @@ function newGovernanceUserProfileSpace() {
                 }
             }
             for (let i = 0; i < nodes.length; i++) {
+                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
                 switch (true) {
                     case (yOffset === 0): {
                         yOffset = yStep
@@ -132,7 +148,6 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                 }
-                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
             }
         }
         /*
@@ -141,6 +156,7 @@ function newGovernanceUserProfileSpace() {
         getTreasuryAccountTransactions()
 
         function getTreasuryAccountTransactions() {
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading reputation transactions from blockchain...', 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
             for (const token of SATokenList) {
                 let url = ''
                 switch(token["chain"]) {
@@ -157,7 +173,7 @@ function newGovernanceUserProfileSpace() {
                     */
                     default:
                         console.log((new Date()).toISOString(), '[WARN] Reputation history cannot be obtained for chain ' + token["chain"] + ' - no data source configured')
-                        waitingForResponses--
+                        thisObject.waitingForResponses--
                         continue
                 }
 
@@ -174,10 +190,10 @@ function newGovernanceUserProfileSpace() {
 
                         let currentReputation = Number(transfer.value) / token["decimalFactor"]
 
-                        let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
+                        let previousReputation = thisObject.reputationByAddress.get(transfer.to.toLowerCase())
                         if (previousReputation === undefined) { previousReputation = 0 }
                         let newReputation = previousReputation + currentReputation
-                        reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
+                        thisObject.reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                     }
                     //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
                     if (tokenTransfers.length > 9000) {
@@ -185,11 +201,11 @@ function newGovernanceUserProfileSpace() {
                     } else {
                         console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found on the ' + token["chain"] + ' blockchain. ')
                     }
-                    waitingForResponses--
+                    thisObject.waitingForResponses--
                 }).catch(function (err) {
                     const message = err.message + ' - ' + 'Can not access ' + token["chain"] + 'SCAN servers.'
                     console.log(message)
-                    waitingForResponses--
+                    thisObject.waitingForResponses--
                 });
             }
         }
@@ -414,6 +430,8 @@ function newGovernanceUserProfileSpace() {
         thisObject.githubWatchers = undefined
         thisObject.githubForks = undefined
         thisObject.executedTestCases = undefined
+        thisObject.waitingForResponses = undefined
+        thisObject.reputationByAddress = undefined
 
         if (thisObject.container !== undefined) {
             thisObject.container.finalize()
@@ -422,6 +440,11 @@ function newGovernanceUserProfileSpace() {
     }
 
     function reset() {
+        /* Do not re-initialize while the load of balances is in progress */
+        if (loadInProgress) {
+            setTimeout(reset, 100)
+            return
+        }
         finalize()
         initialize()
     }
@@ -450,7 +473,10 @@ function newGovernanceUserProfileSpace() {
         Load the user profiles with Token Power.
         */
         let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (waitingForResponses !== 0) { return }
+        /*
+        Check for information which needs to be present before drawing the workspace to prevent hangups.
+        */
+        if (thisObject.waitingForResponses !== 0) { return } 
         /*
         We will get all the user Profiles tokens from the blockchain, making a call
         every 5 seconds so as not to exceed the rate limit.
@@ -540,6 +566,7 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
+            loadInProgress = true
             console.log((new Date()).toISOString(), '[INFO] Loading Blockchain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
             let blockchainTokenTotal = 0
             let receivedResults = 0
@@ -575,18 +602,19 @@ function newGovernanceUserProfileSpace() {
                         blockchainTokenTotal = blockchainTokenTotal + Number(commandResponse.balance)
                     }
                     if (receivedResults === SATokenList.length) {
-                        userProfile.payload.bloackchainBalancesLoading = false
-                        userProfile.payload.isLoading = false
                         if (queryError === false) {
                             userProfile.payload.blockchainTokens = blockchainTokenTotal
                             userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.', UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR)
                             console.log((new Date()).toISOString(), '[INFO] Total SA Balance of ' + userProfile.name + ' on all chains is ', userProfile.payload.blockchainTokens)
-                            userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                            userProfile.payload.reputation = Math.min(thisObject.reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                             console.log((new Date()).toISOString(), '[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                         } else {
                             userProfile.payload.blockchainTokens = undefined
                             console.log((new Date()).toISOString(), '[WARN] SA Balance of ' + userProfile.name + ' has not been loaded successfully')
                         }
+                        userProfile.payload.bloackchainBalancesLoading = false
+                        userProfile.payload.isLoading = false
+                        loadInProgress = false
                     }
                 }
             }

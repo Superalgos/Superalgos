@@ -548,6 +548,13 @@ function newEducationDocSpace() {
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
 
+        try {
+            document.getElementById("docs-navigation-elements-sidebar-div").style.display = "none"
+        } catch (error) {
+            // do nothing
+            // this is just to prevent crash during startup when docs-navigation-elements-sidebar-div doesn't exist yet
+        }
+
         if (thisObject.sidePanelTab !== undefined) {
             thisObject.sidePanelTab.resize()
         }

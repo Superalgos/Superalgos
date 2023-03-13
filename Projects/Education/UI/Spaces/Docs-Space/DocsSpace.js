@@ -380,24 +380,49 @@ function newEducationDocSpace() {
     }
 
     function toggleRightNavPanel() {
+        setNavigationPanel(!getNavigationPanelState())
+    }
+
+    function getNavigationPanelState() {
+        let enabled = false
+        try {
+            let panel = document.getElementById("docs-navigation-elements-sidebar-div")
+            if (panel.offsetWidth > 0) {
+                enabled = true
+            }
+        } catch (error) {
+            // do nothing
+            // this is just to prevent crash during startup when docs-navigation-elements-sidebar-div doesn't exist yet
+        }
+        return enabled
+    }
+
+    function setNavigationPanel(enabled, animation = true) {
         let panel = document.getElementById("docs-navigation-elements-sidebar-div")
-        let panelWidth = panel.offsetWidth
         let panelToggleBtn = document.getElementById("docs-navigation-elements-sidebar-circle-div")
         let panelToggleBtnWidth = panelToggleBtn.offsetWidth
         let leftNavArrow = document.getElementById("docs-navigation-elements-sidebar-circle-left")
         let rightNavArrow = document.getElementById("docs-navigation-elements-sidebar-circle-right")
 
-        if (panelWidth > 0) {
-            panel.style.width = "0px";
-            panelToggleBtn.style.right = -0.5 * panelToggleBtnWidth + "px"
-            leftNavArrow.style.display = "inline"
-            rightNavArrow.style.display = "none"
-        } else {
+        panel.style.transition = "all 0.0s"
+        panelToggleBtn.style.transition =  "all 0.0s"
+
+        if(animation) {
+            panel.style.transition = "all 0.3s"
+            panelToggleBtn.style.transition = "all 0.3s"
+        }
+
+        if (enabled) {
             panel.style.width = "60px";
             let targetWidth = 60 - 0.5 * panelToggleBtnWidth
             panelToggleBtn.style.right = targetWidth + "px"
             leftNavArrow.style.display = "none"
             rightNavArrow.style.display = "inline"
+        } else {
+            panel.style.width = "0px";
+            panelToggleBtn.style.right = -0.5 * panelToggleBtnWidth + "px"
+            leftNavArrow.style.display = "inline"
+            rightNavArrow.style.display = "none"
         }
     }
 
@@ -424,8 +449,9 @@ function newEducationDocSpace() {
             addToBrowseHistory(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered)
         }
 
+        let navigationPanelState = getNavigationPanelState()
         UI.projects.education.spaces.docsSpace.documentPage.render()
-
+        setNavigationPanel(navigationPanelState, false)
         updateNavigationElements()
 
         /*

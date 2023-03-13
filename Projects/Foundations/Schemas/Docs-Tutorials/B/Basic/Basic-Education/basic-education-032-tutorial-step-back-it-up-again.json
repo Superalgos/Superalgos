@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Realiza una copia de seguridad del sistema Lightning Strike trading! Restaura la copia de seguridad sin eliminar el original. Luego, repite la operación de restauración, pero primero elimine el sistema trading original.",
-                    "updated": 1626614976596,
+                    "text": "¡Realiza una copia de seguridad del sistema Lightning Strike trading! Restaura la copia de seguridad sin eliminar el original. Luego, repite la operación de restauración, pero primero elimina el Trading System original.",
+                    "updated": 1675377066807,
                     "style": "Callout"
                 },
                 {
@@ -150,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Recuerde que, para conservar las referencias entrantes, debe eliminar la estructura original de los nodos antes de restaurar la copia de seguridad.",
-                    "updated": 1626615070797,
+                    "text": "Recuerda que, para conservar las referencias entrantes, debes eliminar la estructura original de los nodos antes de restaurar la copia de seguridad.",
+                    "updated": 1675377083860,
                     "style": "Success"
                 },
                 {

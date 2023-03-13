@@ -22,7 +22,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
     let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
 
-    console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
+    SA.logger.info('Working with these Parameter Ranges:')
     console.table(parametersRanges)
 
     return thisObject
@@ -75,7 +75,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             const parametersIsON = getParametersIsON()
             const AMOUNT_OF_VARIABLES = parametersIsON.length
 
-            console.log("Testing this features")
+            SA.logger.info("Testing this features")
             console.table(parametersIsON)
 
             let combinations = []
@@ -304,7 +304,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 if (
                     diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10 &&
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.forceTestClientsToWait10Minutes === true) {
-                    console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
+                    SA.logger.info('Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
                     return 'NO CASES FOR YOU'
                 } else {
                     return await assignTestCase(testCase)
@@ -335,7 +335,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
         }
 
-        console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
+        SA.logger.info('No more Test Cases. Could not deliver one to ' + currentClientInstance)
         return 'NO TEST CASES AVAILABLE AT THE MOMENT'
 
         async function assignTestCase(testCase) {
@@ -344,7 +344,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.assignedTimestamp = (new Date()).valueOf()
 
             getTimeSeriesFileName(testCase)
-            testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            testCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             saveTestCasesFile()
 
             let nextTestCase = {
@@ -378,11 +378,11 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
             if (testCase === undefined) {
-                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id could not be found at the current Test Cases Array. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                SA.logger.info(currentClientInstance + ' just tested Test Case Id could not be found at the current Test Cases Array. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
                 return
             }
             if (testCase.status !== 'Being Tested') {
-                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id does not match any a Test Case at the current Test Cases Array with an status of Being Tested. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                SA.logger.info(currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id does not match any a Test Case at the current Test Cases Array with an status of Being Tested. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
                 return
             }
             testCase.status = 'Tested'
@@ -422,15 +422,15 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
                 logQueue.push(testCase)
             }
-            console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id)
-            console.log((new Date()).toISOString(), 'Updated partial table of Test Cases:')
+            SA.logger.info(currentClientInstance + ' just tested Test Case Id ' + testCase.id)
+            SA.logger.info('Updated partial table of Test Cases:')
             console.table(logQueue)
             saveTestReportFile()
             saveTestCasesFile()
             TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Error processing test results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] testResult = ' + JSON.stringify(testResult))
+            SA.logger.error('Error processing test results. Err = ' + err.stack)
+            SA.logger.error('testResult = ' + JSON.stringify(testResult))
         }
 
         function calculatePercentageErrorRMSE(testResult) {

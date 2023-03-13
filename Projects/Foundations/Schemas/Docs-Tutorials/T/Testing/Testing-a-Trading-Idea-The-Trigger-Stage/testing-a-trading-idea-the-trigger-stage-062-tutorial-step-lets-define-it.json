@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz!",
-                "updated": 1641663601544
+                "text": "Pozisyon Al Etkinliği altında koşulu ayarlamaya hazırız! Hadi yapalım şu işi!",
+                "updated": 1669665065650
             },
             {
                 "language": "RU",
@@ -44,8 +44,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Açıklamayı kopyalayıp yapıştırın!",
-                    "updated": 1641663614250
+                    "text": "Yukarıdaki koşulu kopyalayıp yapıştırın!",
+                    "updated": 1669665103400
                 },
                 {
                     "language": "RU",
@@ -66,8 +66,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Duruma açıklayıcı bir ad vermeyi unutmayın! 1H Breakdown?",
-                    "updated": 1641663623590
+                    "text": "Duruma açıklayıcı bir ad vermeyi unutmayın! Örneğin 1H Breakdown?",
+                    "updated": 1669665121970
                 },
                 {
                     "language": "RU",

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Buna benzer şeyler görmelisiniz.",
                 "updated": 1641910390047
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675463997371
             }
         ]
     },

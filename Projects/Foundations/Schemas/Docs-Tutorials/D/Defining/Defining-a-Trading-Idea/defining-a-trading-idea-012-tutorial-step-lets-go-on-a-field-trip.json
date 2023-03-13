@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "El resto de este tutorial consiste en poner en práctica lo que acabamos de discutir.",
                 "updated": 1668189832339
+            },
+            {
+                "language": "IT",
+                "text": "Il resto di questo tutorial riguarda la messa in pratica di ciò che abbiamo appena discusso!",
+                "updated": 1669888023340
+            },
+            {
+                "language": "NL",
+                "text": "De rest van deze zelfstudie gaat over het in de praktijk brengen van wat we zojuist hebben besproken!",
+                "updated": 1670784456391
+            },
+            {
+                "language": "ID",
+                "text": "Sisa dari tutorial ini adalah tentang mempraktikkan apa yang baru saja kita diskusikan!",
+                "updated": 1674689866382
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Nos sumergiremos en los gráficos, aprenderemos un par de cosas sobre un indicador específico, y trataremos de dar con una idea de trading adecuada que podamos probar en el próximo tutorial.",
                     "updated": 1668189881582
+                },
+                {
+                    "language": "IT",
+                    "text": "Approfondiremo l'uso dei grafici, impareremo una o due cose su un indicatore specifico e proveremo a trovare un'idea di trading adeguata che possiamo testare nel prossimo tutorial!",
+                    "updated": 1669888039434
+                },
+                {
+                    "language": "NL",
+                    "text": "We duiken diep in de grafieken, leren het een en ander over een specifieke indicator en proberen een goed handelsidee te bedenken dat we in de volgende tutorial kunnen testen!",
+                    "updated": 1670784476522
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan mendalami chart, mempelajari satu atau dua hal tentang indikator tertentu, dan mencoba memunculkan ide trading yang tepat yang dapat kita uji di tutorial berikutnya!",
+                    "updated": 1674689859799
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "¡Abróchate el cinturón! ¡Nos esperan unas cuantas curvas cerradas por delante!",
                     "updated": 1668189938125
+                },
+                {
+                    "language": "IT",
+                    "text": "Allacciati le cinture! Prevedo alcune brusche svolte andando avanti!",
+                    "updated": 1669888054433
+                },
+                {
+                    "language": "NL",
+                    "text": "Riemen vast! Ik voorzie een paar scherpe bochten in het verschiet!",
+                    "updated": 1670784499616
+                },
+                {
+                    "language": "ID",
+                    "text": "Sabuk pengaman! Aku meramalkan ada beberapa tikungan tajam di depan!",
+                    "updated": 1674689853883
                 }
             ]
         }

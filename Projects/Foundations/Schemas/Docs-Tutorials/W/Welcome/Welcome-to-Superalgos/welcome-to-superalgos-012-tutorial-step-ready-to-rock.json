@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "Le noeud Data Tasks contrôle toutes les tâches de minage de données définies pour le noeud LAN Network .",
                 "updated": 1666254156995
+            },
+            {
+                "language": "PL",
+                "text": "Węzeł Data Tasks kontroluje wszystkie zadania związane z gromadzeniem danych dla LAN Network Node.",
+                "updated": 1674934176451
             }
         ],
         "updated": 1636910229969
@@ -101,13 +106,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Önümüzdeki birkaç dakika içinde ele alacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
-                    "updated": 1635579409291
+                    "text": "Önümüzdeki birkaç dakika içinde başlatacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
+                    "updated": 1669758479728
                 },
                 {
                     "language": "FR",
                     "text": "Vous êtes sur le point de commencer les activités suivantes que nous allons aborder dans les prochaines minutes :",
                     "updated": 1666254276457
+                },
+                {
+                    "language": "PL",
+                    "text": "Za chwilę rozpoczniesz następujące czynności, które zostaną omówione później:",
+                    "updated": 1674934260178
                 }
             ]
         },
@@ -160,6 +170,11 @@
                     "language": "FR",
                     "text": "Exécutez une opération de minage de données pour obtenir des données pour le marché BTC/USDT depuis l'échange.",
                     "updated": 1666254345548
+                },
+                {
+                    "language": "PL",
+                    "text": "Uruchomienie operacji zdobywania danych, aby uzyskać dane dla rynku BTC/USDT z Market.",
+                    "updated": 1674934336831
                 }
             ],
             "updated": 1640350823953
@@ -212,6 +227,11 @@
                     "language": "FR",
                     "text": "Exécutez une Backtesting Session avec une stratégie open-source existante.",
                     "updated": 1666254394276
+                },
+                {
+                    "language": "PL",
+                    "text": "Uruchomienie Backtesting Session opartą o istniejącą strategię open-source.",
+                    "updated": 1674934399261
                 }
             ],
             "updated": 1616414607531
@@ -264,6 +284,11 @@
                     "language": "FR",
                     "text": "Exécutez une Live Trading Session avec des fonds minimaux, pour tester certains aspects critiques du système.",
                     "updated": 1666254447526
+                },
+                {
+                    "language": "PL",
+                    "text": "Uruchomienie Live Trading Session z minimalnym wkładem, żeby przetestować inne krytyczne aspekty systemu.",
+                    "updated": 1674934546545
                 }
             ],
             "updated": 1660142821699
@@ -316,6 +341,11 @@
                     "language": "FR",
                     "text": "Ça vous convient ? On se lance ?",
                     "updated": 1666254496775
+                },
+                {
+                    "language": "PL",
+                    "text": "Jesteś gotowy? Możemy zaczynać?",
+                    "updated": 1674934485420
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Gücü ve yönü ölçün.",
                 "updated": 1647090557078
+            },
+            {
+                "language": "DE",
+                "text": "Messen Sie die Stärke und Richtung.",
+                "updated": 1671202583190
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Listelerde Donchian Kanalı",
                     "updated": 1647090575594
+                },
+                {
+                    "language": "DE",
+                    "text": "Donchian Channel auf den Charts",
+                    "updated": 1671202605953
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre “Donchian Kanalları, orta aralık veya medyan bant etrafında üst ve alt bantlardan oluşan bir gösterge içeren hareketli ortalama hesaplamaları ile oluşturulan üç satırdır. Üst bant, bir menkul kıymetin N dönem boyunca en yüksek fiyatını gösterirken, alt bant, bir menkul kıymetin N dönem boyunca en düşük fiyatını gösterir. Üst ve alt bantlar arasındaki alan Donchian Kanalı'nı temsil ediyor.",
                     "updated": 1647090609538
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia sind \"Donchian Kanäle drei Linien, die durch Berechnungen des gleitenden Durchschnitts generiert werden und einen Indikator bilden, der aus oberen und unteren Bändern um einen mittleren Bereich oder ein Medianband herum besteht. Das obere Band markiert den höchsten Kurs eines Wertpapiers über N Zeiträume, während das untere Band den niedrigsten Kurs eines Wertpapiers über N Zeiträume markiert. Der Bereich zwischen dem oberen und dem unteren Band stellt den Donchian-Kanal dar.\"",
+                    "updated": 1671202668080
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "TR",
                     "text": "Gösterge için standart parametre:",
                     "updated": 1647090682297
+                },
+                {
+                    "language": "DE",
+                    "text": "Standardparameter für den Indikator:",
+                    "updated": 1671202703739
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "TR",
                     "text": "Kanal Uzunluğu Değeri = 20",
                     "updated": 1647090699752
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für Channel Length = 20",
+                    "updated": 1671202799552
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "TR",
                     "text": "Hesaplama için gerekli parametreleri ihtiyaçlarınıza göre değiştirmeyi kolaylaştırdım. Javascript Kodunu ( Javascript Code ) “DMI Yönlü Hareket” Ürün Tanımı ( Product Definition ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulun ve açın.",
                     "updated": 1647090708981
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe es Ihnen leicht gemacht, die für die Berechnung benötigten Parameter nach Ihren Bedürfnissen zu ändern. Suchen und öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Donchian Channel\" Product Definition.",
+                    "updated": 1671202806927
                 }
             ]
         },
@@ -88,6 +118,11 @@
                     "language": "TR",
                     "text": "Donchian Kanalı Ürünleri ve Özellikleri",
                     "updated": 1647090724812
+                },
+                {
+                    "language": "DE",
+                    "text": "Donchian Channel Produkte und Eigenschaften",
+                    "updated": 1671202840743
                 }
             ]
         },
@@ -99,6 +134,11 @@
                     "language": "TR",
                     "text": "Mevcut üç özellik vardır:",
                     "updated": 1647090732657
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind drei Eigenschaften verfügbar:",
+                    "updated": 1671202893318
                 }
             ]
         },
@@ -111,6 +151,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Donchian Kanalı | donchian | hiHigh, loLow, midPoint |",
                     "updated": 1647090754723
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Donchian Channel | donchian | hiHigh, loLow, midPoint |",
+                    "updated": 1671202925756
                 }
             ]
         },
@@ -122,6 +167,11 @@
                     "language": "TR",
                     "text": "Örnekler:",
                     "updated": 1647090775106
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671202975032
                 }
             ]
         },
@@ -133,6 +183,11 @@
                     "language": "TR",
                     "text": "TradingSim'e göre Donchian kanalları, esas olarak, yatırımcıların uzun veya kısa pozisyon almalarını sağlayan bir kopuşu belirlemek için kullanılır. Hisse senedi Donchian kanalları “n” periyodundan daha yüksek işlem görüyorsa tüccarlar uzun bir pozisyon alabilir ve DC kanalları “n” döneminin altında işlem görüyorsa karlarını rezerve edebilir/varlığı açığa çıkarabilir.",
                     "updated": 1647090808504
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut TradingSim werden Donchian Kanäle hauptsächlich dazu verwendet, einen Ausbruch zu identifizieren, der es Händlern ermöglicht, entweder Long- oder Short-Positionen einzugehen. Händler können eine Long-Position eingehen, wenn die Aktie über dem Zeitraum der Donchian-Kanäle \"n\" gehandelt wird, und ihre Gewinne verbuchen/den Vermögenswert verkaufen, wenn er unter dem Zeitraum der DC-Kanäle \"n\" gehandelt wird.",
+                    "updated": 1671203012682
                 }
             ]
         },
@@ -144,6 +199,11 @@
                     "language": "TR",
                     "text": "Donchian stratejisinin tam detaylı açıklaması için şuraya bir göz atın:",
                     "updated": 1647090843880
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine ausführliche Erklärung der Donchian Strategie finden Sie unter:",
+                    "updated": 1671203047925
                 }
             ]
         },
@@ -165,6 +225,11 @@
                     "language": "TR",
                     "text": "Mum kapanışının Donchian hi High'dan daha yüksek olup olmadığını kontrol ederek temel stratejiler oluşturulabilir:",
                     "updated": 1647090866161
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können erstellt werden, indem man prüft, ob der Kerzenschluss höher ist als das Donchian hiHigh:",
+                    "updated": 1671203077600
                 }
             ]
         },
@@ -181,6 +246,11 @@
                     "language": "TR",
                     "text": "Muhtemelen bir kopuş gerçekleşecek.",
                     "updated": 1647090882177
+                },
+                {
+                    "language": "DE",
+                    "text": "Wahrscheinlich wird es zu einem Ausbruch kommen.",
+                    "updated": 1671203103244
                 }
             ]
         },

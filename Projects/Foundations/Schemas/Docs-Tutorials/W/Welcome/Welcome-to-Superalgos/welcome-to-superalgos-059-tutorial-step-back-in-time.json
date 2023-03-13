@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bu, grafiklerde oynadığımız Zaman Makinesinin Grafik Alanı hiyerarşi kurulumudur.",
-                "updated": 1636103063884
+                "text": "Bu, grafikler üzerinde oynadığımız Zaman Makinesinin (Time Machine) Grafik Alanı (Charting Space) hiyerarşi kurulumudur.",
+                "updated": 1669919848854
             },
             {
                 "language": "RU",
@@ -117,8 +117,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
-                    "updated": 1624412890132,
+                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, vamos a configurar un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
+                    "updated": 1675277880497,
                     "style": "Text"
                 },
                 {

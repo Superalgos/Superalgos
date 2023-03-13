@@ -174,7 +174,13 @@ function renderSearchResults(command) {
         }
 
         function normaliseStringForLink(value) {
-            return value.replace(/[^a-z0-9\.\/]/gi, '-').toLowerCase()
+            return value
+                .replace(/'/g, '')
+                .replace(/[^A-Za-z0-9_\/]/gi, '-')
+                .replace(/-{2,}/g, '-')
+                .replace(/^-/g, '')
+                .replace(/-$/g, '')
+                .toLowerCase()
         }
 
         function addTranslations(definition) {

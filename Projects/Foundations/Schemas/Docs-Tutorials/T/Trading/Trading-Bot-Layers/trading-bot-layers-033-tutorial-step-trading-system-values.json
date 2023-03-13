@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "\"Trading System Values\" katmanları, Trading Engine katman yöneticisindeki düğümlerin değerlerini gösteren katmanlar gibi çalışır...",
                 "updated": 1642516638899
+            },
+            {
+                "language": "ID",
+                "text": "Layer \"Trading System Values\" berfungsi seperti layer pada layer manager Trading Engine yang menunjukkan value dari node-node...",
+                "updated": 1674104386651
+            },
+            {
+                "language": "ES",
+                "text": "La capa \" Trading System Values \" funciona como las capas del gestor de capas del Trading Engine que muestran los valores de los nodos...",
+                "updated": 1675468844011
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "\"Ticaret Sistemi Değerleri\" katmanını açın, farenizi grafiğin üzerine getirin ve stop formüllerini kontrol edin!",
                     "updated": 1642516652947
+                },
+                {
+                    "language": "ID",
+                    "text": "Nyalakan layer \"Trading System Values\", geser mouse-mu ke atas chart dan periksa stop formula!",
+                    "updated": 1674104394518
+                },
+                {
+                    "language": "ES",
+                    "text": "Activa la capa \" Trading System Values \", desliza el ratón sobre el gráfico y ¡comprueba las fórmulas de stop!",
+                    "updated": 1675468824088
                 }
             ]
         },
@@ -68,6 +88,16 @@
                     "language": "TR",
                     "text": "Bu katmanlar arasındaki ortak tema, her bir mum için her düğüm hakkında anında bilgi sağlamalarıdır!",
                     "updated": 1642516697201
+                },
+                {
+                    "language": "ID",
+                    "text": "Tema umum di antara layer-layer ini adalah bahwa layer-layer ini memberikan informasi dengan cepat tentang setiap node, untuk setiap candle!",
+                    "updated": 1674104400985
+                },
+                {
+                    "language": "ES",
+                    "text": "El tema común entre estas capas es que proporcionan información sobre la marcha acerca de cada nodo, ¡para cada vela!",
+                    "updated": 1675468807038
                 }
             ]
         },
@@ -89,6 +119,16 @@
                     "language": "TR",
                     "text": "Trading Bot'un %100 sorumlu olduğunu söylemek doğru mudur?",
                     "updated": 1642516768883
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah adil untuk mengatakan bahwa Trading Bot kita 100% akuntabel?",
+                    "updated": 1674104412816
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Es justo decir que nuestro Trading Bot es 100% responsable?",
+                    "updated": 1675468793568
                 }
             ]
         }

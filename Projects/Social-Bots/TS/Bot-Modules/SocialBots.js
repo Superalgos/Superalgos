@@ -25,10 +25,10 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                             socialBot.botInstance = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
                             socialBot.botInstance.initialize(config)
                                 .then(response => {
-                                    console.log('Discord bot ready', response)
+                                    SA.logger.warn('Discord bot ready', response)
                                 })
                                 .catch(err => {
-                                    console.error(err)
+                                    SA.logger.error(err)
                                 })
                         } else if (socialBot.type === "Slack Bot") {
                             socialBot.botInstance = SA.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot()

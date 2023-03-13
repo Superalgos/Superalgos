@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "¡Y ya está! Por fin tenemos una hipótesis adecuada que podemos probar para decidir si la idea merece la pena o no.",
                 "updated": 1668194019896
+            },
+            {
+                "language": "IT",
+                "text": "Questo è tutto! Finalmente abbiamo un'ipotesi corretta che possiamo testare per decidere se vale la pena perseguire o meno l'idea!",
+                "updated": 1669901881243
+            },
+            {
+                "language": "NL",
+                "text": "Dat is het! We hebben eindelijk een goede hypothese die we kunnen testen om te beslissen of het idee de moeite waard is om na te streven of niet!",
+                "updated": 1670787677564
+            },
+            {
+                "language": "ID",
+                "text": "Itu dia! Kita akhirnya memiliki hipotesis yang tepat yang dapat kita uji untuk memutuskan apakah ide tersebut layak untuk dikejar atau tidak!",
+                "updated": 1674701271441
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Seguiremos a partir de este punto en el próximo tutorial.",
                     "updated": 1668193980991
+                },
+                {
+                    "language": "IT",
+                    "text": "Lo prenderemo da lì nel prossimo tutorial!",
+                    "updated": 1669901900331
+                },
+                {
+                    "language": "NL",
+                    "text": "We nemen het vanaf daar over in de volgende zelfstudie!",
+                    "updated": 1670787690277
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan mengambilnya dari sana di tutorial berikutnya!",
+                    "updated": 1674701277833
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "En el próximo tutorial de la serie, nos adentraremos en cómo Superalgos te guía a través del proceso de configuración de una idea de trading para ser probada en datos históricos. Aprenderemos sobre la sintaxis para escribir condiciones y fórmulas, sobre cómo usar indicadores desde dentro de las estrategias, ¡y cualquier otra cosa que podamos necesitar en el camino!",
                     "updated": 1668194072996
+                },
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo tutorial della serie, approfondiremo il modo in cui Superalgos ti guida attraverso il processo di configurazione dell'idea di trading da testare sui dati storici. Impareremo la sintassi per scrivere condizioni e formule, come utilizzare gli indicatori all'interno delle strategie e qualsiasi altra cosa di cui potremmo aver bisogno lungo il percorso!",
+                    "updated": 1669901916089
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende zelfstudie in de serie zullen we ingaan op hoe Superalgos u begeleidt bij het opzetten van het handelsidee om te worden getest op historische gegevens. We leren over de syntaxis om voorwaarden en formules te schrijven, over het gebruik van indicatoren vanuit strategieën en alles wat we onderweg nog meer nodig hebben!",
+                    "updated": 1670787718516
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tutorial berikutnya dalam seri ini, kita akan mendalami bagaimana Superalgos memandu kamu melalui proses penyiapan ide trading untuk diuji pada data historis. Kita akan belajar tentang sintaks untuk menulis conditions dan formula, tentang cara menggunakan indikator dari dalam strategi, dan apa saja yang mungkin kita perlukan selama ini!",
+                    "updated": 1674701283493
                 }
             ]
         }

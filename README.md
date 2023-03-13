@@ -86,6 +86,8 @@ We will briefly describe the options available. Click the link to go to the spec
 
 4. [Raspberry Pi](README_RaspberryPi.md) | Raspberry Pi installations are a great economical option for running a trading system. You will need to be comfortable with either options 2 or 3 above to proceed here.
 
+5. [Public Cloud](README_PublicCloud.md) | This is a great option for those who wish to run a trading system in the cloud. You will need to be comfortable with option 3 above to proceed here.
+
 > :white_check_mark: **ABOUT REMOTE INSTALLATIONS AND MINIMALIST HARDWARE:** Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation, on a full-size PC. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
 
 > :white_check_mark: **EXPERIENCING ISSUES INSTALLING SUPERALGOS?** If you're having trouble installing or running the app for the first time, do not open an issue. Instead, join the [Support Telegram Group](https://t.me/superalgossupport) and follow the instructions on the pinned message to ask for help. You may also join the [new Discord Server](https://discord.gg/CGeKC6WQQb), but bear in mind that the response time tends to be longer. Online support is provided by volunteers — please provide clear information and sufficient context about the issue you are facing, and be mindful of people's time.
@@ -138,13 +140,9 @@ There are four steps required to install Superalgos:
 
 1. Fork the Superalgos Repository
 
-2. Clone Your Fork
-
-3. Install Node Dependencies
-
-4. Install Community Plugins 
-
-5. Update Forked Repositories from The Superalgos Upstream Repositories
+2. Download the appropriate install script
+  - install.ps1 if using windows
+  - install.sh if using a linux based distribution, including OSX
 
 Let's get on with it!
 
@@ -162,85 +160,35 @@ To fork Superalgos you need a Github account. If you don't have one, go ahead an
 
 ### :two: Clone Your Fork
 
-Once the fork is created, you will land on the page of your fork. Copy the complete URL from your browser's address bar.
+> :white_check_mark: **NOTE**: You will need your Github username and the API token you created earlier.
 
-> :white_check_mark: **NOTE**: Notice it is your fork you will be cloning, not the upstream repository.
+__*Windows*__
 
-In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions. 
+Open a powershell terminal, navigate to the directory you want to Superalgos folder to live in
 
-> :white_check_mark: **NOTE**: On most systems, the terminal will open in your user's home directory. It's better to install Superalgos at the root folder of any of your drives, or at least in a path that is not too long. Some systems may experience issues with long paths.
+Copy and paste 
 
-Clone the git repository using the command:
-
-```sh
-git clone <URL of your Superalgos fork>
+```ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Superalgos/Superalgos/install.ps1 -OutFile ./install.ps1
 ```
 
-For example, if your Github username is John, the command will look like this:
+Run the script with you Github username and API token `install.ps1 -username <username> -token <token>` 
+
+This will check you ahve git and node installed, it will then clone your forked repository into a folder name Superalgos. The script will install all the node dependencies, fork and clone all the plugin repositories and install the global superalgos cli.
+
+__*Linux*__
+
+Open a command terminal, navigate to the directory you want to Superalgos folder to live in
+
+Copy and paste 
 
 ```sh
-git clone https://github.com/John/Superalgos
+curl https://raw.githubusercontent.com/Superalgos/Superalgos/install.sh ./
 ```
 
-This creates the `Superalgos` folder in the current directory, which contains the whole installation.
+Run the script with you Github username and API token `sh install.sh --username <username> --token <token>` 
 
-### :three: Install Node Dependencies
-
-After the Superalgos directory has been installed, you need to set up the necessary node dependencies. In the same command prompt or terminal you just used, type the following:
-
-```sh
-cd Superalgos
-```
-
-That should take you inside the Superalgos folder created by the `git clone` command earlier. The `node setup` command installs the dependencies (notice there are a few options you may use).
-
-```sh
-node setup
-```
-
-Available Options:
-
-```sh
-node setup <options>
-```
-
-| Option | Description |
-| --- | --- |
-| `shortcuts` | Use this option to create desktop shortcuts. Otherwise, you will launch the app from the command line/terminal. |
-| `tensorflow` | Use this option to include the TensorFlow dependencies, only if you intend to test the (partial and incomplete) TensorFlow integration. |
-
-If you experience any issues installing dependencies, check the [Troubleshooting Dependencies Installation](#small_orange_diamond-troubleshooting-dependencies-installation) section in the Appendix below.
-
-### :four: Install Community Plugins 
-
-Before using the software, you will need to install the plugins built by the community. To do so, just run this command from the Superalgos main folder:
-
-```sh
-node setupPlugins <Your-Github-Username> <Your-Github-Personal-Access-Token>
-```
-
-For example:
-
-```sh
-node setupPlugins John ghz_2pBD4Sas0iYtwQGPjTq1Xlm3Ot4KpH3RLcr5
-```
-
-> :white_check_mark: **NOTE**: This is the token you created on earlier steps!`
-
-This script is going to fork all Community Plugins repositories into your own Github account, and then it will clone each of these repositories into your local `Superalgos/Plugins` folder. The process is designed in a way that if someday a new type of plugin is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
-
-> :white_check_mark: **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside `Superalgos/Plugins` and run this script to fix the problems for you. Also, if you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
-
-**Congratulations! Your setup is complete. Now you may finally run the app for the first time. Please, follow the usage instructions below!**
-
-### :five: Update Forked Repositories from The Superalgos Upstream Repositories
-
-Prerequisites:
-"node setup" and "node setupPlugins" commands must be executed beforehand.
-
-```sh
-node updateGithubRepos
-```
+This will check you ahve git and node installed, it will then clone your forked repository into a folder name Superalgos. The script will install all the node dependencies, fork and clone all the plugin repositories and install the global superalgos cli.
 
 # :small_orange_diamond: Usage
 
@@ -542,7 +490,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 3. For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
 
-4. If you are getting a lot of 'unexpected' errors during node setup, try resetting npm using the command `npm ci` before running `node setup` again.
+4. If you are getting a lot of 'unexpected' errors during node setup, try resetting npm using the command `npm ci --omit=optional` before running `node setup` again.
 
 ## Enabling Desktop Shortcut in Ubuntu
 

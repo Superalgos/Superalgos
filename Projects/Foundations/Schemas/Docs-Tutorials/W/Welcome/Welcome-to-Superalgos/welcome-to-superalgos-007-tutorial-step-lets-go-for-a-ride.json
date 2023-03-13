@@ -55,6 +55,11 @@
                 "language": "RU",
                 "text": "Прежде, чем я покажу вам остальную часть меню, давайте посмотрим на другую иерархию - LAN Network.\n",
                 "updated": 1641801636027
+            },
+            {
+                "language": "PL",
+                "text": "Zanim pokażę Ci resztę menu, przyjrzyjmy się innej hierarchii: LAN Network.",
+                "updated": 1674834731551
             }
         ],
         "updated": 1640343243633
@@ -90,8 +95,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme   (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir",
-                    "updated": 1644848447271,
+                    "text": "Ağ hiyerarşisi (LAN Network), sistemin kontrol odasıdır. Burası Veri Görevlerinizi ( Data Task ), Test İşlemi Görevlerinizi (Testing Trading Tasks) ve Üretim İşlemi Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir.",
+                    "updated": 1669757823277,
                     "style": "Text"
                 },
                 {
@@ -110,6 +115,11 @@
                     "language": "RU",
                     "text": "Иерархия LAN Network - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
                     "updated": 1641801801269
+                },
+                {
+                    "language": "PL",
+                    "text": "Hierarchia sieci LAN jest punktem dowodzenia systemu. To tutaj kontrolujesz swoje Data Tasks, Testing Trading Tasks i Production Trading Tasks.",
+                    "updated": 1674834762406
                 }
             ],
             "updated": 1640343257331
@@ -164,6 +174,11 @@
                     "language": "RU",
                     "text": "Разверните иерархию и посмотрите внутрь!",
                     "updated": 1635510510872
+                },
+                {
+                    "language": "PL",
+                    "text": "Rozwiń hierarchię i zajrzyj do środka!",
+                    "updated": 1674834829119
                 }
             ]
         },
@@ -218,6 +233,11 @@
                     "language": "RU",
                     "text": "Вы видите узлы, о которых я упоминал ранее? Отлично! Мы здесь для того, чтобы начать Вашу первую операцию интеллектуального анализа данных.",
                     "updated": 1635510685551
+                },
+                {
+                    "language": "PL",
+                    "text": "Widzisz te węzły, o których wspomniałem wcześniej? Super! Jesteśmy tutaj, aby rozpocząć Twoją pierwszą w życiu operację zdobywania danych.",
+                    "updated": 1674834899116
                 }
             ]
         },
@@ -233,8 +253,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Pero antes de empezar, tengo una pregunta para ti, ¿estas accediendo al cliete de forma remota?",
-                    "updated": 1624281774932,
+                    "text": "Pero antes de empezar, tengo una pregunta para ti, ¿estas accediendo al cliente de forma remota?",
+                    "updated": 1675206557594,
                     "style": "Note"
                 },
                 {
@@ -271,6 +291,11 @@
                     "language": "RU",
                     "text": "Но прежде чем мы начнем, у меня к вам есть небольшой вопрос: получаете ли Вы доступ к Client удаленно?",
                     "updated": 1635511033016
+                },
+                {
+                    "language": "PL",
+                    "text": "Ale zanim zaczniemy, mam do Ciebie szybkie pytanie: czy łączysz się z Client zdalnie?",
+                    "updated": 1674834939917
                 }
             ]
         }

@@ -104,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Binance define el tamaño mínimo de transacción en BTC, por lo que el requisito en USDT varía mucho con el tiempo. Establecí la cantidad 100 USDT para asegurarme que no se produzcan errores. Puedes probar con una cantidad menor. Obtendras errores si es demasiado pequeño, pero puedes intentarlo tantas veces como sea necesario. Solo deten la tarea, cambia el initialBalance en el Session Quoted Asset y vuelva a intentarlo.",
-                    "updated": 1624471145987,
+                    "text": "Binance define el tamaño mínimo de transacción en BTC, por lo que el requisito en USDT varía mucho con el tiempo. Establecí la cantidad 100 USDT para asegurarme que no se produzcan errores. Puedes probar con una cantidad menor. Obtendras errores si es demasiado pequeño, pero puedes intentarlo tantas veces como sea necesario. Solo deten la tarea, cambia el initialBalance en el Session Quoted Asset y vuelve a intentarlo.",
+                    "updated": 1675361702396,
                     "style": "Success"
                 },
                 {

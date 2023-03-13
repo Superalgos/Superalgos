@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
-                "updated": 1625957988594,
+                "text": "La razón por la que la distancia al nodo padre es relativa a la distancia del padre a su padre es que ¡puedes afectar a estructuras largas de nodos!",
+                "updated": 1675375818853,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
-                    "updated": 1625958052161,
+                    "text": "Haz clic una vez en el botón \"Distance to Parent\" del nodo Network.",
+                    "updated": 1675375706767,
                     "style": "Callout"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
-                    "updated": 1625958134928,
+                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organizar visualmente las jerarquías!",
+                    "updated": 1675375718551,
                     "style": "Text"
                 },
                 {

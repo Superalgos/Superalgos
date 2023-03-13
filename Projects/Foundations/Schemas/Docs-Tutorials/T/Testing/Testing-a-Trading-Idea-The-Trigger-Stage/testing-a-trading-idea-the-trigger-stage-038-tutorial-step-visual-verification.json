@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Stratejinin beklendiği gibi açık ve kapalı olup olmadığını anlamak için simülasyonun hızlı bir görsel incelemesini yapalım!",
-                "updated": 1641655718540
+                "text": "Stratejinin beklendiği gibi açılıp kapandığını anlamak için simülasyon üzerinde hızlı bir görsel kontrol yapalım!",
+                "updated": 1669585494478
+            },
+            {
+                "language": "ES",
+                "text": "Hagamos una comprobación visual rápida de la simulación para entender si la estrategia se ha activado y desactivado como se esperaba.",
+                "updated": 1677102132102
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bollinger SubChannels Object katmanının katmanlar paneliyle birlikte açık olduğundan emin olun!",
                     "updated": 1641655738469
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de que la capa Bollinger SubChannels Object está activada junto con el \"layer's panel\".",
+                    "updated": 1677102141451
                 }
             ]
         },
@@ -64,8 +74,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "25 Şubat mumunun üzerine gelin. Bu, MA'nın aşağı inmesiyle kapanan ilk mum. Bunu alt kanalın kırmızı renginden ve paneldeki yön özelliğinden anlayabilirsiniz. Ancak, bu mumun eğimi yana (Side) ve ve stratejinin 25'inde tetiklenmemesinin nedeni budur. Koşulların yönün aşağı olması ve eğimin yandan (Side)  farklı olması gerektiğini unutmayın.",
-                    "updated": 1641655750970
+                    "text": "25 Şubat mumunun üzerine gelin. Bu, MA'nın aşağı inmesiyle kapanan ilk mum. Bunu alt kanalın kırmızı renginden ve paneldeki yön özelliğinden anlayabilirsiniz. Ancak, bu mumun eğimi yanadır (Side) ve stratejinin 25'inde tetiklenmemesinin nedeni budur. Unutmayın, koşullar yönün Aşağı olması ve eğimin Yan'dan farklı olması gerektiğiydi.",
+                    "updated": 1669585842931
+                },
+                {
+                    "language": "ES",
+                    "text": "Coloca el puntero del ratón en la vela del 25 de Febrero. Esta es la primera vela que cerró con la MA bajando. Puedes verlo por el color rojo del subcanal, y también mirando la propiedad de dirección en el panel. Sin embargo, la pendiente en esta vela es lateral, y esa es la razón por la que la estrategia no se activó el día 25. Recuerda, las condiciones son que la dirección debe ser Down y la pendiente debe ser diferente de Side.",
+                    "updated": 1677102148998
                 }
             ]
         }

@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "Tenemos una idea de lo que ocurre en el marco temporal de 1H. Vamos a alejarnos un poco y echar un vistazo al plazo intermedio.",
                 "updated": 1668191372889
+            },
+            {
+                "language": "IT",
+                "text": "Abbiamo un'idea di cosa sta succedendo nel lasso di tempo di 1H. Rimpiccioliamo un po' e diamo un'occhiata al termine intermedio.",
+                "updated": 1669900612474
+            },
+            {
+                "language": "NL",
+                "text": "We hebben een idee van wat er gaande is in het tijdsbestek van 1H. Laten we een beetje uitzoomen en naar de tussenliggende termijn kijken.",
+                "updated": 1670785614091
+            },
+            {
+                "language": "ID",
+                "text": "Kita memiliki ide tentang apa yang terjadi dalam timeframe 1H. Mari perkecil sedikit dan lihat jangka menengahnya (intermediate-term).",
+                "updated": 1674693995826
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Acabo de llevarle al gráfico de 4H, en las mismas fechas. Observa lo siguiente:",
                     "updated": 1668191436417
+                },
+                {
+                    "language": "IT",
+                    "text": "Ti ho appena portato al grafico 4H, nelle stesse date. Notare quanto segue:",
+                    "updated": 1669900631986
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb je zojuist naar de 4H-grafiek gebracht, op dezelfde data. Let op het volgende:",
+                    "updated": 1670785644044
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawamu ke chart 4H, pada tanggal yang sama. Perhatikan hal berikut:",
+                    "updated": 1674694016064
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "Ruptura: La ruptura que vimos en el gráfico de 1H es evidente también en el gráfico de 4H.",
                     "updated": 1668191454650
+                },
+                {
+                    "language": "IT",
+                    "text": "Breakdown: il breakdown che abbiamo visto nel grafico 1H è evidente anche nel grafico 4H.",
+                    "updated": 1669900651737
+                },
+                {
+                    "language": "NL",
+                    "text": "Breakdown: De neerwaartse uitbraak die we in de 1H-grafiek zagen, is ook duidelijk in de 4H-grafiek.",
+                    "updated": 1670785690163
+                },
+                {
+                    "language": "ID",
+                    "text": "Breakdown: Breakdown yang kita lihat di chart 1H juga terlihat di chart 4H.",
+                    "updated": 1674694009722
                 }
             ]
         },
@@ -107,6 +152,21 @@
                     "language": "ES",
                     "text": "Pasado inmediato: Antes de la ruptura del 10 de abril, el mercado había estado oscilando dentro de un rango durante un tiempo.",
                     "updated": 1668191512621
+                },
+                {
+                    "language": "IT",
+                    "text": "Passato immediato: prima del crollo del 10 aprile, il mercato oscillava da un po'.",
+                    "updated": 1669900667426
+                },
+                {
+                    "language": "NL",
+                    "text": "Immediate past: Vóór de neerwaartse uitbraak op 10 april was de markt al een tijdje aan het schommelen.",
+                    "updated": 1670785729803
+                },
+                {
+                    "language": "ID",
+                    "text": "Immediate past: Sebelum breakdown pada 10 April, market telah berkisar untuk sementara waktu.",
+                    "updated": 1674694029456
                 }
             ]
         },
@@ -133,6 +193,21 @@
                     "language": "ES",
                     "text": "Antes de eso: El mercado tenía una tendencia ascendente, es decir, el plazo intermedio estaba en una tendencia alcista.",
                     "updated": 1668191551564
+                },
+                {
+                    "language": "IT",
+                    "text": "Prima di allora: il mercato era in rialzo, ovvero il termine intermedio era in rialzo.",
+                    "updated": 1669900683345
+                },
+                {
+                    "language": "NL",
+                    "text": "Before that: De markt vertoonde een opwaartse trend, dat wil zeggen, de middellange termijn was in een opwaartse trend.",
+                    "updated": 1670785753427
+                },
+                {
+                    "language": "ID",
+                    "text": "Before that: Market sedang dalam tren naik keatas—artinya, jangka menengah sedang dalam keadaan uptrend.",
+                    "updated": 1674694088338
                 }
             ]
         },
@@ -159,6 +234,21 @@
                     "language": "ES",
                     "text": "Tendencia bajista: La ruptura del 10 de abril marcó el inicio de una tendencia bajista a medio plazo.",
                     "updated": 1668191566208
+                },
+                {
+                    "language": "IT",
+                    "text": "Trend ribassista: il crollo del 10 aprile ha segnato l'inizio di un trend ribassista a medio termine.",
+                    "updated": 1669900698463
+                },
+                {
+                    "language": "NL",
+                    "text": "Downtrend: De neerwaartse uitbraak op 10 april markeerde het begin van een neerwaartse trend op de middellange termijn.",
+                    "updated": 1670785780139
+                },
+                {
+                    "language": "ID",
+                    "text": "Downtrend: Breakdown pada 10 April menandai dimulainya tren turun dalam jangka menengah.",
+                    "updated": 1674694059069
                 }
             ]
         }

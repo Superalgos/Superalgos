@@ -4,7 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks', 'Available Signals', 'Available Storage']
     return thisObject
 
     function calculateTokenPower(
@@ -53,7 +53,9 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
-            node.type === 'Airdrop Program'
+            node.type === 'Airdrop Program' ||
+            node.type === 'Followed Bot Reference' ||
+            node.type === 'Task Server App'
         ) { return }
         /*
         We will reset token power of children.
@@ -162,7 +164,9 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
-            node.type === 'Airdrop Program'
+            node.type === 'Airdrop Program' ||
+            node.type === 'Followed Bot Reference' ||
+            node.type === 'Task Server App'
         ) { return }
         /*
         We will redistribute token power among children.
@@ -308,6 +312,10 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.payload.uiObject.valueAtAngle = true
 
             node.payload.uiObject.setValue(tokenPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
+
+            if (node.type === 'Task Server App' || node.type === 'Followed Bot Reference') {
+                node.payload.uiObject.setStatus(tokenPowerText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+            }
 
             if (percentage !== undefined) {
                 node.payload.uiObject.percentageAngleOffset = 180

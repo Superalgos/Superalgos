@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "En este momento, todos los procesos deberían estar al 100%. Necesitamos que los datos estén listos para poder ir a trabajar en los gráficos.",
                 "updated": 1668189996012
+            },
+            {
+                "language": "IT",
+                "text": "Ormai tutti i processi dovrebbero essere al 100%. Abbiamo bisogno che i dati siano pronti in modo da poter andare a lavorare sui grafici!",
+                "updated": 1669895717989
+            },
+            {
+                "language": "NL",
+                "text": "Inmiddels zouden alle processen op 100% moeten staan. We hebben de gegevens nodig, zodat we wat werk aan de grafieken kunnen gaan doen!",
+                "updated": 1670784560456
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang, semua proses seharusnya 100%. Kita membutuhkan data untuk kesiapan sehingga kita dapat pergi dan melakukan beberapa pekerjaan pada chart!",
+                "updated": 1674690042068
             }
         ]
     },
@@ -53,8 +68,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Revisa todos los procesos y comprueba si están al 100%. Si todos lo están, ¡pare el Data Tasks Node!",
-                    "updated": 1668190211896
+                    "text": "Revisa todos los procesos y comprueba si están al 100%. Si todos lo están, ¡Clic Stop en el Data Tasks Node!",
+                    "updated": 1675205604013
+                },
+                {
+                    "language": "IT",
+                    "text": "Guardati intorno e vedi se tutti i processi sono al 100%. Se lo sono tutti, allora interrompi il data mining!",
+                    "updated": 1669895735643
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk rond en kijk of alle processen op 100% staan. Als ze dat allemaal zijn, stop dan de datamining!",
+                    "updated": 1670784588128
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah ke sekeliling dan lihat apakah semua proses berada pada 100%. Jika semuanya sudah, maka hentikan data mining!",
+                    "updated": 1674690033303
                 }
             ]
         },
@@ -79,8 +109,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Espere hasta que todos los procesos estén al 100% antes de continuar!",
-                    "updated": 1668190115448
+                    "text": "¡Espera hasta que todos los procesos estén al 100% antes de continuar!",
+                    "updated": 1675205614528
+                },
+                {
+                    "language": "IT",
+                    "text": "Attendere che tutti i processi raggiungano il 100% prima di continuare!",
+                    "updated": 1669895774750
+                },
+                {
+                    "language": "NL",
+                    "text": "Wacht tot alle processen de 100%-markering hebben bereikt voordat u verder gaat!",
+                    "updated": 1670784600644
+                },
+                {
+                    "language": "ID",
+                    "text": "Tunggu hingga semua proses mencapai tanda 100% sebelum melanjutkan!",
+                    "updated": 1674690050196
                 }
             ]
         },
@@ -107,6 +152,16 @@
                     "language": "ES",
                     "text": "En el siguiente paso vamos a los gráficos y miraremos las Bandas de Bollinger para poder discutir la idea de trading que vamos a probar.",
                     "updated": 1668190165911
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende stap gaan we naar de grafieken om de Bollinger Bands te controleren, zodat we het handelsidee kunnen bespreken dat we zullen testen!",
+                    "updated": 1670784632487
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada langkah selanjutnya kita akan melihat chart untuk memeriksa Bollinger Bands sehingga kita dapat mendiskusikan ide trading yang akan kita uji!",
+                    "updated": 1674690056710
                 }
             ]
         }

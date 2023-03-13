@@ -8,7 +8,7 @@ jest.mock('child_process', () => {
   let cwd = __dirname
   let dirs = cwd.split(path.sep)
   let name = dirs[dirs.length - 1]
-  let desktop = path.join(os.homedir(), "Desktop", `${name}.lnk`)
+  let desktop = path.join(os.homedir(), "SocialTrading", `${name}.lnk`)
   let startMenu = path.join(os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
   
   return {
@@ -17,10 +17,10 @@ jest.mock('child_process', () => {
       if (command === `del "${desktop}" & del "${startMenu}"`) {
         return 0
       }
-      if (command === `rm ~/Desktop/${name}.command`) {
+      if (command === `rm ~/SocialTrading/${name}.command`) {
         return 0
       }
-      if (command === `rm ~/Desktop/${name}.desktop & rm ~/.local/share/applications/${name}.desktop`) {
+      if (command === `rm ~/SocialTrading/${name}.desktop & rm ~/.local/share/applications/${name}.desktop`) {
         return 0
       }
     })

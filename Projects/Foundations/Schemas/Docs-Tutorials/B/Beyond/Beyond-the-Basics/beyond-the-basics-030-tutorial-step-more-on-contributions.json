@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Aku tidak bisa cukup menekankan betapa pentingnya bagi proyek ini bahwa pengguna berkontribusi apa saja yang mereka buat dengan Superalgos!",
                 "updated": 1669153893267
+            },
+            {
+                "language": "NL",
+                "text": "Ik kan niet genoeg benadrukken hoe belangrijk het voor het project is dat gebruikers bijdragen aan wat ze bouwen met Superalgos!",
+                "updated": 1669750418299
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si decides involucrarte con el proyecto y el Community, puedes participar en el esfuerzo colectivo para mejorar Superalgos. Pero incluso si no está interesado en el trabajo en equipo, seguirá desarrollando sus habilidades, se convertirá en un usuario avanzado y creará muchas cosas que pueden ser útiles para las personas que vienen después de ti.",
-                    "updated": 1628198688305,
+                    "text": "Si decides involucrarte con el proyecto y el Community, puedes participar en el esfuerzo colectivo para mejorar Superalgos. Pero incluso si no estás interesado en el trabajo en equipo, seguirás desarrollando tus habilidades, te convertirás en un usuario avanzado y crearás muchas cosas que pueden ser útiles para las personas que vienen después de ti.",
+                    "updated": 1675454661254,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Jika kamu memilih untuk terlibat dengan proyek dan komunitas, kamu dapat berpartisipasi dalam upaya kolektif untuk membuat Superalgos lebih baik. Tetapi jika kamu tidak tertarik untuk bekerja secara tim, kamu masih harus mengembangkan skill, menjadi pengguna yang berpower, dan membangun banyak hal yang mungkin berguna bagi orang-orang yang menggunakan setelah kamu!",
                     "updated": 1669153848805
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u ervoor kiest om betrokken te raken bij het project en de Community, kunt u deelnemen aan de collectieve inspanning om Superalgos beter te maken. Maar zelfs als u niet geïnteresseerd bent in teamwerk, zult u nog steeds uw vaardigheden ontwikkelen, een ervaren gebruiker worden en veel dingen bouwen die nuttig kunnen zijn voor mensen die na u komen!",
+                    "updated": 1669750466899
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "How to Contribute to Superalgoses cubre la logística sobre cómo contribuir trading systems, data mines, iconos, documentación, traducciones, etc. Recuerda: ¡todas las contribuciones son incentivadas con tokens de Superalgos!",
-                    "updated": 1628198795991,
+                    "text": "How to Contribute to Superalgos cubre la logística sobre cómo contribuir en Trading system, Data Mines, Iconos, Documentación, Traducciones, etc. Recuerda: ¡todas las contribuciones son incentivadas con tokens de Superalgos!",
+                    "updated": 1675454706036,
                     "style": "Success"
                 },
                 {
@@ -115,6 +125,11 @@
                     "language": "ID",
                     "text": "How to Contribute to Superalgos merupakan topik yang mencakup rangkaian upaya tentang bagaimana berkontribusi pada sistem trading, data mining, ikon, dokumentasi, terjemahan, dan sebagainya. Semua kontribusi diberi insentif dengan token Superalgos!",
                     "updated": 1669153985360
+                },
+                {
+                    "language": "NL",
+                    "text": "How to Contribute to Superalgos is het onderwerp dat de logistiek behandelt over het bijdragen aan handelssystemen, datamijnen, iconen, documentatie, vertalingen, enzovoort. Onthoud: alle bijdragen worden beloond met Superalgos-tokens!",
+                    "updated": 1669750514543
                 }
             ]
         }

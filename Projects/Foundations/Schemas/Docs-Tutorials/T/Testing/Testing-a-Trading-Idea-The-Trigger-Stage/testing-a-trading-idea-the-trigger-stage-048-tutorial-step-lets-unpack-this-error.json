@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor!",
-                "updated": 1641661632347
+                "text": "Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor!",
+                "updated": 1669587823516
             },
             {
                 "language": "RU",
                 "text": "Ошибка связана с одним из наших условий. Детали ошибки четко указывают на код Javascript, который мы использовали!",
                 "updated": 1642657652939
+            },
+            {
+                "language": "ES",
+                "text": "El error está asociado a una de nuestras condiciones. ¡Los detalles del error apuntaban claramente al código Javascript Code que utilizamos!",
+                "updated": 1677105104139
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "language": "RU",
                     "text": "Ошибка говорит, что свойство direction объекта, который является \"undefined\", не может быть прочитано.",
                     "updated": 1642657681511
+                },
+                {
+                    "language": "ES",
+                    "text": "El error dice que no se puede leer la propiedad \"direction\" de un objeto que está \"undefined\".",
+                    "updated": 1677105136533
                 }
             ]
         },
@@ -66,13 +76,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hatanın ilişkili olduğu nesne bollingerSubChannel ürünüdür. Bu nesne \\\"tanımsız\\\". Peki neden? Bulmacanın son bir parçası daha var: hata veri kümesinin başında oluşuyor. Sorunu anladın mı?",
-                    "updated": 1641661675751
+                    "text": "Hatanın atıfta bulunduğu nesne bollingerSubChannel ürünüdür. Bu nesne \"undefined\" (tanımlanmamış). Neden? Bulmacanın son bir parçası daha var: hata veri setinin başında meydana geliyor. Sorunu görüyor musunuz?",
+                    "updated": 1669587905723
                 },
                 {
                     "language": "RU",
                     "text": "Объектом, на который ссылается ошибка, является продукт bollingerSubChannel. Этот объект не определен. Почему? Остался последний кусочек головоломки: ошибка происходит в начале набора данных. Вы видите проблему?",
                     "updated": 1642657734402
+                },
+                {
+                    "language": "ES",
+                    "text": "El objeto al que se refiere el error es el producto bollingerSubChannel. Ese objeto es \"undefined\". ¿Por qué? Hay una última pieza que encaja en el puzzle: el error se produce al principio del conjunto de datos. ¿Ves el problema?",
+                    "updated": 1677105188753
                 }
             ]
         }

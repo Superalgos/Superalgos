@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Geleneksel bir ticaret botu, bir Ticaret Sisteminde tutulan mantığa dayalı olarak ticaret gerçekleştirir. Ticaret sinyalleri, sinyal verilerini iletmek ve almak için bir Ticaret Botu Görevinin ( Trading Bot Task ) bu işlevlerine eklenir.",
                 "updated": 1646299730972
+            },
+            {
+                "language": "DE",
+                "text": "Ein traditioneller Trading Bot führt Trades basierend auf der Logik eines Handelssystem (Trading Systems) aus. Handelssignale ergänzen diese Funktionen eines Handels-Bot-Aufgabe (Trading Bot Task), um Signaldaten zu senden und zu empfangen.",
+                "updated": 1674677718110
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ticaret Botu ( Trading Bot ) görevleri, Sosyal Ticaret Botlarından çok farklıdır! Sosyal ticaret botları, eşler arası ağdaki ticaret sinyallerini tanımlar ve açığa çıkarır. Ticaret botu görevleri ( Trading Bot Task ), gerçekten ticaret sinyalleri üretmek veya almak için mekanikleri çalıştırır. Bu ticaret botu görevlerini, ticaret sistemi içinde tutulan tüm mantığı harekete geçirecek kas gücü ve ayrıca ağ üzerinde aktif olan sosyal ticaret botlarına sinyal verisi beslemek ve onlardan veri almak için kas gücü olarak düşünebilirsiniz.",
                     "updated": 1646300024445
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Aufgaben eines Handels-Bots (Trading Bots) unterscheiden sich stark von denen eines Sozialen-Handels-Bots (Social Trading Bots)! Während Social Trading Bots Handelssignale im Peer-to-Peer-Netzwerk definieren und ausgeben. Handels (Trading) -Bot-Aufgaben führen die Mechanismen aus, um tatsächlich Handelssignale zu erzeugen oder zu empfangen. Man kann sich diese Trading-Bot-Aufgaben als die Muskeln vorstellen, die die gesamte Logik des Handelssystems in die Tat umsetzen sowie Signaldaten an Social Trading-Bots, die im Netzwerk aktiv sind, weiterleiten und von diesen Daten empfangen.",
+                    "updated": 1674677997123
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Ticaret Botu ( Trading Bot ) görevleri, Superalgos Platformunun görev sunucusu içinde çalışır. Mevcut makinenin kendisini eşler arası ağda tanımlaması için görev sunucusunun kendisinde ayarlanmış bir imzalama hesabı olmalıdır. Her Ticaret botu görevi, ağa erişmek için mevcut kullanıcının görev sunucusunun imzalama hesabını kullanır. Bu, ticaret botunu tutan Görev düğümünün altında bir Görev Sunucusu Uygulama Referans ( Task Server App Reference ) düğümü kurularak elde edilir. Ardından, Görev Sunucusu Uygulaması ( Task Server App ) düğümünden (kullanıcı yönetim profili altında tutulur) Görev Sunucusu Uygulama Referansı düğümüne bir referans bağlayın. Bu, görev içinde çalışan botun mevcut kullanıcıyla ilişkili imzalama hesabına erişmesini sağlar.",
                     "updated": 1646300205455
+                },
+                {
+                    "language": "DE",
+                    "text": "Handels-Bot (Trading Bot) -Aufgaben laufen innerhalb des Aufgabenservers der Superalgos-Plattform. Auf dem Aufgabenserver selbst muss ein Signing Account eingerichtet sein, damit sich der aktuelle Rechner im Peer-to-Peer-Netzwerk identifizieren kann. Jede Handels (Trading) -Bot-Aufgabe verwendet das Signierkonto für den Aufgabenserver des aktuellen Benutzers, um auf das Netzwerk zuzugreifen. Dazu wird ein Aufgaben-Server-App-Referenzknoten (Task-Server-App Reference)  unterhalb des Aufgaben (Task) -Knotens eingerichtet, der den Trading-Bot enthält. Verbinden Sie dann einen Verweis vom Aufgaben-Server-App (Task Server App) -Knoten (unter dem Governance-Profil des Benutzers) mit dem Aufgaben-Server-App-Referenz (Task Server App-Referenz) -Knoten. Dadurch erhält der Bot, der innerhalb dieser Aufgabe ausgeführt wird, Zugriff auf das mit dem aktuellen Benutzer verknüpfte Signing Account.",
+                    "updated": 1674678278455
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Buna ek olarak, ticaret botu görevinin ayrıca sinyal göndereceği veya sinyal alacağı Sosyal Ticaret Botuna ( Social Trading Bot ) bir referansı olması gerekir. Bu, bir Sosyal Ticaret Botu Referans ( Social Trading Bot Reference ) düğümünü Ticaret Botu Örneği ( Trading Bot Instance ) düğümüne bağlayarak yapılır. Ardından, sosyal ticaret botu referans düğümü ile sosyal ticaret botu düğümü arasında bir referans bağlayın. Sosyal ticaret bot düğümü, sinyal alıyorsa sağlayıcının profili altında ve sinyal gönderiyorsa kullanıcının profili altında tutulacaktır.",
                     "updated": 1646300569671
+                },
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus muss die Handelsbot-Aufgabe auch einen Verweis auf den Sozial-Handels-Bot (Social Trading Bot) haben, über den sie entweder Signale sendet oder von dem sie Signale empfängt. Dazu wird ein Soziale-Handels-Bot-Referenz (Social Trading Bot Reference) -Knoten mit dem Knoten der Handelsbot-Instanz (Trading Bot Instance) verbunden. Dann verbinden Sie eine Referenz zwischen dem Sozial-Handels-Bot-Referenzknoten und dem Social Trading Bot-Knoten. Der Social Trading Bot-Knoten wird unter dem Profil des Anbieters gehalten, wenn er Signale empfängt, und unter dem Profil des Benutzers, wenn er Signale sendet.",
+                    "updated": 1674756444049
                 }
             ]
         },

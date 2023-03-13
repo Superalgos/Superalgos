@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir düğüm sabitlendiğinizde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
-                "updated": 1636699565557
+                "text": "Bir düğüm sabitlendiğinde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
+                "updated": 1670337762210
             },
             {
                 "language": "RU",
@@ -161,8 +161,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümü konumunda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
-                    "updated": 1636699753332
+                    "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümünü az önce başka bir yere sabitlediğimiz için sabitlenen konumda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
+                    "updated": 1670337844284
                 },
                 {
                     "language": "RU",

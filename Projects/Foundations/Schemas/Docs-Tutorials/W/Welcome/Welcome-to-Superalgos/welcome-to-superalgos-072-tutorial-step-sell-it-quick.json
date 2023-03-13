@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Estoy seguro de que haz notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer!",
-                "updated": 1624456933199,
+                "text": "Estoy seguro de que has notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer!",
+                "updated": 1675280516347,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Ik weet zeker dat je hebt opgemerkt dat er geen limiet aankooporders meer zijn nadat de bestelling is gevuld. In plaats daarvan verschijnen er verkooporders!",
                 "updated": 1666878322308
+            },
+            {
+                "language": "FR",
+                "text": "Je suis sûr que vous avez remarqué qu'il n'y a plus d'ordres d'achat limités après que l'ordre ait été exécuté. Au lieu de cela, les ordres de vente commencent à apparaître !",
+                "updated": 1676899092570
             }
         ]
     },
@@ -72,8 +77,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 AM'de nasıl verildiğine dikkat edin!",
-                    "updated": 1636203947395
+                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 'de nasıl verildiğine dikkat edin!",
+                    "updated": 1670007878805
                 },
                 {
                     "language": "RU",
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Merk op hoe de eerste Limit Sell Order om 00:22 uur wordt geplaatst, de minuut nadat de kooporder is gevuld!",
                     "updated": 1666878361205
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez comment le premier ordre de vente limite est placé à 00:22 AM, la minute après l'exécution de l'ordre d'achat !",
+                    "updated": 1676899124873
                 }
             ]
         },
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Het is op hetzelfde moment dat Superalgos bericht zou hebben gekregen van het handelsplatform dat de bestelling werd uitgevoerd. De Trading Bot maakt verbinding met het handelsplatform en doorloopt twee verschillende cycli.",
                     "updated": 1666878430412
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est à la même minute que Superalgos aurait reçu un avis de l'exchange indiquant que l'ordre a été exécuté. Le Trading Bot se connecte à l'exchange et passe par deux cycles distincts.",
+                    "updated": 1676899163682
                 }
             ]
         },
@@ -176,6 +191,11 @@
                     "language": "NL",
                     "text": "In de eerste Cycle komt het de status van bestaande bestellingen te weten. In de tweede geeft het nieuwe instructies.",
                     "updated": 1666878468319
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans le premier cycle, il s'informe du statut des ordres existants. Dans le second, il donne de nouvelles instructions.",
+                    "updated": 1676899191899
                 }
             ]
         }

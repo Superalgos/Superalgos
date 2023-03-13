@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Öğreticiler sistem içinde tanımlanmıştır, ancak dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
-                "updated": 1644846391466,
+                "text": "Öğreticiler sistem içinde tanımlanmıştır, ancak dilerseniz katkıda bulunarak daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
+                "updated": 1669757154388,
                 "style": "Definition"
             },
             {
@@ -55,6 +55,11 @@
                 "language": "RU",
                 "text": "Учебное пособие устанавливается через систему, поэтому Вы можете создать больше нас, если Вы этого пожелаете. Но мы обсудим эти детали позднее. Давайте сначала сосредоточимся на базовых шагах!",
                 "updated": 1635450888939
+            },
+            {
+                "language": "PL",
+                "text": "Samouczki są częścią systemu, więc możesz stworzyć ich więcej jeżeli chcesz! Omówimy moc tworzenia później. Najpierw skupmy się na podstawach!",
+                "updated": 1674751236230
             }
         ]
     },
@@ -89,8 +94,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarındaki bilgileri temsil eder. Sağınızda gördüğünüz şey, bu hiyerarşilerden biri olan Öğretici (Tutorial) hiyerarşisi. Bu örnekte, \"Tutorial\" düğüm türüdür ve \"Welcome To Superalgos!\" da düğümün adıdır.",
-                    "updated": 1644846502693,
+                    "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarından oluşur. Sağınızda gördüğünüz şey, bu hiyerarşilerden biri olan Öğretici (Tutorial) hiyerarşisi. Bu örnekte, \"Tutorial\" düğüm türüdür ve \"Welcome To Superalgos!\" da düğümün adıdır.",
+                    "updated": 1669757305719,
                     "style": "Text"
                 },
                 {
@@ -109,6 +114,11 @@
                     "language": "RU",
                     "text": "По сути Superalgos является визуальным инструментом. Система представляет информацию в иерархических структурах взаимосвязанных узлов, представленных иконками. То, что Вы видите справа, является одной из этих иерархий, в частности, иерархией учебного пособия - \"Tutorial\". В этом случае Tutorial - это тип узла, а глава \"Welcome to Superalgos!\" - это наименование узла.",
                     "updated": 1635507910736
+                },
+                {
+                    "language": "PL",
+                    "text": "Superalgos z natury jest narzędziem graficznym. System prezentuje informacje jako hierarchicznie powiązane ze sobą węzły, które z kolei są reprezentowane przez ikony. To co widzisz po prawej to jedna z takich hierarchii, hierarchia Tutorial. W tym wypadku, \"tutorial\" jest typem węzła a \"Welcome to Superalgos!\" jest nazwą tego węzła.",
+                    "updated": 1674751643942
                 }
             ],
             "updated": 1616410534255
@@ -169,6 +179,11 @@
                     "language": "TR",
                     "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi? Çok daha fazla düğme ortaya çıktı!",
                     "updated": 1644846559259
+                },
+                {
+                    "language": "PL",
+                    "text": "Przesuń kursor myszy na węzeł Tutorial i zobacz co się stanie! Wow! Ekstra prawda? To naprawdę dużo przycisków!",
+                    "updated": 1674751730969
                 }
             ]
         }

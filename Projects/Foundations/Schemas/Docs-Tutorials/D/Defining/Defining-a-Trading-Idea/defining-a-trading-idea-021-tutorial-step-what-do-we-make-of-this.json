@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "No podemos llegar a conclusiones universales analizando un solo caso, pero sí podemos proponer una hipótesis para ponerla a prueba.",
                 "updated": 1668191879629
+            },
+            {
+                "language": "IT",
+                "text": "Non possiamo arrivare a conclusioni universali analizzando un singolo caso, ma possiamo proporre un'ipotesi da verificare!",
+                "updated": 1669900840472
+            },
+            {
+                "language": "NL",
+                "text": "We kunnen geen universele conclusies trekken door een enkel geval te analyseren, maar we kunnen wel een hypothese voorstellen om te testen!",
+                "updated": 1670786049113
+            },
+            {
+                "language": "ID",
+                "text": "Kita tidak dapat sampai pada kesimpulan universal hanya dengan menganalisis satu kasus, tetapi kita dapat mengajukan hipotesis untuk diuji!",
+                "updated": 1674698005776
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "En este punto, una hipótesis razonable sería:",
                     "updated": 1668191909738
+                },
+                {
+                    "language": "IT",
+                    "text": "A questo punto un'ipotesi ragionevole sarebbe:",
+                    "updated": 1669900857097
+                },
+                {
+                    "language": "NL",
+                    "text": "Op dit punt zou een redelijke hypothese zijn:",
+                    "updated": 1670786064626
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada titik ini, hipotesis yang masuk akal adalah:",
+                    "updated": 1674698012628
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "En el contexto de una tendencia alcista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir un cambio de tendencia intermedia.",
                     "updated": 1668191997129
+                },
+                {
+                    "language": "IT",
+                    "text": "Nel contesto di un trend rialzista nel grafico giornaliero, una ripartizione delle bande di Bollinger nel grafico 1H potrebbe prevedere un'inversione del trend intermedio.",
+                    "updated": 1669900872970
+                },
+                {
+                    "language": "NL",
+                    "text": "In de context van een opwaartse trend in de dagelijkse grafiek, kan een neerwaartse actie van de Bollinger Bands in de 1H-grafiek een omkering in de tussenliggende trend voorspellen.",
+                    "updated": 1670786132515
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam konteks tren naik di cgart harian, breakdown Bollinger Bands di chart 1H dapat memprediksi pembalikan tren menengah (intermediate trend).",
+                    "updated": 1674698019410
                 }
             ]
         },
@@ -107,6 +152,16 @@
                     "language": "ES",
                     "text": "¡Dejemos esta hipótesis para más adelante y analicemos otro caso!",
                     "updated": 1668192020851
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we deze hypothese voor later bewaren en een ander geval onderzoeken!",
+                    "updated": 1670786145778
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari simpan hipotesis ini untuk nanti dan lihat satu kasus lain!",
+                    "updated": 1674698025776
                 }
             ]
         }

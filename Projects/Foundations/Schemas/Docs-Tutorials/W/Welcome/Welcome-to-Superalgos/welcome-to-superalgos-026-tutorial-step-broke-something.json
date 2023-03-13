@@ -53,6 +53,11 @@
                 "language": "FR",
                 "text": "Si vous avez cassé quelque chose, comme la suppression d'un nœud ou la modification d'une configuration, et que vous ne savez pas comment gérer le résultat...",
                 "updated": 1667986424284
+            },
+            {
+                "language": "PL",
+                "text": "Jeśli kiedykolwiek coś zepsujesz - np. usuniesz węzeł lub zmienisz konfigurację - i nie wiesz, jak sobie poradzić...",
+                "updated": 1675002427227
             }
         ]
     },
@@ -75,8 +80,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace!",
-                    "updated": 1624292407924,
+                    "text": "...puedes volver a empezar fácilmente con el espacio de trabajo Getting Started Tutorials Plugins Workspace o con el espacio de trabajo de Partner Exchange que estés utilizando.",
+                    "updated": 1675207320108,
                     "style": "Callout"
                 },
                 {
@@ -105,6 +110,11 @@
                     "language": "FR",
                     "text": "... vous pouvez facilement recommencer à partir de l'espace de travail original Getting Started Tutorials Plugin Workspace  ou de l'espace de travail de l'échange de partenaires que vous utilisez peut-être !",
                     "updated": 1667986479697
+                },
+                {
+                    "language": "PL",
+                    "text": "...możesz łatwo zacząć od oryginalnej przestrzeni roboczej Getting Started Tutorials Plugin Workspace lub przestrzeni roboczej Partner Exchange, której używasz!",
+                    "updated": 1675002477574
                 }
             ],
             "updated": 1640358082476
@@ -127,8 +137,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Todo lo que tienes que hacer es tirar de la pestaña de la izquierda de la pantalla y hacer clic en Getting-Started plugin workspace.",
-                    "updated": 1618438234984,
+                    "text": "En tal caso, simplemente tira de la pestaña de la izquierda, desplázate, encuentra el espacio de trabajo y ¡haz clic en él! El Plugin Workspace original se cargará y el tutorial se mostrará de nuevo, ¡nuevo desde el principio!",
+                    "updated": 1675207383962,
                     "style": "Text"
                 },
                 {
@@ -145,8 +155,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekip kaydırmanız, çalışma alanını ( Plugin Workspace ) bulmanız ve tıklamanız yeterlidir!",
-                    "updated": 1640627614538
+                    "text": "Böyle bir durumda, sadece sol taraftaki sekmeyi çekin, kaydırın, çalışma alanını bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı (Plugin Workspace) yüklenecek ve öğretici en baştan tekrar görünecektir!",
+                    "updated": 1669837803330
                 },
                 {
                     "language": "NL",
@@ -157,6 +167,11 @@
                     "language": "FR",
                     "text": "Dans ce cas, il suffit de tirer l'onglet sur le côté gauche, de faire défiler, de trouver l'espace de travail et de cliquer dessus ! L'espace de travail original du plugin se chargera et le tutoriel s'affichera à nouveau, depuis le début !",
                     "updated": 1667986508998
+                },
+                {
+                    "language": "PL",
+                    "text": "W takim przypadku wystarczy otworzyć zakładkę, która jest po lewej stronie, przewinąć, znaleźć obszar roboczy i kliknąć go! Oryginalny Plugin Workspace załaduje się i samouczek pojawi się ponownie!",
+                    "updated": 1675002567922
                 }
             ],
             "updated": 1640358203586
@@ -168,8 +183,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Plugin Workspaces son los primeros en la lista con un fondo negro. Luego viene la lista de espacios de trabajo de usuarios, sobre un fondo violeta.",
-                    "updated": 1624292101033,
+                    "text": "También puedes utilizar el menú Workspaces, situado en la esquina superior izquierda de la pantalla.",
+                    "updated": 1675207424915,
                     "style": "Success"
                 },
                 {
@@ -203,6 +218,11 @@
                     "language": "FR",
                     "text": "Vous pouvez également utiliser le menu Workspaces dans le coin supérieur gauche de l'écran !",
                     "updated": 1667986547710
+                },
+                {
+                    "language": "PL",
+                    "text": "Możesz również skorzystać z menu Workspaces w lewym górnym rogu ekranu!",
+                    "updated": 1675002591209
                 }
             ]
         }

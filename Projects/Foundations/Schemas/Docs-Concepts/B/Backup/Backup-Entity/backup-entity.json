@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Belirli bir düğüm ve onun yavruları ile ilgili referanslar da dahil olmak üzere, tüm Çalışma Alanı veya bir düğüm olabilen varlık ile bir JSON dosyası indirir. Tüm çalışma alanınızı veya çalışma alanınızdaki belirli bir düğüm yapısını kaydetmek için bu özelliği kullanın, böylece daha sonra ihtiyacınız olduğunda tüm referanslar da dahil olmak üzere bilgileri geri yükleyebilirsiniz. Referans olması açısından, indirilen dosyanın adı Yedekleme'dir ve ardından yedeklediğiniz varlığın adı gelir.",
-                "updated": 1654390843264
+                "text": "Belirli bir düğüm ve onun yavruları ile ilgili referanslar da dahil olmak üzere, tüm Çalışma Alanı ( Workspace ) veya bir düğüm olabilen varlık ile bir JSON dosyası indirir. Tüm çalışma alanınızı veya çalışma alanınızdaki belirli bir düğüm yapısını kaydetmek için bu özelliği kullanın, böylece daha sonra ihtiyacınız olduğunda tüm referanslar da dahil olmak üzere bilgileri geri yükleyebilirsiniz. Referans olması açısından, indirilen dosyanın adı Yedekleme'dir ( backup ) ve ardından yedeklediğiniz varlığın adı gelir.",
+                "updated": 1671645433659
             }
         ]
     },

@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
-                "updated": 1641653922774
+                "text": "Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
+                "updated": 1669577686096
+            },
+            {
+                "language": "ES",
+                "text": "Utilizaremos la propiedad de pendiente del indicador de Bollinger Subchannels para confirmar que una tendencia es una verdadera tendencia.",
+                "updated": 1675640223413
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Fare işaretçisini farklı alt kanallar üzerinde hareket ettirin ve çizici panelindeki (plotter panel) raporlanan eğilimleri not alın.",
                     "updated": 1641653967743
+                },
+                {
+                    "language": "ES",
+                    "text": "Desliza el puntero del ratón sobre diferentes subcanales y observa su pendiente en el panel del plotter.",
+                    "updated": 1675640243001
                 }
             ]
         },
@@ -64,8 +74,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "alt kanalların eğiminin bir trendde neredeyse hiç yanal olmadığını unutmayın. Yanal eğim MA'da mümkün olan en düşük eğimi temsil ettiği için bu da beklenen bir durumdur. Piyasanın dalgalı olduğu dönemlerde yön yukarı ve aşağı yönlü hareketler arasında ileri geri geçiş yapabilir, ancak eğim çoğunlukla yanaldır.",
-                    "updated": 1641653985058
+                    "text": "Piyasa trenddeyken, alt kanal eğiminin neredeyse hiçbir zaman Yan olmadığına dikkat edin. Yan eğim MA'da mümkün olan en sığ eğimi temsil ettiği için bu beklenen bir durumdur. Öte yandan, piyasanın değişkenlik gösterdiği dönemlerde, yön Yukarı ve Aşağı arasında gidip gelse de, eğim çoğunlukla Yan'dır.",
+                    "updated": 1669577763292
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa que cuando el mercado está en tendencia, la pendiente del subcanal casi nunca es lateral. Y eso es de esperar, ya que la pendiente lateral representa la menor pendiente posible en la MA. Por otro lado, en los periodos en los que el mercado oscila, aunque la dirección puede oscilar entre alcista y bajista, la pendiente es mayoritariamente lateral.",
+                    "updated": 1675640275136
                 }
             ]
         }

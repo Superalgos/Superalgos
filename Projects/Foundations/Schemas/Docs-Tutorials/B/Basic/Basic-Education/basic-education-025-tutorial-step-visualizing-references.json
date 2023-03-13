@@ -102,8 +102,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Presiona la siguiente combinación de teclas: Ctrl + Shift + Alt + Key-R",
-                    "updated": 1626532976069,
+                    "text": "Pulsa la siguiente combinación de teclas: Ctrl + Shift + Key-R o Cmd + Shift + Key-R en Mac.",
+                    "updated": 1675376456911,
                     "style": "Callout"
                 },
                 {
@@ -146,8 +146,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora puede ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
-                    "updated": 1626533039571,
+                    "text": "Ahora puedes ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
+                    "updated": 1675376471308,
                     "style": "Text"
                 },
                 {

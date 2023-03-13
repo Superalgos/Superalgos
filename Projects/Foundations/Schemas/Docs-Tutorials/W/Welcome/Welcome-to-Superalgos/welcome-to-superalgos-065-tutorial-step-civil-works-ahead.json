@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Wees niet verbaasd als je hier en daar een bord 'in aanbouw' vindt...",
                 "updated": 1666874868777
+            },
+            {
+                "language": "FR",
+                "text": "Ne soyez pas surpris si vous trouvez un panneau \"en construction\" ici et là...",
+                "updated": 1676898115024
             }
         ],
         "updated": 1622200773527
@@ -90,6 +95,11 @@
                     "language": "NL",
                     "text": "Zoals ik eerder al zei, groeit Superalgos voortdurend, en de infrastructuur die voor de komende versie is ontworpen, kan af en toe worden samengevoegd met de huidige versie in een servicepack, samen met de nodige reparaties en kleine verbeteringen.",
                     "updated": 1666874908192
+                },
+                {
+                    "language": "FR",
+                    "text": "Comme je l'ai mentionné précédemment, Superalgos est en constante évolution, et l'infrastructure conçue pour la prochaine version peut occasionnellement être intégrée à la version actuelle dans un service pack, avec les corrections et améliorations mineures nécessaires.",
+                    "updated": 1676898154177
                 }
             ]
         },
@@ -105,8 +115,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si tienes curiosidad sobre lo que se está cocinando para el próximo lanzamiento de Superalgos, únete al grupo <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a> en Telegram.",
-                    "updated": 1624451110541,
+                    "text": "Si tienes curiosidad por saber qué se cuece para el próximo lanzamiento de Superalgos, únete al grupo de Telegram <a href='https://t.me/superalgosdevelop'>Superalgos Develop</a>",
+                    "updated": 1675279712423,
                     "style": "Callout"
                 },
                 {
@@ -116,8 +126,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir sonraki sürüm içeriğini öğrenebilmek için Telegram Grubumuza Katılın. https://t.me/superalgosdevelop",
-                    "updated": 1636119227691
+                    "text": "Bir sonraki sürüm içeriğini öğrenebilmek için Telegram Grubumuza Katılın. https://t.me/superalgosdevelop  ",
+                    "updated": 1669921299922
                 },
                 {
                     "language": "RU",
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Als je nieuwsgierig bent naar wat er staat te gebeuren voor de aanstaande Superalgos release, sluit je dan aan bij de Superalgos Develop Telegram groep.",
                     "updated": 1666874947105
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous êtes curieux de savoir ce qui se prépare pour la prochaine version de Superalgos, rejoignez le groupe Telegram de développement de Superalgos.",
+                    "updated": 1676898197379
                 }
             ],
             "updated": 1636750158168

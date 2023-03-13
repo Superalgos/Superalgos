@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "¿Cómo de genial sería ser capaz de predecir la continuación de una caída una vez que la tendencia ya está establecida?",
                 "updated": 1668192466008
+            },
+            {
+                "language": "IT",
+                "text": "Quanto sarebbe bello poter prevedere la continuazione di una recessione una volta che la tendenza è già stabilita?",
+                "updated": 1669900998709
+            },
+            {
+                "language": "NL",
+                "text": "Hoe cool zou het zijn om de voortzetting van een recessie te kunnen voorspellen als de trend al is ingezet?",
+                "updated": 1670786420873
+            },
+            {
+                "language": "ID",
+                "text": "Betapa kerennya bisa memprediksi kelanjutan penurunan setelah tren sudah terbentuk?",
+                "updated": 1674698535049
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Predecir el cambio de una tendencia bien establecida es una tarea muy complicada. El análisis que acabamos de hacer para el 10 de abril es un buen ejemplo: aunque la ruptura en los marcos temporales 1H y 4H marcó un cambio de tendencia a medio plazo, la tendencia a largo plazo se mantuvo intacta.",
                     "updated": 1668192875405
+                },
+                {
+                    "language": "IT",
+                    "text": "Prevedere l'inversione di una tendenza consolidata è un compito molto complicato. L'analisi che abbiamo appena fatto per il 10 aprile è un buon esempio: mentre la rottura nei time frame 1H e 4H ha segnato un'inversione di tendenza a medio termine, la tendenza a lungo termine è rimasta intatta.",
+                    "updated": 1669901012562
+                },
+                {
+                    "language": "NL",
+                    "text": "Het voorspellen van de omkering van een gevestigde trend is een zeer lastige taak. De analyse die we zojuist hebben gedaan voor 10 april is een goed voorbeeld: terwijl de neerwaartse uitbraak in de 1H- en 4H-tijdframes een trendomkering op de middellange termijn markeerde, bleef de langetermijntrend intact.",
+                    "updated": 1670786467201
+                },
+                {
+                    "language": "ID",
+                    "text": "Memprediksi tren reversal dengan baik adalah tugas yang sangat rumit. Analisis yang baru saja kita lakukan untuk 10 April adalah contoh yang bagus: sementara breakdown pada timeframe 1H dan 4H menandai tren reversal dalam jangka menengah, tren jangka panjang tetap utuh.",
+                    "updated": 1674698541904
                 }
             ]
         },
@@ -79,8 +109,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Un enfoque más seguro para operar es predecir la continuación de una tendencia que ya está establecida.¿Recuerda la regla 8? Los cierres fuera de las bandas de Bollinger son inicialmente señales de continuación.",
-                    "updated": 1668192804879
+                    "text": "Un enfoque más seguro para operar es predecir la continuación de una tendencia que ya está establecida.¿Recuerdas la regla 8? Los cierres fuera de las bandas de Bollinger son inicialmente señales de continuación.",
+                    "updated": 1675205967430
+                },
+                {
+                    "language": "IT",
+                    "text": "Un approccio più sicuro al trading prevede la continuazione di un trend già stabilito! Ricordi la regola 8? Le chiusure al di fuori delle bande di Bollinger sono inizialmente segnali di continuazione!",
+                    "updated": 1669901028741
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Een veiligere handelsbenadering is het voorspellen van de voortzetting van een trend die al is vastgesteld! Herinner je je regel 8 nog? <br><br>Sluitingen buiten de Bollinger Bands zijn in eerste instantie voortzettingssignalen!</b>",
+                    "updated": 1670786610097
+                },
+                {
+                    "language": "ID",
+                    "text": "Pendekatan trading yang lebih aman adalah memprediksi kelanjutan tren yang sudah terbentuk!<br><br>Ingat Aturan 8? Penutupan di luar Bollinger Bands awalnya adalah sinyal continuation!",
+                    "updated": 1674698711449
                 }
             ]
         }

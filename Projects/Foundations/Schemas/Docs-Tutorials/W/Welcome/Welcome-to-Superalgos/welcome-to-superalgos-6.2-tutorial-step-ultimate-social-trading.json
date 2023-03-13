@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos Platformu, algo tüccarlarına hizmet etmek için tasarlanmıştır. Ancak proje, tüm kripto kullanıcılarına hitap edecek şekilde kapsamını genişletiyor!",
-                "updated": 1636661912945
+                "text": "Superalgos Platformunu sofistike zeka üretmek için kullanabilirsiniz, ancak diğer insanların işlemlerini kopyalamak için de kullanabilirsiniz!",
+                "updated": 1670014320923
             },
             {
                 "language": "ID",
@@ -39,6 +39,11 @@
                 "language": "NL",
                 "text": "U kunt het Superalgos-platform gebruiken om geavanceerde informatie te produceren, maar u kunt het ook gebruiken om andermans transacties te kopiëren!",
                 "updated": 1667136705025
+            },
+            {
+                "language": "ES",
+                "text": "Puedes usar la Plataforma Superalgos para producir inteligencia sofisticada, ¡pero también puedes usarla para copiar las operaciones de otras personas!",
+                "updated": 1675363419705
             }
         ]
     },
@@ -55,8 +60,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Protokol tarafından teşvik edilen algo tüccarları, ticaret sinyalleri üretmek ve yaymak için rekabet edecek.",
-                    "updated": 1636661931970
+                    "text": "Algo tüccarları, alım satım sinyalleri üretip yayınladıkları için Superalgos SA Token ödülleri alırlar.",
+                    "updated": 1670014358522
                 },
                 {
                     "language": "ID",
@@ -77,6 +82,11 @@
                     "language": "NL",
                     "text": "Algo-handelaren ontvangen Superalgos SA Token beloningen voor het produceren en uitzenden van handelssignalen.",
                     "updated": 1667136763769
+                },
+                {
+                    "language": "ES",
+                    "text": "Los <i>Algo traders</i> obtienen recompensas de Superalgos (SA Token) por producir y emitir señales de trading.",
+                    "updated": 1675363679062
                 }
             ]
         },
@@ -92,8 +102,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kripto kullanıcıları, influencers'ları takip edecek ve sinyallerini mobil, masaüstü veya sunucu uygulamasında ücretsiz olarak alacak! Bu uygulamalar, uzmanlar tarafından üretilen ücretsiz zeka ile kolay otomatik alım satımı mümkün kılacaktır!",
-                    "updated": 1636662050183
+                    "text": "Aynı platformu kullanarak sinyalleri alabilir ve profesyonelleri otomatik olarak kopyalayabilirsiniz!",
+                    "updated": 1670014374688
                 },
                 {
                     "language": "ID",
@@ -114,6 +124,11 @@
                     "language": "NL",
                     "text": "U kunt de signalen ontvangen en de pro's automatisch kopiëren met hetzelfde platform!",
                     "updated": 1667136757321
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes obtener las señales y copiar las operaciones de los profesionales automáticamente utilizando la misma plataforma.",
+                    "updated": 1675363483510
                 }
             ]
         },
@@ -129,8 +144,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hem algo tüccarları hem de etkileyiciler protokol tarafından ödenirken, kripto kullanıcıları tüm ürün ve hizmetleri ücretsiz olarak kullanacaklar. Oldukça etkileyici değil mi?",
-                    "updated": 1636662121975
+                    "text": "Açık beta test çalışmalarına katılmak için",
+                    "updated": 1670014394135
                 },
                 {
                     "language": "ID",
@@ -151,6 +166,11 @@
                     "language": "NL",
                     "text": "Om deel te nemen aan de open bèta-testinspanningen, sluit je aan bij de",
                     "updated": 1667136782560
+                },
+                {
+                    "language": "ES",
+                    "text": "Para participar en las pruebas de la beta abierta únete al",
+                    "updated": 1675363447056
                 }
             ]
         },
@@ -183,6 +203,16 @@
                     "language": "NL",
                     "text": "De eerste paar signalen zijn nu live! U moet een bepaald saldo aan Superalgos SA-tokens hebben om toegang te krijgen tot deze premium community-service.",
                     "updated": 1667136978216
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk birkaç sinyal şimdi yayında! Bu premium topluluk hizmetine erişmek için belirli bir Superalgos SA Token bakiyesine sahip olmanız gerekecektir.",
+                    "updated": 1670014411517
+                },
+                {
+                    "language": "ES",
+                    "text": "Las primeras señales ya están disponibles. Necesitarás tener un cierto saldo de Superalgos SA Tokens para acceder a este servicio premium de la comunidad.",
+                    "updated": 1675363710284
                 }
             ]
         },

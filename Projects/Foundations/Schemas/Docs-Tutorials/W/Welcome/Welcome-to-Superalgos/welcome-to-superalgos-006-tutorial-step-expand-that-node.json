@@ -55,6 +55,11 @@
                 "language": "RU",
                 "text": "В каждом узле есть меню. Кнопка в левом нижнем углу раскрывает и сворачивает структуру узлов внизу текущего узла.",
                 "updated": 1635509730475
+            },
+            {
+                "language": "PL",
+                "text": "Każdy węzeł posiada menu. Przycisk na dole po lewej stronie rozwija i zwija strukturę węzłów należących do bieżącego węzła.",
+                "updated": 1674834287406
             }
         ]
     },
@@ -109,6 +114,11 @@
                     "language": "RU",
                     "text": "Идите вперед и нажмите кнопку развернуть.",
                     "updated": 1635509803681
+                },
+                {
+                    "language": "PL",
+                    "text": "Śmiało, kliknij przycisk rozwiń!",
+                    "updated": 1674834307724
                 }
             ]
         },
@@ -162,6 +172,11 @@
                     "language": "RU",
                     "text": "У узла Tutorial есть несколько потомков и у этих потомков есть намного больше потомков. Вот почему это называется иерархией.",
                     "updated": 1635510024525
+                },
+                {
+                    "language": "PL",
+                    "text": "Węzeł Tutorial ma kilka powiązanych węzłów, a te mają jeszcze kilka innych powiązanych węzłów. Dlatego właśnie jest to hierarchia!",
+                    "updated": 1674834366499
                 }
             ]
         },
@@ -215,6 +230,11 @@
                     "language": "RU",
                     "text": "Структурированные визуальные представления информации лежат в основе того, как Superalgos в целом выполняет торговые операции гибко и в полном масштабе.",
                     "updated": 1635510247771
+                },
+                {
+                    "language": "PL",
+                    "text": "Ustrukturyzowana reprezentacja informacji to sposób, w jaki Superalgos zarządza złożonością stojącą za elastycznymi i skalowalnymi operacjami handlowymi.",
+                    "updated": 1674834624383
                 }
             ]
         }

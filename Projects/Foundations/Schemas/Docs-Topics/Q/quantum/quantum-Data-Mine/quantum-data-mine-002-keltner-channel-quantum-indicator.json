@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот индикатор создает полосы волатильности канала Кельтнера.",
                 "updated": 1646897691356
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt die Volatilitätsbänder des Keltner Kanals.",
+                "updated": 1671461461321
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Канал Кельтнера на графиках",
                     "updated": 1646897699257
+                },
+                {
+                    "language": "DE",
+                    "text": "Keltner Channel auf den Charts",
+                    "updated": 1671461486243
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Согласно Investopedia, \"Каналы Кельтнера - это полосы волатильности, которые располагаются по обе стороны от цены актива и могут помочь в определении направления тренда\".",
                     "updated": 1646897711131
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia sind \"Keltner Kanäle auf der Volatilität basierende Bänder, die auf beiden Seiten des Preises eines Vermögenswerts platziert werden und bei der Bestimmung der Richtung eines Trends helfen können.\"",
+                    "updated": 1671461514190
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Канал Кельтнера использует средний истинный диапазон (ATR) или волатильность, при этом прорыв цены выше или ниже верхней или нижней полосы сигнализирует о продолжении движения.",
                     "updated": 1646897749656
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Keltner Kanal verwendet die durchschnittliche True-Range (ATR) oder die Volatilität, wobei ein Über- oder Unterschreiten der oberen oder unteren Bänder eine Fortsetzung des Kurses signalisiert.",
+                    "updated": 1671461560269
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Стандартные параметры:",
                     "updated": 1646897757213
+                },
+                {
+                    "language": "DE",
+                    "text": "Standard Parameter:",
+                    "updated": 1671461582470
                 }
             ]
         },
@@ -85,6 +110,11 @@
                     "language": "RU",
                     "text": "Чтобы изменить параметры, необходимые для расчета в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop под определением продукта \"Keltner Channel\".",
                     "updated": 1646897779796
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung erforderlichen Parameter nach Ihren Wünschen zu ändern, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter  “Keltner Channel” Product Definition.",
+                    "updated": 1671461675713
                 }
             ]
         },
@@ -101,6 +131,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1646897786595
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671461696637
                 }
             ]
         },
@@ -112,13 +147,25 @@
                     "language": "RU",
                     "text": "Имеется три свойства, которые можно настроить:",
                     "updated": 1646897864795
+                },
+                {
+                    "language": "DE",
+                    "text": "Es stehen drei Eigenschaften zur Verfügung:",
+                    "updated": 1671461716546
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Keltner Channel | keltner | Upper, Lower, midPoint |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Keltner Channel | keltner | Upper, Lower, midPoint |",
+                    "updated": 1671461735370
+                }
+            ]
         },
         {
             "style": "Text",
@@ -129,6 +176,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1646897874085
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671461754361
                 }
             ]
         },
@@ -145,6 +197,11 @@
                     "language": "RU",
                     "text": "Ценовое движение находится ниже нижней полосы:",
                     "updated": 1646897892936
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Kurs bewegt sich unterhalb des unteren Bandes:",
+                    "updated": 1671461772884
                 }
             ]
         },

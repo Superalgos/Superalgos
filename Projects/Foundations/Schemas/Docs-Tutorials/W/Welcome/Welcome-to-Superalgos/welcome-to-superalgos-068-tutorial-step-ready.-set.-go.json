@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Haydi gidelim!  Bir günlük zaman dilimi için Backtest yapacağımız için bu hızlı olacak.",
-                "updated": 1636122670075
+                "text": "Hadi başlayalım! Tek bir günlük geçmiş veriyi test ettiğimiz için bu zaten hızlı olacak.",
+                "updated": 1669924531374
             },
             {
                 "language": "RU",
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Laten we starten! Dit gaat hoe dan ook snel, aangezien we een enkele dag aan historische gegevens testen.",
                 "updated": 1666875706230
+            },
+            {
+                "language": "FR",
+                "text": "C'est parti ! Cela va être rapide de toute façon, car nous testons une seule journée de données historiques.",
+                "updated": 1676898611578
             }
         ]
     },
@@ -61,8 +66,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ejecutar un Trading Task es bastante similar a ejecutar una tarea de minería de datos. La diferencia radica en que, después de ejecutar la tarea, también debe ejecutar lel Trading Session.",
-                    "updated": 1624454018479,
+                    "text": "Ejecutar una Trading Task es bastante similar a ejecutar una Data Mining Task. La diferencia radica en que, después de ejecutar la tarea, también es necesario ejecutar la sesión de trading.",
+                    "updated": 1675280106363,
                     "style": "Text"
                 },
                 {
@@ -84,6 +89,11 @@
                     "language": "NL",
                     "text": "Het uitvoeren van een handelstaak lijkt veel op het uitvoeren van een dataminingtaak. Het verschil is dat u - na het uitvoeren van de taak - ook de Trading Session moet uitvoeren.",
                     "updated": 1666875750605
+                },
+                {
+                    "language": "FR",
+                    "text": "L'exécution d'une tâche de trading est assez similaire à celle d'une tâche de Data Mining. La différence réside dans le fait que, après avoir exécuté la tâche, vous devez également exécuter la session de Trading.",
+                    "updated": 1676898658576
                 }
             ],
             "updated": 1660148890490
@@ -101,8 +111,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Seleccione Run en el Task menu! Ahora seleccione Run en el Backtesting Session menu!",
-                    "updated": 1624454082709,
+                    "text": "Selecciona Run en el menú Lightning Strike Task. Ahora selecciona Run en el menú Backtesting Session.",
+                    "updated": 1675280165899,
                     "style": "Callout"
                 },
                 {
@@ -129,6 +139,11 @@
                     "language": "NL",
                     "text": "Selecteer Run in het Lightning Strike Task menu! <br><br>Selecteer nu Run in het Backtesting Session menu!",
                     "updated": 1666875836968
+                },
+                {
+                    "language": "FR",
+                    "text": "Sélectionnez Run (Exécuter) dans le noeud Lightning Strike Task et sélectionnez Run (Exécuter) dans le menu Backtesting Session.",
+                    "updated": 1676898712827
                 }
             ]
         },
@@ -144,8 +159,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando el Backtesting Session indica que terminó el procesamiento, detenga el Task y haz clic en Next.",
-                    "updated": 1624454207659,
+                    "text": "Cuando el Backtesting Session indica que el procesamiento ha terminado, detén el Task y haz clic en Next.",
+                    "updated": 1675280218789,
                     "style": "Note"
                 },
                 {
@@ -172,6 +187,11 @@
                     "language": "NL",
                     "text": "Wanneer de Backtesting Session aangeeft dat de verwerking is voltooid, stopt u de Task en klikt u op Next.",
                     "updated": 1666875897909
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque la session de backtesting indique que le traitement est terminé, arrêtez la tâche et cliquez sur Suivant.",
+                    "updated": 1676898766827
                 }
             ],
             "updated": 1622201246283

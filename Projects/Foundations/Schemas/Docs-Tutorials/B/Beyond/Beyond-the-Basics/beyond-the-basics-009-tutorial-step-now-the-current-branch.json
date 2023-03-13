@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Jika semua berjalan dengan baik, kamu seharusnya mendapat konfirmasi bahwa Contribution Branch telah berubah! Bagus!",
                 "updated": 1668504494023
+            },
+            {
+                "language": "NL",
+                "text": "Als alles goed is gegaan, moet u een bevestiging hebben gekregen dat de contributie bracnhe is gewijzigd! Geweldig!",
+                "updated": 1669574380143
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El siguiente en la línea es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
-                    "updated": 1628122656402,
+                    "text": "El siguiente paso es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
+                    "updated": 1675451108732,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Selanjutnya baris berikutnya yaitu mengubah ke Branch yang sekarang, namun sebelum itu kita harus lakukan pengecekan!",
                     "updated": 1668504485265
+                },
+                {
+                    "language": "NL",
+                    "text": "De volgende in de rij is het verwisselen van de huidige branche, maar we moeten eerst wat controles uitvoeren!",
+                    "updated": 1669574398340
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando cambias de rama, la app ejecuta una serie de comandos de Git que descargan el software de la rama plugins-docs de tu fork. ¡El software actual será reemplazado en tu disco!Deberás cerrar la app después de cambiar. ¡Veamos unas cosas antes de continuar!",
-                    "updated": 1628123112818,
+                    "text": "Cuando cambies de rama, la aplicación ejecutará una serie de comandos Git que descargarán el software de la rama \"Develop\" de tu ramificación (Fork). El software actual será reemplazado en tu disco. Por esta razón, tendrás que cerrar la aplicación después de cambiar. Pero vamos a discutir un par de cosas más antes de continuar.",
+                    "updated": 1675451174660,
                     "style": "Text"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Ketika kamu mengubah branches, aplikasi akan menjalankan rangkaian perintah Git yang mendownload software tambahan dari fork branch Develop kamu! Softwaremu akan tergantikan di diska mu! Dengan alasan itu kamu harus menutup aplikasi setelah berganti branch. Tapi kita diskusikan beberapa hal lain sebelum kamu memproses!",
                     "updated": 1668504475503
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer je van branche wisselt, voert de app een reeks Git-commando's uit die de software downloaden van de Develop-branche van je fork! De huidige software wordt op uw schijf vervangen! Om die reden moet u de app na het overschakelen sluiten. Maar laten we nog een paar dingen bespreken voordat u verder gaat!",
+                    "updated": 1669574437081
                 }
             ]
         }

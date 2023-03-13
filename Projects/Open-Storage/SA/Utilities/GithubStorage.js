@@ -15,7 +15,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
             const secret = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName)
             if (secret === undefined) {
-                console.log((new Date()).toISOString(), '[WARN] You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
+                SA.logger.warn('You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
                 reject()
                 return
             }
@@ -33,13 +33,22 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             const buff = new Buffer.from(fileContent, 'utf-8');
             const content = buff.toString('base64');
 
-            try {
-                const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
+
+                const data = await octokit.repos.getContent({
                     owner: owner,
                     repo: repo,
-                    file_path: completePath
-                });
-                if (sha) {
+                    path: completePath,
+                    ref: branch
+                  })
+                    .catch(function (err) {
+                        if (err.status === 404) {
+                            createNewFile()
+                        } else {
+                            SA.logger.error('File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                            reject(err)
+                        }
+                    })
+                if (data !== undefined) {
                     await octokit.repos.createOrUpdateFileContents({
                         owner: owner,
                         repo: repo,
@@ -47,22 +56,12 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                         message: message,
                         content: content,
                         branch: branch,
-                        sha: sha
+                        sha: data.data.sha
                     })
                         .then(githubSaysOK)
                         .catch(githubError)
-                } else {
-                    createNewFile()
-                }
+                } 
 
-            } catch (err) {
-                if (err.status === 404) {
-                    createNewFile()
-                } else {
-                    console.log((new Date()).toISOString(), '[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
-                    reject(err)
-                }
-            }
 
             async function createNewFile() {
                 await octokit.repos.createOrUpdateFileContents({
@@ -71,7 +70,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     path: completePath,
                     message: message,
                     content: content,
-                    branch: branch,
+                    branch: branch
                 })
                     .then(githubSaysOK)
                     .catch(githubError)
@@ -81,14 +80,13 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 /*
                 We will give github a few seconds to make the file accessible via http. Without these few seconds, the bots following the signal might get a 404 error.
                 */
-                console.log((new Date()).toISOString(), '[INFO] Signal File just created on Github. completePath = ' + completePath)
-
+                SA.logger.info('File just created on Github. completePath = ' + completePath)
                 setTimeout(resolve, 3000)
             }
 
             function githubError(err) {
-                console.log((new Date()).toISOString(), '[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
-                reject()
+                SA.logger.error('Github Storage -> saveFile -> err.stack = ' + err.stack + ' full error = ' + err)
+                reject(err)
             }
         }
 
@@ -112,18 +110,18 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             axios
                 .get(URL)
                 .then(res => {
-                    //console.log(`statusCode: ${res.status}`)
+                    //SA.logger.info(`statusCode: ${res.status}`)
 
                     resolve(res.data)
                 })
                 .catch(error => {
 
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> Error = ' + error)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> completePath = ' + completePath)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> repo = ' + repo)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> owner = ' + owner)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> branch = ' + branch)
-                    console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> URL = ' + URL)
+                    SA.logger.error('Github Storage -> Load File -> Error = ' + error)
+                    SA.logger.error('Github Storage -> Load File -> completePath = ' + completePath)
+                    SA.logger.error('Github Storage -> Load File -> repo = ' + repo)
+                    SA.logger.error('Github Storage -> Load File -> owner = ' + owner)
+                    SA.logger.error('Github Storage -> Load File -> branch = ' + branch)
+                    SA.logger.error('Github Storage -> Load File -> URL = ' + URL)
 
                     reject()
                 })

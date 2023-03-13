@@ -124,6 +124,11 @@
                     "language": "ID",
                     "text": "Merah Muda: 0.25X",
                     "updated": 1643473780922
+                },
+                {
+                    "language": "ES",
+                    "text": "Rosa: 0.25X",
+                    "updated": 1675375580653
                 }
             ]
         },
@@ -151,6 +156,11 @@
                     "language": "ID",
                     "text": "Oranye: 0.5X",
                     "updated": 1643473807651
+                },
+                {
+                    "language": "ES",
+                    "text": "Naranja: 0.5X",
+                    "updated": 1675375586710
                 }
             ]
         },
@@ -183,6 +193,11 @@
                     "language": "ID",
                     "text": "Hijau: 1X",
                     "updated": 1643473851575
+                },
+                {
+                    "language": "ES",
+                    "text": "Verde: 1X",
+                    "updated": 1675375591954
                 }
             ]
         },
@@ -215,6 +230,11 @@
                     "language": "ID",
                     "text": "Biru: 1.5X",
                     "updated": 1643473858691
+                },
+                {
+                    "language": "ES",
+                    "text": "Azul: 1.5X",
+                    "updated": 1675375606999
                 }
             ]
         },
@@ -247,6 +267,11 @@
                     "language": "ID",
                     "text": "Merah: 2X",
                     "updated": 1643473865965
+                },
+                {
+                    "language": "ES",
+                    "text": "Rojo: 2X",
+                    "updated": 1675375612040
                 }
             ]
         },
@@ -263,8 +288,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que eliges la opción green. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre!",
-                    "updated": 1625957497706,
+                    "text": "Digamos que eliges la opción verde. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre!",
+                    "updated": 1675375625047,
                     "style": "Text"
                 },
                 {

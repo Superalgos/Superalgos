@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Tu operación de minería de incluye bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
-                "updated": 1625881909843,
+                "text": "Tu operación de minería incluye Bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
+                "updated": 1675277694818,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
-                "updated": 1639214551654
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, Katman Yöneticisindeki (Layer Manager) bir Katman (Layer) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1669842934924
             },
             {
                 "language": "RU",
@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El primer Layer Manager de este Time machine presenta tres capas que representan los productos de datos del Trading System que veremos mas adelante.",
-                    "updated": 1625883118231,
+                    "text": "El primer Layer Manager de este Time Machine presenta tres capas que representan los productos de datos del Trading System que veremos mas adelante.",
+                    "updated": 1675277707997,
                     "style": "Text"
                 },
                 {
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu zaman makinesinin solundaki ilk katman yöneticisi üç katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin ( Trading System ) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
-                    "updated": 1636096453476
+                    "text": "Bu zaman makinesinin en sağdan ikinci katman yöneticisi (Masters Data) iki katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin (Trading System) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
+                    "updated": 1669843334058
                 },
                 {
                     "language": "RU",
@@ -166,8 +166,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Work Space. ¡Aprenderás sobre ellos más tarde!",
-                    "updated": 1624409780086,
+                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Workspace. ¡Aprenderás sobre ellos más tarde!",
+                    "updated": 1675277733307,
                     "style": "Note"
                 },
                 {
@@ -178,8 +178,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
-                    "updated": 1636096525958
+                    "text": "Superalgos birçok indikatör/osilatör gibi araçlarla birlikte gelir, ancak bunlar bu çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "updated": 1669843147164
                 },
                 {
                     "language": "RU",

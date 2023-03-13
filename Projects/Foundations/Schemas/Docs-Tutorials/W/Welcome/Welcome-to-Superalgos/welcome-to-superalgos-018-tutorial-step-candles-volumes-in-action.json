@@ -54,6 +54,11 @@
                 "language": "FR",
                 "text": "Et oui ! Les indicateurs commenceront à fonctionner dès que le sensor bot aura terminé son travail !",
                 "updated": 1667203904119
+            },
+            {
+                "language": "PL",
+                "text": "Właśnie tak! Wskaźniki zaczynają działać tak szybko jak Sensor Bot skończy swoją pracę!",
+                "updated": 1674944867817
             }
         ]
     },
@@ -107,6 +112,11 @@
                     "language": "FR",
                     "text": "Vous êtes en train de regarder le processus de Candles Volumes. Elle transforme les bougies d'une minute que le Sensor Bot télécharge de l'exchange en bougies pour toutes les périodes de temps.",
                     "updated": 1667203965553
+                },
+                {
+                    "language": "PL",
+                    "text": "Obserwujesz procesy węzła Candles Volumes. Zbiera on z giełdy jednominutowe świece i gromadzi je dla całego zdefiniowanego przedziału czasu.",
+                    "updated": 1674945572904
                 }
             ]
         },
@@ -160,6 +170,11 @@
                     "language": "FR",
                     "text": "Que se passe-t-il après qu'il ait fini ?",
                     "updated": 1667203992335
+                },
+                {
+                    "language": "PL",
+                    "text": "Co się stanie po zakończeniu?",
+                    "updated": 1674945367851
                 }
             ]
         },
@@ -212,6 +227,11 @@
                     "language": "FR",
                     "text": "D'autres bots ont besoin que Candles Volumes ai terminé son travail pour qu'ils puissent commencer à faire le leur. Imaginons qu'un robot doive calculer une moyenne mobile simple sur 20 périodes pour toutes les périodes de temps. Il a besoin du Data Product produit par Candles Volumes comme entrée pour le calcul de la SMA. Nous appelons ce besoin une dépendance de données ou Data Dependency en anglais.",
                     "updated": 1667204169984
+                },
+                {
+                    "language": "PL",
+                    "text": "Inne boty czekają, aż Candles Volumes zakończy swoją pracę, aby mogły zacząć robić swoje. Wyobraź sobie, że bot musi obliczyć 20-okresową Simple Moving Average dla wszystkich przedziałów czasowych. Potrzebuje Data Product wyprodukowanego przez Candles Volumes jako danych wejściowych do obliczenia SMA. Nazywamy to Data Dependency.",
+                    "updated": 1674945701620
                 }
             ]
         }

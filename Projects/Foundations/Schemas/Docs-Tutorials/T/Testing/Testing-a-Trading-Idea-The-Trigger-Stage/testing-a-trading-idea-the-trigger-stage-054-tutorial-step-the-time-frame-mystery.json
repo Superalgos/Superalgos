@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hadi bir numara daha yapalım! Zaman çerçevesini 12 saat olarak değiştirin ve işaretçiyi çizelgelerin üzerine kaydırın!",
-                "updated": 1641662493166
+                "text": "Hadi bir numara daha yapalım! Zaman dilimin 12 saat olarak değiştirin ve işaretçiyi çizelgelerin üzerine kaydırın!",
+                "updated": 1669662891925
             },
             {
                 "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "\"İşlem seansları ( Trading sessions ), Zaman Çerçevesi ( Time Frame ) parametresinde ayarlanan zaman çerçevesi için simülasyonlar oluşturur!",
-                    "updated": 1641662530167
+                    "text": "İşlem seansları ( Trading sessions ), Zaman Dilimi ( Time Frame ) parametresinde ayarlanan zaman çerçevesi için simülasyonlar oluşturur!",
+                    "updated": 1669662979520
                 },
                 {
                     "language": "RU",
@@ -80,8 +80,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Grafiğinizi farklı bir zaman dilimine ayarlarsanız, simülasyonu artık göremezsiniz! Hatta o zaman dilimi için farklı bir zamanda çalıştırdığınız başka bir simülasyon bile bulabilirsiniz! Aslında Superalgos, aynı işlem seansından gelseler bile simülasyonları her zaman dilimi için ayrı ayrı kaydeder!",
-                    "updated": 1641662543849
+                    "text": "Grafiğinizi farklı bir zaman dilimine ayarlarsanız, simülasyonu göremezsiniz! Aslında, zamanın başka bir noktasında o zaman diliminde çalıştırdığınız başka bir simülasyon bulabilirsiniz! Gerçekten de Superalgos, aynı işlem seansından kaynaklansalar bile her zaman dilimi için simülasyonları ayrı ayrı saklar!",
+                    "updated": 1669662991290
                 },
                 {
                     "language": "RU",

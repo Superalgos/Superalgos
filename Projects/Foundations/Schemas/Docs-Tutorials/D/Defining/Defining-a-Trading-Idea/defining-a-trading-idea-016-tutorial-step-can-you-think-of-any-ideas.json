@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "Hemos visto las bandas de Bollinger y sabemos cómo leerlas... ¿Se te ocurre alguna idea de trading con la que construir una estrategia?",
                 "updated": 1668190858753
+            },
+            {
+                "language": "IT",
+                "text": "Hai visto le Bande di Bollinger e sai come leggerle... Ti viene in mente un'idea di trading con cui costruire una strategia?",
+                "updated": 1669900200227
+            },
+            {
+                "language": "NL",
+                "text": "Je hebt de Bollinger Bands gezien en je weet hoe je ze moet lezen... Kun je een handelsidee bedenken om een strategie mee te bouwen?",
+                "updated": 1670785149702
+            },
+            {
+                "language": "ID",
+                "text": "Kamu telah melihat Bollinger Bands dan kamu tahu cara membacanya... Bisakah kamu memikirkan ide trading untuk membuat strategi?",
+                "updated": 1674693187099
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Tómate unos minutos para explorar este gráfico y ver si se te ocurre algo.",
                     "updated": 1668190879532
+                },
+                {
+                    "language": "IT",
+                    "text": "Prenditi qualche minuto in giro per questo grafico e vedi se riesci a trovare qualcosa!",
+                    "updated": 1669900283721
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem een paar minuten de tijd om door deze grafiek te dwalen en kijk of je iets kunt bedenken!",
+                    "updated": 1670785178677
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan beberapa menit menjelajahi chart ini dan lihat apakah kamu dapat menemukan sesuatu!",
+                    "updated": 1674693193328
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "Los indicadores suelen ser construidos por analistas y traders para describir matemáticamente ideas de trading.",
                     "updated": 1668190897306
+                },
+                {
+                    "language": "IT",
+                    "text": "Gli indicatori sono generalmente costruiti da analisti e trader per descrivere matematicamente idee di trading.",
+                    "updated": 1669900403672
+                },
+                {
+                    "language": "NL",
+                    "text": "Indicatoren worden meestal gebouwd door analisten en handelaren om handelsideeën wiskundig te beschrijven.",
+                    "updated": 1670785194430
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator biasanya dibuat oleh analis dan trader untuk menggambarkan ide trading secara matematis.",
+                    "updated": 1674693200574
                 }
             ]
         },
@@ -107,6 +152,21 @@
                     "language": "ES",
                     "text": "La idea que vamos a discutir a continuación tiene que ver con las rupturas. Pero esa es sólo una de las cuatro o cinco ideas populares que utilizan este indicador.",
                     "updated": 1668190930672
+                },
+                {
+                    "language": "IT",
+                    "text": "L'idea che discuteremo dopo ha a che fare con i breakout! Ma questa è solo una delle quattro o cinque idee popolari che utilizzano questo indicatore!",
+                    "updated": 1669900411005
+                },
+                {
+                    "language": "NL",
+                    "text": "Het idee dat we hierna zullen bespreken, heeft te maken met uitbraken! Maar dat is slechts een van de vier of vijf populaire ideeën die deze indicator gebruiken!",
+                    "updated": 1670785225909
+                },
+                {
+                    "language": "ID",
+                    "text": "Ide yang akan kita bahas selanjutnya berkaitan dengan breakout! Tapi itu hanyalah salah satu dari empat atau lima ide populer yang menggunakan indikator ini!",
+                    "updated": 1674693206323
                 }
             ]
         }

@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ayo lanjutkan dengan tugas berada di genggamanmu! Salin perintah dibawah ini, tempelkan itu dalam pencarian/perintah box, dan tekan Enter!",
                 "updated": 1668996710622
+            },
+            {
+                "language": "NL",
+                "text": "Laten we doorgaan met de taak die voorhanden is! Kopieer de onderstaande opdracht, plak deze in het zoek-/opdrachtvenster en druk op Enter!",
+                "updated": 1669750169608
             }
         ]
     },
@@ -63,8 +68,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En Windows, aparece un cuadro de inicio de sesión de GitHub que ofrece la posibilidad de autenticarse con un token o contraseña. ¡Cualquiera debería funcionar! ¡Se requiere la última versión de Git! Si tienes problemas, reiniciar la PC puede ayudar. En Mac y Linux, es la Terminal la que solicita las credenciales. Si habilitaste la autenticación de dos factores en GitHub, usa el token incluso si se le solicita la contraseña.",
-                    "updated": 1628198214740,
+                    "text": "En Windows, aparece un cuadro de inicio de sesión de GitHub que ofrece la posibilidad de autenticarse con un token o contraseña. ¡Cualquiera debería funcionar! ¡Se requiere la última versión de Git! Si tienes problemas, reiniciar la PC puede ayudar. En Mac y Linux, es la Terminal la que solicita las credenciales. Si habilitaste la autenticación de dos factores en GitHub, usa el token incluso si te solicita la contraseña.",
+                    "updated": 1675454563750,
                     "style": "Important"
                 },
                 {
@@ -86,6 +91,11 @@
                     "language": "ID",
                     "text": "Di Windows, sebuah Github dialog sign in yang muncul menawarkan untuk memberikan autentikasi token atau password. Keduanya seharusnya bekerja! Mohon diingat versi Git terbaru sangat dibutuhkan! Jika kamu memiliki masalah dengan versi terbaru, mulai ulang PC-mu mungkin membantu. Di Mac dan Linux, ada sebuah terminal yang meminta kredensial. Jika kamu menggunakan autentikasi ganda di GitHub, gunakan token bahkan saat jika kamu ditanya tentang password!",
                     "updated": 1668996720256
+                },
+                {
+                    "language": "NL",
+                    "text": "In Windows verschijnt een GitHub-aanmeldingsdialoogvenster waarin wordt aangeboden om te verifiëren met uw token of wachtwoord. Beiden zouden moeten werken! Vergeet niet dat de nieuwste versie van Git vereist is! Als u problemen ondervindt met de nieuwste versie, kan het helpen om de pc opnieuw op te starten. Op Mac en Linux is het de terminal die om inloggegevens vraagt. Als je tweefactorauthenticatie op GitHub hebt ingeschakeld, gebruik dan het token, zelfs als er om het wachtwoord wordt gevraagd!",
+                    "updated": 1669750262897
                 }
             ]
         }

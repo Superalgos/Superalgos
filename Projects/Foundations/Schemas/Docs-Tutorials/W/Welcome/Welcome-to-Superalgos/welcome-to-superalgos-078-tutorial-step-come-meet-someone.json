@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Sorry voor het wegslepen van de grafieken, maar ik wilde je aan iemand voorstellen: de man aan de rechterkant is degene die de kooporders plaatst!",
                 "updated": 1666879808915
+            },
+            {
+                "language": "FR",
+                "text": "Désolé de vous éloigner des graphiques, mais je voulais vous présenter quelqu'un : le type à droite est celui qui passe les ordres d'achat !",
+                "updated": 1676899770773
             }
         ]
     },
@@ -61,8 +66,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage.Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
-                    "updated": 1624458987851,
+                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage. Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
+                    "updated": 1675280965318,
                     "style": "Text"
                 },
                 {
@@ -72,8 +77,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Lightning Strike Trading Sisteminin ( Trading System ), Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması ( Execution Algorithm ) devreye girer. Hala bir Durum ( Situation ) veya Koşulun ( Condition ) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
-                    "updated": 1636207188259
+                    "text": "Lightning Strike Trading Sisteminin (Trading System) içindeki Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması (Execution Algorithm) devreye girer. Hala bir Durum (Situation) veya Koşulun (Condition) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
+                    "updated": 1670008701820
                 },
                 {
                     "language": "RU",
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "We bevinden ons binnen het Lightning Strike Trading System, binnen de definities van de Open Stage. In deze fase neemt het Execution Algorithm het over nadat de beslissing om een positie in te nemen al is genomen in de Trigger Stage. Ik weet dat je nog steeds niet weet wat een Situation of een Condition is, maar ik zou toch willen dat je iets doet...",
                     "updated": 1666879916007
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous sommes à l'intérieur du système de trading Lightning Strike, dans les définitions de la phase d'ouverture. À ce stade, l'algorithme d'exécution prend le relais après que la décision de prendre une position a déjà été prise au stade du déclenchement. Je sais que vous ne savez toujours pas ce qu'est une situation ou une condition, mais j'aimerais quand même que vous fassiez quelque chose...",
+                    "updated": 1676899775099
                 }
             ]
         },
@@ -104,8 +114,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas!",
-                    "updated": 1627314866507,
+                    "text": "Tómate unos minutos para explorar los nodos posteriores al algoritmo de ejecución, comprueba las fórmulas y condiciones, ¡y a ver qué puedes hacer con ellos!",
+                    "updated": 1675280937606,
                     "style": "Callout"
                 },
                 {
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Neem een paar minuten de tijd om de knooppunten stroomafwaarts van het execution algorithm te verkennen, de formules en voorwaarden te controleren en te zien wat u ervan kunt maken!",
                     "updated": 1666879990494
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez quelques minutes pour explorer les nœuds en aval de l'algorithme d'exécution, vérifiez les formules et les conditions, et voyez ce que vous pouvez en faire !",
+                    "updated": 1676899790096
                 }
             ],
             "updated": 1649168063557

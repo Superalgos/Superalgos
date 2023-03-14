@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@ethereumjs/util": "^8.0.3",
+    "@mdi/font": "5.9.55",
     "@walletconnect/sign-client": "^2.3.0",
     "@web3modal/standalone": "^2.0.0-rc.3",
+    "roboto-fontface": "*",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6",
+    "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.0"
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/cli-plugin-vuex": "^5.0.6",
     "vite": "^4.0.1"
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-vuetify": "~2.5.8"
   },
   "type": "module"
 }

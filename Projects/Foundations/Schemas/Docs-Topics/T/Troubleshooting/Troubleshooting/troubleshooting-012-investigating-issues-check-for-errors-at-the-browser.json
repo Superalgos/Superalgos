@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ön uç uygulamasında hatalar oluştuğunda, ekranda bir hata almanız veya tarayıcı konsolunda bir hatanın günlüğe kaydedilmesi gerekir.",
                 "updated": 1647867636897
+            },
+            {
+                "language": "DE",
+                "text": "Wenn in der Frontend-Anwendung Fehler auftreten, sollten Sie entweder eine Fehlermeldung auf dem Bildschirm erhalten oder ein Fehler sollte in der Browserkonsole protokolliert werden.",
+                "updated": 1678647600967
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "F12 tuşuyla (tarayıcı odaktayken) Chrome'un DevTools'unu açın ve Konsol sekmesini tıklayın. Ardından Superalgos'a geri dönün ve sorunu yeniden oluşturun. Konsol, ağ hatalarını ve farklı türden uyarıları görüntüleyebilir. Bunlar önemli değildir ve bunları güvenle görmezden gelebilirsiniz.",
                     "updated": 1647867724126
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie die DevTools von Chrome mit der Taste F12 (wenn der Browser im Vordergund ist) und klicken Sie auf die Registerkarte Konsole. Gehen Sie dann zurück zu Superalgos und reproduzieren Sie das Problem. Die Konsole kann Netzwerkfehler und Warnungen verschiedener Art anzeigen. Diese sind nicht wichtig und Sie können sie getrost ignorieren.",
+                    "updated": 1678647624675
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Yüklenemeyen dosyalar veya belirli sistem bileşenlerindeki hatalar gibi diğer türdeki hatalara dikkat edin.",
                     "updated": 1647867743528
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie auf andere Arten von Fehlern, z. B. Dateien, die nicht geladen werden können, oder Fehler in bestimmten Systemkomponenten.",
+                    "updated": 1678647640365
                 }
             ]
         }

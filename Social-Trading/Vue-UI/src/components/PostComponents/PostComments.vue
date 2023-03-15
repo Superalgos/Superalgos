@@ -9,7 +9,10 @@
                 :originPostHash="postData.originPostHash" 
         />
         <!-- We add the post-button-bar to this post -->
-        <post-button-bar :id="postData.id" :reactions="postData.reactions" />
+        <post-button-bar :reactions="postData.reactions" 
+                        :originPostHash="postData.originPostHash" 
+                        :originSocialPersonaId="postData.originSocialPersonaId"
+                        />
         <!-- We display all comments this post has. -->
         <comment-list />
         <!-- We display the input field for adding new comments. -->

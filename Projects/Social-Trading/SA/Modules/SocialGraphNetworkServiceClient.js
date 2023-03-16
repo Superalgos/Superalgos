@@ -155,6 +155,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                             if (response.result === "Ok") {
                                 post.postText = response.postText
                                 post.userName = response.userName
+                                post.postImage = response.postImage
                                 postsWithNoProblem.push(post)
                             }
                         }

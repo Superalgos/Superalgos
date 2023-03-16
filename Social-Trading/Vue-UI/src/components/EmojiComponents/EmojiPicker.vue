@@ -145,8 +145,8 @@ emojis: {
           // Store the selected posts hash for other components to use.
           store.commit("SET_EMOJI_ORIGIN_POST_HASH", this.originSocialPersonaId)
           store.commit("SHOW_EMOJI_PICKER", false);
-
-          let reactWithEventType = 700 + index;
+          
+          let reactWithEventType = 701 + parseInt(index);
           // Build our message to make the reaction
           let message = {
                 originSocialPersonaId: store.state.profile.nodeId,
@@ -166,7 +166,8 @@ emojis: {
 
         } else {
           store.commit("SET_SELECTED_EMOJI", `${emoji}`);
-          store.commit("SHOW_EMOJI_PICKER", false);
+          console.log("SETTING show emoji picker to false")
+          store.commit("SHOW_EMOJI_PICKER_NEW_POST", false);
         }
     }
   }

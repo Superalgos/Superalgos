@@ -18,6 +18,38 @@
         },
         {
             "style": "Text",
+            "text": "Sorry for polluting develop branch with my PRs, it took me an effort to figure out the github error I kept getting on app.contribute, all superalgos reported was the following"
+        },
+        {
+            "style": "Text",
+            "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Logon failed, use ctrl+c to cancel basic credential prompt."
+        },
+        {
+            "style": "Text",
+            "text": "bash: /dev/tty: No such device or address"
+        },
+        {
+            "style": "Text",
+            "text": "error: failed to execute prompt script (exit code 1)"
+        },
+        {
+            "style": "Text",
+            "text": "fatal: could not read Username for 'https://github.com': No such file or directory"
+        },
+        {
+            "style": "Text",
+            "text": "Google helped to find the solution, I had to do git remote set-url origin with my github token authenticated https url, "
+        },
+        {
+            "style": "Text",
+            "text": "like this:"
+        },
+        {
+            "style": "Text",
+            "text": "git remote set-url origin https://fzaitsev:<my github token>@github.com/fzaitsev/Superalgos.git"
+        },
+        {
+            "style": "Text",
             "text": "Fedor Zaitsev"
         },
         {

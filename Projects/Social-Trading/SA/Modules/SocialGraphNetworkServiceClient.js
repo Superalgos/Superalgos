@@ -215,7 +215,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                     if(response.result === "Ok") {
                                         responseArray.push(response)
                                     } else {
-                                        console.log("ERROR encountered fetching profile data from GitHub storage.")
+                                        SA.logger.error("ERROR encountered fetching profile data from GitHub storage. " + response.message)
                                     }
                                 }
                             }

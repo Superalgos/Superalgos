@@ -211,7 +211,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
+                        let percentage = percentage(childNode)
                         if (childNode.config !== undefined) {
                             percentage = childNode.config.percentage
                         }
@@ -232,7 +232,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
+                                let percentage = percentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -268,7 +268,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
+                        let percentage = percentage(childNode)
                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
@@ -289,7 +289,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
+                                let percentage = percentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -476,7 +476,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -491,7 +491,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = getPercentage(childNode)
                                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
@@ -521,7 +521,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -541,7 +541,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = getPercentage(childNode)
                                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                             percentage = defaultPercentage
                                         }
@@ -560,6 +560,51 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                     }
                 }
             }
+        }
+        function getPercentage(node) {
+            if (node.config !== undefined) {
+                try {
+                    JSON.parse(node.config)
+                }
+                catch (error) {
+                    return
+                }
+                let config = JSON.parse(node.config)
+                let percentage = config.percentage
+                let amount = config.amount
+                let parentPower = node.payload.parentNode.payload.tokenPower
+    
+                // Check that not both are defined
+                if (percentage !== undefined && amount !== undefined) {
+                    node.payload.uiObject.setErrorMessage(
+                        'Both "amount" and "percentage" are present in the config - Only one may be defined.',
+                        10
+                    )
+                    return
+                }
+    
+                // If only 'percentage' is defined, we return that number
+                else if (isFinite(percentage) && !isFinite(amount)) {
+                    return percentage
+                }
+    
+                // If only 'amount' is defined, we use calculate what percentage 'amount' is of the 'parentPower'.
+                else if (!isFinite(percentage) && isFinite(amount) && isFinite(parentPower)) {
+                    percentage = (amount / parentPower) * 100
+    
+                    // If the 'amount' is greater than what is available at the parent node, we assume it is intended and is used as a "maximum power".
+                    if (percentage > 100) {
+                        return 100
+                    }
+                    return percentage
+                }
+    
+                // If user havn't defined any of the values in the config, we return 'undefined'
+                else {
+                    return undefined
+                }
+            }
+            return
         }
     }
 }

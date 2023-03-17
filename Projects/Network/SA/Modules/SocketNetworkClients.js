@@ -211,7 +211,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         }
     }
 
-    function sendMessage(message) {
+    function sendMessage(message, responseHandler) {
 
         return new Promise(sendSocketMessage)
 
@@ -232,7 +232,11 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 messageType: 'Request',
                 payload: message
             }
-            onMessageFunctionsMap.set(socketMessage.messageId, onMessageFunction)
+            
+            if (responseHandler === undefined) { 
+                responseHandler = onMessageFunction 
+            }
+            onMessageFunctionsMap.set(socketMessage.messageId, responseHandler)
             thisObject.socket.send(
                 JSON.stringify(socketMessage)
             )

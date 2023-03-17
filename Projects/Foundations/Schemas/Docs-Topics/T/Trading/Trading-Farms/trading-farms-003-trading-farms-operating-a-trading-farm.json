@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Выполняйте задачи на удаленных узлах точно так же, как если бы они выполнялись на домашнем узле.",
                 "updated": 1640368502266
+            },
+            {
+                "language": "DE",
+                "text": "Führen Sie Aufgaben in entfernten Knoten so aus, wie wenn es sich um ihre eigenen Knoten handelt.",
+                "updated": 1678055448347
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Управление торговой фермой осуществляется изнутри домашнего узла. Нет необходимости использовать приложение с пользовательским интерфейсом с любым другим узлом в сети, хотя при желании вы можете это сделать.",
                     "updated": 1640368564096
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Betrieb einer Handelsfarm erfolgt über den Heimatknoten. Es besteht keine Notwendigkeit, die Benutzeroberfläche (UI) -Anwendung mit einem anderen Knoten im Netzwerk zu verwenden, obwohl Sie dies tun können, wenn Sie dies wünschen.",
+                    "updated": 1678055472748
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "RU",
                     "text": "Запуск или остановка заданий, расположенных в любом из узлов сети, является прозрачной операцией и работает так же, как если бы задания находились в домашнем узле. При запуске задания процесс делает снимок состояния сети на данный момент и отслеживает все зависимости, прежде чем приступить к выполнению задания.",
                     "updated": 1640368599846
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ausführen oder Anhalten von Aufgaben, die sich in einem der Netzknoten befinden, ist ein transparenter Vorgang und funktioniert genauso, als ob sich die Aufgaben im Heimatknoten befinden würden. Wenn eine Aufgabe gestartet wird, erstellt der Prozess einen Schnappschuss des Netzwerkzustands zu diesem Zeitpunkt und verfolgt alle Abhängigkeiten, bevor er mit der jeweiligen Aufgabe beginnt.",
+                    "updated": 1678055305708
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "RU",
                     "text": "Это означает, что изменения, внесенные в распределение задач в сети в любой точке, распознаются каждой задачей при запуске.",
                     "updated": 1640368683225
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies bedeutet, dass Änderungen in der Verteilung der Aufgaben im Netzwerk zu jedem Zeitpunkt von jeder Aufgabe beim Start erkannt werden.",
+                    "updated": 1678055321345
                 }
             ]
         },
@@ -55,6 +75,11 @@
                     "language": "RU",
                     "text": "Однако объекты, которые не выполняются в задачах, такие как машины времени и временные диаграммы в пространстве диаграмм, функционируют в соответствии с состоянием сети при запуске приложения с пользовательским интерфейсом. Это означает, что, например, если вы переместите задачу добычи данных на другой узел, связанная с ней диаграмма будет отображать данные на прежнем узле до тех пор, пока вы не обновите браузер.",
                     "updated": 1640368735453
+                },
+                {
+                    "language": "DE",
+                    "text": "Funktionen, die nicht in Aufgaben ausgeführt werden - wie Zeitmaschinen und Zeitachsendiagramme im Diagrammbereich - funktionieren mit dem Zustand des Netzwerks beim Starten der UI -App. Das heißt, wenn Sie beispielsweise eine Data-Mining-Aufgabe zu einem anderen Knoten verschieben, zeigt das zugehörige Diagramm die Daten im vorherigen Knoten an, bis Sie den Browser aktualisieren.",
+                    "updated": 1678055333102
                 }
             ]
         },
@@ -66,6 +91,11 @@
                     "language": "RU",
                     "text": "Наконец, при удалении рынка система попытается удалить соответствующие задачи на всех узлах сети. Если вы хотите удалить рынки только на определенных узлах, вы можете удалить структуры данных по отдельности.",
                     "updated": 1640368755136
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Bereich deinstallieren, wird das System versuchen, die entsprechenden Aufgaben auf allen Netzwerkknoten zu deinstallieren. Wenn Sie diese nur auf bestimmten Knotenpunkten deinstallieren möchten, können Sie stattdessen Datenstrukturen einzeln löschen.",
+                    "updated": 1678055357460
                 }
             ]
         }

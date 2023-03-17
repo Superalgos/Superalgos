@@ -968,13 +968,13 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             We therefore check if the caller record still exists (connection open), and if so, remove the subscription from it. */
             let callerDetails = thisObject.callersMap.get(caller.socket.id)
             if (callerDetails === undefined) { return true }
-            if (callerDetails.followerConnections !== undefined) {
-                let followerConnections = callerDetails.followerConnections
-                let idx = followerConnections.indexOf(followedBotReferenceId)
+            if (callerDetails.followingBots !== undefined) {
+                let followingBots = callerDetails.followingBots
+                let idx = followingBots.indexOf(followedBotReferenceId)
                 if (idx > -1) {
-                    followerConnections.splice(idx, 1)
+                    followingBots.splice(idx, 1)
                 }
-                callerDetails.followerConnections = followerConnections
+                callerDetails.followingBots = followingBots
                 thisObject.callersMap.set(caller.socket.id, callerDetails)
             }
             return true
@@ -1072,14 +1072,19 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 let followerDetails = thisObject.followerMap.get(followerList[i])
                 if (followerDetails === undefined) { continue }
                 if (followerDetails.followerConnections === undefined) { continue }
+                let followerConnections = followerDetails.followerConnections
                 let followerUserHandle = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name || ''
                 /* Double-check for sufficient token power allocation before sending signal */
                 let tokenPower = followerDetails.tokenPower || 0
                 if (tokenPower < followerMinTokenPower) {
                     SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + SA.projects.governance.utilities.balances.toSABalanceString(tokenPower) + ' is below sender requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) )
+                    for (let j = 0; j < followerConnections.length; j++) {
+                        let callerDetails = thisObject.callersMap.get(followerConnections[j]) 
+                        removeFollower(callerDetails, followerList[i])
+                    }
                     continue
                 }
-                let followerConnections = followerDetails.followerConnections
+        
                 positionInFollowerQueue = i + 1
 
                 /*

@@ -41,6 +41,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                         allWorkspaces = allWorkspaces.concat(updatedFileList)
                         projectsCount++
                         if(projectsCount === projects.length) {
+                            SA.logger.info(`${projectsCount} === ${projects.length}`)
                             readMyWorkspaces()
                         }
                     }
@@ -56,31 +57,60 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
         function readMyWorkspaces() {
             let dirPath = global.env.PATH_TO_MY_WORKSPACES
             try {
-                let fs = SA.nodeModules.fs
-                fs.readdir(dirPath, onDirRead)
+                const nestedList = iterateDirectoryItems([dirPath])
+                allWorkspaces = allWorkspaces.concat(nestedList.map(list => {
+                    list.splice(0, 1, '')
+                    return list
+                }))
+                SA.logger.info('my-workspace file list ' + JSON.stringify(allWorkspaces))
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
+                // let fs = SA.nodeModules.fs
+                // fs.readdir(dirPath, onDirRead)
 
-                function onDirRead(err, fileList) {
-                    if(err) {
-                        // This happens the first time you run the software.
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
-                        return
-                    } else {
-                        let updatedFileList = []
-                        for(let i = 0; i < fileList.length; i++) {
-                            let name = fileList[i]
-                            updatedFileList.push(['', name])
-                        }
-                        allWorkspaces = allWorkspaces.concat(updatedFileList)
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
-                        return
-                    }
-                }
+                // function onDirRead(err, fileList) {
+                //     if(err) {
+                //         // This happens the first time you run the software.
+                //         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
+                //         return
+                //     } else {
+                //         let updatedFileList = []
+                //         for(let i = 0; i < fileList.length; i++) {
+                //             let name = fileList[i]
+                //             updatedFileList.push(['', name])
+                //         }
+                //         allWorkspaces = allWorkspaces.concat(updatedFileList)
+                //         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
+                //         return
+                //     }
+                // }
             } catch(err) {
                 SA.logger.error('Error reading a directory content. filePath = ' + dirPath)
                 SA.logger.error('err.stack = ' + err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 return
             }
+        }
+
+        /**
+         * 
+         * @param {string[]} dirPath 
+         * @return {string[][]}
+         */
+        function iterateDirectoryItems(dirPath) {
+            const fs = SA.nodeModules.fs
+            let results = []
+            const topPath = SA.nodeModules.path.join(...dirPath)
+            const items = fs.readdirSync(topPath)
+            for(let i = 0; i < items.length; i++) {
+                const name = SA.nodeModules.path.join(topPath, items[i])
+                if(fs.lstatSync(name).isDirectory()) {
+                    results = results.concat(iterateDirectoryItems([...dirPath, items[i]]))
+                }
+                else {
+                    results.push([...dirPath, items[i]])
+                }
+            }
+            return results
         }
     }
 }

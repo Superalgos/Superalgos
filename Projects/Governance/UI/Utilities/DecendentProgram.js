@@ -270,6 +270,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                         of all Program nodes.
                         */
                         accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
+                        node.payload.tokenPower = accumulatedIncomingProgramPower
 
                         if (node[usersArrayPropertyName] !== undefined) {
                             /*
@@ -282,7 +283,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             let totalNodesWithoutPercentage = 0
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -305,7 +306,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             */
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }

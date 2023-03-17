@@ -193,7 +193,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = getPercentage(childNode)
+                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
 
                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
@@ -211,7 +211,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = getPercentage(childNode)
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -247,7 +247,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = getPercentage(childNode)
+                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
@@ -268,7 +268,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = getPercentage(childNode)
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -285,10 +285,6 @@ function newGovernanceFunctionLibraryTokenPower() {
                 }
             }
         }
-    }
-
-    function getPercentage(node) {
-        return UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
     }
 
     function drawTokenPower(node, tokenPower, percentage) {

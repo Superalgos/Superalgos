@@ -12,6 +12,7 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
         SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
         async function processRequest(compressedBody) {
+            let unescapedPaths = requestPath.split(2)
             let fileName = unescape(requestPath[2])
             try {
                 if(compressedBody === undefined) {

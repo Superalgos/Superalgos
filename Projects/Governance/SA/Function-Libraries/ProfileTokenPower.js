@@ -561,7 +561,8 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                 }
             }
         }
-        function getPercentage(node) {
+    }
+    function getPercentage(node) {
             if (node.config !== undefined) {
                 try {
                     JSON.parse(node.config)
@@ -606,5 +607,4 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             }
             return
         }
-    }
 }

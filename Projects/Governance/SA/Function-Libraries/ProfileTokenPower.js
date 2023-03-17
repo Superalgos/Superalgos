@@ -211,7 +211,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = percentage(childNode)
+                        let percentage = getPercentage(childNode)
                         if (childNode.config !== undefined) {
                             percentage = childNode.config.percentage
                         }
@@ -232,7 +232,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = percentage(childNode)
+                                let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -268,7 +268,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = percentage(childNode)
+                        let percentage = getPercentage(childNode)
                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
@@ -289,7 +289,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = percentage(childNode)
+                                let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }

@@ -1,5 +1,3 @@
-const { dir } = require("npm")
-
 exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
     const thisObject = {
         endpoint: 'ListWorkspaces',
@@ -103,7 +101,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                     results = results.concat(iterateDirectoryItems([...dirPath, items[i]]))
                 }
                 else {
-                    results.path([...dirPath, items[i]])
+                    results.push([...dirPath, items[i]])
                 }
             }
             return results

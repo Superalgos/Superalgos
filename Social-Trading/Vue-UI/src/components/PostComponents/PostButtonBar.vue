@@ -49,7 +49,6 @@ import { reactedPost, getReplies } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
 import EmojiPicker from '../EmojiComponents/EmojiPicker.vue';
-import EmojiList from '../../../utils/EmojiList';
 
 export default {
   components: { EmojiPicker },

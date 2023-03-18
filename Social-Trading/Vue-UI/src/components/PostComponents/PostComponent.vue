@@ -5,9 +5,11 @@
                 <p id="post-user-name"> {{this.userName}} </p>
                 <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
             </div>
-            <div class="date-time header-right" v-if="hasReactions?.length">
+            <div class="date-time header-right">
                 <!-- Reactions on post displayed here -->
-                <div class="emoji-reactions emoji-reaction-area"  >
+                <div class="emoji-reactions emoji-reaction-area" 
+                v-if="hasReactions?.length"  
+                >
                     <div v-for="reaction in hasReactions" v-bind:key="reaction.emoji">
                         <p class="reaction-emoji">{{reaction.emoji}}</p>
                         <p class="reaction-count">{{reaction.reactionCount}}</p>

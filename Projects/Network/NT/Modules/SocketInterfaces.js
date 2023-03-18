@@ -1089,7 +1089,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     continue
                 }
         
-                positionInFollowerQueue = i + 1
+                if (i === 0) {
+                    positionInFollowerQueue = 1 
+                } else {
+                    positionInFollowerQueue++
+                }
 
                 /*
                 It is possible that many connections belong to the same user profile. When that happens, they are all together 
@@ -1108,13 +1112,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
                 }
                 lastUserProfileId = followerDetails.userProfileId
-                socketMessage.rankingStats = {
-                    accumulatedDelay: accumulatedDelay,
-                    positionInQueue: positionInFollowerQueue,
-                    queueSize: queueSize
-                }
-                
+           
                 for (let j = 0; j < followerConnections.length; j++) {
+                    positionInFollowerQueue = positionInFollowerQueue + j
+                    socketMessage.rankingStats = {
+                        accumulatedDelay: accumulatedDelay,
+                        positionInQueue: positionInFollowerQueue,
+                        queueSize: queueSize
+                    }
                     let receiver = thisObject.callersMap.get(followerConnections[j])
                     if (receiver === undefined) { continue }
                     receiver.socket.send(JSON.stringify(socketMessage))

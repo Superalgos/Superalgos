@@ -2,7 +2,7 @@
     <div class="modal-wallet-overlay" v-if="getWalletVisibility">
         <div id="wallet-main-div" class="wallet" >
             <div class="top-bar">
-                <p  class="bold">Wallet</p>
+                <p  class="bold center-header">Wallet</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeWallet">
             </div>
         

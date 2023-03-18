@@ -1,11 +1,27 @@
 <template>
     <div class="modal-wallet-overlay" v-if="getWalletVisibility">
         <div id="wallet-main-div" class="wallet" >
+            <!-- Panel Header -->
             <div class="top-bar">
                 <p  class="bold center-header">Wallet</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeWallet">
             </div>
-        
+            <!-- Panel Body -->
+            <div class="center">
+                <div class="info-card">
+                    <h1 class="wallet-account-name">{{getProfileName}}</h1>
+                    <div class="balance-list-address center">
+                        <p class="address-h1">Wallet Address</p>
+                    </div>
+                    <div class="balance-list-address center">
+                        <p class="address-p">{{getWalletAddress}}</p>
+                    </div>
+                    <div class="balance-list center">
+                        <p class="balance-header">Wallet Balance</p>
+                        <p>{{getBalanceSA}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -19,6 +35,7 @@ export default {
     name: 'wallet-panel',
     data() {
     return {
+        balanceSA: 0
         };
     },
     methods: {
@@ -30,8 +47,17 @@ export default {
     computed: {
         getWalletVisibility() {
             return store.state.showWallet 
+        },
+        getProfileName() {
+            return store.state.profile.userProfileHandle
+        },
+        getWalletAddress() {
+            return store.state.profile.blockchainAccount;
+        },
+        getBalanceSA() {
+            return store.state.profile.balanceSA;
         }
-}
+    },
 };
 </script>
 
@@ -68,6 +94,65 @@ export default {
     font-weight: 700;
 }
 
-
-
+/* Body */
+.info-card {
+    display: flex;
+    flex-direction: column;
+    border: ridge 2px black;
+    border-radius: 20px;
+    margin: 10% 10%;
+    height: 50vh;
+    background-color: rgb(161, 209, 222);
+}
+.balance-list-address {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0% 10%;
+    margin-top: 1%;
+    border: solid 1px black;
+    border-radius: 35px;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+    justify-content: center;
+    padding: 0% 8%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: white;
+    
+}
+.balance-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 10% 10%;
+    margin-top: 10%;
+    border: solid 1px black;
+    border-radius: 35px;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+    justify-content: center;
+    padding: 0% 8%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: white;
+}
+.wallet-account-name {
+    margin-top: 5%;
+    margin-bottom: 0px;
+}
+.address-h1 {
+    margin: 8px;
+}
+.balance-header {
+    margin: 8px;
+    margin-bottom: 0px;
+}
+.address-p {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 400;
+}
 </style>

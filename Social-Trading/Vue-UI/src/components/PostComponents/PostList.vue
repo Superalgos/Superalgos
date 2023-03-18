@@ -35,7 +35,6 @@
 
 
 <script>
-//import { getFeed } from '../../services/PostService'
 import store from '../../store/index';
 import PostComponent from './PostComponent.vue';
 import PostButtonBar from './PostButtonBar.vue';

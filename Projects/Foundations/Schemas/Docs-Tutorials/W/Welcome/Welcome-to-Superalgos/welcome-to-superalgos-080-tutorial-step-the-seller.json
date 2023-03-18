@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "We zitten nu in de Close Stage. Ik dacht dat het interessant zou zijn om je meer te vertellen over uitvoeringsalgoritmen, met een ander voorbeeld.",
                 "updated": 1666880237782
+            },
+            {
+                "language": "FR",
+                "text": "Nous sommes maintenant dans la phase de clôture du trade. J'ai pensé qu'il serait intéressant de vous en dire plus sur les algorithmes d'exécution, avec un autre exemple.",
+                "updated": 1676957993578
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Een Execution Algorithm kan meerdere orders van alle soorten verwerken. In dit geval worden meerdere limiet verkooporders gedefinieerd.",
                     "updated": 1666880281733
+                },
+                {
+                    "language": "FR",
+                    "text": "Un algorithme d'exécution peut traiter des ordres multiples, de tous types. Dans ce cas, des ordres de vente limite multiples sont définis.",
+                    "updated": 1676958034697
                 }
             ]
         },
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Selecteer Configure in het menu van het algoritme en denk na over de implicaties van deze definitie!",
                     "updated": 1666880310737
+                },
+                {
+                    "language": "FR",
+                    "text": "Sélectionnez Configurer dans le menu de l'algorithme et réfléchissez aux implications de cette définition !",
+                    "updated": 1676958054332
                 }
             ]
         },
@@ -175,6 +190,11 @@
                     "language": "NL",
                     "text": "Zowel de open fase, waarin je bepaalt hoe je een positie inneemt, als de close-fase, waarin je bepaalt wanneer je wilt uitstappen, kunnen meerdere uitvoeringsalgoritmen bevatten, die elk een bepaalde hoeveelheid kapitaal verwerken.",
                     "updated": 1666880372869
+                },
+                {
+                    "language": "FR",
+                    "text": "Aussi bien la phase d'ouverture, où vous définissez la manière de prendre une position, que la phase de clôture, où vous définissez la manière de la liquider, peuvent comporter plusieurs algorithmes d'exécution, chacun d'entre eux gérant une certaine quantité du capital.",
+                    "updated": 1676958099849
                 }
             ]
         }

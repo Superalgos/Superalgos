@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¿Entiendes? ¡El Trading botl coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
-                "updated": 1624458595413,
+                "text": "¿Entiendes? ¡El Trading Bot coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
+                "updated": 1675280806441,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Ik snap het? De Trading Bot plaatst de Limit Buy Order op het vierde ondersteuningsniveau! Wat is de logica hierachter?",
                 "updated": 1666879640680
+            },
+            {
+                "language": "FR",
+                "text": "Vous avez compris ? Le Trading Bot place l'ordre d'achat limite au quatrième niveau de support ! Quelle est la logique derrière cela ?",
+                "updated": 1676899669808
             }
         ]
     },
@@ -61,8 +66,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Es algo arbitrario, pero la estrategia define un cuchillo que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
-                    "updated": 1624458684445,
+                    "text": "Es algo arbitrario, pero la estrategia define un vela que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
+                    "updated": 1675280824279,
                     "style": "Text"
                 },
                 {
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Het is een beetje willekeurig, maar de strategie definieert een vallend mes als de prijsactie die in staat is om ten minste drie ondersteuningsniveaus te doorbreken en in één minuut de vierde te bereiken. Statistisch gezien produceren dergelijke gebeurtenissen - in dit tijdsbestek - meer afwijzingen dan voortzettingen. Ze kunnen worden veroorzaakt door grote marktorders die de bid/ask-spread in het orderboek tijdelijk verhogen.",
                     "updated": 1666879724696
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est un peu arbitraire, mais la stratégie définit un couteau qui tombe comme l'action du prix capable de briser au moins trois niveaux de soutien et d'atteindre le quatrième pendant une seule minute. Statistiquement, de tels événements - dans ce laps de temps - produisent plus de rebonds que de continuations. Ils peuvent être causés par des ordres de marché importants qui augmentent temporairement l'écart entre l'offre et la demande dans le carnet d'ordres.",
+                    "updated": 1676899702299
                 }
             ]
         },
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Neem even de tijd om te controleren of kooporders op het vierde ondersteuningsniveau zijn geplaatst!",
                     "updated": 1666879748360
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez une minute pour vérifier que les ordres d'achat sont placés au quatrième niveau de support !",
+                    "updated": 1676899722758
                 }
             ]
         }

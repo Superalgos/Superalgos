@@ -53,10 +53,10 @@ exports.newHttpInterface = function newHttpInterface() {
             }
         } catch (err) {
             if (err.stack !== undefined) {
-                console.log(err.stack)
+                SA.logger.error(err.stack)
             }
             if (err.message !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] onHttpRequest -> err.message = ' + err.message)
+                SA.logger.error('onHttpRequest -> err.message = ' + err.message)
             }
         }
     }

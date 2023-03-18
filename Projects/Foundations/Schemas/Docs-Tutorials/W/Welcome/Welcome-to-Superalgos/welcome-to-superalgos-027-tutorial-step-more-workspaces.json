@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
-                "updated": 1625872662394,
+                "text": "Los Plugin Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
+                "updated": 1675207503797,
                 "style": "Definition"
             },
             {
@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Les Plugin Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
                 "updated": 1667986626783
+            },
+            {
+                "language": "PL",
+                "text": "Dostarczane z systemem Plugin Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
+                "updated": 1675002653309
             }
         ],
         "updated": 1629803469668
@@ -76,8 +81,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En cuanto inició el interfaz de usuario por primera vez, se cargó el espacio de Getting Started Tutorials y Plugin Workspace. Se guardó un nuevo User Workspace después de 60 segundos en la carpeta My-Workspaces.",
-                    "updated": 1624492978440,
+                    "text": "Los Workspaces guardan toda la información relativa a las estructuras de datos que se incluyen en el espacio de trabajo.",
+                    "updated": 1675207551825,
                     "style": "Text"
                 },
                 {
@@ -105,6 +110,11 @@
                     "language": "FR",
                     "text": "Les Workspaces enregistrent toutes les informations relatives aux structures de données qui sont incluses dans l'espace de travail.",
                     "updated": 1667986696978
+                },
+                {
+                    "language": "PL",
+                    "text": "Workspaces zapisuje wszystkie informacje dotyczące struktur danych, które znajdują się w przestrzeni roboczej.",
+                    "updated": 1675002678853
                 }
             ]
         },
@@ -115,8 +125,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Workspace se guarda automáticamente cada minuto. Antes de cerrar el navegador, y manualmente con Ctrl + Shift + Key-S",
-                    "updated": 1625872986091,
+                    "text": "Creemos una copia de este Plugin Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
+                    "updated": 1675207601661,
                     "style": "Callout"
                 },
                 {
@@ -144,6 +154,11 @@
                     "language": "FR",
                     "text": "Créons une copie de ce Plugin Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
                     "updated": 1667986754674
+                },
+                {
+                    "language": "PL",
+                    "text": "Utwórzmy kopię tego Plugin Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
+                    "updated": 1675002723308
                 }
             ]
         },
@@ -165,8 +180,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los cambios en los Plugins Workspaces no persisten en el plugin sino en el User Workspace.",
-                    "updated": 1624493291791,
+                    "text": "Ahora abre la pestaña Workspaces (Espacios de trabajo) a la izquierda, desplázate hasta el final y encuentra el único espacio de trabajo con fondo morado. Ese es tu espacio de trabajo. Pero no hace falta que hagas clic en él. ",
+                    "updated": 1675207664475,
                     "style": "Important"
                 },
                 {
@@ -194,6 +209,11 @@
                     "language": "FR",
                     "text": "Maintenant, ouvrez l'onglet Workspaces sur la gauche, faites défiler jusqu'en bas, et trouvez le seul espace de travail avec un fond violet ! C'est votre espace de travail ! Mais pas besoin de cliquer dessus !",
                     "updated": 1667986790239
+                },
+                {
+                    "language": "PL",
+                    "text": "Teraz otwórz zakładkę Workspaces po lewej stronie, przewiń do dołu i znajdź jedyny obszar roboczy z fioletowym tłem! To jest twój obszar roboczy! Ale nie musisz na niego klikać!",
+                    "updated": 1675002751094
                 }
             ],
             "updated": 1629803460646

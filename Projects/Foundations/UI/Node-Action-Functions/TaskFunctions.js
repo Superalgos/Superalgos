@@ -144,6 +144,11 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             }
         }
 
+        /*
+        The lighting path function crawls the node structure including the nodes listed at the path into the output submitted to the Task Server.
+        The crawling follows child relationships and reference relationships. This allows the function to crawl into all directions of the data structure until the string is exhausted.
+        Every time a node is added to the output, the lighting path string is shortened by removing the first element, which is the included node, and the remainder of the string is passed to the same function recursively.
+        */
         let taskLightingPath = '->Task->' +
             'Task Server App Reference->Task Server App->Signing Account->' +
             'Portfolio Bot Instance->' +
@@ -213,6 +218,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             Social Trading Nodes
             */
             'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
+            'Followed Bot Reference->Social Trading Bot->Signing Account->' +
             /*
             Open Storage Nodes
             */

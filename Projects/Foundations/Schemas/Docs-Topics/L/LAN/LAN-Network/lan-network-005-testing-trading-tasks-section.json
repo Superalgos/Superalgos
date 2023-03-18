@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Testumgebung organisiert Ihre Strategie-Test-Ressourcen, gruppiert Aufgaben und damit verbundene Backtesting- und Paper-Trading-Sessions",
                 "updated": 1651911464568
+            },
+            {
+                "language": "TR",
+                "text": "Test ortamı, strateji testi kaynaklarınızı, gruplama görevlerinizi ve ilgili geçmiş test ve borsa yatırım oturumlarınızı düzenler",
+                "updated": 1671963078834
             }
         ]
     },
@@ -136,6 +141,11 @@
                     "language": "DE",
                     "text": "Trading Tasks führen Instanzen des Trading Bot aus, die vier verschiedene Arten von Handelssitzungen durchführen können. Wir werden diese auf den nächsten Seiten untersuchen.",
                     "updated": 1651911518396
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım ( Trading )görevleri, dört farklı türde alım satım seansı yürütebilen Alım Satım Botu ( Trading Bot ) örneklerini çalıştırır. Bunları önümüzdeki birkaç sayfada inceleyeceğiz.",
+                    "updated": 1672264304257
                 }
             ]
         }

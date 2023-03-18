@@ -22,6 +22,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
 
     const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
+    let tempBalanceRanking = new Map()
     return thisObject
 
     async function initialize(
@@ -37,24 +38,24 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
-            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles scheduled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
-            console.log('')
+            SA.logger.info('Updates of all in-memory User Profiles scheduled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
+            SA.logger.info('')
         }
     }
 
     async function run() {
-        console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling changes from Github. You may see warnings below, indicating that some User Profiles have bad definitions. If your profile does not come with a warning, there is no further action required from you. Profiles with warning are ignored, so, if your profile does have a warning, you need to fix it!')
-        console.log(' ')
+        SA.logger.info(' ')
+        SA.logger.info('Updating all in-memory User Profiles by pulling changes from Github. You may see warnings below, indicating that some User Profiles have bad definitions. If your profile does not come with a warning, there is no further action required from you. Profiles with warning are ignored, so, if your profile does have a warning, you need to fix it!')
+        SA.logger.info(' ')
 
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
         if (thisObject.pullUserProfiles === true) {
             await pullProfiles()
         }
         await reloadAll()
-        console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] User Profiles on memory updated from disk.')
-        console.log(' ')
+        SA.logger.info(' ')
+        SA.logger.info('User Profiles on memory updated from disk.')
+        SA.logger.info(' ')
     }
 
     async function pullProfiles() {
@@ -71,13 +72,13 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             .catch(onProfilesNotPulled)
 
         function onProfilesPulled() {
-            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk updated from Github Governance Repository.')
-            console.log(' ')
+            SA.logger.info('User Profiles on disk updated from Github Governance Repository.')
+            SA.logger.info(' ')
         }
 
         function onProfilesNotPulled(err) {
-            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk NOT updated from Github Governance Repository. Retrying in ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' Minutes. -> err.message = ' + err.message)
-            console.log(' ')
+            SA.logger.info('User Profiles on disk NOT updated from Github Governance Repository. Retrying in ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' Minutes. -> err.message = ' + err.message)
+            SA.logger.info(' ')
         }
     }
 
@@ -93,12 +94,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         setReferenceParentForNodeHierearchy(
             SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID
         )
-
+        await loadTemporaryTokenPower()
         await extractInfoFromUserProfiles()
         await loadUserProfilesBalances()
 
-        console.log((new Date()).toISOString(), '[INFO] User Profile Balances have been updated by reading blockchain balances.')
-        console.log('')
+        SA.logger.info('User Profile Balances have been updated by reading blockchain balances.')
+        SA.logger.info('')
 
         if (thisObject.p2pNetworkClientIdentity.node === undefined) {
             throw ('The Network Client Identity does not match any node at User Profiles Plugins.')
@@ -133,7 +134,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (p2pNetwork === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] P2P Network Plugin could not be loaded into memory: ' + p2pNetworkPlugin.name)
+                    SA.logger.warn('P2P Network Plugin could not be loaded into memory: ' + p2pNetworkPlugin.name)
                     continue
                 }
 
@@ -168,10 +169,20 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (userProfile === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] User Profile Plugin could not be loaded into memory: ' + userProfilePlugin.name)
+                    SA.logger.warn('User Profile Plugin could not be loaded into memory: ' + userProfilePlugin.name)
                     continue
-                }
+                }   
 
+                /* If we have a ranking from earlier loads, temporary restore until blockchain balances will have reloaded */
+                let tempBalanceObject = tempBalanceRanking.get(userProfile.id)
+                if (tempBalanceObject !== undefined) {
+                    if (tempBalanceObject.hasOwnProperty('ranking')) { 
+                        userProfile.ranking = tempBalanceObject.ranking
+                    }
+                    if (tempBalanceObject.hasOwnProperty('balance')) { 
+                        userProfile.balance = tempBalanceObject.balance
+                    }
+                } 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
             }
         }
@@ -187,11 +198,17 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             }
         }
 
+        async function loadTemporaryTokenPower() {
+            /* Redistribute Token Power based on balances from earlier loads until blockchain balances will have reloaded */
+            let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
+        }
+
         async function extractInfoFromUserProfiles() {
 
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-            console.log((new Date()).toISOString(), '[INFO] Extracting Info from each User Profile.')
-            console.log('')
+            SA.logger.info('Extracting Info from each User Profile.')
+            SA.logger.info('')
             for (let i = 0; i < userProfiles.length; i++) {
                 let userProfile = userProfiles[i][1]
                 let signatureObject = userProfile.config.signature
@@ -251,8 +268,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     )
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 } catch (err) {
-                                    console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored because something is wrong with its configuration. -> err = ' + err)
-                                    console.log('')
+                                    SA.logger.warn('A configured Network Node was ignored because something is wrong with its configuration. -> err = ' + err)
+                                    SA.logger.warn('')
                                 }
 
                             }
@@ -309,8 +326,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         async function loadUserProfilesBalances() {
 
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-            console.log((new Date()).toISOString(), '[INFO] Updating wallet balances for each relevant User Profile.')
-            console.log('')
+            SA.logger.info('Updating wallet balances for each relevant User Profile.')
+            SA.logger.info('')
             for (let i = 0; i < userProfiles.length; i++) {
                 let userProfile = userProfiles[i][1]
                 /*
@@ -332,7 +349,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     }
                 }
                 if (userProfile.balance > 0) {
-                    console.log((new Date()).toISOString(), '[INFO] Accumulated Balance of Address: ' + userProfile.blockchainAccount + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfile.balance))
+                    SA.logger.info('Accumulated Balance of Address: ' + userProfile.blockchainAccount + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfile.balance))
                 }
                 /* 
                 If the Network Bootstrapping process has been launched from the Task Server we can report the status to the Task 
@@ -371,15 +388,15 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     let balance
                     try {
                         balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
-                        /* console.log((new Date()).toISOString(), '[INFO] Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance)) */
+                        /* SA.logger.info('Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance)) */
                     } catch (err) {
-                        console.log((new Date()).toISOString(), '[INFO] Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ', retrying in 5 seconds')
+                        SA.logger.info('Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ', retrying in 5 seconds')
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)
                         try {
                             balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
-                            console.log((new Date()).toISOString(), '[INFO] Retry successful - Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance))
+                            SA.logger.info('Retry successful - Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance))
                         } catch (err) {
-                            console.log((new Date()).toISOString(), '[WARN] Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ' after retrying. Proceeding with 0 balance for this user.')
+                            SA.logger.warn('Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ' after retrying. Proceeding with 0 balance for this user.')
                             balance = 0
                         }
                     }
@@ -387,50 +404,38 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     return Number(balance)
                 }
             }
+            /* Calculate available token power per node (incl. delegated power) and add information to node payloads */
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)   
         }
 
         function calculateProfileRankings() {
-            let rankingArray = []
             /*
             Transfer all profiles to the ranking array.
             */
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-            for (let i = 0; i < userProfiles.length; i++) {
-                let userProfile = userProfiles[i][1]
 
-                let added = false
-                for (let j = 0; j < rankingArray.length; j++) {
-                    let rankingProfile = rankingArray[j]
-                    if (userProfile.balance > rankingProfile.balance) {
-                        rankingArray.splice(j, 0, userProfile)
-                        added = true
-                        break
-                    }
+            userProfiles.sort((p1, p2) => p2[1].balance - p1[1].balance)
+
+            tempBalanceRanking.clear()
+            const rankingTable = userProfiles.map((up, index) => {
+                // add ranking to existing item
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(up[1].id).ranking = index + 1
+                // Build temporary table which will retain rankings during balance reloads. This avoids users to drop to end of queue when connecting during balance loads.
+                tempBalanceRanking.set(up[1].id, {ranking: index + 1, balance: up[1].balance})
+                // return user friendly item for console table output
+                return {
+                    userProfile: up[1].name,
+                    balance: SA.projects.governance.utilities.balances.toSABalanceString(up[1].balance),
+                    ranking: index + 1
                 }
-                if (added === false) {
-                    rankingArray.push(userProfile)
-                }
+            })
+
+            if (thisObject.loadAllUserProfileBalances === true) {
+                SA.logger.info('User Profiles ranking table calculated based on latest User Profile Balances: ')
+                SA.logger.info('')
+                console.table(rankingTable)
+                SA.logger.info('')
             }
-            /*
-            We calculate the User Profile Ranking based on the posotion at the rankingArray
-            */
-            let rankingTable = []
-            for (let j = 0; j < rankingArray.length; j++) {
-                let rankingProfile = rankingArray[j]
-                rankingProfile.ranking = j + 1
-                let rankingTableRow = {
-                    userProfile: rankingProfile.name,
-                    balance: SA.projects.governance.utilities.balances.toSABalanceString(rankingProfile.balance),
-                    ranking: rankingProfile.ranking
-                }
-                if (rankingTableRow.balance !== '0 SA') {
-                    rankingTable.push(rankingTableRow)
-                }
-            }
-            console.log((new Date()).toISOString(), '[INFO] User Profiles ranking table calculated based on latest User Profile Balances: ')
-            console.log('')
-            console.table(rankingTable)
-            console.log('')
         }
 
         function setupPermissionedNetwork() {

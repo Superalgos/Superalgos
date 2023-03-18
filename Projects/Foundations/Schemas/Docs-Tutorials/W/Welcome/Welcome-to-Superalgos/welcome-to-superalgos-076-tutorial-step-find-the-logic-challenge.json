@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que sabe cómo funciona el indicador, ¿puede encontrar la relación entre las órdenes de compra y los niveles de soporte?",
-                "updated": 1624458274773,
+                "text": "Ahora que sabes cómo funciona el indicador, ¿puedes encontrar la relación entre las órdenes de compra y los niveles de soporte?",
+                "updated": 1675280772627,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Nu u weet hoe de indicator werkt, kunt u de relatie tussen kooporders en ondersteuningsniveaus vinden?",
                 "updated": 1666879495400
+            },
+            {
+                "language": "FR",
+                "text": "Maintenant que vous savez comment fonctionne l'indicateur, pouvez-vous trouver la relation entre les ordres d'achat et les niveaux de support ?",
+                "updated": 1676899579969
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Neem de tijd om de geteste periode te verkennen en zoek naar aanwijzingen over hoe ondersteuningsniveaus de snelheid van de Limit Buy Order bepalen!",
                     "updated": 1666879530872
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez le temps d'explorer la période testée à la recherche d'indices sur la façon dont les niveaux de support déterminent le taux de l'ordre d'achat limite !",
+                    "updated": 1676899604195
                 }
             ]
         },
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Het is leuk om te zien hoe nieuwe niveaus worden gevormd wanneer de prijs van richting verandert, en hoe een vastgesteld niveau van kleur verandert wanneer de prijs erop stuitert.",
                     "updated": 1666879560128
+                },
+                {
+                    "language": "FR",
+                    "text": "Il est amusant de remarquer comment de nouveaux niveaux se forment lorsque le prix change de direction, et comment un niveau établi change de couleur lorsque le prix rebondit dessus.",
+                    "updated": 1676899627071
                 }
             ]
         },
@@ -175,6 +190,11 @@
                     "language": "NL",
                     "text": "Maar de truc ligt in het tellen van niveaus boven de order!",
                     "updated": 1666879594128
+                },
+                {
+                    "language": "FR",
+                    "text": " Mais l'astuce consiste à compter les niveaux au-dessus de l'ordre !",
+                    "updated": 1676899642840
                 }
             ]
         }

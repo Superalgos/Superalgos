@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estos trucos UI pueden facilitarle la vida:",
-                    "updated": 1626540682262,
+                    "text": "Estos trucos UI pueden facilitarte la vida:",
+                    "updated": 1675376809849,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Fije el nodo que va a mover a través del espacio de diseño, de modo que pueda soltarlo en cualquier punto para verificar las direcciones en el mapa del espacio de diseño.",
-                    "updated": 1626540729452,
+                    "text": "Fija el nodo que vas a mover en el espacio de diseño para que se quede donde lo sueltes.",
+                    "updated": 1675376701617,
                     "style": "List"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Usa Ctrl / Cmd + teclas de flecha para arrastrar el nodo por la pantalla después de hacer clic en él con el mouse. ¡Mantén las teclas presionadas y el nodo vuela!",
-                    "updated": 1626540759534,
+                    "text": "Pulse el botón \" Save node to be moved \" en el nodo que desea mover.",
+                    "updated": 1675376730128,
                     "style": "List"
                 },
                 {
@@ -217,6 +217,11 @@
                     "language": "NL",
                     "text": "Gebruik de ontwerpruimtekaart om uit te zoomen en klik in de buurt van het knooppunt waarnaar u wilt gaan.",
                     "updated": 1669542302896
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza el \"Design Space Map\" para alejar la imagen y haz clic cerca del nodo al que deseas viajar.",
+                    "updated": 1675376763391
                 }
             ]
         },
@@ -255,6 +260,11 @@
                     "language": "NL",
                     "text": "Klik op \"Snap saved node to position\" en het knooppunt dat je hebt opgeslagen, verschijnt op magische wijze bovenop het knooppunt waar je bent!",
                     "updated": 1669542342318
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en \" Snap saved node to postion\" y el nodo que has guardado aparecerá mágicamente encima del nodo en el que te encuentras.",
+                    "updated": 1675376789200
                 }
             ]
         },
@@ -292,6 +302,11 @@
                     "language": "NL",
                     "text": "Verwijder de pin zodra de referentie tot stand is gebracht, zodat het knooppunt terugkeert naar zijn plaats.",
                     "updated": 1669542357727
+                },
+                {
+                    "language": "ES",
+                    "text": "Quita el pin una vez establecida la referencia para que el nodo vuelva a su sitio.",
+                    "updated": 1675376802665
                 }
             ]
         }

@@ -28,9 +28,9 @@ exports.newSavePluginRoute = function newSavePluginRoute() {
                 fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> SavePlugin -> gzip length = ' + compressedBody.length)
+                SA.logger.error('httpInterface -> SavePlugin -> Method call produced an error.')
+                SA.logger.error('httpInterface -> SavePlugin -> err.stack = ' + err.stack)
+                SA.logger.error('httpInterface -> SavePlugin -> gzip length = ' + compressedBody.length)
 
                 let error = {
                     result: 'Fail Because',

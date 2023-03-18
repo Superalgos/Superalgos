@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Zie je de groene bolletjes met een L in het midden? Dat zijn de limiet aankooporders die ik noemde.",
                 "updated": 1666878118349
+            },
+            {
+                "language": "FR",
+                "text": "Vous voyez les ronds verts avec un L au centre ? Ce sont les ordres d'achat limite dont j'ai parlé.",
+                "updated": 1676898990520
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Merk op hoe elke minuut een bestelling wordt geplaatst en wordt geannuleerd voordat een nieuwe bestelling wordt geplaatst. Herken je het symbool voor de annulering van de bestelling? Het is de kleinere, donkere cirkel met een witte horizontale streep in het midden!",
                     "updated": 1666878191215
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez comment un ordre est passé toutes les minutes et est annulé avant qu'un nouvel ordre ne soit passé. Reconnaissez-vous le symbole de l'annulation de l'ordre ? C'est la rond plus petit, plus foncé avec une bande horizontale blanche au milieu !",
+                    "updated": 1676899028452
                 }
             ]
         },
@@ -104,8 +114,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Observa que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
-                    "updated": 1627313798560,
+                    "text": "¡Observa que la vela cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
+                    "updated": 1675280497797,
                     "style": "Callout"
                 },
                 {
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Merk op dat het mes om 00:21 uur valt! De prijs zakte ruim onder de prijs van de limietorder, dus de order werd uitgevoerd! Dat is wat de grotere - gevulde - groene cirkel aangeeft!",
                     "updated": 1666878241957
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez la chute du couteau à 00:21 AM ! Le prix est tombé bien en dessous du taux de l'ordre limite, donc, l'ordre a été exécuté ! C'est ce qu'indique la balle verte plus remplie !",
+                    "updated": 1676899055088
                 }
             ]
         },
@@ -177,6 +192,11 @@
                     "language": "NL",
                     "text": "Dus... wat gebeurt er daarna?",
                     "updated": 1666878265541
+                },
+                {
+                    "language": "FR",
+                    "text": "Alors... que se passe-t-il après ?",
+                    "updated": 1676899070081
                 }
             ]
         }

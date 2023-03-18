@@ -37,6 +37,11 @@
                 "updated": 1640854684418
             },
             {
+                "language": "NL",
+                "text": "Trigger Stage is onze Talentscout",
+                "updated": 1670773801127
+            },
+            {
                 "language": "ID",
                 "text": "Trigger Stage adalah Pemandu Bakat kita",
                 "updated": 1670300579964
@@ -76,6 +81,11 @@
                     "updated": 1640854793725
                 },
                 {
+                    "language": "NL",
+                    "text": "Onze strategie is gebaseerd op het kruisen van SMA en het is in dit knooppunt dat we de bot opdracht kunnen geven om te zoeken naar voorwaarden waaraan moet worden voldaan om een transactie aan te gaan.",
+                    "updated": 1670773886440
+                },
+                {
                     "language": "ID",
                     "text": "Strategi kita berdasar kepada SMA cross dan itu terdapat pada node yang dapat menginstruksikan bot untuk mencari suatu kondisi yang harus dipenuhi untuk mengambil keputusan berdagang/trading.",
                     "updated": 1670300587289
@@ -111,6 +121,11 @@
                     "language": "RU",
                     "text": "Этот этап заключается в проверке рынка и принятии решения о том, соответствуют ли некоторые условия для совершения сделки или нет!",
                     "updated": 1640854776134
+                },
+                {
+                    "language": "NL",
+                    "text": "In deze fase draait alles om het controleren van de markt en het beslissen of sommige voorwaarden een transactie waard zijn of niet!",
+                    "updated": 1670773908137
                 },
                 {
                     "language": "ID",
@@ -149,6 +164,11 @@
                     "language": "RU",
                     "text": "Давайте посмотрим на три его потомка, и я покажу вам несколько маленьких хитростей, чтобы реализовать эту стратегию самым быстрым способом!",
                     "updated": 1640854844167
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we eens kijken naar zijn 3 afstammelingen en ik zal je enkele trucjes laten zien om de strategie zo snel mogelijk te implementeren!",
+                    "updated": 1670773952618
                 },
                 {
                     "language": "ID",

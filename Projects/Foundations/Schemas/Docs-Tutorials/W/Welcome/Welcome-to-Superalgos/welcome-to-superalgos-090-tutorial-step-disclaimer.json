@@ -35,6 +35,11 @@
                 "language": "NL",
                 "text": "Deze waarschuwing wordt weergegeven in de modus Volledig scherm.",
                 "updated": 1667126054290
+            },
+            {
+                "language": "ES",
+                "text": "Este aviso se reproducirá en modo de pantalla completa.",
+                "updated": 1675361531843
             }
         ]
     },
@@ -51,8 +56,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos es un software de computadora. Al igual que con cualquier software, pueden ocurrir errores en cualquier momento, incluidos errores que pueden provocar una pérdida de dinero. Usted es responsable de tomar las precauciones que considere apropiadas antes de operar en vivo. Incluso si toma todas las medidas de precaución posibles, las cosas pueden salir mal y pueden ocurrir errores. Al usar este software para operar en vivo a pesar de las advertencias, usted reconoce que es consciente de los riesgos inherentes al comercio y al uso de software para ese propósito. El Proyecto Superalgos ofrece el software TAL CUAL, sin garantías explícitas o implícitas de ningún tipo. El proyecto, el software, el sitio web superalgos.org y este tutorial no ofrecen asesoramiento financiero. Las estrategias que se envían con el sistema pueden ser completamente funcionales,pero Superalgos no hace ninguna recomendación implícita sobre cómo debe usarlas. Compartimos estrategias solo con fines educativos. Opere bajosu propio riesgo. El uso del software está sujeto a los términos de la LICENCIA.",
-                    "updated": 1624465065714,
+                    "text": "Superalgos es un software de computadora. Al igual que con cualquier software, pueden ocurrir errores en cualquier momento, incluidos errores que pueden provocar una pérdida de dinero. Usted es responsable de tomar las precauciones que considere apropiadas antes de operar en vivo. Incluso si toma todas las medidas de precaución posibles, las cosas pueden salir mal y pueden ocurrir errores. Al usar este software para operar en vivo a pesar de las advertencias, usted reconoce que es consciente de los riesgos inherentes al comercio y al uso de software para ese propósito. El Proyecto Superalgos ofrece el software TAL CUAL, sin garantías explícitas o implícitas de ningún tipo. El proyecto, el software, el sitio web superalgos.org y este tutorial no ofrecen asesoramiento financiero. Las estrategias que se envían con el sistema pueden ser completamente funcionales, pero Superalgos no hace ninguna recomendación implícita sobre cómo debe usarlas. Compartimos estrategias solo con fines educativos. Opere bajo su propio riesgo. El uso del software está sujeto a los términos de la LICENCIA.",
+                    "updated": 1675361556288,
                     "style": "Warning"
                 },
                 {

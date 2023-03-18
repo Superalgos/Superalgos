@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desee probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
-                    "updated": 1628122074246,
+                    "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desees probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
+                    "updated": 1675451051591,
                     "style": "Text"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Desplázate hacia abajo en Docs hasta el pie de página y selecciona Plugins-Docs. ¡Es la opción del lado derecho, no del centro!",
-                    "updated": 1628122390826,
+                    "text": "Desplázate por la página Docs hasta el pie de página y selecciona Desarrollar como tu rama de contribuciones. Es la opción de la derecha, no la del centro.",
+                    "updated": 1675451074702,
                     "style": "Callout"
                 },
                 {

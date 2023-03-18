@@ -124,9 +124,9 @@ exports.newWEB3Route = function newWEB3Route() {
                     }
                 }
             } catch (err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> WEB3s -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> WEB3s -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> WEB3s -> Params Received = ' + body)
+                SA.logger.error('httpInterface -> WEB3s -> Method call produced an error.')
+                SA.logger.error('httpInterface -> WEB3s -> err.stack = ' + err.stack)
+                SA.logger.error('httpInterface -> WEB3s -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

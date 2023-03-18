@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Une dernière chose avant de plonger dans les graphiques. Vous devez savoir comment mettre de l'ordre dans la maison !",
                 "updated": 1668068476735
+            },
+            {
+                "language": "PL",
+                "text": "Jeszcze jedna rzecz, zanim zagłębimy się w wykresy. Musisz wiedzieć, jak zrobić porządek!",
+                "updated": 1675085087997
             }
         ]
     },
@@ -103,6 +108,11 @@
                     "language": "FR",
                     "text": "Le moment viendra où vous travaillerez peut-être avec des dizaines de graphiques. Vous savez déjà comment modifier leur format. Vous devez maintenant apprendre à les déplacer afin de créer les arrangements dont vous avez besoin. C'est très simple :",
                     "updated": 1668068495009
+                },
+                {
+                    "language": "PL",
+                    "text": "Nadejdzie czas, w którym być może będziesz pracował z dziesiątkami wykresów. Wiesz już jak zmienić ich format. Teraz musisz się nauczyć, jak je przemieszczać, aby móc tworzyć dowolne układy. To całkiem proste:",
+                    "updated": 1675085108334
                 }
             ],
             "updated": 1616416902513
@@ -155,6 +165,11 @@
                     "language": "FR",
                     "text": "Appuyer sur Shift, cliquez sur le bouton gauche et faites glisser !",
                     "updated": 1668068523586
+                },
+                {
+                    "language": "PL",
+                    "text": "Naciśnij Shift, kliknij lewym przyciskiem myszy i przeciągnij!",
+                    "updated": 1675085116119
                 }
             ]
         },
@@ -176,8 +191,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Creo que hemos cubierto todo sobre cómo administrar Charting Space. ¡Es hora de sumergirse en los gráficos!",
-                    "updated": 1624383921501,
+                    "text": "Creo que hemos cubierto todo sobre cómo administrar el Charting Space. ¡Es hora de sumergirse en los gráficos!",
+                    "updated": 1675276930672,
                     "style": "Success"
                 },
                 {
@@ -205,6 +220,11 @@
                     "language": "FR",
                     "text": "Je crois que nous avons tout couvert sur la façon de gérer l'espace graphique. Il est temps de se plonger dans les graphiques !",
                     "updated": 1668068541403
+                },
+                {
+                    "language": "PL",
+                    "text": "Wierzę, że omówiliśmy dokładnie jak zarządzać Charting Space. Nadszedł czas, aby zagłębić się w wykresy!",
+                    "updated": 1675085174356
                 }
             ]
         }

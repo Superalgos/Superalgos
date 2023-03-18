@@ -26,6 +26,11 @@
                 "language": "TR",
                 "text": "docs.delete komutu, istediğiniz sayfayı bellekten sildi.",
                 "updated": 1652203790727
+            },
+            {
+                "language": "ES",
+                "text": "El comando docs.delete ha borrado de la memoria la página solicitada.",
+                "updated": 1677428110603
             }
         ]
     },
@@ -43,8 +48,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Seite wurde als zu löschen gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
-                    "updated": 1633903396975
+                    "text": "Die Seite wurde als \"zu löschen\" gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
+                    "updated": 1677190977964
                 },
                 {
                     "language": "RU",
@@ -55,6 +60,11 @@
                     "language": "TR",
                     "text": "Sayfa silinmek üzere işaretlendi. Belgeleri Kaydetme Komutunu ( Docs Save Command ) çalıştırdığınızda, bellek içi sayfa koleksiyonundan kaldırılacaktır. Dokümanları Kaydetme Komutu ( Docs Save Command ) İstemciye dosyayı diskten silmesini söyler. Sayfayı dizinden kaldırmak için Dokümanları indexleme ( Docs Reindex Command )Komutunu çalıştırmalısınız.",
                     "updated": 1652204084183
+                },
+                {
+                    "language": "ES",
+                    "text": "La página ha sido marcada para ser borrada. Se eliminará de la colección de páginas en memoria una vez que ejecute el comando Docs Save Command. El comando Docs Save Command indica al Client que elimine el archivo del disco. Para eliminar la página del índice, es necesario ejecutar el comando Docs Reindex.",
+                    "updated": 1677428114802
                 }
             ]
         }

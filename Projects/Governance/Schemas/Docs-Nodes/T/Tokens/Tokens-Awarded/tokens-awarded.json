@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Узел Tokens Awarded представляет собой количество токенов, которые вы получаете в качестве вознаграждения за свой вклад. Узел присутствует во многих программах управления.",
                 "updated": 1639126916482
+            },
+            {
+                "language": "TR",
+                "text": "Kazanılan Tokenler düğümü, katkılarınız karşılığında ödül olarak aldığınız token sayısını temsil eder. Bu düğüm birçok Yönetim Programında ( Governance Programs ) mevcuttur.",
+                "updated": 1671810254677
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Информация о том, сколько токенов присудила вам конкретная программа, отображается в виде уведомления под узлом вместе с другой соответствующей информацией, которая зависит от контекста, например, количество людей, которые помогли вам их получить, или количество вычисленных требований, и т. д.",
                     "updated": 1639126958566
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli bir programın size kaç token verdiğine ilişkin bilgiler, bunları almanıza yardımcı olan kişi sayısı veya hesaplanan talep sayısı gibi duruma göre değişen diğer ilgili bilgilerle birlikte düğümün altında bir bildirim olarak görüntülenir.",
+                    "updated": 1671810351941
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "RU",
                     "text": "Расчеты",
                     "updated": 1639126974031
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplamalar (Calculations)",
+                    "updated": 1671810394597
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "RU",
                     "text": "Каждая программа подсчитывает полученные токены Tokens Awarded определенным образом. Перейдите по ссылкам ниже, чтобы узнать подробности о каждой программе.",
                     "updated": 1639127019179
+                },
+                {
+                    "language": "TR",
+                    "text": "Her program Kazanılan Tokenleri belirli bir şekilde hesaplar. Her programla ilgili ayrıntıları öğrenmek için aşağıdaki bağlantıları takip edin.",
+                    "updated": 1671810478344
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "RU",
                     "text": "В программе Airdrop Program.",
                     "updated": 1639127049718
+                },
+                {
+                    "language": "TR",
+                    "text": "Airdrop Programında ( Airdrop Program ).",
+                    "updated": 1671810548534
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "В программе Github Program.",
                     "updated": 1639127060031
+                },
+                {
+                    "language": "TR",
+                    "text": "Github Programında ( Github Program ).",
+                    "updated": 1671810596731
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "RU",
                     "text": "На странице узла Community Building Programs объясняется, как рассчитываются полученные токены Tokens Awarded для программ Referral Program, Support Program и Mentorship Program.",
                     "updated": 1639127211509
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları ( Community Building Programs ) düğüm sayfası, yönlendirme, destek ve mentorluk programları için Verilen Tokenlerin nasıl hesaplandığını açıklamaktadır.",
+                    "updated": 1671810733221
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "RU",
                     "text": "На странице How Claims are Resolved объясняется, как награждаются жетоны в программе Claims Program.",
                     "updated": 1639127305353
+                },
+                {
+                    "language": "TR",
+                    "text": "Talepler Nasıl Çözülümlenir ( How Claims are Resolved ) sayfası, Talep Programındaki ( Claims Program ) Tokenlerin nasıl verildiği açıklanmaktadır.",
+                    "updated": 1671811082293
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "RU",
                     "text": "В программе Staking Program.",
                     "updated": 1639127320062
+                },
+                {
+                    "language": "TR",
+                    "text": "Staking Programında ( Staking Program ).",
+                    "updated": 1671811162610
                 }
             ]
         },

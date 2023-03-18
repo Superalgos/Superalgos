@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Hablando de exchanges y plugins probados, hay un espacio de trabajo de plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
-                "updated": 1628015811665,
+                "text": "Hablando de exchanges y plugins probados, hay un Workspace de Plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
+                "updated": 1675378299103,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Es el Tested Exchanges Plugin Workspace!",
-                    "updated": 1628015859577,
+                    "text": "¡Es el Blank Template Plugin Workspace!",
+                    "updated": 1675378275747,
                     "style": "Note"
                 },
                 {

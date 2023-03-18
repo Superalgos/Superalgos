@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Yönetime katılmak için, token varlıklarınız tarafından verilen Token Gücünü (Token Power) nasıl kullanmayı düşündüğünüzü tanımlayan bir hiyerarşi olan Kullanıcı Profilinizi (User Profile) oluşturmalısınız.",
                 "updated": 1645181761233
+            },
+            {
+                "language": "DE",
+                "text": "Um an der Governance teilzunehmen, müssen Sie Ihr Benutzerprofil (User Profile) einrichten - eine Hierarchie, die festlegt, wie Sie die Token-Macht (Token Power), die Ihnen durch Ihren Token-Besitz verliehen wird, zu nutzen gedenken.",
+                "updated": 1676839442756
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Token Gücünüzü nasıl kullandığınız, hiyerarşi içindeki çeşitli programlarda tanımlanır. Örneğin, Talepler Programı (Claims Program), yaptığınız iş için talepler sunmanıza olanak tanır. Tüm programları ayrıntılı olarak ele alacağız.",
                     "updated": 1645181807885
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie Ihre Token Power einsetzen, wird in verschiedenen Programmen innerhalb der Hierarchie festgelegt. Mit dem Claims Program können Sie zum Beispiel Ansprüche für Ihre Arbeit geltend machen. Wir werden alle Programme im Detail behandeln.",
+                    "updated": 1676839462314
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profiliniz (User Profile), Superalgos içinden oluşturduğunuz bir Superalgos SA Token adresini işaret eder. Sistemin adresteki jeton sayısından haberdar olması ve profilinize eşdeğer miktarda Token Gücü ataması için Superalgos içinden de bir kriptografik kanıt imzalayarak adresinizi doğrularsınız.",
                     "updated": 1645181863350
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Benutzerprofil (User Profile) verweist auf eine Superalgos SA Token Adresse, die Sie innerhalb von Superalgos erstellen. Sie validieren Ihre Adresse, indem Sie einen kryptografischen Beweis unterschreiben, ebenfalls von Superalgos aus, so dass das System die Anzahl der Token in der Adresse erkennt und Ihrem Profil eine entsprechende Menge an Token Power zuweist.",
+                    "updated": 1676839479796
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "TR",
                     "text": "Oluşturduğunuz adres aynı zamanda projenin katkılarınız karşılığında kazandığınız jetonları göndereceği adrestir. Biz buna Yönetim Adresi (Governance Address) diyoruz.",
                     "updated": 1645181901663
+                },
+                {
+                    "language": "DE",
+                    "text": "Die von Ihnen erstellte Adresse ist auch die Adresse, an die das Projekt die Token sendet, die Sie für Ihre Beiträge erhalten. Wir nennen sie Ihre Governance-Adresse (Governance Adress).",
+                    "updated": 1676839502282
                 }
             ]
         }

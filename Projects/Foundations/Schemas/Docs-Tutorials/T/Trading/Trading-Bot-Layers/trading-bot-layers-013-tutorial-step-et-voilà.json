@@ -25,6 +25,16 @@
                 "language": "TR",
                 "text": "Böylece \"Ticaret Bölüm Sayaçları\" (Trading Episode Counters) ve \"Geçerli Bölüm\" ( Current Episode ) katmanlarını açtık... Hiyerarşiye bir göz atalım...",
                 "updated": 1641993747399
+            },
+            {
+                "language": "ID",
+                "text": "Akhirnya, kita menghidupkan layer \"Trading Episode Counters\" dan \"Current Episode\"... Mari lihat hirarkinya...",
+                "updated": 1673855814645
+            },
+            {
+                "language": "ES",
+                "text": "Entonces, hemos activado las capas Trading Episode Counters y Current Episode ... echemos un vistazo a la jerarquía...",
+                "updated": 1675466704201
             }
         ]
     },
@@ -48,6 +58,16 @@
                     "language": "TR",
                     "text": "Tüm bu zaman boyunca tam olarak neye baktığımızı keşfetmek için hiyerarşide yukarı doğru yol alın...",
                     "updated": 1641991421824
+                },
+                {
+                    "language": "ID",
+                    "text": "Lacak jalanmu ke atas hierarki untuk menemukan apa sebenarnya yang kita lihat selama ini...",
+                    "updated": 1673855824435
+                },
+                {
+                    "language": "ES",
+                    "text": "Rastrea la jerarquía para descubrir qué es exactamente lo que estuvimos viendo todo este tiempo...",
+                    "updated": 1675464216799
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "language": "TR",
                     "text": "Evet, Hiyerarşinin Ticaret Bölüm Sayaçları (Trading Episode Counters) düğümü altında Periyot (Periods), Stratejiler (Strategies) ve Pozisyonlar (Positions) düğümlerini gördük.Şimdi hiyerarşiyi yukarı doğru takip ederseniz, Trading Episode (İşlem Bölümü) düğümünü bulacaksınız ve onun bir üstündeyse Trading Current düğümünü. Aynen öyle! \"Current Epiode\"!",
                     "updated": 1641993946162
+                },
+                {
+                    "language": "ID",
+                    "text": "Benar! Pada awalnya Periods, Strategies, and Positions di mana menunjukkan nilainya karena mereka berada di bawah node Trading Episode Counters dari hierarki... yang kita aktifkan terlebih dahulu! Jika kamu mengikuti sumber hirarki, kamu akan menemukan node Trading Episode, dan jika kamu terus melangkah ke sumber yang lebih jauh, kamu akan menemukan node Trading Current. Tepat! \"Current Episode\"!",
+                    "updated": 1673855844589
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Correcto! Al principio, Periodos, Estrategias y Posiciones mostraban sus valores porque están bajo el nodo de Trading Episode Counters de la jerarquía... ¡el que activamos primero! Si sigues la jerarquía hacia arriba, encontrarás el nodo Trading Episode, y si sigues más hacia arriba, encontrarás el nodo Trading Current. ¡Exactamente! ¡\"'Current Episode\"!",
+                    "updated": 1675464304473
                 }
             ]
         }

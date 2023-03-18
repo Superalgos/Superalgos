@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Dentro de cada mercado, la operacion es organizada por el Data Mine. Superalgos se conecta con varias minas de datos open-source. Cada una con multiples indicadores.",
-                "updated": 1624229041162,
+                "text": "Dentro de cada mercado, la operación es organizada por el Data Mine. Superalgos se conecta con varias minas de datos Open-Source. Cada una con múltiples indicadores.",
+                "updated": 1675207886906,
                 "style": "Definition"
             },
             {
@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Au sein de chaque marché, l'opération est organisée par Data Mine. Superalgos est livré avec plusieurs mines de données open-source, chacune avec de multiples indicateurs.",
                 "updated": 1667987116077
+            },
+            {
+                "language": "PL",
+                "text": "W obrębie każdego rynku operacje są organizowane przez Data Mine. Superalgos dostarcza kilka otwarto źródłowych Data Mine, z których każda posiada wiele wskaźników.",
+                "updated": 1675003056562
             }
         ]
     },
@@ -74,8 +79,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Imaginate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
-                    "updated": 1624230668446,
+                    "text": "Imagínate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
+                    "updated": 1675207901624,
                     "style": "Text"
                 },
                 {
@@ -103,6 +108,11 @@
                     "language": "FR",
                     "text": "Considérez les mines de données comme des plugins que les développeurs peuvent créer pour étendre la capacité d'analyse des données du système. Un Indicator Bot peut traiter les données produites par d'autres indicateurs, ajoutant ainsi de la valeur et produisant une analyse plus profonde et plus riche.",
                     "updated": 1667987148913
+                },
+                {
+                    "language": "PL",
+                    "text": "Pomyśl o Data Mine jako o wtyczkach, które programiści mogą tworzyć w celu rozszerzenia możliwości analizy danych w systemie. Indicator Bot może przetwarzać dane, dostarczane przez inne wskaźniki, dodając tym samym wartość i tworząc głębsze i bogatsze analizy.",
+                    "updated": 1675003127693
                 }
             ]
         },
@@ -153,6 +163,11 @@
                     "language": "FR",
                     "text": "Si vous avez une compréhension de base de JavaScript, vous pouvez aussi créer des indicateurs ! Si vous contribuez à une Data Mine, vous recevrez des jetons Superalgos SA !",
                     "updated": 1667987186350
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeśli masz podstawową wiedzę o JavaScript, możesz również tworzyć wskaźniki! Jeśli stworzysz Data Mine, zarobisz tokeny Superalgos SA!",
+                    "updated": 1675003159080
                 }
             ],
             "updated": 1622196189467

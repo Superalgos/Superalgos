@@ -69,6 +69,15 @@ async function runRoot() {
     vaderSentiment: require('vader-sentiment')
   }
   SA.version = require('./package.json').version
+
+  /**
+   * creates a path for the log file under a Tasks folder and each task will be in a subfolder 
+   * using the taskId as a folder name
+   * `<PATH_TO_LOG_FILES>/Tasks/<TASK_ID>`
+   */
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Tasks', process.argv[2])
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'TS')
+  
   /* 
   Setting up the App Schema Memory Map. 
   */

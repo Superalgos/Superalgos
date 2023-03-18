@@ -23,6 +23,21 @@
                 "language": "RU",
                 "text": "Мы рассмотрели три основные причины, по которым целесообразно разделить сложную логику на несколько стратегий...",
                 "updated": 1640886220533
+            },
+            {
+                "language": "NL",
+                "text": "We hebben de drie belangrijkste redenen behandeld waarom het een goed idee is om complexe logica op te splitsen in meer dan één strategie...",
+                "updated": 1670792283258
+            },
+            {
+                "language": "ID",
+                "text": "Kita membahas tiga alasan utama mengapa sebaiknya membagi logika kompleks menjadi lebih dari satu strategi...",
+                "updated": 1674626693718
+            },
+            {
+                "language": "ES",
+                "text": "Cubrimos las tres razones principales por las que es una buena idea dividir la lógica compleja en más de una estrategia...",
+                "updated": 1675620024986
             }
         ]
     },
@@ -45,6 +60,21 @@
                     "language": "RU",
                     "text": "Мы также рассмотрели несколько примеров торговых систем, делающих именно это. Есть и другой пример, который приходит на ум:",
                     "updated": 1640886233628
+                },
+                {
+                    "language": "NL",
+                    "text": "We hebben ook een paar voorbeelden besproken van handelssystemen die precies dat doen. Er is nog een voorbeeld dat in me opkomt:",
+                    "updated": 1670792296493
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita juga membahas beberapa contoh trading system yang melakukan hal itu. Ada contoh lain yang terlintas dalam pikiran:",
+                    "updated": 1674626706435
+                },
+                {
+                    "language": "ES",
+                    "text": "También cubrimos un par de ejemplos de sistemas de trading que hacen justamente eso. Hay otro ejemplo que viene a la mente:",
+                    "updated": 1675620045860
                 }
             ]
         },
@@ -66,6 +96,21 @@
                     "language": "RU",
                     "text": "И длинные, и короткие: разработка стратегии, которая работает и в длинную, и в короткую позицию, вероятно, не очень хорошая идея. Разделите логику и постройте одну стратегию для длинных позиций, а другую - для коротких!",
                     "updated": 1640886343305
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Long en short gaan:</b> een strategie ontwerpen die zowel long als short gaat, is waarschijnlijk geen goed idee. Splits de logica en ontwikkel een strategie om long te gaan en een andere om short te gaan!",
+                    "updated": 1670792333250
+                },
+                {
+                    "language": "ID",
+                    "text": "Long dan Short: merancang strategi yang long dan short mungkin bukan ide yang bagus. Pisahkan logika dan bangun satu strategi untuk jangka panjang dan satu lagi untuk jangka pendek!",
+                    "updated": 1674626711762
+                },
+                {
+                    "language": "ES",
+                    "text": "Ir en largo y en corto: diseñar una estrategia que vaya tanto en largo como en corto probablemente no sea una buena idea. Divide la lógica y construye una estrategia para ir largo y otra para ir corto.",
+                    "updated": 1675620067309
                 }
             ]
         },
@@ -87,6 +132,21 @@
                     "language": "RU",
                     "text": "Помните принцип KISS!",
                     "updated": 1640886407882
+                },
+                {
+                    "language": "NL",
+                    "text": "Denk aan het KISS-principe!",
+                    "updated": 1670792345077
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat prinsip KISS!",
+                    "updated": 1674626740008
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda el principio KISS.",
+                    "updated": 1675620085548
                 }
             ]
         }

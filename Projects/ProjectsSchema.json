@@ -873,6 +873,12 @@
             ],
             "utilities": [
                 {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentialsFunctions",
+                    "functionName": "newFoundationsUtilitiesCredentialsFunctions",
+                    "fileName": "CredentialsFunctions.js"
+                },
+                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -957,7 +963,14 @@
             ]
         },
         "PL": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentials",
+                    "functionName": "newFoundationsUtilitiesCredentials",
+                    "fileName": "CredentialsFunctions.js"
+                }
+            ]
         },
         "SA": {
             "globals": [
@@ -1664,6 +1677,11 @@
                     "name": "Chains",
                     "propertyName": "chains",
                     "functionName": "newGovernanceUtilitiesChains"
+                },
+                {
+                    "name": "Node Calculations",
+                    "propertyName": "nodeCalculations",
+                    "functionName": "newGovernanceUtilitiesNodeCalculations"
                 }
             ],
             "spaces": [
@@ -1696,6 +1714,14 @@
             ]
         },
         "SA": {
+            "functionLibraries": [
+                {
+                    "name": "Profile Token Power",
+                    "propertyName": "profileTokenPower",
+                    "functionName": "newGovernanceFunctionLibraryProfileTokenPower",
+                    "fileName": "ProfileTokenPower.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Signing Accounts",
@@ -1708,6 +1734,18 @@
                     "propertyName": "balances",
                     "functionName": "newGovernanceUtilitiesBalances",
                     "fileName": "Balances.js"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesSAValidations",
+                    "fileName": "Validations.js"
+                },
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenpower",
+                    "functionName": "newGovernanceUtilitiesTokenPower",
+                    "fileName": "TokenPower.js"
                 }
             ]
         },
@@ -2304,10 +2342,17 @@
         "SA": {
             "modules": [
                 {
-                    "name": "Open Storage Client",
-                    "propertyName": "openStorageClient",
-                    "functionName": "newOpenStorageModulesOpenStorageClient",
-                    "fileName": "OpenStorageClient.js",
+                    "name": "Open Storage Task Server Client ",
+                    "propertyName": "openStorageTaskServerClient",
+                    "functionName": "newOpenStorageModulesOpenStorageTaskServerClient",
+                    "fileName": "OpenStorageTaskServerClient.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Open Storage Network Client",
+                    "propertyName": "openStorageNetworkClient",
+                    "functionName": "newOpenStorageModulesOpenStorageNetworkClient",
+                    "fileName": "OpenStorageNetworkClient.js",
                     "folderName": ""
                 }
             ],

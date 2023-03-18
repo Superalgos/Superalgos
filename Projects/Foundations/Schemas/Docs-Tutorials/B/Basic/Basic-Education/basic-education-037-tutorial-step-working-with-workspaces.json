@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Puede pensar en un espacio de trabajo como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo!",
-                "updated": 1626618738205,
+                "text": "Puedes pensar en un espacio de trabajo (Workspace) como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo!",
+                "updated": 1675377305053,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede configurar tantos espacios de trabajo como desee, cada uno de ellos para casos de uso específicos. Por ejemplo:",
-                    "updated": 1626618800731,
+                    "text": "Puedes configurar tantos espacios de trabajo como desees, cada uno de ellos para casos de uso específicos. Por ejemplo:",
+                    "updated": 1675377335778,
                     "style": "Text"
                 },
                 {
@@ -106,8 +106,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede tener un espacio de trabajo para construir un Trading System que necesitarán indicadores específicos de un Data Mine.",
-                    "updated": 1626618837507,
+                    "text": "Puedes tener un espacio de trabajo para construir un Trading System que necesitará indicadores específicos de un Data Mine.",
+                    "updated": 1675377351234,
                     "style": "List"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede tener otra configuración de espacio de trabajo con todos los indicadores disponibles para que puedas estudiar cómo funciona cada uno de ellos.",
-                    "updated": 1626618870536,
+                    "text": "Puedes tener otra configuración de espacio de trabajo con todos los indicadores disponibles para que puedas estudiar cómo funciona cada uno de ellos.",
+                    "updated": 1675377362524,
                     "style": "List"
                 },
                 {

@@ -12,7 +12,7 @@ exports.newAppRoute = function newAppRoute() {
         const GITHUB_API_WAITING_TIME = 3000
         // If running the electron app do not try to get git tool. I don't allow it.
         if(process.env.SA_MODE === 'gitDisable') {
-            console.log((new Date()).toISOString(), '[WARN] No contributions on binary distributions. Do manual installation')
+            SA.logger.warn('No contributions on binary distributions. Do manual installation')
             return
         }
         switch(requestPath[2]) { // switch by command
@@ -27,7 +27,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -51,8 +51,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -76,7 +76,7 @@ exports.newAppRoute = function newAppRoute() {
                         "githubToken": token
                     }
 
-                    console.log(creds)
+                    SA.logger.info(creds)
                     let error
 
                     saveCreds().catch(errorResp)
@@ -84,7 +84,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -112,8 +112,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> SaveCreds -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> SaveCreds -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -156,7 +156,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git')
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             await doGit().catch(e => {
                                 error = e
@@ -187,7 +187,7 @@ exports.newAppRoute = function newAppRoute() {
                                     anchor: undefined,
                                     placeholder: {}
                                 }
-                                console.log('respond with docs ')
+                                SA.logger.info('respond with docs ')
 
                                 respondWithDocsObject(docs, error)
                                 return
@@ -215,7 +215,7 @@ exports.newAppRoute = function newAppRoute() {
                         }
                         let repoURL = 'https://github.com/Superalgos/Superalgos'
                         let repoName = 'Superalgos'
-                        console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                        SA.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                         let git = simpleGit(options)
 
                         await pushFiles(git) // Main Repo
@@ -232,7 +232,7 @@ exports.newAppRoute = function newAppRoute() {
                             git = simpleGit(options)
                             repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                             repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            SA.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             await pushFiles(git)
                         }
 
@@ -261,18 +261,18 @@ exports.newAppRoute = function newAppRoute() {
 
                                 await git.push('origin', currentBranch)
                             } catch(err) {
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                console.log('')
-                                console.log('Troubleshooting Tips:')
-                                console.log('')
-                                console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                SA.logger.error('')
+                                SA.logger.error('Troubleshooting Tips:')
+                                SA.logger.error('')
+                                SA.logger.error('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                SA.logger.error('2. Make sure you are running the latest version of Git available for your OS.')
+                                SA.logger.error('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                SA.logger.error('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
 
                                 error = err
                             }
@@ -326,8 +326,8 @@ exports.newAppRoute = function newAppRoute() {
 
                         async function createPullRequest(repo) {
                             try {
-                                console.log(' ')
-                                console.log((new Date()).toISOString(), '[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                SA.logger.info(' ')
+                                SA.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
                                     owner,
@@ -336,28 +336,28 @@ exports.newAppRoute = function newAppRoute() {
                                     head,
                                     base,
                                 });
-                                console.log((new Date()).toISOString(), '[INFO] A pull request has been succesfully created. ')
+                                SA.logger.info('A pull request has been succesfully created. ')
                             } catch(err) {
                                 if(
                                     err.stack.indexOf('A pull request already exists') >= 0 ||
                                     err.stack.indexOf('No commits between') >= 0
                                 ) {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                        SA.logger.warn('A pull request already exists. If any, commits would added to the existing Pull Request. ')
                                     }
                                     if(err.stack.indexOf('No commits between') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] No commits detected. Pull request not created. ')
+                                        SA.logger.warn('No commits detected. Pull request not created. ')
                                     }
                                     return
                                 } else {
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     error = err
                                 }
                             }
@@ -365,14 +365,14 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+                    SA.logger.error('httpInterface -> App -> Contribute -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                    SA.logger.error('httpInterface -> App -> Contribute -> username = ' + username)
+                    SA.logger.error('httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                    SA.logger.error('httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                    SA.logger.error('httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                    SA.logger.error('httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                     let error = {
                         result: 'Fail Because',
@@ -407,7 +407,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git')
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             await doGit().catch(e => {
                                 error = e
@@ -438,7 +438,7 @@ exports.newAppRoute = function newAppRoute() {
                                     anchor: undefined,
                                     placeholder: {}
                                 }
-                                console.log('respond with docs ')
+                                SA.logger.info('respond with docs ')
 
                                 respondWithDocsObject(docs, error)
                                 return
@@ -458,7 +458,7 @@ exports.newAppRoute = function newAppRoute() {
                         // Check if we are commiting to main repo 
                         if(repoName === 'Superalgos') {
                             let repoURL = 'https://github.com/Superalgos/Superalgos'
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            SA.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             let git = simpleGit(options)
 
                             await pushFiles(git) // Main Repo
@@ -471,7 +471,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
                             git = simpleGit(options)
                             repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[repoName].repo
-                            console.log((new Date()).toISOString(), '[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                            SA.logger.info('Starting process of uploading changes (if any) to ' + repoURL)
                             await pushFiles(git)
                         }
 
@@ -486,18 +486,18 @@ exports.newAppRoute = function newAppRoute() {
                                     .commit(commitMessage)
                                 await git.push('origin', currentBranch)
                             } catch(err) {
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                console.log('')
-                                console.log('Troubleshooting Tips:')
-                                console.log('')
-                                console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                SA.logger.error('httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                SA.logger.error('')
+                                SA.logger.error('Troubleshooting Tips:')
+                                SA.logger.error('')
+                                SA.logger.error('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                SA.logger.error('2. Make sure you are running the latest version of Git available for your OS.')
+                                SA.logger.error('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                SA.logger.error('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
 
                                 error = err
                             }
@@ -526,8 +526,8 @@ exports.newAppRoute = function newAppRoute() {
 
                         async function createPullRequest(repo) {
                             try {
-                                console.log(' ')
-                                console.log((new Date()).toISOString(), '[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                SA.logger.info(' ')
+                                SA.logger.info('Checking if we need to create Pull Request at repository ' + repo)
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.pulls.create({
                                     owner,
@@ -536,28 +536,28 @@ exports.newAppRoute = function newAppRoute() {
                                     head,
                                     base,
                                 });
-                                console.log((new Date()).toISOString(), '[INFO] A pull request has been succesfully created. ')
+                                SA.logger.info('A pull request has been succesfully created. ')
                             } catch(err) {
                                 if(
                                     err.stack.indexOf('A pull request already exists') >= 0 ||
                                     err.stack.indexOf('No commits between') >= 0
                                 ) {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                        SA.logger.warn('A pull request already exists. If any, commits would added to the existing Pull Request. ')
                                     }
                                     if(err.stack.indexOf('No commits between') >= 0) {
-                                        console.log((new Date()).toISOString(), '[WARN] No commits detected. Pull request not created. ')
+                                        SA.logger.warn('No commits detected. Pull request not created. ')
                                     }
                                     return
                                 } else {
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                    SA.logger.error('httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     error = err
                                 }
                             }
@@ -565,14 +565,14 @@ exports.newAppRoute = function newAppRoute() {
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+                    SA.logger.error('httpInterface -> App -> Contribute -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                    SA.logger.error('httpInterface -> App -> Contribute -> username = ' + username)
+                    SA.logger.error('httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                    SA.logger.error('httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                    SA.logger.error('httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                    SA.logger.error('httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                     let error = {
                         result: 'Fail Because',
@@ -587,14 +587,28 @@ exports.newAppRoute = function newAppRoute() {
             case 'Update': {
                 try {
                     // We update the local repo from remote
-                    const currentBranch = unescape(requestPath[3])
-                    update()
+                    let currentBranch = unescape(requestPath[3])
+                    if(['master','develop'].indexOf(currentBranch) == -1) {
+                        currentBranch = 'develop'
+                    }
+                    update().catch(err => {
+                        SA.logger.error(err.message)
+                        SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                        SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
+            
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                    })
 
                     async function update() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             let result = await doGit()
 
@@ -637,7 +651,7 @@ exports.newAppRoute = function newAppRoute() {
                             }
                             let git = simpleGit(options)
                             let repoURL = 'https://github.com/Superalgos/Superalgos'
-                            console.log((new Date()).toISOString(), '[INFO] Downloading from ' + repoURL)
+                            SA.logger.info('Downloading from ' + repoURL)
                             let message = await git.pull(repoURL, currentBranch)
 
                             if(message.error === undefined) {
@@ -654,7 +668,7 @@ exports.newAppRoute = function newAppRoute() {
                                     }
                                     git = simpleGit(options)
                                     repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                    console.log((new Date()).toISOString(), '[INFO] Downloading from ' + repoURL)
+                                    SA.logger.info('Downloading from ' + repoURL)
                                     message = await git.pull(repoURL, currentBranch)
                                     if(message.error === undefined) {
                                         addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
@@ -670,22 +684,22 @@ exports.newAppRoute = function newAppRoute() {
                             function addToReposUpdated(message, repo) {
                                 if(message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
                                     reposUpdated = true
-                                    console.log((new Date()).toISOString(), '[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                    SA.logger.info('Your local repository ' + repo + ' was successfully updated. ')
                                 } else {
-                                    console.log((new Date()).toISOString(), '[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                    SA.logger.info('Your local repository ' + repo + ' was already up-to-date. ')
                                 }
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error updating ' + currentBranch)
-                            console.log(err.stack)
+                            SA.logger.error('Error updating ' + currentBranch)
+                            SA.logger.error(err.stack)
                             return {error: err}
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -705,8 +719,8 @@ exports.newAppRoute = function newAppRoute() {
                     }
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> RestartRequired -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -728,7 +742,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -745,7 +759,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             let repoStatus = []
                             let status
@@ -784,13 +798,14 @@ exports.newAppRoute = function newAppRoute() {
                             // get the summary of current changes in the current repo
                             diffObj = await git.diffSummary(responce).catch(errorResp)
 
-                            // get the status of current repo compaired to upstream
-                            let raw = await git.remote(['show', 'upstream'])
+                            // get the status of current repo compaired to upstream.
+                            // adds the environemnt so git response is in English allowing us to 
+                            // inspect the response in a uniform manner
+                            let raw = await git.env('LC_ALL', 'en_US').remote(['show', 'upstream'])
                             let split = raw.split('\n')
                             // Keep only end of returned message and format for UI
                             for(let str of split) {
-                                // TODO: needs localized for all supported languages 
-                                if(str.includes('pushes') || str.includes('pousse') || str.includes('versendet')) {
+                                if(str.includes('pushes to')) {
                                     // Get name of Branch
                                     let branch = str.trim().split(' ')[0]
                                     // Get status of branch
@@ -800,13 +815,13 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                             if(upstreamArray.length === 0) {
-                                console.log((new Date()).toISOString(), '[ERROR] Unexpected response from command git remote. Responded with:', raw)
+                                SA.logger.error('Unexpected response from command git remote. Responded with:', raw)
                             }
 
                             function responce(err, diffSummary) {
                                 if(err !== null) {
-                                    console.log((new Date()).toISOString(), '[ERROR] Error while gathering diff summary for ' + repo)
-                                    console.log(err.stack)
+                                    SA.logger.error('Error while gathering diff summary for ' + repo)
+                                    SA.logger.error(err.stack)
                                     error = err
                                 } else {
                                     return diffSummary
@@ -814,16 +829,16 @@ exports.newAppRoute = function newAppRoute() {
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error while gathering diff summary for ' + repo)
-                            console.log(err.stack)
+                            SA.logger.error('Error while gathering diff summary for ' + repo)
+                            SA.logger.error(err.stack)
                             error = err
                         }
                         return [repo, diffObj, upstreamArray];
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -845,7 +860,7 @@ exports.newAppRoute = function newAppRoute() {
 
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -862,7 +877,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             // Checkout branch from main repo
                             await doGit().catch(errorResp)
@@ -903,14 +918,14 @@ exports.newAppRoute = function newAppRoute() {
                             await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error changing current branch to ' + currentBranch)
-                            console.log(err.stack)
+                            SA.logger.error('Error changing current branch to ' + currentBranch)
+                            SA.logger.error(err.stack)
                             error = err
                         }
                     }
 
                     async function runNodeSetup() {
-                        console.log("Running Node setup to adjust for new Branch")
+                        SA.logger.info("Running Node setup to adjust for new Branch")
                         const process = SA.nodeModules.process
                         const childProcess = SA.nodeModules.childProcess
 
@@ -921,12 +936,12 @@ exports.newAppRoute = function newAppRoute() {
                                 cwd: dir
                             }).toString();
 
-                        console.log("Node Setup has completed with the following result:", stdout)
+                        SA.logger.info("Node Setup has completed with the following result:", stdout)
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -947,7 +962,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             let result = await doGit()
 
@@ -982,14 +997,14 @@ exports.newAppRoute = function newAppRoute() {
                         try {
                             return await git.branch()
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error reading current branch.')
-                            console.log(err.stack)
+                            SA.logger.error('Error reading current branch.')
+                            SA.logger.error(err.stack)
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -1015,7 +1030,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -1032,7 +1047,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             let status
 
@@ -1067,21 +1082,21 @@ exports.newAppRoute = function newAppRoute() {
                             if(status === '') {
                                 status = global.DEFAULT_OK_RESPONSE
                             } else {
-                                console.log('[ERROR} There are still differences found for this file')
-                                console.log(status)
+                                SA.logger.error('[ERROR} There are still differences found for this file')
+                                SA.logger.error(status)
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error while discarding changes to ' + filepath)
-                            console.log(err.stack)
+                            SA.logger.error('Error while discarding changes to ' + filepath)
+                            SA.logger.error(err.stack)
                             error = err
                         }
                         return status
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Status -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Status -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -1104,7 +1119,7 @@ exports.newAppRoute = function newAppRoute() {
                     // This error responce needs to be made compatible with the contributions space or depricated
                     function errorResp(e) {
                         error = e
-                        console.error(error)
+                        SA.logger.error(error)
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',
@@ -1121,7 +1136,7 @@ exports.newAppRoute = function newAppRoute() {
                         const {lookpath} = SA.nodeModules.lookpath
                         const gitpath = await lookpath('git');
                         if(gitpath === undefined) {
-                            console.log((new Date()).toISOString(), '[ERROR] `git` not installed.')
+                            SA.logger.error('`git` not installed.')
                         } else {
                             // Reset main repo
                             await doGit().catch(errorResp)
@@ -1175,15 +1190,15 @@ exports.newAppRoute = function newAppRoute() {
                             await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] Error changing current branch to ' + currentBranch)
-                            console.log(err.stack)
+                            SA.logger.error('Error changing current branch to ' + currentBranch)
+                            SA.logger.error(err.stack)
                             error = err
                         }
                     }
 
                 } catch(err) {
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                    SA.logger.error('httpInterface -> App -> Update -> Method call produced an error.')
+                    SA.logger.error('httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                     let error = {
                         result: 'Fail Because',
@@ -1206,7 +1221,7 @@ exports.newAppRoute = function newAppRoute() {
                 }
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
 
-                console.log('Fixing App Schemas...')
+                SA.logger.info('Fixing App Schemas...')
 
                 let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                 let PROJECTS_MAP = new Map()
@@ -1228,7 +1243,7 @@ exports.newAppRoute = function newAppRoute() {
                         try {
                             let SCHEMA_MAP = new Map()
 
-                            console.log('files.length... ' + files.length)
+                            SA.logger.info('files.length... ' + files.length)
 
                             for(let k = 0; k < files.length; k++) {
                                 let name = files[k]
@@ -1239,7 +1254,7 @@ exports.newAppRoute = function newAppRoute() {
                                 }
                                 let fileToRead = filePath + folder + fileName
 
-                                console.log('Reading file... ' + fileToRead)
+                                SA.logger.info('Reading file... ' + fileToRead)
 
                                 let fileContent = fs.readFileSync(fileToRead)
                                 let schemaDocument
@@ -1250,27 +1265,27 @@ exports.newAppRoute = function newAppRoute() {
                                     allAppSchemasFilePaths.push(fileToRead)
                                     allAppSchemasFileProjects.push(project)
                                 } catch(err) {
-                                    console.log((new Date()).toISOString(), '[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                    SA.logger.warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                                     continue
                                 }
                             }
                             PROJECTS_MAP.set(project, SCHEMA_MAP)
                             directoryCount++
 
-                            console.log('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
-                            //console.log(Array.from(PROJECTS_MAP.get(project).keys()))
+                            SA.logger.info('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
+                            //SA.logger.info(Array.from(PROJECTS_MAP.get(project).keys()))
                             if(directoryCount === projects.length) {
                                 fixSchemas()
                             }
                         } catch(err) {
-                            console.log(err.stack)
+                            SA.logger.error(err.stack)
                         }
                     }
                 }
 
                 function fixSchemas() {
                     try {
-                        console.log('fixSchemas...' + allAppSchemas.length)
+                        SA.logger.info('fixSchemas...' + allAppSchemas.length)
                         let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         //const fs = SA.nodeModules.fs
                         let needFixing = 0
@@ -1295,7 +1310,7 @@ exports.newAppRoute = function newAppRoute() {
                                             multiProject = multiProject + ' -> ' + project
 
                                             let fileProject = allAppSchemasFileProjects[i]
-                                            //console.log(fileProject, project)
+                                            //SA.logger.info(fileProject, project)
                                             if(fileProject === project) {
                                                 /* If the project of the file is the same as the project found, then we consider this a match*/
                                                 hits = 1
@@ -1305,31 +1320,31 @@ exports.newAppRoute = function newAppRoute() {
                                     }
 
                                     if(hits === 0) {
-                                        console.log('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
-                                        console.log('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
+                                        SA.logger.info('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
+                                        SA.logger.info('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
                                         continue
                                     }
                                     if(hits === 1) {
-                                        console.log('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
+                                        SA.logger.info('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
 
                                         menuItem.relatedUiObjectProject = foundProject
                                         wasUpdated = true
                                         continue
                                     }
-                                    console.log('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
+                                    SA.logger.info('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
                                 }
                             }
 
                             //if (wasUpdated === true) {
                             //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                             //let filePath = allAppSchemasFilePaths[i]
-                            //console.log('Saving File at ' + filePath)
-                            //console.log(fileContent)
+                            //SA.logger.info('Saving File at ' + filePath)
+                            //SA.logger.info(fileContent)
                             //fs.writeFileSync(filePath, fileContent)
                             //}
                         }
                     } catch(err) {
-                        console.log(err.stack)
+                        SA.logger.error(err.stack)
                     }
                 }
 
@@ -1351,10 +1366,10 @@ exports.newAppRoute = function newAppRoute() {
                     text: error.stack
                 }
             }
-            if(error.code !== undefined) {
+            if(error.status !== undefined) {
                 docs.placeholder.errorCode = {
                     style: 'Json',
-                    text: error.code
+                    text: error.status
                 }
             }
 

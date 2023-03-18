@@ -37,6 +37,11 @@
                 "updated": 1640857240429
             },
             {
+                "language": "NL",
+                "text": "De kans is groot dat je al wat data hebt verzameld!",
+                "updated": 1670775689388
+            },
+            {
                 "language": "ID",
                 "text": "Kemungkinan kamu sudah memiliki beberapa data yang tertambang!",
                 "updated": 1670310694214
@@ -74,6 +79,11 @@
                     "language": "RU",
                     "text": "Если вы изучили вводный учебник, то, вероятно, вы уже добыли некоторые данные. Но я добавил новый индикатор, которого нет в начальной конфигурации. Поэтому, пожалуйста, запустите добычу данных и подождите, пока они не будут готовы на 100%.",
                     "updated": 1640857287228
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je de intro Tutorial hebt gedaan, heb je waarschijnlijk al wat gegevens verzameld. Maar ik heb een nieuwe indicator toegevoegd die niet aanwezig is in de initiële configuratie. Voer dus de data Mines uit door op <i>Run</i> te klikken, en wacht tot ze 100% klaar zijn.",
+                    "updated": 1670775905496
                 },
                 {
                     "language": "ID",
@@ -114,6 +124,11 @@
                     "updated": 1640857303985
                 },
                 {
+                    "language": "NL",
+                    "text": "Zorg ervoor dat onder Sparta Data Mine Tasks de nieuw toegevoegde indicator Simple Moving Average 100% is bijgewerkt (dit kan enige tijd duren, afhankelijk van uw hardware)",
+                    "updated": 1670776030439
+                },
+                {
                     "language": "ID",
                     "text": "Pastikan bahwa dibawah Sparta Data Mine Tasks, indikator Simple Moving Average yang baru ditambahkan 100% diperbarui (Ini akan membutuhkan waktu tergantung hardware)",
                     "updated": 1670310711274
@@ -150,6 +165,11 @@
                     "language": "RU",
                     "text": "Как только все показатели достигнут 100%, вы можете остановить добычу данных и сохранить ресурсы для бэктеста.",
                     "updated": 1640857369873
+                },
+                {
+                    "language": "NL",
+                    "text": "Zodra alle indicatoren 100% zijn, kunt u de datamijnen stoppen en systeem resources besparen voor de backtest",
+                    "updated": 1670776063780
                 },
                 {
                     "language": "ID",

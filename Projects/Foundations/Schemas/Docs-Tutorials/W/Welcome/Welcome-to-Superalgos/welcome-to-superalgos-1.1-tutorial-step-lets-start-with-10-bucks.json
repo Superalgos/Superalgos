@@ -30,6 +30,11 @@
                 "language": "NL",
                 "text": "De standaard initialBalance is ingesteld op 10 USDT, wat de minimale transactiegrootte is die door het handelsplatform wordt ondersteund.",
                 "updated": 1667126410082
+            },
+            {
+                "language": "ES",
+                "text": "El initialBalance por defecto se establece en 10 USDT, que es el tamaño mínimo de transacción soportado por la bolsa.",
+                "updated": 1675361828864
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "NL",
                     "text": "De initialBalance wordt gedefinieerd in de configuratie van de Session Quoted Asset. Bekijk het en beslis zelf of je het wilt veranderen!",
                     "updated": 1667126429906
+                },
+                {
+                    "language": "ES",
+                    "text": "El initialBalance se define en la configuración del Activo Cotizado de la Sesión. Compruébalo y decide por ti mismo si deseas cambiarlo.",
+                    "updated": 1675361837839
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "NL",
                     "text": "Het is niet nodig om de configuratie te wijzigen om deze handleiding te voltooien, maar je bent vrij om dit te doen als je dat wilt!",
                     "updated": 1667126461180
+                },
+                {
+                    "language": "ES",
+                    "text": "No hay necesidad de cambiar la configuración para completar este tutorial, ¡pero eres libre de hacerlo si lo deseas!",
+                    "updated": 1675361740784
                 }
             ]
         }

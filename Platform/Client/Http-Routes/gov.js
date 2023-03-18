@@ -114,7 +114,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
 
                                 if(error != undefined) {
-                                    console.log(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
+                                    SA.logger.error(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
                                 }
                             }
 
@@ -130,7 +130,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                         anchor: undefined,
                                         placeholder: {}
                                     }
-                                    console.log('respond with docs ')
+                                    SA.logger.info('respond with docs ')
 
                                     respondWithDocsObject(docs, error)
                                     return
@@ -163,7 +163,7 @@ exports.newGOVRoute = function newGOVRoute() {
                                 const sha = await getSHA(path);
 
                                 if(sha === undefined) {
-                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                    SA.logger.warn('***** Abort GOV.USERPROFILE *****')
                                     return
                                 }
 
@@ -189,14 +189,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     if(err.stack.indexOf('Error User Commit') >= 0) {
                                         return
                                     } else {
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                         error = err
                                     }
                                 }
@@ -212,14 +212,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     if(err.stack.indexOf('A pull request already exists') >= 0) {
                                         return
                                     } else {
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                        console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                        SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                         error = err
                                     }
 
@@ -252,14 +252,14 @@ exports.newGOVRoute = function newGOVRoute() {
                                     )
 
                                     if(repository.name === undefined) {
-                                        console.log('***** Token permission needed : User:READ *****')
+                                        SA.logger.warn('***** Token permission needed : User:READ *****')
                                         sha = undefined
                                         error = '***** Token permission needed : User:READ *****'
                                         return sha
                                     }
 
                                     if(repository.object === null) {
-                                        console.log("[User Not Found] -> Creating new user")
+                                        SA.logger.warn("[User Not Found] -> Creating new user")
                                         return sha
                                     }
                                     sha = repository.object.oid
@@ -267,28 +267,28 @@ exports.newGOVRoute = function newGOVRoute() {
 
                                 } catch(err) {
 
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                    console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                    SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                     return sha
 
                                 }
                             }
 
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
-                            console.log((new Date()).toISOString(), '[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                            SA.logger.error('httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
 
                             let error = {
                                 result: 'Fail Because',
@@ -301,9 +301,9 @@ exports.newGOVRoute = function newGOVRoute() {
                     }
 
                     case 'payContributors': {
-                        console.log('----------------------------------------------------------------------------------------------')
-                        console.log('DISTRIBUTION PROCESS STARTED')
-                        console.log('----------------------------------------------------------------------------------------------')
+                        SA.logger.info('----------------------------------------------------------------------------------------------')
+                        SA.logger.info('DISTRIBUTION PROCESS STARTED')
+                        SA.logger.info('----------------------------------------------------------------------------------------------')
 
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
@@ -314,6 +314,8 @@ exports.newGOVRoute = function newGOVRoute() {
                             params.contractABIDict,
                             params.decimalFactorDict,
                             params.paymentsArray,
+                            params.paymentsBlacklist,
+                            params.paymentsWhitelist,
                             params.mnemonic
                         )
 
@@ -324,9 +326,9 @@ exports.newGOVRoute = function newGOVRoute() {
                     }
                 }
             } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> Method call produced an error.')
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> GOV -> Params Received = ' + body)
+                SA.logger.error('httpInterface -> GOV -> Method call produced an error.')
+                SA.logger.error('httpInterface -> GOV -> err.stack = ' + err.stack)
+                SA.logger.error('httpInterface -> GOV -> Params Received = ' + body)
 
                 let error = {
                     result: 'Fail Because',

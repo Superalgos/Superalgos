@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este tutorial le enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debe comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
-                "updated": 1636725384415
+                "text": "Este tutorial te enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debes comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
+                "updated": 1675205000166
             },
             {
                 "language": "DE",
@@ -30,6 +30,16 @@
                 "language": "IT",
                 "text": "Questo tutorial ti insegna come formulare un'idea di trading verificabile. In un certo senso, è un'introduzione all'approccio sistematico al trading, un concetto cruciale che devi cogliere per automatizzare le strategie. L'esempio illustrato in questo tutorial viene successivamente utilizzato nel resto della serie.",
                 "updated": 1669885201391
+            },
+            {
+                "language": "NL",
+                "text": "Deze tutorial leert je hoe je een testbaar handelsidee formuleert. In zekere zin is het een inleiding tot de systematische benadering van handelen, een cruciaal concept dat u moet begrijpen om strategieën te automatiseren. Het voorbeeld in deze zelfstudie wordt later in de rest van de serie gebruikt.",
+                "updated": 1670782970695
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini mengajarkan kamu cara memformulasikan ide trading yang dapat diuji. Di satu sisi, ini adalah pengantar pendekatan sistematis untuk trading, konsep penting yang harus kamu pahami untuk mengotomatiskan strategi. Contoh yang diberikan dalam tutorial ini nantinya akan digunakan di seri selanjutnya.",
+                "updated": 1674637821698
             }
         ]
     },
@@ -54,6 +64,16 @@
                     "language": "IT",
                     "text": "Riguardo questo tutorial",
                     "updated": 1669885161053
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1674637834896
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620814456
                 }
             ]
         },
@@ -78,6 +98,16 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654393947007,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1670782985914
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675620492493
                 }
             ]
         }

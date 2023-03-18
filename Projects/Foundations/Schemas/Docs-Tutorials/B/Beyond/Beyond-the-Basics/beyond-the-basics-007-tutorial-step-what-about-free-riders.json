@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Aprovecharse no es cool! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
-                "updated": 1628119445138,
+                "text": "¡Aprovecharse no es guay! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
+                "updated": 1675449444336,
                 "style": "Definition"
             },
             {
@@ -118,6 +118,11 @@
                     "language": "NL",
                     "text": "Lees meer over de Superalgos SA-token!->superalgos.org/token-overview.shtml",
                     "updated": 1669573766993
+                },
+                {
+                    "language": "ES",
+                    "text": "Más información sobre el Token Superalgos SA.->https://superalgos.org/token-overview.shtml",
+                    "updated": 1675452029566
                 }
             ]
         },
@@ -134,8 +139,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Combatimos el free-riding con incentivos!",
-                    "updated": 1628121572845,
+                    "text": "¡Combatimos el <i>free-riding</i> con incentivos!",
+                    "updated": 1675449908461,
                     "style": "Success"
                 },
                 {

@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN apk add --no-cache --virtual .build-deps make g++ unzip bash curl \
     && apk add --no-cache python3 \
-    && npm ci \
+    && npm ci --omit=optional \
     && ./Docker/download-plugins.sh \
     && mkdir -p ./Platform/My-Data-Storage ./Platform/My-Log-Files ./Platform/My-Workspaces ./Platform/My-Network-Nodes-Data ./Platform/My-Social-Trading-Data \
     && addgroup superalgos \

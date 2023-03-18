@@ -21,34 +21,6 @@ function newFoundationsDocsFooter() {
 
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
 
-        // Buttons Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
-
-        if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.sharePage()"><button>SHARE</button></span>'
-        }
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if (UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'
-        }
-        if (UI.projects.education.spaces.docsSpace.currentBookBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
-        }
-
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Reviews' + '\')"><button>REVIEWS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Community Data Mines' + '\')"><button>DATA MINES</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'First Steps Tutorials' + '\')"><button>TUTORIALS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'User Manual' + '\')"><button>USER MANUAL</button></span>'
-
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
         // Language Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
@@ -143,6 +115,12 @@ function newFoundationsDocsFooter() {
 
         HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'EL\')"><img src="Images/Languages/EL.png" title="Greek" class="docs-footer-language'
         if (languageCode === 'EL') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'PL\')"><img src="Images/Languages/PL.png" title="Polish" class="docs-footer-language'
+        if (languageCode === 'PL') { 
             HTML = HTML + '-selected'
         } 
         HTML = HTML + '"></a>'

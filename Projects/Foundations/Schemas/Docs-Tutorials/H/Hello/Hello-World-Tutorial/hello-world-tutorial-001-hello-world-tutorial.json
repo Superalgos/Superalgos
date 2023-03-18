@@ -23,9 +23,16 @@
                 "updated": 1640632619784
             },
             {
+
+                "language": "NL",
+                "text": "Deze zelfstudie is een snelcursus, gelijk ter zake-stijl, die je laat kennismaken met het bouwen van een eenvoudig Trading System. De tutorial gaat uit van een basiskennis van hoe Trading Strategies worden gedefinieerd. Dat gezegd hebbende, vind je het misschien ook nuttig als eerste kennismaking, vooral als je van directe, to-the-point informatie houdt.",
+                "updated": 1670772468801
+            },
+            {
                 "language": "ID",
                 "text": "Tutorial ini adalah kursus cepat, dengan gaya langsung ke inti, yaitu memperkenalkan kamu tentang gagasan dari membuat Trading System yang simpel. Tutorial ini mengasumsikan pemahaman dasar tentang bagaimana Trading Strategies dijelaskan. Bahwasanya, kamu akan menemukan hal yang berguna sebagai langkah awal perkenalanmu, terutama jika kamu menyukai informasi yang langsung dan to-the-point.",
                 "updated": 1670298868301
+
             }
         ]
     },
@@ -47,9 +54,16 @@
                     "style": "Title"
                 },
                 {
+
+                    "language": "NL",
+                    "text": "Over deze zelfstudie",
+                    "updated": 1670772495678
+                },
+                {   
                     "language": "ID",
                     "text": "Tentang Tutorial Ini",
                     "updated": 1670298925338
+
                 }
             ]
         },
@@ -76,6 +90,11 @@
                     "text": "Bakımcı: @us9808 (Telegram).",
                     "updated": 1654394005058,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @us9808 (Telegram).",
+                    "updated": 1670772516837
                 }
             ]
         }

@@ -33,6 +33,7 @@ async function runRoot() {
   let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
   MULTI_PROJECT_MODULE.initialize(PL, 'PL')
   MULTI_PROJECT_MODULE.initialize(SA, 'SA')
+
   /*
   Setting up external dependencies.
   */
@@ -64,8 +65,11 @@ async function runRoot() {
     hyperquest: require('hyperquest'),
     ndjson: require('ndjson'),
     pako: require('pako')
-  
   }
+
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Platform')
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'SA')
+
   /* 
   Setting up the App Schema Memory Map. 
   */
@@ -107,7 +111,7 @@ async function runRoot() {
   async function run(initialWorkspace) {
     PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
     await PL.app.run(initialWorkspace)
-    console.log('Superalgos Platform App is Running!')
+    SA.logger.info('Superalgos Platform App is Running!')
     if (process.send) {
       process.send('Running')
     }

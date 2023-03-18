@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Después de presionar el botón  Generate Token, ¡obtendrás tu precioso token! ¡No salgas de la página, ya que no la volverás a ver!",
-                "updated": 1628195367890,
+                "text": "Después de presionar el botón <i>Generate Token</i>, ¡obtendrás tu precioso token! ¡No salgas de la página, ya que no la volverás a ver!",
+                "updated": 1675454353910,
                 "style": "Definition"
             },
             {
@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Copia el token, abre la configuración del nodo Github API, y péguelo entre las comillas dobles del parámetro del token. Complete el parámetro de nombre de usuario con tu usuario de GitHub.com, no con tu correo electrónico.",
-                    "updated": 1628195465628,
+                    "text": "Copia el token, abre la configuración del nodo Github API, y pégalo entre las comillas dobles del parámetro del token. Completa el parámetro de nombre de usuario con tu usuario de GitHub.com, no con tu correo electrónico.",
+                    "updated": 1675454381887,
                     "style": "Callout"
                 },
                 {

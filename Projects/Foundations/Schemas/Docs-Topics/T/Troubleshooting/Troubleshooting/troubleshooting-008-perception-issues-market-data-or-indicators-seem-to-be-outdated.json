@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Verilerin güncel olması için Masters ve Sparta görev yöneticilerinin çalışıyor olması gerekir.",
                 "updated": 1647865906200
+            },
+            {
+                "language": "DE",
+                "text": "Damit die Daten auf dem neuesten Stand sind, müssen die Aufgabenmanager Masters und Sparta laufen.",
+                "updated": 1678647246081
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Sistemi ilk kez çalıştırıyorsanız veya sistemi çalıştırmayı bir süreliğine durdurduysanız, veriler güncel olmayacaktır. Sistemi her başlattığınızda, verilerin şimdiki zamana yetişmesi biraz zaman alacaktır.",
                     "updated": 1647865936787
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das System zum ersten Mal in Betrieb nehmen oder das System eine Zeit lang nicht benutzt haben, sind die Daten nicht auf dem neuesten Stand. Jedes Mal, wenn Sie das System starten, dauert es einige Zeit, bis die Daten mit der aktuellen Zeit übereinstimmen.",
+                    "updated": 1678647258218
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Veri kümelerinizi bugüne kadar güncellemek için, çalışmak istediğiniz borsalar, pazarlar, Masters ve Sparta görev yöneticilerinizde Tüm Görevleri Çalıştırmanız işlemlerin eksik verileri geçmesi için yeterli zaman ayırmanız gerekir.",
                     "updated": 1647866003649
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ihre Datensätze bis zum jetzigen Zeitpunkt zu aktualisieren, müssen Sie alle Aufgaben in Ihren Masters- und Sparta-Aufgabenmanagern für die Börsen und Märkte, mit denen Sie arbeiten möchten, ausführen und genügend Zeit einplanen, damit die Prozesse die fehlenden Daten durchgehen können.",
+                    "updated": 1678647265980
                 }
             ]
         }

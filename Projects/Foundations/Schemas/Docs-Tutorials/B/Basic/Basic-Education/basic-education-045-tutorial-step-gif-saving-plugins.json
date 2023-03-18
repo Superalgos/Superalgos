@@ -36,6 +36,11 @@
                 "language": "NL",
                 "text": "In deze stap wordt een video op volledig scherm afgespeeld.",
                 "updated": 1669547015059
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675377900907
             }
         ]
     },

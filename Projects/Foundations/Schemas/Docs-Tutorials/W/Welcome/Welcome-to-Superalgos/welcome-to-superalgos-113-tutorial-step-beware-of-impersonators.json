@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Los administradores de Superalgos, el Founding Team y los Community Mods nunca se comunicarán contigo directamente a menos que los contactes primero.",
-                "updated": 1624488617429,
+                "text": "El equipo Founding Team y los Community Mods nunca se pondrán en contacto directo contigo a menos que tú lo hagas primero.",
+                "updated": 1675366074691,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca  pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Reportalos en el grupo de la Comunidad para que puedan ser baneados,también bloquéelos e infórmelos a Telegram si la opción está disponible.",
-                    "updated": 1625933454872,
+                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Repórtalos en el grupo de la Comunidad para que puedan ser baneados, también bloquéalos e infórmalos a Telegram si la opción está disponible.",
+                    "updated": 1675366184469,
                     "style": "Warning"
                 },
                 {

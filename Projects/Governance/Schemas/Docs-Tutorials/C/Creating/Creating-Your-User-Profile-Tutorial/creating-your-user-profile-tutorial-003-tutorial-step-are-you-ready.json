@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Bevor Sie in die Verwaltung einsteigen, ist es wichtig, dass Sie wissen, wie Superalgos funktioniert!",
                 "updated": 1640072083243
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu pindah ke governance, sangat penting bagi kamu untuk mengetahui cara kerja Superalgos!",
+                "updated": 1670672314708
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Wir haben eine Menge spannender Dinge zu besprechen, aber ich möchte sicherstellen, dass Sie leicht folgen können.",
                     "updated": 1640072092376
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita punya banyak hal menarik untuk dibahas, tapi aku mau memastikan bahwa kamu bisa mengikuti aku dengan mudah.",
+                    "updated": 1670672320659
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Plugin Workspace durchgehen, bevor Sie fortfahren, falls Sie das noch nicht getan haben!",
                     "updated": 1640072107099
+                },
+                {
+                    "language": "ID",
+                    "text": "Pastikan kamu telah melewati tutorial di Getting Started Tutorials Plugin Workspace sebelum melanjutkan jika kamu belum!",
+                    "updated": 1670672328491
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Sie müssen kein Experte sein, aber Sie müssen wissen, wie man das System bedient! Andernfalls kann der Prozess verwirrend und sogar frustrierend sein!",
                     "updated": 1640072114850
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak perlu ahli, tapi setidaknya kamu tahu bagaimana seharusnya menjalankan sistem ini! Atau tidak, prosesnya akan membuatmu bingung bahkan membuat frustasi!",
+                    "updated": 1670672383906
                 }
             ]
         }

@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Encontraste la diferencia? ¡No te preocupe si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
-                "updated": 1629589533343
+                "text": "¿Encontraste la diferencia? ¡No te preocupes si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
+                "updated": 1675618972661
             },
             {
                 "language": "DE",
@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "Нашли ли вы разницу? Не волнуйтесь, если не нашли! Есть много условий! Я дам вам еще одну подсказку!",
                 "updated": 1640885179976
+            },
+            {
+                "language": "NL",
+                "text": "Heb je het verschil gevonden? Maak je geen zorgen als je dat niet hebt gedaan! Er zijn tal van voorwaarden! Ik zal je nog een hint geven!",
+                "updated": 1670791313062
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu menemukan perbedaannya? Jangan khawatir jika kamu tidak menemukannya! Ada banyak sekali conditions! Aku akan memberi kamu petunjuk lainnya!",
+                "updated": 1674624646823
             }
         ]
     },
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "Посмотрите еще раз и обратите внимание, что первые семь условий события Trigger On Event одинаковы для обеих стратегий! А вот остальные условия отличаются!",
                     "updated": 1640885199706
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk nog eens en merk op dat de eerste zeven voorwaarden van de Trigger On Event hetzelfde zijn voor beide strategieën! De overige voorwaarden zijn echter anders!",
+                    "updated": 1670791328798
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat lagi dan perhatikan bahwa tujuh conditions pertama dari Trigger On Event sama pada kedua strategi! Namun, conditions yang tersisa berbeda!",
+                    "updated": 1674624653270
                 }
             ]
         },
@@ -64,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Puedes arrastrar el  Trigger On Event de una estrategia y fíjela más cerca del evento de la otra estrategia para facilitar la comparación.",
-                    "updated": 1629589881277
+                    "text": "Puedes arrastrar el Trigger On Event de una estrategia y anclarla más cerca del evento de la otra estrategia para facilitar la comparación.",
+                    "updated": 1675619133893
                 },
                 {
                     "language": "DE",
@@ -81,6 +101,16 @@
                     "language": "RU",
                     "text": "Вы можете перетащить событие Trigger On Event одной стратегии и прикрепить его ближе к событию другой стратегии для более удобного сравнения!",
                     "updated": 1640885217988
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt het Trigger On Event van een strategie slepen en dichter bij de gebeurtenis van de andere strategie vastpinnen om ze gemakkelijker te kunnen vergelijken!",
+                    "updated": 1670791367453
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu bisa menyeret Trigger On Event dari suatu strategi dan menyematkannya lebih dekat ke event dari strategi lain untuk perbandingan yang lebih mudah!",
+                    "updated": 1674624659799
                 }
             ]
         }

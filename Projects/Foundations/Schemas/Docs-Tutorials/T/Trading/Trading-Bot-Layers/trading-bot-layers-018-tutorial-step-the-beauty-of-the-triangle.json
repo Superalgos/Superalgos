@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Üçgenin, ticaretin nasıl gittiğini bir bakışta kavramak için hızlı bir görsel ipucu olduğuna eminim!",
                 "updated": 1642171307302
+            },
+            {
+                "language": "ID",
+                "text": "Aku yakin kamu akan setuju bahwa segitiga adalah petunjuk visual cepat untuk memahami bagaimana perdagangan berjalan dengan cepat!",
+                "updated": 1673882157023
+            },
+            {
+                "language": "ES",
+                "text": "Estoy seguro de que estarás de acuerdo en que el triángulo es una pista visual rápida para comprender de un vistazo cómo ha ido la operación.",
+                "updated": 1675466831330
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Görselleştirme özelliklerinin arkasındaki temel fikirlerden biri budur: hızlı ve etkili iletişim.",
                     "updated": 1642171329880
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah salah satu ide inti di balik fitur visualisasi ini: komunikasi yang cepat dan efektif.",
+                    "updated": 1673882165595
+                },
+                {
+                    "language": "ES",
+                    "text": "Esa es una de las ideas centrales de estas funciones de visualización: comunicación rápida y eficaz.",
+                    "updated": 1675466840304
                 }
             ]
         },
@@ -69,6 +89,16 @@
                     "language": "TR",
                     "text": "İkinci temel fikir, oturumda neler olduğunu görerek, stratejilerinizdeki zayıflıkları ve bunları nasıl geliştirebileceğinizi daha kolay tespit etmenizdir!",
                     "updated": 1642171343312
+                },
+                {
+                    "language": "ID",
+                    "text": "Ide inti kedua adalah bahwa—dengan dapat melihat apa yang terjadi dengan sesi tersebut—lebih mudah menemukan kelemahan dalam strategi-mu, dan bagaimana kamu dapat memperbaikinya!",
+                    "updated": 1673882172725
+                },
+                {
+                    "language": "ES",
+                    "text": "La segunda idea central es que, al poder ver lo que sucedió en la sesión, es más fácil detectar los puntos débiles de sus estrategias y cómo mejorarlos.",
+                    "updated": 1675466867985
                 }
             ]
         },
@@ -91,6 +121,16 @@
                     "language": "TR",
                     "text": "Ek olarak, panellerde görüntülenen verilerin Ticaret Motoru (Trading Engine) hiyerarşisinde bulunan verilerle aynı olduğuna dikkat edin.",
                     "updated": 1642171370248
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebagai tambahan, perhatikan bahwa data yang ditampilkan di panel adalah data yang sama yang tersedia di hierarki Trading Engine.",
+                    "updated": 1673882179684
+                },
+                {
+                    "language": "ES",
+                    "text": "Como nota al margen, observa que los datos mostrados en los paneles son los mismos datos disponibles en la jerarquía del Trading Engine.",
+                    "updated": 1675466889920
                 }
             ]
         }

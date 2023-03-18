@@ -37,6 +37,11 @@
                 "updated": 1640857620372
             },
             {
+                "language": "NL",
+                "text": "Geniet van je backtest!",
+                "updated": 1670776763395
+            },
+            {
                 "language": "ID",
                 "text": "Nikmati backtest-mu!",
                 "updated": 1670588305268
@@ -74,6 +79,11 @@
                     "language": "RU",
                     "text": "Теперь пришло время перейти в Charting Space и (если он еще не запущен) запустить работу:",
                     "updated": 1640857683899
+                },
+                {
+                    "language": "NL",
+                    "text": "Nu is het tijd om naar de Charting Space te gaan en (indien nog niet actief) deze te starten:",
+                    "updated": 1670776802815
                 },
                 {
                     "language": "ID",
@@ -144,6 +154,11 @@
                     "updated": 1640618588052
                 },
                 {
+                    "language": "NL",
+                    "text": "Buy en Sell Market Orders",
+                    "updated": 1670776814279
+                },
+                {
                     "language": "ID",
                     "text": "Market Orders Beli dan Jual",
                     "updated": 1670588458063
@@ -191,6 +206,11 @@
                     "language": "RU",
                     "text": "Не торопитесь и изучите визуальные результаты. Примените индикатор SMA к графику и убедитесь, что бот занял позицию, когда это ожидалось.",
                     "updated": 1640857737238
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd en verken de visuele resultaten. Pas de SMA-indicator toe in de grafiek en zorg ervoor dat de bot positie heeft ingenomen wanneer verwacht",
+                    "updated": 1670776856607
                 },
                 {
                     "language": "ID",

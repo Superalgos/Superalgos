@@ -37,6 +37,11 @@
                 "updated": 1640857538682
             },
             {
+                "language": "NL",
+                "text": "Tijd om naar de grafiek te kijken!",
+                "updated": 1670776661019
+            },
+            {
                 "language": "ID",
                 "text": "Saatnya untuk melihat chart!",
                 "updated": 1670588149864
@@ -76,6 +81,11 @@
                     "updated": 1640857559517
                 },
                 {
+                    "language": "NL",
+                    "text": "Wanneer de backtest is voltooid, stop ik de hele hiërarchie van het knooppunt Testing Trading Tasks. Vouw het knooppunt uit en klik op Stop All.",
+                    "updated": 1670776694291
+                },
+                {
                     "language": "ID",
                     "text": "Saat backtest sudah selesai aku memberhentikan semua hirarki dari node Testing Trading Tasks. Expand node dan klik Stop All.",
                     "updated": 1670588142606
@@ -111,6 +121,12 @@
                     "language": "RU",
                     "text": "Помните, что хорошей практикой является сохранение иерархий в свернутом виде и завершение неиспользуемых задач для экономии ресурсов!",
                     "updated": 1640857602673
+                },
+                {
+
+                    "language": "NL",
+                    "text": "Onthoud dat het een goede gewoonte is om hiërarchieën samengevouwen te houden en onbruikbare taken te stoppen om systeem resources te besparen!",
+                    "updated": 1670776723625
                 },
                 {
                     "language": "ID",

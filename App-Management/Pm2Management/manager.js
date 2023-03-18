@@ -33,7 +33,11 @@ exports.pm2Manager = function pm2Manager() {
     }
 
     /**
-     * @returns {Promise<[]>}
+     * @returns {Promise<{
+     *   pid: number,
+     *   name: string,
+     *   args: string[]
+     * }[]>}
      */ 
     function list() {
         return new Promise((res, rej) => pm2.list((err, list) => {
@@ -44,7 +48,11 @@ exports.pm2Manager = function pm2Manager() {
 
     /**
      * @param {string} name
-     * @returns {Promise<{}>}
+     * @returns {Promise<{
+     *   pid: number,
+     *   name: string,
+     *   args: string[]
+     * }>}
      */ 
     function describe(name) {
         return new Promise((res, rej) => pm2.describe(name, (err, details) => {

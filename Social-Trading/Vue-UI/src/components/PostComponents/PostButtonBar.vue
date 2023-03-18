@@ -49,6 +49,7 @@ import { reactedPost, getReplies } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
 import EmojiPicker from '../EmojiComponents/EmojiPicker.vue';
+import EmojiList from '../../../utils/EmojiList';
 
 export default {
   components: { EmojiPicker },
@@ -155,7 +156,7 @@ export default {
                 ? this.showEmojiReactionTable = false
                 : this.showEmojiReactionTable = true
             }
-        }
+        },
     },
     computed: {
         emojiReactionReady() {
@@ -167,7 +168,7 @@ export default {
         },
         showEmojiReaction() {
             return store.state.showEmojiPicker
-        }
+        },
     },
     watch: {
         showEmojiReaction(newValue, oldValue) {
@@ -216,5 +217,7 @@ export default {
 .emoji-picker-component {
     display: fixed;
 }
+
+
 
 </style>

@@ -52,7 +52,7 @@ export default {
             return store.state.profile.userProfileHandle
         },
         getWalletAddress() {
-            return store.state.profile.blockchainAccount;
+            return store.state.profile.blockchainAccountWallet;
         },
         getBalanceSA() {
             return store.state.profile.balanceSA;

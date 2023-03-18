@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте применим еще один трюк! Переключите таймфрейм на 12 часов и проведите указателем по графикам!",
                 "updated": 1642658924122
+            },
+            {
+                "language": "ES",
+                "text": "¡Hagamos un truco más! ¡Cambia el marco de tiempo a 12 hs y desliza el puntero sobre los gráficos!",
+                "updated": 1679099819407
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Боже мой! Я сломал Superalgos! Больше ничего не работает!",
                     "updated": 1642658964204
+                },
+                {
+                    "language": "ES",
+                    "text": "OMG! He roto Superalgos! ¡Ya nada funciona!",
+                    "updated": 1679099810895
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Торговые сессии создают симуляции для временного интервала, настроенного в параметре Time Frame!",
                     "updated": 1642659004886
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Las sesiones de trading crean simulaciones para el marco de tiempo configurado en el parámetro Time Frame!",
+                    "updated": 1679099800015
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Если вы установите график на другой таймфрейм, вы не сможете увидеть симуляцию! На самом деле, вы можете найти другую симуляцию, которую вы запускали на этом таймфрейме в прошлый раз! Действительно, Superalgos хранит симуляции для каждого таймфрейма отдельно, даже если они происходят из одной и той же торговой сессии!",
                     "updated": 1642659124699
+                },
+                {
+                    "language": "ES",
+                    "text": "Si configuras tu gráfico para un marco de tiempo diferente, ¡no podrás ver la simulación! De hecho, es posible que encuentres otra simulación que hayas ejecutado en ese marco temporal en otro momento. De hecho, Superalgos almacena simulaciones para cada marco temporal por separado, ¡incluso cuando se originan en la misma sesión de trading!",
+                    "updated": 1679099789641
                 }
             ]
         }

@@ -75,10 +75,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 let calledTimestamp = (new Date()).valueOf()
 
-                caller.socket.on('message', onMenssage)
+                caller.socket.on('message', onMessage)
 
-                function onMenssage(message) {
-                    thisObject.socketInterfaces.onMenssage(message, caller, calledTimestamp)
+                function onMessage(message) {
+                    thisObject.socketInterfaces.onMessage(message, caller, calledTimestamp)
                 }
 
                 function heartbeat() {

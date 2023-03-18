@@ -10,7 +10,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         userProfilesMap: undefined,
         followerMap: undefined,
         senderMap: undefined,
-        onMenssage: onMenssage,
+        onMessage: onMessage,
         onConnectionClosed: onConnectionClosed,
         addFollower: addFollower,
         removeFollower: removeFollower,
@@ -133,7 +133,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         web3 = undefined
     }
 
-    async function onMenssage(message, caller, calledTimestamp) {
+    async function onMessage(message, caller, calledTimestamp) {
         try {
             let socketMessage
             try {

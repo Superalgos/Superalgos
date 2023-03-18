@@ -102,7 +102,7 @@ export default {
     border-radius: 20px;
     margin: 10% 10%;
     height: 50vh;
-    background-color: rgb(161, 209, 222);
+    background-color: rgba(161, 209, 222, 0.235);
 }
 .balance-list-address {
     position: relative;

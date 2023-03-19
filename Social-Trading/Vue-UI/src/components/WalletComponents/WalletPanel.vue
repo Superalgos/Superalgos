@@ -17,8 +17,8 @@
                         <p class="address-p">{{getWalletAddress}}</p>
                     </div>
                     <div class="balance-list center">
-                        <p class="balance-header">Wallet Balance</p>
-                        <p>{{getBalanceSA}}</p>
+                        <p class="balance-header">Token Balance</p>
+                        <p class="balance-p">{{getBalanceSA}}</p>
                     </div>
                 </div>
             </div>
@@ -96,11 +96,11 @@ export default {
 .info-card {
     display: flex;
     flex-direction: column;
-    border: ridge 2px black;
+    border: ridge 1px black;
     border-radius: 20px;
     margin: 10% 10%;
     height: 50vh;
-    background-color: rgba(161, 209, 222, 0.235);
+    
 }
 .balance-list-address {
     position: relative;
@@ -132,7 +132,7 @@ export default {
     width: fit-content;
     align-self: center;
     justify-content: center;
-    padding: 0% 8%;
+    padding: 2% 8%;
     font-size: 20px;
     font-weight: 600;
     background-color: white;
@@ -145,8 +145,12 @@ export default {
     margin: 8px;
 }
 .balance-header {
+    font-size: 25px;
     margin: 8px;
     margin-bottom: 0px;
+}
+.balance-p {
+    font-size: 20px;
 }
 .address-p {
     margin: 0px;

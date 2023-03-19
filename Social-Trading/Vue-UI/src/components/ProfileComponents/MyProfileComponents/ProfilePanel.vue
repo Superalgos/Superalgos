@@ -189,6 +189,7 @@ export default {
 }
 .center-header {
     margin: auto;
+    font-size:  28px;
 }
 .close-btn {
     position: absolute;

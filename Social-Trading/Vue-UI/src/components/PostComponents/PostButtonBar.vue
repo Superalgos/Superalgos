@@ -49,11 +49,10 @@
 import { reactedPost, getReplies } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
-import EmojiPicker from '../EmojiComponents/EmojiPicker.vue';
 import ReactionPicker from '../EmojiComponents/ReactionPicker.vue';
 
 export default {
-  components: { EmojiPicker, ReactionPicker },
+  components: { ReactionPicker },
     name: "post-button-bar",
     props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId'],
     data() {

@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt eine erforderliche Eigenschaft in der Konfiguration dieses Eintrags, die fehlt. Fügen Sie diese Eigenschaft hinzu, damit der API Data Fetcher Bot ordnungsgemäß ausgeführt werden kann. Überprüfen Sie die Details unten, um zu erfahren, welche Eigenschaft genau fehlt.",
-                "updated": 1679224055374
+                "text": "Es gibt eine erforderliche Eigenschaft in der Konfiguration dieses Eintrags, die fehlt. Fügen Sie diese Eigenschaft hinzu, damit der API Data Fetcher Bot ordnungsgemäß ausgeführt werden kann. Überprüfen Sie die Details unten, um zu erfahren, welche Eigenschaft genau fehlt. ",
+                "updated": 1679246197392
             }
         ]
     },

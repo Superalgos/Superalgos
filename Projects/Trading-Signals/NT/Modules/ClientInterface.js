@@ -98,7 +98,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 if (allocatedTokenPower < followerMinTokenPower) {
                     let response = {
                         result: 'Error',
-                        message: 'Bot requires minimum ' + parseFloat(followerMinTokenPower.toFixed(0)).toLocaleString('en') + ' Token Power to follow.',
+                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) + ' Token Power to follow.',
                         followedBotReferenceId: followedBotReferenceId
                     }
                     return response

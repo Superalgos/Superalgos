@@ -123,7 +123,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             }
             rankingObj.rank = i + 1
             rankingObj.userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name
-            rankingObj.tokenPower = parseFloat(followerDetails.tokenPower.toFixed(0)).toLocaleString('en') 
+            rankingObj.tokenPower = SA.projects.governance.utilities.balances.toTokenPowerString(followerDetails.tokenPower)
             rankingTable.push(rankingObj)
         }
         console.table(rankingTable)
@@ -638,10 +638,10 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     return
                 }
                 else if (clientTokenAllocation < nodeMinimumTokenAllocation) {
-                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + parseFloat(clientTokenAllocation.toFixed(0)).toLocaleString('en') + ' is lower than the configured node requirement of ' + parseFloat(nodeMinimumTokenAllocation.toFixed(0)).toLocaleString('en'))
+                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toTokenPowerString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toTokenPowerString(nodeMinimumTokenAllocation))
                     let response = {
                         result: 'Error',
-                        message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + parseFloat(nodeMinimumTokenAllocation.toFixed(0)).toLocaleString('en') + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + parseFloat(nodeMinimumTokenAllocation.toFixed(0)).toLocaleString('en')
+                        message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toTokenPowerString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toTokenPowerString(nodeMinimumTokenAllocation)
                     }
                     caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
@@ -1085,7 +1085,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 /* Double-check for sufficient token power allocation before sending signal */
                 let tokenPower = parseFloat(followerDetails.tokenPower.toFixed(0)) || 0
                 if (tokenPower < followerMinTokenPower) {
-                    SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + parseFloat(tokenPower.toFixed(0)).toLocaleString('en') + ' is below sender requirement of ' + parseFloat(followerMinTokenPower.toFixed(0)).toLocaleString('en') )
+                    SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + SA.projects.governance.utilities.balances.toTokenPowerString(tokenPower) + ' is below sender requirement of ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) )
                     for (let j = 0; j < followerConnections.length; j++) {
                         let callerDetails = thisObject.callersMap.get(followerConnections[j]) 
                         removeFollower(callerDetails, followerList[i])

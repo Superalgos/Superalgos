@@ -27,9 +27,7 @@
 </template>
 
 <script>
-
-import store from '../../store/index'
-
+import store from '../../store/index';
 
 export default {
     name: 'wallet-panel',
@@ -46,10 +44,10 @@ export default {
     },
     computed: {
         getWalletVisibility() {
-            return store.state.showWallet 
+            return store.state.showWallet;
         },
         getProfileName() {
-            return store.state.profile.userProfileHandle
+            return store.state.profile.userProfileHandle;
         },
         getWalletAddress() {
             return store.state.profile.blockchainAccountWallet;

@@ -68,13 +68,6 @@ export default {
                 return this.originPost.reactions[1][1]
             }
         },
-        emojiReactionReady() {
-            if (store.state.emojiReactionKey !== undefined) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         hasReactions() {
             let reactionsArray = [];
             if (this.reactions !== null && this.reactions !== undefined) {

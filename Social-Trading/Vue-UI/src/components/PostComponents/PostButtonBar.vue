@@ -33,7 +33,8 @@
             </p>
         </div>
         <div class="emoji-picker-component" v-if="showEmojiReactionTable">
-                <emoji-picker 
+                <reaction-picker
+                    @reaction-sent="handleReactionSent"
                     :postReaction="true" 
                     :location="displayLocation" 
                     :originSocialPersonaId="originSocialPersonaId"
@@ -49,9 +50,10 @@ import { reactedPost, getReplies } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
 import EmojiPicker from '../EmojiComponents/EmojiPicker.vue';
+import ReactionPicker from '../EmojiComponents/ReactionPicker.vue';
 
 export default {
-  components: { EmojiPicker },
+  components: { EmojiPicker, ReactionPicker },
     name: "post-button-bar",
     props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId'],
     data() {
@@ -61,6 +63,7 @@ export default {
         }
     },
     methods: {
+        // Comments Button
         openPostComments() {
             let postCommentProps = {
                 timestamp: this.timestamp,
@@ -103,6 +106,8 @@ export default {
                         });
                     });
         },
+        // This sends a post reaction - either like/love directly or through setting the emoji reaction key in the store.
+        // Like/Love or Emoji Reaction Buttons
         reactPost(event) {
             let reactWithEventType = 0;
             let emojiReactionId = store.state.emojiReactionKey;
@@ -141,6 +146,8 @@ export default {
                 }
                 });
         },
+        // This opens the emojiPicker.
+        // Emoji Reaction Button
         showEmojiReactions(event) {
             if (event !== undefined) {
             // We get the location of the click event
@@ -149,37 +156,17 @@ export default {
                     y: event.pageY
             }
 
-
             this.displayLocation = clickLocation
             this.showEmojiReactionTable == true
                 ? this.showEmojiReactionTable = false
                 : this.showEmojiReactionTable = true
             }
         },
-    },
-    computed: {
-        emojiReactionReady() {
-            if (store.state.emojiReactionKey !== undefined) {
-                return true;
-            } else {
-                return false;
-            }
-        },
-        showEmojiReaction() {
-            return store.state.showEmojiPicker
-        },
-    },
-    watch: {
-        showEmojiReaction(newValue, oldValue) {
-            console.log(newValue)
-            if (newValue) {
-                this.showEmojiReactionTable = true;
-            } else {
-                this.showEmojiReactionTable = false;
-            }
+        // This closes the emojiPicker component after reaction is sent.
+        handleReactionSent() {
+            this.showEmojiReactionTable = false;
         }
-    }
-
+    },
 }
 </script>
 

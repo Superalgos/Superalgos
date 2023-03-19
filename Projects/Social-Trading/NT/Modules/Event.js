@@ -309,7 +309,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LOVE ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SMILE_SMALL_EYES ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SMILE_BIG_EYES
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_BIG_CHEESING || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_TEARS_OF_JOY || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HEART_EYES || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_PINOCCHIO || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CELEBRATION || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SURPRISED_GHOST || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_FRUSTRATED_MONKEY 
 
                 //TODO handle old reactions...
                 // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||

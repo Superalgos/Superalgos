@@ -5,7 +5,18 @@
                 <p id="post-user-name"> {{this.userName}} </p>
                 <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
             </div>
-            <div class="date-time">
+            <div class="date-time header-right">
+                <!-- Reactions on post displayed here -->
+                <div class="emoji-reactions emoji-reaction-area" 
+                v-if="hasReactions?.length"  
+                >
+                    <div v-for="reaction in hasReactions" v-bind:key="reaction.emoji">
+                        <p class="reaction-emoji">{{reaction.emoji}}</p>
+                        <p class="reaction-count">{{reaction.reactionCount}}</p>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
                 <p id="post-date-time">{{formatTimestamp}}</p>
             </div>
             <div class="post-message">
@@ -17,6 +28,8 @@
 </template>
 
 <script>
+import EmojiList from '../../../utils/EmojiList';
+
 export default {
   components: { },
     name: 'post-component',
@@ -47,21 +60,29 @@ export default {
         },
         postLikeCount() {
             if (this.originPost.reactions[0] > 0) {
-            //console.log(this.originPost.reactions)
-            return this.originPost.reactions[0]
+                return this.originPost.reactions[0]
             }
         },
         postLoveCount() {
-            //console.log(this.originPost.reactions)
             if (this.originPost.reactions[1] !== undefined) {
-            return this.originPost.reactions[1][1]
+                return this.originPost.reactions[1][1]
             }
         },
-        emojiReactionReady() {
-            if (store.state.emojiReactionKey !== undefined) {
-            return true;
-            } else {
-            return false;
+        hasReactions() {
+            let reactionsArray = [];
+            if (this.reactions !== null && this.reactions !== undefined) {
+                for (let i = 2; i < this.reactions.length; i++) {
+                    let reaction = this.reactions[i];
+                    if (reaction[1] > 0) {
+                        let reactionIndex = reaction[0]
+                        let newReaction = {
+                            emoji: EmojiList[reactionIndex],
+                            reactionCount: reaction[1]
+                        }
+                        reactionsArray.push(newReaction);
+                    }
+                }
+                return reactionsArray;
             }
         }
     },
@@ -111,6 +132,11 @@ export default {
     font-size: 30;
     font-weight: 700;
 }
+.header-right {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+}
 /* Post Timestamp */
 .date-time {
     grid-area: date-time;
@@ -156,8 +182,32 @@ export default {
     height: 2vw;
 }
 
+.reaction-count {
+    text-align: right;
+    margin-top: -7px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
 
+.emoji-reactions {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 1px;
+    margin-right: 10px;
+}
 
+.reaction-emoji {
+    margin: 0px;
+}
+
+.emoji-reaction-area {
+    margin-top: 5%;
+    padding-left: 2px;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color:rgb(237, 237, 237);
+}
 
 
 

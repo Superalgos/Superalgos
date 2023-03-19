@@ -4,7 +4,7 @@
         <div id="uploader-main-div" class="uploader" >
             <!-- Panel Header -->
             <div class="top-bar">
-                <p  class="bold">Image Uploader</p>
+                <p  class="bold center-header">Image Uploader</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeUploader">
             </div>
             <!-- Panel Body -->
@@ -24,10 +24,6 @@
                     <!-- Text Inside Drag N Drop Area -->
                     <p id="drag-n-drop-text">Drag and Drop to Upload</p>
                 </div>
-
-                <!-- For Testing TODO remove -->
-                <!-- <img v-if="uploadedImageUrl !== ''" :src="uploadedImageUrl" id="uploaded-image" alt="Uploaded Image"> -->
-
                 </div>
             </div>
     </div>

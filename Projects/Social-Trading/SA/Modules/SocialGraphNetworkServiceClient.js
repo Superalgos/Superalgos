@@ -213,6 +213,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                     let response = await SA.projects.socialTrading.functionLibraries.userProfile.getUserProfileInfo(profileMessage);
 
                                     if(response.result === "Ok") {
+                                        // Add the blockchain account to the response
+                                        response.blockchainAccount = thisProfile[1].blockchainAccount;
+                                        // Add the SA balance to the reponse
+                                        response.accountBalance = SA.projects.governance.utilities.balances.toSABalanceString(thisProfile[1].balance);
+
                                         responseArray.push(response)
                                     } else {
                                         console.log("ERROR encountered fetching profile data from GitHub storage.")

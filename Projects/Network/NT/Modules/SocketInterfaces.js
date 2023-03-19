@@ -31,10 +31,13 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.userProfilesMap = new Map()
         thisObject.followerMap = new Map()
         thisObject.senderMap = new Map()
-
+        
+        /* Testing deactivation of idle connection handling - should be redundant now as we have heartbeats on connection level 
         intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
+        */
         tokenPowerIntervalId = setInterval(refreshTokenPower, 60 * 10 * 1000) // runs every ten minutes
 
+        /*
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()
             for (let i = 0; i < thisObject.networkClients.length; i++) {
@@ -46,6 +49,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
         }
+        */
 
         function refreshTokenPower() {
             /* Periodically refreshes the Token Power allocated to Followed Bot References from User Profiles */
@@ -1079,7 +1083,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 let followerConnections = followerDetails.followerConnections
                 let followerUserHandle = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name || ''
                 /* Double-check for sufficient token power allocation before sending signal */
-                let tokenPower = followerDetails.tokenPower || 0
+                let tokenPower = parseFloat(followerDetails.tokenPower.toFixed(0)) || 0
                 if (tokenPower < followerMinTokenPower) {
                     SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + parseFloat(tokenPower.toFixed(0)).toLocaleString('en') + ' is below sender requirement of ' + parseFloat(followerMinTokenPower.toFixed(0)).toLocaleString('en') )
                     for (let j = 0; j < followerConnections.length; j++) {

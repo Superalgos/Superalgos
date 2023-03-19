@@ -92,7 +92,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     }
                 }
                 if (followedBotReference?.payload?.tokenPower !== undefined) {
-                    allocatedTokenPower = followedBotReference.payload.tokenPower
+                    allocatedTokenPower = parseFloat(followedBotReference.payload.tokenPower.toFixed(0))
                 }
 
                 if (allocatedTokenPower < followerMinTokenPower) {

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Я упомянул, что мы будем использовать свойства previous (предыдущий) для изменения каждого свойства с обеих сторон выражения...",
                 "updated": 1642661496564
+            },
+            {
+                "language": "ES",
+                "text": "Mencioné que usaríamos la propiedad anterior (previuos) para modificar cada propiedad en ambos lados de la declaración...",
+                "updated": 1679101221283
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Но такое использование не является обязательным! Вы можете использовать свойство previous по своему усмотрению. Нам нужно сравнить закрытие свечи со скользящей средней и отклонение этой же свечи! Поэтому мы применяем его ко всем условным выражениям!",
                     "updated": 1642661848699
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero este uso no es obligatorio! Puedes usar la propiedad previous como desees. ¡Necesitamos comparar el cierre de la vela con la media móvil y la desviación de la misma vela! ¡Por eso la aplicamos a todas las declaraciones!",
+                    "updated": 1679101214504
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Но вы можете, например, захотеть сравнить закрытие текущей свечи с закрытием предыдущей свечи:",
                     "updated": 1642661864141
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, puedes, por ejemplo, querer comparar el cierre de la vela actual con el cierre de la vela previa:",
+                    "updated": 1679101205698
                 }
             ]
         },

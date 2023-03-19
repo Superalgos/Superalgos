@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
                 "updated": 1642660544027
+            },
+            {
+                "language": "ES",
+                "text": "¿Cómo se describe una vela que cierra por debajo de la banda inferior? ¡Veamos cómo se describe la banda inferior!",
+                "updated": 1679100311513
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Описание полос Боллинджера объясняет, что верхняя и нижняя полосы расположены на два стандартных отклонения выше и ниже скользящей средней (MA) соответственно. Мы знаем MA, которая предлагается в свойстве movingAverage. Стандартное отклонение предлагается в свойстве standardDeviation.",
                     "updated": 1642660569247
+                },
+                {
+                    "language": "ES",
+                    "text": "La descripción de las Bandas de Bollinger explica que las bandas superior e inferior están situadas dos desviaciones estándar por encima y por debajo de la media móvil (MA) respectivamente. Conocemos la media móvil (MA), ya que se ofrece en la propiedad movingAverage. La desviación estándar se ofrece en la propiedad standardDeviation.",
+                    "updated": 1679100303542
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Нижняя полоса располагается на два стандартных отклонения ниже МА. Тогда нижняя полоса равна МА минус стандартное отклонение, умноженное на два.",
                     "updated": 1642660586039
+                },
+                {
+                    "language": "ES",
+                    "text": "La banda inferior se sitúa dos desviaciones estándar por debajo de la MA. Entonces la banda inferior es igual a la MA menos la desviación estándar multiplicada por dos.",
+                    "updated": 1679100292087
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Посмотрите на свойства BB еще раз! Два стандартных отклонения - это свойство deviation (отклонение)!",
                 "updated": 1642660797938
+            },
+            {
+                "language": "ES",
+                "text": "¡Mira otra vez las propiedades BB! ¡Dos desviaciones estándar es la propiedad de desviación!",
+                "updated": 1679100382081
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Таким образом, нижняя полоса - это МА минус deviation!",
                     "updated": 1642660739361
+                },
+                {
+                    "language": "ES",
+                    "text": "Por lo tanto, ¡la banda inferior es la MA menos la desviación!",
+                    "updated": 1679100375085
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Можете ли вы написать условие, используя эту информацию? Запустите текстовый редактор и попробуйте!",
                     "updated": 1642660753106
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes escribir la condición con esta información? Utiliza un editor de texto e inténtalo.",
+                    "updated": 1679100365459
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Закрытие свечи на графике 1H меньше, чем скользящая средняя минус отклонение!",
                     "updated": 1642660783610
+                },
+                {
+                    "language": "ES",
+                    "text": "¡El cierre de la vela en el gráfico 1H es menor que la media móvil menos la desviación!",
+                    "updated": 1679100351061
                 }
             ]
         }

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { createReply } from '../../services/PostService'
+import { createReply, getPosts } from '../../services/PostService'
 import store from '../../store/index'
 
 export default {
@@ -52,9 +52,15 @@ export default {
 
             createReply(message)
             .then(response => {
-                this.commentBody = '';
-                let commentToClear = document.getElementById("new-comment-input")
-                commentToClear.innerText = '';
+                console.log(response)
+                if (response.statusText == 'OK') {
+                    this.commentBody = '';
+                    let commentToClear = document.getElementById("new-comment-input")
+                    commentToClear.innerText = '';
+                    getPosts();
+                } else {
+                    console.error(`Response status ${response.status} received when sending comment.`)
+                }
             });
         }
     },

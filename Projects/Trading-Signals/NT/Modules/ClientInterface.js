@@ -92,13 +92,13 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     }
                 }
                 if (followedBotReference?.payload?.tokenPower !== undefined) {
-                    allocatedTokenPower = followedBotReference.payload.tokenPower
+                    allocatedTokenPower = parseFloat(followedBotReference.payload.tokenPower.toFixed(0))
                 }
 
                 if (allocatedTokenPower < followerMinTokenPower) {
                     let response = {
                         result: 'Error',
-                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) + ' to follow.',
+                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) + ' Token Power to follow.',
                         followedBotReferenceId: followedBotReferenceId
                     }
                     return response

@@ -31,10 +31,13 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.userProfilesMap = new Map()
         thisObject.followerMap = new Map()
         thisObject.senderMap = new Map()
-
+        
+        /* Testing deactivation of idle connection handling - should be redundant now as we have heartbeats on connection level 
         intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
+        */
         tokenPowerIntervalId = setInterval(refreshTokenPower, 60 * 10 * 1000) // runs every ten minutes
 
+        /*
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()
             for (let i = 0; i < thisObject.networkClients.length; i++) {
@@ -46,6 +49,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
         }
+        */
 
         function refreshTokenPower() {
             /* Periodically refreshes the Token Power allocated to Followed Bot References from User Profiles */
@@ -66,22 +70,22 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             function sortFollowers() {
                 if (thisObject.senderMap === undefined || thisObject.senderMap.size === 0) { return }
                 for (let [sendingBotId, senderDetails] of thisObject.senderMap) {
-                    let followerList = senderDetails.followerList
-                    if (followerList.length < 2) {
+                    let tempFollowerList = senderDetails.followerList
+                    if (tempFollowerList.length < 2) {
                         followerStats(sendingBotId)
                         continue 
                     }
                     let sortArray= []
-                    for (let i = 0; i < followerList.length; i++) {
+                    for (let i = 0; i < tempFollowerList.length; i++) {
                         let sortObject = {}
-                        sortObject.referenceBotId = followerList[i]
-                        sortObject.tokenPower = currentTokenPower.get(followerList[i])
+                        sortObject.referenceBotId = tempFollowerList[i]
+                        sortObject.tokenPower = currentTokenPower.get(tempFollowerList[i])
                         sortArray.push(sortObject)
                     }
                     sortArray.sort((a, b) => {
                         return b.tokenPower - a.tokenPower
                     })
-                    senderDetails.followerList = sortArray.map(a => a.tokenPower)
+                    senderDetails.followerList = sortArray.map(a => a.referenceBotId)
                     thisObject.senderMap.set(sendingBotId, senderDetails)
                     followerStats(sendingBotId)
                 }
@@ -113,9 +117,13 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         for (let i = 0; i < followerList.length; i++) {
             let rankingObj = {}
             let followerDetails = thisObject.followerMap.get(followerList[i])
+            if (followerDetails === undefined) {
+                SA.logger.warn('Follower details could not be obtained for follower ' + followerList[i])
+                continue
+            }
             rankingObj.rank = i + 1
             rankingObj.userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name
-            rankingObj.tokenPower = SA.projects.governance.utilities.balances.toSABalanceString(followerDetails.tokenPower)
+            rankingObj.tokenPower = SA.projects.governance.utilities.balances.toTokenPowerString(followerDetails.tokenPower)
             rankingTable.push(rankingObj)
         }
         console.table(rankingTable)
@@ -570,7 +578,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 return
             }
             /*
-            We will verify that the caller's User Profile has the minimun SA Balance required to connect to this Netork Node
+            We will verify that the caller's User Profile has the minimun SA Balance required to connect to this Network Node
             */
             switch (caller.role) {
                 case 'Network Client': {
@@ -630,10 +638,10 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     return
                 }
                 else if (clientTokenAllocation < nodeMinimumTokenAllocation) {
-                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation))
+                    SA.logger.info(callerType + ' ' + userProfileByBlockchainAccount.config.codeName + ' was prevented from connecting to this node as the Token Power allocation of ' + SA.projects.governance.utilities.balances.toTokenPowerString(clientTokenAllocation) + ' is lower than the configured node requirement of ' + SA.projects.governance.utilities.balances.toTokenPowerString(nodeMinimumTokenAllocation))
                     let response = {
                         result: 'Error',
-                        message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toSABalanceString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(nodeMinimumTokenAllocation)
+                        message: 'Network ' + callerType + ' User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has allocated Token Power of ' + SA.projects.governance.utilities.balances.toTokenPowerString(clientTokenAllocation) + ' to the Connection Task Server while the Minimum Allocation Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toTokenPowerString(nodeMinimumTokenAllocation)
                     }
                     caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
@@ -1075,9 +1083,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 let followerConnections = followerDetails.followerConnections
                 let followerUserHandle = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(followerDetails.userProfileId).name || ''
                 /* Double-check for sufficient token power allocation before sending signal */
-                let tokenPower = followerDetails.tokenPower || 0
+                let tokenPower = parseFloat(followerDetails.tokenPower.toFixed(0)) || 0
                 if (tokenPower < followerMinTokenPower) {
-                    SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + SA.projects.governance.utilities.balances.toSABalanceString(tokenPower) + ' is below sender requirement of ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) )
+                    SA.logger.warn('Skipping signal transmission to follower ' + followerUserHandle + ' as token power ' + SA.projects.governance.utilities.balances.toTokenPowerString(tokenPower) + ' is below sender requirement of ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) )
                     for (let j = 0; j < followerConnections.length; j++) {
                         let callerDetails = thisObject.callersMap.get(followerConnections[j]) 
                         removeFollower(callerDetails, followerList[i])
@@ -1085,7 +1093,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     continue
                 }
         
-                positionInFollowerQueue = i + 1
+                if (i === 0) {
+                    positionInFollowerQueue = 1 
+                } else {
+                    positionInFollowerQueue++
+                }
 
                 /*
                 It is possible that many connections belong to the same user profile. When that happens, they are all together 
@@ -1104,13 +1116,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
                 }
                 lastUserProfileId = followerDetails.userProfileId
-                socketMessage.rankingStats = {
-                    accumulatedDelay: accumulatedDelay,
-                    positionInQueue: positionInFollowerQueue,
-                    queueSize: queueSize
-                }
-                
+           
                 for (let j = 0; j < followerConnections.length; j++) {
+                    positionInFollowerQueue = positionInFollowerQueue + j
+                    socketMessage.rankingStats = {
+                        accumulatedDelay: accumulatedDelay,
+                        positionInQueue: positionInFollowerQueue,
+                        queueSize: queueSize
+                    }
                     let receiver = thisObject.callersMap.get(followerConnections[j])
                     if (receiver === undefined) { continue }
                     receiver.socket.send(JSON.stringify(socketMessage))

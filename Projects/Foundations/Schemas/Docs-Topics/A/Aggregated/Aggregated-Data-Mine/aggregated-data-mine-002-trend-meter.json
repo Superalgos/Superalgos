@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Trend Meter",
     "definition": {
-        "text": "This indicator calculates the outut a MACD crossover, two different length RSI, and two Moving Average crosses to produce a consensus output.",
-        "updated": 1679370917975
+        "text": "This indicator calculates the output of an MACD crossover, two different length RSI, and two Moving Average crosses to produce a consensus output.",
+        "updated": 1679375423901
     },
     "paragraphs": [
         {

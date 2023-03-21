@@ -1132,7 +1132,6 @@ display: table-row;
 .docs-navigation-elements-top-table-cell {
 border: 1px;
 display: table-cell;
-width: 16.5%;
 vertical-align:middle;
 }
 
@@ -1141,7 +1140,7 @@ display: table-row-group;
 }
 
 .docs-navigation-elements-top-table button {
-font: 400 20px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+font: 400 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #e6eaea; 
 border: 0px;
 background-color: transparent;

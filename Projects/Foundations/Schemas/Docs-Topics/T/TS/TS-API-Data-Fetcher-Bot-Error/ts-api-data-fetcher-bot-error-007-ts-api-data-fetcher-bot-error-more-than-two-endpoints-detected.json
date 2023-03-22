@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es wird erwartet, dass jeder Prozess des API Data Fetcher Bot ´s Daten von einem einzigen API-Endpunkt (API Endpoint) abruft. Der Bot hat festgestellt, dass Sie die Datensatzeigenschaften so konfiguriert haben, dass sie auf API-Datenfeldknoten verweisen, die zu verschiedenen API-Endpunkten gehören. Dies wird nicht unterstützt, und der API Data Fetcher Bot wird erst dann fortfahren, wenn Sie auf einen Satz von API-Antwortfeldern verweisen, die Nachkommen sind / zu einem einzigen API-Endpunkt (API Endpoint) gehören.",
-                "updated": 1679225132397
+                "text": "Es wird erwartet, dass jeder Prozess des API Data Fetcher Bot ´s Daten von einem einzigen API-Endpunkt (API Endpoint) abruft. Der Bot hat festgestellt, dass Sie die Datensatzeigenschaften so konfiguriert haben, dass sie auf API-Datenfeldknoten verweisen, die zu verschiedenen API-Endpunkten gehören. Dies wird nicht unterstützt, und der API Data Fetcher Bot wird erst dann fortfahren, wenn Sie auf einen Satz von API-Antwortfeldern verweisen, die Nachkommen sind / zu einem einzigen API-Endpunkt (API Endpoint) gehören. ",
+                "updated": 1679246238310
             }
         ]
     },
@@ -31,8 +31,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Mehr als zwei Endpunkte erkannt",
-                    "updated": 1679225145640
+                    "text": "Mehr als zwei Endpunkte erkannt ",
+                    "updated": 1679246242761
                 }
             ]
         },

@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Jeder API-Antwortfeldknoten (API Response Field Node) muss von einem API-Endpunktknoten (API Endpoint node) abstammen. Überprüfen Sie den übergeordneten Knoten dieses Knotens und dessen übergeordneten Knoten und fahren Sie fort, bis Sie den API-Endpunkt (API Endpoint) finden. Finden Sie die Stelle, an der die Kette unterbrochen ist, und beheben Sie sie, damit der API Data Fetcher Bot fortfahren kann.",
-                "updated": 1679224857326
+                "text": "Jeder API-Antwortfeldknoten (API Response Field Node) muss von einem API-Endpunktknoten (API Endpoint node) abstammen. Überprüfen Sie den übergeordneten Knoten dieses Knotens und dessen übergeordneten Knoten und fahren Sie fort, bis Sie den API-Endpunkt (API Endpoint) finden. Finden Sie die Stelle, an der die Kette unterbrochen ist, und beheben Sie sie, damit der API Data Fetcher Bot fortfahren kann. ",
+                "updated": 1679246223459
             }
         ]
     },

@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es fehlt ein untergeordneter Knoten des Typs API-Version des aktuellen Knotens. Fügen Sie diesen untergeordneten Knoten hinzu, damit der API Data Fetcher Bot ordnungsgemäß ausgeführt werden kann.",
-                "updated": 1679224364215
+                "text": "Es fehlt ein untergeordneter Knoten des Typs API-Version des aktuellen Knotens. Fügen Sie diesen untergeordneten Knoten hinzu, damit der API Data Fetcher Bot ordnungsgemäß ausgeführt werden kann. ",
+                "updated": 1679246206278
             }
         ]
     },

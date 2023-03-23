@@ -311,7 +311,7 @@ function newWorkspace() {
                 , 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
-        let url = 'SaveWorkspace/' + buildWorkspacePathName()
+        let url = 'SaveWorkspace/' + buildWorkspacePathName(workspace)
         if (textToSave.indexOf('null,null,null,null,null,null,null,null,null') >= 0) {
             console.log((new Date()).toISOString(), '[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return

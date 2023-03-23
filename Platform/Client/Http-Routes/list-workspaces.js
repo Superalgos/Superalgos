@@ -41,7 +41,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                         allWorkspaces = allWorkspaces.concat(updatedFileList)
                         projectsCount++
                         if(projectsCount === projects.length) {
-                            SA.logger.info(`${projectsCount} === ${projects.length}`)
+                            // SA.logger.debug(`${projectsCount} === ${projects.length}`)
                             readMyWorkspaces()
                         }
                     }

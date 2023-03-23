@@ -25,7 +25,9 @@ export default createStore({
       userProfileHandle: undefined,
       userProfileId: undefined,
       profilePic: '',
-      bannerPic: ''
+      bannerPic: '',
+      blockchainAccountWallet: '',
+      balanceSA: undefined,
     },
     postCommentProps: undefined,
     postComments: undefined,
@@ -112,6 +114,12 @@ export default createStore({
     },
     SET_USERS_PROFILE_TO_OPEN(state, profile) {
       state.usersProfileToOpen = profile;
+    },
+    SET_BLOCKCHAIN_ACCOUNT(state, blockchainAccount) {
+      state.profile.blockchainAccountWallet = blockchainAccount;
+    },
+    SET_ACCOUNT_SA_BALANCE(state, balance) {
+      state.profile.balanceSA = balance;
     },
     /* Updating Our Profile Information */
     UPDATE_NAME(state, name) {

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте сделаем быстрое интеллектуальное упражнение! Рассмотрим точку первого события взятия позиции, то есть свечу 8hs, закрывающуюся в 9 hs.",
                 "updated": 1642664310328
+            },
+            {
+                "language": "ES",
+                "text": "¡Hagamos un rápido ejercicio mental! Considera el punto del primer evento de Toma de Posición (Take Position Event), es decir, la vela de las 8hs, cerrando a las 9 hs.",
+                "updated": 1679254299051
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Отбросьте последующие цепочки стратегий, поскольку они являются побочным продуктом отсутствия определения остальных этапов!",
                     "updated": 1642664327062
+                },
+                {
+                    "language": "ES",
+                    "text": "Descarta la cadena de estrategias que siguen, ¡ya que esas son un subproducto de no definir el resto de las etapas!",
+                    "updated": 1679254292573
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Перейдите на панель слоя Candles Data и включите панель плоттера слоя Candles, если его нет!",
                     "updated": 1642664343739
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ve al panel de la capa Candles Data y enciende el panel del plotter de la capa Candles en caso de que no lo esté!",
+                    "updated": 1679254285897
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Теперь поместите указатель мыши на свечу 8hs. Как показано на панели, эта свеча закрылась на отметке 8702 USDT. Это будет наша цена для взятия позиции, плюс-минус проскальзывание. Теперь перейдем к 12-часовой свече. Минимальное значение для этой свечи составляет 8445 USDT. После этого краткосрочного минимума рынок переходит в восходящий тренд (на таймфрейме 1H).",
                     "updated": 1642664428497
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora coloca el puntero del ratón sobre la vela de las 8hs. Como puedes ver en el panel, esa vela cerró a 8702 USDT. Esa sería nuestra tasa de toma de posición (take position rate), con o sin deslizamiento. Ahora vamos a la vela de 12hs. El valor mínimo de esa vela es 8445 USDT. Después de ese mínimo a corto plazo, el mercado entra en una tendencia alcista (en el marco de tiempo 1H).",
+                    "updated": 1679254278559
                 }
             ]
         }

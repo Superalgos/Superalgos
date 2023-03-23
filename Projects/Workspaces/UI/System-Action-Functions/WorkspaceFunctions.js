@@ -37,6 +37,9 @@ function newWorkspacesSystemActionWorkspaceFunctions() {
             let userWorkspaces = JSON.parse(response.message).filter(x => x[0] === '')
             for (let workspace of userWorkspaces) {
                 subMenu = iterateUserProjects(workspace, subMenu)
+                // let label = workspace[1].replace('.json', '')
+                // let action = {name: 'switchWorkspace', params: ['\'\'', '\'' + label + '\'']}
+                // subMenu.push({label: label, action: action})
             }
         }
         return subMenu
@@ -46,14 +49,14 @@ function newWorkspacesSystemActionWorkspaceFunctions() {
         let label = workspace[workspace.length-1].replace('.json', '')
         let filePath = parents.length == 0 ? label : parents + '/' + label
         let action = {name: 'switchWorkspace', params: ['\'\'', '\'' + filePath + '\'']}
-        return {label: label, action: action}
+        return {label, action}
     }
 
     function iterateUserProjects(workspace, subMenus, parents = '') {
         const currentPath = parents.length == 0 ? workspace[0] : parents + '/' + workspace[0]
         if(workspace.length > 2) {
             const idx = subMenus.findIndex(x => x.label == workspace[1])
-            if(idx === -1 ) {
+            if(idx === -1) {
                 subMenus.push({
                     label: workspace[1],
                     subMenu: []

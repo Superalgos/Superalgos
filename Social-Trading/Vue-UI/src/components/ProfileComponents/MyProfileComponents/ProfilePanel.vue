@@ -2,7 +2,7 @@
     <div class="modal-profile-overlay" v-if="getProfileVisibility">
         <div id="" class="profile" >
             <div class="top-bar">
-                <p  class="bold">Profile</p>
+                <p class="bold center-header">Profile</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeProfile">
             </div>
             <div class="profile-body">
@@ -181,15 +181,23 @@ export default {
 .top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-right: 1%;
-    margin-left: 45%;
-    align-items: center;
+    justify-content: right;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    border-bottom: solid 1px black;
+}
+.center-header {
+    margin: auto;
+    font-size:  28px;
 }
 .close-btn {
+    position: absolute;
     height: 30px;
     width: 30px;
     text-align: center;
+    margin: 10px;
+    cursor: pointer;
 }
 .close-btn:hover {
     background-color: rgba(243, 45, 45, 0.884);
@@ -213,7 +221,6 @@ export default {
     'profile-head profile-body' ;
     width: 100%;
     height: 91%;
-    border-top: solid 1px black;
 }
 
 .profile-head-left-div {

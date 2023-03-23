@@ -32,7 +32,8 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         maxOutgoingStartPeers,
         eventReceivedCallbackFunction,
         p2pNetworkClientNode,
-        pullProfiles
+        pullProfiles,
+        socialTradingBotReference
     ) {
 
         thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction // This is the function that will be called when an event / signal is received from the p2p Network.
@@ -141,7 +142,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.tradingSignalsNetworkServiceClient = SA.projects.tradingSignals.modules.tradingSignalsNetworkServiceClient.newTradingSignalsModulesTradingSignalsNetworkServiceClient()
                 await thisObject.tradingSignalsNetworkServiceClient.initialize(
                     userAppSigningAccountCodeName,
-                    thisObject.p2pNetworkStart
+                    thisObject.p2pNetworkStart,
+                    thisObject.p2pNetworkNodesConnectedTo,
+                    socialTradingBotReference
                 )
             }
         }

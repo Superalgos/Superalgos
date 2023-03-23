@@ -4,7 +4,14 @@
     "type": "Superalgos Review - Superalgos by MarkTradeink",
     "definition": {
         "text": "When I discovered Superalgos, I just got amazed from the first impression. How powerful this software is and it's unique approach.",
-        "updated": 1675469732532
+        "updated": 1675469732532,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "When I discovered Superalgos, I just got amazed from the first impression how powerful this software is and it's unique approach. ",
+                "updated": 1677416754289
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,17 +21,31 @@
         {
             "style": "Text",
             "text": "by MarkTradeink",
-            "updated": 1675469558695
+            "updated": 1675469558695,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "by @MarkTradeink",
+                    "updated": 1677416917256
+                }
+            ]
         },
         {
-            "style": "Note",
+            "style": "Important",
             "text": "Will update my Review soon:)",
             "updated": 1675469861700
         },
         {
             "style": "Title",
             "text": "Title 1",
-            "updated": 1675469886062
+            "updated": 1675469886062,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solid Community and Governance ",
+                    "updated": 1677417547073
+                }
+            ]
         },
         {
             "style": "Text",
@@ -32,7 +53,14 @@
         },
         {
             "style": "Title",
-            "text": "Title 2"
+            "text": "Title 2",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Potential of Trading Tools",
+                    "updated": 1677416958940
+                }
+            ]
         },
         {
             "style": "Text",
@@ -40,11 +68,14 @@
         },
         {
             "style": "Title",
-            "text": "Title 3"
-        },
-        {
-            "style": "Text",
-            "text": "Text"
+            "text": "Title 3",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos Roadmap",
+                    "updated": 1677417013242
+                }
+            ]
         }
     ]
 }

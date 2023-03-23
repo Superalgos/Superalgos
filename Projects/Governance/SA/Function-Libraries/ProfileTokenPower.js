@@ -11,7 +11,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', , 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Account', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs', 'Forecasts Providers', 'P2P Network Nodes', 'User Storage', 'Social Personas', 'Permissioned P2P Networks', 'Available Signals', 'Available Storage']
     const MAX_GENERATIONS = 3
     return thisObject
 
@@ -67,7 +67,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*
@@ -118,10 +118,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage(
-                "You need to have a Token Power Switch child node.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
             return
         }
         distributeTokenPower(
@@ -144,10 +140,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage(
-                "You need to have a Token Power Switch child node.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
             return
         }
         distributeTokenPower(
@@ -183,7 +175,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             node.type === 'Delegation Program' ||
             node.type === 'Github Program' ||
             node.type === 'Airdrop Program' ||
-            node.type === 'Social Trading Bot' ||
+            node.type === 'Followed Bot Reference' ||
             node.type === 'Task Server App'
         ) { return }
         /*
@@ -211,11 +203,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = undefined
-                        if (childNode.config !== undefined) {
-                            percentage = childNode.config.percentage
-                        }
-                    
+                        let percentage = getPercentage(childNode)
                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
                         } else {
@@ -232,10 +220,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = undefined
-                                if (childNode.config !== undefined) {
-                                    percentage = childNode.config.percentage
-                                }
+                                let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -248,10 +233,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                 }
             }
             if (totalPercentage > 100) {
-                node.payload.uiObject.setErrorMessage(
-                    'Token Power Switching Error. Total Percentage of children nodes is greater than 100.',
-                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
                 return
             }
             let defaultPercentage = 0
@@ -271,10 +252,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = undefined
-                        if (childNode.config !== undefined) {
-                            percentage = childNode.config.percentage
-                        }
+                        let percentage = getPercentage(childNode)
                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
@@ -295,10 +273,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = undefined
-                                if (childNode.config !== undefined) {
-                                    percentage = childNode.config.percentage
-                                }
+                                let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -485,7 +460,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -500,7 +475,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = getPercentage(childNode)
                                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
@@ -530,7 +505,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -550,7 +525,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = getPercentage(childNode)
                                         if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                             percentage = defaultPercentage
                                         }
@@ -571,4 +546,39 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             }
         }
     }
+    
+    function getPercentage(node) {
+            if (node.config === undefined) { return }
+
+            let config = node.config
+            let percentage = config.percentage
+            let amount = config.amount
+            let parentPower = node.parentNode.payload.tokenPower
+
+            // Check that not both are defined
+            if (percentage !== undefined && amount !== undefined) {
+                return
+            }
+
+            // If only 'percentage' is defined, we return that number
+            else if (isFinite(percentage) && !isFinite(amount)) {
+                return percentage
+            }
+
+            // If only 'amount' is defined, we use calculate what percentage 'amount' is of the 'parentPower'.
+            else if (!isFinite(percentage) && isFinite(amount) && isFinite(parentPower)) {
+                percentage = (amount / parentPower) * 100
+
+                // If the 'amount' is greater than what is available at the parent node, we assume it is intended and is used as a "maximum power".
+                if (percentage > 100) {
+                    return 100
+                }
+                return percentage
+            }
+
+            // If user havn't defined any of the values in the config, we return 'undefined'
+            else {
+                return undefined
+            }
+        }
 }

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Я только что привел вас к часовому графику! Прежде чем обсуждать то, что мы здесь видим, давайте потратим минуту на организацию вашего графика.",
                 "updated": 1642662202825
+            },
+            {
+                "language": "ES",
+                "text": "Acabo de llevarte al gráfico de una hora. Antes de discutir lo que vemos aquí, vamos a tomarnos un minuto para organizar tu gráfico.",
+                "updated": 1679252937315
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Так я смогу убедиться, что вы видите то же, что и я!",
                     "updated": 1642662220133
+                },
+                {
+                    "language": "ES",
+                    "text": "Así me aseguraré de que veas lo mismo que yo.",
+                    "updated": 1679252930184
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Bollinger Data layer manager: Выключите все, кроме слоев Bollinger Bands.",
                     "updated": 1642662266452
+                },
+                {
+                    "language": "ES",
+                    "text": "Bollinger Data layer manager: Desactiva todas las capas excepto las Bandas de Bollinger.",
+                    "updated": 1679252922087
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Simulation Objects layer manager:  Выключите все, кроме слоев \"Strategies\" и \"Trigger Stages\".",
                     "updated": 1642662292100
+                },
+                {
+                    "language": "ES",
+                    "text": "Simulation Objects layer manager: Desactiva todo excepto las capas \" Strategies \" y \" Trigger Stages \".",
+                    "updated": 1679252908900
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "RU",
                     "text": "Trading System layer manager: Выключите все, кроме слоев \" Trading System Errors\", \"Highlights\" и \"Values\".",
                     "updated": 1642662317682
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading System layer manager: Desactiva todo excepto las capas \" Trading System Errors\", \"Highlights\" y \"Values\".",
+                    "updated": 1679252888332
                 }
             ]
         },
@@ -133,6 +158,11 @@
                     "language": "RU",
                     "text": "Trading Engine layer manager: Выключите все.",
                     "updated": 1642662332051
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Engine layer manager: Desactiva todo.",
+                    "updated": 1679252850214
                 }
             ]
         },
@@ -154,6 +184,11 @@
                     "language": "RU",
                     "text": "В следующем видео показано то, что вижу я... и что должны видеть вы!",
                     "updated": 1642662346249
+                },
+                {
+                    "language": "ES",
+                    "text": "El siguiente vídeo muestra lo que yo veo... ¡y lo que deberías ver tú!",
+                    "updated": 1679252842616
                 }
             ]
         }

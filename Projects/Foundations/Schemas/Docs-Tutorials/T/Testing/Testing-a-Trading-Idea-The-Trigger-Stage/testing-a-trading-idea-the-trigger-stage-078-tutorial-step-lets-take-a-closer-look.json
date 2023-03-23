@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы уделим несколько минут разбору всего, что мы видим на графике, чтобы вы могли полностью понять, как это работает!",
                 "updated": 1642663832076
+            },
+            {
+                "language": "ES",
+                "text": "Vamos a dedicar unos minutos a desgranar todo lo que vemos en el gráfico para que puedas entender perfectamente cómo funciona.",
+                "updated": 1679254035148
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Тот факт, что стратегия срабатывает и закрывается пять раз подряд на пяти последовательных свечах, должен означать следующее:",
                     "updated": 1642663847703
+                },
+                {
+                    "language": "ES",
+                    "text": "El hecho de que la estrategia se active y cierre cinco veces seguidas en cinco velas consecutivas debe significar lo siguiente:",
+                    "updated": 1679254027952
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Событие Trigger On Event принимает значение true на каждой из этих свечей.",
                     "updated": 1642663879779
+                },
+                {
+                    "language": "ES",
+                    "text": "El evento Trigger On Event valida true en cada una de estas velas.",
+                    "updated": 1679254014273
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Событие Take Position Event также соответствует true на каждой из этих свечей!",
                     "updated": 1642663935798
+                },
+                {
+                    "language": "ES",
+                    "text": "El evento de Take Position Event también se valida en cada una de estas velas.",
+                    "updated": 1679254005742
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "Это также означает, что стратегия срабатывает и занимает позицию на одной и той же свече! Давайте проверим, так ли это!",
                     "updated": 1642663962302
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Esto también significa que la estrategia se activa y toma la posición en la misma vela! ¡Vamos a verificar si todo esto es cierto!",
+                    "updated": 1679253989083
                 }
             ]
         }

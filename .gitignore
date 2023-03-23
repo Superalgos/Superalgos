@@ -49,3 +49,6 @@ Bitcoin-Factory/Test-Client/notebooks/ray_results/
 Platform/WebServer/externalScripts/jquery-3.6.0.js
 Platform/WebServer/externalScripts/jquery-ui.js
 Platform/WebServer/externalScripts/jquery-3.6.0.js
+
+# Temporary translations
+*_translated.json

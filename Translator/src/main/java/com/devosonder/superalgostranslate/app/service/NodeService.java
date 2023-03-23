@@ -1,8 +1,6 @@
 package com.devosonder.superalgostranslate.app.service;
 
-import com.devosonder.deepltranslator.DeepLTranslator;
-import com.devosonder.deepltranslator.SourceLanguage;
-import com.devosonder.deepltranslator.TargetLanguage;
+import com.deepl.api.*;
 import com.devosonder.superalgostranslate.app.factory.ObjectMaperFactory;
 import com.devosonder.superalgostranslate.app.model.common.Paragraph;
 import com.devosonder.superalgostranslate.app.model.common.Translation;
@@ -22,14 +20,14 @@ import java.util.List;
 
 public class NodeService {
     private final List<String> blackList = BlackListUtil.blackListStyleValues;
-    private DeepLTranslator translator = null;
+    private Translator translator = null;
 
-    public void setTranslator(DeepLTranslator translator) {
+    public void setTranslator(Translator translator) {
         this.translator = translator;
     }
 
     @SneakyThrows
-    public String translate(String rootFolderName, TargetLanguage targetLanguage) {
+    public String translate(String rootFolderName, String targetLanguage) {
         List<String> allFiles = FileUtil.getAllFiles(rootFolderName);
         try {
             for (String filePath : allFiles) {
@@ -80,7 +78,7 @@ public class NodeService {
     }
 
     @SneakyThrows
-    private boolean translateParagraphs(Node node, TargetLanguage targetLanguage) {
+    private boolean translateParagraphs(Node node, String targetLanguage) {
         if (node.getParagraphs() == null) {
             return false;
         }
@@ -110,13 +108,13 @@ public class NodeService {
             }
 
             Translation translation = new Translation();
-            translation.setLanguage(targetLanguage.getShortLanguageCode());
+            translation.setLanguage(targetLanguage);
             translation.setUpdated(Date.from(new Date().toInstant()).getTime());
             String translated;
             try {
-                translated = translator.translate(paragraphText, SourceLanguage.ENGLISH, targetLanguage);
+                translated = (translator.translateText(paragraphText, "en", targetLanguage)).getText();
                 isEdited = true;
-            } catch (IllegalStateException | TimeoutException | SessionNotCreatedException e) {
+            } catch (IllegalStateException | TimeoutException | SessionNotCreatedException | InterruptedException | DeepLException e) {
                 e.printStackTrace();
                 continue;
             }
@@ -134,7 +132,7 @@ public class NodeService {
         return isEdited;
     }
 
-    private boolean translateDefinition(Node node, TargetLanguage targetLanguage) {
+    private boolean translateDefinition(Node node, String targetLanguage) {
         if (node.getDefinition() == null) {
             return false;
         }
@@ -154,12 +152,12 @@ public class NodeService {
         }
 
         Translation translation = new Translation();
-        translation.setLanguage(targetLanguage.getShortLanguageCode());
+        translation.setLanguage(targetLanguage);
         translation.setUpdated(Date.from(new Date().toInstant()).getTime());
         String translated;
         try {
-            translated = translator.translate(definitionText, SourceLanguage.ENGLISH, targetLanguage);
-        } catch (IllegalStateException | TimeoutException e) {
+            translated = (translator.translateText(definitionText, "en", targetLanguage)).getText();
+        } catch (IllegalStateException | TimeoutException | InterruptedException | DeepLException e) {
             return false;
         }
         if (!definitionText.endsWith("\n")) {
@@ -175,9 +173,9 @@ public class NodeService {
         return true;
     }
 
-    private boolean turkishTranslationExists(ArrayList<Translation> translations, TargetLanguage targetLanguage) {
+    private boolean turkishTranslationExists(ArrayList<Translation> translations, String targetLanguage) {
         for (Translation translation : translations) {
-            if (translation.language.equals(targetLanguage.getShortLanguageCode())) {
+            if (translation.language.equals(targetLanguage)) {
                 return true;
             }
         }

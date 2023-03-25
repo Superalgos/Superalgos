@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Extraeremos algunos datos para analizar algunos eventos en los gráficos. ¡Usaremos los mismos datos para probar la idea comercial en el próximo tutorial!",
-                "updated": 1630377229613
+                "text": "Extraeremos algunos datos para analizar algunos eventos en los gráficos. ¡Usaremos los mismos datos para probar la idea de trading en el próximo tutorial!",
+                "updated": 1675205325532
             },
             {
                 "language": "DE",
@@ -28,6 +28,21 @@
                 "language": "TR",
                 "text": "Özet: Tablolar üzerinde birkaç olayı analiz etmek için bazı veriler çıkaracağız. Bir sonraki eğitimde ticaret fikrini test etmek için aynı verileri kullanacağız!",
                 "updated": 1640863230957
+            },
+            {
+                "language": "IT",
+                "text": "Estrarremo alcuni dati per analizzare alcuni eventi sui grafici. Useremo gli stessi dati per testare l'idea di trading nel prossimo tutorial!",
+                "updated": 1669885485615
+            },
+            {
+                "language": "NL",
+                "text": "We zullen wat gegevens verzamelen om enkele gebeurtenissen in de grafieken te kunnen analyseren. We zullen dezelfde gegevens gebruiken om het handelsidee in de volgende zelfstudie te testen!",
+                "updated": 1670783283100
+            },
+            {
+                "language": "ID",
+                "text": "Kita akan menambang mine data untuk menganalisis beberapa event pada chart. Kita akan menggunakan data yang sama untuk menguji ide trading di tutorial berikutnya!",
+                "updated": 1674638657917
             }
         ]
     },
@@ -38,8 +53,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El robot sensor se ejecutará en el mercado BTC / USDT (Binance) a partir del 1 de enero de 2020, junto con los siguientes indicadores de la mina de datos Masters: Candles Volumes, Bollinger Bands y Bollinger Channels.",
-                    "updated": 1630377249570
+                    "text": "El Sensor Bot se ejecutará en el mercado BTC / USDT (Binance) a partir del 1 de enero de 2020, junto con los siguientes indicadores de la mina de datos Masters: Candles Volumes, Bollinger Bands y Bollinger Channels.",
+                    "updated": 1675205342358
                 },
                 {
                     "language": "DE",
@@ -55,6 +70,21 @@
                     "language": "TR",
                     "text": "Not: Sensör botu, 1 Ocak 2020'den itibaren BTC/USDT piyasasında (Binance) Masters veri madeninden alınan şu göstergelerle birlikte çalışacak: Mum Hacimleri, Bollinger Bantları ve Bollinger Kanalları.",
                     "updated": 1640863260563
+                },
+                {
+                    "language": "IT",
+                    "text": "Il sensor Bot funzionerà sul mercato BTC/USDT (Binance) dal 1° gennaio 2020, insieme ai seguenti indicatori del Masters data mine : Candles Volumes, Bollinger Bands e Bollinger Channels.",
+                    "updated": 1669885513100
+                },
+                {
+                    "language": "NL",
+                    "text": "De sensorbot draait vanaf 1 januari 2020 op de BTC/USDT-markt (Binance), samen met de volgende indicatoren uit de Masters data mine: Candles Volumes, Bollinger Bands en Bollinger Channels.",
+                    "updated": 1670783313628
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot sensor akan berjalan di pasar BTC/USDT (Binance) mulai 1 Januari 2020, bersama dengan indikator berikut dari Master data mine: Volume candle, Bollinger Bands, dan Bollinger Channels.",
+                    "updated": 1674638663646
                 }
             ]
         },
@@ -64,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si tiene datos en este mercado / intercambio pero en un rango de tiempo diferente, ¡esto puede afectar tus datos! ¡Lee la documentación del robot sensor para aprender cómo hacerlo! Si los datos que tiene no son importantes, ¡no dude en continuar!",
-                    "updated": 1630377309627
+                    "text": "Si tienes datos en este mercado / intercambio pero en un rango de tiempo diferente, ¡esto puede afectar tus datos! ¡Lee la documentación del Sensor Bot para aprender cómo hacerlo! Si los datos que tienes no son importantes, ¡no dudes en continuar!",
+                    "updated": 1675205368553
                 },
                 {
                     "language": "DE",
@@ -81,6 +111,16 @@
                     "language": "TR",
                     "text": "Uyarı: Bu piyasa/borsa (market/exchange) ile ilgili ancak farklı bir zaman aralığında verileriniz varsa, bu durum verilerinizi etkileyebilir! Nasıl yapılacağını öğrenmek için sensör botu belgelerini okuyun! Sahip olduğunuz veriler önemli değilse, devam etmekten çekinmeyin!",
                     "updated": 1640863378593
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u gegevens heeft over deze markt/beurs maar in een ander tijdsbestek, kan dit van invloed zijn op uw gegevens! Lees de sensorbot-documentatie om te leren hoe! Als de gegevens die je hebt niet belangrijk zijn, ga dan gerust door!",
+                    "updated": 1670783332872
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memiliki data di market/bursa ini tetapi pada time range yang berbeda, ini dapat memengaruhi data-mu! Baca dokumentasi bot sensor untuk mempelajari caranya! Jika data yang kamu miliki tidak penting, silakan lanjutkan!",
+                    "updated": 1674638669012
                 }
             ]
         }

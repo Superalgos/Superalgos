@@ -120,10 +120,10 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             candle available since it is not considered a closed candle, but a candle
             that still can change. So effectively will be processing all closed candles.
             */
-            console.log((new Date()).toISOString(), '[INFO] Starting Simulation -> initialCandle = ' + initialCandle + ' -> finalCandle = ' + (candles.length - 2))
+            SA.logger.info('Starting Simulation -> initialCandle = ' + initialCandle + ' -> finalCandle = ' + (candles.length - 2))
 
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                console.log((new Date()).toISOString(), '[INFO] Simulation Loop -> Candle Index = ' + i)
+                SA.logger.info('Simulation Loop -> Candle Index = ' + i)
 
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
@@ -141,7 +141,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     /*
                     This candle is too early and there are no signals for it, we'll move to the next one and see...
                     */
-                    console.log((new Date()).toISOString(), '[WARN] Simulation Candle running without Signals because the Signals for this candle did not arrive on time. -> Candle Index = ' + i)
+                    SA.logger.warn('Simulation Candle running without Signals because the Signals for this candle did not arrive on time. -> Candle Index = ' + i)
                 }
                 /* Portfolio Manager */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(

@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Im Gegensatz zu einigen Krypto-Token bedeutet der Superalgos SA Token tatsächlich etwas!",
                 "updated": 1640072156465
+            },
+            {
+                "language": "ID",
+                "text": "Bukan seperti token crypto yang lain Superalgos SA Token sebenarnya memiliki sesuatu!",
+                "updated": 1670673202899
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Der SA Token ist ein BEP20 Token auf der Binance Smart Chain (BSC). Ihr Token-Besitz verkörpert Ihren Beitrag zum Superalgos Project und zur Community, da der Token verwendet wird, um die Benutzerbasis zu belohnen und den Entwicklungspool zu vergrößern.",
                     "updated": 1640072201983
+                },
+                {
+                    "language": "ID",
+                    "text": "SA Token merupakan native token proyek. Kepemilikanmu memperjelas kontribusimu pada Superalgos Project dan Community. karena token digunakan untuk memberi reward kepada pengguna basis dan menumbuhkan kelompok pengembangan.",
+                    "updated": 1670673210205
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Das Projekt verteilt die Token ausschließlich unter den Mitwirkenden!",
                     "updated": 1640072214302
+                },
+                {
+                    "language": "ID",
+                    "text": "Proyek ini mendsitribusikan token secara ekslusive diantara kontributor!",
+                    "updated": 1670673217490
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Je mehr Sie zum Projekt beitragen und anderen helfen, desto mehr Token werden Sie verdienen!",
                     "updated": 1640072225653
+                },
+                {
+                    "language": "ID",
+                    "text": "Semakin banyak kamu berkontribusi ke proyek dan membantu sesama, semakin banyak token yang akan didapat!",
+                    "updated": 1670673223818
                 }
             ]
         },

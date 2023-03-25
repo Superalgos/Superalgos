@@ -57,7 +57,7 @@ const runPlatform = () => {
   let options
 
   console.log('')
-  console.log("Total RAM istalled in this system is ........................ " + (totalRAM / 1024).toFixed(2) + " GB")
+  console.log("Total RAM installed in this system is ....................... " + (totalRAM / 1024).toFixed(2) + " GB")
   if (process.argv.includes("minMemo")) {
     options = {
         stdio: 'inherit'

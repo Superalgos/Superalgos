@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "Каждая стратегия специализируется на конкретных рыночных условиях, анализируя состояние рынка на разных таймфреймах!",
                 "updated": 1640885757836
+            },
+            {
+                "language": "NL",
+                "text": "Elke strategie is gespecialiseerd in specifieke marktomstandigheden door de toestand van de markt op verschillende tijdsbestekken te analyseren!",
+                "updated": 1670791770689
+            },
+            {
+                "language": "ID",
+                "text": "Setiap strategi berspesialisasi dalam kondisi market tertentu dengan menganalisis keadaan market pada timeframe yang berbeda!",
+                "updated": 1674625573277
             }
         ]
     },
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "Взгляните на название каждой стратегии... 3H Down, 2H Down, 4H Up...",
                     "updated": 1640885772414
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk de naam van elke strategie... 3H Down, 2H Down, 4H Up...",
+                    "updated": 1670791798012
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat nama pada setiap strategi... 3H Down, 2H Down, 4H Up...",
+                    "updated": 1674625579073
                 }
             ]
         },
@@ -64,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si estudias las condiciones que definen el desencadenante del evento, notarás que 3H Down se refiere al hecho de que la estrategia particular se desencadena cuando el marco de tiempo de 3 horas está en una tendencia bajista.",
-                    "updated": 1629598574248
+                    "text": "Si estudias las condiciones que definen el Trigger On Event, te darás cuenta de que 3H Down se refiere al hecho de que la estrategia en particular se activa cuando el marco temporal de 3 horas se encuentra en una tendencia bajista.",
+                    "updated": 1675619672275
                 },
                 {
                     "language": "DE",
@@ -81,6 +101,16 @@
                     "language": "RU",
                     "text": "Если вы изучите условия, определяющие событие срабатывания, вы заметите, что 3H Down означает, что данная стратегия срабатывает, когда 3-часовой временной интервал находится в нисходящем тренде.",
                     "updated": 1640885793199
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je de voorwaarden bestudeert die de trigger bij een gebeurtenis definiëren, zul je merken dat 3H Down verwijst naar het feit dat de specifieke strategie wordt geactiveerd wanneer het tijdsbestek van 3 uur in een neerwaartse trend zit.",
+                    "updated": 1670791823164
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu mempelajari conditions yang menentukan trigger on event, kamu akan melihat bahwa 3H Down mengacu pada fakta bahwa strategi tertentu dipicu ketika timeframe 3 jam berada dalam tren turun(downtrend).",
+                    "updated": 1674625585971
                 }
             ],
             "updated": 1640641128265
@@ -91,8 +121,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Cada una de las estrategias se especializa en un cierto marco de tiempo y tendencia!",
-                    "updated": 1629598547193
+                    "text": "Cada una de las estrategias se especializa en un marco temporal y una tendencia determinados.",
+                    "updated": 1675619587729
                 },
                 {
                     "language": "DE",
@@ -108,6 +138,16 @@
                     "language": "RU",
                     "text": "Каждая из стратегий специализируется на определенном таймфрейме и тренде!",
                     "updated": 1640885805445
+                },
+                {
+                    "language": "NL",
+                    "text": "Elk van de strategieën is gespecialiseerd in een bepaald tijdsbestek en een bepaalde trend!",
+                    "updated": 1670791835731
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap strategi berspesialisasi pada timeframe dan tren tertentu!",
+                    "updated": 1674625591922
                 }
             ],
             "updated": 1640641202569

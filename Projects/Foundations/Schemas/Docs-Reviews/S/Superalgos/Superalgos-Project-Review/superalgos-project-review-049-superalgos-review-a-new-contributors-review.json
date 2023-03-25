@@ -1,0 +1,64 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 49,
+    "type": "Superalgos Review - A New Contributor's Review",
+    "definition": {
+        "text": "A review from a very impressed JavaScript developer, potentially a new contributor",
+        "updated": 1678915688197
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Amazing work! Well done! I want to contribute to this project, if I find what others may benefit from. So far I'm deeply impressed.",
+            "updated": 1678915894312
+        },
+        {
+            "style": "Text",
+            "text": "The only thing that annoys me to no end is that, whenever I enter something in the Search input field, I get this browser's pop-up dialog prompting me to save the password. I think that's probably because there are authentication input fields, like \"username\" and \"password\", in the same form. I see this page doesn't use form at all, so the whole document becomes a form, and the username/password fields trigger this pop-up on submit."
+        },
+        {
+            "style": "Text",
+            "text": "Sorry for polluting develop branch with my PRs, it took me an effort to figure out the github error I kept getting on app.contribute, all superalgos reported was the following"
+        },
+        {
+            "style": "Text",
+            "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Logon failed, use ctrl+c to cancel basic credential prompt."
+        },
+        {
+            "style": "Text",
+            "text": "bash: /dev/tty: No such device or address"
+        },
+        {
+            "style": "Text",
+            "text": "error: failed to execute prompt script (exit code 1)"
+        },
+        {
+            "style": "Text",
+            "text": "fatal: could not read Username for 'https://github.com': No such file or directory"
+        },
+        {
+            "style": "Text",
+            "text": "Google helped to find the solution, I had to do git remote set-url origin with my github token authenticated https url, "
+        },
+        {
+            "style": "Text",
+            "text": "like this:"
+        },
+        {
+            "style": "Text",
+            "text": "git remote set-url origin https://fzaitsev:<my github token>@github.com/fzaitsev/Superalgos.git"
+        },
+        {
+            "style": "Text",
+            "text": "Fedor Zaitsev"
+        },
+        {
+            "style": "Text",
+            "text": "fzaitsev"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

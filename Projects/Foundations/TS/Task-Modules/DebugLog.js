@@ -35,9 +35,7 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
     }
 
     function logLoop(date, percentage, loopType) {
-        console.log(
-            new Date().toISOString() +
-            " " +
+        SA.logger.info(
             strPad(
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
                 , 20) +
@@ -139,7 +137,7 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
                 fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated, undefined, true);
                 function onFileCreated(err) {
                     if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
+                        SA.logger.error("DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
                     }
@@ -147,8 +145,8 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
                 }
             }
         } catch (err) {
-            console.log("[ERROR] DebugLog -> persist -> err = " + err.stack);
-            console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
+            SA.logger.error("DebugLog -> persist -> err = " + err.stack);
+            SA.logger.error("DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
         }
     }
 
@@ -156,7 +154,7 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
     function write(pModule, pMessage) {
         try {
             if (pModule === "") { // For debugging purposes
-                console.log(pMessage)
+                SA.logger.info(pMessage)
             }
 
             let newDate = new Date();
@@ -171,13 +169,13 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
 
             if (message.indexOf("ERROR") > 0) {
                 let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
-                console.log('*********** ' + message + ' @ ' + key)
+                SA.logger.error('*********** ' + message + ' @ ' + key)
             }
 
             accumulatedLog = accumulatedLog + logLine;
 
         } catch (err) {
-            console.log("[ERROR] DebugLog -> write -> err = " + err.stack);
+            SA.logger.error("DebugLog -> write -> err = " + err.stack);
         }
     }
 

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Backups son muy potentes y hay varios casos de uso. Cuando haces clic en el botón Backup, el nodo y su descendencia se guardan en un archivo JSON.",
-                "updated": 1626045284178,
+                "text": "Los Backups son muy potentes, ¡y hay varios casos de uso! Al hacer clic en el botón, el nodo y sus descendientes se guardan en un archivo JSON.",
+                "updated": 1675376002117,
                 "style": "Definition"
             },
             {
@@ -129,6 +129,11 @@
                     "language": "NL",
                     "text": "Maak een back-up van het Lightning Strike handelssysteem en controleer uw downloadmap!",
                     "updated": 1668337404517
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz una copia de seguridad del Lightning Strike trading system y comprueba tu carpeta de descargas.",
+                    "updated": 1675376034096
                 }
             ]
         },

@@ -1,0 +1,63 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "11",
+    "type": "AK MACD BB",
+    "definition": {
+        "text": "This indicator combines an MACD with Bollinger Bands to help identify potential reversals in the price action.",
+        "updated": 1670823208654
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "AK MACD BB on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The MACD line acts as a trend identifier; when the line is above the BB ribbon then price action is likely to move upwards. The opposite is true when the MACD is below the ribbon."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-akmacdbb-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| AkMacdBb | akMacd | macd, upper, lower, direction |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's calculationrs can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"AK MACD BB\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-akmacdbb-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the MACD rises above the upper BB value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.akMacd.macd > chart.at01hs.akMacd.upper && chart.at01hs.akMacd.previous.macd <= chart.at01hs.akMacd.previous.upper"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

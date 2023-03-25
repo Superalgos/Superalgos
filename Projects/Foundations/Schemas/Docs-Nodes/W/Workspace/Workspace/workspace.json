@@ -509,6 +509,31 @@
             ]
         },
         {
+            "style": "Text",
+            "text": "A workspace can have the following configuration properties, all are optional",
+            "updated": 1679579295030
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\",\n    \"location\": \"tutorials\"\n}",
+            "updated": 1679579295030
+        },
+        {
+            "style": "Text",
+            "text": "<strong>docsLanuage</strong>: sets the language for the documentation",
+            "updated": 1679579295030
+        },
+        {
+            "style": "Text",
+            "text": "<strong>contributionsBranch</strong>: sets the git branch for making your contributions",
+            "updated": 1679579295030
+        },
+        {
+            "style": "Text",
+            "text": "<strong>location</strong>: a specific folder location for this workspace to live. If you want this to be nested in multiple folders, examples would be <i>copy-trading/live</i>, <i>copy-trading/paper</i>.",
+            "updated": 1679579295030
+        },
+        {
             "style": "Title",
             "text": "Plugin Workspaces",
             "translations": [

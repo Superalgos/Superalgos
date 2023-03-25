@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте переместим указатель мыши на следующую свечу, 26 февраля!",
                 "updated": 1642655534873
+            },
+            {
+                "language": "ES",
+                "text": "Vamos a desplazar el puntero del ratón a la siguiente vela, ¡el 26 de febrero!",
+                "updated": 1677102236668
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "26-го числа направление - Down, а наклон - Gentle. Оба условия выполнены, поэтому стратегия срабатывает, как только свеча закрывается.",
                     "updated": 1642655599563
+                },
+                {
+                    "language": "ES",
+                    "text": "El día 26 la dirección es Bajista (Down) y la pendiente es Suave (Gentle). Ambas condiciones se cumplen, por lo que la estrategia se activa en cuanto se cierra la vela.",
+                    "updated": 1677102243179
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Önemli: Her mumun yalnızca kapatıldıktan sonra değerlendirildiğini unutmayın! Her göstergenin her ürününün her özelliği kapalı mumlarla ilgilidir! Bu, özellikle birden fazla zaman dilimiyle çalışırken önemli bir bilgidir. Buna daha sonra gireceğim, ama bunu her zaman aklında tut!",
-                    "updated": 1641656522956
+                    "text": "Her mumun yalnızca kapatıldıktan sonra değerlendirildiğini unutmayın! Her göstergenin her ürününün her özelliği kapalı mumlarla ilgilidir! Bu, özellikle birden fazla zaman dilimiyle çalışırken önemli bir bilgidir. Buna daha sonra gireceğim, ama bunu her zaman aklında tut!",
+                    "updated": 1669585955982
                 },
                 {
                     "language": "RU",
                     "text": "Помните, что каждая свеча оценивается только после ее закрытия! Каждое свойство каждого продукта каждого индикатора относится к закрытым свечам! Это очень важная информация, особенно когда вы работаете с несколькими таймфреймами. Позже я расскажу об этом подробнее, но помните об этом всегда!",
                     "updated": 1642655669765
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda, ¡cada vela se evalúa sólo después de que se haya cerrado! ¡Cada propiedad de cada producto de cada indicador se refiere a velas cerradas! Esta información es crucial, en particular cuando se trabaja con múltiples marcos de tiempo. Ampliaré esta información más adelante, pero tenlo en cuenta en todo momento.",
+                    "updated": 1677102257893
                 }
             ]
         }

@@ -12,7 +12,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradeApp",
+            "propertyToCheckFor": "desktopApps",
             "actionFunction": "payload.executeAction",
             "label": "Add Desktop Apps",
             "relatedUiObject": "Desktop Apps",
@@ -63,7 +63,7 @@
     "propertyNameAtParent": "userApps",
     "childrenNodesProperties": [
         {
-            "name": "socialTradeApp",
+            "name": "desktopApps",
             "type": "node",
             "childType": "Desktop Apps",
             "project": "User-Apps",

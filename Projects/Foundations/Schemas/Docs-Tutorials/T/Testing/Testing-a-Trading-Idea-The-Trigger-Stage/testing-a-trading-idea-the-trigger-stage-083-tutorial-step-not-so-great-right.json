@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Первый вариант выглядит не лучшим образом, если вы спросите меня! Давайте продолжим ту же игру в спекуляции на второй потенциальной вход!",
                 "updated": 1642664713742
+            },
+            {
+                "language": "ES",
+                "text": "La primera entrada no tiene muy buena pinta, en mi opinión. Sigamos con el mismo juego especulativo en la segunda entrada potencial.",
+                "updated": 1679254388329
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Это следующий случай стадии срабатывания после временного диапазона, который мы анализировали ранее.",
                     "updated": 1642664592908
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es la siguiente instancia de la etapa de activación (trigger stage) después del rango de tiempo que analizamos anteriormente.",
+                    "updated": 1679254395443
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Выглядит гораздо более многообещающе, не так ли? Это прелюдия к краху 12 марта, и перед ним есть хорошие входы!",
                     "updated": 1642664617784
+                },
+                {
+                    "language": "ES",
+                    "text": "Parece mucho más prometedor, ¿verdad? Es el preludio del crash del 12 de marzo, ¡y hay buenas entradas por delante!",
+                    "updated": 1679254402896
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İlki, 8 Mart'ta saat 15:00 mumunun kapanışı. İkincisi, 12 Mart'ta 8 saatlik mumun kapanışında. İkinci öğreticide analiz ederken tam olarak beklediğimiz şey buydu.",
-                    "updated": 1641666286989
+                    "text": "İlki 8 Mart'ta 15. saatlik mumun kapanışında. İkincisi, 12 Mart'taki 8. saatlik mumun kapanışında. Bu, ikinci derste yaptığımız analizden tam olarak beklediğimiz şeydi.",
+                    "updated": 1669672358097
                 },
                 {
                     "language": "RU",
                     "text": "Первая - на закрытии 15-часовой свечи 8 марта. Второй - на закрытии 8-часовой свечи 12 марта. Это именно то, чего мы ожидали от анализа, проведенного во втором уроке.",
                     "updated": 1642664636671
+                },
+                {
+                    "language": "ES",
+                    "text": "La primera es al cierre de la vela de 15hs del 8 de marzo. La segunda, al cierre de la vela de 8hs del 12 de marzo. Esto es exactamente lo que esperábamos del análisis que hicimos en el segundo tutorial.",
+                    "updated": 1679254411603
                 }
             ]
         }

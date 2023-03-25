@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
-                "updated": 1624488526215,
+                "text": "¡Únete al nuevo Discord Server o a los grupos originales de Telegram! Haz clic en un grupo para obtener el enlace en el panel Docs.",
+                "updated": 1675364960634,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz!",
-                "updated": 1638913840643
+                "text": "Yeni Discord Sunucusuna veya orijinal Telegram gruplarına katıllmak için bağlantılara tıklayın.",
+                "updated": 1670332160799
             },
             {
                 "language": "ID",
@@ -57,8 +57,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Community Group — ¡Hablemos de Superalgos!",
-                    "updated": 1624488546430,
+                    "text": "Discord Server  - ¡El servidor es nuevo, por lo tanto menos activo!",
+                    "updated": 1675364750328,
                     "style": "List"
                 },
                 {
@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın!",
-                    "updated": 1638913886098
+                    "text": "Discord Server - Sunucu yenidir, bu nedenle daha az aktiftir!",
+                    "updated": 1670332225086
                 },
                 {
                     "language": "ID",
@@ -116,6 +116,16 @@
                     "language": "NL",
                     "text": "Announcements Channel — Ontvang eerst officieel nieuws!",
                     "updated": 1667138295259
+                },
+                {
+                    "language": "TR",
+                    "text": "Announcements Channel — Resmi duyurulara ulaşın!",
+                    "updated": 1670332270360
+                },
+                {
+                    "language": "ES",
+                    "text": "Announcements Channel — Recibe primero las noticias oficiales",
+                    "updated": 1675364788010
                 }
             ]
         },
@@ -152,6 +162,11 @@
                     "language": "NL",
                     "text": "Community Group — Laten we het hebben over Superalgos!",
                     "updated": 1667138308403
+                },
+                {
+                    "language": "ES",
+                    "text": "Community Group — ¡Hablemos de Superalgos!",
+                    "updated": 1675364807960
                 }
             ]
         },
@@ -189,6 +204,11 @@
                     "language": "NL",
                     "text": "Develop Group — Ontmoet andere ontwikkelaars!",
                     "updated": 1667138321723
+                },
+                {
+                    "language": "ES",
+                    "text": "Develop Group — Conoce a otros desarrolladores",
+                    "updated": 1675364822567
                 }
             ]
         },
@@ -226,6 +246,11 @@
                     "language": "NL",
                     "text": "Support Group — Hulp nodig om aan de slag te gaan?",
                     "updated": 1667138334651
+                },
+                {
+                    "language": "ES",
+                    "text": "Support Group — ¿Necesitas ayuda para empezar?",
+                    "updated": 1675364826614
                 }
             ]
         },
@@ -263,6 +288,11 @@
                     "language": "NL",
                     "text": "Token Group — Laten we praten over bestuur en het token!",
                     "updated": 1667138349461
+                },
+                {
+                    "language": "ES",
+                    "text": "Token Group — ¡Hablemos de Gobernanza y de Token!",
+                    "updated": 1675364856192
                 }
             ]
         },
@@ -285,6 +315,16 @@
                     "language": "NL",
                     "text": "Machine Learning Group — Word lid van de Bitcoin Factory!",
                     "updated": 1667138370189
+                },
+                {
+                    "language": "TR",
+                    "text": "Machine Learning Group — Bitcoin Fabrikasına katılın!",
+                    "updated": 1670332347945
+                },
+                {
+                    "language": "ES",
+                    "text": "Machine Learning Group — Únete a la Bitcoin Factory!",
+                    "updated": 1675364873437
                 }
             ]
         },
@@ -306,6 +346,16 @@
                     "language": "NL",
                     "text": "Trading Group — Help handelssignalen te testen!",
                     "updated": 1667138382923
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Group — Alım satım sinyallerini test edin!",
+                    "updated": 1670332368864
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Group — ¡Ayuda a probar las señales de trading!",
+                    "updated": 1675364891911
                 }
             ]
         },
@@ -321,8 +371,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Tasarlayabilir misin?",
-                    "updated": 1638914331685
+                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Bir tasarımcı mısın?",
+                    "updated": 1670333823847
                 },
                 {
                     "language": "ID",
@@ -343,6 +393,11 @@
                     "language": "NL",
                     "text": "UX-UI Group — Kun jij ontwerpen?",
                     "updated": 1667138395092
+                },
+                {
+                    "language": "ES",
+                    "text": "UX-UI Group — ¿Sabes diseñar?",
+                    "updated": 1675364926719
                 }
             ]
         },
@@ -380,6 +435,11 @@
                     "language": "NL",
                     "text": "Docs Group — Helpt ons de Documenten te verbeteren!",
                     "updated": 1667138408255
+                },
+                {
+                    "language": "ES",
+                    "text": "Docs Group — Ayúdanos a mejorar los Documentos",
+                    "updated": 1675364912389
                 }
             ]
         }

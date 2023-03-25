@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Los administradores de Superalgos, el Founding Team y los Community Mods nunca se comunicarán contigo directamente a menos que los contactes primero.",
-                "updated": 1624488617429,
+                "text": "El equipo Founding Team y los Community Mods nunca se pondrán en contacto directo contigo a menos que tú lo hagas primero.",
+                "updated": 1675366074691,
                 "style": "Definition"
             },
             {
@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos Yöneticileri, Çekirdek Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmedikçe sizinle asla doğrudan iletişime geçmeyecektir!",
-                "updated": 1636663081508
+                "text": "Kurucu Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmediğiniz sürece sizinle asla doğrudan iletişime geçmezler!",
+                "updated": 1670334959584
             },
             {
                 "language": "ID",
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca  pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Reportalos en el grupo de la Comunidad para que puedan ser baneados,también bloquéelos e infórmelos a Telegram si la opción está disponible.",
-                    "updated": 1625933454872,
+                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Repórtalos en el grupo de la Comunidad para que puedan ser baneados, también bloquéalos e infórmalos a Telegram si la opción está disponible.",
+                    "updated": 1675366184469,
                     "style": "Warning"
                 },
                 {
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Dolandırıcılar pusuda! Dikkat! Ticaretle ilgili grupların her türlü dolandırıcıyı cezbetmesi yeni bir haber değil ve her türlü numarayı deneyerek gruplarımızdaki insanlarla iletişim kurduklarının farkındayız. Sizden asla API anahtarları, coin veya nakit para istemeyeceğiz. Projeyle veya proje için çalıştığını iddia eden biri sizinle doğrudan iletişime geçerse, bunun bir dolandırıcılık olduğunu açıkça belirtmek isteriz. Lütfen Topluluk grubundaki dolandırıcıları yasaklanabilmeleri ve sorunun farkındalığını artırmak için rapor edin, ancak aynı zamanda onları engelleyin ve onları Telegram'a bildirin.",
-                    "updated": 1636663176342
+                    "text": "Dolandırıcılar pusuda! Dikkat! Ticaretle ilgili grupların her türlü dolandırıcıyı cezbetmesi yeni bir haber değil ve her türlü numarayı deneyerek gruplarımızdaki insanlarla iletişim kurduklarının farkındayız. Sizden asla API anahtarları, kripto varlıklar veya nakit para istemeyeceğiz. Projeyle veya proje için çalıştığını iddia eden biri sizinle bu tür taleplerle doğrudan iletişime geçerse, bunun bir dolandırıcılık olduğunu açıkça belirtmek isteriz. Lütfen Topluluk grubundaki dolandırıcıları yasaklanabilmeleri ve sorunun farkındalığını artırmak için rapor edin, ancak aynı zamanda onları engelleyin ve onları Telegram'a bildirin.",
+                    "updated": 1670335017788
                 },
                 {
                     "language": "ID",

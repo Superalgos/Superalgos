@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek uygulamayı sürdürmeye çalışın!",
-                "updated": 1641654986741
+                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek çalışmaya devam edin!",
+                "updated": 1669581566160
+            },
+            {
+                "language": "ES",
+                "text": "Intenta seguir la buena práctica de dar nombres o etiquetas relevantes a los nodos que contienen definiciones.",
+                "updated": 1677101288983
             }
         ]
     },
@@ -43,8 +48,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Kodunuzu kontrol etmeden koşulları ve durumları belirleyebilmeniz iyi olur!",
-                    "updated": 1641655015075
+                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Düğümü genişleterek kodunuzu kontrol etmek zorunda kalmak yerine onlara adlar ve etiketler vererek işinizi kolaylaştırırsınız. Adlar ve etiketler bu işe yarayacaktır.",
+                    "updated": 1669581766714
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten en cuenta que la complejidad de la estrategia aumentará a medida que avancemos. Es bueno poder identificar condiciones y situaciones sin revisar el código.",
+                    "updated": 1677101306974
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Ayrıca, olayı tetikleyen durumu doğrudan grafiklerden de belirleyebileceksiniz!",
                     "updated": 1641655028852
+                },
+                {
+                    "language": "ES",
+                    "text": "También podrás identificar qué situación desencadenó el evento directamente desde los gráficos.",
+                    "updated": 1677101320747
                 }
             ]
         },
@@ -85,8 +100,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: İlk durumu ve ilk koşulu aynı adla, 24h Up ve ikincisini şu şekilde belirtebilirsiniz: 24h Side.",
-                    "updated": 1641655041827
+                    "text": " İlk durumu ve ilk koşulu aynı isimle, 24H Yukarı, ikincisini de şu şekilde etiketleyebilirsiniz: 24H Yan.",
+                    "updated": 1669581860004
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes etiquetar la primera situación y la primera condición con el mismo nombre,\"24H Up\", y la segunda con el siguiente: \"24H Lateral\".",
+                    "updated": 1677101334837
                 }
             ]
         }

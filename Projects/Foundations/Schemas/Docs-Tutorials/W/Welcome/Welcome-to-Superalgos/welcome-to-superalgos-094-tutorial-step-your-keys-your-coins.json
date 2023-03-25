@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En la configuración ingresa cuidadosamente la clave pública API y la clave secreta API.",
-                    "updated": 1624479173958,
+                    "text": "Accede a la configuración e introduce cuidadosamente la <i>API Pubilic Key</i> y la <i>API secret key</i>.",
+                    "updated": 1675362220051,
                     "style": "Callout"
                 },
                 {

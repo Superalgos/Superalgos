@@ -22,7 +22,7 @@ exports.newDecentralizedExchangesModulesWallets = function () {
             let wallet = await thisObject.ethers.Wallet.createRandom()
             return wallet
         } catch(err) {
-            console.error(err)
+            SA.logger.error(err)
             return err
         }
     }
@@ -32,7 +32,7 @@ exports.newDecentralizedExchangesModulesWallets = function () {
             let wallet = await thisObject.ethers.Wallet.fromMnemonic(mnemonic)
             return wallet
         } catch(err) {
-            console.error(err)
+            SA.logger.error(err)
             return err
         }
     }
@@ -42,7 +42,7 @@ exports.newDecentralizedExchangesModulesWallets = function () {
             let wallet = new thisObject.ethers.Wallet(privateKey)
             return wallet
         } catch(err) {
-            console.error(err)
+            SA.logger.error(err)
             return err
         }
     }

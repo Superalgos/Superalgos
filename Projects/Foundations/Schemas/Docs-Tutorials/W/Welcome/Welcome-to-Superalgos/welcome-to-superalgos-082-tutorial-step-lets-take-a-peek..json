@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Laten we, voordat we het handelssysteem verlaten, even een van deze orders bekijken en kijken wat van belang kan zijn.",
                 "updated": 1667128140793
+            },
+            {
+                "language": "FR",
+                "text": " Avant de quitter le système de trading, jetons un coup d'œil rapide à l'un de ces ordres et voyons ce qui peut être intéressant.",
+                "updated": 1676958248544
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Vouw Profit 0.6 uit en controleer de formule van het knooppunt Order Rate.",
                     "updated": 1667128179212
+                },
+                {
+                    "language": "FR",
+                    "text": "Développez Profit 0.6 et vérifiez la formule du nœud Order Rate.",
+                    "updated": 1676958276447
                 }
             ]
         },
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Laten we ons concentreren op dit mysterieuze stukje van de formule:",
                     "updated": 1667128209073
+                },
+                {
+                    "language": "FR",
+                    "text": "Concentrons-nous sur cette partie mystérieuse de la formule :",
+                    "updated": 1676958292728
                 }
             ]
         },
@@ -181,6 +196,11 @@
                     "language": "NL",
                     "text": "De formule haalt de waarde van de Exit Target Rate op, die elders is gedefinieerd. Laten we ons niet concentreren op wat dit streefpercentage kan zijn. Laten we in plaats daarvan eens kijken naar het mechanisme waarmee een Trading System toegang kan hebben tot informatie die door de Trading Bot wordt verwerkt.",
                     "updated": 1667128273552
+                },
+                {
+                    "language": "FR",
+                    "text": "La formule récupère la valeur du Exit Target Rate, défini ailleurs. Ne nous attardons pas sur ce que peut être ce taux cible. Examinons plutôt le mécanisme par lequel un système de trading peut avoir accès aux informations traitées par le robot de trading.",
+                    "updated": 1676958344768
                 }
             ]
         }

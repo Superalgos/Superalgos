@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Durum (situation) menüsünde Koşul Ekle'yi ( Condition  )  seçin ve kodu Javascript kod ( Javascript Code )  düğümüne yapıştırın!",
                 "updated": 1641654388262
+            },
+            {
+                "language": "ES",
+                "text": "¡Selecciona \" Add Condition \" en el menú de la situación y pega el código en el nodo Javascript Code!",
+                "updated": 1677100572375
             }
         ]
     },
@@ -47,8 +52,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak etiketle ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketle!",
-                    "updated": 1641654408129
+                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketleyin!",
+                    "updated": 1669579870798
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Etiqueta el nodo de condición \"24H Not Side\" y etiqueta la situación como \"Downtrend\" para mantener las cosas ordenadas!",
+                    "updated": 1677100603665
                 }
             ]
         },
@@ -69,8 +79,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Ayrıca iki koşulu & imlecini kullanarak tek bir koşula yazabilirdik. Bu iyi bir fikir değil,neden iyi bir fikir değil, bir sonraki adımda açıklayacağım!",
-                    "updated": 1641654435051
+                    "text": "Not: Ayrıca bu iki koşulu \"&&\" imlecini kullanarak tek bir koşulda yazabilirdik. Ancak bu iyi bir fikir değildir, Neden iyi bir fikir olmadığını bir sonraki adımda açıklayacağım!",
+                    "updated": 1669579953764
+                },
+                {
+                    "language": "ES",
+                    "text": "Podríamos haber optado por escribir las dos condiciones en una utilizando el operador &&. Te diré por qué no es una buena idea en el siguiente paso.",
+                    "updated": 1677100640351
                 }
             ]
         }

@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Sorunun ne olduğunu buldunuz mu? Sorun Ne? Kontrol etmedin mi? Hatalı düğümü bulabilmeniz için ekranı böldüm!",
-                "updated": 1641664973982
+                "text": "Sorunun ne olduğunu buldunuz mu? Sorun Ne? Kontrol etmedin mi? Hatalı düğümü bulabilmeniz için ekranı böldüm!",
+                "updated": 1669669247483
             },
             {
                 "language": "RU",
                 "text": "Вы разобрались в ошибке? Что? Вы не посмотрели? Я просто разделил экран, чтобы вы тоже могли найти ошибочный узел!",
                 "updated": 1642662780644
+            },
+            {
+                "language": "ES",
+                "text": "¿Has descubierto el error? ¿Qué? ¿No has mirado? ¡Acabo de dividir la pantalla para que puedas encontrar también el nodo infractor!",
+                "updated": 1679253331296
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Слой \"Trading System Errors\" включен! Пройдите вперед и выясните, в чем заключается ошибка!",
                     "updated": 1642662833332
+                },
+                {
+                    "language": "ES",
+                    "text": "¡La capa de \"Trading System Errors\" está activa! Adelante, ¡investiga a qué se debe el error!",
+                    "updated": 1679253321045
                 }
             ]
         },
@@ -62,13 +72,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Unutmayın ... tüm yapmanız gereken çizelgedeki ilk hatayı işaret etmek, hatanın açıklamasını okumak, tasarım alanında hatalı düğümü işaretleyen kırmızı halkayı bulmak ve mevcut bilgileri yorumlamak! Sana başarılar diliyorum!",
-                    "updated": 1641665007871
+                    "text": "Unutmayın... Tüm yapmanız gereken grafikteki ilk hatayı görmek, hatanın açıklamasını okumak, tasarım alanında hatalı düğümü işaretleyen kırmızı halkayı bulmak ve mevcut bilgileri yorumlamak! Sana başarılar diliyorum!",
+                    "updated": 1669669336094
                 },
                 {
                     "language": "RU",
                     "text": "Помните... Вам просто нужно указать на первую ошибку на графике, прочитать описание ошибки, найти красное кольцо c крестиком, обозначающее узел-нарушитель в пространстве проектирования, и интерпретировать имеющуюся информацию! Удачи!",
                     "updated": 1642662906100
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda... Sólo tienes que apuntar al primer error en el gráfico, leer la descripción del error, encontrar el anillo rojo que marca el nodo infractor en el espacio de diseño e interpretar la información disponible. Buena suerte.",
+                    "updated": 1679253309447
                 }
             ]
         }

@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Je vais vous permettre de vous déplacer rapidement et de naviguer dans l'espace graphique en un rien de temps... Commençons par le curseur !",
                 "updated": 1668067656448
+            },
+            {
+                "language": "PL",
+                "text": "Dzięki mnie błyskawicznie opanujesz poruszanie się i przeglądanie Charting Space... Zajmijmy się najpierw suwakiem!",
+                "updated": 1675080307858
             }
         ]
     },
@@ -103,6 +108,11 @@
                     "language": "FR",
                     "text": "Cliquez dessus et faites-le glisser vers le bas pour fermer l'espace de conception et ouvrir l'espace graphique. Faites l'inverse pour obtenir l'effet inverse. Pour le faire avec le clavier, appuyez sur Ctrl + Shift + ↓. Essayez également de faire ↑ ← →!",
                     "updated": 1668067705685
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij go i przeciągnij w dół, aby zamknąć Design Space i otworzyć Charting Space. Teraz przeciągnij go w górę aby uzyskać efekt odwrotny. Aby zrobić to za pomocą klawiatury, naciśnij Ctrl + Shift + ↓. Spróbuj także ↑ ← <key>→</key>!",
+                    "updated": 1675080473831
                 }
             ]
         },
@@ -124,8 +134,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "A menos que necesite que ambos espacios estén parcialmente abiertos, siempre es una buena idea cerrar por completo cualquiera de ellos para ahorrar recursos informáticos en tu máquina.",
-                    "updated": 1624380567050,
+                    "text": "A menos que necesites que ambos espacios estén parcialmente abiertos, siempre es una buena idea cerrar por completo cualquiera de ellos para ahorrar recursos informáticos en tu máquina.",
+                    "updated": 1675276020701,
                     "style": "Success"
                 },
                 {
@@ -136,8 +146,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her iki alanın da kısmen açık olmasına ihtiyacınız yoksa, makinenizin kaynaklarından tasarruf etmek için her ikisini de tamamen kapatmak her zaman iyi bir fikirdir.",
-                    "updated": 1644911291914
+                    "text": "Her iki alanın da kısmen açık olmasına ihtiyacınız yoksa, makinenizin kaynaklarından tasarruf etmek için ikisinden birini kapatmak her zaman iyi bir fikirdir.",
+                    "updated": 1669839327937
                 },
                 {
                     "language": "RU",
@@ -153,6 +163,11 @@
                     "language": "FR",
                     "text": "À moins que vous n'ayez besoin que les deux espaces soient partiellement ouverts, il est toujours bon de fermer complètement l'un ou l'autre pour économiser les ressources informatiques de votre machine.",
                     "updated": 1668067745116
+                },
+                {
+                    "language": "PL",
+                    "text": "O ile nie potrzebujesz, aby obie przestrzenie były częściowo otwarte, zawsze warto całkowicie zamknąć jedną z nich, żeby oszczędzić zasoby obliczeniowe Twojej maszyny.",
+                    "updated": 1675080539832
                 }
             ]
         }

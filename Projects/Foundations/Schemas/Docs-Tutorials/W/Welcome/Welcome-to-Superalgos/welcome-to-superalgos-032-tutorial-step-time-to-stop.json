@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "No vamos a ejecutar un Live Trading Session todavía, por lo que no tiene sentido mantener nuestra minería de datos en funcionamiento en este momento.",
-                "updated": 1624375464430,
+                "text": "Todavía no vamos a ejecutar una Live Trading Session, por lo que no tiene sentido mantener nuestra extracción de datos en marcha.",
+                "updated": 1675208094657,
                 "style": "Definition"
             },
             {
@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session ) düzenlemeyeceğiz, bu nedenle veri madenciliğimizi bu noktada çalışır durumda tutmanın bir anlamı yok. ",
-                "updated": 1644910339264
+                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session) gerçekleştirmeyeceğiz, bu nedenle veri madenciliğimizi çalışır durumda tutmanın bir anlamı yok.",
+                "updated": 1669838380979
             },
             {
                 "language": "RU",
@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "Nous n'allons pas encore lancer une session de trading en direct, il n'y a donc aucun intérêt à maintenir notre minage de données en cours.",
                 "updated": 1667987677704
+            },
+            {
+                "language": "PL",
+                "text": "Nie zamierzamy jeszcze uruchamiać Live Trading Session, więc nie ma sensu dalej gromadzić danych.",
+                "updated": 1675079188205
             }
         ],
         "updated": 1640265234059
@@ -76,8 +81,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hay dos usos principales por los que ejecutar Data Tasks:",
-                    "updated": 1624376528739,
+                    "text": "Hay dos usos principales por los que ejecutar el nodo Data Tasks:",
+                    "updated": 1675208106380,
                     "style": "Text"
                 },
                 {
@@ -105,6 +110,11 @@
                     "language": "FR",
                     "text": "Il existe deux raisons principales pour miner des données:",
                     "updated": 1667987743364
+                },
+                {
+                    "language": "PL",
+                    "text": "Istnieją dwa główne powody do uruchomienia Data Tasks:",
+                    "updated": 1675079251499
                 }
             ]
         },
@@ -127,8 +137,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "To process historic data: Para procesar un rango de fecha y hora de un mercado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
-                    "updated": 1625878938645,
+                    "text": "Procesar un historial de datos : Para procesar un rango de fecha y hora de un mercado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
+                    "updated": 1675208149717,
                     "style": "List"
                 },
                 {
@@ -139,8 +149,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion ) yürütmek veya yeni göstergeleri işlemek için belirli bir işlem çifti için ( Market ) bir tarih saat aralığını işlemek isteyebilirsiniz.",
-                    "updated": 1644910440492
+                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion) yürütmek ya da herhangi bir işlem çiftinde (Market) başka bir tarih aralığı için yeni göstergeleri işlemek isteyebilirsiniz.",
+                    "updated": 1669838669009
                 },
                 {
                     "language": "RU",
@@ -156,6 +166,11 @@
                     "language": "FR",
                     "text": "Pour analyser les données historiques: vous souhaitez traiter une période d'un marché donné pour exécuter une session de backtesting ou pour traiter de nouveaux indicateurs.",
                     "updated": 1667987895330
+                },
+                {
+                    "language": "PL",
+                    "text": "Przetwarzanie danych historycznych: Możesz chcieć przeanalizować dane ze zdefiniowanego zakresu z dowolnego Market aby uruchomić Backtesting Session, lub do przeanalizować nowe wskaźniki.",
+                    "updated": 1675079403379
                 }
             ]
         },
@@ -178,8 +193,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "To run a live session: Paper Trading Session, Forward Testing Session, y Live Trading Session, por ejemplo, necesitan información en vivo.",
-                    "updated": 1624376178230,
+                    "text": "Ejecutar una sesión en vivo: Paper Trading Session, Forward Testing Session, y Live Trading Session, por ejemplo, necesitan información en vivo.",
+                    "updated": 1675208200127,
                     "style": "List"
                 },
                 {
@@ -190,8 +205,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Canlı bir oturum yürütmek için: Paper Trading Session , İleriye Yönelik Test Oturumu (Forward Testing Session ) ve Canlı Alım Satım Oturumu ( Live Trading Session ) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
-                    "updated": 1644910465496
+                    "text": "Canlı bir oturum yürütmek için: Kağıt Ticareti (Paper Trading Session), İleriye Dönük Test Oturumu (Forward Testing Session) ve Canlı Ticaret Oturumu (Live Trading Session) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
+                    "updated": 1669838740848
                 },
                 {
                     "language": "RU",
@@ -207,6 +222,11 @@
                     "language": "FR",
                     "text": "Pour exécuter une session en direct : les sessions en direct peuvent être de différents types, telles que le Paper Trading Session, la Forward Testing Session et la Live Trading Session, ont toutes besoin d'un flux de marché en direct.",
                     "updated": 1667988002478
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby uruchomić sesję na żywo: Sesje na żywo różnych typów, np. Paper Trading Session, Forward Testing Session, i Live Trading Session, wszystkie potrzebują bieżących danych.",
+                    "updated": 1675079461580
                 }
             ]
         },
@@ -240,8 +260,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tüm işlemler güncel olduğunda (%100), Piyasa Veri Görevleri ( Market Data Tasks ) düğümünde \"Stop All Tasks\" seçeneğini seçin. Ek bilgi olarak, görevleri başlattığımız düğümden farklı bir düğümden durdurabileceğimizi de unutmayın.",
-                    "updated": 1636016732706
+                    "text": "Tüm işlemler güncel olduğunda (%100), Piyasa Veri Görevleri ( Market Data Tasks ) düğümünde \"Stop All Tasks\" düğmesine tıklayın. Ek bilgi olarak, görevleri, başlattığımız düğümden farklı bir düğümden de durdurabileceğimizi unutmayın.",
+                    "updated": 1669838794910
                 },
                 {
                     "language": "RU",
@@ -257,6 +277,11 @@
                     "language": "FR",
                     "text": "Lorsque tous les processus sont à jour, sélectionnez \"Stop All Tasks\" dans le nœud Market Data Tasks. Notez que nous pouvons arrêter les tâches à partir d'un nœud différent de celui que nous avons utilisé pour les démarrer !",
                     "updated": 1667988053679
+                },
+                {
+                    "language": "PL",
+                    "text": "Gdy wszystkie procesy są aktualne, wybierz \"Stop All Tasks\" w węźle Market Data Tasks. Zauważ, że możemy zatrzymać zadania z innego węzła niż ten, którego użyliśmy do ich uruchomienia!",
+                    "updated": 1675079511248
                 }
             ],
             "updated": 1622197433719

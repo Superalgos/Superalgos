@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu kurşun ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün!",
-                "updated": 1641660541095
+                "text": "Bu uyarı ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün!",
+                "updated": 1669587270745
             },
             {
                 "language": "RU",
                 "text": "Итак, что же находится в этих шариках? Подведите мышь к одной из ошибок в верхнем ряду и посмотрите, что произойдет!",
                 "updated": 1642657072694
+            },
+            {
+                "language": "ES",
+                "text": "¿Qué hay en esas viñetas? Coloca el ratón sobre una de las viñetas de error de la fila superior y verás lo que ocurre.",
+                "updated": 1677104735998
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Каждая ошибка, обработанная торговым ботом, имеет страницу в Docs с описанием причин ошибки, написанным человеческим языком, а также контекстной технической информацией, которая должна помочь вам определить и устранить причины ошибки.",
                     "updated": 1642657134621
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada error gestionado por el robot de trading cuenta con una página en los Docs con una descripción escrita en lenguaje humano de por qué se ha producido el error, así como información técnica contextual que debería ayudarte a identificar y solucionar las causas del error.",
+                    "updated": 1677104742634
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Внимательно изучите эту страницу!",
                     "updated": 1642657161644
+                },
+                {
+                    "language": "ES",
+                    "text": "Échale un buen vistazo a esta página.",
+                    "updated": 1677104751074
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "RU",
                     "text": "Есть много информации, указывающей на причины ошибки, но еще предстоит проделать некоторую работу по расследованию!",
                     "updated": 1642657192271
+                },
+                {
+                    "language": "ES",
+                    "text": "Hay mucha información que apunta a las causas del error, pero aún queda trabajo de detective por hacer.",
+                    "updated": 1677104757829
                 }
             ]
         },

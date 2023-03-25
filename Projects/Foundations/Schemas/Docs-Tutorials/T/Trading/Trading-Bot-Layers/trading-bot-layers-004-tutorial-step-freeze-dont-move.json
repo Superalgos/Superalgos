@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Devam etmeden önce sana söylemem gereken bir şey var, ama doğru kelimeleri bulmakta zorlanıyorum... Bir kontrol manyağı gibi görünmek istemem!",
                 "updated": 1641718268809
+            },
+            {
+                "language": "ID",
+                "text": "Ada sesuatu yang ingin aku sampaikan sebelum kita melanjutkan ini, tetapi aku kesulitan menemukan kata yang tepat... Aku hanya tidak ingin tampil sebagai orang yang suka mengontrol!",
+                "updated": 1673829017247
+            },
+            {
+                "language": "ES",
+                "text": "Tengo algo que decirte antes de que sigamos, pero me cuesta encontrar las palabras adecuadas... No quiero parecer un maniático del control.",
+                "updated": 1675462941509
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Burası herhangi birşeyi bozabileceğiniz bi alan değil. Bu yüzden korkacak bir şey yok...  Sizi bir yere götürdüğümde ne göreceğinizi tahmin etmek için çalışma alanının yeni durumuna güveniyorum. Yolculuk boyunca deneyimleyeceğiniz şeyler hakkında yorum yapabilir ve tahminlerimi turu daha lezzetli ve ilginç kılmak için kullanabilirim! Böyle...",
                     "updated": 1641718400300
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini tidak seperti kamu dapat merusak sesuatu atau apa pun... tidak ada yang perlu ditakuti sama sekali... hanya saja... Aku mengandalkan workspace berkondisi baru untuk memprediksi apa yang akan kamu lihat saat aku membawa kamu ke tempat lain. Aku dapat mengomentari apa yang akan kamu alami sepanjang perjalanan, dan menggunakan prediksi-ku untuk membuat tur lebih berkesan dan menarik! Jadi...",
+                    "updated": 1673829024262
+                },
+                {
+                    "language": "ES",
+                    "text": "No es que puedas romper algo o algo así... nada que temer en absoluto... es sólo que... Me baso en el estado actual del espacio de trabajo para predecir lo que verás cuando te lleve a los sitios. Puede que comente lo que experimentarás a lo largo del viaje, ¡y que utilice mis predicciones para hacer el recorrido más jugoso e interesante! Así que...",
+                    "updated": 1675462991975
                 }
             ]
         },
@@ -69,6 +89,16 @@
                     "language": "TR",
                     "text": "Ben söylemedikçe çok fazla oyalanma! Demek istediğim, etrafına bakabilirsin ama ortalığı dağıtma! İstediğini yap! Eğer seni kaybettiğimi hissedersen, yeni bir çalışma alanıyla yeniden başla!",
                     "updated": 1641718475850
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan main-main terlalu banyak kecuali aku menyuruhmu! Maksudku, kamu boleh melihat-lihat, tetapi jangan membuat kekacauan! Baik! Lakukan apa yang kamu inginkan! Jika kamu merasa tidak tahu di mana kamu berada, mulailah dari awal dengan workspace baru!",
+                    "updated": 1673829068566
+                },
+                {
+                    "language": "ES",
+                    "text": "No hagas demasiadas tonterías a menos que yo te lo diga. Quiero decir, puedes mirar a tu alrededor, ¡pero no ensucies! ¡Muy bien! ¡Haz lo que quieras! ¡Si alguna vez sientes que te he perdido, empieza de nuevo con un nuevo Workspace!",
+                    "updated": 1675463021115
                 }
             ]
         }

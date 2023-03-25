@@ -70,7 +70,7 @@
                             botModuleObject.initialize(onInitializeReady);
                         }
                         catch (err) {
-                            console.log(logDisplace + "[ERROR] start -> err = " + err.stack);
+                            SA.logger.error(logDisplace + " start -> err = " + err.stack);
                             setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
@@ -99,7 +99,7 @@
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bye.");
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
+                            SA.logger.error(logDisplace + "Process Instance : start -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.persist()
                         }
                         setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
@@ -108,7 +108,7 @@
                 } else {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> err = " + err.message);
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> Bot will not be started. ");
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> err = " + err.message);
+                    SA.logger.error(logDisplace + "Process Instance : start -> onInitializeReady -> err = " + err.message);
 
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.persist()
                     setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
@@ -123,7 +123,7 @@
                 }
             }
         } catch (err) {
-            console.log("[ERROR] Task Server -> " + TS.projects.foundations.globals.taskConstants.TASK_NODE.name + " -> Process Instance -> Start -> Err = " + err.stack);
+            SA.logger.error("Task Server -> " + TS.projects.foundations.globals.taskConstants.TASK_NODE.name + " -> Process Instance -> Start -> Err = " + err.stack);
         }
     }
 }

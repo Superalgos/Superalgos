@@ -47,13 +47,18 @@
             },
             {
                 "language": "TR",
-                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde Ctrl (kontrol) [+] ← → ↑ ↓(yön tuşları) tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
-                "updated": 1666062873742
+                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde Ctrl [+] ← → ↑ ↓  (yön tuşları) tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1669837348968
             },
             {
                 "language": "FR",
                 "text": "Oui, vous pouvez aussi utiliser votre clavier ! Vous allez l'adorer pour les déplacements longue distance dans le Design Space !",
                 "updated": 1667204479485
+            },
+            {
+                "language": "PL",
+                "text": "Tak, możesz używać także swojej klawiatury! Pokochasz to podczas długich podróży przez Design Space!",
+                "updated": 1674945988243
             }
         ],
         "updated": 1660143683418
@@ -109,6 +114,11 @@
                     "language": "FR",
                     "text": "Les personnes normales peuvent utiliser la touche Ctrl plus les touches fléchées: ← → ↑ ↓",
                     "updated": 1667204586597
+                },
+                {
+                    "language": "PL",
+                    "text": "Zwykli ludzie mogą używać klawisza Ctrl oraz klawiszy strzałek: ← → ↑ ↓",
+                    "updated": 1674946014612
                 }
             ]
         },
@@ -162,6 +172,11 @@
                     "language": "FR",
                     "text": "Remarquez que le fait de maintenir les touches enfoncées vous fait voler !",
                     "updated": 1667204604503
+                },
+                {
+                    "language": "PL",
+                    "text": "Zauważ, że trzymanie wciśniętych klawiszy sprawia, że latasz!",
+                    "updated": 1674946023224
                 }
             ]
         },
@@ -208,13 +223,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Elbette Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
-                    "updated": 1644850625993
+                    "text": "Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
+                    "updated": 1669837398464
                 },
                 {
                     "language": "FR",
                     "text": "Bien sûr, les fan de Mac doivent remplacer  Ctrl par Cmd",
                     "updated": 1667204646715
+                },
+                {
+                    "language": "PL",
+                    "text": "Oczywiście fanboje i dziewczyny Maca muszą zamienić Ctrl na Cmd.",
+                    "updated": 1674946050304
                 }
             ]
         }

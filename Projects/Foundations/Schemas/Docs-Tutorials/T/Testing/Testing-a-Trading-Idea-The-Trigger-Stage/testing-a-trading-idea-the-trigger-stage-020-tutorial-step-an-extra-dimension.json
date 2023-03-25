@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu göstergeden aldığımız bilgilere ekstra bir boyut katacak başka bir gösterge deneyelim!",
-                "updated": 1641653306847
+                "text": "Bu göstergeden aldığımız bilgilere ekstra bir boyut katacak başka bir gösterge deneyelim!",
+                "updated": 1669576965716
+            },
+            {
+                "language": "ES",
+                "text": "¡Vamos a probar un indicador que aporta una dimensión adicional a la información que estamos obteniendo de éste!",
+                "updated": 1675622631665
             }
         ]
     },
@@ -43,8 +48,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Kanal Nesneleri katmanından ( Bollinger Channels Objects layer ) çıkın! Şimdi Bollinger alt Kanal Nesneleri katmanını ( Bollinger SubChannels Objects layer ) açın!",
-                    "updated": 1641653321711
+                    "text": "Bollinger Kanal Nesneleri katmanını ( Bollinger Channels Objects Layer ) kapatın! Şimdi Bollinger alt Kanal Nesneleri katmanını ( Bollinger SubChannels Objects Layer ) açın!",
+                    "updated": 1669577116144
+                },
+                {
+                    "language": "ES",
+                    "text": "Desactiva la capa de Bollinger Channels Objects. Ahora activa la capa Bollinger SubChannels Objects.",
+                    "updated": 1675622659729
                 }
             ]
         },
@@ -64,8 +74,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yukarı ve aşağı yönlerde hala çok fazla ileri ve geri gidiş var ... ama!",
-                    "updated": 1641653337819
+                    "text": "Yukarı ve aşağı yönlerde hala çok fazla ileri ve geri hareket var... ama!",
+                    "updated": 1669577159188
+                },
+                {
+                    "language": "ES",
+                    "text": "Todavía hay mucho vaivén con las direcciones Arriba y Abajo... ¡pero!",
+                    "updated": 1675622671646
                 }
             ]
         },
@@ -85,8 +100,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Grafiğin üzerine gelin ve göstergenin çizici panelindeki (plotter panel) Eğim özelliğine bakın! Kapalıysa açın!",
-                    "updated": 1641653347370
+                    "text": "İpucu: Grafiğin üzerine gelin ve göstergenin çizici panelindeki (Plotter Panel) Eğim özelliğine bakın! Kapalıysa açın!",
+                    "updated": 1669577052287
+                },
+                {
+                    "language": "ES",
+                    "text": "Desliza el puntero del ratón sobre el gráfico y observa la propiedad Pendiente (Slope) en el plotter del indicador. ¡Actívala en caso de que esté desactivada! ",
+                    "updated": 1677099936460
                 }
             ]
         }

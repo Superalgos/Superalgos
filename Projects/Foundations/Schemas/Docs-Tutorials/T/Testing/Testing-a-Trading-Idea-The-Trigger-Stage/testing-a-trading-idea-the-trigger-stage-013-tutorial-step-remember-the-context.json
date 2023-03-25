@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Artık koşulların ve durumların ne olduğunu bildiğinize göre kendimize bir soru soralım: Olay Tetikleyiciyi (  Trigger On Event ) nasıl tanımlarız?",
                 "updated": 1641652500200
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que entiendes qué son las condiciones y las situaciones, vamos a plantear una pregunta: ¿cómo definimos el Trigger On Event?",
+                "updated": 1675621995864
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Tetikleme olayı, ticaret için hangi stratejinin seçileceğini belirlediğinden, varsayımımızın içeriğini tanımlamak, dikkate alınması gereken en önemli nokta olmalıdır!",
                     "updated": 1641652514067
+                },
+                {
+                    "language": "ES",
+                    "text": "Dado que el Trigger On Event determina qué estrategia se selecciona para operar, ¡la definición del contexto de nuestra hipótesis debería ser lo principal a tener en cuenta!",
+                    "updated": 1675622015413
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Strateji, 24 saatlik zaman diliminde bir düşüş trendi olduğunda harekete geçmelidir.",
                     "updated": 1641652526060
+                },
+                {
+                    "language": "ES",
+                    "text": "La estrategia debe operar cuando hay una tendencia bajista en el marco de tiempo de 24H.",
+                    "updated": 1675622024061
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "İpucu: Bizim işimiz, 24 saatlik grafikte bir düşüş trendinin piyasa durumunu matematiksel olarak tanımlayan bir dizi koşul yazmak!",
                     "updated": 1641652551315
+                },
+                {
+                    "language": "ES",
+                    "text": "Nuestro trabajo es escribir un conjunto de condiciones que describan matemáticamente la situación de mercado de una tendencia bajista en el gráfico de 24H.",
+                    "updated": 1675622034357
                 }
             ]
         }

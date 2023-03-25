@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Şu anda hata bizi etkilemiyor çünkü veri setinin ilk 19 günü bir yükseliş trendine karşılık geliyor! Ancak...",
-                "updated": 1641661783053
+                "text": "Şu anda hata bizi etkilemiyor çünkü veri setinin ilk 19 günü bir yükseliş trendine karşılık geliyor! Ancak...",
+                "updated": 1669660685973
             },
             {
                 "language": "RU",
                 "text": "В данный момент ошибка не влияет на нас, потому что первые 19 дней набора данных соответствуют восходящему тренду! Однако...",
                 "updated": 1642657976379
+            },
+            {
+                "language": "ES",
+                "text": "En este momento, el error no nos afecta, ¡porque los 19 primeros días del conjunto de datos corresponden a una tendencia alcista! Pero...",
+                "updated": 1677105368056
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "... это повлияло бы на нас, если бы мы работали с восходящими трендами!",
                     "updated": 1642657990763
+                },
+                {
+                    "language": "ES",
+                    "text": "... ¡nos afectaría si estuviéramos trabajando con tendencias alcistas!",
+                    "updated": 1677105376548
                 }
             ]
         },
@@ -60,13 +70,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir geliştiriciyseniz, az önce gerçekleştirdiğimiz sorun giderme süreci size doğal gelebilir. Eğer değilseniz, aşina olmalısınız, çünkü kesinlikle kullanmanız gerekecek.",
-                    "updated": 1641661833977
+                    "text": "Bir geliştiriciyseniz, az önce gerçekleştirdiğimiz sorun giderme süreci size doğal gelebilir. Eğer değilseniz, öğrenmeniz gerekiyor, çünkü kesinlikle kullanmanız gerekecek.",
+                    "updated": 1669661168652
                 },
                 {
                     "language": "RU",
                     "text": "Процесс устранения неполадок, который мы только что рассмотрели, может показаться вам естественным, если вы являетесь разработчиком. Если нет, то вы должны ознакомиться с ним, потому что вам обязательно придется его использовать.",
                     "updated": 1642658031878
+                },
+                {
+                    "language": "ES",
+                    "text": "El proceso de resolución de problemas por el que acabamos de pasar puede ser natural para ti si eres desarrollador. Si no lo eres, debes familiarizarte con él, porque sin duda necesitarás utilizarlo.",
+                    "updated": 1677105383789
                 }
             ]
         },
@@ -81,13 +96,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Otomatik ticarette, bir çok bilgi bir İsviçre saati gibi birbirine uymak zorundadır. Stratejiler oluştururken hatalar yapacaksınız. Onlarla ilgilen!",
-                    "updated": 1641661847125
+                    "text": "Otomatik ticarette, bir çok bilgi bir İsviçre saati gibi birbirine uymak zorundadır. Stratejiler oluştururken hatalar yapacaksınız. Onlarla başa çıkmayı öğrenmelisiniz!",
+                    "updated": 1669661217607
                 },
                 {
                     "language": "RU",
                     "text": "Автоматизация торговли требует, чтобы множество информации было подогнано друг к другу, как в швейцарских часах. Вы будете делать ошибки при построении стратегий. Придется с этим смириться!",
                     "updated": 1642658116445
+                },
+                {
+                    "language": "ES",
+                    "text": "La automatización del trading requiere que muchas piezas de información encajen como en un reloj suizo. Seguro que cometes errores construyendo estrategias. ¡Lidia con ellos!",
+                    "updated": 1677105398532
                 }
             ]
         }

@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al padre? ¡Hagamos un experimento!",
-                    "updated": 1625955629982,
+                    "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al nodo padre? ¡Hagamos un experimento!",
+                    "updated": 1675375195970,
                     "style": "Text"
                 },
                 {

@@ -140,6 +140,8 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
             SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            console.log('pushing new event in client interface')
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(event)
 
             let response = {
                 result: 'Ok',
@@ -159,7 +161,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Peer Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Peer Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Foundations Project hiyerarşisinden, özellikle Ticaret ( Trading ) düğümünden yeni ticaret sistemleri oluşturulur.",
                 "updated": 1641063484758
+            },
+            {
+                "language": "ES",
+                "text": "Los nuevos sistemas de trading se crean desde la jerarquía del Foundations Project, en concreto, desde el nodo Trading.",
+                "updated": 1675621548292
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Ama... Ne var biliyor musun? Zaten benim oluşturduğumu kullanacağız!",
                     "updated": 1641063647209
+                },
+                {
+                    "language": "ES",
+                    "text": "Pero... ¿sabes qué? ¡Usaremos uno que ya he creado!",
+                    "updated": 1675621557368
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "İsterseniz bir ticaret sistemi ekleyebilirsin, ancak daha sonrasında sil, çünkü kullanmayacağız!",
                     "updated": 1641063723493
+                },
+                {
+                    "language": "ES",
+                    "text": "Siéntete libre de añadir un sistema de trading si lo deseas, pero bórralo después, ¡ya que no lo vamos a utilizar!",
+                    "updated": 1675621568326
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Not: Siz izlemiyorken bir ticaret sistemi kurdum, böylece bu eğitimde ilerlerken mevcut düğümlere başvurabilir ve sizi belirli yerlere götürebilirim! Bilmeniz gerekiyorsa, sadece teknik nedenlerle!",
                     "updated": 1641064465974
+                },
+                {
+                    "language": "ES",
+                    "text": "¡He creado un sistema de trading mientras no estabas mirando para poder hacer referencia a nodos existentes y llevarte a lugares específicos mientras avanzamos en este tutorial! Simplemente por razones técnicas, ¡si quieres saberlo!",
+                    "updated": 1675621588474
                 }
             ]
         }

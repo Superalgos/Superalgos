@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Заметили ли вы, что после того, как стадия срабатывания активна, условия события Trigger On Event больше не проверяются?",
                 "updated": 1642658471518
+            },
+            {
+                "language": "ES",
+                "text": "¿Te has dado cuenta de que una vez que la \"trigger stage\" está activa, las condiciones del evento \"Trigger On\" ya no se evalúan?",
+                "updated": 1679099452759
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Иначе обстоит дело с условиями события Trigger Off Event: они не проверяются до того, как стадия станет активной. Убедитесь в этом сами!",
                     "updated": 1642658540945
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo contrario ocurre con las condiciones del Trigger Off Event: no se evalúan antes de que la etapa esté activa. Compruébalo tú mismo.",
+                    "updated": 1679099462666
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Торговый бот следует протоколу, который регулирует торговые системы, и обрабатывает только те события, которые необходимы в конкретный момент времени!",
                     "updated": 1642658596679
+                },
+                {
+                    "language": "ES",
+                    "text": "El trading bot sigue el protocolo que rige los sistemas de trading y sólo evalúa los eventos que son necesarios en cada momento.",
+                    "updated": 1679099470931
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Это логично, верно? Бот стремится быть максимально эффективным и делает только то, что нужно!",
                     "updated": 1642658625504
+                },
+                {
+                    "language": "ES",
+                    "text": "Es lógico, ¿verdad? El bot pretende ser lo más eficiente posible y ¡sólo hace lo que hay que hacer!",
+                    "updated": 1679099486524
                 }
             ]
         }

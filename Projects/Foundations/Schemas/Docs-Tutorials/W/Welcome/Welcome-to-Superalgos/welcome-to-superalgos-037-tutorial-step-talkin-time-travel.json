@@ -52,6 +52,11 @@
                 "language": "FR",
                 "text": "J'ai mentionné plus tôt qu'il y a deux graphiques dans cet espace de travail. Dans Superalgos, nous appelons chacun d'eux une Time Machine.",
                 "updated": 1668067979518
+            },
+            {
+                "language": "PL",
+                "text": "Wspomniałem wcześniej, że w tym obszarze roboczym znajdują się dwa wykresy. W Superalgos każdy z nich nazywamy Time Machine.",
+                "updated": 1675081116687
             }
         ]
     },
@@ -103,6 +108,11 @@
                     "language": "FR",
                     "text": "Une machine temporelle peut contenir une Timeline Chart ou plus. Nous les appelons machines temporelles parce que tous les diagrammes chronologiques dans une machine temporelle sont synchronisés dans le temps. Cette caractéristique des machines temporelles permet de superposer différentes couches de données partageant la même échelle de temps.",
                     "updated": 1668068068271
+                },
+                {
+                    "language": "PL",
+                    "text": "Time Machine może pomieścić jeden lub więcej Timeline Chart. Nazywamy je Time Machine, ponieważ wszystkie  Timeline Chart w ramach Time Machine są zsynchronizowane w czasie. Ta cecha Time Machine pozwala na nakładanie różnych warstw danych dzielących ten sam Time Scale.",
+                    "updated": 1675081341942
                 }
             ]
         },
@@ -153,6 +163,11 @@
                     "language": "FR",
                     "text": "Passez le pointeur de votre souris sur les time machines !",
                     "updated": 1668068093438
+                },
+                {
+                    "language": "PL",
+                    "text": "Najedź kursorem myszy na Time Machine!",
+                    "updated": 1675081419313
                 }
             ]
         },
@@ -187,8 +202,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve işlem çiftiyle ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla birden fazla borsadan birden fazla işlem çiftine ait veri tutabilir!",
-                    "updated": 1644912059757
+                    "text": "Sol tarafta beliren ve verilerin hangi borsa ve piyasalarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla işlem çiftinden ve birden fazla borsadan veri tutabilir!",
+                    "updated": 1669839740079
                 },
                 {
                     "language": "RU",
@@ -204,6 +219,11 @@
                     "language": "FR",
                     "text": "Remarquez l'étiquette qui apparaît sur le côté gauche et qui indique à quelles exchanges et à quels marchés les données sont associées. Une seule time machine peut contenir des données provenant de plusieurs marchés et de plusieurs exchanges !",
                     "updated": 1668068145044
+                },
+                {
+                    "language": "PL",
+                    "text": "Zwróć uwagę na etykietę pojawiającą się po lewej stronie, pokazującą, z którymi giełdami i rynkami dane są powiązane. W jednej Time Machine mogą znajdować się dane z wielu rynków i wielu giełd!",
+                    "updated": 1675081615077
                 }
             ]
         }

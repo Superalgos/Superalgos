@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Теперь, когда мы внедрили условные выражения, связанные с графиком 1H, нам необходимо пересмотреть параметры тестирования!",
                 "updated": 1642661968815
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que hemos implementado afirmaciones que involucran el gráfico 1H, ¡necesitamos revisar nuestros parámetros de prueba!",
+                "updated": 1679101303656
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Внесите следующие изменения в эти параметры:",
                     "updated": 1642661981784
+                },
+                {
+                    "language": "ES",
+                    "text": "Hagamos los siguientes cambios en estos parámetros:",
+                    "updated": 1679101317016
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman aralığı(Time Range): Ocak ayının ilk 19. gününde hatalardan kaçınmak için ilk DateTime(initialDateTime) değerini 2020-02-01 olarak değiştirin.",
-                    "updated": 1641663876587
+                    "text": "Zaman aralığı (Time Range): Ocak ayının ilk 19. gününde hatalardan kaçınmak için ilk tarih (initialDateTime) değerini 2020-02-01 olarak değiştirin.",
+                    "updated": 1669666591528
                 },
                 {
                     "language": "RU",
                     "text": "Time Range: измените initialDateTime на 2020-02-01, чтобы избежать ошибок в течение первых 19 дней января.",
                     "updated": 1642662007279
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Range: cambia el initialDateTime a 2020-02-01, para que evitemos los errores durante los primeros 19 días de enero.",
+                    "updated": 1679101344702
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman Çerçevesi(Time Frame): Geçerli tanımlara uyması için adı 01-hs olarak değiştirin.",
-                    "updated": 1641663889810
+                    "text": "Zaman Çerçevesi (Time Frame): Geçerli koşullara uyması için  01-hs olarak değiştirin.",
+                    "updated": 1669666706868
                 },
                 {
                     "language": "RU",
                     "text": "Time Frame: измените обозначение на 01-hs, чтобы адаптироваться к текущим определениям.",
                     "updated": 1642662035158
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Frame: cambia la etiqueta a 01-hs para adaptarla a las definiciones actuales.",
+                    "updated": 1679101355253
                 }
             ]
         },
@@ -101,13 +121,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Yürütme ile ilgili olan Açık Aşamayı tanımlamadığımızdan, parametrelerin geri kalanını henüz ele almıyoruz.",
-                    "updated": 1641663899893
+                    "text": "Yürütme ile ilgili olan Açık Aşamayı (Open Stage) tanımlamadığımız için parametrelerin geri kalanına henüz değinmiyoruz.",
+                    "updated": 1669666782033
                 },
                 {
                     "language": "RU",
                     "text": "Мы пока не рассматриваем остальные параметры, так как не определили Open Stage - этап, связанный с исполнением.",
                     "updated": 1642662091794
+                },
+                {
+                    "language": "ES",
+                    "text": "Todavía no estamos tratando el resto de parámetros, ya que no hemos definido la Open Stage, la que se ocupa de la ejecución.",
+                    "updated": 1679101369984
                 }
             ]
         }

@@ -36,7 +36,7 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function () {
         trading signals stored at the open internet. To get the trading signals
         we will ask them to the Open Storage.
         */
-        let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(signalMessage.fileKey)
+        let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadSignalFile(signalMessage.fileKey)
         if (fileContent === undefined) { return } // Happens when the signal was already loaded / processed.
         let file = JSON.parse(fileContent)
         let candleSignalsToLoad = file.content

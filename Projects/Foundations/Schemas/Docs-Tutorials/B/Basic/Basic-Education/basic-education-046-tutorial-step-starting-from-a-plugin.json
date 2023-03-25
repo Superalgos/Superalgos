@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
-                    "updated": 1633283766269,
+                    "text": "Supongamos que quieres construir una estrategia. Quieres empezar con una ya existente e introducir modificaciones para entender cómo funcionan las cosas. No tienes intención de aportar los cambios. Sólo deseas jugar con ella y afinarla a tu gusto. Entonces, haz lo siguiente:",
+                    "updated": 1675377997361,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
-                    "updated": 1633283708150,
+                    "text": "Elimina el nodo Plugin File del Trading System y restaura el archivo plugin original (\\Plugins\\Algorithmic-Trading\\Trading-Systems) como si fuera una copia de seguridad: ¡arrastra el archivo y suéltalo en el Design Space! La estrategia ahora vive en el espacio de trabajo y puede modificarla y guardarla.",
+                    "updated": 1675377955610,
                     "style": "Success"
                 },
                 {

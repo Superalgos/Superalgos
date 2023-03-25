@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Polygon Border - это фигура, определяемая как минимум двумя вершинами, используемая для рисования линий или применения стиля к обводке замкнутой фигуры",
                 "updated": 1639728753249
+            },
+            {
+                "language": "TR",
+                "text": "Polygon kenarlık, çizgi çizmek veya kapalı bir şeklin konturuna stil uygulamak için kullanılan en az iki köşe ile tanımlanan bir şekildir.",
+                "updated": 1674762582647
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Для определения границы полигона необходимо наличие как минимум двух вершин. Граница служит для создания обводки контуров любого многоугольника, как замкнутого, так и открытого, придавая ему стиль.",
                     "updated": 1639728788537
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir polygon kenarlığının tanımlanması için en az iki köşeye ihtiyacı vardır. Kenarlık, kapalı veya açık herhangi bir polygonun ana hatları için bir stil vererek kontur oluşturmaya yarar.",
+                    "updated": 1674762676919
                 }
             ]
         }

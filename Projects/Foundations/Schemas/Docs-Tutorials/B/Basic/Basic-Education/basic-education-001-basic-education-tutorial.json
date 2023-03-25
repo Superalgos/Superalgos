@@ -19,8 +19,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bu eğitim, Superalgos'a Hoş Geldiniz Eğitiminde verilen bilgileri tamamlar ve Düğümler Menüsü, Yedeklemeler, Klonlar ve Paylaşımlar, Eklentiler, Çalışma Alanları, Referanslar ve daha fazlasına odaklanır.",
-                "updated": 1636699806597
+                "text": "Bu eğitim, Superalgos'a Hoş Geldiniz Eğitiminde verilen bilgileri tamamlar ve Düğümler Menüsü, Yedeklemeler, Klonlar ve Paylaşma, Eklentiler, Çalışma Alanları, Referanslar ve daha fazlasına odaklanır.",
+                "updated": 1670336159085
             },
             {
                 "language": "RU",
@@ -65,6 +65,11 @@
                     "language": "NL",
                     "text": "Over deze zelfstudie",
                     "updated": 1668333588321
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620839936
                 }
             ]
         },
@@ -81,6 +86,11 @@
                     "language": "NL",
                     "text": "Workspace: Aan de slag Plugin Workspace.",
                     "updated": 1668333649599
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+                    "updated": 1675448862661
                 }
             ]
         },
@@ -97,6 +107,11 @@
                     "language": "NL",
                     "text": "Onderhouder: @julianmolina (Telegram).",
                     "updated": 1668333666589
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675448846517
                 }
             ]
         }

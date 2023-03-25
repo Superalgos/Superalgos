@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si aún no lo ha hecho, sigue adelante y estableze una referencia del Trading System Reference al Lightning Strike Trading System!",
-                "updated": 1626541349340,
+                "text": "Si aún no lo has hecho, sigue adelante y establece una referencia del Trading System Reference al Lightning Strike Trading System!",
+                "updated": 1675376832812,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puedes encontrar que esta técnica para establecer una referencia sea un poco torpe o poco práctica. Si tiene una idea mejor o sabe cómo mejorarla, no dude en abrir un problema de solicitud de función. Asegúrese de tener en cuenta lo siguiente:",
-                    "updated": 1626541405664,
+                    "text": "Puedes encontrar que esta técnica para establecer una referencia sea un poco torpe o poco práctica. Si tienes una idea mejor o sabes cómo mejorarla, no dudes en abrir un <i>issue</i> de solicitud de función. Asegúrese de tener en cuenta lo siguiente:",
+                    "updated": 1675376873016,
                     "style": "Text"
                 },
                 {

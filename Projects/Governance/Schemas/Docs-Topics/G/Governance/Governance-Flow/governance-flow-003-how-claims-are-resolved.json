@@ -21,6 +21,11 @@
                 "language": "TR",
                 "text": "Özet: Bu üç kavram, Talep Gücü ( Claim Power ), Talep Oyları ( Claim Votes ) ve Jeton Ödülleri ( Token Rewards ) yakından ilişkilidir ve Katkıda Bulunanlar arasında jeton dağıtımının mantığını oluşturur.",
                 "updated": 1646738697981
+            },
+            {
+                "language": "DE",
+                "text": "Diese drei Konzepte, Claim Power, Claim Votes und Token Rewards, sind eng miteinander verbunden und bilden die Logik der Token-Verteilung unter den Teilnehmern.",
+                "updated": 1678822805542
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Talep Gücüyle Başa Çıkma",
                     "updated": 1646738711296
+                },
+                {
+                    "language": "DE",
+                    "text": "Umgang mit dem Power-Anspruch",
+                    "updated": 1678823109374
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "TR",
                     "text": "Talep Gücünüzün ( Claim Power ) akışını, uygun değerin hak talebinde bulunmak istediğiniz düğüme ulaşması için siz kontrol edersiniz. Yani, ilgili talep düğümüne ulaşan Talep Gücü ( Claim Power ) tarafından belirlenen belirli sayıda jeton için talepler sunarsınız.",
                     "updated": 1646738938642
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie steuern den Fluss Ihrer Claim Power (Anspruchskraft) so, dass der entsprechende Wert den Knoten erreicht, mit dem Sie einen Anspruch anmelden möchten. Das heißt, Sie stellen Ansprüche für eine bestimmte Anzahl von Wertmarken, die durch die Claim Power bestimmt wird, die den entsprechenden Anspruchsknoten erreicht.",
+                    "updated": 1678822847797
                 }
             ]
         },
@@ -88,13 +103,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вы уже знаете, что показатель Token Rewards в узле определения - узле Position, Feature или Asset - определяет, сколько токенов доступно для стимулирования производства и/или обслуживания концепции, представленной этим узлом.",
+                    "text": "Вы уже знаете, что показатель Token Rewards в узле определения - узле Position, Feature или Asset - определяет, сколько токенов доступно для стимулирования производ��тва и/или обслуживания концепции, представленной этим узлом.",
                     "updated": 1640325458205
                 },
                 {
                     "language": "TR",
                     "text": "Bir tanım düğümündeki (bir Konum, Özellik veya Varlık düğümü) Simge Ödüllerinin, düğüm tarafından temsil edilen kavramın üretimini ve/veya bakımını teşvik etmek için kaç simgenin mevcut olduğunu belirlediğini zaten biliyorsunuz.",
                     "updated": 1646738975638
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie wissen bereits, dass die Token Rewards in einem Definitionsknoten - einem Position ´s-, Feature- oder Asset -Knoten - bestimmt, wie viele Token zur Verfügung stehen, um einen Anreiz für die Produktion und/oder Wartung des durch den Knoten repräsentierten Konzepts zu schaffen.",
+                    "updated": 1678822861371
                 }
             ]
         },
@@ -116,6 +136,11 @@
                     "language": "TR",
                     "text": "Bir tanım düğümüne bir talepte bulunduğunuzda, ilgili tanım düğümü tarafından somutlaştırılan konsept üzerinde yapılan çalışma için, Talep Gücünüzdeki ( Claim Power ) belirteçlerin sayısıyla Topluluğun sizi ödüllendirmesini istediğinizi beyan ediyorsunuz.",
                     "updated": 1646739028355
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Anspruch auf einen Definitionsknoten erheben, erklären Sie die Absicht dass die Community sie mit der Anzahl von Spielsteinen in Ihrem Anspruch (Claim Power) für die Arbeit an dem Konzept belohnt, dass durch den entsprechenden Definitionsknoten verkörpert wird.",
+                    "updated": 1678822873140
                 }
             ]
         },
@@ -137,6 +162,11 @@
                     "language": "TR",
                     "text": "Bu noktaya kadar birçok farklı senaryo ortaya çıkabilir.",
                     "updated": 1646739077975
+                },
+                {
+                    "language": "DE",
+                    "text": "Bis zu diesem Punkt können viele verschiedene Szenarien entstehen.",
+                    "updated": 1678822880965
                 }
             ]
         },
@@ -158,6 +188,11 @@
                     "language": "TR",
                     "text": "Örneğin:",
                     "updated": 1646739090074
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1678822887192
                 }
             ]
         },
@@ -180,6 +215,11 @@
                     "language": "TR",
                     "text": "Talebiniz, düğümde mevcut olan Jeton Ödüllerine ( Token Rewards ) eşit, daha küçük veya daha yüksek Talep Gücüne ( Claim Power ) sahip olabilir.",
                     "updated": 1646739142338
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Anspruch kann die gleiche, eine geringere oder eine höhere Claim Power haben als die in dem Knoten verfügbaren Token Rewards.",
+                    "updated": 1678822899595
                 }
             ]
         },
@@ -201,6 +241,11 @@
                     "language": "TR",
                     "text": "Talebiniz düğümdeki tek hak talebi olabilir veya başka hak talepleri de olabilir.",
                     "updated": 1646739159853
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Anspruch kann der einzige Anspruch in dem Knoten sein, oder es können auch andere Ansprüche bestehen.",
+                    "updated": 1678822907820
                 }
             ]
         },
@@ -222,6 +267,11 @@
                     "language": "TR",
                     "text": "Mevcut tüm taleplerdeki toplam Talep Gücü ( Claim Power ), düğümde mevcut olan Jeton Ödüllerine ( Token Rewards )  eşit, daha küçük veya daha büyük olabilir.",
                     "updated": 1646739200652
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gesamte Claim-Power aller bestehenden Claims kann gleich, kleiner oder größer sein als die im Knoten verfügbaren Token Rewards.",
+                    "updated": 1678822916597
                 }
             ]
         },
@@ -243,6 +293,11 @@
                     "language": "TR",
                     "text": "Ve hepsi bu değil! Yukarıdaki senaryolara ek olarak, Talep Oylarını ( Claim Votes ) hesaba katmamız gerekiyor!",
                     "updated": 1646739234500
+                },
+                {
+                    "language": "DE",
+                    "text": "Und das ist noch nicht alles! Zusätzlich zu den oben genannten Szenarien müssen wir auch die Claim Votes berücksichtigen!",
+                    "updated": 1678822925344
                 }
             ]
         },
@@ -254,6 +309,11 @@
                     "language": "TR",
                     "text": "Karışıma Talep Oyu Ekleme ( Adding Claim Votes in the Mix )",
                     "updated": 1646739301482
+                },
+                {
+                    "language": "DE",
+                    "text": "Claim Votes in den Mix einbringen",
+                    "updated": 1678822931855
                 }
             ]
         },
@@ -290,6 +350,11 @@
                     "text": "Talep Destek Gücünün Talep Oylarına akışı, Oylama Programındaki diğer güç akışları ile aynı ilkeleri izler. Bu, tıpkı taleplerin belirli bir Talep Gücüne sahip olması gibi, Talep Oylarının da belirli bir Talep Destek Gücüne sahip olduğu anlamına gelir.",
                     "updated": 1654395415253,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Fluss der Anspruchsunterstützungskraft (Claim Support Power) in Anspruchsabstimmungen (Claim Votes) folgt den gleichen Prinzipien wie der übrige Machtfluss im Abstimmungsprogramm (Voting Program). Das bedeutet, dass Anspruchsabstimmungen (Claim Votes) eine spezifische Anspruchsunterstützungskraft (Claim Support Power) haben, ähnlich wie Ansprüche eine spezifische Anspruchsmacht (Claim Power).",
+                    "updated": 1678822950368
                 }
             ]
         },
@@ -312,6 +377,11 @@
                     "language": "TR",
                     "text": "Not: Talep Destek Gücünün ( Claim Support Power ) Talep Oylarına akışı, Oylama Programındaki geri kalan güç akışlarıyla aynı ilkeleri takip eder. Bu, Talep Oylarının belirli bir Talep Destek Gücüne sahip olduğu anlamına gelir, tıpkı iddiaların belirli bir Talep Gücüne sahip olması gibi.",
                     "updated": 1646739415788
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Wenn du für einen Claim stimmst, stimmst du nicht unbedingt für die Gesamtheit des Claims. Ihre Stimme hat eine bestimmte Claim Support Power für den Anspruch, die gleich, geringer oder größer sein kann als die Claim Power!",
+                    "updated": 1678822961453
                 }
             ]
         },
@@ -334,6 +404,11 @@
                     "language": "TR",
                     "text": "Ayrıca, daha fazla Katkıda bulunan aynı iddia için oy kullanabilir!",
                     "updated": 1646739437218
+                },
+                {
+                    "language": "DE",
+                    "text": "Außerdem können mehrere Teilnehmer für dieselbe Forderung stimmen!",
+                    "updated": 1678822970551
                 }
             ]
         },
@@ -350,6 +425,11 @@
                     "language": "TR",
                     "text": "Kurallar",
                     "updated": 1646739449025
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Regeln",
+                    "updated": 1678822978751
                 }
             ]
         },
@@ -371,6 +451,11 @@
                     "language": "TR",
                     "text": "Gördüğünüz gibi, değişkenler ve olası senaryolar çoktur. Hangi Token Ödüllerinin ( Token Rewards ) hangi taleplere gideceğinin hesaplanmasına rehberlik eden genel kuralları ortaya koyalım.",
                     "updated": 1646739493228
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie sehen können, gibt es viele Variablen und mögliche Szenarien. Lassen Sie uns die allgemeinen Regeln aufstellen, nach denen berechnet wird, welche Token Rewards für welche Forderungen verwendet werden.",
+                    "updated": 1678822986360
                 }
             ]
         },
@@ -392,6 +477,11 @@
                     "language": "TR",
                     "text": "Bir düğümde bulunan Jeton Ödülleri, o düğüm aracılığıyla dağıtılabilecek maksimum jeton sayısını belirler. Sistem hiçbir durumda Jeton Ödülleri ( Token Rewards ) değerinin gösterdiğinden daha fazla jeton dağıtmayacaktır. Başka bir deyişle, Topluluk ( Community ), Ağırlık Oyları ( Weight Votes ) ile herhangi bir düğüm aracılığıyla dağıtılacak maksimum jeton sayısının ne olduğuna karar verir.",
                     "updated": 1646739594201
+                },
+                {
+                    "language": "DE",
+                    "text": "Die in einem Knoten verfügbaren Token Rewards bestimmen die maximale Anzahl von Token, die über diesen Knoten verteilt werden können. In keinem Fall darf das System mehr Token verteilen, als der Token Rewards -Wert angibt. Mit anderen Worten > Die Community entscheidet mit ihren Weight Votes über die maximale Anzahl der Token, die über einen bestimmten Node verteilt werden können.",
+                    "updated": 1678823086955
                 }
             ]
         },
@@ -414,6 +504,11 @@
                     "language": "TR",
                     "text": "Bir hak talebine tahsis edilen maksimum Jeton Ödülleri, düğümde mevcut olan Jeton Ödülleri, taleple ilişkili Talep Gücü ( Claim Power ) veya taleple ilişkili tüm Talep Oylarının ( Claim Votes ) Talep Destek Gücünün ( Claim Support Power ) toplamı (hangisi daha küçükse) ile belirlenir.",
                     "updated": 1646739709016
+                },
+                {
+                    "language": "DE",
+                    "text": "Die maximale Token Rewards, die einem Anspruch zugewiesen wird, wird durch die im Knoten verfügbaren Token Rewards, die mit dem Anspruch verbundene Anspruchsstärke (Claim Power) oder die Summe der Anspruchsunterstützungsstärke (Claim Support Power) aller mit dem Anspruch verbundenen Anspruchsstimmen(Claim Votes) bestimmt, je nachdem, welcher Wert kleiner ist.",
+                    "updated": 1678823005387
                 }
             ]
         },
@@ -436,6 +531,11 @@
                     "language": "TR",
                     "text": "Bir taleple ilişkili tüm Talep Oylarının Talep Destek Gücü toplamı, talebin Talep Gücünden daha az olduğunda, talep tam olarak ödenmez. Token Ödülleri, tüm Talep Oylarının toplam Talep Destek Gücü ( Claim Support Power ) ile sınırlıdır. Diğer bir deyişle, Topluluğun Talep Oyları ile karar verdiği miktar kadar tazminat ödenir.",
                     "updated": 1646739776290
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Summe der Claim Support Power aller Claim Votes, die mit einem Claim verbunden sind, geringer ist als die Claim Power des Claims, wird der Claim nicht vollständig bezahlt. Der Token Rewards -betrag ist durch die gesamte Claim Support Power aller Claim Votes begrenzt. Mit anderen Worten > Ansprüche werden bis zu dem Betrag ausgezahlt, über den die Community mit ihren Claim Votes entscheidet.",
+                    "updated": 1678823064806
                 }
             ]
         },
@@ -451,13 +551,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Когда количества Token Rewards достаточно для оплаты всех претензий, то каждая претензия оплачивается полностью, как и ожидалось. В более точных, хотя и сложных терминах, когда Token Rewards больше, чем сумма Сил поддержки требований для любого данного количества требований или сумма Claim Support Power для любого предоставленного количества требований, в зависимости от того, что меньше, каждое требование получает Token Rewards, равные его Claim Power или равные Claim Support Power связанных с ним Claim Votes, в зависимости от того, что меньше.",
+                    "text": "Когда количества Token Rewards достаточно для оплаты всех претензий, то каждая претензия оплачивается полностью, как и ожидалось. В более точных, хотя и сложных терминах, когда Token Rewards больше, чем сумма Сил поддержки требований для любого данного количества требов��ний или сумма Claim Support Power для любого предоставленного количества требований, в зависимости от того, что меньше, каждое требование получает Token Rewards, равные его Claim Power или равные Claim Support Power связанных с ним Claim Votes, в зависимости от того, что меньше.",
                     "updated": 1640326608021
                 },
                 {
                     "language": "TR",
                     "text": "Token Ödülleri tüm talepleri ödemek için yeterli olduğunda, her talep beklendiği gibi tam olarak ödenir. Daha kesin olarak, karmaşık terimlerle ifade edilirse, Token Ödülleri herhangi bir sayıdaki talep için Talep Destek Gücünün toplamından veya herhangi bir belirli sayıdaki talep için Talep Gücünün toplamından daha büyük olduğunda, hangisi daha azsa, her talep Token Ödüllerini alır. Talep Gücüne eşit veya ilgili Talep Oylarının Talep Destek Gücüne eşit (hangisi daha düşükse).",
                     "updated": 1646739826951
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Token Rewards ausreichen, um alle Ansprüche zu bezahlen, wird jeder Anspruch wie erwartet vollständig bezahlt. Präziser, wenn auch komplexer ausgedrückt > Wenn die Token Rewards größer sind als die Summe der Anspruchsunterstützungsleistung (Claim Support Power) für eine beliebige Anzahl von Ansprüchen oder die Summe der Anspruchsleistung (Claim Power) für eine beliebige Anzahl von Ansprüchen, je nachdem, welcher Wert kleiner ist, erhält jeder Anspruch die Token-Belohnungen (Token Rewards) in Höhe seiner Anspruchsleistung (Claim Power) oder in Höhe der Anspruchsunterstützungsleistung (Claim Support Power) der zugehörigen Anspruchsstimmen (Claim Votes), je nachdem, welcher Wert kleiner ist.",
+                    "updated": 1678823080557
                 }
             ]
         },
@@ -480,6 +585,11 @@
                     "language": "TR",
                     "text": "Token Ödülleri tüm talepleri ödemek için yeterli OLMADIĞINDA, mevcut Token Ödüllerini aşmadan her talep için adil bir oran ödemek için bir ayarlama yapılmalıdır. Böyle bir durumda, her talep, Token Ödüllerini aştığı miktarla orantılı olarak azaltılır. Örneğin, tüm taleplerin toplamı Token Ödüllerini %10 aşarsa, her talep %10 azalır.",
                     "updated": 1646739867144
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Token Rewards NICHT ausreichen, um alle Ansprüche zu bezahlen, muss eine Anpassung vorgenommen werden, um einen angemessenen Anteil an jedem Anspruch zu bezahlen, ohne die verfügbaren Token Rewards zu überschreiten. In einem solchen Fall wird jeder Anspruch im Verhältnis zu dem Betrag gekürzt, um den die Ansprüche die Token Rewards übersteigen. Wenn zum Beispiel die Summe aller Ansprüche die Token Rewards um 10 % übersteigt, wird jeder Anspruch um 10 % gekürzt.",
+                    "updated": 1678823197636
                 }
             ]
         }

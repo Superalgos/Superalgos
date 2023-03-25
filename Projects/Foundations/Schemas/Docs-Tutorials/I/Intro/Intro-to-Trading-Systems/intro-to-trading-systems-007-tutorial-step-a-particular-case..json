@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "Обе стратегии практически одинаковы, поскольку имеют одни и те же базовые правила срабатывания... с небольшими различиями...",
                 "updated": 1640885230836
+            },
+            {
+                "language": "NL",
+                "text": "Beide strategieën zijn vrijwel hetzelfde in die zin dat ze dezelfde basisregels voor triggering delen... met kleine verschillen...",
+                "updated": 1670791398099
+            },
+            {
+                "language": "ID",
+                "text": "Kedua strategi ini hampir sama karena memiliki aturan dasar yang sama untuk trigger... dengan sedikit perbedaan...",
+                "updated": 1674624878045
             }
         ]
     },
@@ -38,8 +48,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Más allá de las siete condiciones en común, la Steep strategy tiene un Condition adicional mientras que la estrategia Xtreme tiene tres. No analizaremos esas diferencias una a una, ¡aunque puede hacerlo si lo desea! En su lugar, revelemos el concepto subyacente detrás de las diferencias:",
-                    "updated": 1629590038879
+                    "text": "Más allá de las siete condiciones en común, la <i>Steep</i> Strategy tiene una Condition adicional mientras que la estrategia <i>Xtreme</i> tiene tres. No analizaremos esas diferencias una a una, ¡aunque puedes hacerlo si lo deseas! En su lugar, veamos el concepto subyacente detrás de las diferencias:",
+                    "updated": 1675619220513
                 },
                 {
                     "language": "DE",
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "Помимо семи общих условий, стратегия Steep имеет одно дополнительное условие, в то время как стратегия Xtreme - три. Мы не будем анализировать эти различия по одному, хотя вы можете это сделать, если захотите! Вместо этого давайте раскроем концепцию, лежащую в основе этих различий:",
                     "updated": 1640885262372
+                },
+                {
+                    "language": "NL",
+                    "text": "Naast de zeven gemeenschappelijke voorwaarden, heeft de Steep-strategie één extra voorwaarde, terwijl de Xtreme-strategie er drie heeft. We zullen die verschillen niet één voor één analyseren, hoewel u dat wel kunt doen als u dat wilt! Laten we in plaats daarvan het onderliggende concept achter de verschillen onthullen:",
+                    "updated": 1670791418437
+                },
+                {
+                    "language": "ID",
+                    "text": "Di luar tujuh kondisi yang sama, strategi Steep memiliki satu condition tambahan sedangkan strategi Xtreme memiliki tiga. Kita tidak akan menganalisis perbedaan itu satu per satu, meskipun kamu boleh melakukannya jika kamu mau! Sebagai gantinya, mari kita ungkapkan konsep dasar di balik perbedaan tersebut:",
+                    "updated": 1674624884259
                 }
             ]
         },
@@ -64,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Dentro de la situación de mercado definida por las primeras siete condiciones, la estrategia Steep se ocupa de un cierto tipo de acción del precio, el precio que cae en una curva pronunciada, mientras que la estrategia Xtreme se ocupa de la caída del precio en una curva extremadamente pronunciada.",
-                    "updated": 1629590224948
+                    "text": "Dentro de la situación de mercado definida por las primeras siete condiciones, la estrategia <i>Steep</i> se ocupa de un cierto tipo de acción del precio, el precio que cae en una curva pronunciada, mientras que la estrategia <i>Xtreme</i> se ocupa de la caída del precio en una curva extremadamente pronunciada.",
+                    "updated": 1675619258149
                 },
                 {
                     "language": "DE",
@@ -81,6 +101,16 @@
                     "language": "RU",
                     "text": "В рамках рыночной ситуации, определенной первыми семью условиями, стратегия Steep имеет дело с определенным типом ценового движения - цена падает по крутой кривой - в то время как стратегия Xtreme имеет дело с ценой, падающей по чрезвычайно крутой кривой!",
                     "updated": 1640885532337
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Binnen de marktsituatie die wordt bepaald door de eerste zeven voorwaarden, houdt de Steep-strategie zich bezig met een bepaald type prijsactie - prijsdaling op een steile curve - terwijl de Xtreme-strategie zich bezighoudt met prijsdaling op een extreem steile curve!</b>",
+                    "updated": 1670791460725
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam Situasi market yang ditentukan oleh tujuh kondisi pertama, strategi Steep berurusan dengan jenis price action tertentu—harga jatuh pada kurva yang curam—sementara strategi Xtreme berurusan dengan harga yang jatuh pada kurva yang sangat curam!",
+                    "updated": 1674624890041
                 }
             ]
         }

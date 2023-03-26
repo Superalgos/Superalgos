@@ -12,9 +12,10 @@ RUN pip3 install tabulate
 RUN pip3 install tensorboard 
 RUN pip3 install tensorflow 
 RUN pip3 install sklearn 
-RUN pip3 install gym==0.21.0 
+RUN pip3 install gym
 
 # RUN nohup bash -c "ray start --head --port 6379 --num-gpus=1 &"  && sleep 8 # will be used for ray cluster
+
 
 # RUN pip install notebook
 # RUN pip install matplotlib

@@ -342,7 +342,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     /*
                     Let's get a cool name for this node. 
                     */
-                    targetNode.name = targetNodeType + " #" + targetNodeTypeCount
+                    if(targetNode.name === undefined || targetNode.name.length === 0) {
+                        targetNode.name = targetNodeType + " #" + targetNodeTypeCount
+                    }
                     let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
                     let handle = userProfileHandle + '-' + codeName
                     /*

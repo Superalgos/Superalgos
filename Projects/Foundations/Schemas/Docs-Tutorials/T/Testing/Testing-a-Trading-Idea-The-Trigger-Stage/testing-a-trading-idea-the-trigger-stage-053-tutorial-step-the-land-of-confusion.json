@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Действительно, логично, что торговый бот оценивает только те определения, которые имеет смысл оценивать в произвольный момент времени!",
                 "updated": 1642658719194
+            },
+            {
+                "language": "ES",
+                "text": "De hecho, es lógico que el trading bot evalúe sólo las definiciones que tienen sentido evaluar en cada momento.",
+                "updated": 1679099658936
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Однако иногда это является источником путаницы! Давайте рассмотрим гипотетический сценарий!",
                     "updated": 1642658733796
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, ¡a veces esto es fuente de confusión! ¡Pongamos un escenario hipotético!",
+                    "updated": 1679099644342
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Отключите слои \"Strategies\" и \"Trigger Stages\" в менеджере слоев Simulation Objects!",
                     "updated": 1642658790034
+                },
+                {
+                    "language": "ES",
+                    "text": "Desactiva las capas \" Strategies \" y \" Trigger Stages \" en el gestor de capas Simulation Objects.",
+                    "updated": 1679099650822
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Теперь проведите указателем по свечам, начиная с 1 марта! Представьте, что вы пытаетесь проверить свои условия, но по какой-то причине они показывают значения и выделения для одних свечей, но не для других! Что-то не так с Superalgos! На самом деле нет, верно?",
                     "updated": 1642658904626
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora pasa el puntero por encima de las velas en torno al 1 de marzo. Imagina que estás intentando verificar tus condiciones, pero por alguna razón, ¡muestran valores y resaltados para algunas velas, pero no para otras! ¡Algo va mal con Superalgos! En realidad no, ¿cierto?",
+                    "updated": 1679099618520
                 }
             ]
         }

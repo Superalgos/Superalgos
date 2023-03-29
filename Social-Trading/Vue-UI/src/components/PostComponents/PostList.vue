@@ -35,10 +35,10 @@
 
 
 <script>
-//import { getFeed } from '../../services/PostService'
-import store from '../../store/index'
-import PostComponent from './PostComponent.vue'
-import PostButtonBar from './PostButtonBar.vue'
+import store from '../../store/index';
+import PostComponent from './PostComponent.vue';
+import PostButtonBar from './PostButtonBar.vue';
+import { getPosts } from '../../services/PostService';
 
 
 export default {
@@ -65,6 +65,15 @@ export default {
                 console.log("[WARN] (PostComponents/PostList.vue) The origin post is undefined.")
                 return 0;
             }
+        },
+        firstLoadPosts() {
+            if (store.state.posts.length === 0) {
+            console.log("Network node not connected yet...");
+            getPosts();
+                setTimeout(() => {
+                    this.firstLoadPosts();
+                }, 10000); // wait for 10 seconds
+            }
         }
     },
     computed: {
@@ -81,7 +90,15 @@ export default {
         }
     },
 
-    
+    created() {
+        getPosts();
+        if (store.state.posts.length === 0) {
+            console.log("Network node not connected yet...");
+            setTimeout(() => {
+                this.firstLoadPosts();
+            }, 5000); // wait for 10 seconds
+        }
+    }
 
     
     

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы пройдем пошагово через утверждение и приведем его к правильному синтаксису!",
                 "updated": 1642660856072
+            },
+            {
+                "language": "ES",
+                "text": "¡Repasaremos la declaración paso a paso y la pondremos en la sintaxis adecuada!",
+                "updated": 1679100426499
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Помните, время идет первым: в графике 1H!",
                     "updated": 1642660878963
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda, el tiempo va primero: ¡en el gráfico 1H!",
+                    "updated": 1679100443404
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Закрытие свечи меньше, чем:",
                     "updated": 1642660897026
+                },
+                {
+                    "language": "ES",
+                    "text": "El cierre de la vela es menor que:",
+                    "updated": 1679100452125
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "text": "Hareketli ortalama ( movingAverage ) - sapma ( deviation ), her ifade için zaman dilimini ilave etmeyi unutmayın:",
                     "updated": 1669664892158,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La media móvil menos la desviación, con un marco temporal definido para cada declaración:",
+                    "updated": 1679100459422
                 }
             ]
         },

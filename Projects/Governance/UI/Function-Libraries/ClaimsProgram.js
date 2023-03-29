@@ -231,11 +231,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     if (claimPowerToUse > node.payload.referenceParent.payload.tokens) {
                         claimPowerToUse = node.payload.referenceParent.payload.tokens
                     }
+                    node.payload.tokenPower = claimPowerToUse
 
                     if (countingMode === true) {
                         /*
                         Counting mode is the first round of execution and it is used to accumulate at the
-                        node being claimed all the claim poser of all cliams to that node
+                        node being claimed all the claim poser of all claims to that node
                         from any user profile. That will be used then to know how to split the reward
                         among all the claims, and to know how many claims in total there were.
                         */
@@ -293,8 +294,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
-
-                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                         if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
                         } else {
@@ -309,8 +309,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
-
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -324,7 +323,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             }
             if (totalPercentage > 100) {
                 node.payload.uiObject.setErrorMessage(
-                    'Claim Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                    'Claim Power Switching Error. Total Percentage of children nodes is greater than 100.',
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                 )
                 return
@@ -340,8 +339,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
-
-                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                         if (percentage === undefined || isNaN(percentage) || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
@@ -355,8 +353,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
-
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
                                 if (percentage === undefined || isNaN(percentage) || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
@@ -432,6 +429,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
+                node.payload.tokenPower = node.payload.claimsProgram.ownPower
 
                 node.payload.uiObject.setStatus(ownPowerText + ' Claim Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
@@ -462,6 +460,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.payload.uiObject.valueAtAngle = true
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
+                node.payload.tokenPower = programPower
 
                 node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 

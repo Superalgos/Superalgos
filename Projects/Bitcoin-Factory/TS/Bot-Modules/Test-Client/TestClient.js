@@ -63,7 +63,7 @@
                                 }
                                 async function onError(err) {
                                     SA.logger.error('Failed to send a Report to the Test Server with the Test Case Results.')
-                                    SA.logger.error('Reason why I could not deliver the Test Report:', err)
+                                    SA.logger.error('Reason why I could not deliver the Test Report: ' + err)
                                     SA.logger.error('Retrying to send the Test Report in 60 seconds...')
                                 }
                             }
@@ -71,16 +71,16 @@
                     }
 
                     async function onError(err) {
-                        SA.logger.error('Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                        SA.logger.error('Failed to Build the Model for this Test Case. Err: ' + err + '. Aborting the processing of this case and retrying the main loop in 30 seconds...')
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
                 } else {
-                    SA.logger.info('Nothing to Test', 'Retrying in 30 seconds...')
+                    SA.logger.info('Nothing to Test. Retrying in 30 seconds...')
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
             }
             async function onError(err) {
-                SA.logger.error('Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
+                SA.logger.error('Failed to get a Test Case. Err:' + err + 'Retrying in 30 seconds...')
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
         }
@@ -108,10 +108,10 @@
         axios
             .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
             .then(res => {
-                SA.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                SA.logger.info('Updating Superalgos... Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
             })
             .catch(error => {
-                SA.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                SA.logger.error('Updating Superalgos... Could not update Superalgos. Had this error: ' + error)
             })
     }
 

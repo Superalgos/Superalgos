@@ -38,8 +38,10 @@ const http = axios.create({
                 if(thisProfileData.originSocialPersonaId === store.state.profile.nodeId) {
                     store.commit("UPDATE_NAME", thisProfileData.name);
                     store.commit("UPDATE_BIO", thisProfileData.bio);
-                    store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic),
-                    store.commit("ADD_PROFILE_BANNER", thisProfileData.bannerPic)
+                    store.commit("ADD_PROFILE_IMAGE", thisProfileData.profilePic);
+                    store.commit("ADD_PROFILE_BANNER", thisProfileData.bannerPic);
+                    store.commit("SET_BLOCKCHAIN_ACCOUNT", responseArray[i].blockchainAccount);
+                    store.commit("SET_ACCOUNT_SA_BALANCE", responseArray[i].accountBalance);
                 }
 
                 // We check to see if the profile has a profile picture set and if not set a default.

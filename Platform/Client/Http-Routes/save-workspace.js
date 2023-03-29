@@ -12,7 +12,7 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
         SA.projects.foundations.utilities.httpRequests.getRequestCompressedBody(httpRequest, httpResponse, processRequest)
 
         async function processRequest(compressedBody) {
-            let fileName = unescape(requestPath[2])
+            let fileName = unescape(requestPath.splice(2).join('/'))
             try {
                 if(compressedBody === undefined) {
                     return
@@ -23,7 +23,9 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
                 let workspace = PL.projects.foundations.utilities.credentials.storeExchangesCredentials(PL.projects.foundations.utilities.credentials.storeGithubCredentials(JSON.parse(body)))
                 let fileContent = JSON.stringify(workspace, undefined, 4)
                 let fs = SA.nodeModules.fs
-                let dir = global.env.PATH_TO_MY_WORKSPACES;
+                let dirParts = filePath.split('/');
+                dirParts.pop()
+                let dir = dirParts.join('/')
 
                 /* Create Dir if it does not exist */
                 if(!fs.existsSync(dir)) {

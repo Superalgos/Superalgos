@@ -94,7 +94,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         setReferenceParentForNodeHierearchy(
             SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID
         )
-
+        await loadTemporaryTokenPower()
         await extractInfoFromUserProfiles()
         await loadUserProfilesBalances()
 
@@ -196,6 +196,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     mapArrayItem
                 )
             }
+        }
+
+        async function loadTemporaryTokenPower() {
+            /* Redistribute Token Power based on balances from earlier loads until blockchain balances will have reloaded */
+            let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
         }
 
         async function extractInfoFromUserProfiles() {
@@ -399,7 +405,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 }
             }
             /* Calculate available token power per node (incl. delegated power) and add information to node payloads */
-            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
+            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)   
         }
 
         function calculateProfileRankings() {

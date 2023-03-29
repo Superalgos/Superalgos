@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте проведем быструю проверку события Take Position Event, а затем обратимся к слону в комнате: у нас есть ошибки!",
                 "updated": 1642662586685
+            },
+            {
+                "language": "ES",
+                "text": "Hagamos una comprobación rápida del \"Take Position Event\" y luego hablemos del elefante en la habitación: ¡tenemos errores!",
+                "updated": 1679253204084
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Ранее мы упоминали, что когда либо событие взятия позиции, либо событие срабатывания триггера становится true, триггерный этап (Trigger Stage) закрывается.",
                     "updated": 1642662680696
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya hemos mencionado que cuando el evento de toma de posición o el evento de desactivación se validan como true, la etapa de activación se cierra.",
+                    "updated": 1679253197259
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Ну, мы видим закрытие Trigger Stage 28 февраля, в 9 часов... сразу после двух последовательных закрытий ниже нижней полосы! Пока все хорошо!",
                     "updated": 1642662737314
+                },
+                {
+                    "language": "ES",
+                    "text": "Bien, podemos ver el cierre de la Etapa de Disparo el 28 de Febrero, a las 9 hs... ¡justo después de dos cierres horarios consecutivos por debajo de la banda inferior! ¡Hasta aquí todo bien!",
+                    "updated": 1679253190919
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Но сразу после этого у нас возникают ошибки! Вы можете выяснить, что происходит?",
                     "updated": 1642662753145
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero tenemos errores inmediatamente después! ¿Puedes descifrar qué está pasando?",
+                    "updated": 1679253184373
                 }
             ]
         }

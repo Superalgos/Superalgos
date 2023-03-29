@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import EmojiList from '../../../utils/EmojiList';
+import EmojiReactions from '../../../utils/EmojiReactions';
 
 export default {
   components: { },
@@ -76,7 +76,7 @@ export default {
                     if (reaction[1] > 0) {
                         let reactionIndex = reaction[0]
                         let newReaction = {
-                            emoji: EmojiList[reactionIndex],
+                            emoji: EmojiReactions[reactionIndex - 1],
                             reactionCount: reaction[1]
                         }
                         reactionsArray.push(newReaction);

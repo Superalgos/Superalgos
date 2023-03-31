@@ -214,14 +214,36 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
-                    /*                    
-                        claimPowerToUse is the minimun between the Claim Power the user is assigning to 
-                        his claim, and the votes the claim have from other user profiles.
+                    /*
+                    Check if the user only wants to claim a specific share of a reward pool
                     */
-                    let claimPowerToUse = Math.min(
-                        programPower,
-                        node.payload.votingProgram.votes
-                    )
+                    let claimedShare = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'claimedShare')
+                    let claimedShareTokens
+                    if (!isFinite(claimedShare) || claimedShare < 0) {
+                        claimedShare = undefined
+                    } else {
+                        claimedShareTokens = node.payload.referenceParent.payload.tokens * claimedShare / 100
+                    }
+                                                           
+                    /*                    
+                        claimPowerToUse is the minimum between the Claim Power the user is assigning to 
+                        his claim, the votes the claim has from other user profiles, and the maximum
+                        share of tokens the user wants to claim from a pool (if defined)
+                    */
+                    let claimPowerToUse = 0
+                    if (claimedShareTokens !== undefined) {
+                        claimPowerToUse = Math.min(
+                            programPower,
+                            node.payload.votingProgram.votes,
+                            claimedShareTokens
+                        )
+                    } else {
+                        claimPowerToUse = Math.min(
+                            programPower,
+                            node.payload.votingProgram.votes
+                        )
+                    }
+
                     /*
                     If the claimPowerToUse is bigger than the token reward, then we cap it at the
                     token reward. In this way a user can put more claim power than needed and get
@@ -266,6 +288,18 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         drawClaims(node)
                         drawProgramPower(node, programPower, percentage)
                     }
+                /* Remove status display if no claim will be allocated */
+                } else if (
+                    node.payload.votingProgram?.votes === undefined ||
+                    node.payload.votingProgram?.votes <= 0 ||
+                    node.payload.referenceParent?.payload?.votingProgram?.votes === undefined ||
+                    node.payload.referenceParent?.payload?.votingProgram?.votes <= 0 ||
+                    node.payload.referenceParent?.payload?.weight === undefined ||
+                    node.payload.referenceParent?.payload?.weight === 0 ||
+                    node.payload.referenceParent?.payload?.claimsProgram?.count === undefined ||
+                    node.payload.referenceParent?.payload?.claimsProgram?.votes === undefined
+                ) {
+                    node.payload.uiObject.resetStatus()
                 }
             } else {
                 if (node.type === 'Claims Program') {
@@ -286,6 +320,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             at their config, and check that all percentages don't add more than 100.
             */
             let totalPercentage = 0
+            let totalAmount = 0
             let totalNodesWithoutPercentage = 0
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
@@ -294,12 +329,14 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
-                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
-                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                            totalPercentage = totalPercentage + percentage
+                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                        if (config?.type === "amount" && config?.value >= 0) {
+                            totalAmount = totalAmount + config.value
+                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                            totalPercentage = totalPercentage + config.value
                         } else {
                             totalNodesWithoutPercentage++
-                        }
+                        }  
                     }
                         break
                     case 'array': {
@@ -309,9 +346,11 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
-                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
                                 }
@@ -332,6 +371,17 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             if (totalNodesWithoutPercentage > 0) {
                 defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
             }
+            
+            /* If configured Token Power amounts exceed the available Token Power, determine the share by which requests need to be reduced.
+            Store the Token Power remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+            let percentagePower = 0
+            let amountShare = 1
+            if (totalAmount > programPower && totalAmount > 0) {
+                amountShare = programPower / totalAmount
+            } else {
+                percentagePower = programPower - totalAmount
+            }
+
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
                 switch (property.type) {
@@ -339,11 +389,20 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
-                        let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
-                        if (percentage === undefined || isNaN(percentage) || percentage < 0 === true) {
+                        let distributionAmount = 0
+                        let percentage = 0
+                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                        if (config?.type === "amount" && config?.value >= 0) {
+                            distributionAmount = config.value * amountShare
+                            percentage = "fixed"
+                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                            distributionAmount = percentagePower * config.value / 100
+                            percentage = config.value
+                        } else {
+                            distributionAmount = percentagePower * defaultPercentage / 100
                             percentage = defaultPercentage
                         }
-                        distributeProgramPower(childNode, programPower * percentage / 100, percentage, countingMode)
+                        distributeProgramPower(childNode, distributionAmount, percentage, countingMode)
                     }
                         break
                     case 'array': {
@@ -353,11 +412,20 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
-                                let percentage = UI.projects.governance.utilities.nodeCalculations.percentage(childNode)
-                                if (percentage === undefined || isNaN(percentage) || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
-                                distributeProgramPower(childNode, programPower * percentage / 100, percentage, countingMode)
+                                distributeProgramPower(childNode, distributionAmount, percentage, countingMode)
                             }
                         }
                         break
@@ -464,11 +532,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
                 node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
-                }
+                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, undefined)
             }
         }
     }

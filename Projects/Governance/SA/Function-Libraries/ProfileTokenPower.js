@@ -574,8 +574,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === 'Tokens Bonus') { continue }
                                 let distributionAmount = 0
                                 let percentage = 0
-                                let config = getTokenPowerRequest(childNode)
-        
+                                let config = getTokenPowerRequest(childNode)   
                                 if (config?.type === "amount" && config?.value >= 0) {
                                     distributionAmount = config.value * amountShare
                                     percentage = "fixed"
@@ -602,8 +601,9 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
+                                        let distributionAmount = 0
+                                        let percentage = 0
                                         let config = getTokenPowerRequest(childNode)
-        
                                         if (config?.type === "amount" && config?.value >= 0) {
                                             distributionAmount = config.value * amountShare
                                             percentage = "fixed"

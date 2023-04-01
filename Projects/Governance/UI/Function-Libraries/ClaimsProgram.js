@@ -258,7 +258,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     if (countingMode === true) {
                         /*
                         Counting mode is the first round of execution and it is used to accumulate at the
-                        node being claimed all the claim poser of all claims to that node
+                        node being claimed all the claim power of all claims to that node
                         from any user profile. That will be used then to know how to split the reward
                         among all the claims, and to know how many claims in total there were.
                         */
@@ -300,6 +300,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.referenceParent?.payload?.claimsProgram?.votes === undefined
                 ) {
                     node.payload.uiObject.resetStatus()
+                    drawProgramPower(node, programPower, percentage)
                 }
             } else {
                 if (node.type === 'Claims Program') {
@@ -526,13 +527,11 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
                 node.payload.tokenPower = programPower
 
                 node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, undefined)
+                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
             }
         }
     }

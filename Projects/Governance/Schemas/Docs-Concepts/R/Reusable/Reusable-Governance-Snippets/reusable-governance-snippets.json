@@ -472,8 +472,8 @@
         },
         {
             "style": "Text",
-            "text": "In this example, you would be claiming 25% of the referenced Rewards Pool.",
-            "updated": 1680368591314
+            "text": "In this example, you would be claiming 25% of the referenced Rewards Pool. The Claim Power available at the Contribution Claim Node will be capped at this level. To claim the share in full, the allocated Claim Power therefore needs to be equal or larger than the Rewards contained in the Rewards Pool, multiplied by the configured percentage.",
+            "updated": 1680445368589
         },
         {
             "style": "Block",

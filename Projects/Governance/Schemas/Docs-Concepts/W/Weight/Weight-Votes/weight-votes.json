@@ -55,6 +55,29 @@
                     "updated": 1639138682734
                 }
             ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Negative Voting"
+        },
+        {
+            "style": "Text",
+            "text": "If you believe a node has been given too much weight, you may use Weight Power also for negative voting. Weight Power marked as negative will compensate the same amount of regular Weight Power allocated by other users. To vote negatively, change the configuration of your Weight Vote node like in this example:",
+            "updated": 1680369837720
+        },
+        {
+            "style": "Json",
+            "text": "{ \"percentage\": 25, \"negative\": true }",
+            "updated": 1680369542906
+        },
+        {
+            "style": "Note",
+            "text": "Negative Voting should only be applied in exceptional cases, e.g. to counteract misconduct of other users. Please do not use Negative Voting as a standard within your Governance workflow.",
+            "updated": 1680369624478
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
         }
     ]
 }

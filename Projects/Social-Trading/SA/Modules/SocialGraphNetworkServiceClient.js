@@ -93,10 +93,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                 let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(event.fileKeys)
 
                                 if (response.result === "Ok") {
-                                    event.postText = response.postText
-                                    event.postImage = response.postImage
-                                    event.userName = response.userName
-                                    eventsWithNoProblem.push(event)
+                                    event.postText = response.postText;
+                                    event.postImage = response.postImage;
+                                    event.userName = response.userName;
+                                    event.reactions = event.originPost.reactions;
+                                    eventsWithNoProblem.push(event);
                                 }
                             } else {
                                 eventsWithNoProblem.push(event)

@@ -1199,6 +1199,13 @@
                     "functionName": "newDataMiningBotModulesStudyOutput",
                     "fileName": "StudyOutput.js",
                     "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Database Scanner",
+                    "propertyName": "scanDatabase",
+                    "functionName": "newDataMiningBotModulesScanDatabase",
+                    "fileName": "ScanDatabase.js",
+                    "folderName": "Sensor-Bot/Database-Sensor"
                 }
             ]
         },

@@ -4,7 +4,7 @@ const getFeed = async (req, res) => {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
             originSocialPersonaId: req.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
-            amountRequested: 40,
+            amountRequested: 80,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
 
@@ -57,10 +57,11 @@ const getPost = async (body, res) => {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST,
-            originSocialPersonaId: undefined,
-            targetSocialPersonaId: body?.targetSocialPersonaId,
-            targetPostHash: body?.targetPostHash,
+            originSocialPersonaId: body.originSocialPersonaId,
+            targetSocialPersonaId: body.targetSocialPersonaId,
+            targetPostHash: body.targetPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
+            fileKeys: body.fileKeys,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
@@ -199,6 +200,37 @@ const postReactions = async (body, res) => {
     }
 }
 
+const createRepost = async (body, res) => {
+    try {
+        let eventMessage;
+        let event;
+
+        eventMessage = {
+            originSocialPersonaId: body.originSocialPersonaId,
+            targetSocialPersonaId: body.targetSocialPersonaId,
+            originPostHash: body.originPostHash,
+            targetPostHash: body.targetPostHash,
+            eventType: SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST,
+            fileKeys: body.fileKeys,
+            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+            postMessage: body.postBody
+        }
+
+        event = {
+            networkService: 'Social Graph',
+            requestType: 'Event',
+            eventMessage: JSON.stringify(eventMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(event)
+        );
+    } catch (e) {
+        console.log(e);
+        return {status: 'Ko'};
+    }
+}
+
 
 module.exports = {
     getPosts,
@@ -207,5 +239,6 @@ module.exports = {
     getReplies,
     createReply,
     getPost,
-    postReactions
+    postReactions,
+    createRepost
 };

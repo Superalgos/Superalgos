@@ -10,13 +10,13 @@
         <!-- Like Post Button -->
         <p id="like-comment-btn" class="post-button-bar-buttons" v-on:click="reactPost">
             <img id="like-button" src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
-            &nbsp;&nbsp; <strong> {{reactions[0][1]}} </strong>
+            &nbsp;&nbsp; <strong> {{getReactions[0][1]}} </strong>
         </p>
 
         <!-- Love Post Button -->
             <p id="love-post-btn" class="post-button-bar-buttons" v-on:click="reactPost">
                 <img id="love-button" src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
-                &nbsp;&nbsp; <strong> {{reactions[1][1]}} </strong>
+                &nbsp;&nbsp; <strong> {{getReactions[1][1]}} </strong>
             </p>
                 
 
@@ -27,7 +27,7 @@
             </p>
                 
         <!-- Repost Post Button -->
-            <p class="post-button-bar-buttons"       v-on:click="openPostComments">
+            <p class="post-button-bar-buttons"       v-on:click="createRepost">
                 <img src="../../assets/iconmonstrRepostIcon.png" alt="Comment" class="post-footer-buttons">
                 &nbsp;Repost
             </p>
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { reactedPost, getReplies } from '../../services/PostService';
+import { reactedPost, getReplies, repostPost, getFeed, getPost } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
 import ReactionPicker from '../EmojiComponents/ReactionPicker.vue';
@@ -54,7 +54,7 @@ import ReactionPicker from '../EmojiComponents/ReactionPicker.vue';
 export default {
   components: { ReactionPicker },
     name: "post-button-bar",
-    props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId'],
+    props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId', 'fileKeys', 'targetPostHash', 'postersName'],
     data() {
         return {
             showEmojiReactionTable: false,
@@ -72,8 +72,62 @@ export default {
                 originPostHash: this.originPostHash,
                 originSocialPersonaId: this.originSocialPersonaId,
                 commentCount: this.commentCount,
-                reactions: this.reactions
+                reactions: this.reactions,
+                postersName: this.postersName,
             }
+
+
+            let messageP = {
+                    originSocialPersonaId: this.originSocialPersonaId,
+                    originPostHash: this.originPostHash,
+                    targetSocialPersonaId: this.originSocialPersonaId,
+                    targetPostHash: this.targetPostHash,
+                    fileKeys: this.fileKeys
+                }
+
+
+            getPost(messageP)
+                    .then(response => {
+                        let r = response;
+                        
+                        if (r.data.data !== undefined) {
+                            this.postMessage = r.data.data.postText;
+                        
+
+                        if (r.data.data.originSocialPersona !== undefined) {
+                            let originSocialPersonaData = r.data.data.originSocialPersona
+
+                            this.posterName = originSocialPersonaData.socialPersonaHandle
+
+                            let thisPostData = {
+                                userName: this.posterName,
+
+                                postBody: this.postMessage,
+                                isRepost: true,
+
+                                repostReactions: r.data.data.reactions,
+
+                                reactions: this.reactions,
+
+                                repostTimestamp: r.data.data.timestamp
+                            }
+
+                            postCommentProps.repostTimestamp = thisPostData.repostTimestamp;
+
+                            postCommentProps.userName = thisPostData.userName;
+
+                            postCommentProps.postBody = thisPostData.postBody;
+
+                            postCommentProps.isRepost = true;
+
+                            postCommentProps.repostReactions = thisPostData.repostReactions;
+
+                            postCommentProps.reactions = thisPostData.reactions
+
+                            store.commit("ADD_REPOST_TEXT_NAME", thisPostData);
+                            }
+                        }
+                    });
 
             store.commit("SET_POST_COMMENT_PROPS", postCommentProps);
             store.commit("SHOW_POSTS_COMMENTS", true);
@@ -164,8 +218,42 @@ export default {
         // This closes the emojiPicker component after reaction is sent.
         handleReactionSent() {
             this.showEmojiReactionTable = false;
+        },
+
+        createRepost() {
+
+            let message = {
+                originSocialPersonaId: this.getSocialPersonaId,
+                targetSocialPersonaId: this.originSocialPersonaId,
+                originPostHash: this.originPostHash + store.state.profile.name,
+                targetPostHash: this.originPostHash,
+                fileKey: this.fileKeys,
+                posterName: store.state.profile.name
+            }
+
+            repostPost(message)
+                .then(response => {
+                    console.log(response)
+                    if (response.result === 'Ok') {
+                        getFeed();
+                    }
+                });
         }
     },
+    computed: {
+        getSocialPersonaId() {
+            return store.state.profile.nodeId;
+        },
+    // TODO REVIEW
+        getReactions() {
+            if (this.reactions !== undefined) {
+                return this.reactions
+            } else {
+                let emptyReactionArray = [ [0, 0], [1, 0] ];
+                return emptyReactionArray;
+            }
+        }
+    }
 }
 </script>
 

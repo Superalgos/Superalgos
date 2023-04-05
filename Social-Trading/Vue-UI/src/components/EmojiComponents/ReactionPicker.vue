@@ -8,7 +8,7 @@
 
 <script>
 import store from '../../store/index';
-import { reactedPost, getPosts } from '../../services/PostService';
+import { reactedPost, getFeed } from '../../services/PostService';
 import EmojiReactions from '../../../utils/EmojiReactions';
 
 export default {
@@ -40,7 +40,7 @@ data() {
                 // Check for Success
                 if (responseData.result === "Ok") {
                     this.$emit('reaction-sent');
-                    getPosts();
+                    getFeed();
                 }
             });
         }

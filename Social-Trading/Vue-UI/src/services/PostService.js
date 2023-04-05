@@ -10,6 +10,8 @@ const http = axios.create({
 });
 
 
+
+    /* Used for creating new posts */
     async function createPost(body) {
         return http.post('/posts', body)
                 .then(response => {
@@ -18,6 +20,8 @@ const http = axios.create({
 
     }
 
+
+    /* Used to get past 20 posts from a User */
     async function getPosts() {
         return http.get('/posts')
                 .then(response => {
@@ -32,17 +36,19 @@ const http = axios.create({
                 });
     }
 
+
+    /* Used to get a paticular post from a user */
     async function getPost(queryParams) {
-        return http.get('/posts/post', queryParams)
+        return http.get('/posts/post', {params: queryParams})
             .then(response => {
-                return response.data
+                console.log("RESPONSE IS BACK");
+                return response
             });
     }
 
     // Working 
     // Returns all activity, posts, likes, reposts, loves, ect.
     // Can be sorted by eventType for conditional displaying.
-    // Full array of responses is stored in store under "posts".
     async function getFeed() {
         return  http.get('/posts/feed')
                 .then(response => {
@@ -50,10 +56,13 @@ const http = axios.create({
                     let postsToStore = []
                     for (let i = 0; i < postsArray.length; i++) {
                         let thisPost = postsArray[i];
-                        postsToStore.push(thisPost)
+
+                        if (thisPost.eventType === 10 || 
+                            thisPost.eventType === 12 ) {
+                            postsToStore.push(thisPost)
+                        }
                     }
                     store.commit("ADD_POST", postsToStore)
-                    console.log(postsToStore)
                 });
     }
 
@@ -76,14 +85,27 @@ const http = axios.create({
                 })
     }
 
+
+    /* Used to get the replies from a post */
     async function getReplies(queryParams) {
         return http.get('/posts/replies', {params: queryParams}).then(result => {
             return result;
         })
     }
 
+
+    /* Used to reply to a post */
     async function createReply(body) {
         return http.post('/posts/replies', body);
+    }
+
+
+    /* Used to re-post a post */
+    async function repostPost(body) {
+        return http.post('/posts/repost', body)
+            .then(result => {
+                return result.data;
+            });
     }
 
 export {
@@ -93,5 +115,6 @@ export {
     reactedPost,
     getFeed,
     createReply,
-    getReplies
+    getReplies,
+    repostPost
 }

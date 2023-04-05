@@ -58,8 +58,8 @@ const getPost = async (body, res) => {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST,
             originSocialPersonaId: body.originSocialPersonaId,
-            targetSocialPersonaId: body?.targetSocialPersonaId,
-            targetPostHash: body?.targetPostHash,
+            targetSocialPersonaId: body.targetSocialPersonaId,
+            targetPostHash: body.targetPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             fileKeys: body.fileKeys,
             amountRequested: 20,
@@ -208,7 +208,7 @@ const createRepost = async (body, res) => {
         eventMessage = {
             originSocialPersonaId: body.originSocialPersonaId,
             targetSocialPersonaId: body.targetSocialPersonaId,
-            originPostHash: body?.originPostHash,
+            originPostHash: body.originPostHash,
             targetPostHash: body.targetPostHash,
             eventType: SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST,
             fileKeys: body.fileKeys,

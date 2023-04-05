@@ -71,7 +71,6 @@ export default {
         getPostBody() {
             if (this.postData.postBody !== undefined) {
                 return this.postData.postBody;
-            } else {
             }
         },
         getPostReactions() {

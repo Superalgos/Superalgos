@@ -40,7 +40,8 @@ export default createStore({
     users: undefined,
     posts: [],
     followers: [],
-    following: []
+    following: [],
+    repostData: undefined
   },
   getters: {
     post(state) {
@@ -149,6 +150,10 @@ export default createStore({
     },
     SET_EMOJI_ORIGIN_POST_HASH(state, hash) {
       state.emojiOriginPostHash = hash;
+    },
+    // Store the repost information.
+    ADD_REPOST_TEXT_NAME(state, repostData) {
+      state.repostData = repostData;
     }
     
   },

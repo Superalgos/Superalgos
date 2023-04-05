@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Помните, что мы берем позицию на закрытии свечи 1H, когда событие взятия позиции становится истинным.",
                 "updated": 1642776955600
+            },
+            {
+                "language": "ES",
+                "text": "Recuerde que estamos tomando la posición al cierre de la vela 1H, siempre que el evento de tomar posición se valide como verdadero.",
+                "updated": 1680704383924
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Какова же будет разумная ставка?",
                     "updated": 1642776963856
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cuál sería entonces una tarifa razonable?",
+                    "updated": 1680704447910
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Ну... хорошим выбором будет ставка на момент закрытия свечи, верно? Тогда наша формула целевой ставки будет выглядеть следующим образом:",
                     "updated": 1642776978088
+                },
+                {
+                    "language": "ES",
+                    "text": "Bueno... una buena opción sería el tipo al cierre de la vela, ¿no? Nuestra fórmula de target rate sería entonces:",
+                    "updated": 1680704497929
                 }
             ]
         },
@@ -92,6 +107,11 @@
                     "language": "RU",
                     "text": "Продолжайте редактировать формулу с помощью приведенного выше синтаксиса!",
                     "updated": 1642776986711
+                },
+                {
+                    "language": "ES",
+                    "text": "Adelante, edita la fórmula con la sintaxis anterior.",
+                    "updated": 1680704519019
                 }
             ]
         }

@@ -6,8 +6,13 @@ const getPosts = async (req, res) => {
 
 };
 const getPost = async (req, res) => {
-    const result = await postService.getPost(req.query);
-    res.send(result);
+    try {
+        const result = await postService.getPost(req.query);
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+    }
+    
 };
 
 const getFeed = async (req, res) => {
@@ -51,6 +56,16 @@ const postReactions = async (req, res) => {
     }
 };
 
+const createRepost = async (req, res) => {
+    console.log(req.body)
+    try {
+        const result = await postService.createRepost(req.body);
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 module.exports = {
     getPosts,
@@ -59,5 +74,6 @@ module.exports = {
     getReplies,
     createReply,
     getPost,
-    postReactions
+    postReactions,
+    createRepost
 };

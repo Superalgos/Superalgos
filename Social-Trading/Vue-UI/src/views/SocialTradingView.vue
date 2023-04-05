@@ -87,7 +87,10 @@
             </div>
             <!-- Post Comments replace Post list here -->
             <div id="post-comments-main-view" class="social-main-view content-container" v-if="showPostComments">
-                <post-comments :postData="postData" />
+                <post-comments
+                    :postData="postData"
+                    :repostData="getRepostData"
+                />
             </div>
             <!-- Follow Panel -->
             <div>
@@ -110,7 +113,7 @@
 <script>
 import PostList from '../components/PostComponents/PostList.vue';
 import store from '../store/index'
-import { createPost, getPosts } from '../services/PostService'
+import { createPost, getFeed } from '../services/PostService'
 import FollowPanel from '../components/FollowComponents/FollowPanel.vue';
 import WalletPanel from '../components/WalletComponents/WalletPanel.vue';
 import SettingsPanel from '../components/SettingsComponents/SettingsPanel.vue';
@@ -156,7 +159,7 @@ export default {
             createPost(message)
                 .then(response => {
                     this.postBody = '';
-                    getPosts();
+                    getFeed();
                     store.commit("ADD_POST_IMAGE", "");
                     let postMessage = document.getElementById("new-post-input");
                     postMessage.innerText = "";
@@ -167,7 +170,7 @@ export default {
         scrollUp() {
             window.scrollTo(window.innerHeight, 0);
             if (store.state.showPostComments) {
-                getPosts();
+                getFeed();
                 store.commit("SHOW_POSTS_COMMENTS", false);
             }
         },
@@ -259,6 +262,10 @@ export default {
         },
         usersBannerImageSrc() {
             return store.state.headerProfileData.bannerPic;
+        },
+        getRepostData() {
+            this.repostData = store.state.repostData;
+            return store.state.repostData;
         }
     },
     // The below are used to keep things updated. 
@@ -286,6 +293,9 @@ export default {
             this.postData = store.state.postCommentProps
             console.log("THIS POST DATA")
             console.log(this.postData)
+        },
+        getRepostData(newValue, oldValue) {
+            this.repostData = store.state.repostData
         }
     }
 

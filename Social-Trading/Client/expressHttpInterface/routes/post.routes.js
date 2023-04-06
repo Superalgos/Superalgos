@@ -31,4 +31,8 @@ router
     .route('/replies')
     .post(postController.createReply);
 
+router
+    .route('/repost')
+    .post(postController.createRepost);
+
 module.exports = router;

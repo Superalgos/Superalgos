@@ -259,6 +259,15 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     return
                                 }
 
+                                /*
+                                    Uncomment the following and input a username to specifically connect to that users network node.
+                                    NOTE: This is for Social-Trading-App Testing.
+                                */
+                                // if (userProfile.name !== "theblockchainarborist") {
+                                //     return
+                                // }
+
+
                                 try {
                                     let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
                                     p2pNetworkNode.initialize(

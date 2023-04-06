@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Mensen kunnen toegang krijgen tot deze informatie door een coole truc te gebruiken die ervoor zorgt dat de grafiekruimte interageert met de ontwerpruimte!",
                 "updated": 1667125252947
+            },
+            {
+                "language": "FR",
+                "text": "Les humains peuvent accéder à ces informations en utilisant un truc sympa qui fait interagir l'espace graphique avec l'espace de conception !",
+                "updated": 1676958584522
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Om deze truc te gebruiken, deed ik het volgende:",
                     "updated": 1667125278411
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour utiliser cette astuce, j'ai simplement fait ce qui suit :",
+                    "updated": 1676958599553
                 }
             ]
         },
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Splits het scherm in tweeën en trek de schuifregelaar omhoog zodat we beide ruimtes tegelijkertijd kunnen zien.",
                     "updated": 1667125290506
+                },
+                {
+                    "language": "FR",
+                    "text": "Divisez l'écran en deux en tirant le curseur vers le haut afin de pouvoir voir les deux espaces en même temps.",
+                    "updated": 1676958632767
                 }
             ]
         },
@@ -176,6 +191,11 @@
                     "language": "NL",
                     "text": "Schakel de laag Current Position in de laagmanager van de Trading Engine in. Ik heb deze laag gekozen omdat deze overeenkomt met dit gedeelte van de hiërarchie... tradingEngine.tradingCurrent.position, weet je nog?",
                     "updated": 1667125361083
+                },
+                {
+                    "language": "FR",
+                    "text": "Activez le calque Current Position dans le gestionnaire de calques du moteur de trading. J'ai choisi ce calque car il correspond à cette section de la hiérarchie... tradingEngine.tradingCurrent.position, vous vous souvenez?",
+                    "updated": 1676958695381
                 }
             ]
         },
@@ -191,8 +211,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora, desliza el puntero del mouse sobre las velas en las que se toma la posición y vea qué sucede en los nodos de la izquierda...",
-                    "updated": 1627315168446,
+                    "text": "Ahora, desliza el puntero del mouse sobre las velas en las que se toma la posición y observa qué sucede en los nodos de la izquierda...",
+                    "updated": 1675361240283,
                     "style": "Callout"
                 },
                 {
@@ -219,6 +239,11 @@
                     "language": "NL",
                     "text": "Schuif nu de muisaanwijzer over de kaarsen waarop de positie wordt ingenomen en kijk wat er gebeurt op de knooppunten aan de linkerkant...",
                     "updated": 1667125396763
+                },
+                {
+                    "language": "FR",
+                    "text": "Maintenant, faites glisser le pointeur de la souris sur les bougies sur lesquelles la position est prise et voyez ce qui se passe sur les nœuds à gauche...",
+                    "updated": 1676958719089
                 }
             ]
         }

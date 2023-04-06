@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Laten we een ander voorbeeld bekijken om het idee van de constante feedback cyclus te laten bezinken voordat we verder gaan!",
                 "updated": 1667125514898
+            },
+            {
+                "language": "FR",
+                "text": "Prenons un autre exemple pour faire comprendre la notion de boucle de rétroaction constante avant de poursuivre !",
+                "updated": 1676958756694
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Dit is de gegevensstructuur waarin informatie over limiet aankooporders wordt bewaard.",
                     "updated": 1667125539168
+                },
+                {
+                    "language": "FR",
+                    "text": "Il s'agit de la structure de données où sont conservées les informations relatives aux ordres d'achat limite.",
+                    "updated": 1676958780738
                 }
             ]
         },
@@ -104,8 +114,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Vaya hacia abajo y encienda el Limit Buy Orders layer. Ahora deslice el mouse sobre algunas de las órdenes de compra y verifique el efecto en los nodos en el espacio de diseño.",
-                    "updated": 1624464208051,
+                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Ve hacia abajo y enciende el Limit Buy Orders layer. Ahora desliza el mouse sobre algunas de las órdenes de compra y verifica el efecto en los nodos en el espacio de diseño.",
+                    "updated": 1675361310549,
                     "style": "Callout"
                 },
                 {
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Ga naar de lagenmanager van de Trading Engine in de grafieken (de tweede geteld van links). Scroll naar beneden en schakel de laag Limit Buy Orders in. Veeg nu met de muisaanwijzer over enkele kooporders en controleer het effect op de knooppunten in de ontwerpruimte.",
                     "updated": 1667125594145
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez dans le gestionnaire des calques du Trading Engine sur les graphiques (le deuxième en partant de la gauche). Faites défiler vers le bas et activez le calque Limit Buy Orders. Passez maintenant le pointeur de la souris sur quelques-uns des ordres d'achat et vérifiez l'effet sur les nœuds de l'espace de design.",
+                    "updated": 1676958831107
                 }
             ]
         },
@@ -147,8 +162,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el trading bot?",
-                    "updated": 1624464130332,
+                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el Trading Bot?",
+                    "updated": 1675361326335,
                     "style": "Text"
                 },
                 {
@@ -175,6 +190,11 @@
                     "language": "NL",
                     "text": "Kunt u zich de implicaties voorstellen van het hebben van dit niveau van controle over de gegevens die worden beheerd door de handelsbot?",
                     "updated": 1667125616895
+                },
+                {
+                    "language": "FR",
+                    "text": "Pouvez-vous imaginer les implications d'un tel niveau de contrôle sur les données gérées par le robot de trading ?",
+                    "updated": 1676958845762
                 }
             ]
         }

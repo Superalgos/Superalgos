@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Así es como el Trading Engine hace que toda la información sea procesada por el Trading Bot available to trading systems.",
-                "updated": 1624461890814,
+                "text": "Así es como el Trading Engine hace que toda la información disponible en el Trading System sea procesada por el Trading Bot.",
+                "updated": 1675361119844,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Dit is hoe de Trading Engine elk stukje informatie dat door de Trading Bot wordt verwerkt, beschikbaar maakt voor handelssystemen.",
                 "updated": 1667128540621
+            },
+            {
+                "language": "FR",
+                "text": "C'est ainsi que le moteur de trading met à la disposition des systèmes de trading toutes les informations traitées par le Trading Bot.",
+                "updated": 1676958501869
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Er is een pad naar elk stukje gegeven en door het pad te kennen, heeft u toegang tot de gegevens vanuit elke Formula of Condition in een Trading Strategy. Laten we een snelle controle uitvoeren:",
                     "updated": 1667128606185
+                },
+                {
+                    "language": "FR",
+                    "text": "Il existe un chemin d'accès à chaque donnée, et en connaissant ce chemin, vous pouvez accéder aux données à partir de n'importe quelle formule ou condition dans une stratégie de trading. Faisons une vérification rapide :",
+                    "updated": 1676958521184
                 }
             ]
         },
@@ -104,8 +114,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Abre el menú del nodo Exit Target Ratea la izquierda y haga clic en Copy Node Path. Ahora, abra un editor de texto y pegue lo que copió.",
-                    "updated": 1624463350863,
+                    "text": "Accede al menú del nodo Exit Target Rate, a la izquierda, y haz clic en \"Copiar ruta de nodo\". Ahora, abre un editor de texto externo y pega lo que has copiado.",
+                    "updated": 1675361187678,
                     "style": "Callout"
                 },
                 {
@@ -132,6 +142,11 @@
                     "language": "NL",
                     "text": "Ga naar het menu van het Exit Target Rate knooppunt aan de linkerkant en klik op \"Copy node path\". Open nu een externe tekstverwerker en plak wat u heeft gekopieerd.",
                     "updated": 1667125163690
+                },
+                {
+                    "language": "FR",
+                    "text": "Accédez au menu du nœud Exit Target Rate à gauche, et cliquez sur \"Copy node path\". Maintenant, ouvrez un éditeur de texte externe et collez ce que vous avez copié.",
+                    "updated": 1676958545023
                 }
             ],
             "updated": 1636911911813
@@ -176,6 +191,11 @@
                     "language": "NL",
                     "text": "OK! Dit is hoe formules en voorwaarden toegang krijgen tot de informatie... Hoe zit het met mensen?",
                     "updated": 1667125181913
+                },
+                {
+                    "language": "FR",
+                    "text": "Ok ! C'est ainsi que les formules et les conditions accèdent à l'information... Et pour les humains ?",
+                    "updated": 1676958560648
                 }
             ]
         }

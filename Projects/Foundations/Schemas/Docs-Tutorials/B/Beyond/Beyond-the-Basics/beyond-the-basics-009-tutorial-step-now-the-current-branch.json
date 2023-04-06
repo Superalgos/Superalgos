@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El siguiente en la línea es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
-                    "updated": 1628122656402,
+                    "text": "El siguiente paso es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
+                    "updated": 1675451108732,
                     "style": "Text"
                 },
                 {
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando cambias de rama, la app ejecuta una serie de comandos de Git que descargan el software de la rama plugins-docs de tu fork. ¡El software actual será reemplazado en tu disco!Deberás cerrar la app después de cambiar. ¡Veamos unas cosas antes de continuar!",
-                    "updated": 1628123112818,
+                    "text": "Cuando cambies de rama, la aplicación ejecutará una serie de comandos Git que descargarán el software de la rama \"Develop\" de tu ramificación (Fork). El software actual será reemplazado en tu disco. Por esta razón, tendrás que cerrar la aplicación después de cambiar. Pero vamos a discutir un par de cosas más antes de continuar.",
+                    "updated": 1675451174660,
                     "style": "Text"
                 },
                 {

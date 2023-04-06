@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Поздравляем... вы дошли до конца этого руководства!",
                 "updated": 1643091529294
+            },
+            {
+                "language": "NL",
+                "text": "Gefeliciteerd... je hebt het einde van deze zelfstudie bereikt!",
+                "updated": 1676128904779
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Вы можете вернуться к этому уроку в любой момент. Если вы выберете в меню опцию Play, вы начнете с самого начала. Если вы выберете опцию Resume, то начнете с того места, где остановились в последний раз или пропустили шаг.",
                     "updated": 1643091555511
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt deze zelfstudie op elk moment opnieuw bekijken. Als u de optie Play in het menu selecteert, begint u vanaf het begin. Als u in plaats daarvan de optie Resume selecteert, begint u waar u het laatst bent gebleven of waar u voor het laatst een stap hebt overgeslagen.",
+                    "updated": 1676128968821
                 }
             ]
         }

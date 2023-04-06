@@ -28,6 +28,11 @@
                 "language": "ID",
                 "text": "Manage Stage memungkinkan pengelolaan target stop loss dan take profitmu secara bertahap. Mari kita lihat bagaimana tampilannya dalam simulasi...",
                 "updated": 1673950248747
+            },
+            {
+                "language": "ES",
+                "text": "El Manage Stage permite la gestión de tus objetivos de Stop Loss y Take Profit por fases. Veamos cómo se ve en las simulaciones...",
+                "updated": 1675467174643
             }
         ]
     },
@@ -56,6 +61,11 @@
                     "language": "ID",
                     "text": "Aktifkan layer \"Stop Loss\" dan \"Take Profit\" di manajer layer Simulation Objects!",
                     "updated": 1673950256897
+                },
+                {
+                    "language": "ES",
+                    "text": "Active las capas \"Stop Loss\" y \"Take Profit\" en el gestor de capas de Simulation Objects.",
+                    "updated": 1675467191613
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "ID",
                     "text": "Mungkin sudah cukup jelas, bukan? Ikon Phase menandai pergantian fase, dengan demikian, Formula yang digunakan untuk menentukan setiap target.",
                     "updated": 1673950264358
+                },
+                {
+                    "language": "ES",
+                    "text": "Probablemente se explica por sí mismo, ¿verdad? El icono de Fase (Phase) marca el cambio de fases, por lo tanto, de la Fórmula utilizada para determinar cada objetivo.",
+                    "updated": 1675467228214
                 }
             ]
         },
@@ -108,6 +123,11 @@
                     "language": "ID",
                     "text": "Ini adalah fitur yang luar biasa saat merancang strategi, karena kamu benar-benar dapat melihat apa yang dilakukan formula, dan bagaimana fasenya berubah!",
                     "updated": 1673950275126
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es una característica fantástica a la hora de diseñar estrategias, ya que puedes ver literalmente lo que hace la fórmula, ¡y cómo cambian las fases!",
+                    "updated": 1675467252178
                 }
             ]
         }

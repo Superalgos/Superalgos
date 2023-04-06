@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
-                "updated": 1628032498537,
+                "text": "¿Te preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
+                "updated": 1675378698039,
                 "style": "Definition"
             },
             {
@@ -56,8 +56,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos le permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
-                    "updated": 1628032719618,
+                    "text": "Superalgos te permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
+                    "updated": 1675378714251,
                     "style": "Text"
                 },
                 {

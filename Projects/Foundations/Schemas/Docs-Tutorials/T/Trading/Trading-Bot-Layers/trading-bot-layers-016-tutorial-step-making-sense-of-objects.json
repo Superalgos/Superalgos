@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Layers pada layer manager di Simulation Objects berfitur pada representasi visual dari data yang membentuk simulasi.",
                 "updated": 1673881633623
+            },
+            {
+                "language": "ES",
+                "text": "Las capas del gestor de capas Simulation Objects presentan representaciones visuales de los datos que componen las simulaciones.",
+                "updated": 1675466660540
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "ID",
                     "text": "Dengan kata lain, masing-masing layer ini merender grafik di atas chart yang membantu kita memvisualisasikan—oleh karena itu, lebih memahami—apa yang terjadi selama trading session.",
                     "updated": 1673881640485
+                },
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, cada una de estas capas representa dibujos sobre los gráficos que nos ayudan a visualizar -y, por tanto, a comprender mejor- lo que ocurre durante una sesión de trading.",
+                    "updated": 1675466378019
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "ID",
                     "text": "Setiap layer dapat menampilkan panel plotter yang biasanya menampilkan hard data yang terkait dengan konsep yang diwakili oleh layer tertentu.",
                     "updated": 1673881647083
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada capa puede presentar paneles de gráficos que suelen mostrar los datos duros asociados al concepto representado por la capa en particular.",
+                    "updated": 1675466438192
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "ID",
                     "text": "Perhatikan bagaimana data di panel menjadi terlihat hanya ketika pointer mouse terletak di dalam candle yang diterima oleh objek.",
                     "updated": 1673881653845
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa cómo los datos del panel sólo se hacen visibles cuando el puntero del ratón se sitúa dentro de las velas engullidas por el objeto.",
+                    "updated": 1675466452908
                 }
             ]
         }

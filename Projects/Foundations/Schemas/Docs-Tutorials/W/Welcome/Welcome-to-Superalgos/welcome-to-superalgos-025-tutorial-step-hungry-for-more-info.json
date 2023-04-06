@@ -136,8 +136,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Definition: describe que es o que hace el nodo",
-                    "updated": 1618437935444,
+                    "text": "Definición: describe que es o que hace el nodo",
+                    "updated": 1675206978851,
                     "style": "List"
                 },
                 {
@@ -192,8 +192,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Content: describe como funciona el nodo",
-                    "updated": 1618437948010,
+                    "text": "Contenido: describe como funciona el nodo",
+                    "updated": 1675206986991,
                     "style": "List"
                 },
                 {
@@ -249,8 +249,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Configuration: Algunos nodos pueden tenerla",
-                    "updated": 1618437961538,
+                    "text": "Configuración: Algunos nodos pueden tenerla",
+                    "updated": 1675206997938,
                     "style": "List"
                 },
                 {
@@ -306,8 +306,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Technical: El resto de la info es de caracter técnico, orientada a desarrolladores",
-                    "updated": 1618438001044,
+                    "text": "Técnico: El resto de la info es de caracter técnico, orientada a desarrolladores",
+                    "updated": 1675207010534,
                     "style": "List"
                 },
                 {

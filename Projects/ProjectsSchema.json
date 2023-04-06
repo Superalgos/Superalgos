@@ -873,6 +873,12 @@
             ],
             "utilities": [
                 {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentialsFunctions",
+                    "functionName": "newFoundationsUtilitiesCredentialsFunctions",
+                    "fileName": "CredentialsFunctions.js"
+                },
+                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -1678,6 +1684,11 @@
                     "name": "Chains",
                     "propertyName": "chains",
                     "functionName": "newGovernanceUtilitiesChains"
+                },
+                {
+                    "name": "Node Calculations",
+                    "propertyName": "nodeCalculations",
+                    "functionName": "newGovernanceUtilitiesNodeCalculations"
                 }
             ],
             "spaces": [
@@ -1710,6 +1721,14 @@
             ]
         },
         "SA": {
+            "functionLibraries": [
+                {
+                    "name": "Profile Token Power",
+                    "propertyName": "profileTokenPower",
+                    "functionName": "newGovernanceFunctionLibraryProfileTokenPower",
+                    "fileName": "ProfileTokenPower.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Signing Accounts",
@@ -1722,6 +1741,18 @@
                     "propertyName": "balances",
                     "functionName": "newGovernanceUtilitiesBalances",
                     "fileName": "Balances.js"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesSAValidations",
+                    "fileName": "Validations.js"
+                },
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenpower",
+                    "functionName": "newGovernanceUtilitiesTokenPower",
+                    "fileName": "TokenPower.js"
                 }
             ]
         },

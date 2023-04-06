@@ -8,13 +8,13 @@
         "translations": [
             {
                 "language": "TR",
-                "text": "Özet: Bu veri madeni Williams Timsah (Alligator) göstergesinden oluşmaktadır",
-                "updated": 1644587038398
+                "text": "Bu veri madeni Williams Alligator göstergesinden oluşmaktadır",
+                "updated": 1654392675567
             },
             {
-                "language": "RU",
-                "text": "Этот источник данных состоит из индикатора Williams Alligator",
-                "updated": 1646896227169
+                "language": "DE",
+                "text": "Diese Datenmine besteht aus dem Indikator Williams Alligator.",
+                "updated": 1676572826676
             }
         ]
     },
@@ -26,8 +26,9 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Timsah (Alligator)",
-                    "updated": 1644587048323
+                    "text": "Timsah",
+                    "updated": 1654392681155,
+                    "style": "Title"
                 }
             ]
         },
@@ -38,13 +39,14 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Timsah (Alligator) göstergesi üç düzleştirilmiş hareketli ortalama (SMA) kullanır, ancak bunun için sıradan SMA yerine dudaklar için EMA kullanır.",
-                    "updated": 1644587056533
+                    "text": "Timsah göstergesi üç düzleştirilmiş hareketli ortalama (SMA) kullanır, ancak bunun için sıradan SMA yerine dudaklar için EMA kullanır.",
+                    "updated": 1654392686751,
+                    "style": "Text"
                 },
                 {
-                    "language": "RU",
-                    "text": "Индикатор Alligator использует три сглаженные скользящие средние (SMA), но вместо обычной SMA для этого индикатора используется EMA для губ (Lips).",
-                    "updated": 1646896289108
+                    "language": "DE",
+                    "text": "Der Alligator-Indikator verwendet drei geglättete gleitende Durchschnitte (SMA), aber anstelle des gewöhnlichen SMA für diesen verwendet man EMA für die Lippen.",
+                    "updated": 1676572853713
                 }
             ]
         },
@@ -60,12 +62,13 @@
                 {
                     "language": "TR",
                     "text": "Standart Parametreler:",
-                    "updated": 1644587083341
+                    "updated": 1654392692369,
+                    "style": "Text"
                 },
                 {
-                    "language": "RU",
-                    "text": "Стандартные параметры:",
-                    "updated": 1646896274406
+                    "language": "DE",
+                    "text": "Standard-Parameter:",
+                    "updated": 1676572878658
                 }
             ]
         },
@@ -76,7 +79,7 @@
                 {
                     "language": "TR",
                     "text": "Dudaklar: EMA 5",
-                    "updated": 1654392657725,
+                    "updated": 1654392698125,
                     "style": "List"
                 }
             ]
@@ -88,7 +91,7 @@
                 {
                     "language": "TR",
                     "text": "Dişler: SMA 9",
-                    "updated": 1654392663210,
+                    "updated": 1654392703584,
                     "style": "List"
                 }
             ]
@@ -100,7 +103,7 @@
                 {
                     "language": "TR",
                     "text": "Çene: SMA 13",
-                    "updated": 1654392668951,
+                    "updated": 1654392708911,
                     "style": "List"
                 }
             ]

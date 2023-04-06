@@ -26,8 +26,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que ha visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
-                "updated": 1668190702123
+                "text": "Ahora que has visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
+                "updated": 1675205794856
             },
             {
                 "language": "IT",
@@ -69,8 +69,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si no está familiarizado con este indicador, merece la pena que dedique unos minutos a leer las reglas,",
-                    "updated": 1668190713896
+                    "text": "Si no estas familiarizado con este indicador, merece la pena que dediques unos minutos a leer las reglas,",
+                    "updated": 1675205786194
                 },
                 {
                     "language": "IT",
@@ -155,6 +155,11 @@
                     "language": "ID",
                     "text": "Tolong, baca apa yang dikatakan John Bollinger tentang bagaimana menafsirkan indikator populer ini!",
                     "updated": 1674690470937
+                },
+                {
+                    "language": "ES",
+                    "text": "Por favor, lee lo que John Bollinger tiene que decir sobre cómo interpretar este popular indicador.",
+                    "updated": 1675205765912
                 }
             ]
         },

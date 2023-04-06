@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bunu şu şekilde düşünün: Bu fikri geçersiz kılacak iki farklı piyasa durumu belirledik!",
                 "updated": 1641654716343
+            },
+            {
+                "language": "ES",
+                "text": "Piénsalo así: ¡hemos identificado dos situaciones de mercado diferentes que invalidarían esta idea!",
+                "updated": 1677101116580
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Her koşulu farklı durumda ayarlayacağız!",
                     "updated": 1641654763863
+                },
+                {
+                    "language": "ES",
+                    "text": "Estableceremos cada condición en una situación distinta.",
+                    "updated": 1677101130072
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "İlk koşulu mevcut durumda ve ikinci koşulu yeni bir durumda ayarlayın ( Trigger Off Event ) menüsü aracılığıyla bir durum ( Situation ) ekleyin.",
                     "updated": 1641654775591
+                },
+                {
+                    "language": "ES",
+                    "text": "Coloca la primera condición en la situación existente, y la segunda condición en una nueva situación (añade una Situation utilizando el menú del Trigger Off Event).",
+                    "updated": 1677101197747
                 }
             ]
         },

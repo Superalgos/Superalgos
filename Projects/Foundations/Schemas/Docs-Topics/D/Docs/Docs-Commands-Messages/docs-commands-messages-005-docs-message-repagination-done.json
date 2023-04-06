@@ -26,6 +26,11 @@
                 "language": "TR",
                 "text": "docs.repaginate komutu yeniden sayfalandırmayı tamamladı.",
                 "updated": 1652204130369
+            },
+            {
+                "language": "ES",
+                "text": "El comando docs.repaginate ha terminado de repaginar.",
+                "updated": 1677428139799
             }
         ]
     },
@@ -43,8 +48,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um diese Prozedur abzuschließen, müssen Sie alle Dateien des Topics / Tutorial, das Sie gerade repaginiert haben, manuell von der Festplatte löschen, und den Docs Save Command ausführen, um die aktualisierten Seiten im Speicher zu speichern.",
-                    "updated": 1633903656690
+                    "text": "Um diese Prozedur abzuschließen, müssen Sie alle Dateien des Topics / Tutorial, das Sie gerade repaginiert haben, manuell von der Festplatte löschen, und den Docs Save Command ausführen, um die aktualisierten Seiten zu speichern.",
+                    "updated": 1677191029962
                 },
                 {
                     "language": "RU",
@@ -55,6 +60,11 @@
                     "language": "TR",
                     "text": "Bu prosedürü tamamlamak için, yeniden sayfalandırdığınız Konunun / Öğreticinin ( Tutorial ) tüm dosyalarını diskten manuel olarak silmeniz ve bellek içi güncellenen sayfaları kaydetmek için Dokümanları Kaydetme Komutunu ( Docs Save Command ) çalıştırmanız gerekir.",
                     "updated": 1652204214210
+                },
+                {
+                    "language": "ES",
+                    "text": "Para completar este procedimiento, es necesario borrar manualmente del disco todos los archivos del Topic / Tutorial que se acaba de repaginar, y ejecutar el comando Docs Save Command para guardar las páginas actualizadas en memoria.",
+                    "updated": 1677428181443
                 }
             ]
         }

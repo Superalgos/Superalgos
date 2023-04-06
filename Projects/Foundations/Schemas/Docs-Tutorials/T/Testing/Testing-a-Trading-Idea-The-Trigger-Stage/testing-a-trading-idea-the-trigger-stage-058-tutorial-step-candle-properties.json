@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "У нас есть прямой доступ к свойствам свечей, и значение закрытия доступно в свойстве close.",
                 "updated": 1642660404628
+            },
+            {
+                "language": "ES",
+                "text": "Tenemos acceso directo a las propiedades de las velas (candle), y el valor del cierre está disponible en la propiedad close.",
+                "updated": 1679100210962
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Это делает доступ к значению закрытия свечи довольно простым:",
                     "updated": 1642660429881
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto hace que acceder al valor de cierre de la vela sea bastante sencillo:",
+                    "updated": 1679100188675
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Объявите таймфрейм: chart.at01hs.",
                     "updated": 1642660465538
+                },
+                {
+                    "language": "ES",
+                    "text": "Declarar el marco temporal: chart.at01hs.",
+                    "updated": 1679100175967
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Далее следуют продукт и свойство: candle.close",
                     "updated": 1642660509921
+                },
+                {
+                    "language": "ES",
+                    "text": "Seguido del producto y la propiedad: candle.close",
+                    "updated": 1679100154810
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "Это было легко! Давайте займемся полосами Боллинджера!",
                     "updated": 1642660522543
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso ha sido lo fácil! Vamos con las Bandas de Bollinger.",
+                    "updated": 1679100139829
                 }
             ]
         }

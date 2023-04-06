@@ -39,6 +39,11 @@
                 "language": "NL",
                 "text": "U kunt het Superalgos-platform gebruiken om geavanceerde informatie te produceren, maar u kunt het ook gebruiken om andermans transacties te kopiëren!",
                 "updated": 1667136705025
+            },
+            {
+                "language": "ES",
+                "text": "Puedes usar la Plataforma Superalgos para producir inteligencia sofisticada, ¡pero también puedes usarla para copiar las operaciones de otras personas!",
+                "updated": 1675363419705
             }
         ]
     },
@@ -77,6 +82,11 @@
                     "language": "NL",
                     "text": "Algo-handelaren ontvangen Superalgos SA Token beloningen voor het produceren en uitzenden van handelssignalen.",
                     "updated": 1667136763769
+                },
+                {
+                    "language": "ES",
+                    "text": "Los <i>Algo traders</i> obtienen recompensas de Superalgos (SA Token) por producir y emitir señales de trading.",
+                    "updated": 1675363679062
                 }
             ]
         },
@@ -114,6 +124,11 @@
                     "language": "NL",
                     "text": "U kunt de signalen ontvangen en de pro's automatisch kopiëren met hetzelfde platform!",
                     "updated": 1667136757321
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes obtener las señales y copiar las operaciones de los profesionales automáticamente utilizando la misma plataforma.",
+                    "updated": 1675363483510
                 }
             ]
         },
@@ -151,6 +166,11 @@
                     "language": "NL",
                     "text": "Om deel te nemen aan de open bèta-testinspanningen, sluit je aan bij de",
                     "updated": 1667136782560
+                },
+                {
+                    "language": "ES",
+                    "text": "Para participar en las pruebas de la beta abierta únete al",
+                    "updated": 1675363447056
                 }
             ]
         },
@@ -188,6 +208,11 @@
                     "language": "TR",
                     "text": "İlk birkaç sinyal şimdi yayında! Bu premium topluluk hizmetine erişmek için belirli bir Superalgos SA Token bakiyesine sahip olmanız gerekecektir.",
                     "updated": 1670014411517
+                },
+                {
+                    "language": "ES",
+                    "text": "Las primeras señales ya están disponibles. Necesitarás tener un cierto saldo de Superalgos SA Tokens para acceder a este servicio premium de la comunidad.",
+                    "updated": 1675363710284
                 }
             ]
         },

@@ -176,8 +176,10 @@ exports.newPlatformApp = function newPlatformApp() {
             SA.logger.info('Superalgos Mobile ........................................... Will allow users to consume trading signals from their mobile phones.')
             SA.logger.info('')
             SA.logger.info('Join the @superalgosdevelop Telegram Group to learn more!')
-
             SA.logger.info('')
+            
+            SA.logger.debug('This is a debug line and you should only see this as a developer, because they have x-ray vision...')
+            SA.logger.debug('')
 
         } catch (err) {
             SA.logger.error('Platform App -> Error = ' + err.stack)

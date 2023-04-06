@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Wat u zojuist hebt doorgenomen, is de definitie van de Limit Buy Order die elke minuut wordt geplaatst en geannuleerd totdat deze wordt gevuld.",
                 "updated": 1666880047126
+            },
+            {
+                "language": "FR",
+                "text": "Ce que vous venez de voir est la définition de l'ordre d'achat limite qui est placé et annulé chaque minute jusqu'à ce qu'il soit exécuté.",
+                "updated": 1676957824823
             }
         ]
     },
@@ -90,6 +95,11 @@
                     "language": "NL",
                     "text": "Dit is het knooppunt dat de snelheid van de limietorder bepaalt. Weet je nog wat we eerder hebben besproken over het plaatsen van de order tegen het tarief van het vierde ondersteuningsniveau?",
                     "updated": 1666880085030
+                },
+                {
+                    "language": "FR",
+                    "text": "Voici le nœud qui détermine le taux de l'ordre limite. Vous vous souvenez de ce que nous avons dit précédemment sur le placement de l'ordre au niveau du quatrième niveau de support ?",
+                    "updated": 1676957871387
                 }
             ]
         },
@@ -133,6 +143,11 @@
                     "language": "NL",
                     "text": "Ga naar de Formula die is gekoppeld aan het knooppunt Order Rate en klik op Edit in het menu.",
                     "updated": 1666880123610
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez dans la formule rattachée au nœud Order Rate et cliquez sur Edit dans le menu.",
+                    "updated": 1676957917674
                 }
             ]
         },
@@ -148,8 +163,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Bueno ... ¡así es como se hace! Como puede ver, la sintaxis es prácticamente autoexplicativa. Implica definir el marco de tiempo, el indicador y la propiedad del indicador involucrada.",
-                    "updated": 1624459934631,
+                    "text": "Bueno... ¡así es como se hace! Como puedes ver, la sintaxis es prácticamente auto-explicativa. Implica definir el marco de tiempo, el indicador y la propiedad del indicador involucrada.",
+                    "updated": 1675281020711,
                     "style": "Text"
                 },
                 {
@@ -176,6 +191,11 @@
                     "language": "NL",
                     "text": "Nou... zo wordt het gedaan! Zoals u kunt zien, is de syntaxis vrijwel vanzelfsprekend! Het omvat het definiëren van het tijdsbestek, de indicator en de betreffende indicatoreigenschap.",
                     "updated": 1666880176910
+                },
+                {
+                    "language": "FR",
+                    "text": "Eh bien... c'est comme ça que ça se passe ! Comme vous pouvez le voir, la syntaxe est pratiquement explicite ! Il s'agit de définir le cadre temporel, l'indicateur, et la propriété de l'indicateur concerné.",
+                    "updated": 1676957948493
                 }
             ]
         }

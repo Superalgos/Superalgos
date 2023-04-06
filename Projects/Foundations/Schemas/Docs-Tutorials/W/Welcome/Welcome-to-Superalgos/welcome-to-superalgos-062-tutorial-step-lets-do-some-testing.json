@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Estamos de vuelta en la jerarquia del  Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
-                "updated": 1624414541186,
+                "text": "Estamos de vuelta en la jerarquia del LAN Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
+                "updated": 1675278652712,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "We zijn terug in de netwerkhiërarchie om u een van de belangrijkste bronnen van het testen van strategieën te laten zien die zijn ingebouwd in de Trading Bot.",
                 "updated": 1666785925409
+            },
+            {
+                "language": "FR",
+                "text": "Nous sommes de retour sur la hiérarchie du réseau pour vous montrer l'une des principales ressources de test de stratégie intégrées au Trading Bot.",
+                "updated": 1676897584758
             }
         ]
     },
@@ -62,8 +67,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión de rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
-                    "updated": 1624414924601,
+                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
+                    "updated": 1675278673366,
                     "style": "Text"
                 },
                 {
@@ -90,6 +95,11 @@
                     "language": "NL",
                     "text": "Maar voordat u uw eerste Backtesting Session uitvoert, gaan we op een snelle verkenningsmissie om te begrijpen hoe het knooppunt Testing Trading Tasks is opgebouwd.",
                     "updated": 1666785983089
+                },
+                {
+                    "language": "FR",
+                    "text": "Mais avant d'exécuter votre première Backtesting Session, partons en mission de repérage rapide pour comprendre comment le nœud des Testing Trading Tasks est configuré.",
+                    "updated": 1676897664835
                 }
             ]
         },
@@ -134,6 +144,11 @@
                     "language": "NL",
                     "text": "Vouw het knooppunt Testing Trading Tasks uit en bekijk de structuur van de knooppunten afstammelingen... Komt het u bekend voor?",
                     "updated": 1666786071806
+                },
+                {
+                    "language": "FR",
+                    "text": "Développez le nœud Testing Trading Taskset regardez la structure des nœuds ... Cela vous semble familier ?",
+                    "updated": 1676897713163
                 }
             ]
         },
@@ -149,8 +164,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por exchange, mercado y mina de trading, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples exchanges.",
-                    "updated": 1624414880776,
+                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por Exchange, Market y Trading Mine, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples Exchanges.",
+                    "updated": 1675278735349,
                     "style": "Text"
                 },
                 {
@@ -177,6 +192,11 @@
                     "language": "NL",
                     "text": "Inderdaad! Het lijkt op de sectie Data Tasks: taken zijn georganiseerd per handelsplatform, markt en handels mine, zodat u een willekeurig aantal strategieën kunt testen die zijn geoptimaliseerd voor verschillende markten, op meerdere handelsplatformen.",
                     "updated": 1666786167588
+                },
+                {
+                    "language": "FR",
+                    "text": "En effet ! Elle ressemble à la section Data Tasks : les tâches sont organisées par exchange, marché et mine de trading, de sorte que vous pouvez tester un nombre illimité de stratégies optimisées pour différents marchés, sur plusieurs exchanges.",
+                    "updated": 1676897785134
                 }
             ]
         }

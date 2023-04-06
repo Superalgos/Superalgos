@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Um Ihre neue Aktion zu testen, müssen Sie nur die UI (Benutzeroberfläche) neu laden, die Node mit dem neuen Menüpunkt suchen und darauf klicken...",
-                "updated": 1640211945897
+                "text": "Um Ihre neue Action zu testen, brauchen Sie nur die UI (Benutzeroberfläche) neu zu laden, den Knoten (Node) mit dem neuen Menüpunkt zu suchen und ihn anzuklicken... .",
+                "updated": 1676496602857
             },
             {
                 "language": "RU",
@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Debug (Fehlersuche)",
-                    "updated": 1640211964715
+                    "text": "Prüfen (Fehlersuche)",
+                    "updated": 1676494869479
                 },
                 {
                     "language": "RU",
@@ -53,8 +53,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Um Ihre Aktion zu debuggen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen (Sources tab) den Function Library file (Funktionsbibliotheksdatei) suchen, in die Sie Ihre Aktion eingefügt haben, einen breakpoint (Haltepunkt) am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Node-Menüpunkt klicken.",
-                    "updated": 1640212140447
+                    "text": "Um Ihre Aktion zu prüfen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen die Function Library suchen, in die Sie Ihre Aktion eingefügt haben, einen Haltepunkt am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Knoten Menu Item klicken.",
+                    "updated": 1676494884570
                 },
                 {
                     "language": "RU",
@@ -75,8 +75,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können sie mit den neuen Änderungen erneut debuggen.",
-                    "updated": 1640212165859
+                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können diese erneut prüfen.",
+                    "updated": 1676494895686
                 },
                 {
                     "language": "RU",
@@ -97,8 +97,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Weitere Informationen zum Einrichten und Debuggen finden Sie in diesem Thema:",
-                    "updated": 1640212196310
+                    "text": "Weitere Informationen zum Einrichten und Prüfen finden Sie hier:  ",
+                    "updated": 1676497129338
                 },
                 {
                     "language": "RU",

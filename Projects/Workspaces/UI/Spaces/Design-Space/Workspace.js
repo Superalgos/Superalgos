@@ -311,8 +311,7 @@ function newWorkspace() {
                 , 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
-
-        let url = 'SaveWorkspace/' + workspace.name
+        let url = 'SaveWorkspace/' + buildWorkspacePathName(workspace)
         if (textToSave.indexOf('null,null,null,null,null,null,null,null,null') >= 0) {
             console.log((new Date()).toISOString(), '[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return
@@ -337,8 +336,26 @@ function newWorkspace() {
         }
     }
 
+    function buildWorkspacePathName(workspace) {
+        let path = ''
+        if (workspace.config !== undefined) {
+            let config = JSON.parse(workspace.config)
+            if(config.location !== undefined && config.location.length > 0) {
+                let location = config.location
+                if(location.indexOf('/') === 0) {
+                    location = location.substring(1)
+                }
+                path = path + location
+            }
+        }
+        if(path.length > 0 && path[path.length-1] != '/') {
+            path = path + '/'
+        }
+        return path + workspace.name
+    }
+
     function setLastUsedWorkspace() {
-        window.localStorage.setItem('Last Used Workspace', UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.name)
+        window.localStorage.setItem('Last Used Workspace', buildWorkspacePathName(UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode))
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 

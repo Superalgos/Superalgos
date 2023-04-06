@@ -33,6 +33,11 @@
                 "language": "ID",
                 "text": "Aku menyebutkan konsep dari granularity selama Welcome tutorial...ingat?",
                 "updated": 1674625971922
+            },
+            {
+                "language": "ES",
+                "text": "Ya hablé del concepto de granularidad en el tutorial de bienvenida... ¿recuerdas?",
+                "updated": 1675619772168
             }
         ]
     },
@@ -66,6 +71,11 @@
                     "language": "ID",
                     "text": "Granularity adalah perangkat yang membantu dalam menangani kompleksitas. Alih-alih membiarkan strategi tumbuh menjadi jaringan aturan dan definisi yang kompleks, selalu lebih baik untuk membagi logika kompleks menjadi beberapa bagian dan berurusan dengan unit yang lebih kecil.",
                     "updated": 1674625979955
+                },
+                {
+                    "language": "ES",
+                    "text": "La granularidad es un dispositivo que ayuda a manejar la complejidad. En lugar de dejar que las estrategias se conviertan en una compleja red de reglas y definiciones, siempre es preferible dividir la lógica compleja en partes y tratar con unidades más pequeñas.",
+                    "updated": 1675619791746
                 }
             ]
         },
@@ -97,6 +107,11 @@
                     "language": "ID",
                     "text": "Membagi logika kompleks menjadi beberapa strategi membantu menjaga strategi tetap sederhana dan mudah dipahami. Itu membuat strategi lebih mudah untuk di-debug dan dimaintain!",
                     "updated": 1674625986057
+                },
+                {
+                    "language": "ES",
+                    "text": "Dividir la lógica compleja en múltiples estrategias ayuda a mantener las estrategias simples y comprensibles. Hace que las estrategias sean más fáciles de depurar y mantener.",
+                    "updated": 1675619804335
                 }
             ]
         },
@@ -129,6 +144,11 @@
                     "language": "ID",
                     "text": "Kapan pun kamu bisa, buatlah tetap sederhana!",
                     "updated": 1674625994107
+                },
+                {
+                    "language": "ES",
+                    "text": "Siempre que puedas, ¡simplifícalo!",
+                    "updated": 1675619814413
                 }
             ]
         }

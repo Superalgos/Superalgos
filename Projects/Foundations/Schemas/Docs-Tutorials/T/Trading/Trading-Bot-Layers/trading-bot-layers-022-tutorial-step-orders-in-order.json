@@ -28,6 +28,11 @@
                 "language": "ID",
                 "text": "Kamu sudah familiar dengan visualisasi limit order dari Welcome tutorial. Saatnya pesanan market bersinar!",
                 "updated": 1673950637071
+            },
+            {
+                "language": "ES",
+                "text": "Ya conoces la visualización de las órdenes limitadas del tutorial de bienvenida. ¡Es hora de que las órdenes de mercado brillen!",
+                "updated": 1675467283538
             }
         ]
     },
@@ -55,13 +60,18 @@
                     "language": "ID",
                     "text": "Weak-hands Buster V.2—lahir dengan versi sistem sebelumnya—menggunakan pesanan pasar tunggal untuk masuk dan keluar dari posisi. Mari kita lihat bagaimana tampilannya di chart...",
                     "updated": 1673950643768
+                },
+                {
+                    "language": "ES",
+                    "text": "Weak-hands Buster V.2 - nacido con versiones anteriores del sistema - utiliza órdenes de mercado individuales para entrar y salir de posiciones. Veamos cómo se ven sobre los gráficos...",
+                    "updated": 1675467305990
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Find the \"Market Buy Orders\" and \"Market Sell Orders\" layers and turn them on!",
-            "updated": 1622541873433,
+            "text": "Find the \" Market Buy Orders \" and \" Market Sell Orders \" layers and turn them on!",
+            "updated": 1675467368653,
             "translations": [
                 {
                     "language": "DE",
@@ -82,6 +92,11 @@
                     "language": "ID",
                     "text": "Temukan layer \"Market Buy Orders\" dan \"Market Sell Orders\" dan aktifkan!",
                     "updated": 1673950650796
+                },
+                {
+                    "language": "ES",
+                    "text": "Encuentra las capas \" Market Buy Orders \" y \" Market Sell Orders \" ¡y actívalas!",
+                    "updated": 1675467404615
                 }
             ]
         },
@@ -108,6 +123,11 @@
                     "language": "ID",
                     "text": "Seperti limit order, bullet merah berarti  sell order, dan bullet hijau berarti buy order.",
                     "updated": 1673950657091
+                },
+                {
+                    "language": "ES",
+                    "text": "Al igual que con las órdenes limitadas, una viñeta roja significa una orden de venta, y una viñeta verde significa una orden de compra.",
+                    "updated": 1675467355506
                 }
             ]
         }

@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "No hemos hablado de los Trading Systems como un marco, pero una característica relevante para esta explicación es que pueden manejar múltiples estrategias.",
-                "updated": 1624460329052,
+                "text": "No hemos hablado de los Trading System como un marco, pero una característica relevante para esta explicación es que pueden manejar múltiples estrategias.",
+                "updated": 1675360963867,
                 "style": "Definition"
             },
             {
@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "We hebben handelssystemen niet als een raamwerk besproken, maar een functie die relevant is voor deze uitleg is dat ze meerdere strategieën kunnen hanteren.",
                 "updated": 1667127887994
+            },
+            {
+                "language": "FR",
+                "text": "Nous n'avons pas abordé les systèmes de trading en tant que structure, mais une caractéristique pertinente pour cette explication est qu'ils peuvent gérer plusieurs stratégies.",
+                "updated": 1676958143429
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "NL",
                     "text": "Elke strategie heeft een Open Stage en een Close Stage, elk met zijn eigen uitvoeringsdefinities. Elke fase kan meerdere uitvoeringsalgoritmen bevatten en elk algoritme kan meerdere orders verwerken.",
                     "updated": 1667127913392
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque stratégie comporte une phase d'ouverture et une phase de fermeture, chacune avec ses propres définitions d'exécution. Chaque étape peut comporter plusieurs algorithmes d'exécution, et chaque algorithme peut traiter plusieurs ordres.",
+                    "updated": 1676958175843
                 }
             ]
         },
@@ -127,6 +137,11 @@
                     "language": "RU",
                     "text": "Видите ли вы закономерность? Мы называем это гранулярностью.",
                     "updated": 1642768893340
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous voyez le concept ? Nous l'appelons la granularité.",
+                    "updated": 1676958197585
                 }
             ]
         },
@@ -142,8 +157,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos desglosa cada tema a la mínima expresión e integra las soluciones. Así es como le permite diseñar, implementar y administrar configuraciones de trading tan simples y tan complejas como puedas imaginar.",
-                    "updated": 1624460510159,
+                    "text": "Superalgos desglosa cada tema a la mínima expresión e integra las soluciones. Así es como te permite diseñar, implementar y administrar configuraciones de trading tan simples y tan complejas como puedas imaginar.",
+                    "updated": 1675360959694,
                     "style": "Text"
                 },
                 {

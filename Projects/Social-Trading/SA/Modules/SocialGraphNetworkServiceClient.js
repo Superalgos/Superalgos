@@ -93,10 +93,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                 let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(event.fileKeys)
 
                                 if (response.result === "Ok") {
-                                    event.postText = response.postText
-                                    event.postImage = response.postImage
-                                    event.userName = response.userName
-                                    eventsWithNoProblem.push(event)
+                                    event.postText = response.postText;
+                                    event.postImage = response.postImage;
+                                    event.userName = response.userName;
+                                    event.reactions = event.originPost.reactions;
+                                    eventsWithNoProblem.push(event);
                                 }
                             } else {
                                 eventsWithNoProblem.push(event)
@@ -155,6 +156,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                             if (response.result === "Ok") {
                                 post.postText = response.postText
                                 post.userName = response.userName
+                                post.postImage = response.postImage
                                 postsWithNoProblem.push(post)
                             }
                         }
@@ -212,6 +214,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                     let response = await SA.projects.socialTrading.functionLibraries.userProfile.getUserProfileInfo(profileMessage);
 
                                     if(response.result === "Ok") {
+                                        // Add the blockchain account to the response
+                                        response.blockchainAccount = thisProfile[1].blockchainAccount;
+                                        // Add the SA balance to the reponse
+                                        response.accountBalance = SA.projects.governance.utilities.balances.toSABalanceString(thisProfile[1].balance);
+
                                         responseArray.push(response)
                                     } else {
                                         console.log("ERROR encountered fetching profile data from GitHub storage.")

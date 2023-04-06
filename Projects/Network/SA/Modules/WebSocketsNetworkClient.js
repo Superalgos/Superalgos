@@ -33,8 +33,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         /*
         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
         */
-        //SA.logger.debug  
-         console.log('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        SA.logger.debug('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
@@ -52,8 +51,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         await setUpWebSocketClient(socket)
 
         SA.logger.info('')
-        //SA.logger.info
-        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        SA.logger.info('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         SA.logger.info('')
         thisObject.socketNetworkClients.isConnected = true
 
@@ -95,8 +93,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                         /*
                         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                         */ 
-                        //SA.logger.debug                  
-                        console.log('Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        SA.logger.error('Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
                         
                         reject()
                         return
@@ -104,16 +101,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                         /*
                         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                         */ 
-                        //SA.logger.debug                  
-                        console.log('Web Sockets Network Client -> onError -> Connection Timed out ' + thisObject.host + ':' + thisObject.port)
+                        SA.logger.error('Web Sockets Network Client -> onError -> Connection Timed out ' + thisObject.host + ':' + thisObject.port)
                         
                         reject()
                         return
                     }
-                    //SA.logger.error
-                    console.log('Web Sockets Network Client -> onError -> err.message = ' + err.message)
-                    //SA.logger.error
-                    console.log('Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
+                    SA.logger.error('Web Sockets Network Client -> onError -> err.message = ' + err.message)
+                    SA.logger.error('Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
                 }

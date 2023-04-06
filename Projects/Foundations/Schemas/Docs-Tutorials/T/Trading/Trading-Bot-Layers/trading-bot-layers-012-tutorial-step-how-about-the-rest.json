@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Sekarang, mengapa node yang lebih jauh ke kiri tidak menunjukkan nilainya juga? Seperti,  Exit Type, Status, End Rate, Begin Rate, dan sebagainya?",
                 "updated": 1673855273316
+            },
+            {
+                "language": "ES",
+                "text": "Ahora bien, ¿por qué los nodos situados más a la izquierda no muestran también sus valores? Por ejemplo, ¿el \"Tipo de Salida\", el \"Estado\", la \"Tasa Final\", la \"Tasa Inicial\", etc.?",
+                "updated": 1675464101242
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Mari ubah itu!",
                     "updated": 1673855280763
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Cambiemos eso!",
+                    "updated": 1675464091471
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "ID",
                     "text": "Gulir layer manager dari Trading Engine sampai kamu menemukan layer \"Current Episode\". Hidupkan itu!",
                     "updated": 1673855288753
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplázate por el gestor de capas del Trading Engine hasta que encuentres la capa Current Episode. Activa esta capa.",
+                    "updated": 1675466782360
                 }
             ]
         },
@@ -113,6 +128,11 @@
                     "language": "ID",
                     "text": "Sekarang geser pointer mouse kamu lagi... et voila!",
                     "updated": 1673855298816
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ahora desliza de nuevo el puntero del ratón... et voilà!",
+                    "updated": 1675464119179
                 }
             ]
         },
@@ -141,6 +161,11 @@
                     "language": "ID",
                     "text": "Dengan mengaktifkan dan menonaktifkan layer, kamu mengaktifkan dan menonaktifkan kemampuan sistem untuk melaporkan nilai pada berbagai bagian hierarki Trading Engine!",
                     "updated": 1673886819833
+                },
+                {
+                    "language": "ES",
+                    "text": "Al activar y desactivar las capas, activa y desactiva la capacidad del sistema para informar de los valores en diferentes secciones de la jerarquía del Trading Engine.",
+                    "updated": 1675464139418
                 }
             ]
         }

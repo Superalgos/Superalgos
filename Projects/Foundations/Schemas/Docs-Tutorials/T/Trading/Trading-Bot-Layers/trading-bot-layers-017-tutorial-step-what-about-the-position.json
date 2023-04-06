@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Seperti yang sudah tunjukkan dengan sangat jelas, episode counters menunjukkan strategi, tetapi juga position... bagaimana dengan itu?",
                 "updated": 1673881909321
+            },
+            {
+                "language": "ES",
+                "text": "Como muy bien has señalado, los contadores de episodios mostraban una estrategia, pero también una posición... ¿qué pasa con eso?",
+                "updated": 1675466493441
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Gulir ke bawah layer manager dari Simulation Objects dan aktifkan layer \"Position Base Asset\"!",
                     "updated": 1673881915873
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplázate hacia abajo en el gestor de capas Simulation Objects y activa la capa Position Base Asset.",
+                    "updated": 1675466649455
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "ID",
                     "text": "Bagus! Segitiga hijau berarti posisi tersebut sudah hit! Itu akan menjadi merah jika tidak!",
                     "updated": 1673881923594
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Genial! ¡Un triángulo verde significa que la posición ha sido un acierto! Si no, sería rojo.",
+                    "updated": 1675466569013
                 }
             ]
         },
@@ -112,6 +127,11 @@
                     "language": "ID",
                     "text": "Sisi horizontal segitiga menandai Entry Target Rate. Sisi vertikal menandai tanggal waktu posisi ditutup. Puncak jauh dari sisi horizontal adalah Exit Target Rate.",
                     "updated": 1673881937362
+                },
+                {
+                    "language": "ES",
+                    "text": "El lado horizontal del triángulo marca la Entry Target Rate. El lado vertical marca la fecha en que se cerró la posición. El vértice alejado del lado horizontal es la Exit Target Rate.",
+                    "updated": 1675466639746
                 }
             ]
         }

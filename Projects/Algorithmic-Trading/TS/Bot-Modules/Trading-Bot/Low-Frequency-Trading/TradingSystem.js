@@ -106,6 +106,17 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             )
         }
 
+        /* if these arrays are not definied already then initialize them */
+        initArrayIfUndefined(tradingSystem.errors)
+        initArrayIfUndefined(tradingSystem.warnings)
+        initArrayIfUndefined(tradingSystem.infos)
+        initArrayIfUndefined(tradingSystem.highlights)
+        initArrayIfUndefined(tradingSystem.values)
+        initArrayIfUndefined(tradingSystem.status)
+        initArrayIfUndefined(tradingSystem.progress)
+        initArrayIfUndefined(tradingSystem.running)
+        initArrayIfUndefined(tradingSystem.announcements)
+
         tradingSystem.addError = function (errorDataArray) {
             /*
             This function adds to the array of error info a rate.
@@ -560,6 +571,12 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             tradingSystem.addError([node.id, errorMessage, docs])
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
             return
+        }
+    }
+
+    function initArrayIfUndefined(property) {
+        if(property === undefined) {
+            property = []
         }
     }
 }

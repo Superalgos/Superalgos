@@ -29,6 +29,11 @@
                 "language": "ID",
                 "text": "Akankah seseorang tolong mengakui ada situasi masalah yang jelas? Mengapa counters itu menunjuk pada satu atau dua strategi dan satu posisi?",
                 "updated": 1673881270645
+            },
+            {
+                "language": "ES",
+                "text": "¿Podría alguien reconocer el elefante en la habitación? ¿Por qué esos contadores señalan una o dos estrategias y una posición?",
+                "updated": 1675464540095
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "ID",
                     "text": "Pergi ke layer manager dari Simulation Objects dan hidupkan layer \"Strategies\".",
                     "updated": 1673881280353
+                },
+                {
+                    "language": "ES",
+                    "text": "Ves al \"Simulation Objects layer manager\" y activa la capa Strategies.",
+                    "updated": 1675466675496
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "ID",
                     "text": "Apa itu? Itu adalah strategi! Kita sedang dalam simulasi! layer \"Strategies\" menandai rentang waktu di mana strategi sedang aktif.",
                     "updated": 1673881289293
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué es eso? ¡Es una estrategia! ¡Estamos en una simulación! La capa \"Strategies\" marca el lapso de tiempo en el que una estrategia está activa.",
+                    "updated": 1675464603563
                 }
             ]
         },
@@ -113,6 +128,11 @@
                     "language": "ID",
                     "text": "Perhatikan Plotter Panel yang melayang ke sudut saat kamu mengaktifkan layer. Sekarang, arahkan mouse-mu ke rentang waktu antara braket strategi dan lihat apa yang terjadi...",
                     "updated": 1673881329913
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa el Plotter Panel que se ha desplazado a la esquina cuando has activado la capa. Ahora, apunta con el ratón al intervalo de tiempo entre los frenos de la estrategia y mira lo que pasa...",
+                    "updated": 1675464633451
                 }
             ]
         }

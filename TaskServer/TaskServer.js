@@ -204,6 +204,7 @@ exports.newTaskServer = function newTaskServer() {
                     */
                     TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Synchronising User Profiles", false)
 
+                    let PULL_USER_PROFILES = false                                                                                  /* Do not update all user profiles when starting from Task Server */       
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.type,
@@ -211,7 +212,9 @@ exports.newTaskServer = function newTaskServer() {
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
                         eventReceivedCallbackFunction,
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient // This parameter is sent only when initialized by a Tast Server. 
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient,                                   // This parameter is sent only when initialized by a Task Server.
+                        PULL_USER_PROFILES,                                                                                        
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference                       // Social Trading Bot Reference potentially connected to this task
                     )
                 }
 

@@ -19,6 +19,9 @@ function newFoundationsDocsMainSearchPage() {
     }
 
     function render() {
+        let docsHeaderMenu = document.getElementById('docs-navigation-elements-header-menu')
+        docsHeaderMenu.innerHTML = UI.projects.education.spaces.docsSpace.navigationElements.getTopNavPanel()
+
         let HTML = ''
         HTML = HTML + '<div id="docs-search-page-div">'
         HTML = HTML + '<center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'

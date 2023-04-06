@@ -61,8 +61,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Selecciona Run All Project Data Tasks en el menú.",
-                    "updated": 1624479487847,
+                    "text": "Seleccione \" Run all project data tasks \" (Ejecutar todas las tareas de datos del proyecto) en el menú.",
+                    "updated": 1675362295086,
                     "style": "Callout"
                 },
                 {
@@ -149,8 +149,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Task. Sigue aprendiendo cómo funciona el proceso.",
-                    "updated": 1624483221831,
+                    "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Tasks. Sigue aprendiendo cómo funciona el proceso.",
+                    "updated": 1675362313662,
                     "style": "Success"
                 },
                 {

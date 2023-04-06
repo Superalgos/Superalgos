@@ -17,13 +17,28 @@ const customLevels = {
     }
 };
 
-const myFormat = (type) => printf(({ level, message, timestamp, ...metadata }) => {
+const consoleFormat = (type) => printf(({ level, message, timestamp, ...metadata }) => {
     let msg = `${timestamp} | ${type} | ${level} | ${message} `
     if (Object.keys(metadata).length > 0) {
         msg += JSON.stringify(metadata)
     }
     return msg
 });
+
+const fileFormat = printf(({ level, message, timestamp, ...metadata }) => {
+    let msg = `${timestamp} | ${level} | ${message} `
+    if (Object.keys(metadata).length > 0) {
+        msg += JSON.stringify(metadata)
+    }
+    return msg
+});
+
+const getLogLevel = () => {
+    if (global.env.LOG_LEVEL !== undefined && customLevels.levels[global.env.LOG_LEVEL] !== undefined) {
+        return global.env.LOG_LEVEL
+    }
+    return 'info'
+}
 
 /**
  * 
@@ -37,6 +52,7 @@ const myFormat = (type) => printf(({ level, message, timestamp, ...metadata }) =
  * }}
  */
 exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
+    const consoleLogLevel = getLogLevel()
     const filePathParts = logFileDirectory.split('/')
     addColors(customLevels.colors)
     return createLogger({
@@ -44,23 +60,31 @@ exports.loggerFactory = function loggerFactory(logFileDirectory, type) {
         format: combine(
             splat(),
             timestamp(),
-            myFormat(type)
+            consoleFormat(type)
         ),
         transports: [
             new transports.DailyRotateFile({
                 filename: filePathParts.concat(['error', '%DATE%.log']).join('/'),
+                format: fileFormat,
                 level: 'error',
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
+                handleExceptions: true
             }),
             new transports.DailyRotateFile({
                 filename: filePathParts.concat(['combined', '%DATE%.log']).join('/'),
+                format: fileFormat,
                 datePattern: 'YYYY-MM-DD',
                 maxFiles: '14d',
                 zippedArchive: true,
+                level: consoleLogLevel == 'debug' ? 'debug' : 'info'
             }),
-            new transports.Console()
-        ]
+            new transports.Console({
+                level: consoleLogLevel, 
+                handleExceptions: true
+            })
+        ],
+        exitOnError: false
     })
 }

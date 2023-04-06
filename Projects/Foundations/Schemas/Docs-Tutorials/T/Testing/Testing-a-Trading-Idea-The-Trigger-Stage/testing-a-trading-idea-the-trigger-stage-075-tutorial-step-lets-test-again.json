@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "После удаления этапов открытия, закрытия и управления вы готовы запустить новый бэктест с теми же параметрами, которые использовались ранее.",
                 "updated": 1642663571646
+            },
+            {
+                "language": "ES",
+                "text": "Después de eliminar las etapas de apertura, cierre y gestión, ya está listo para ejecutar un nuevo backtest con los mismos parámetros utilizados anteriormente.",
+                "updated": 1679253771490
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Давайте сделаем это! Запустите задачу и сессию!",
                     "updated": 1642663604578
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a hacerlo! ¡Ejecuta (Run) la tarea y la sesión!",
+                    "updated": 1679253763515
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Когда вы запускаете несколько бэктестов на одном и том же таймфрейме, более ранние данные заменяются. То есть в торговой сессии хранится один набор данных для каждого таймфрейма. Если вы хотите сохранить и иметь доступ к разным версиям тестов, вам следует использовать разные торговые сессии, а еще лучше - разные торговые системы, чтобы вы могли сохранить и одинаковые определения!",
                     "updated": 1642663646876
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando ejecutas múltiples backtests en el mismo marco temporal, los datos anteriores son reemplazados. Es decir, una sesión de trading almacena un conjunto de datos para cada marco temporal. Si deseas mantener -y poder acceder- a diferentes versiones de las pruebas, debes utilizar diferentes sesiones de trading, y mejor aún, ¡diferentes sistemas de trading para que puedas mantener también las definiciones coincidentes!",
+                    "updated": 1679253747918
                 }
             ]
         }

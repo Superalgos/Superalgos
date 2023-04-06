@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Hay toneladas de cosas que aún no hemos cubierto, ¡lo sé! ¡Solo mire alrededor! ¡Tantas cosas para ver! Es alucinante.",
-                "updated": 1624485720195,
+                "text": "Hay un montón de cosas que aún no hemos cubierto, ¡como por ejemplo cómo llevar a cabo una Live Trading Session! Ya llegaremos a eso, ¡no te preocupes!",
+                "updated": 1675362767262,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estoy seguro de que todavía tienes toneladas de preguntas flotando en tu cabeza ... ¿Cómo creo mis propias estrategias? ¿Cómo mido el desempeño? ¿Cómo construyo un indicador? ¿Cómo implemento un Trading Farm? ¿Cómo puedo integrarme con TradingView? ¿Cómo configuro los anuncios de Telegram?",
-                    "updated": 1624485819701,
+                    "text": "Seguro que aún tienes muchas preguntas... ¿Cómo construyo mis propias estrategias? ¿Cómo construyo un indicador? ¿Cómo despliego una granja de trading? ¿Cómo puedo integrarme con TradingView? ¿Cómo puedo configurar anuncios de Telegram o Twitter? ¿Cómo obtengo datos de otras API?",
+                    "updated": 1675362820832,
                     "style": "Text"
                 },
                 {
@@ -118,6 +118,11 @@
                     "language": "NL",
                     "text": "Er zijn handleidingen en meer dan 1500 pagina's met documentatie die al uw vragen behandelen!",
                     "updated": 1667136174143
+                },
+                {
+                    "language": "ES",
+                    "text": "Hay tutoriales y más de 1500 páginas de documentación que cubren todas tus preguntas.",
+                    "updated": 1675362839917
                 }
             ]
         },
@@ -145,6 +150,11 @@
                     "language": "NL",
                     "text": "Dus laten we eens kijken naar het ingebouwde documentatiesysteem voordat we verder gaan met andere dingen!",
                     "updated": 1667136196273
+                },
+                {
+                    "language": "ES",
+                    "text": "Así que echemos un vistazo al sistema de documentación integrado antes de pasar a otras cosas.",
+                    "updated": 1675362850578
                 }
             ]
         }

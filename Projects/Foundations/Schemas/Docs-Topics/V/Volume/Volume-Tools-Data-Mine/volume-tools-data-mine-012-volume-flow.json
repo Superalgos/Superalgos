@@ -1,0 +1,62 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "12",
+    "type": "Volume Flow",
+    "definition": {
+        "text": "This indicator is an adaptation of Markos Katsanos' VFI. It is an enhanced version of the On Balance Volume Indicator (OBV) but produces an oscillating output value instead of a meaningless number."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "VFI on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output can be read in a similar way to the MACD, where values above zero indicate an uptrend and vice versa."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-volume-flow.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| VolumeFlow | VF | value, signal, histo |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Volume Flow\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-volume-flow-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the output value rises above zero from below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.VF.value > 0 && chart.at15min.VF.previous.value < 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

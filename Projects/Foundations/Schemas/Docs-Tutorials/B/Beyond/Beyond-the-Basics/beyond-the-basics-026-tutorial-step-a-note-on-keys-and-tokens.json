@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nunca comparta tu archivo de workspace TAL CUAL. Para compartir un workspace, usa el botón Share en el menú. Crea una copia segura para compartir despojada de información confidencial al eliminar el APIs jerarquía y la sección Exchange Accounts del nodo Crypto Exchange.",
-                    "updated": 1628196946570,
+                    "text": "Nunca compartas tu archivo de Workspace TAL CUAL. Para compartir un Workspace, usa el botón <b>Share</b> en el menú. Crea una copia segura para compartirla despojada de información confidencial al eliminar la jerarquía API y la sección Exchange Accounts del nodo Crypto Exchange.",
+                    "updated": 1675454476058,
                     "style": "Warning"
                 },
                 {

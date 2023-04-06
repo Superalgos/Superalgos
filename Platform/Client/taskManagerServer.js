@@ -73,6 +73,12 @@
                     process.execArgv[i] = ''
                 }
             }
+
+            const taskArgs = [message.event.taskId]
+            if(global.env.LOG_LEVEL !== undefined) {
+                taskArgs.push('logLevel=' + global.env.LOG_LEVEL)
+            }
+            
             /* 
             Forking this process: 
 
@@ -82,7 +88,7 @@
             emit an event that is ready, and at that point we will send all the information needed to run the task.
             */
             let task = {
-                childProcess: fork(path, [message.event.taskId], { stdio: 'inherit' }),
+                childProcess: fork(path, taskArgs, { stdio: 'inherit' }),
                 id: message.event.taskId,
                 name: message.event.taskName
             }

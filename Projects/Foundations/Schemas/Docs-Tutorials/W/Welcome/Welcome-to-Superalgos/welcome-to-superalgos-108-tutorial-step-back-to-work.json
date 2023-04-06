@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Superalgos cuenta con un sitio de documentación en la aplicación, editable y en varios idiomas, y una línea de comandos incorporada. ¡Aprende a usarlos y serás el rey de la colina!",
-                "updated": 1624486499008,
+                "text": "Superalgos cuenta con un sitio web de documentación interactivo, editable, multilingüe y con una línea de comandos integrada.",
+                "updated": 1675364411800,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ya has usado un par de páginas de documentación en el panel de Documentos de la derecha, ¡pero eso es solo la punta del iceberg!",
-                    "updated": 1624497233786,
+                    "text": "Aprende a utilizar los documentos y la línea de comandos y serás el rey de la colina.",
+                    "updated": 1675364424453,
                     "style": "Text"
                 },
                 {
@@ -117,6 +117,11 @@
                     "language": "TR",
                     "text": "Sağdaki Dokümanlar panelinde birkaç dokümantasyon sayfasını zaten kullandınız, ancak bu buzdağının sadece görünen kısmı!",
                     "updated": 1670013341870
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya has utilizado un par de páginas de documentación en el panel Docs de la derecha, ¡pero eso es sólo la punta del iceberg!",
+                    "updated": 1675364449472
                 }
             ]
         },
@@ -133,8 +138,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Vamos a intentarlo! Busque la palabra ... Network.",
-                    "updated": 1624486586808,
+                    "text": "¡Vamos a intentarlo! Busca la palabra... Network.",
+                    "updated": 1675364457995,
                     "style": "Callout"
                 },
                 {
@@ -177,8 +182,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No es para presumir, pero la velocidad del motor de búsqueda rivaliza con la de Google ;-)",
-                    "updated": 1624486614343,
+                    "text": "No es por presumir, pero el motor de búsqueda es rápido.",
+                    "updated": 1675364473700,
                     "style": "Success"
                 },
                 {

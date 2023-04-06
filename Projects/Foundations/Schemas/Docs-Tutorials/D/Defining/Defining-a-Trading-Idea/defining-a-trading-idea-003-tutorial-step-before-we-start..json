@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Permítanme informarles sobre algunos asuntos que deben considerar antes de comenzar!",
-                "updated": 1630376946171
+                "text": "¡Permíteme informarte sobre algunos asuntos que debes considerar antes de comenzar!",
+                "updated": 1675205144814
             },
             {
                 "language": "DE",
@@ -53,8 +53,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Toma cualquier información relacionada con el comercio por lo que vale! Cuando comparta conceptos comerciales, ¡tómelos con un grano de sal! ¡Soy solo un tutorial, no su asesor financiero! ¡Estoy aquí para enseñarte Superalgos, no para decirte cómo comerciar! Si no es un comerciante, puede adquirir algo de valor, ¡pero asegúrese siempre de hacer su propia investigación!",
-                    "updated": 1630376997809
+                    "text": "¡Toma cualquier información relacionada con el trading por lo que vale! Cuando comparta conceptos de trading, ¡tómalo con un grano de sal! ¡Soy solo un tutorial, no un asesor financiero! ¡Estoy aquí para enseñarte Superalgos, no para decirte cómo tradear! Si no eres un trader, puedes adquirir algo de valor, ¡pero asegúrate siempre de hacer tu propia investigación!",
+                    "updated": 1675205301586
                 },
                 {
                     "language": "DE",
@@ -94,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": " Me lo tomaré con calma y expondré conceptos para que todos puedan entenderlos. Si eres es un comerciante experimentado, puede sentir que algunas explicaciones son demasiado básicas. En ese caso, no dudes en omitir este tutorial y pasar al siguiente de la serie.",
-                    "updated": 1630377193083
+                    "text": "Me lo tomaré con calma y expondré conceptos para que todos puedan entenderlos. Si eres es un trader experimentado, puedes sentir que algunas explicaciones son demasiado básicas. En ese caso, no dudes en omitir este tutorial y pasar al siguiente de la serie.",
+                    "updated": 1675205290178
                 },
                 {
                     "language": "DE",

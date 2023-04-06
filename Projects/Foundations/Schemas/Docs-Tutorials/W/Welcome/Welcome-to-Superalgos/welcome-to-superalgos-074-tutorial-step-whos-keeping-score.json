@@ -45,6 +45,11 @@
                 "language": "NL",
                 "text": "Bekijk de onderstaande tabel en kijk of u de ondersteuningsniveaus die u in de grafieken ziet, kunt interpreteren.",
                 "updated": 1666878780035
+            },
+            {
+                "language": "FR",
+                "text": "Consultez le tableau ci-dessous et voyez si vous pouvez interpréter les niveaux de supports que vous voyez sur les graphiques.",
+                "updated": 1676899356768
             }
         ]
     },
@@ -93,6 +98,11 @@
                     "language": "NL",
                     "text": "Voor een nieuw ondersteuningsniveau met één afwijzing markeert de stippellijn het exacte niveau waarop de prijs stuiterde. Voor verdere afwijzingen markeren de blokken de prijs bereiken waarop volgende afwijzingen worden geteld.",
                     "updated": 1666879106474
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour un nouveau niveau de support avec un seul rejet, la ligne en pointillé marque le niveau exact sur lequel le prix a rebondi. Pour les autres rejets, les blocs marquent les fourchettes de taux sur lesquelles les rejets suivants sont comptés.",
+                    "updated": 1676899446792
                 }
             ]
         }

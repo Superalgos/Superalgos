@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Мы находимся в разделе Current > Position в Trading Engine и, слева от вас, узел Entry Target Rate!",
                 "updated": 1642941993141
+            },
+            {
+                "language": "ES",
+                "text": "Nos encontramos en la sección Actual > Posición del Trading Engine y, a su izquierda, ¡el nodo Entry Target Rate!",
+                "updated": 1680811798833
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Скопируйте путь узла из меню!",
                     "updated": 1642942001363
+                },
+                {
+                    "language": "ES",
+                    "text": "Copie la ruta del nodo en el menú",
+                    "updated": 1680811819660
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Теперь добавим 3% к значению узла:",
                     "updated": 1642942010113
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora, añadimos un 3% al valor del nodo:",
+                    "updated": 1680811839510
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Используйте вышеприведенную формулу для формулы стоп-лосса Phase #1!",
                     "updated": 1642942026928
+                },
+                {
+                    "language": "ES",
+                    "text": "Siga adelante y utilice lo anterior para la fórmula de Stop Loss de la Fase 1.",
+                    "updated": 1680811869733
                 }
             ]
         }

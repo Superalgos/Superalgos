@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы закончили определения, необходимые для принятия позиции, и готовы определить начальные цели стоп-лосс и тейк-профит!",
                 "updated": 1642941736328
+            },
+            {
+                "language": "ES",
+                "text": "Hemos terminado las definiciones necesarias para tomar una posición y estamos listos para definir los objetivos iniciales de Stop Loss y Take Profit.",
+                "updated": 1680811034484
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Давайте вспомним, какие цели мы определили для себя при разработке идеи.",
                     "updated": 1642941745307
+                },
+                {
+                    "language": "ES",
+                    "text": "Recordemos cuáles habíamos decidido que serían nuestros objetivos mientras desarrollábamos la idea.",
+                    "updated": 1680811098454
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Для нисходящих трендов: мы установим 3% стоп-лосс и 10% тейк-профит.",
                     "updated": 1642941752291
+                },
+                {
+                    "language": "ES",
+                    "text": "Para las tendencias bajistas: fijaremos un Stop Loss del 3% y un Take Profit Target del 10%.",
+                    "updated": 1680811142009
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Сверните узел Open Stage, так как мы не будем его трогать некоторое время. Теперь разверните узел Manage Stage и загляните внутрь!",
                     "updated": 1642941772734
+                },
+                {
+                    "language": "ES",
+                    "text": "Contrae el nodo de escenario abierto, ya que no vamos a tocarlo durante un tiempo. Ahora expande el nodo Manage Stage y echa un vistazo a su interior.",
+                    "updated": 1680811187232
                 }
             ]
         }

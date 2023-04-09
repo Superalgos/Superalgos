@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Посмотрите на узлы в разделе Initial Targets. Есть ли у вас интуиция относительно того, о чем они могут быть?",
                 "updated": 1642776623430
+            },
+            {
+                "language": "ES",
+                "text": "Echa un vistazo a los nodos de Initial Targets. ¿Intuyes de qué pueden tratar?",
+                "updated": 1680703638910
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "RU",
                     "text": "Это первые несколько необходимых базовых определений:",
                     "updated": 1642776633938
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas son las primeras definiciones básicas necesarias:",
+                    "updated": 1680703678420
                 }
             ]
         },
@@ -61,6 +71,11 @@
                     "language": "RU",
                     "text": "Target Rate - это базовая ставка. Считайте, что это ориентировочная ставка, по которой вы хотите войти в позицию. Эта концепция имеет гораздо более глубокий смысл, но упрощение служит нам хорошим подспорьем на данном этапе.",
                     "updated": 1642776671589
+                },
+                {
+                    "language": "ES",
+                    "text": "El \" Target Rate \" es un tipo de referencia. Piensa en ella como una tasa aproximada a la que deseas entrar en la posición. Este concepto es mucho más profundo, pero la simplificación nos sirve en este momento.",
+                    "updated": 1680703913294
                 }
             ]
         },
@@ -82,6 +97,11 @@
                     "language": "RU",
                     "text": "Target Size In Base Asset и его собрат, Target Size In Quoted Asset, - это определение максимального размера, которого должна достичь позиция.",
                     "updated": 1642777155121
+                },
+                {
+                    "language": "ES",
+                    "text": "El Target Size In Base Asset y su nodo hermano, Target Size In Quoted Asset, es la definición del tamaño máximo que debe alcanzar la posición.",
+                    "updated": 1680704064570
                 }
             ]
         },
@@ -103,6 +123,11 @@
                     "language": "RU",
                     "text": "Окончательные ставки и размер определяются позже, в определениях алгоритмах Execution Algorithm.",
                     "updated": 1642776806129
+                },
+                {
+                    "language": "ES",
+                    "text": "Las tasas y el tamaño finales se determinan más adelante, en las definiciones de Execution Algorithm. ",
+                    "updated": 1680704030980
                 }
             ]
         }

@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Drücken Sie Ctrl + F8, um ein statisches PNG-Bild zu erfassen.",
-                    "updated": 1640724325692
+                    "text": "PNG-Panorama-Aufnahme",
+                    "updated": 1681245964077
                 },
                 {
                     "language": "RU",
@@ -60,6 +60,11 @@
                     "language": "TR",
                     "text": "Haritaları, panoramayı başlatmak istediğiniz tarihe (kronolojik başlangıç tarihi) yerleştirin. Hız ölçeğini, yakalamak istediğiniz tarih aralığı boyunca yakalamak istediğiniz şeyi gösterecek şekilde ayarlayın.",
                     "updated": 1650622995540
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie die Diagramme auf den Zeitpunkt, an dem Sie das Panorama beginnen möchten (das chronologische Startdatum). Stellen Sie die Geschwindigkeitsskala so ein, dass sie alles anzeigt, was Sie in dem von Ihnen gewünschten Datumsbereich erfassen möchten.",
+                    "updated": 1681245984855
                 }
             ]
         },
@@ -77,6 +82,11 @@
                     "language": "TR",
                     "text": "Yakalamayı başlatmak için Ctrl + F7 tuşlarına basın.",
                     "updated": 1650623016514
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F7 um die Aufnahme zu starten.",
+                    "updated": 1681246016892
                 }
             ]
         },
@@ -94,6 +104,11 @@
                     "language": "TR",
                     "text": "Grafiği bitiş tarihine kadar kaydırmak için sağ ok tuşuna → basın.",
                     "updated": 1650623024639
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die rechte Pfeiltaste → um das Diagramm bis zum Endzeitpunkt zu verschieben.",
+                    "updated": 1681246035214
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "TR",
                     "text": "Ctrl + F7'ye tekrar basın. Bir PNG dosyası hemen indirilmelidir...",
                     "updated": 1650623033860
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie erneut Ctrl + F7 . Eine PNG-Datei sollte sofort heruntergeladen werden...",
+                    "updated": 1681246077333
                 }
             ]
         },
@@ -128,6 +148,11 @@
                     "language": "TR",
                     "text": "PNG ekran görüntüsü",
                     "updated": 1650623046646
+                },
+                {
+                    "language": "DE",
+                    "text": "PNG-Bildschirmaufnahme",
+                    "updated": 1681246090061
                 }
             ]
         },
@@ -144,6 +169,11 @@
                     "language": "TR",
                     "text": "Statik bir PNG görüntüsü yakalamak için Ctrl + F8'e basın.",
                     "updated": 1650623068117
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F8 um ein statisches PNG-Bild zu erfassen.",
+                    "updated": 1681246107898
                 }
             ]
         },
@@ -153,8 +183,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Drücken Sie Ctrl + F9, um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
-                    "updated": 1640724366288
+                    "text": "GIF-Videoerfassung",
+                    "updated": 1681246122539
                 },
                 {
                     "language": "RU",
@@ -182,6 +212,11 @@
                     "language": "TR",
                     "text": "Bir GIF videosu çekmeye başlamak için Ctrl + F9 tuşlarına basın ve yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın. Yakalama sona erdiğinde, yakalamayı işlemek ve son dosyayı oluşturmak biraz zaman alır.",
                     "updated": 1650623095884
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F9 um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
+                    "updated": 1681246146652
                 }
             ]
         },
@@ -191,8 +226,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Drücken Sie Ctrl + F10, um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie dieselbe Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
-                    "updated": 1640724417583
+                    "text": "WEBM-Video-Aufzeichnung",
+                    "updated": 1681246157906
                 },
                 {
                     "language": "RU",
@@ -220,6 +255,11 @@
                     "language": "TR",
                     "text": "Bir WEBM videosunu çekmeye başlamak için Ctrl + F10 tuşlarına basın ve yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın. WEBM videoları anında işlenir.",
                     "updated": 1650623138163
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F10 um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie dieselbe Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
+                    "updated": 1681246178098
                 }
             ]
         },

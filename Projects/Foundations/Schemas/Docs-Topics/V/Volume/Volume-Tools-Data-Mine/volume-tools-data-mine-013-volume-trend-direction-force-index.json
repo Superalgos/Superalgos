@@ -1,0 +1,71 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "13",
+    "type": "Volume Trend Direction Force Index",
+    "definition": {
+        "text": "This indicator, originally by Pyotr Wojdyo for the metastock trading platform, uses the idea that there is enough trend directional force to enter a trade. This indicator builds upon this idea with the addition of volume force spikes."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Volume Trend Direction Force Index on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output will show green values above the filter threshold for an upward trend direction, and red values below the filter threshold for a downward trend. ",
+            "updated": 1681364946571
+        },
+        {
+            "style": "Text",
+            "text": "Between the threshold values, the indicator's output will be grey."
+        },
+        {
+            "style": "Text",
+            "text": "Additionally, there is a volume force index that outputs a blue line when outside these filter thresholds."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-vtdfi.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| VTDFI | vtdfi | value, valueV |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"VTDFI\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-vtdfi-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the output value rises above the threshold value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.vtdfi.value > 0.05"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Docs bieten eine Kommandozeilenschnittstelle, die Sie verwenden können, um zu den Docs beizutragen. Der Befehl Docs Help bietet eine Liste aller verfügbaren Befehle.",
-                "updated": 1633892565775
+                "text": "Die Docs bieten eine Befehlszeilenschnittstelle, die Sie verwenden können, um zu den Docs beizutragen. Der Befehl Docs Help bietet eine Liste aller verfügbaren Befehle.",
+                "updated": 1681330561562
             },
             {
                 "language": "RU",
@@ -53,8 +53,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Verfügbare Commands",
-                    "updated": 1633892592932
+                    "text": "Verfügbare Befehle",
+                    "updated": 1681330598115
                 },
                 {
                     "language": "RU",
@@ -77,6 +77,11 @@
                     "text": "Docs Goto Komutu",
                     "updated": 1654393321431,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Docs Goto-Befehl (Docs Goto Command)",
+                    "updated": 1681330638168
                 }
             ]
         },
@@ -89,6 +94,11 @@
                     "text": "Dokümanlar Komut Ekle",
                     "updated": 1654393327224,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Docs Befehl hinzufügen (Docs Add Command)",
+                    "updated": 1681330734105
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "text": "Dokümanlar Silme Komutu",
                     "updated": 1654393332950,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Docs Befehl Löschen",
+                    "updated": 1681330741584
                 }
             ]
         },
@@ -113,6 +128,11 @@
                     "text": "Docs Kaydet Komutu",
                     "updated": 1654393338792,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Docs Save Befehl (Docs Save Command)",
+                    "updated": 1681330765973
                 }
             ]
         },
@@ -135,8 +155,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Hilfe zu Commands",
-                    "updated": 1633892650643
+                    "text": "Hilfe zu Befehlen",
+                    "updated": 1681330780933
                 },
                 {
                     "language": "RU",

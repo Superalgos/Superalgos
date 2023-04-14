@@ -1,0 +1,29 @@
+{
+    "review": "Superalgos Project Review ",
+    "pageNumber": 1,
+    "type": " Superalgos Review - Initial Tutorials Work!",
+    "definition": {
+        "text": "Depth of application is intriguing but foreshadows deep learning curve.",
+        "updated": 1681449195155
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Was able to complete the initial tutorials up to this review — but this has just been about navigating the workspace or a few administrative tasks like making backups. Have zero idea about what and where in the system I'll go next or how long before I get to anything like trading.",
+            "updated": 1681449428214
+        },
+        {
+            "style": "List",
+            "text": "Hunting down nodes is tedious. I had clear instructions on where to scroll to in order to find a given node, but it seems that once one is left to their own devices, finding where to go is going to be a challenge..."
+        },
+        {
+            "style": "Javascript",
+            "text": "// Code comment\nconst reviewStatus = `This is review is ${status}!`",
+            "updated": 1681449511361
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

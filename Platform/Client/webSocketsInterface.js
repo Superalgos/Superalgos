@@ -36,22 +36,6 @@
 
                 socket.on('message', onMessage)
 
-                /* Terminate pinging connections for which we don't receive a keepalive signal every 10 seconds (+2 sec grace period) */
-                /* Not for each opening connection, as not all clients are pinging */
-                //socket.on('open', heartbeat)
-                socket.on('ping', heartbeat)
-                socket.on('close', function clear() {
-                    clearTimeout(socket.pingTimeout)
-                })
-
-                function heartbeat() {
-                    clearTimeout(socket.pingTimeout)
-                    socket.pingTimeout = setTimeout(() => {
-                        SA.logger.error('Client -> Web Sockets Interface -> setUpWebSocketServer -> No keepalive signal received, terminating connection')
-                        socket.terminate()
-                    }, 10000 + 2000)
-                }
-                
                 function onMessage(message) {
                     // Here is where all messages will be received through the websocket
        

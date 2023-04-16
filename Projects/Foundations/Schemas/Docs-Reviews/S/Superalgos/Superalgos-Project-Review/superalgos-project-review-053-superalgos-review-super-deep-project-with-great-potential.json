@@ -68,11 +68,6 @@
             "updated": 1681630356393
         },
         {
-            "style": "Text",
-            "text": "- Data transparency: How much data and where is it going to? Browsing the source code, it appears that it should go in a [SA root]/Platform/My-Data-Storage folder, but such folder doesn’t exist/wasn’t created (My-Workspaces did get created). It’s disconcerting to know that a ton of “data” is being downloaded and there is no understanding given to where and how much.",
-            "updated": 1681629783281
-        },
-        {
             "style": "Subtitle",
             "text": "Current Conclusion",
             "updated": 1681630078553

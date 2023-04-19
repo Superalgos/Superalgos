@@ -3,7 +3,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     const MODULE_NAME = "Scan Database";
     const FOLDER_NAME = "Database-Files";
-
+    const sqlite3 = require('sqlite3').verbose() 
+    
     let thisObject = {
         initialize: initialize,
         start: start
@@ -16,7 +17,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     function initialize(pStatusDependencies, callBackFunction) {
         try {
-            //TODO: set the database path and name from task node config
             statusDependencies = pStatusDependencies;
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
@@ -34,56 +34,19 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 return
             }
 
+            // TODO: Grab path and table name from task node config
+
             let fileContent
-            const dbPath = './EMD.sqlite'
+            const dbPath = 'C:/Users/arche/Pepper-X/signalityc_pepperX_engine/Brenden_dump/EMD.sqlite'
             const dbName = 'Rolling_EMD'
-            getDatabaseData(dbPath, dbName, saveMessages)
 
-            // TODO: install sqlite in main sa dependencies
-            function getDatabaseData(dbPath, dbName, callBack){
-                return new Promise((resolve, reject) => {
-                    // Create connection to database
-                    const database = new sqlite3.Database(
-                        dbPath, 
-                        sqlite3.OPEN_READWRITE, 
-                        (error) => {
-                            if (error) {
-                                console.error("Error connecting to database", error.message)
-                                reject(error)
-                            }
-                        console.log("Connected to database")
-                        }
-                    )
-            
-                    database.serialize(() => {
-                        // Gather all Data from Table
-                        database.all(`SELECT * FROM ${dbName}`, (error, data) => {
-                            console.log('Loading data from table')
-            
-                            if (error) {
-                                console.error("Error executing query", error)
-                                reject(error)
-                            }
-            
-                            database.close((error) => {
-                                if (error) {
-                                    console.error("Error closing connection", error.message)
-                                    reject(error)
-                                } else {
-                                    console.log('Returning data and closing connection')
-                                    resolve(data)
-                                }
-                            })
-                        })          
-                    })
-                }).then(data => {
-                    callBack(data)
-                })
-            }
+            getContextVariables(dbPath, dbName, getDatabaseData)
 
-            function getContextVariables(callBack) {
+            function getContextVariables(dbPath, dbName, callBack) {
                 try {
-                    let reportKey = "Webhooks" + "-" + "Webhooks" + "-" + "Check-Webhook"
+                    // TODO: finish getting key from note names 
+                    let reportKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName 
+                        + "-" + "Database-Sensor" + "-" + "Scan-Database"
 
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
@@ -111,11 +74,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             } else {
 
                                 fileContent = text
-                                callBack()
+                                callBack(dbPath, dbName, saveMessages)
                             }
                         }
                     } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
-                        callBack()
+                        callBack(dbPath, dbName, saveMessages)
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -131,58 +94,76 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 }
             }
 
-            function saveMessages() {
+            function getDatabaseData(dbPath, dbName, callBack){
+
+                return new Promise((resolve, reject) => {
+                    // Create connection to database
+                    
+                    const database = new sqlite3.Database(
+                        dbPath, 
+                        sqlite3.OPEN_READWRITE, 
+                        (error) => {
+                            if (error) {
+                                console.error("Error connecting to database", error.message)
+                                reject(error)
+                            }
+                        // TODO: Make comments formated correctly 
+                        console.log("Connected to database")
+                        }
+                    )
+            
+                    // TODO: make two queries, one for inital load, another for addtional loops
+                    // TODO: get query values from task node configs 
+                    database.serialize(() => {
+                        // Gather all Data from Table
+                        database.all(`SELECT * FROM ${dbName}`, (error, data) => {
+                            console.log('Loading data from table')
+            
+                            if (error) {
+                                console.error("Error executing query", error)
+                                reject(error)
+                            }
+            
+                            database.close((error) => {
+                                if (error) {
+                                    console.error("Error closing connection", error.message)
+                                    reject(error)
+                                } else {
+                                    console.log('Returning data and closing connection')
+                                    resolve(data)
+                                }
+                            })
+                        })          
+                    })
+                }).then(data => {
+                    callBack(data)
+                })
+            }
+
+            function saveMessages(data) {
                 try {
-                    let http = SA.nodeModules.http
-                    let url = 'http://' + global.env.WEB_SERVER_URL +
-                        ':' + global.env.PLATFORM_HTTP_INTERFACE_PORT +
-                        '/Webhook/Fetch-Messages/' +
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + 
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                    save(data)
+                    function save() {
 
-                    http.get(url, onResponse);
-
-                    function onResponse(response) {
-                        const chunks = []
-                        response.on('data', onMessegesArrived)
-                        response.on('end', onEnd)
-
-                        function onMessegesArrived(chunk) {
-                            chunks.push(chunk)
+                        if (fileContent !== undefined) {
+                            // TODO: Need logic to splite and package data into one min files here
+                            fileContent = JSON.stringify(data)
+                        } else {
+                            // we are going to save the current messages.
+                            fileContent = JSON.stringify(data)
                         }
 
-                        function onEnd() {
-                            let messages = Buffer.concat(chunks).toString('utf8')
+                        let fileName = 'Data.json'
+                        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
+                        fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
 
-                            if (fileContent !== undefined) {
-                                // we are going to append the current messages to the existing file.
-                                let fileContentArray = JSON.parse(fileContent)
-                                let messagesArray = JSON.parse(messages)
-
-                                for (let i = 0; i < messagesArray.length; i++) {
-                                    let message = messagesArray[i]
-                                    fileContentArray.push(message)
-                                }
-
-                                fileContent = JSON.stringify(fileContentArray)
+                        function onFileCreated(err) {
+                            if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] start -> saveMessages -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
+                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             } else {
-                                // we are going to save the current messages.
-                                fileContent = messages
-                            }
-
-                            let fileName = 'Data.json'
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
-                            fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-                                if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> saveMessages -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                } else {
-                                    writeStatusReport()
-                                }
+                                writeStatusReport()
                             }
                         }
                     }

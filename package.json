@@ -68,6 +68,7 @@
     "path": "^0.12.7",
     "pm2": "^5.2.2",
     "simple-git": "^3.13.0",
+    "sqlite3": "^5.1.6",
     "telegraf": "^4.11.2",
     "twitter-api-v2": "^1.7.1",
     "util": "^0.12.4",
@@ -84,10 +85,10 @@
     "yargs": "^17.6.2"
   },
   "optionalDependencies": {
-    "electron-updater": "^4.6.1",
+    "@tensorflow/tfjs-node": "^2.8.6",
     "electron": "^21.3.1",
     "electron-builder": "^23.6.0",
-    "@tensorflow/tfjs-node": "^2.8.6"
+    "electron-updater": "^4.6.1"
   },
   "devDependencies": {
     "axios": "^0.18.0",

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это кусочек Stage Quoted Asset этапа Strategy Open. Если фактический размер меняется, что происходит с Size Placed?",
                 "updated": 1642944853200
+            },
+            {
+                "language": "ES",
+                "text": "Este es el bit Stage Quoted Asset of the Strategy Open Stage. Si el tamaño real cambia, ¿qué pasa con el Size Placed?",
+                "updated": 1681733780585
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Выберите третью ошибку 28 февраля и прочитайте!",
                     "updated": 1642944867444
+                },
+                {
+                    "language": "ES",
+                    "text": "Toca el tercer error el 28 de febrero y ¡a leer!",
+                    "updated": 1681733795916
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "В контексте стадии открытия или стадии закрытия, размещенный размер - это переменная, которая накапливает общий размер, размещенный во время этой стадии, поэтому она также должна быть скорректирована!",
                     "updated": 1642944920373
+                },
+                {
+                    "language": "ES",
+                    "text": "Tanto en la etapa de apertura como en la de cierre, el Size Placed es una variable que acumula el total de tallas colocadas durante la etapa, ¡por lo que también debe ajustarse!",
+                    "updated": 1681733816030
                 }
             ]
         }

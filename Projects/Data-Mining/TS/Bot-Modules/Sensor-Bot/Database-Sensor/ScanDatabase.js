@@ -4,25 +4,33 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     const MODULE_NAME = "Scan Database";
     const FOLDER_NAME = "Database-Files";
     const sqlite3 = require('sqlite3').verbose() 
-    
+
     let thisObject = {
         initialize: initialize,
         start: start
     };
 
+    // TODO: move comments to new logger
+
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
+    let dbPath = undefined
+    let dbName = undefined
 
     return thisObject;
 
     function initialize(pStatusDependencies, callBackFunction) {
         try {
             statusDependencies = pStatusDependencies;
+
+            // TODO: handle error in configs with hints
+            dbPath = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databasePath
+            dbName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTableName
+
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> err = " + err.stack);
+            SA.logger.error(MODULE_NAME + "initialize -> err = " + err.stack);
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -34,26 +42,21 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 return
             }
 
-            // TODO: Grab path and table name from task node config
-
             let fileContent
-            const dbPath = 'C:/Users/arche/Pepper-X/signalityc_pepperX_engine/Brenden_dump/EMD.sqlite'
-            const dbName = 'Rolling_EMD'
-
+            
             getContextVariables(dbPath, dbName, getDatabaseData)
 
             function getContextVariables(dbPath, dbName, callBack) {
                 try {
-                    // TODO: finish getting key from note names 
-                    let reportKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName 
-                        + "-" + "Database-Sensor" + "-" + "Scan-Database"
+                    let reportKey = 
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + 
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + 
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
 
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                    SA.logger.info(MODULE_NAME +" start -> getContextVariables -> reportKey = " + reportKey)
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
+                        SA.logger.error(MODULE_NAME + " start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -68,8 +71,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                         function onFileReceived(err, text) {
                             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> getContextVariables -> onFileReceived -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                SA.logger.error(MODULE_NAME + " start -> getContextVariables -> onFileReceived -> Could read file. ->  filePath = " + filePath + "/" + fileName);
                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             } else {
 
@@ -82,13 +84,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                    SA.logger.error(MODULE_NAME + " start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ");
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        SA.logger.error("[HINT] " + MODULE_NAME + " start -> getContextVariables -> Check the bot Status Dependencies. ");
+                        SA.logger.error("[HINT] " + MODULE_NAME + " start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }

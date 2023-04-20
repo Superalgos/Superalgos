@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте попробуем провести более тонкий анализ, используя элементы, наблюдаемые во время нашей экскурсии по тестируемому периоду.",
                 "updated": 1642945685468
+            },
+            {
+                "language": "ES",
+                "text": "Intentemos un análisis más detallado utilizando los elementos observados durante nuestro recorrido por el periodo examinado.",
+                "updated": 1681734738349
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Потенциальные удачи: Две из семи неудачных сделок могли бы стать удачными или, по крайней мере, безубыточными, если бы мы управляли сделкой и вышли из нее раньше, либо с помощью трейлинг-стоп-лосса, частичной фиксации прибыли или любой другой подходящей стратегии управления рисками.",
                     "updated": 1642945745617
+                },
+                {
+                    "language": "ES",
+                    "text": "Potential hits: Dos de los siete fallos podrían haber sido aciertos, o al menos operaciones de equilibrio, si hubiéramos gestionado la operación y salido antes, ya fuera mediante un trailing stop loss, una recogida parcial de beneficios o cualquier otra estrategia adecuada de gestión del riesgo.",
+                    "updated": 1681734761702
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Прекращение торговли: Одной из неудач можно было бы избежать, если бы мы включили базовый критерий волатильности в условия события открытия позиции.",
                     "updated": 1642945804357
+                },
+                {
+                    "language": "ES",
+                    "text": "Halt trading: Uno de los fallos podría haberse evitado si hubiéramos incorporado una envolvente de volatilidad básica en las condiciones de Take Position.",
+                    "updated": 1681734929390
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Таким образом, у нас останется 4 провала, возможно, один безубыток, и 3 успеха с потенциальной 100% прибылью. Подходит ли вам этот нюанс?",
                     "updated": 1642945832341
+                },
+                {
+                    "language": "ES",
+                    "text": "Eso nos dejaría con 4 fracasos, quizá un punto de equilibrio, y 3 aciertos con un potencial de beneficio del 100%. ¿Te parece bien este detallado?",
+                    "updated": 1681734952483
                 }
             ]
         }

@@ -653,7 +653,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             //abort = true
                         }   
 
-                        // code after this will most likely be depricated 
+                        // TODO: code after this will most likely be depricated 
                         if (fileContent !== undefined) {
                             // TODO: Need logic to splite and package data into one min files here
                             fileContent.append(JSON.stringify(data))

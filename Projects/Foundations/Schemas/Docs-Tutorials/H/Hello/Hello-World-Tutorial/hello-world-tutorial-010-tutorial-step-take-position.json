@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En este nodo utilizo el mismo truco utilizado para el Trigger Off Event pero en este caso obligándolo a True.Ya lo definí en el Trigger On Event cuales son mis condiciones. Entonces en este nodo puedo simplemente copiar las dos condiciones o configurarlo en True.",
-                    "updated": 1629355939657
+                    "text": "En este nodo utilizo el mismo truco utilizado para el Trigger Off Event pero en este caso obligándolo a True. Ya lo definí en el Trigger On Event cuales son mis condiciones. Entonces en este nodo puedo simplemente copiar las dos condiciones o configurarlo en True.",
+                    "updated": 1682357755795
                 },
                 {
                     "language": "IT",

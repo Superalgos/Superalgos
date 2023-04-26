@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si no tiene tokens en tu Governance Address, entonces tienes cero Token Power!¡Pero no te preocupes! ¡Trabajaremos en algo!",
-                "updated": 1630897494092,
+                "text": "Si no tienes tokens en tu Governance Address, entonces tienes cero Token Power!¡Pero no te preocupes! ¡Trabajaremos en algo!",
+                "updated": 1682521638988,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si tienes algun Token Powero no, observe que ahora hay 0% de Token Power entrando en el Onboarding Programs y 100% entrando en el Community Building Programs! ¡Las compuertas cerradas, el flujo va a otra parte! ¡También puedes jugar con porcentajes!",
-                    "updated": 1630897759311,
+                    "text": "Tanto si tienes Poder de tokens como si no, observa que ahora hay un 0% de Token Power que va a los Programas de Incorporación y un 100% que va a los Programas de Creación de Comunidad. Cerradas las compuertas, ¡el flujo va a otra parte! Puedes jugar con los porcentajes.",
+                    "updated": 1682521684679,
                     "style": "Text"
                 },
                 {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es probable que no tengas Token Power para cumplir con el tercer requisito para participar en el Community Building Programs, ¡vamos a delegar algo de poder a todos los perfiles de usuario en esta versión!",
-                    "updated": 1630897892512,
+                    "text": "Si aún no tienes Token Power, únete al Grupo de Token de Superalgos en Telegram, preséntate, haznos saber que acabas de crear tu Perfil de Usuario, ¡y pide abiertamente algo de poder delegado para utilizarlo en los Programas de Creación de Comunidad! ¡Estaremos encantados de enviarte algo de poder!",
+                    "updated": 1682521743118,
                     "style": "Important"
                 },
                 {

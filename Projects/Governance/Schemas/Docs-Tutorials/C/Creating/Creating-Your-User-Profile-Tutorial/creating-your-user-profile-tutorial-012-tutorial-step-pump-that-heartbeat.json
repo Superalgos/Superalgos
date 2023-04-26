@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
-                "updated": 1630887647502,
+                "text": "Vamos a configurar el Constructor de perfiles para crear tu perfil. Haz clic en Configurar en el menú e introduce tu nombre de usuario de GitHub.",
+                "updated": 1682520145883,
                 "style": "Definition"
             },
             {
@@ -51,8 +51,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
-                    "updated": 1632012849405,
+                    "text": "Si quieres vincular una dirección existente, escribe tu mnemónico de doce palabras en la propiedad mnemónico. Déjalo en blanco para generar una nueva dirección. La información no saldrá de tu ordenador, no se guardará en el disco y la borrarás antes de que terminemos. ",
+                    "updated": 1682520224775,
                     "style": "Text"
                 },
                 {

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Projeler, insanların projeye katkıda bulunurken üstlenebilecekleri pozisyonları tanımlayabilir.",
                 "updated": 1645189193611
+            },
+            {
+                "language": "ES",
+                "text": "Los proyectos pueden definir los cargos que las personas pueden asumir mientras contribuyen al proyecto.",
+                "updated": 1682595445407
             }
         ]
     },

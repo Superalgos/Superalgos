@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Her proje, Topluluğun ( Community ) istenen gelişim yönlerini teşvik edebilmesi için Özellikler ( Features ) tanımlayabilir.",
                 "updated": 1646740288963
+            },
+            {
+                "language": "ES",
+                "text": "Cada proyecto puede definir Características, de modo que la Comunidad pueda incentivar las direcciones de desarrollo deseadas.",
+                "updated": 1682595537173
             }
         ]
     },

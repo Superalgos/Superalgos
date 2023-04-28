@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Borsa, Superalgos'u listelemeye hazır. Listeleme ücreti 25 bin dolar artı proje jetonlarında 1 BTC'dir.",
                 "updated": 1647007014335
+            },
+            {
+                "language": "DE",
+                "text": "Die Börse ist bereit, Superalgos zu listen. Die Listing-Gebühr beträgt $25k, plus 1 BTC in Projekt-Token.",
+                "updated": 1682441707988
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Listeleme Gereksinimleri",
                     "updated": 1647007028555
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen",
+                    "updated": 1682441757967
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "TR",
                     "text": "Exchange adı: Probit Global",
                     "updated": 1647007069496
+                },
+                {
+                    "language": "DE",
+                    "text": "Name der Börse: Probit Global",
+                    "updated": 1682441768083
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "TR",
                     "text": "CMC sıralaması: 27",
                     "updated": 1647007077988
+                },
+                {
+                    "language": "DE",
+                    "text": "CMC-Rangliste: 27",
+                    "updated": 1682441848821
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "TR",
                     "text": "Değişim ana sayfası:",
                     "updated": 1647007085003
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite für den Tausch:",
+                    "updated": 1682441873915
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "TR",
                     "text": "Liste gereksinimleri sayfası:",
                     "updated": 1647007096417
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite mit den Zulassungsvoraussetzungen:",
+                    "updated": 1682441885610
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Listeleme talep formu sayfası:",
                     "updated": 1647007109409
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite mit dem Formular für den Antrag auf Aufnahme in die Liste:",
+                    "updated": 1682441689718
                 }
             ]
         },
@@ -143,6 +178,11 @@
                     "language": "TR",
                     "text": "BSC'de BEP 20 jetonlarını listeleyebilir: Evet",
                     "updated": 1647007131444
+                },
+                {
+                    "language": "DE",
+                    "text": "Kann BEP 20-Münzen im BSC auflisten: Ja",
+                    "updated": 1682441924091
                 }
             ]
         },
@@ -160,6 +200,11 @@
                     "language": "TR",
                     "text": "Listeleme ücreti: Bronz 25 bin dolar, Gümüş 50 bin dolar, Altın 80 bin dolar - artı proje jetonlarında 1 BTC.",
                     "updated": 1647007153544
+                },
+                {
+                    "language": "DE",
+                    "text": "Auflistungsgebühr: Bronze $25k, Silber $50k, Gold $80k -- plus 1 BTC in Projekt-Tokens.",
+                    "updated": 1682442372787
                 }
             ]
         },
@@ -172,6 +217,11 @@
                     "language": "TR",
                     "text": "Güvenlik teminatı: Hayır",
                     "updated": 1647007163363
+                },
+                {
+                    "language": "DE",
+                    "text": "Kaution: Nein",
+                    "updated": 1682442532451
                 }
             ]
         },
@@ -184,6 +234,11 @@
                     "language": "TR",
                     "text": "Hacim gereksinimleri: Hayır",
                     "updated": 1647007172875
+                },
+                {
+                    "language": "DE",
+                    "text": "Volumenanforderungen: Nein",
+                    "updated": 1682442537082
                 }
             ]
         },
@@ -206,6 +261,11 @@
                     "language": "TR",
                     "text": "Piyasa Yapıcılığı Gereksinimleri: Tüm planlara 1 ay dahildir; sonrasında gerekli değildir.",
                     "updated": 1647007186788
+                },
+                {
+                    "language": "DE",
+                    "text": "Market-Making-Anforderungen: Für 1 Monat in allen Plänen enthalten; danach nicht erforderlich.",
+                    "updated": 1682442551671
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "TR",
                     "text": "Exchange kullanıcıları gereksinimi: Hayır",
                     "updated": 1647007204221
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderung an Exchange-Benutzer: Nein",
+                    "updated": 1682442558146
                 }
             ]
         },
@@ -230,6 +295,11 @@
                     "language": "TR",
                     "text": "İlk listeleme için mevcut çiftler: USDT, BTC, ETH",
                     "updated": 1647007217151
+                },
+                {
+                    "language": "DE",
+                    "text": "Für die erste Auflistung verfügbare Paare: USDT, BTC, ETH",
+                    "updated": 1682442584220
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "TR",
                     "text": "Bekleme süresi: 2 hafta.",
                     "updated": 1647007225495
+                },
+                {
+                    "language": "DE",
+                    "text": "Wartezeit: 2 Wochen.",
+                    "updated": 1682442593738
                 }
             ]
         },
@@ -274,6 +349,11 @@
                     "language": "TR",
                     "text": "Tüzel kişilik: Genellikle bir şirket gereklidir.",
                     "updated": 1647007235890
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtspersönlichkeit: In der Regel ist eine Kapitalgesellschaft erforderlich.",
+                    "updated": 1682442616993
                 }
             ]
         },
@@ -296,6 +376,11 @@
                     "language": "TR",
                     "text": "Hukuki görüş: Genellikle gereklidir.",
                     "updated": 1647007247005
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsgutachten: In der Regel erforderlich.",
+                    "updated": 1682442623447
                 }
             ]
         },
@@ -308,6 +393,11 @@
                     "language": "TR",
                     "text": "Seçim süreci: Yok.",
                     "updated": 1647007256889
+                },
+                {
+                    "language": "DE",
+                    "text": "Auswahlverfahren: N/A.",
+                    "updated": 1682442633017
                 }
             ]
         },
@@ -330,6 +420,11 @@
                     "language": "TR",
                     "text": "Araştırmacının yorumları: Listeleme ekibiyle açık bir kanalım var ve aşağıdaki Müzakere başlığı altında açıklandığı gibi bazı konulara açıklık getirdim.",
                     "updated": 1647007267438
+                },
+                {
+                    "language": "DE",
+                    "text": "Anmerkungen des Entwicklers: Ich habe einen offenen Kanal mit dem Listungsteam und habe einige Fragen geklärt, wie unter dem Titel \"Verhandlungen\" unten erläutert.",
+                    "updated": 1682442659480
                 }
             ]
         },
@@ -347,6 +442,11 @@
                     "language": "TR",
                     "text": "Araştırmacının Github.com Kullanıcı Adı: julian-molina",
                     "updated": 1647007286180
+                },
+                {
+                    "language": "DE",
+                    "text": "Github.com-Benutzername des Entwicklers: julian-molina",
+                    "updated": 1682442691540
                 }
             ]
         },
@@ -359,6 +459,11 @@
                     "language": "TR",
                     "text": "Araştırmacının Telgraf Kullanıcı Adı: @julianmolina",
                     "updated": 1647007293890
+                },
+                {
+                    "language": "DE",
+                    "text": "Telegram-Benutzername des Entwicklers: @julianmolina",
+                    "updated": 1682442697807
                 }
             ]
         },
@@ -376,6 +481,11 @@
                     "language": "TR",
                     "text": "Son revizyon tarihi: 9 Ağustos 2021.",
                     "updated": 1647007303752
+                },
+                {
+                    "language": "DE",
+                    "text": "Datum der letzten Überarbeitung: 9. August 2021.",
+                    "updated": 1682442704027
                 }
             ]
         },
@@ -392,6 +502,11 @@
                     "language": "TR",
                     "text": "Müzakere",
                     "updated": 1647007348926
+                },
+                {
+                    "language": "DE",
+                    "text": "Verhandlung",
+                    "updated": 1682442711125
                 }
             ]
         },
@@ -409,6 +524,11 @@
                     "language": "TR",
                     "text": "@julianmolina şunları doğruladı:",
                     "updated": 1647007365228
+                },
+                {
+                    "language": "DE",
+                    "text": "@julianmolina hat das bestätigt:",
+                    "updated": 1682442718474
                 }
             ]
         },
@@ -431,6 +551,11 @@
                     "language": "TR",
                     "text": "listeleme için Superalgos'u kabul ederler;",
                     "updated": 1647007374379
+                },
+                {
+                    "language": "DE",
+                    "text": "sie akzeptieren Superalgos zur Aufnahme in die Liste;",
+                    "updated": 1682442727180
                 }
             ]
         },
@@ -452,6 +577,11 @@
                     "language": "TR",
                     "text": "Listeleme tarihini Halkla İlişkiler ve Pazarlama kampanyalarına uyacak şekilde koordine edebiliriz.",
                     "updated": 1647007385217
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir können das Datum der Veröffentlichung mit den PR- und Marketingkampagnen abstimmen.",
+                    "updated": 1682442749794
                 }
             ]
         },
@@ -474,6 +604,11 @@
                     "language": "TR",
                     "text": "jetonun bir menkul kıymet olmadığı açıksa, yasal görüş şartını kaldırabilirler;",
                     "updated": 1647007400097
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können auf das Erfordernis eines Rechtsgutachtens verzichten, wenn klar ist, dass der Token kein Wertpapier ist;",
+                    "updated": 1682442770285
                 }
             ]
         },
@@ -496,6 +631,11 @@
                     "language": "TR",
                     "text": "listeleme sözleşmesini imzalamak için bir şirkete ihtiyaçları yoktur; bir KYCed yöneticisi (proje liderliği) de çalışır;",
                     "updated": 1647007413109
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie brauchen kein Unternehmen, um den Vertrag über die Aufnahme in die Liste zu unterzeichnen; eine KYC-geprüfte Führungskraft (Projektleitung) reicht ebenfalls aus;",
+                    "updated": 1682442790844
                 }
             ]
         },
@@ -518,6 +658,11 @@
                     "language": "TR",
                     "text": "her iki tarafın daha dengeli bir şekilde korunması için listeleme sözleşmesinde yeni veya geliştirilmiş bir dil önerebiliriz;",
                     "updated": 1647007422435
+                },
+                {
+                    "language": "DE",
+                    "text": "können wir neue oder verbesserte Formulierungen in der Börsenzulassungsvereinbarung vorschlagen, um einen ausgewogeneren Schutz für beide Parteien zu erreichen;",
+                    "updated": 1682442828505
                 }
             ]
         },
@@ -540,6 +685,11 @@
                     "language": "TR",
                     "text": "her biri 5 bin dolar olan piyasa yapımı için ek sıfır ücretli hesaplarımız olabilir;",
                     "updated": 1647007430779
+                },
+                {
+                    "language": "DE",
+                    "text": "wir können zusätzliche gebührenfreie Konten für das Market Making zu je 5.000 $ einrichten;",
+                    "updated": 1682442845446
                 }
             ]
         },
@@ -562,6 +712,11 @@
                     "language": "TR",
                     "text": "en az 6 ay boyunca düşük hacim nedeniyle listeden çıkarılmazlar.",
                     "updated": 1647007456477
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie würden ihre Zulassung wegen geringer Umsätze mindestens 6 Monate lang nicht aufheben.",
+                    "updated": 1682442864180
                 }
             ]
         },
@@ -578,6 +733,11 @@
                     "language": "TR",
                     "text": "Borsa Değerlendirmesi",
                     "updated": 1647007530453
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewertung des Handelsplatzes",
+                    "updated": 1682443873309
                 }
             ]
         },
@@ -595,6 +755,11 @@
                     "language": "TR",
                     "text": "Şirket bilgisi",
                     "updated": 1647007539227
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen zum Unternehmen",
+                    "updated": 1682443825232
                 }
             ]
         },
@@ -612,6 +777,11 @@
                     "language": "TR",
                     "text": "Kayıtlı ülke: Seyşeller (TOS sayfasından ve Listeleme Sözleşmesinden).",
                     "updated": 1647007583554
+                },
+                {
+                    "language": "DE",
+                    "text": "Land der Registrierung: Seychellen (von der TOS-Seite und dem Listing-Vertrag).",
+                    "updated": 1682443838288
                 }
             ]
         },
@@ -628,6 +798,11 @@
                     "language": "TR",
                     "text": "Adres: Suite 9, Ansuya Estate, Revolution Avenue, Victoria Mahe, Seyşeller (Listeleme Sözleşmesinden).",
                     "updated": 1647007617823
+                },
+                {
+                    "language": "DE",
+                    "text": "Anschrift: Suite 9, Ansuya Estate, Revolution Avenue, Victoria Mahe, Seychellen (aus dem Listing Agreement).",
+                    "updated": 1682443918688
                 }
             ]
         },
@@ -645,6 +820,11 @@
                     "language": "TR",
                     "text": "Kayıt yılı: Bilinmiyor",
                     "updated": 1647007627741
+                },
+                {
+                    "language": "DE",
+                    "text": "Jahr der Registrierung: Unbekannt",
+                    "updated": 1682443925926
                 }
             ]
         },
@@ -662,6 +842,11 @@
                     "language": "TR",
                     "text": "Fiziksel ofisler: Bilinmiyor",
                     "updated": 1647007635148
+                },
+                {
+                    "language": "DE",
+                    "text": "Physische Büros: Unbekannt",
+                    "updated": 1682443931548
                 }
             ]
         },
@@ -679,6 +864,11 @@
                     "language": "TR",
                     "text": "Lisanslar: Bilinmiyor",
                     "updated": 1647007642871
+                },
+                {
+                    "language": "DE",
+                    "text": "Lizenzen: Unbekannt",
+                    "updated": 1682443937903
                 }
             ]
         },
@@ -695,6 +885,11 @@
                     "language": "TR",
                     "text": "Web Sitesinde Kurumsal Şeffaflık",
                     "updated": 1647007724411
+                },
+                {
+                    "language": "DE",
+                    "text": "Unternehmenstransparenz auf der Website",
+                    "updated": 1682443946516
                 }
             ]
         },
@@ -712,6 +907,11 @@
                     "language": "TR",
                     "text": "Altbilgi bilgisi: Probit Global Service Limited | Şirket Kayıt Numarası: 207189 | temsilci: Ronald Chan. Kayıt sürecinde: Probit Exchange OÜ | Şirket Kayıt Numarası: 14894573 | Temsilci: Ronald Chan.",
                     "updated": 1647007732837
+                },
+                {
+                    "language": "DE",
+                    "text": "Fußzeile Info: Probit Global Service Limited | Unternehmensregistrierungsnummer: 207189 | Vertreter: Ronald Chan. In Vorbereitung der Registrierung: Probit Exchange OÜ | Firmenregisternummer: 14894573 | Vertreter: Ronald Chan.",
+                    "updated": 1682443959377
                 }
             ]
         },
@@ -745,6 +945,11 @@
                     "language": "TR",
                     "text": "Liderlik sayfası bilgisi: Yok",
                     "updated": 1647007746153
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen über die Führungsseite: N/A",
+                    "updated": 1682443973158
                 }
             ]
         },
@@ -767,6 +972,11 @@
                     "language": "TR",
                     "text": "Gözlemler: Zayıf. Şirketin nerede ve nasıl çalıştığına dair web sitesinde çok az netlik var.",
                     "updated": 1647007762146
+                },
+                {
+                    "language": "DE",
+                    "text": "Beobachtungen: Schlecht. Auf der Website gibt es wenig Klarheit darüber, wo und wie das Unternehmen tätig ist.",
+                    "updated": 1682443981282
                 }
             ]
         },
@@ -784,6 +994,11 @@
                     "language": "TR",
                     "text": "Web Sitesi Çekiş",
                     "updated": 1647007785174
+                },
+                {
+                    "language": "DE",
+                    "text": "Traktion der Website",
+                    "updated": 1682443989833
                 }
             ]
         },
@@ -801,6 +1016,11 @@
                     "language": "TR",
                     "text": "Alexa site sıralaması: 3500",
                     "updated": 1647007794079
+                },
+                {
+                    "language": "DE",
+                    "text": "Alexa-Seitenrang: 3500",
+                    "updated": 1682443997942
                 }
             ]
         },
@@ -825,6 +1045,11 @@
                     "language": "TR",
                     "text": "Etki alanı otoritesi: 45",
                     "updated": 1647007813077
+                },
+                {
+                    "language": "DE",
+                    "text": "Domänenautorität: 45",
+                    "updated": 1682446155121
                 }
             ]
         },
@@ -855,6 +1080,11 @@
                     "language": "TR",
                     "text": "CMC sıralaması: 27",
                     "updated": 1647007837567
+                },
+                {
+                    "language": "DE",
+                    "text": "CMC-Rangliste: 27",
+                    "updated": 1682444017607
                 }
             ]
         },
@@ -871,6 +1101,11 @@
                     "language": "TR",
                     "text": "CoinGecko sıralaması: 63",
                     "updated": 1647007847237
+                },
+                {
+                    "language": "DE",
+                    "text": "CoinGecko-Rangliste: 63",
+                    "updated": 1682444024409
                 }
             ]
         },
@@ -888,6 +1123,11 @@
                     "language": "TR",
                     "text": "En İyi 100 Google SERP? [*]: Numara",
                     "updated": 1647007859619
+                },
+                {
+                    "language": "DE",
+                    "text": "Top 100 Google SERP? [*]: Nein",
+                    "updated": 1682444031673
                 }
             ]
         },
@@ -899,6 +1139,11 @@
                     "language": "TR",
                     "text": "En İyi 200 Google SERP? [*]: Numara",
                     "updated": 1647007869133
+                },
+                {
+                    "language": "DE",
+                    "text": "Top 200 Google SERP? [*]: Nein",
+                    "updated": 1682444037311
                 }
             ]
         },
@@ -921,6 +1166,11 @@
                     "language": "TR",
                     "text": "(*) Google'da (İngiltere bölgesi, kişiselleştirme yok) \"kripto değişimi\" anahtar kelimesini ararız. Alan, en iyi X SERP'de listelenir veya listelenmez.",
                     "updated": 1647007889699
+                },
+                {
+                    "language": "DE",
+                    "text": "(*) Wir durchsuchen Google (Region UK, keine Personalisierung) nach dem Schlüsselwort \"crypto exchange\". Die Domain wird entweder in den Top X SERP aufgeführt oder nicht.",
+                    "updated": 1682444046264
                 }
             ]
         },
@@ -938,6 +1188,11 @@
                     "language": "TR",
                     "text": "Topluluk",
                     "updated": 1647007900556
+                },
+                {
+                    "language": "DE",
+                    "text": "Gemeinschaft",
+                    "updated": 1682444052196
                 }
             ]
         },
@@ -955,6 +1210,11 @@
                     "language": "TR",
                     "text": "Telegram: 29 Bin",
                     "updated": 1647007927038
+                },
+                {
+                    "language": "DE",
+                    "text": "Telegramm: 29k",
+                    "updated": 1682444057797
                 }
             ]
         },
@@ -989,6 +1249,11 @@
                     "language": "TR",
                     "text": "Gözlemler: 9 Ağustos 2021'e hızlı bir bakış. Kullanıcılar, mevduatların temizlenmediğinden ve diğer sorunlardan şikayet ediyor. Yöneticilerden, cüzdan yükseltmeleriyle ilgili bir sorun bildiren bazı yanıtlar var. Konuşma mantıklı görünüyor.",
                     "updated": 1647007970475
+                },
+                {
+                    "language": "DE",
+                    "text": "Beobachtungen: Ein kurzer Blick auf den 9. August 2021. Nutzer beschweren sich über nicht freigegebene Einzahlungen und andere Probleme. Es gibt einige Reaktionen von Admins, die ein Problem mit Wallet-Upgrades ank��ndigen. Die Konversation scheint vernünftig zu sein.",
+                    "updated": 1682444070914
                 }
             ]
         },
@@ -1005,6 +1270,11 @@
                     "language": "TR",
                     "text": "Likidite ve Hacim",
                     "updated": 1647007979121
+                },
+                {
+                    "language": "DE",
+                    "text": "Liquidität und Volumen",
+                    "updated": 1682444078961
                 }
             ]
         },

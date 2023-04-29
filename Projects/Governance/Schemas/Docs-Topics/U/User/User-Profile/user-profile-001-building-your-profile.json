@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Kullanıcı Profilinizi oluşturmak, Profil Oluşturucu'yu (Profile Constructor) kullanarak Yönetim Adresinizi (Governance Address) Github.com'daki kimliğinize bağlamayı içerir.",
                 "updated": 1645106256449
+            },
+            {
+                "language": "DE",
+                "text": "Die Erstellung Ihres Benutzerprofils (User Profile) beinhaltet die Verknüpfung Ihrer Governance-Adresse (Governance Address) mit Ihrer Identität in Github.com unter Verwendung des Profile Constructor.",
+                "updated": 1682280973694
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "ES",
                     "text": "Esta guía te ayudará a ponerte al día en pocos minutos. Esto es lo que necesitarás (requisitos):",
                     "updated": 1682595717886
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dieser Anleitung sind Sie in wenigen Minuten startklar. Das werden Sie brauchen (Anforderungen):",
+                    "updated": 1682280985667
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "Yazılımın Güncel Sürümü: Develop dalında Superalgos Platformunun en son sürümü.",
                     "updated": 1645106363304
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktuelle Software: die neueste Version der Superalgos Platform im Develop -Zweig.",
+                    "updated": 1682281009503
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Ön bilgi: Superalgos Platformunun nasıl çalıştığına dair temel bir anlayış. Henüz yapmadıysanız, Yönetişim Projesine dalmadan önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki (Getting Started Tutorials Plugin) öğreticileri yaptığınızdan emin olun.",
                     "updated": 1645106428430
+                },
+                {
+                    "language": "DE",
+                    "text": "Vorkenntnisse: ein grundlegendes Verständnis für die Funktionsweise der Superalgos-Plattform. Wenn Sie das noch nicht getan haben, stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Plugin Workspace (Getting Started Tutorials Plugin Workspace) durcharbeiten, bevor Sie sich mit dem Governance-Projekt beschäftigen.",
+                    "updated": 1682281022028
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "TR",
                     "text": "Kimlik: GitHub.com kullanıcı adınız.",
                     "updated": 1645106448971
+                },
+                {
+                    "language": "DE",
+                    "text": "Identität: Ihr GitHub.com-Benutzername.",
+                    "updated": 1682281036385
                 }
             ]
         },
@@ -130,6 +155,11 @@
                     "language": "TR",
                     "text": "İsteğe Bağlı Olarak: Trust Wallet veya Binance Smart Chain (BSC) özel anahtarını içe aktarabilen herhangi bir cüzdan.",
                     "updated": 1645106482294
+                },
+                {
+                    "language": "DE",
+                    "text": "Optional: Trust Wallet oder eine beliebige Wallet, die einen Binance Smart Chain (BSC) Private Key importieren kann.",
+                    "updated": 1682281046585
                 }
             ]
         },
@@ -152,6 +182,11 @@
                     "language": "TR",
                     "text": "Aşağıda açıklanan süreç, Kullanıcı Profilinizi Oluşturma Eğitiminde (Creating Your User Profile Tutorial) adım adım anlatılmaktadır. Öğreticiyi yapmak şiddetle tavsiye edilir. Bunu yaparsanız, aşağıdaki talimatları izlemeniz gerekmez.",
                     "updated": 1645106640338
+                },
+                {
+                    "language": "DE",
+                    "text": "Der im Folgenden beschriebene Vorgang wird Schritt für Schritt im Lernprogramm zum Erstellen Ihres Benutzerprofils (Creating Your User Profile Tutorial) beschrieben. Es wird dringend empfohlen, den Lehrgang zu absolvieren. Wenn Sie dies tun, brauchen Sie die folgenden Anweisungen nicht zu befolgen.",
+                    "updated": 1682281079527
                 }
             ]
         },
@@ -173,6 +208,10 @@
                     "language": "ES",
                     "text": "Hagámoslo",
                     "updated": 1682595804253
+                },
+                    "language": "DE",
+                    "text": "Packen wir's an!",
+                    "updated": 1682281088343
                 }
             ]
         },
@@ -194,6 +233,11 @@
                     "language": "TR",
                     "text": "1. Token Distribution Superalgos Plugin Workspace Eklentisini yükleyin.",
                     "updated": 1645106679051
+                },
+                {
+                    "language": "DE",
+                    "text": "Laden Sie den Arbeitsbereich für das Superalgos-Plugin Token Distribution",
+                    "updated": 1682281095606
                 }
             ]
         },
@@ -216,6 +260,11 @@
                     "language": "TR",
                     "text": "Daha sonra üst düzey Superalgos Projesi özellikleriyle etkileşime geçebilmek için Token Distribution Superalgos Plugin Workspace ile başlayabilirsiniz.",
                     "updated": 1645106733427
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können mit dem Superalgos-Plugin-Arbeitsbereich (Plugin Workspace) für die Token-Verteilung beginnen, damit Sie später mit den Superalgos-Projektdefinitionen (Superalgos Project definitions) auf oberster Ebene interagieren können.",
+                    "updated": 1682281109896
                 }
             ]
         },
@@ -238,6 +287,11 @@
                     "language": "TR",
                     "text": "2. Profil Oluşturucuyu Oluşturun ve Yapılandırın",
                     "updated": 1645106937529
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Erzeugen und Konfigurieren des Profilkonstrukteurs",
+                    "updated": 1682281126313
                 }
             ]
         },
@@ -260,6 +314,11 @@
                     "language": "TR",
                     "text": "Profil Oluşturucu (Profile Constructor ), Github.com kimliğinizi Superalgos SA Jetonlarınızı tuttuğunuz veya tutmayı planladığınız BSC adresiyle ilişkilendirmek için kullanacağınız cihazdır. Biz buna Yönetim Adresiniz (Governance Address) diyoruz.",
                     "updated": 1645107637902
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Profile Constructor ist das Gerät, mit dem Sie Ihre Github.com-Identität mit der BSC-Adresse verknüpfen, unter der Sie Ihre Superalgos SA-Token halten oder zu halten gedenken. Wir nennen es Ihre Governance-Adresse (Governance Address).",
+                    "updated": 1682281136186
                 }
             ]
         },
@@ -285,6 +344,11 @@
                     "language": "TR",
                     "text": "Adresi ayarlamayı bitirdikten sonra, özel anahtarınızı istediğiniz şekilde yedeklemeniz ve Özel anahtarın Çalışma Alanından kaldırılması için Profil Oluşturucu'yu silmeniz gerekir. Merak etme… Zamanı geldiğinde tüm bunları sana hatırlatacağım.",
                     "updated": 1645107664433
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie mit der Einrichtung der Adresse fertig sind, müssen Sie Ihren privaten Schlüssel auf die von Ihnen gewünschte Weise sichern und den Profile Constructor löschen, damit der private Schlüssel aus dem Arbeitsbereich (Workspace) entfernt wird. Keine Sorge... Ich werde Sie zu gegebener Zeit an all das erinnern.",
+                    "updated": 1682281160951
                 }
             ]
         },
@@ -307,6 +371,11 @@
                     "language": "TR",
                     "text": "Yönetişim Projesi hiyerarşisine (Governance Project)  gidin ve menüden Profil Oluşturucu Ekle'yi (Add Profile Constructor) seçin.",
                     "updated": 1645107706235
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zur Hierarchie des Governance Project und wählen Sie im Menü Profilkonstrukteur hinzufügen.",
+                    "updated": 1682281174744
                 }
             ]
         },
@@ -329,6 +398,11 @@
                     "language": "TR",
                     "text": "Yapılandırmayı açın (Configure) ve GitHub.com kullanıcı adınızı girin.",
                     "updated": 1645107792239
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration auf und geben Sie Ihren GitHub.com-Benutzernamen ein.",
+                    "updated": 1682281183464
                 }
             ]
         },
@@ -351,6 +425,11 @@
                     "language": "TR",
                     "text": "Halihazırda bir Superalgos SA Token adresiniz varsa, adresin sahipliğini doğrulamak için mnemonic ifadeyi girebilirsiniz. Bir adresiniz yoksa, Profil Oluşturucu'nun sizin adınıza yeni bir adres oluşturması için mnemonic özelliğini boş bırakın.",
                     "updated": 1645107881873
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereits eine Superalgos SA Token address haben, können Sie die zugehörige mnemonische Phrase eingeben, um den Besitz der Adresse zu verifizieren. Wenn Sie keine Adresse haben, lassen Sie die mnemonische Eigenschaft leer, damit der Profile Constructor eine neue Adresse für Sie erstellt.",
+                    "updated": 1682281192948
                 }
             ]
         },
@@ -372,6 +451,11 @@
                     "language": "TR",
                     "text": "Bu bilgileri doldurduktan sonra yapılandırıcı penceresinden çıkın. Sizin için otomatik kaydedilecektir.",
                     "updated": 1645107974033
+                },
+                {
+                    "language": "DE",
+                    "text": "Fahren Sie fort und wählen Sie ebenfalls Profilkonstrukteur hinzufügen.",
+                    "updated": 1682281202476
                 }
             ]
         },
@@ -393,6 +477,10 @@
                     "language": "ES",
                     "text": "3. Construye tu perfil",
                     "updated": 1682596272283
+                },
+                    "language": "DE",
+                    "text": "3. Erstellen Sie Ihr Profil",
+                    "updated": 1682281211763
                 }
             ]
         },
@@ -414,6 +502,11 @@
                     "language": "TR",
                     "text": "Bir sonraki adım, profili oluşturmayı içerir, ancak bunu yapmadan önce, sürecin ne olduğunu açıklamama izin verin:",
                     "updated": 1645108018650
+                },
+                {
+                    "language": "DE",
+                    "text": "Der nächste Schritt besteht in der Erstellung des Profils, aber bevor Sie das tun, möchte ich Ihnen erklären, wie der Prozess abläuft:",
+                    "updated": 1682281221183
                 }
             ]
         },
@@ -436,6 +529,11 @@
                     "language": "TR",
                     "text": "mnemonic girmediyseniz, bir BSC adresi ve bu adresle ilgili özel anahtar oluşturulacaktır.",
                     "updated": 1645108069938
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie keine Mnemonik eingegeben haben, werden eine BSC-Adresse und der entsprechende private Schlüssel generiert.",
+                    "updated": 1682281229049
                 }
             ]
         },
@@ -458,6 +556,11 @@
                     "language": "TR",
                     "text": "GitHub.com kullanıcı adınızı içeren bir kriptografik mesaj, az önce oluşturulan adrese veya girdiğiniz anımsatıcıya karşılık gelen özel anahtarla imzalanacaktır. Bu mesaj, Profilinizi Yönetişim Projesinde bir eklenti olarak gönderdiğinizde sizden geldiğini doğrulayabilmemiz için Kullanıcı Profilinizde saklanacaktır.",
                     "updated": 1645108090908
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wird mit dem privaten Schlüssel signiert, der der soeben generierten Adresse oder dem von Ihnen eingegebenen Mnemonik entspricht. Diese Nachricht wird in Ihrem Benutzerprofil (User Profile) gespeichert, damit wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Plugin im Governance-Projekt (Governance Project) einreichen.",
+                    "updated": 1682281237455
                 }
             ]
         },
@@ -479,6 +582,11 @@
                     "language": "TR",
                     "text": "Tamam hadi yapalım!",
                     "updated": 1645108102339
+                },
+                {
+                    "language": "DE",
+                    "text": "Okay... los geht's!",
+                    "updated": 1682281244243
                 }
             ]
         },
@@ -500,6 +608,11 @@
                     "language": "TR",
                     "text": "Profil Oluşturucu menüsüne erişin ve Profil Oluştur seçeneğine tıklayın. İşlemi onaylamak için tekrar tıklayın.",
                     "updated": 1645108122610
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie das Menü des Profilkonstrukteurs (Profile Constructor) auf und klicken Sie auf die Option Profil erstellen. Klicken Sie erneut, um den Vorgang zu bestätigen.",
+                    "updated": 1682281254375
                 }
             ]
         },
@@ -512,6 +625,11 @@
                     "language": "ES",
                     "text": "Eso es!",
                     "updated": 1640976107632
+                },
+                {
+                    "language": "DE",
+                    "text": "Das war's!",
+                    "updated": 1682281262255
                 }
             ]
         },
@@ -534,6 +652,11 @@
                     "language": "TR",
                     "text": "Yönetim Adresinizde zaten jetonlarınız varsa, Kullanıcı Profilinize Blockchain Gücünün geldiğini görmelisiniz. Sistemin blok zincirinden veri alması bir dakika kadar sürebilir. Jetonunuz yoksa, sıfır Blockchain Gücü alacaksınız.",
                     "updated": 1645108154481
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereits Token in Ihrer Governance Address haben, sollten Sie sehen, dass die Blockchain-Power in Ihrem Benutzerprofil (User Profile) erscheint. Es kann etwa eine Minute dauern, bis das System die Daten aus der Blockchain abruft. Wenn Sie keine Token haben, erhalten Sie keine Blockchain-Power.",
+                    "updated": 1682281269591
                 }
             ]
         },
@@ -560,6 +683,10 @@
                     "language": "ES",
                     "text": "Comprueba tus configuraciones",
                     "updated": 1682596392350
+                },
+                    "language": "DE",
+                    "text": "Überprüfen Sie Ihre Konfigurationen",
+                    "updated": 1682281278695
                 }
             ]
         },
@@ -581,6 +708,11 @@
                     "language": "TR",
                     "text": "Şimdi, Kullanıcı Profili düğümünün yapılandırmasını kontrol etmek için bir dakikanızı ayırın. Aşağıdakine benzer bir mesaj görmelisiniz:",
                     "updated": 1645108184516
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich nun eine Minute Zeit, um die Konfiguration des Knotens Benutzerprofil (User Profile) zu überprüfen. Sie sollten eine ähnliche Meldung wie die folgende sehen:",
+                    "updated": 1682281290725
                 }
             ]
         },
@@ -608,6 +740,11 @@
                     "language": "TR",
                     "text": "Yönetim sistemi bu şekilde, Kullanıcı Profilinin (User Profile) mesajı imzalayan özel anahtara ait olduğunu ve bunun da profilinize Token Gücü veren Tokenleri tutacak adrese ait olduğunu bilecektir.",
                     "updated": 1645108270008
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf diese Weise weiß das Governance-System, dass dieses Benutzerprofil (User Profile) zu dem privaten Schlüssel gehört, mit dem die Nachricht signiert wurde, der wiederum zu der Adresse gehört, die die Token enthält, die Ihrem Profil die Token Power verleihen.",
+                    "updated": 1682281535620
                 }
             ]
         },
@@ -630,6 +767,10 @@
                     "language": "ES",
                     "text": "Haz copias de seguridad de tus llaves",
                     "updated": 1682596475972
+                },
+                    "language": "DE",
+                    "text": "Sichern Sie Ihren Schlüssel",
+                    "updated": 1682281546223
                 }
             ]
         },
@@ -652,6 +793,11 @@
                     "language": "TR",
                     "text": "Mevcut bir adresin kimliğini doğrulamak için bir anımsatıcı kullandıysanız, bir sonraki adımı güvenle göz ardı edebilirsiniz.",
                     "updated": 1645108490254
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Mnemonik verwendet haben, um eine bestehende Adresse zu authentifizieren, können Sie die folgenden Schritte getrost ignorieren.",
+                    "updated": 1682281554884
                 }
             ]
         },
@@ -674,6 +820,11 @@
                     "language": "TR",
                     "text": "Bu çok önemli! Yeni bir adres oluşturmayı seçtiyseniz, özel anahtarınızı yedeklemelisiniz! Daha sonra Superalgos SA Jetonlarını bu adreste tutacaksınız. Bunu yapmadan önce, adrese erişmek için kullanacağınız özel anahtarı (private key) güvenli bir şekilde saklamanız gerekir.",
                     "updated": 1645108552391
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist sehr wichtig! Wenn Sie sich entschieden haben, eine neue Adresse zu generieren, müssen Sie Ihren privaten Schlüssel sichern! Später werden Sie Superalgos SA Token in dieser Adresse halten. Bevor Sie das tun, müssen Sie den privaten Schlüssel, mit dem Sie auf die Adresse zugreifen werden, sicher aufbewahren.",
+                    "updated": 1682281581167
                 }
             ]
         },
@@ -696,6 +847,11 @@
                     "language": "TR",
                     "text": "Bu noktada Superalgos, özel anahtarlarınızı güvenli bir şekilde yedeklemek için yerleşik bir çözüm sunmaz. Sistemin bu noktada yaptığı tek şey, bir BSC adresi / özel anahtar çifti oluşturmak ve bunu Profil Oluşturucu düğümünün konfigürasyonunda size teslim etmektir. Bu hassas bilgileri nasıl saklayacağına karar vermek size kalmıştır.",
                     "updated": 1645108605282
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu diesem Zeitpunkt bietet Superalgos keine eingebaute Lösung zur sicheren Sicherung Ihrer privaten Schlüssel. Alles, was das System zu diesem Zeitpunkt tut, ist, ein BSC-Adress-/Privatschlüssel-Paar zu erstellen und es in der Konfiguration des Profile Constructor-Knotens (Profile Constructor node) bereitzustellen. Es liegt an Ihnen zu entscheiden, wie Sie mit diesen sensiblen Informationen umgehen wollen.",
+                    "updated": 1682281678720
                 }
             ]
         },
@@ -717,6 +873,11 @@
                     "language": "TR",
                     "text": "Profil Oluşturucu yapılandırmasını (Profile Constructor) açın. Adresi ve özel anahtarı aşağıdaki biçimde bulacaksınız, böylece bilgileri uygun gördüğünüz şekilde yedekleyebilirsiniz.",
                     "updated": 1645108786958
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration des Profile Constructor auf. Sie finden die Adresse und den privaten Schlüssel in folgendem Format, so dass Sie die Informationen auf die von Ihnen gewünschte Weise sichern können.",
+                    "updated": 1682281691618
                 }
             ]
         },
@@ -748,6 +909,10 @@
                     "language": "ES",
                     "text": "Borrar el constructor",
                     "updated": 1682596591840
+                },
+                    "language": "DE",
+                    "text": "Löschen Sie den Konstruktor",
+                    "updated": 1682281699966
                 }
             ]
         },
@@ -770,6 +935,11 @@
                     "language": "TR",
                     "text": "Özel anahtarın yedeklediğinizden eminseniz veya mevcut bir adresin mnemonic'ğini kullandıysanız, Profil Oluşturucu düğümünü (Profile Constructor) silmelisiniz! Katkılarınızdan biriyle yanlışlıkla GitHub.com'a gönderebileceğiniz için özel anahtarınızı Çalışma Alanında saklamak güvenli değildir. Ayrıca, çalışma alanlarının hiçbir güvenlik olmaksızın diske şifrelenmemiş JSON dosyaları olarak kaydedildiğini unutmayın.",
                     "updated": 1645108884012
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie mit Ihrer Sicherung des privaten Schlüssels zufrieden sind oder eine Eselsbrücke für eine bestehende Adresse verwendet haben, müssen Sie den Knoten Profilkonstrukteur (Profile Constructor node) löschen! Es ist nicht sicher, Ihren privaten Schlüssel im Arbeitsbereich (Workspace) zu speichern, da Sie ihn versehentlich mit einem Ihrer Beiträge an GitHub.com übermitteln könnten. Denken Sie auch daran, dass Arbeitsbereiche auf der Festplatte als unverschlüsselte JSON-Dateien gespeichert werden, die keinerlei Sicherheit bieten.",
+                    "updated": 1682281711528
                 }
             ]
         },
@@ -796,6 +966,10 @@
                     "language": "ES",
                     "text": "Importar clave privada en una cartera",
                     "updated": 1682596640767
+                },
+                    "language": "DE",
+                    "text": "Private Key in eine Wallet importieren",
+                    "updated": 1682281720295
                 }
             ]
         },
@@ -818,6 +992,11 @@
                     "language": "TR",
                     "text": "Bu adım yönetişim ile etkileşim için gerekli değildir, ancak büyük olasılıkla bir noktada yapmak isteyeceğiniz için bu adımı ele alacağız ve kesinlikle gerekli olmasa bile yine de önerilir.",
                     "updated": 1645109010343
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Schritt ist für die Interaktion mit der Governance nicht erforderlich, wird aber dennoch behandelt, da Sie ihn höchstwahrscheinlich irgendwann durchführen möchten und er ohnehin empfohlen wird, auch wenn er nicht unbedingt notwendig ist.",
+                    "updated": 1682281727366
                 }
             ]
         },
@@ -840,6 +1019,11 @@
                     "language": "TR",
                     "text": "Bu adım, yalnızca yeni bir BSC adresi oluşturduysanız geçerlidir. Bunun yerine, mevcut bir adresin anımsatıcısını girdiyseniz, bu bölümü güvenle atlayabilirsiniz.Çünkü zaten bir cüzdanınız vardır.",
                     "updated": 1645109040819
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Schritt ist für die Interaktion mit der Governance nicht erforderlich, wird aber dennoch behandelt, da Sie ihn höchstwahrscheinlich irgendwann durchführen möchten und er ohnehin empfohlen wird, auch wenn er nicht unbedingt notwendig ist.",
+                    "updated": 1682281737811
                 }
             ]
         },
@@ -861,6 +1045,11 @@
                     "language": "TR",
                     "text": "Buradaki fikir, az önce oluşturduğunuz adresi / özel anahtarı işlevsel bir donanım veya yazılım cüzdanına aktarmaktır, böylece sonunda bu adrese göndereceğiniz jetonları kontrol edebilirsiniz.",
                     "updated": 1645109068299
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Idee ist, die Adresse / den privaten Schlüssel, den Sie gerade erstellt haben, in eine funktionierende Hardware- oder Software-Brieftasche zu importieren, so dass Sie die Token kontrollieren können, die Sie schließlich an diese Adresse senden werden.",
+                    "updated": 1682281753511
                 }
             ]
         },
@@ -882,6 +1071,11 @@
                     "language": "TR",
                     "text": "Yönetişim ile etkileşim kurmak için bu adım gerekli değildir, çünkü yapmanız gereken tek şey Superalgos SA Jetonlarını adrese göndermektir. Ancak, bir noktada bu jetonları taşımak isteyebileceğiniz oldukça açık. Ayrıca, oraya jeton göndermeden önce adresi gerçekten kontrol ettiğinizden emin olmak istersiniz. Öyleyse devam edelim!",
                     "updated": 1645109118264
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist nicht erforderlich, um mit Governance zu interagieren, da Sie lediglich Superalgos SA Token an die Adresse senden müssen. Es liegt jedoch auf der Hand, dass Sie diese Token irgendwann einmal verschieben möchten. Außerdem sollten Sie sicherstellen, dass Sie die Adresse tatsächlich kontrollieren, bevor Sie Token dorthin senden. Also, los geht's!",
+                    "updated": 1682281763726
                 }
             ]
         },
@@ -903,6 +1097,11 @@
                     "language": "TR",
                     "text": "Özel anahtarınızı Trust Wallet'a nasıl aktaracağınızı ele alacağız. Başka bir cüzdan kullanıyorsanız, aynı işlemi o cüzdan için nasıl yapacağınızı öğrenin.",
                     "updated": 1645109153986
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir beschreiben, wie Sie Ihren privaten Schlüssel in Trust Wallet importieren. Wenn Sie eine andere Wallet verwenden, müssen Sie den entsprechenden Prozess herausfinden.",
+                    "updated": 1682281771750
                 }
             ]
         },
@@ -924,6 +1123,11 @@
                     "language": "TR",
                     "text": "“Settings” butonuna tıklayın.",
                     "updated": 1645109187702
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche \"Settings\".",
+                    "updated": 1682281779712
                 }
             ]
         },
@@ -948,8 +1152,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "“Cüzdanlar” seçeneğine tıklayın.",
+                    "text": "“Cüzdanlar” se��eneğine tıklayın.",
                     "updated": 1645109217977
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Option \"Wallets\".",
+                    "updated": 1682281790015
                 }
             ]
         },
@@ -977,6 +1186,11 @@
                     "language": "TR",
                     "text": "Sağ üst köşedeki artı işaretine ( + ) tıklayın.",
                     "updated": 1645109233660
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf das Pluszeichen ( + ) in der oberen rechten Ecke.",
+                    "updated": 1682281802238
                 }
             ]
         },
@@ -1003,6 +1217,11 @@
                     "language": "TR",
                     "text": "“Zaten Cüzdanım Var” seçeneğine tıklayın.",
                     "updated": 1645109249613
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Option \"I Already Have a Wallet\".",
+                    "updated": 1682281812884
                 }
             ]
         },
@@ -1029,6 +1248,11 @@
                     "language": "TR",
                     "text": "“Smart Chain”'e tıklayın.",
                     "updated": 1645109277283
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Smart Chain\".",
+                    "updated": 1682281823341
                 }
             ]
         },
@@ -1055,6 +1279,11 @@
                     "language": "TR",
                     "text": "“Private Key” sekmesine tıklayın",
                     "updated": 1645109305735
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Registerkarte \"Private Key\".",
+                    "updated": 1682281853901
                 }
             ]
         },
@@ -1077,6 +1306,11 @@
                     "language": "TR",
                     "text": "Trust Wallet bu sayfaların ekran görüntüsünün alınmasına izin vermediğinden, önceki ve sonraki birkaç ekranın görüntüsü yoktur.",
                     "updated": 1645109336086
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir haben keine Bilder des vorherigen und der nächsten Bildschirme, da Trust Wallet die Erfassung dieser Seiten nicht zulässt.",
+                    "updated": 1682281872133
                 }
             ]
         },
@@ -1098,6 +1332,11 @@
                     "language": "TR",
                     "text": "Private Key'inizi kopyalayın ve “Yapıştır”a tıklayın. Biliyorum, Trust Wallet cep telefonunuzda çalışıyor, bu yüzden telefonunuzdan özel anahtarınıza nasıl erişeceğinizi öğrenmeniz gerekiyor.",
                     "updated": 1645109372899
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie Ihren privaten Schlüssel und klicken Sie auf \"EINFÜGEN\". Ich weiß, dass Trust Wallet auf Ihrem Mobiltelefon läuft, also müssen Sie herausfinden, wie Sie von Ihrem Telefon aus auf Ihren privaten Schlüssel zugreifen können.",
+                    "updated": 1682281883823
                 }
             ]
         },
@@ -1119,6 +1358,11 @@
                     "language": "TR",
                     "text": "Cüzdan için bir Ad girin. Örneğin \"Superalgos Profili\" ya da sizin belirleyeceğiniz başka birşey) ve \"IMPORT\" düğmesini tıklayın.",
                     "updated": 1645109437872
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie einen Namen für die Wallet ein (etwa \"Superalgos Profile\"?) und klicken Sie auf die Schaltfläche \"IMPORT\".",
+                    "updated": 1682281995086
                 }
             ]
         },
@@ -1140,6 +1384,10 @@
                     "language": "ES",
                     "text": "Deberías recibir un mensaje del tipo \"Tu monedero se ha creado correctamente\". Esto significa que tienes el control de la dirección.",
                     "updated": 1682596823457
+                },
+                    "language": "DE",
+                    "text": "Sie sollten eine Meldung erhalten, die in etwa lautet \"Ihre Wallet wurde erfolgreich erstellt\". Das bedeutet, dass Sie die Kontrolle über die Adresse haben!",
+                    "updated": 1682282011145
                 }
             ]
         },

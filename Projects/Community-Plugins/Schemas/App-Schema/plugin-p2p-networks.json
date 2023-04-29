@@ -1,5 +1,5 @@
 {
-    "type": "Plugin P2P-Networks",
+    "type": "Plugin P2P Networks",
     "menuItems": [
         {
             "action": "Add Missing Plugin P2P Networks",

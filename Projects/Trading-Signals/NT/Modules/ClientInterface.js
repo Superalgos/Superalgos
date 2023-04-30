@@ -62,14 +62,16 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 if (listeningBot === undefined) {
                     let response = {
                         result: 'Error',
-                        message: 'Listening Social Trading Bot was not found within the User Profile.'
+                        message: 'Listening Social Trading Bot was not found within the User Profile.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                     return response
                 }
                 if (listeningBot.signingAccount?.config?.signature === undefined) {
                     let response = {
                         result: 'Error',
-                        message: 'Listening Social Trading Bot has no Signing Account attached.'
+                        message: 'Listening Social Trading Bot has no Signing Account attached.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                     return response
                 }
@@ -90,13 +92,14 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     }
                 }
                 if (followedBotReference?.payload?.tokenPower !== undefined) {
-                    allocatedTokenPower = followedBotReference.payload.tokenPower
+                    allocatedTokenPower = parseFloat(followedBotReference.payload.tokenPower.toFixed(0))
                 }
 
                 if (allocatedTokenPower < followerMinTokenPower) {
                     let response = {
                         result: 'Error',
-                        message: 'Social Trading Bot ' + senderUserProfile.name + '/' + sendingBot.name + ' requires minimum ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) + ' to follow the bot'
+                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) + ' Token Power to follow.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                     return response
                 }
@@ -105,7 +108,8 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 if (followedBotRequest.id !== sendingBot.id) {
                     let response = {
                         result: 'Error',
-                        message: 'The requested Social Trading Bot is no longer available behind the linked blockchain account. Please update your client.'
+                        message: 'The requested Social Trading Bot is no longer available behind the linked blockchain account. Please update your client.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                     return response
                 }
@@ -120,12 +124,14 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 if (await NT.networkApp.webSocketsInterface.socketInterfaces.addFollower(caller, followerReference, listeningBot, sendingBot, senderUserProfile) !== true) {
                     response = {
                         result: 'Error',
-                        message: 'Error while adding follower relationship on Network Node.'
+                        message: 'Error while adding follower relationship on Network Node.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                 } else {
                     response = {
                         result: 'Ok',
-                        message: 'Successfully subscribed'
+                        message: 'Successfully subscribed.',
+                        followedBotReferenceId: followedBotReferenceId
                     }
                 }
                 return response

@@ -9,7 +9,7 @@ exports.newLoadMyWorkspaceRoute = function newLoadMyWorkspaceRoute() {
     function command(httpRequest, httpResponse) {
         let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
         let requestPath = requestPathAndParameters[0].split('/')
-        let fileName = unescape(requestPath[2])
+        let fileName = unescape(requestPath.splice(2).join('/'))
         let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
 
         respondWithFile(filePath, httpResponse)

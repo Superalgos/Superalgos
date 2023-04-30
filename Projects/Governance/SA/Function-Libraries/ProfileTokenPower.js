@@ -118,10 +118,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage(
-                "You need to have a Token Power Switch child node.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
             return
         }
         distributeTokenPower(
@@ -144,10 +140,6 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage(
-                "You need to have a Token Power Switch child node.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
             return
         }
         distributeTokenPower(
@@ -198,8 +190,17 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
             is going to be switched between all nodes. The first pass is about
             scanning all sibling nodes to see which ones have a percentage defined
             at their config, and check that all percentages don't add more than 100.
+
+            We will also check for nodes having absolute amounts of token power configured
+            and verify if the total of defined amounts is below the available token power.
+            If not, we will reduce the token power to be allocated equally by the share
+            of the configured amount exceeding the available amount.
+
+            Token Power remaining after servicing nodes with a configured amount will be
+            distributed to nodes with a configured percentage or with no configuration.
             */
             let totalPercentage = 0
+            let totalAmount = 0
             let totalNodesWithoutPercentage = 0
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
@@ -211,13 +212,12 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = undefined
-                        if (childNode.config !== undefined) {
-                            percentage = childNode.config.percentage
-                        }
-                    
-                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                            totalPercentage = totalPercentage + percentage
+                        let config = getTokenPowerRequest(childNode)
+
+                        if (config?.type === "amount" && config?.value >= 0) {
+                            totalAmount = totalAmount + config.value
+                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                            totalPercentage = totalPercentage + config.value
                         } else {
                             totalNodesWithoutPercentage++
                         }
@@ -232,12 +232,12 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = undefined
-                                if (childNode.config !== undefined) {
-                                    percentage = childNode.config.percentage
-                                }
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = getTokenPowerRequest(childNode)
+
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
                                 }
@@ -248,16 +248,23 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                 }
             }
             if (totalPercentage > 100) {
-                node.payload.uiObject.setErrorMessage(
-                    'Token Power Switching Error. Total Percentage of children nodes is greater than 100.',
-                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
                 return
             }
             let defaultPercentage = 0
             if (totalNodesWithoutPercentage > 0) {
                 defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
             }
+                        
+            /* If configured Token Power amounts exceed the available Token Power, determine the share by which requests need to be reduced.
+            Store the Token Power remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+            let percentagePower = 0
+            let amountShare = 1
+            if (totalAmount > tokenPower && totalAmount > 0) {
+                amountShare = tokenPower / totalAmount
+            } else {
+                percentagePower = tokenPower - totalAmount
+            }
+
             /*
             Here we do the actual distribution.
             */
@@ -271,16 +278,24 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                        let percentage = undefined
-                        if (childNode.config !== undefined) {
-                            percentage = childNode.config.percentage
-                        }
-                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                        let distributionAmount = 0
+                        let percentage = 0
+                        let config = getTokenPowerRequest(childNode)
+
+                        if (config?.type === "amount" && config?.value >= 0) {
+                            distributionAmount = config.value * amountShare
+                            percentage = "fixed"
+                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                            distributionAmount = percentagePower * config.value / 100
+                            percentage = config.value
+                        } else {
+                            distributionAmount = percentagePower * defaultPercentage / 100
                             percentage = defaultPercentage
                         }
+
                         distributeTokenPower(
                             childNode,
-                            tokenPower * percentage / 100,
+                            distributionAmount,
                             percentage,
                             excludeDelegationProgram
                         )
@@ -295,16 +310,24 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
-                                let percentage = undefined
-                                if (childNode.config !== undefined) {
-                                    percentage = childNode.config.percentage
-                                }
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = getTokenPowerRequest(childNode)
+        
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
+
                                 distributeTokenPower(
                                     childNode,
-                                    tokenPower * percentage / 100,
+                                    distributionAmount,
                                     percentage,
                                     excludeDelegationProgram
                                 )
@@ -476,6 +499,7 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                     at their config, and check that all percentages don't add more than 100.
                     */
                     let totalPercentage = 0
+                    let totalAmount = 0
                     let totalNodesWithoutPercentage = 0
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -485,9 +509,13 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+
+                                let config = getTokenPowerRequest(childNode)
+
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
                                 }
@@ -500,9 +528,13 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                            totalPercentage = totalPercentage + percentage
+                                        
+                                        let config = getTokenPowerRequest(childNode)
+
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            totalAmount = totalAmount + config.value
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            totalPercentage = totalPercentage + config.value
                                         } else {
                                             totalNodesWithoutPercentage++
                                         }
@@ -519,6 +551,16 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                     if (totalNodesWithoutPercentage > 0) {
                         defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
                     }
+                    /* If configured Token Power amounts exceed the available Token Power, determine the share by which requests need to be reduced.
+                    Store the Token Power remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+                    let percentagePower = 0
+                    let amountShare = 1
+                    if (totalAmount > programPower && totalAmount > 0) {
+                        amountShare = programPower / totalAmount
+                    } else {
+                        percentagePower = programPower - totalAmount
+                    }
+                    
                     /*
                     Here we do the actual distribution.
                     */
@@ -530,14 +572,23 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = getTokenPowerRequest(childNode)   
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
                                     currentProgramNode, 
                                     childNode, 
-                                    programPower * percentage / 100, 
+                                    distributionAmount, 
                                     percentage,
                                     generation
                                     )
@@ -550,14 +601,23 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                        let distributionAmount = 0
+                                        let percentage = 0
+                                        let config = getTokenPowerRequest(childNode)
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            distributionAmount = config.value * amountShare
+                                            percentage = "fixed"
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            distributionAmount = percentagePower * config.value / 100
+                                            percentage = config.value
+                                        } else {
+                                            distributionAmount = percentagePower * defaultPercentage / 100
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
                                             currentProgramNode, 
                                             childNode, 
-                                            programPower * percentage / 100, 
+                                            distributionAmount, 
                                             percentage,
                                             generation
                                             )
@@ -570,5 +630,39 @@ exports.newGovernanceFunctionLibraryProfileTokenPower = function newGovernanceFu
                 }
             }
         }
+    }
+    
+    function getTokenPowerRequest(node) {
+        if (node.config === undefined) { return }
+        let result = {}
+        let config = node.config
+        let amount = config.amount
+        let percentage = config.percentage
+
+        if (percentage !== undefined && amount !== undefined) { return }
+
+        /* Node configuration requests an absolute amount of token power */
+        if (amount !== undefined) {
+            result.type = "amount"
+            /* We do not allow amounts smaller than 0 */
+            if (!isFinite(amount) || amount < 0) { return }
+            /* Check if the node already has token power and reduce the result accordingly */
+            if (node.payload.tokenPower !== undefined && isFinite(node.payload.tokenPower)) {
+                let neededTokenPower = amount - node.payload.tokenPower
+                if (neededTokenPower < 0) { neededTokenPower = 0}
+                result.value = neededTokenPower
+            } else {
+                result.value = amount
+            }           
+        /* Node configuration requests a percentage of available token power */
+        } else if (percentage !== undefined) {
+            result.type = "percentage"
+            /* We do not allow percentages smaller than 0 */
+            if (!isFinite(percentage) || percentage < 0) { return }
+            result.value = percentage
+        } else {
+            return
+        }
+        return result
     }
 }

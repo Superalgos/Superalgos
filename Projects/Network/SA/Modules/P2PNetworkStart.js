@@ -201,7 +201,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         messagesToBeDelivered.push(messageHeader)
 
         if (peer === undefined) {
-            SA.logger.error('Message can not be delivered to the P2P Network because the peer selected is undefined. Maybe there are no peers for the Network Service that wants to be accesed?')
+            SA.logger.error('Message can not be delivered to the P2P Network because the peer selected is undefined. Maybe there are no peers for the Network Service that wants to be accessed?')
             return
         }
         /*

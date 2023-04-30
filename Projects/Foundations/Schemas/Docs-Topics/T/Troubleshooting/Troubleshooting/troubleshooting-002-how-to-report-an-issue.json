@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir sorunu bildirmek, bazı temel araştırmalar yapmayı, sorunun nasıl yeniden oluşturulacağını dikkatlice açıklamayı ve önemli bilgileri toplamayı gerektiren bir süreçtir.",
                 "updated": 1647857099712
+            },
+            {
+                "language": "DE",
+                "text": "Die Berichterstattung über ein Problem ist ein Prozess, der einige grundlegende Recherchen, eine sorgfältige Beschreibung der Reproduktion des Problems und das Sammeln wichtiger Informationen erfordert.",
+                "updated": 1678643131918
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bir sorunu bildirmeyi düşünmeden önce, sorunu araştırmak için ulaşabileceğiniz her şeyi yaptığınızdan emin olun. Çoğu durumda, hiçbir sorun olmadığını ve bir hata yaptığınızı, süreçte bir adımı atladığınızı veya bir şartı yerine getirmediğinizi göreceksiniz.",
                     "updated": 1647857133975
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie die Meldung eines Problems in Erwägung ziehen, sollten Sie alles Mögliche tun, um das Problem zu untersuchen. In den meisten Fällen werden Sie feststellen, dass es gar kein Problem gibt und dass Sie einen Fehler gemacht, einen Arbeitsschritt übersprungen oder eine Anforderung nicht erfüllt haben.",
+                    "updated": 1678643148805
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Önemli: Bir Sorun Nasıl Giderilir kılavuzu ( How to Troubleshoot an Issue ), sorununuzu araştırmak ve ilgili tüm bilgileri toplamak için sizi adım adım bir süreçten geçirir. Kılavuzu dikkatli bir şekilde takip etmek, bir sorunu bildirmek için bir gerekliliktir. Sorun giderme adımlarını uygulamanız bile sorununuzu çözmezse, kılavuzda belirtildiği gibi gerekli bilgileri toplamayı bitirdikten sonra buraya geri dönün. Bir sorunu bildirmenin, sorunun neyle ilgili olduğunu anlamayı, sorunun nasıl yeniden üretileceğini açıklayabilmeyi ve ilgili tüm bilgileri sağlamayı gerektirdiğini unutmayın.",
                     "updated": 1647857230000
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Leitfaden zur Problembehandlung (How to Troubleshoot an Issue) führt Sie Schritt für Schritt durch die Untersuchung Ihres Problems und die Sammlung aller relevanten Informationen. Die sorgfältige Befolgung des Leitfadens ist eine Voraussetzung für die Meldung des Problems. Wenn das Durchlaufen der Schritte zur Fehlerbehebung Ihr Problem nicht löst, kommen Sie hierher zurück, sobald Sie die erforderlichen Informationen gesammelt haben, wie in der Anleitung beschrieben. Denken Sie daran, dass Sie ein Problem nur dann melden können, wenn Sie verstehen, worum es geht, wenn Sie erklären können, wie Sie das Problem reproduzieren können, und dass Sie alle relevanten Informationen bereitstellen können.",
+                    "updated": 1678643161189
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "1. Benzer Sorunları Arayın",
                     "updated": 1647857289388
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Suche nach ähnlichen Themen",
+                    "updated": 1678643170312
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Superalgos deposundaki Sorunlar sayfasına gidin ve sizinkine benzer olabilecek sorunları bulmak için arama kutusunu kullanın.",
                     "updated": 1647857323801
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie auf die Seite \"Issues\" im Superalgos-Repository und verwenden Sie das Suchfeld, um Fehler zu finden, die Ihrem ähnlich sind. ",
+                    "updated": 1678643208983
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "TR",
                     "text": "Açık ve kapalı sorunları arayın ( is open etiketini kaldırın).",
                     "updated": 1647857336635
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach offenen und geschlossenen Fehlern (entfernen Sie das Tag \"is open\").",
+                    "updated": 1678643213358
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "TR",
                     "text": "Sorunu açıklamak için kullanacağınız farklı anahtar kelimeleri deneyin.",
                     "updated": 1647857349960
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren Sie verschiedene Schlüsselwörter aus, die Sie zur Beschreibung des Problems verwenden würden.",
+                    "updated": 1678643220112
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "TR",
                     "text": "Sizinkine benzer bir sorun bulursanız, tüm ileti dizisini okuyun. Sorunu çözmeye yardımcı olacak bilgiler, önerilen geçici çözümler veya sorunun çözümünün durumu hakkında raporlar bulabilirsiniz.",
                     "updated": 1647857594347
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Problem finden, das dem Ihren ähnlich ist, lesen Sie den ganzen Thread. Möglicherweise finden Sie Informationen, die zur Lösung des Problems beitragen, Vorschläge für Umgehungslösungen oder Berichte über den Stand der Lösung des Problems.",
+                    "updated": 1678643236458
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "TR",
                     "text": "Sorunla ilgili diğer kullanıcılar tarafından henüz sunulmamış bilgilere sahip olduğunuzu düşünüyorsanız, devam edin ve davanız hakkında bildiğiniz her şeyle soruna yanıt verin.",
                     "updated": 1647857650021
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie der Meinung sind, dass Sie Informationen haben, die für das Problem relevant sind und die noch nicht von anderen Nutzern angeboten wurden, dann antworten Sie auf die Frage mit allem, was Sie über Ihren Fall wissen.",
+                    "updated": 1678643249038
                 }
             ]
         },
@@ -164,6 +209,11 @@
                     "language": "TR",
                     "text": "Sizinkine benzer bir sorun yoksa veya sorununuz, bulduğunuz sorunlarda ele alınmayan farklı bir bağlamda ortaya çıkıyorsa, sonraki birkaç adıma geçin.",
                     "updated": 1647857675901
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es keine Probleme gibt, die mit Ihrem Problem vergleichbar sind, oder wenn Ihr Problem in einem anderen Zusammenhang auftritt, der in den gefundenen Problemen nicht angesprochen wird, dann fahren Sie mit den nächsten Schritten fort.",
+                    "updated": 1678643263966
                 }
             ]
         },
@@ -181,6 +231,11 @@
                     "language": "TR",
                     "text": "2. Bir Sorun Bildirmeye Hazır mısınız?",
                     "updated": 1647857700296
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Sind Sie bereit, ein Problem zu melden?",
+                    "updated": 1678643274606
                 }
             ]
         },
@@ -197,6 +252,11 @@
                     "language": "TR",
                     "text": "Lütfen aşağıdaki sorular hakkında dürüst bir değerlendirme yapın:",
                     "updated": 1647857740283
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte nehmen Sie eine ehrliche Bewertung der folgenden Fragen vor:",
+                    "updated": 1678643285179
                 }
             ]
         },
@@ -214,6 +274,11 @@
                     "language": "TR",
                     "text": "Yetenekleriniz doğrultusunda Sorun Giderme ( How to Troubleshoot an Issue ) kılavuzunu izlediniz mi?",
                     "updated": 1647857841480
+                },
+                {
+                    "language": "DE",
+                    "text": "Haben Sie die Anleitung zur Fehlerbehebung (How to Troubleshoot an Issue) nach bestem Wissen und Gewissen befolgt?",
+                    "updated": 1678643297801
                 }
             ]
         },
@@ -230,6 +295,11 @@
                     "language": "TR",
                     "text": "Sorununuzu yazılımın bugünkü sürümüyle test ettiniz mi?",
                     "updated": 1647857893209
+                },
+                {
+                    "language": "DE",
+                    "text": "Haben Sie Ihr Problem mit der aktuellen Version der Software getestet?",
+                    "updated": 1678643314893
                 }
             ]
         },
@@ -246,6 +316,11 @@
                     "language": "TR",
                     "text": "Belgelerdeki sorun giderme sayfalarından hiçbirinin sorununuzu ele almadığını ve çözmediğini doğruladınız mı?",
                     "updated": 1647857907546
+                },
+                {
+                    "language": "DE",
+                    "text": "Haben Sie überprüft, dass keine der Seiten zur Fehlerbehebung in der Dokumentation Ihr Problem anspricht und löst?",
+                    "updated": 1678643403576
                 }
             ]
         },
@@ -262,6 +337,11 @@
                     "language": "TR",
                     "text": "Tarayıcı konsolunda veya Günlük Dosyaları klasöründe ilişkili hataları yakalayıp kaydettiniz mi?",
                     "updated": 1647857935291
+                },
+                {
+                    "language": "DE",
+                    "text": "Haben Sie die zugehörigen Fehler in der Browserkonsole oder im Ordner \"Log-Files\" erfasst und gespeichert?",
+                    "updated": 1678643412872
                 }
             ]
         },
@@ -279,6 +359,11 @@
                     "language": "TR",
                     "text": "Sorununuzun ön uçla ilgili olması durumunda… sorunu test etmek için Chrome veya Safari kullanıyor musunuz?",
                     "updated": 1647857959970
+                },
+                {
+                    "language": "DE",
+                    "text": "Falls Ihr Problem mit dem Frontend zusammenhängt... verwenden Sie Chrome oder Safari, um das Problem zu testen?",
+                    "updated": 1678643425184
                 }
             ]
         },
@@ -295,6 +380,11 @@
                     "language": "TR",
                     "text": "Yukarıdakilerden herhangi birine hayır cevabı verirseniz, bir konu açmaya hazır değilsiniz. Tüm sorulara güvenle evet yanıtı veriyorsanız, lütfen devam edin.",
                     "updated": 1647857980459
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine der obigen Fragen mit Nein beantworten können, sind Sie nicht bereit, ein Problem zu eröffnen. Wenn Sie alle Fragen mit Ja beantworten können, fahren Sie bitte fort.",
+                    "updated": 1678643436359
                 }
             ]
         },
@@ -312,6 +402,11 @@
                     "language": "TR",
                     "text": "3. Aşağıdakileri Göz önünde bulundurun",
                     "updated": 1647858003497
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Berücksichtigen Sie Folgendes",
+                    "updated": 1678643443807
                 }
             ]
         },
@@ -328,6 +423,11 @@
                     "language": "TR",
                     "text": "Sorun resmi çalışma alanlarından birinde tekrar ediliyorsa, sorunu bu şekilde bildirin. Özel çalışma alanlarında meydana gelen sorunlar daha düşük önceliğe sahiptir.",
                     "updated": 1647858029714
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Problem in einem der offiziellen Arbeitsbereiche reproduziert werden kann, melden Sie es als solches. Probleme, die in benutzerdefinierten Arbeitsbereichen auftreten, haben eine niedrigere Priorität.",
+                    "updated": 1678643459630
                 }
             ]
         },
@@ -344,6 +444,11 @@
                     "language": "TR",
                     "text": "Çoğaltılamayan konular, çoğaltılabilenlerden daha düşük önceliğe sahiptir.",
                     "updated": 1647858054227
+                },
+                {
+                    "language": "DE",
+                    "text": "Fragen, die nicht reproduziert werden können, haben eine geringere Priorität als solche, die reproduziert werden können.",
+                    "updated": 1678643471136
                 }
             ]
         },
@@ -361,6 +466,11 @@
                     "language": "TR",
                     "text": "4. Yeni Bir Sayı Açın",
                     "updated": 1647858095272
+                },
+                {
+                    "language": "DE",
+                    "text": "4. Eine neue Ausgabe öffnen",
+                    "updated": 1678643479461
                 }
             ]
         },
@@ -377,6 +487,11 @@
                     "language": "TR",
                     "text": "Yeni Sorun düğmesini tıklayın ve Hata raporu öğesinde Başlayın'ı seçin. Aşağıdaki form açılacaktır:",
                     "updated": 1647858110097
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche Neues Problem und wählen Sie im Feld Fehlerbericht die Option Starten. Das folgende Formular wird geöffnet:",
+                    "updated": 1678643498567
                 }
             ]
         },
@@ -399,6 +514,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki yönergeleri izleyerek formu dikkatlice doldurun:",
                     "updated": 1647858240703
+                },
+                {
+                    "language": "DE",
+                    "text": "Füllen Sie das Formular sorgfältig aus und beachten Sie dabei die folgenden Hinweise:",
+                    "updated": 1678643503628
                 }
             ]
         },
@@ -415,6 +535,11 @@
                     "language": "TR",
                     "text": "Başlık",
                     "updated": 1647858245974
+                },
+                {
+                    "language": "DE",
+                    "text": "Titel",
+                    "updated": 1678643511175
                 }
             ]
         },
@@ -431,6 +556,11 @@
                     "language": "TR",
                     "text": "Sorunu tek ve kısa bir cümleyle açıklamak için elinizden gelenin en iyisini yapın. Acele etmeyin. İyi bir uygulama, ne olduğunu ve hangi bağlamda olduğunu açıklamaktır. Örneğin: \"WHB geriye dönük testi, finalDatetime süresinden kısa süre sonra durur\".",
                     "updated": 1647858324551
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie Ihr Bestes, um das Problem in einem einzigen, kurzen Satz zu beschreiben. Nehmen Sie sich Zeit. Eine gute Praxis ist es, zu beschreiben, was passiert und in welchem Zusammenhang. Zum Beispiel: \"WHB-Backtest stoppt kurz vor finalDatetime\".",
+                    "updated": 1678643521067
                 }
             ]
         },
@@ -447,6 +577,11 @@
                     "language": "TR",
                     "text": "Bağlam",
                     "updated": 1647858346453
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext",
+                    "updated": 1678643531262
                 }
             ]
         },
@@ -463,6 +598,11 @@
                     "language": "TR",
                     "text": "Durumunuza uyan bilgileri bırakarak ve uymayan bilgileri silerek içeriği tamamlayın ve ayarlayın.",
                     "updated": 1647858350021
+                },
+                {
+                    "language": "DE",
+                    "text": "Vervollständigen Sie den Inhalt und passen Sie ihn an, indem Sie die Informationen, die zu Ihrem Fall passen, belassen und die Informationen, die nicht passen, löschen.",
+                    "updated": 1678643541656
                 }
             ]
         },
@@ -479,6 +619,11 @@
                     "language": "TR",
                     "text": "İşletim Sistemi: Windows / MacOs / Linux / Diğer (her iki durumda da sürümü dahil edin)",
                     "updated": 1647858403145
+                },
+                {
+                    "language": "DE",
+                    "text": "Betriebssystem: Windows / MacOs / Linux / Andere (geben Sie in jedem Fall die Version an)",
+                    "updated": 1678643556822
                 }
             ]
         },
@@ -495,6 +640,11 @@
                     "language": "TR",
                     "text": "Yazılım versiyonu: bugünün ana dalı / bugünün geliştirme dalı",
                     "updated": 1647858424290
+                },
+                {
+                    "language": "DE",
+                    "text": "Software-Version: heutiger Master-Zweig / heutiger Entwicklungszweig",
+                    "updated": 1678643566090
                 }
             ]
         },
@@ -511,6 +661,11 @@
                     "language": "TR",
                     "text": "Çalışma alanı sürümü: varsayılan Workspace.json (Başlangıç Kılavuzu) / Simple Workspace.json / Çalışma Alanı - Binance - WHB - BBTB.json / Özel çalışma alanım",
                     "updated": 1647858520962
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeitsbereich (Workspace) -Version: Standard-Workspace.json (Anleitung für den Einstieg) / Einfacher Workspace.json / Workspace - Binance - WHB - BBTB.json / Mein eigener Arbeitsbereich",
+                    "updated": 1678643595027
                 }
             ]
         },
@@ -527,6 +682,11 @@
                     "language": "TR",
                     "text": "Tekrarlanabilir: sorun yeniden üretilebilir / üretilemez.",
                     "updated": 1647858533991
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachvollziehbarkeit: Das Problem kann / darf nicht vervielfältigt werden.",
+                    "updated": 1678643770497
                 }
             ]
         },
@@ -544,6 +704,11 @@
                     "language": "TR",
                     "text": "Sorununuzu Açıklayın",
                     "updated": 1647858569177
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie Ihr Problem",
+                    "updated": 1678643780576
                 }
             ]
         },
@@ -560,6 +725,11 @@
                     "language": "TR",
                     "text": "Problemin ne olduğunu açıklayın.",
                     "updated": 1647858582291
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie, worin das Problem zu bestehen scheint.",
+                    "updated": 1678643788775
                 }
             ]
         },
@@ -576,6 +746,11 @@
                     "language": "TR",
                     "text": "Neyi başarmak istediğinizi açıkça belirtin.",
                     "updated": 1647858594967
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie klar und deutlich, was Sie erreichen wollen.",
+                    "updated": 1678643797214
                 }
             ]
         },
@@ -592,6 +767,11 @@
                     "language": "TR",
                     "text": "Hedefe ulaşmak için ne yaptığınızı adım adım açıklayın. Ekip, sorunu yeniden oluşturmak için bu adımları izleyecektir, bu nedenle kesin olun.",
                     "updated": 1647858614578
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie Schritt für Schritt, was Sie getan haben, um das Ziel zu erreichen. Das Team wird diese Schritte befolgen, um das Problem zu reproduzieren, also seien Sie genau.",
+                    "updated": 1678643806268
                 }
             ]
         },
@@ -608,6 +788,11 @@
                     "language": "TR",
                     "text": "Eylemlerinizden beklediğiniz sonucun ne olduğunu açıklayın.",
                     "updated": 1647858631504
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie, welches Ergebnis Sie von Ihrem Handeln erwarten.",
+                    "updated": 1678643818813
                 }
             ]
         },
@@ -624,6 +809,11 @@
                     "language": "TR",
                     "text": "Beklenen sonuçlar yerine ne olacağını açıklayın.",
                     "updated": 1647858650595
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie, was anstelle der erwarteten Ergebnisse geschieht.",
+                    "updated": 1678643829363
                 }
             ]
         },
@@ -640,6 +830,11 @@
                     "language": "TR",
                     "text": "Ekranda, tarayıcı konsolu uygulamasında veya Günlük Dosyaları klasöründe bulduğunuz hataları açıklayın.",
                     "updated": 1647858667176
+                },
+                {
+                    "language": "DE",
+                    "text": "Erklären Sie, welche Fehler Sie auf dem Bildschirm, in der Konsolenanwendung des Browsers oder im Ordner Log-Files gefunden haben.",
+                    "updated": 1678643838860
                 }
             ]
         },
@@ -657,6 +852,11 @@
                     "language": "TR",
                     "text": "Videoda Sorunu Yeniden Oluşturun",
                     "updated": 1647858720902
+                },
+                {
+                    "language": "DE",
+                    "text": "Reproduzieren Sie das Problem auf Video",
+                    "updated": 1678643852872
                 }
             ]
         },
@@ -673,6 +873,11 @@
                     "language": "TR",
                     "text": "Bir sorunu incelemenin en önemli yönü, onu yeniden üretebilmektir. Soruna yol açan adımları gösteren bir video çekmek çok yardımcı olacaktır.",
                     "updated": 1647858716045
+                },
+                {
+                    "language": "DE",
+                    "text": "Der wichtigste Aspekt bei der Untersuchung eines Problems ist die Möglichkeit, es zu reproduzieren. Die Aufnahme eines Videos, das die Schritte zeigt, die zu dem Problem führen, wäre eine große Hilfe.",
+                    "updated": 1678643862006
                 }
             ]
         },
@@ -689,6 +894,11 @@
                     "language": "TR",
                     "text": "Sorun tarayıcıda meydana gelirse, sistemlerin video yakalama özelliğini kullanabilirsiniz:",
                     "updated": 1647858742148
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Problem innerhalb des Browsers auftritt, können Sie die Videoaufnahmefunktion des Systems verwenden:",
+                    "updated": 1678643874190
                 }
             ]
         },
@@ -705,6 +915,11 @@
                     "language": "TR",
                     "text": "Statik bir PNG görüntüsü yakalamak için Ctrl + F8 tuşlarına basın.",
                     "updated": 1647858800959
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F8, um ein statisches PNG-Bild zu erfassen.",
+                    "updated": 1678643901675
                 }
             ]
         },
@@ -721,6 +936,11 @@
                     "language": "TR",
                     "text": "Bir GIF videosu çekmeye başlamak için Ctrl + F9 tuşlarına basın ve yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın. Yakalama sona erdiğinde, yakalamayı işlemek ve son dosyayı oluşturmak biraz zaman alır.",
                     "updated": 1647858819550
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F9, um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
+                    "updated": 1678643998954
                 }
             ]
         },
@@ -737,6 +957,11 @@
                     "language": "TR",
                     "text": "Bir WEBM videosunu çekmeye başlamak için Ctrl + F10 tuşlarına basın ve yakalamayı bitirmek için aynı tuş kombinasyonuna tekrar basın. WEBM videoları anında işlenir.",
                     "updated": 1647858836417
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F10, um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
+                    "updated": 1678644021297
                 }
             ]
         },
@@ -753,6 +978,11 @@
                     "language": "TR",
                     "text": "Her üç durumda da, tarayıcı ortaya çıkan dosyayı indirir ve onu indirilenler klasöründe kullanılabilir hale getirir.",
                     "updated": 1647859050477
+                },
+                {
+                    "language": "DE",
+                    "text": "In allen drei Fällen lädt der Browser die resultierende Datei herunter und stellt sie im Ordner \"Downloads\" zur Verfügung.",
+                    "updated": 1678644032565
                 }
             ]
         },
@@ -770,6 +1000,11 @@
                     "language": "TR",
                     "text": "Not: GIF dosyaları, uzun çekimlerde çok fazla büyüme eğilimindedir, ancak daha evrenseldir, bu nedenle daha fazla cihaz bunları düzgün bir şekilde görüntüleyebilir. WEBM dosyaları çok daha verimlidir, ancak Apple'da ve potansiyel olarak diğer platformlarda veya cihazlarda çalışmaz.",
                     "updated": 1647859117606
+                },
+                {
+                    "language": "DE",
+                    "text": "GIF-Dateien neigen dazu, bei langen Aufnahmen sehr groß zu werden, sind aber universeller, so dass mehr Geräte sie richtig anzeigen können. WEBM-Dateien sind viel effizienter, funktionieren aber nicht auf Apple und möglicherweise auf anderen Plattformen oder Geräten.",
+                    "updated": 1678644043760
                 }
             ]
         },
@@ -786,6 +1021,11 @@
                     "language": "TR",
                     "text": "Sorunun tarayıcıda olmaması durumunda, örneğin konsolda olması durumunda LICEcap, Superalgos dışında GIF videoları çekmenize yardımcı olabilecek hafif ve basit bir sistemdir.",
                     "updated": 1647859151780
+                },
+                {
+                    "language": "DE",
+                    "text": "Falls das Problem nicht im Browser auftritt, sondern z. B. an der Konsole, ist LICEcap ein leichtes, einfaches System, mit dem Sie GIF-Videos außerhalb von Superalgos aufnehmen können.",
+                    "updated": 1678644057687
                 }
             ]
         },
@@ -803,6 +1043,11 @@
                     "language": "TR",
                     "text": "Not: GitHub sorunlarının yalnızca 10 MB ve daha hafif dosyaları kabul ettiğini unutmayın.",
                     "updated": 1647859182029
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass GitHub-Projekte nur Dateien mit einer Größe von 10 MB und weniger akzeptieren.",
+                    "updated": 1678644076900
                 }
             ]
         },
@@ -820,6 +1065,11 @@
                     "language": "TR",
                     "text": "İlgili Günlük Dosyalarını Ekleyin",
                     "updated": 1647859206224
+                },
+                {
+                    "language": "DE",
+                    "text": "Relevante Protokolldateien anhängen",
+                    "updated": 1678644083938
                 }
             ]
         },
@@ -836,6 +1086,11 @@
                     "language": "TR",
                     "text": "Tarayıcı konsolunda ekran hataları veya hatalarınız varsa, ekran yakalamaları iyidir.",
                     "updated": 1647859228286
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Bildschirmfehlern oder Fehlern in der Browserkonsole sind Bildschirmabzüge in Ordnung.",
+                    "updated": 1678644092284
                 }
             ]
         },
@@ -852,6 +1107,11 @@
                     "language": "TR",
                     "text": "Arka uçta hatalar varsa, sorun giderme kılavuzunu takip ederek topladığınız günlükleri ekleyin.",
                     "updated": 1647859242530
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Fehler im Backend haben, fügen Sie die Protokolle bei, die Sie im Rahmen der Fehlerbehebung gesammelt haben.",
+                    "updated": 1678644107179
                 }
             ]
         },
@@ -869,6 +1129,11 @@
                     "language": "TR",
                     "text": "Not: GitHub sorunları, JSON dosyalarının yüklenmesine izin vermez. Bunun yerine tüm ilgili günlükleri içeren bir ZIP dosyası oluşturun.",
                     "updated": 1647859282473
+                },
+                {
+                    "language": "DE",
+                    "text": "GitHub-Probleme erlauben das Hochladen von JSON-Dateien nicht. Erstellen Sie stattdessen eine ZIP-Datei mit allen relevanten Protokollen.",
+                    "updated": 1678644118474
                 }
             ]
         },
@@ -886,6 +1151,11 @@
                     "language": "TR",
                     "text": "Özel Çalışma Alanı?",
                     "updated": 1647859292030
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzerdefinierter Arbeitsbereich?",
+                    "updated": 1678644125946
                 }
             ]
         },
@@ -902,6 +1172,11 @@
                     "language": "TR",
                     "text": "Sorun, özel bir çalışma alanında belirli koşullar altında ortaya çıkarsa, çalışma alanının bir paylaşımını ekleyin. API Anahtarları gibi kişisel bilgiler içerebileceğinden yedekler eklemeyin.",
                     "updated": 1647859312954
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Problem unter bestimmten Bedingungen in einem benutzerdefinierten Arbeitsbereich auftritt, hängen Sie eine Freigabe des Arbeitsbereichs an. Hängen Sie keine Sicherungskopien an, da diese persönliche Informationen wie API-Schlüssel enthalten können.",
+                    "updated": 1678644135875
                 }
             ]
         },
@@ -919,6 +1194,11 @@
                     "language": "TR",
                     "text": "Önemli: Çalışma alanınızı yalnızca açık bir şekilde paylaşma konusunda kendinizi rahat hissediyorsanız soruna yükleyin. Paylaşmamayı tercih ettiğiniz veri yapıları varsa, yalnızca hassas olmayan bitleri paylaşabilmeniz için bunları kaldırmayı düşünün. Sorun tam olarak çalışma alanınızdaki hassas veri yapılarında meydana geliyorsa, konuyu net bir şekilde açıklayın ve sonraki talimatları bekleyin.",
                     "updated": 1647859356654
+                },
+                {
+                    "language": "DE",
+                    "text": "Laden Sie Ihren Arbeitsbereich nur dann in die Ausgabe hoch, wenn Sie sich wohl dabei fühlen, ihn offen zu teilen. Wenn es Datenstrukturen gibt, die Sie lieber nicht freigeben möchten, sollten Sie diese entfernen, damit Sie nur die nicht sensiblen Teile freigeben können. Wenn das Problem gerade mit den sensiblen Datenstrukturen in Ihrem Arbeitsbereich auftritt, erklären Sie die Angelegenheit deutlich und warten Sie auf weitere Anweisungen.",
+                    "updated": 1678644151489
                 }
             ]
         },
@@ -936,6 +1216,11 @@
                     "language": "TR",
                     "text": "5. Github Bildirimlerini Etkinleştirin",
                     "updated": 1647859373334
+                },
+                {
+                    "language": "DE",
+                    "text": "5. Github-Benachrichtigungen aktivieren",
+                    "updated": 1678644161114
                 }
             ]
         },
@@ -952,6 +1237,11 @@
                     "language": "TR",
                     "text": "Geliştiriciler daha fazla bilgi isteyebileceğinden, birisi soruna yanıt verdiğinde GitHub bildirimlerini etkinleştirdiğinizden emin olun.",
                     "updated": 1647859410092
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie GitHub-Benachrichtigungen aktivieren, wenn jemand auf das Problem antwortet, da die Entwickler möglicherweise nach weiteren Informationen fragen möchten.",
+                    "updated": 1678644169273
                 }
             ]
         },

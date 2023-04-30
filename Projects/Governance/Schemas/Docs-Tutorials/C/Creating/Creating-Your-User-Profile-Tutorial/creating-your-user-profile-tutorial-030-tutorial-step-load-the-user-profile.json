@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Sabes quién es tu referente? ¿Su referente tiene un perfil de usuario? ¿Cómo encuentra y carga el perfil correcto? ¡Todas esas son buenas preguntas!",
-                "updated": 1630896021100,
+                "text": "Utilice el cuadro de búsqueda para encontrar el perfil que busca. Vaya a la pestaña Espacio de trabajo y busque el nodo Perfil de usuario que coincida con el nombre que ha buscado. ",
+                "updated": 1682521134676,
                 "style": "Definition"
             },
             {
@@ -48,6 +48,11 @@
                     "language": "ID",
                     "text": "Pastikan kamu menemukan node User Profile yang sebenarnya, dan bukan jenis node lainnya, dan klik di atasnya!",
                     "updated": 1671528158112
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de encontrar un nodo de perfil de usuario real, y no cualquier otro tipo de nodo, y haz clic en él.",
+                    "updated": 1682521149810
                 }
             ]
         },
@@ -58,8 +63,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Te traje al perfil ficticio mencionado en la guía para que te sea más fácil!",
-                    "updated": 1630896053331,
+                    "text": "Si no encuentras el perfil que buscas, puede que tengas que añadirlo manualmente al área de trabajo. ¡En ese caso, consulte la página Cargar un perfil de usuario en Docs!",
+                    "updated": 1682521173668,
                     "style": "Note"
                 },
                 {
@@ -91,8 +96,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Founding Team ya están cargados.",
-                    "updated": 1630896089076,
+                    "text": "Los nuevos perfiles se añaden al Plugin Workspace de gobierno antes de cada evento de distribución.",
+                    "updated": 1682521246636,
                     "style": "Success"
                 },
                 {

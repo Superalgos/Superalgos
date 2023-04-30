@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Концепция управления позициями имеет огромную глубину, и Superalgos предлагает надежные и гибкие инструменты для этого!",
                 "updated": 1642941786265
+            },
+            {
+                "language": "ES",
+                "text": "El concepto de gestión de posiciones tiene una enorme profundidad y Superalgos ofrece herramientas robustas y flexibles para ello.",
+                "updated": 1680811228294
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Однако на данном этапе нам не нужно вдаваться в подробности, поскольку для нашего теста нам достаточно установить начальные цели.",
                     "updated": 1642941801924
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, no necesitamos entrar en detalles en este punto, ya que -en beneficio de nuestra prueba- todo lo que necesitamos hacer es establecer los objetivos iniciales.",
+                    "updated": 1680811265772
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Первоначальные цели установлены на Phase #1",
                     "updated": 1642941870567
+                },
+                {
+                    "language": "ES",
+                    "text": "Los objetivos iniciales se fijan en la Fase nº 1",
+                    "updated": 1680811280997
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Позже вы узнаете, что можно управлять позициями по фазам, каждая из которых имеет свои формулы и события для переключения на другие фазы.",
                     "updated": 1642941881330
+                },
+                {
+                    "language": "ES",
+                    "text": "Más adelante, aprenderás que puedes gestionar tus posiciones en fases, cada una con sus fórmulas y eventos para pasar de una fase a otra.",
+                    "updated": 1680811301505
                 }
             ]
         }

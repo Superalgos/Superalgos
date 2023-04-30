@@ -1,17 +1,13 @@
+# Use the official tensorflow latest with gpu and jupyter notebook
 FROM tensorflow/tensorflow:latest-gpu-jupyter
 
-RUN pip install -U scikit-learn
-RUN pip install pandas
-RUN pip install ray[all]  
-RUN pip install torch
-RUN pip install torchvision 
-RUN pip install tabulate
-RUN pip install tensorboard 
-RUN pip install tensorflow 
-RUN pip install sklearn 
-RUN pip install gym==0.21.0 
+# Set the working directory in the container
+WORKDIR /app
 
-# RUN nohup bash -c "ray start --head --port 6379 --num-gpus=1 &"  && sleep 8 # will be used for ray cluster
+# Copy the requirements file to the container
+COPY requirements.txt .
 
-# RUN pip install notebook
-# RUN pip install matplotlib
+# Install the necessary libraries
+RUN pip install --no-cache-dir -r requirements.txt
+
+

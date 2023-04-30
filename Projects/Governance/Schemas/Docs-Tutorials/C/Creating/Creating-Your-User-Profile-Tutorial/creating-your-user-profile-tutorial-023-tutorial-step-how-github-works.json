@@ -173,7 +173,14 @@
         {
             "style": "Note",
             "text": "Thanks for helping more developers find Superalgos! The system get's stronger this way!",
-            "updated": 1660591375848
+            "updated": 1660591375848,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Gracias por ayudar a más desarrolladores a encontrar Superalgos! ¡El sistema se fortalece de esta manera!",
+                    "updated": 1682520709099
+                }
+            ]
         }
     ]
 }

@@ -77,8 +77,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que esté atento.",
-                    "updated": 1629165598676,
+                    "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que permanece atento.",
+                    "updated": 1682426413836,
                     "style": "Important"
                 },
                 {

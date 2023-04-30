@@ -1,0 +1,90 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 53,
+    "type": "Superalgos Review - Super Deep Project with Great Potential",
+    "definition": {
+        "text": "Deep learning curve, but hey, this is that decentralized-crypto space in which case this project is on par.",
+        "updated": 1681628761464
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To be honest, my first attempt at the Getting Started tutorial was a total failure and frustrated experience. But shutting everything down and starting again worked and I was able to experience a lot of magic. So I thought I would make some notes on my experience and drop them here.",
+            "updated": 1681628971311
+        },
+        {
+            "style": "Subtitle",
+            "text": "Tips for new users",
+            "updated": 1681629010978
+        },
+        {
+            "style": "List",
+            "text": "Be persistent and repeat tutorials again until what they offer both works and is understood/sticks. This is complex stuff and there’s a great deal of info, so give yourself some patience and grace.",
+            "updated": 1681629052819
+        },
+        {
+            "style": "List",
+            "text": "Sometimes it’s just easier to close the browser tab, quite the node process and start the tutorial again from scratch as some underlying process may not have run or been given enough time to complete. My very first time going through the tutorials was a failure as I didn’t see things that I was instructed to do or were described to happen. Reloading and running again changed that.",
+            "updated": 1681629081221
+        },
+        {
+            "style": "List",
+            "text": "Having the browser dev tools open to reveal console errors or load errors indicating that something is wrong. Usually I could reload everything and it would work or it could be skipped without any noticed consequences.",
+            "updated": 1681629122313
+        },
+        {
+            "style": "List",
+            "text": "Use a larger monitor if you have it. I was able to complete the tutorials on a 13” MBP, but it was tedious with the limited screen reality and the strong focus on visual development.",
+            "updated": 1681629129372
+        },
+        {
+            "style": "List",
+            "text": "Pay attention to icons in the tutorial, especially in the top grey block. These are the items to interact with at that given point in the tutorial. Example, in the charts section of the Getting Started tutorial, when it came to learning how to scale, I didn’t realize I had to be on the small black box with that icon given icon in it to then Shift + mouse scroll for it to work (also I learned, there tends to be a video in the next tutorial screen to clarify these things).",
+            "updated": 1681629193177
+        },
+        {
+            "style": "Subtitle",
+            "text": "Pain Points:",
+            "updated": 1681629292873
+        },
+        {
+            "style": "Text",
+            "text": "This is constructive criticism and please, read them as notes-to-myself on possible ways I can contribute to make the project better.",
+            "updated": 1681629326994
+        },
+        {
+            "style": "Text",
+            "text": "- Node Navigation and Interconnection. Trying to understand how to get between nodes without any prior context of their relationship leads to one easily being lost. Admittedly, it's assumed that with practice will come understanding however internode actions such as creating references by dragging the node across UI space is very tedious. Suggestion: It seems some nodes can only connect to certain other nodes within a workspace. Add a tool that pops up an autocomplete go-to form to both search for and go/connect nodes.",
+            "updated": 1681629615945
+        },
+        {
+            "style": "Text",
+            "text": "- Status indication: It’s not clear what part of the process a node is in and when it’s finished. - Specific example, in the Getting Started tutorial, Cancel Vol. MTF Market Indicator Instance shows yellow label “Waiting for My Computer…” the whole time it’s present. I don’t have any easy wait to tell what it’s do if anything. Long minutes later, it finally also displayed in light blue today’s date and 100%, but the yellow waiting label still persists. Slightly better experience was see by the Exchange Raw Data Sensor that shows units acquired ( e.g. 1512/1512 OHLCVs from Binancus) and the associated yellow label does update to say “Waiting 60s…”",
+            "updated": 1681631263937
+        },
+        {
+            "style": "Text",
+            "text": "- Exchange requirements for Getting Started tutorial to work was unclear and breaking to my initial experience. The option to use binance.com, binance.us or neither seemed to be options. However, and I am in the U.S., it wasn’t until repeating the tutorial and actually setting exchange to “binanceus” that the tutorial could actually be followed in its entirety.",
+            "updated": 1681630356393
+        },
+        {
+            "style": "Subtitle",
+            "text": "Current Conclusion",
+            "updated": 1681630078553
+        },
+        {
+            "style": "Text",
+            "text": "I'm truly impressed with the continued growth and management of complexity that this project keeps trudging forward with. I'm personally interested in exploring alternative implementations of the project especially towards more developer-centric routes (more modularization, less monolithic reliance on UI elements) as well as increasing transparency of critical elements like data and networking.",
+            "updated": 1681631107913
+        },
+        {
+            "style": "Text",
+            "text": "Review v1, 2023-04-16; created by bearcanrun",
+            "updated": 1681631446553
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

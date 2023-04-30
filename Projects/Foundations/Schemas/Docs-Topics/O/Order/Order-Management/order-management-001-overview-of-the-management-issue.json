@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Düşük Frekanslı ticaret botu (Low-Frequency Trading Bot) canlı emirleri yönetir, borsada meydana gelen olaylarla senkronize olan bir simülasyon üretir ve tüm ticaret bilgilerini düzenli tutmak için muhasebe yapar.",
                 "updated": 1654760807010
+            },
+            {
+                "language": "DE",
+                "text": "Der Low-Frequency Trading Bot verwaltet Live-Aufträge, erstellt eine Simulation, die mit den Ereignissen an der Börse synchronisiert ist, und führt die Buchhaltung, um alle Handelsinformationen in Ordnung zu halten.",
+                "updated": 1679519912660
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Emirlerin yönetimi, Düşük Frekanslı ticaret botunun yetkinliğinin merkezinde yer alır.",
                     "updated": 1654760830465
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwaltung von Aufträgen steht im Mittelpunkt der Kompetenz des Low-Frequency Trading Bots.",
+                    "updated": 1679519924093
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Süreç, borsadaki emirlerin işlenmesinin yanı sıra bir simülasyon üretmeyi de içerdiğinden bazı karmaşıklıklara sahiptir. İşlem seansının, hesapların ve tüm işlem bilgilerinin ekranda izlenmesinin gerçeği yansıtması için sistemin borsada olanlarla senkronize edilmesi gerekir.",
                     "updated": 1654760889089
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Prozess ist nicht ganz einfach, da er sowohl die Abwicklung von Aufträgen an der Börse als auch die Erstellung einer Simulation umfasst. Das System muss mit den Vorgängen an der Börse synchronisiert werden, damit die Überwachung der Handelssitzung, der Konten und aller Handelsinformationen auf dem Bildschirm der Realität entspricht.",
+                    "updated": 1679519934158
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Ticaret botunun emirleri nasıl yönettiğini anlamak, Superalgos'tan en iyi şekilde yararlanmanıza yardımcı olacaktır. Bu bilgi, basit ticaret sistemi kurulumlarını aşmanıza ve daha ayrıntılı veya olağandışı tanımlarla yapabileceklerinizin sınırlarını genişletmenize olanak tanıyacaktır.",
                     "updated": 1654760920426
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie verstehen, wie der Trading-Bot Aufträge verwaltet, können Sie das Beste aus Superalgos herausholen. Dieses Wissen wird es Ihnen ermöglichen, über einfache Handelssystem-Setups hinauszugehen und die Grenzen dessen zu erweitern, was Sie mit ausgefeilteren oder ungewöhnlichen Definitionen tun können.",
+                    "updated": 1679519972839
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "İlerleyen sayfalarda, emirlerin ticaret sistemi tanımlarının okunduğu andan muhasebeleştirme yapılana kadar bir emrin ömrünün kronolojik bir açıklaması yer almaktadır.",
                     "updated": 1654760945653
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf den folgenden Seiten finden Sie eine chronologische Beschreibung des Lebenslaufs eines Auftrags, von dem Moment an, in dem die Definitionen der Aufträge im Handelssystem gelesen werden, bis zur Abrechnung.",
+                    "updated": 1679519984369
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Bir emir oluşturulduktan sonra, ticaret botunun her yürütülmesinde korunur. Bu noktada, bot iki paralel işi yürütür:",
                     "updated": 1654760979060
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Forward-Testing- und Live-Trading-Sitzungen umfasst die Aufrechterhaltung von Aufträgen den Umgang mit der Börse und Live-Aufträgen.",
+                    "updated": 1679520010893
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "TR",
                     "text": "Forward Test  ve  Live Trade seanslarında, emirlerin sürdürülmesi borsa ve canlı emirlerle ilgilenmeyi içerir.",
                     "updated": 1654761039885
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Forward-Testing- und Live-Trading-Sitzungen umfasst die Aufrechterhaltung von Aufträgen den Umgang mit der Börse und Live-Aufträgen.",
+                    "updated": 1679520071274
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "TR",
                     "text": "Backtest ve Paper Trade seansları söz konusu olduğunda, bot simüle edilmiş emirlerle uğraşırken bu etkileşimleri simüle eder.",
                     "updated": 1654761077705
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Falle von Backtesting- und Papierhandelssitzungen simuliert der Bot diese Interaktionen, während er mit simulierten Aufträgen arbeitet.",
+                    "updated": 1679520081988
                 }
             ]
         },
@@ -146,6 +186,11 @@
                     "language": "TR",
                     "text": "Bu bölümün tamamı, ticaret sistemlerine aşina olduğunuzu varsaymaktadır. Eğer emin değilseniz ticeret sistemleri (Trading System) hakkında daha fazla belgeyi okuyarak bilgilerinizi genişletmeniz gerekmektedir.",
                     "updated": 1654761175095
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser ganze Abschnitt setzt voraus, dass Sie mit Handelssystemen vertraut sind. Stellen Sie sicher, dass Sie zuerst darüber lesen, falls Sie das nicht sind.",
+                    "updated": 1679520093024
                 }
             ]
         },
@@ -161,8 +206,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölümdeki sayfaların geri kalanı, Düşük Frekanslı ticaret botunun emirlerle uğraşırken gerçekleştirdiği eylemlerin ayrıntılı, adım adım bir açıklamasıdır. Önerilen sırayla tüm sayfa dizisini okursanız bu içerikten en iyi şekilde yararlanabilirsiniz.",
+                    "text": "Bu bölümdeki sayfaların geri kalanı, Düş��k Frekanslı ticaret botunun emirlerle uğraşırken gerçekleştirdiği eylemlerin ayrıntılı, adım adım bir açıklamasıdır. Önerilen sırayla tüm sayfa dizisini okursanız bu içerikten en iyi şekilde yararlanabilirsiniz.",
                     "updated": 1654761206578
+                },
+                {
+                    "language": "DE",
+                    "text": "Die restlichen Seiten dieses Abschnitts beschreiben detailliert und Schritt für Schritt die Aktionen, die der Low-Frequency Trading Bot bei der Bearbeitung von Aufträgen durchführt. Am meisten profitieren Sie von diesem Inhalt, wenn Sie die gesamte Abfolge der Seiten in der vorgeschlagenen Reihenfolge lesen.",
+                    "updated": 1679520104530
                 }
             ]
         }

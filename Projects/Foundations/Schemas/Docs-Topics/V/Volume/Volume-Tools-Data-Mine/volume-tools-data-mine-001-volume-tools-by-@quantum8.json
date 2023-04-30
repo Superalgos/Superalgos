@@ -56,6 +56,11 @@
             "text": "11) Volume Flow"
         },
         {
+            "style": "List",
+            "text": "12) Volume Trend Direction Force Index",
+            "updated": 1681364867578
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

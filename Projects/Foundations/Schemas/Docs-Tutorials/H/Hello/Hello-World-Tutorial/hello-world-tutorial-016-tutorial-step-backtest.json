@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Antes de ejecutar el backtest, asegúrese de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
-                    "updated": 1629577823477
+                    "text": "Antes de ejecutar el backtest, asegúrate de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
+                    "updated": 1682357848214
                 },
                 {
                     "language": "IT",
@@ -147,8 +147,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Session Quoted Assetestá establecido en 1000 (es decir, 1000 $ USDT en este caso)",
-                    "updated": 1629577866359
+                    "text": "Session Quoted Asset está establecido en 1000 (es decir, 1000 $ USDT en este caso)",
+                    "updated": 1682357857774
                 },
                 {
                     "language": "IT",
@@ -255,8 +255,8 @@
                     "language": "NL",
                     "text": "Ben je klaar? Voer de backtest uit!",
                     "updated": 1670776420548
-              },
-              {
+                },
+                {
                     "language": "ID",
                     "text": "Apakah kamu sudah siap? Run backtest-nya!",
                     "updated": 1670587821559

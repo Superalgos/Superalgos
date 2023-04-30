@@ -10,13 +10,13 @@
         <!-- Like Post Button -->
         <p id="like-comment-btn" class="post-button-bar-buttons" v-on:click="reactPost">
             <img id="like-button" src="../../assets/iconmonstrLikeIcon.png" alt="Comment" class="post-footer-buttons">
-            &nbsp;&nbsp; <strong> {{reactions[0][1]}} </strong>
+            &nbsp;&nbsp; <strong> {{getReactions[0][1]}} </strong>
         </p>
 
         <!-- Love Post Button -->
             <p id="love-post-btn" class="post-button-bar-buttons" v-on:click="reactPost">
                 <img id="love-button" src="../../assets/iconmonstrHeartIcon.png" alt="Comment" class="post-footer-buttons">
-                &nbsp;&nbsp; <strong> {{reactions[1][1]}} </strong>
+                &nbsp;&nbsp; <strong> {{getReactions[1][1]}} </strong>
             </p>
                 
 
@@ -27,13 +27,14 @@
             </p>
                 
         <!-- Repost Post Button -->
-            <p class="post-button-bar-buttons"       v-on:click="openPostComments">
+            <p class="post-button-bar-buttons"       v-on:click="createRepost">
                 <img src="../../assets/iconmonstrRepostIcon.png" alt="Comment" class="post-footer-buttons">
                 &nbsp;Repost
             </p>
         </div>
         <div class="emoji-picker-component" v-if="showEmojiReactionTable">
-                <emoji-picker 
+                <reaction-picker
+                    @reaction-sent="handleReactionSent"
                     :postReaction="true" 
                     :location="displayLocation" 
                     :originSocialPersonaId="originSocialPersonaId"
@@ -45,15 +46,15 @@
 </template>
 
 <script>
-import { reactedPost, getReplies } from '../../services/PostService';
+import { reactedPost, getReplies, repostPost, getFeed, getPost } from '../../services/PostService';
 import { getProfileData } from '../../services/ProfileService';
 import store from '../../store/index'
-import EmojiPicker from '../EmojiComponents/EmojiPicker.vue';
+import ReactionPicker from '../EmojiComponents/ReactionPicker.vue';
 
 export default {
-  components: { EmojiPicker },
+  components: { ReactionPicker },
     name: "post-button-bar",
-    props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId'],
+    props: ['id', 'reactions', 'commentCount', 'timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'originSocialPersonaId', 'fileKeys', 'targetPostHash', 'postersName'],
     data() {
         return {
             showEmojiReactionTable: false,
@@ -61,6 +62,7 @@ export default {
         }
     },
     methods: {
+        // Comments Button
         openPostComments() {
             let postCommentProps = {
                 timestamp: this.timestamp,
@@ -70,8 +72,62 @@ export default {
                 originPostHash: this.originPostHash,
                 originSocialPersonaId: this.originSocialPersonaId,
                 commentCount: this.commentCount,
-                reactions: this.reactions
+                reactions: this.reactions,
+                postersName: this.postersName,
             }
+
+
+            let messageP = {
+                    originSocialPersonaId: this.originSocialPersonaId,
+                    originPostHash: this.originPostHash,
+                    targetSocialPersonaId: this.originSocialPersonaId,
+                    targetPostHash: this.targetPostHash,
+                    fileKeys: this.fileKeys
+                }
+
+
+            getPost(messageP)
+                    .then(response => {
+                        let r = response;
+                        
+                        if (r.data.data !== undefined) {
+                            this.postMessage = r.data.data.postText;
+                        
+
+                        if (r.data.data.originSocialPersona !== undefined) {
+                            let originSocialPersonaData = r.data.data.originSocialPersona
+
+                            this.posterName = originSocialPersonaData.socialPersonaHandle
+
+                            let thisPostData = {
+                                userName: this.posterName,
+
+                                postBody: this.postMessage,
+                                isRepost: true,
+
+                                repostReactions: r.data.data.reactions,
+
+                                reactions: this.reactions,
+
+                                repostTimestamp: r.data.data.timestamp
+                            }
+
+                            postCommentProps.repostTimestamp = thisPostData.repostTimestamp;
+
+                            postCommentProps.userName = thisPostData.userName;
+
+                            postCommentProps.postBody = thisPostData.postBody;
+
+                            postCommentProps.isRepost = true;
+
+                            postCommentProps.repostReactions = thisPostData.repostReactions;
+
+                            postCommentProps.reactions = thisPostData.reactions
+
+                            store.commit("ADD_REPOST_TEXT_NAME", thisPostData);
+                            }
+                        }
+                    });
 
             store.commit("SET_POST_COMMENT_PROPS", postCommentProps);
             store.commit("SHOW_POSTS_COMMENTS", true);
@@ -103,6 +159,8 @@ export default {
                         });
                     });
         },
+        // This sends a post reaction - either like/love directly or through setting the emoji reaction key in the store.
+        // Like/Love or Emoji Reaction Buttons
         reactPost(event) {
             let reactWithEventType = 0;
             let emojiReactionId = store.state.emojiReactionKey;
@@ -111,9 +169,9 @@ export default {
             if (emojiReactionId === undefined) {
                 targetId = event.target.id;
                 if (targetId === 'like-button' ) {
-                    reactWithEventType = 100;
+                    reactWithEventType = 700;
                 } else if (targetId === 'love-button') {
-                    reactWithEventType = 101;
+                    reactWithEventType = 701;
                 }
             } else {
                 // This is an emoji reaction. 
@@ -141,6 +199,8 @@ export default {
                 }
                 });
         },
+        // This opens the emojiPicker.
+        // Emoji Reaction Button
         showEmojiReactions(event) {
             if (event !== undefined) {
             // We get the location of the click event
@@ -149,37 +209,51 @@ export default {
                     y: event.pageY
             }
 
-
             this.displayLocation = clickLocation
             this.showEmojiReactionTable == true
                 ? this.showEmojiReactionTable = false
                 : this.showEmojiReactionTable = true
             }
+        },
+        // This closes the emojiPicker component after reaction is sent.
+        handleReactionSent() {
+            this.showEmojiReactionTable = false;
+        },
+
+        createRepost() {
+
+            let message = {
+                originSocialPersonaId: this.getSocialPersonaId,
+                targetSocialPersonaId: this.originSocialPersonaId,
+                originPostHash: this.originPostHash + store.state.profile.name,
+                targetPostHash: this.originPostHash,
+                fileKey: this.fileKeys,
+                posterName: store.state.profile.name
+            }
+
+            repostPost(message)
+                .then(response => {
+                    console.log(response)
+                    if (response.result === 'Ok') {
+                        getFeed();
+                    }
+                });
         }
     },
     computed: {
-        emojiReactionReady() {
-            if (store.state.emojiReactionKey !== undefined) {
-                return true;
-            } else {
-                return false;
-            }
+        getSocialPersonaId() {
+            return store.state.profile.nodeId;
         },
-        showEmojiReaction() {
-            return store.state.showEmojiPicker
-        }
-    },
-    watch: {
-        showEmojiReaction(newValue, oldValue) {
-            console.log(newValue)
-            if (newValue) {
-                this.showEmojiReactionTable = true;
+    // TODO REVIEW
+        getReactions() {
+            if (this.reactions !== undefined) {
+                return this.reactions
             } else {
-                this.showEmojiReactionTable = false;
+                let emptyReactionArray = [ [0, 0], [1, 0] ];
+                return emptyReactionArray;
             }
         }
     }
-
 }
 </script>
 
@@ -216,5 +290,7 @@ export default {
 .emoji-picker-component {
     display: fixed;
 }
+
+
 
 </style>

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Нам нужен баланс! Какой баланс? Уделите минуту и попробуйте связать концы с концами!",
                 "updated": 1642778319849
+            },
+            {
+                "language": "ES",
+                "text": "Lo que necesitamos es ¡Balance! ¿Qué equilibrio? ¡Tómate un minuto y a ver si terminas de atar los cabos sueltos del razonamiento!",
+                "updated": 1680708454518
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы определили initialBalance в базовом активе и определим целевой размер в базовом активе...",
                     "updated": 1642778332351
+                },
+                {
+                    "language": "ES",
+                    "text": "Definimos el initialBalance en el activo base y definiremos el target size en el activo base...",
+                    "updated": 1680708911893
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Нам нужен текущий баланс базового актива! Можете ли вы найти узел в Trading Engine, который хранит именно это значение?",
                     "updated": 1642779218212
+                },
+                {
+                    "language": "ES",
+                    "text": "Necesitamos el saldo actual del activo base. ¿Puedes encontrar el nodo en el Trading Engine que contiene precisamente ese valor?",
+                    "updated": 1680708977472
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Trading Current (нам нужен баланс на момент оценки!) > Trading Episode (потому что это баланс, хранящийся в течение всей сессии) >... что еще?",
                     "updated": 1642779267515
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Current (¡necesitamos el saldo en el momento de la evaluación!) > Trading Episode (porque es el saldo que se mantiene durante toda la sesión) >... ¿qué más?",
+                    "updated": 1680711394480
                 }
             ]
         }

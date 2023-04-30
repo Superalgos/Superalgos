@@ -4,7 +4,7 @@
 
 
             <div class="top-bar">
-                <p  class="bold">Settings</p>
+                <p  class="bold center-header">Settings</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeSettings">
             </div>
 
@@ -67,26 +67,6 @@ export default {
     color: black;
 }
 
-.top-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    margin-right: 1%;
-    margin-left: 45%;
-    align-items: center;
-}
-/* Close Button */
-.close-btn {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-}
-.close-btn:hover {
-    background-color: rgba(243, 45, 45, 0.884);
-    border: solid 1px red;
-    border-radius: 3px;
-}
 
 
 

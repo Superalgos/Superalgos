@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Большинство предупреждений возникает, когда торговый бот обрабатывает ордера, синхронизируется с биржей или симулирует синхронизацию.",
                 "updated": 1642944939349
+            },
+            {
+                "language": "ES",
+                "text": "La mayoría de los avisos se producen cuando el \"trading bot\" está gestionando órdenes, sincronizando con la exchange o simulando la sincronización.",
+                "updated": 1681733867432
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Эти операции отличаются большой глубиной и некоторой сложностью, о которых мы расскажем в следующих уроках. В этом уроке мы только пощупали поверхность!",
                     "updated": 1642944968390
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas operaciones presentan una gran profundidad y cierta complejidad, que trataremos en futuros tutoriales. En éste, ¡sólo estamos rascando la superficie!",
+                    "updated": 1681733885097
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Если вы хотите досконально разобраться в этом вопросе, вам следует прочитать двенадцать страниц по теме \"Управление ордерами\" (Order Management) в документации.",
                     "updated": 1642945005476
+                },
+                {
+                    "language": "ES",
+                    "text": "Si quieres llegar al hueso en este asunto, debes leer las doce páginas sobre el tema Gestión de pedidos de la Documentación.",
+                    "updated": 1681733911992
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Вам не обязательно читать его сейчас, но не стесняйтесь погрузиться в него, если хотите!",
                     "updated": 1642945016618
+                },
+                {
+                    "language": "ES",
+                    "text": "No es necesario que lo leas ahora, ¡pero no dudes en sumergirte en él si así lo deseas!",
+                    "updated": 1681733931956
                 }
             ]
         }

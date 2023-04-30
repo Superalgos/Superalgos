@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Bekleyen listeleme gereksinimleri ve revizyon.",
                 "updated": 1647010913787
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Die Anforderungen an die Auflistung und die Überarbeitung stehen noch aus.",
+                "updated": 1682445639415
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Listeleme Gereksinimleri",
                     "updated": 1647010940193
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen für die Auflistung",
+                    "updated": 1682445679423
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "TR",
                     "text": "Borsa adı: LBank",
                     "updated": 1647010948133
+                },
+                {
+                    "language": "DE",
+                    "text": "Name der Börse: LBank",
+                    "updated": 1682446800989
                 }
             ]
         },
@@ -61,6 +76,11 @@
                     "language": "TR",
                     "text": "CMC sıralaması: Borsanın araştırma günü itibariyle sıralamadaki konumu.",
                     "updated": 1647010958863
+                },
+                {
+                    "language": "DE",
+                    "text": "CMC-Rangliste: Die Position der Börse in der Rangliste am Tag der Recherche.",
+                    "updated": 1682446808304
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "language": "TR",
                     "text": "Exchange ana sayfası: Aşağıdaki dizeyi, exchange'in adı ve URL'si (protokol olmadan) ile düzenleyin.",
                     "updated": 1647010981029
+                },
+                {
+                    "language": "DE",
+                    "text": "Homepage der Börse: Bearbeiten Sie die Zeichenfolge unten mit dem Namen der Börse und der URL (ohne Protokoll).",
+                    "updated": 1682446817841
                 }
             ]
         },
@@ -108,6 +133,11 @@
                     "language": "TR",
                     "text": "Liste gereksinimleri sayfası: Aşağıdaki dizeyi, bu rapordaki bilgilerin özünü aldığınız sayfanın URL'si (protokol olmadan) ile düzenleyin.",
                     "updated": 1647010999092
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite mit den Auflistungsanforderungen: Geben Sie in die nachstehende Zeichenfolge die URL (ohne Protokoll) der Seite ein, von der Sie die wichtigsten Informationen in diesem Bericht erhalten haben.",
+                    "updated": 1682446836864
                 }
             ]
         },
@@ -137,6 +167,11 @@
                     "language": "TR",
                     "text": "Liste istek formu sayfası: Aşağıdaki dizeyi, projenin belirteç listesini istemek için kullanması gereken sayfanın (veya çevrimiçi formun) URL'si (protokol olmadan) ile düzenleyin.",
                     "updated": 1647011015028
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite für das Antragsformular für die Auflistung: Geben Sie in die nachstehende Zeichenfolge die URL (ohne Protokoll) der Seite (oder des Online-Formulars) ein, über die das Projekt die Auflistung des Tokens anfordern soll.",
+                    "updated": 1682446846495
                 }
             ]
         },
@@ -165,6 +200,11 @@
                     "language": "TR",
                     "text": "BEP 20 BSC belirteçlerini listeleyebilir: Bazı borsalar Binance Akıllı Zincirinde belirteçleri listeleyemeyebilir. Belirteci listelemenin teknik olarak mümkün olup olmadığını öğrendiğinizden emin olun.",
                     "updated": 1647011183652
+                },
+                {
+                    "language": "DE",
+                    "text": "Kann BEP 20 BSC-Token auflisten: Einige Börsen sind möglicherweise nicht in der Lage, Token in der Binance Smart Chain zu listen. Stellen Sie sicher, dass Sie herausfinden, ob die Auflistung des Tokens technisch möglich ist.",
+                    "updated": 1682446859447
                 }
             ]
         },
@@ -181,6 +221,11 @@
                     "language": "TR",
                     "text": "Listeleme ücreti: Borsalar genellikle yeni paraları listelemek için ücret alır. Ücreti girin ve özel durumumuzla ilgili olabilecek tüm yorumları, istisnaları veya ayrıntıları ekleyin.",
                     "updated": 1647011192233
+                },
+                {
+                    "language": "DE",
+                    "text": "Auflistungsgebühr: Börsen erheben in der Regel Gebühren für die Auflistung neuer Münzen. Geben Sie die Gebühr an und fügen Sie alle Kommentare, Ausnahmen oder Details hinzu, die für unseren speziellen Fall relevant sein könnten.",
+                    "updated": 1682446877984
                 }
             ]
         },
@@ -197,6 +242,11 @@
                     "language": "TR",
                     "text": "Güvenlik depozitosu: Bazı borsalar, listeleme tamamlandıktan sonra projeye iade edilmek üzere bir güvenlik teminatı gerektirir. Varsa, bu tür gereksinimlerin ayrıntılarını açıklayın.",
                     "updated": 1647011201461
+                },
+                {
+                    "language": "DE",
+                    "text": "Kaution: Einige Börsen verlangen eine Kaution, die nach Abschluss des Angebots an das Projekt zurückzuzahlen ist. Beschreiben Sie die Einzelheiten solcher Anforderungen, falls sie bestehen.",
+                    "updated": 1682446886882
                 }
             ]
         },
@@ -213,6 +263,11 @@
                     "language": "TR",
                     "text": "Hacim gereksinimleri: Borsalar, işlem ücretlerini tahsil etme işindedir, bu nedenle, genellikle, bu tür belirteçlerin belirli bir ticaret hacmi oluşturacağını anlayarak, çekişe sahip belirteçleri listelemeyi beklerler. Bazı borsaların beklenen hacimle ilgili özel gereksinimleri vardır. Borsa kesin bir hacim gerektiriyorsa, bunu sayılarla girin. Aksi takdirde, bekleneni kelimelerle açıklayın.",
                     "updated": 1647011210432
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen an das Volumen: Da Börsen Transaktionsgebühren erheben, erwarten sie in der Regel, dass Token, die eine gewisse Zugkraft haben, in die Liste aufgenommen werden, wobei sie davon ausgehen, dass diese Token ein bestimmtes Handelsvolumen generieren. Einige Börsen haben spezifische Anforderungen an das erwartete Volumen. Wenn die Börse ein genaues Volumen verlangt, geben Sie es in Zahlen an. Andernfalls beschreiben Sie in Worten, was erwartet wird.",
+                    "updated": 1682446900897
                 }
             ]
         },
@@ -229,6 +284,11 @@
                     "language": "TR",
                     "text": "Piyasa oluşturma gereksinimleri: Çoğu zaman borsalar, projelerin sipariş defterinin her iki tarafında token için likiditeyi garanti etmesini bekler. Bazen belirli piyasa yapıcıları işe almak için projelere ihtiyaç duyarlar veya projeye sorunla nasıl başa çıkacaklarını sorarlar. Borsanın bu konuda neler beklediğini açıklayın.",
                     "updated": 1647011534134
+                },
+                {
+                    "language": "DE",
+                    "text": "Market-Making-Anforderungen: Häufig erwarten die Börsen, dass die Projekte die Liquidität für den Token auf beiden Seiten des Orderbuchs gewährleisten. Manchmal verlangen sie von den Projekten, dass sie spezielle Market-Maker engagieren, oder sie fragen das Projekt, wie sie mit dem Thema umgehen werden. Erläutern Sie, was die Börse in dieser Hinsicht erwartet.",
+                    "updated": 1682446912635
                 }
             ]
         },
@@ -245,6 +305,11 @@
                     "language": "TR",
                     "text": "Borsa kullanıcıları gereksinimi: Bazı exchange'ler, projenin belirli sayıda kullanıcıyı exchange'e yönlendirmesini gerektirir. Bu konuda mevcut olabilecek gereksinimleri açıklayın.",
                     "updated": 1647011552245
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen an die Benutzer der Börse: Einige Börsen verlangen, dass das Projekt eine bestimmte Anzahl von Benutzern zur Börse bringt. Beschreiben Sie etwaige diesbezügliche Anforderungen.",
+                    "updated": 1682446925801
                 }
             ]
         },
@@ -261,6 +326,11 @@
                     "language": "TR",
                     "text": "İlk listeleme için mevcut çiftler: Bazı borsalar, çiftlerin sayısını ve hatta ilk listelemeler için kullanılabilecek kesin fiyat varlıklarını sınırlar. Değişimin bu konuda ne gerektirdiğini veya teklif ettiğini açıklayın.",
                     "updated": 1647011562890
+                },
+                {
+                    "language": "DE",
+                    "text": "Für die Erstnotierung verfügbare Paare: Einige Börsen beschränken die Anzahl der Paare oder sogar die genauen Kurswerte, die für die Erstnotierung verwendet werden können. Geben Sie an, was die Börse in dieser Hinsicht verlangt oder anbietet.",
+                    "updated": 1682446938426
                 }
             ]
         },
@@ -272,6 +342,11 @@
                     "language": "TR",
                     "text": "Bekleme süresi: Çoğu borsanın bir listeleme talepleri kuyruğu vardır ve işlemenin ne kadar süreceğini tahmin edebilirler. Bu konuda bilgi varsa buraya ekleyin. Borsa tahminin ne olduğunu açıklamayabilir, ancak bunu çıkarabilir veya topluluk sohbetlerinde, forumlarda vb. öğrenebilirsiniz. Araştırmanızı yapın.",
                     "updated": 1647011573546
+                },
+                {
+                    "language": "DE",
+                    "text": "Wartezeit: Die meisten Börsen haben eine Warteschlange von Eintragungsanträgen und können möglicherweise abschätzen, wie lange die Bearbeitung dauert. Wenn es diesbezügliche Informationen gibt, geben Sie sie hier an. Die Börse gibt den geschätzten Wert vielleicht nicht bekannt, aber Sie können ihn ableiten oder in Community-Chats, Foren usw. herausfinden. Stellen Sie Nachforschungen an.",
+                    "updated": 1682446949095
                 }
             ]
         },
@@ -288,6 +363,11 @@
                     "language": "TR",
                     "text": "Tüzel kişilik: Bazı borsalar, projenin bir tüzel kişilik (vakıf, şirket vb.) tarafından temsil edilmesini gerektirebilir. Bu durumda, \"Evet\" yazın ve gereksinimin ne olduğunu açıklayın. Böyle bir gereklilik yoksa, \"Hayır\" girin.",
                     "updated": 1647011600455
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsträger: Manche Börsen verlangen, dass das Projekt durch eine juristische Person (Stiftung, Unternehmen usw.) vertreten wird. Wenn dies der Fall ist, geben Sie \"Ja\" an und beschreiben Sie, was die Anforderung ist. Ist dies nicht der Fall, geben Sie \"Nein\" an.",
+                    "updated": 1682446959713
                 }
             ]
         },
@@ -304,6 +384,11 @@
                     "language": "TR",
                     "text": "Hukuki görüş: Bazı borsalar, projenin bir \"hukuki görüş mektubu\" şeklinde yasal tavsiye almasını veya çoğu zaman belirtecin doğası hakkında, özellikle belirtecin bir menkul kıymet olup olmadığını belirlemek için bu tür bir araç almasını gerektirebilir. ya da değil. Bu durumda, \"Evet\" yazın ve gereksinimin ne olduğunu açıklayın. Böyle bir gereklilik yoksa, \"Hayır\" girin.",
                     "updated": 1647011609850
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsgutachten: Einige Börsen können verlangen, dass das Projekt eine Rechtsberatung in Form eines \"Rechtsgutachtens\" oder eines ähnlichen Instruments einholt, meist über die Art des Tokens, insbesondere um festzustellen, ob der Token ein Wertpapier ist oder nicht. Wenn dies der Fall ist, geben Sie \"Ja\" an und beschreiben Sie, wie die Anforderung lautet. Besteht kein solches Erfordernis, geben Sie \"Nein\" an.",
+                    "updated": 1682446970169
                 }
             ]
         },
@@ -320,6 +405,11 @@
                     "language": "TR",
                     "text": "Seçim süreci: Bazı borsalar, hangi belirteçlerin listeleneceğini seçmek için karar verme sürecinin doğasını açıklar. Bazıları topluluklarının katılımını, bir oylama sürecini veya benzeri şeyleri içerir. Bu konuda herhangi bir bilgi varsa, sürecin nasıl olduğunu açıklayın.",
                     "updated": 1647011623555
+                },
+                {
+                    "language": "DE",
+                    "text": "Auswahlverfahren: Einige Börsen beschreiben die Art des Entscheidungsprozesses zur Auswahl der Token, die in die Liste aufgenommen werden sollen. Einige beziehen die Beteiligung ihrer Gemeinschaft, ein Abstimmungsverfahren oder Ähnliches ein. Beschreiben Sie, wie der Prozess aussieht, wenn es Informationen darüber gibt.",
+                    "updated": 1682447118048
                 }
             ]
         },
@@ -336,6 +426,11 @@
                     "language": "TR",
                     "text": "Araştırmacının yorumları: Bu listede yer almayan listeleme süreciyle ilgili önemli bir bilgi fark ederseniz, buraya ekleyin.",
                     "updated": 1647011634470
+                },
+                {
+                    "language": "DE",
+                    "text": "Anmerkungen des Entwicklers: Wenn Ihnen wichtige Informationen für die Auflistung auffallen, die in dieser Liste nicht enthalten sind, geben Sie sie hier an.",
+                    "updated": 1682447379028
                 }
             ]
         },
@@ -352,6 +447,11 @@
                     "language": "TR",
                     "text": "Araştırmacının Github.com Kullanıcı Adı: Bu, her araştırma katkısının yazarının izlenmesine yardımcı olur.",
                     "updated": 1647011656338
+                },
+                {
+                    "language": "DE",
+                    "text": "Github.com-Benutzername des Entwicklers/Verfassers: Dies hilft, den Autor eines jeden Beitrages zu finden.",
+                    "updated": 1682447427227
                 }
             ]
         },
@@ -368,6 +468,11 @@
                     "language": "TR",
                     "text": "Araştırmacının Telgraf Kullanıcı Adı: Yukarıdakiyle aynı.",
                     "updated": 1647011665742
+                },
+                {
+                    "language": "DE",
+                    "text": "Telegrammbenutzername des Entwicklers: Wie oben.",
+                    "updated": 1682447448180
                 }
             ]
         },
@@ -384,6 +489,11 @@
                     "language": "TR",
                     "text": "Son revizyon tarihi: Bu rapor arada bir güncellenebilir. Raporun en son ne zaman güncellendiğini not etmek için bu alanı kullanın.",
                     "updated": 1647011675388
+                },
+                {
+                    "language": "DE",
+                    "text": "Datum der letzten Überarbeitung: Dieser Bericht kann von Zeit zu Zeit aktualisiert werden. Vermerken Sie in diesem Feld, wann der Bericht zuletzt aktualisiert wurde.",
+                    "updated": 1682447455510
                 }
             ]
         },
@@ -395,6 +505,11 @@
                     "language": "TR",
                     "text": "Müzakere",
                     "updated": 1647011694389
+                },
+                {
+                    "language": "DE",
+                    "text": "Verhandlung",
+                    "updated": 1682447719854
                 }
             ]
         },
@@ -411,6 +526,11 @@
                     "language": "TR",
                     "text": "Devam eden müzakerede hangi ilerlemelerin kaydedildiğini listeleyin.",
                     "updated": 1647011702027
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie an, welche Fortschritte bei den laufenden Verhandlungen erzielt wurden.",
+                    "updated": 1682447726645
                 }
             ]
         },
@@ -422,6 +542,11 @@
                     "language": "TR",
                     "text": "Borsa Değerlendirmesi",
                     "updated": 1647011717424
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewertung des Austauschs",
+                    "updated": 1682447848269
                 }
             ]
         },
@@ -433,6 +558,11 @@
                     "language": "TR",
                     "text": "Şirket bilgisi",
                     "updated": 1647011725116
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen zum Unternehmen",
+                    "updated": 1682447861886
                 }
             ]
         },
@@ -445,6 +575,11 @@
                     "language": "TR",
                     "text": "Kayıt ülkesi:",
                     "updated": 1647011739662
+                },
+                {
+                    "language": "DE",
+                    "text": "Land der Registrierung:",
+                    "updated": 1682447874383
                 }
             ]
         },
@@ -457,6 +592,11 @@
                     "language": "TR",
                     "text": "Adres:",
                     "updated": 1647011751544
+                },
+                {
+                    "language": "DE",
+                    "text": "Adresse:",
+                    "updated": 1682447894669
                 }
             ]
         },
@@ -469,6 +609,11 @@
                     "language": "TR",
                     "text": "Kayıt yılı:",
                     "updated": 1647011762486
+                },
+                {
+                    "language": "DE",
+                    "text": "Jahr der Registrierung:",
+                    "updated": 1682447908247
                 }
             ]
         },
@@ -481,6 +626,11 @@
                     "language": "TR",
                     "text": "Fiziksel ofisler:",
                     "updated": 1647012114785
+                },
+                {
+                    "language": "DE",
+                    "text": "Physische Büros:",
+                    "updated": 1682448022501
                 }
             ]
         },
@@ -493,6 +643,11 @@
                     "language": "TR",
                     "text": "Lisanslar:",
                     "updated": 1647012118215
+                },
+                {
+                    "language": "DE",
+                    "text": "Lizenzen:",
+                    "updated": 1682448028348
                 }
             ]
         },
@@ -504,6 +659,11 @@
                     "language": "TR",
                     "text": "Web Sitesinde Kurumsal Şeffaflık",
                     "updated": 1647012148391
+                },
+                {
+                    "language": "DE",
+                    "text": "Unternehmenstransparenz auf der Website",
+                    "updated": 1682448036335
                 }
             ]
         },
@@ -516,6 +676,11 @@
                     "language": "TR",
                     "text": "Altbilgi bilgisi: Yok.",
                     "updated": 1647012167236
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen in der Fußzeile: Keine.",
+                    "updated": 1682448049357
                 }
             ]
         },
@@ -528,6 +693,11 @@
                     "language": "TR",
                     "text": "Sayfa bilgisi hakkında: Yok.",
                     "updated": 1647012178045
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen über die Seite: Keine.",
+                    "updated": 1682448104137
                 }
             ]
         },
@@ -540,6 +710,11 @@
                     "language": "TR",
                     "text": "Liderlik sayfası bilgisi: Yok.",
                     "updated": 1647012185133
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen über die Seite der Führung: Keine.",
+                    "updated": 1682448312229
                 }
             ]
         },
@@ -555,8 +730,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Gözlemler: Belirsiz. Şirketin nerede veya nasıl çalıştığına dair sıfır bilgi.",
+                    "text": "Gözlemler: Belirsiz. Şirketin nerede veya nasıl çalıştığına dair sıf��r bilgi.",
                     "updated": 1647012193390
+                },
+                {
+                    "language": "DE",
+                    "text": "Recherche: Unklar. Keine Informationen darüber, wo oder wie das Unternehmen tätig ist.",
+                    "updated": 1682448337530
                 }
             ]
         },
@@ -568,6 +748,11 @@
                     "language": "TR",
                     "text": "Web sitesi çekişi",
                     "updated": 1647012201871
+                },
+                {
+                    "language": "DE",
+                    "text": "Traktion der Website",
+                    "updated": 1682448344461
                 }
             ]
         },
@@ -580,6 +765,11 @@
                     "language": "TR",
                     "text": "Alexa site sıralaması: 1100",
                     "updated": 1647012210594
+                },
+                {
+                    "language": "DE",
+                    "text": "Alexa-Seitenrang: 1100",
+                    "updated": 1682448351687
                 }
             ]
         },
@@ -605,6 +795,11 @@
                     "language": "TR",
                     "text": "Etki alanı yetkilisi: 44",
                     "updated": 1647012226866
+                },
+                {
+                    "language": "DE",
+                    "text": "Domänenautorität: 44",
+                    "updated": 1682448360509
                 }
             ]
         },
@@ -630,6 +825,11 @@
                     "language": "TR",
                     "text": "CMC sıralaması: 52",
                     "updated": 1647012240441
+                },
+                {
+                    "language": "DE",
+                    "text": "CMC-Rangliste: 52",
+                    "updated": 1682448376900
                 }
             ]
         },
@@ -642,6 +842,11 @@
                     "language": "TR",
                     "text": "CoinGecko sıralaması: 32",
                     "updated": 1647012247267
+                },
+                {
+                    "language": "DE",
+                    "text": "CoinGecko-Rangliste: 32",
+                    "updated": 1682448383902
                 }
             ]
         },
@@ -653,6 +858,11 @@
                     "language": "TR",
                     "text": "En İyi 100 Google SERP? [*]: No",
                     "updated": 1647012269296
+                },
+                {
+                    "language": "DE",
+                    "text": "Top 100 Google SERP? [*]: Nein",
+                    "updated": 1682448391040
                 }
             ]
         },
@@ -664,6 +874,11 @@
                     "language": "TR",
                     "text": "En İyi 200 Google SERP? [*]: No",
                     "updated": 1647012275174
+                },
+                {
+                    "language": "DE",
+                    "text": "Top 200 Google SERP? [*]: Nein",
+                    "updated": 1682448397668
                 }
             ]
         },
@@ -675,6 +890,11 @@
                     "language": "TR",
                     "text": "(*) Google'da (İngiltere bölgesi, kişiselleştirme yok) \"kripto değişimi\" anahtar kelimesini ararız. Alan, en iyi X SERP'de listelenir veya listelenmez.",
                     "updated": 1647012283840
+                },
+                {
+                    "language": "DE",
+                    "text": "(*) Wir durchsuchen Google (Region UK, keine Personalisierung) nach dem Schlüsselwort \"crypto exchange\". Die Domain wird entweder in den Top X SERP aufgeführt oder nicht.",
+                    "updated": 1682448405732
                 }
             ]
         },
@@ -686,6 +906,11 @@
                     "language": "TR",
                     "text": "Topluluk",
                     "updated": 1647012298108
+                },
+                {
+                    "language": "DE",
+                    "text": "Gemeinschaft",
+                    "updated": 1682448413990
                 }
             ]
         },
@@ -698,6 +923,11 @@
                     "language": "TR",
                     "text": "Telegram: 42 bin",
                     "updated": 1647012303118
+                },
+                {
+                    "language": "DE",
+                    "text": "Telegramm: 42k",
+                    "updated": 1682448421486
                 }
             ]
         },
@@ -731,8 +961,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Gözlemler: 9 Ağustos 2021'e kısa bir bakış. Hafif ve nezih sohbet. Bir şilin madeni para. Kullanıcılardan gelen bazı destek talepleri, yöneticiler tarafından web sitesinin sohbetine yönlendirildi. Birçok yönetici mevcut.",
+                    "text": "Gözlemler: 9 Ağustos 2021'e k��sa bir bakış. Hafif ve nezih sohbet. Bir şilin madeni para. Kullanıcılardan gelen bazı destek talepleri, yöneticiler tarafından web sitesinin sohbetine yönlendirildi. Birçok yönetici mevcut.",
                     "updated": 1647012325198
+                },
+                {
+                    "language": "DE",
+                    "text": "Beobachtungen: Ein kurzer Blick auf den 9. August 2021. Leichte und anständige Unterhaltung. Einige Münzscheine. Einige Supportanfragen von Benutzern, die von den Administratoren an den Chat der Website weitergeleitet wurden. Viele Admins anwesend.",
+                    "updated": 1682448432501
                 }
             ]
         },
@@ -744,6 +979,11 @@
                     "language": "TR",
                     "text": "Likidite ve Hacim",
                     "updated": 1647012331870
+                },
+                {
+                    "language": "DE",
+                    "text": "Liquidität und Volumen",
+                    "updated": 1682448440476
                 }
             ]
         },
@@ -755,6 +995,11 @@
                     "language": "TR",
                     "text": "1 milyon BTC-USDT Tablosu",
                     "updated": 1647012339137
+                },
+                {
+                    "language": "DE",
+                    "text": "1m BTC-USDT Chart ",
+                    "updated": 1682448452928
                 }
             ]
         },

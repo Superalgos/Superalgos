@@ -1,4 +1,4 @@
-exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitcoinFactoryUtilitiesMiscellaneoustoryUtilities() {
+exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFactoryUtilitiesMiscellaneous() {
     /*
     Utilities functions goes here.
     */

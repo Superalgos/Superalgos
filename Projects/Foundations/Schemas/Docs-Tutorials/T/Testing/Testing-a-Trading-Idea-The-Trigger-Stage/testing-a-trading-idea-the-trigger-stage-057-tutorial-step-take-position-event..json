@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте двигаться дальше и начнем работать над определением события \"Take Position Event\"!",
                 "updated": 1642659505853
+            },
+            {
+                "language": "ES",
+                "text": "¡Sigamos adelante y empecemos a trabajar en la definición del evento Take Position Event!",
+                "updated": 1679100085546
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Кратко напомним о гипотезе, которую мы выдвинули в предыдущем уроке: В контексте нисходящего тренда на дневном графике, пробой полос Боллинджера на графике 1H может предсказать ускорение нисходящего тренда. Пробой означает закрытие свечи ниже нижней полосы, поэтому давайте выясним, как закрытие свечи описывается в Superalgos.",
                     "updated": 1642659553056
+                },
+                {
+                    "language": "ES",
+                    "text": "Un rápido repaso a la hipótesis que planteamos en el tutorial anterior: En el contexto de una tendencia bajista en el gráfico diario, una ruptura de las Bandas de Bollinger en el gráfico 1H puede predecir una aceleración de la tendencia bajista. Una ruptura significa un cierre de vela por debajo de la banda inferior, así que, vamos a ver cómo se describe un cierre de vela en Superalgos.",
+                    "updated": 1679100095211
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Это страница с описанием индикатора Candles Volumes. Прокрутите вниз до раздела Products & Properties > Candles и читайте!",
                     "updated": 1642659580943
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es la página que documenta el indicador Candles Volumes. Desplaza el cursor hasta la sección Productos y Propiedades > Velas y lee.",
+                    "updated": 1679100102943
                 }
             ]
         }

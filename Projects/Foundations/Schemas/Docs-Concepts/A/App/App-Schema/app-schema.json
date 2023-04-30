@@ -11,8 +11,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ein Satz von Low-Level-Definitionen in einer JSON-Datei, die festlegt, welche Arten von Nodes von einem bestimmten Projekt für die Verwendung im Design Space zur Verfügung gestellt werden.",
-                "updated": 1642029546510
+                "text": "Ein Satz von Low-Level-Definitionen in einer JSON-Datei, die festlegt, welche Arten von Knoten von einem bestimmten Projekt (Project) für die Verwendung im Design Space zur Verfügung gestellt werden.",
+                "updated": 1682020148070
             },
             {
                 "language": "TR",
@@ -34,8 +34,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die App Schema-Datei ist ein Array von Objekten, wobei jedes Objekt einen bestimmten node type definiert.",
-                    "updated": 1642029579373
+                    "text": "Die App-Schema-Datei ist ein Array von Objekten, wobei jedes Objekt einen bestimmten Knotentyp definiert. ",
+                    "updated": 1682020170893
                 },
                 {
                     "language": "TR",
@@ -56,8 +56,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Beispiel",
-                    "updated": 1642029587121
+                    "text": "Beispiel ",
+                    "updated": 1682020179814
                 },
                 {
                     "language": "TR",
@@ -91,8 +91,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Eigenschaften (properties)",
-                    "updated": 1642029632868
+                    "text": "Eigenschaften ",
+                    "updated": 1682020189903
                 },
                 {
                     "language": "TR",
@@ -113,8 +113,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Jedes Objekt kann einen vordefinierten Satz von Eigenschaften (properties) haben, die Sie hier sehen können:",
-                    "updated": 1642029620509
+                    "text": "Jedes Objekt kann einen vordefinierten Satz von Eigenschaften haben, die Sie hier sehen können: ",
+                    "updated": 1682020199494
                 },
                 {
                     "language": "TR",
@@ -133,6 +133,11 @@
                     "text": "tip",
                     "updated": 1654390607544,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Typ",
+                    "updated": 1682020206999
                 }
             ]
         },
@@ -148,8 +153,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Der Typ der Node ist der Schlüssel, mit dem jede Node im Kontext eines bestimmten Projekts identifiziert wird. Die Namenskonvention besagt, dass alle Wörter großgeschrieben werden müssen.",
-                    "updated": 1642029661789
+                    "text": "Der Typ des Knotens ist der Schlüssel, mit dem jeder Knoten im Kontext eines bestimmten Projekts (Project) identifiziert wird. Die Namenskonvention besagt, dass alle Wörter großgeschrieben werden müssen.",
+                    "updated": 1682020221620
                 },
                 {
                     "language": "TR",
@@ -168,6 +173,11 @@
                     "text": "seviye",
                     "updated": 1654390619647,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ebene (Level)",
+                    "updated": 1682020287937
                 }
             ]
         },
@@ -183,8 +193,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es handelt sich um eine ganze Zahl (integer) von 0 bis 5, die die Bedeutung dieser Art von Nodes darstellt. 0 ist der wichtigste. Je wichtiger der Node type ist, desto größer wird er im Design Space dargestellt. Der Unterschied zwischen den Stufen ist kaum spürbar.",
-                    "updated": 1642029704808
+                    "text": "Es handelt sich um eine ganze Zahl von 0 bis 5, die die Bedeutung dieser Art von Knoten darstellt. 0 ist der wichtigste. Je wichtiger der Knotentyp ist, desto größer wird er im Design Space dargestellt. Der Unterschied zwischen den Stufen ist kaum spürbar. ",
+                    "updated": 1682020275452
                 },
                 {
                     "language": "TR",
@@ -217,8 +227,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Nodes sind in der Regel Unter-Nodes (child nodes) von anderen nodes. Jede node kann auch children (Unter Nodes) haben. Zur Laufzeit werden references (Verweise) auf childre in einer Eigenschaft (property) des Node-Objekts gespeichert, aber diese Eigenschaft ist nicht eindeutig oder vordefiniert.  Stattdessen deklariert jeder node type eine eigene Definition im App-Schema, die den Namen der Eigenschaft (property) angibt, die ihre eigene reference (Verweis) im übergeordneten Node beherbergen (hosten) wird.",
-                    "updated": 1642029948245
+                    "text": "Knoten sind in der Regel Unterknoten von anderen Knoten. Jeder Knoten (Node) kann auch Kinder haben. Zur Laufzeit werden Verweise auf Kinder in einer Eigenschaft des Knotenobjekts (Node object) gespeichert, aber diese Eigenschaft ist nicht eindeutig oder vordefiniert. Stattdessen deklariert jeder Knotentyp (Node Type) in seiner eigenen Definition im App-Schema den Namen der Eigenschaft, die seinen eigenen Verweis auf den übergeordneten Knoten beherbergen wird.",
+                    "updated": 1682020329017
                 },
                 {
                     "language": "TR",
@@ -253,8 +263,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Nodes deklarieren auch eine Reihe von property names (Eigenschaftsnamen), die verwendet werden, um zu definieren, welche Art von children die Node haben kann. Zum Beispiel:",
-                    "updated": 1642030064127
+                    "text": "Knoten deklarieren auch eine Reihe von Eigenschaftsnamen, die verwendet werden, um zu definieren, welche Art von Kindern der Knoten haben kann. Zum Beispiel:",
+                    "updated": 1682020342828
                 },
                 {
                     "language": "TR",
@@ -281,8 +291,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Jedes array item steht für einen Typ von children node (unter-nodes), den diese Node haben kann.",
-                    "updated": 1642030120041
+                    "text": "Jedes Array-Element steht für einen Typ von Unterknoten, den dieser Knoten haben kann. ",
+                    "updated": 1682020404956
                 },
                 {
                     "language": "TR",
@@ -303,8 +313,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Jedes Objekt kann 4 properties (Eigenschaften) haben:",
-                    "updated": 1642030147231
+                    "text": "Jedes Objekt kann 4 Eigenschaften haben:",
+                    "updated": 1682020415748
                 },
                 {
                     "language": "TR",
@@ -326,8 +336,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "name: ist der Name der property, die zur Laufzeit den Verweis auf die untergeordneten Nodes (child nodes) enthält.",
-                    "updated": 1642118386222
+                    "text": "name: ist der Name der Eigenschaft, die zur Laufzeit den Verweis auf den untergeordneten Knoten enthält.",
+                    "updated": 1682020455837
                 },
                 {
                     "language": "TR",
@@ -349,8 +359,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "type: mögliche Werte sind node oder array. Siehe Details unten.",
-                    "updated": 1642118209487
+                    "text": "type: mögliche Werte sind node oder array. Siehe Details unten. ",
+                    "updated": 1682020473122
                 },
                 {
                     "language": "TR",
@@ -371,8 +381,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "childType: bedeutet den Typ der untergeordneten Node.",
-                    "updated": 1642118232746
+                    "text": "childType: bezeichnet den Typ des untergeordneten Knotens.",
+                    "updated": 1682020488869
                 },
                 {
                     "language": "TR",
@@ -393,8 +403,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "autoAdd: optional, bedeutet, dass eine Instanz dieser untergeordneten Node automatisch erstellt wird, wenn dieser Node type erstellt wird.",
-                    "updated": 1642118287649
+                    "text": "autoAdd: optional, bedeutet, dass eine Instanz dieser Kinder automatisch erstellt wird, wenn dieser Knotentyp (Node type) erstellt wird.",
+                    "updated": 1682020503436
                 },
                 {
                     "language": "TR",
@@ -416,8 +426,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Eigenschaft type kann entweder node oder array sein, was bedeutet:",
-                    "updated": 1642118311248
+                    "text": "Die Eigenschaft type kann entweder node oder array sein, was bedeutet: ",
+                    "updated": 1682020513220
                 },
                 {
                     "language": "TR",
@@ -438,8 +448,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "node: bedeutet, dass es nur eine Instanz dieser Art von untergeordneter nodes geben kann.",
-                    "updated": 1642118342537
+                    "text": "node: bedeutet, dass es nur eine Instanz dieser Art von Unterordnungen geben kann. ",
+                    "updated": 1682020568565
                 },
                 {
                     "language": "TR",
@@ -460,8 +470,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "array: bedeutet, dass es mehr als eine Instanz dieser Art von untergeordneten nodes haben kann.",
-                    "updated": 1642118376107
+                    "text": "array: bedeutet, dass es mehr als eine Instanz dieses Typs von Unterordnungen geben kann.",
+                    "updated": 1682020645926
                 },
                 {
                     "language": "TR",
@@ -494,8 +504,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Diese property legt fest, an welche nodes die aktuell definierte node anknüpfen kann, wobei diese node als mögliche parents (Eltern) betrachtet werden. Die Werte werden in einem string (Zeichenkette) mit einer Liste von node types ausgedrückt, wie im folgenden Beispiel:",
-                    "updated": 1642118479642
+                    "text": "Diese Eigenschaft legt fest, an welche Knoten der aktuell definierte Knoten anknüpfen kann, wobei diese Knoten als mögliche Eltern betrachtet werden. Die Werte werden in einer Zeichenkette mit einer Liste von Knotentypen (Node Types) ausgedrückt, wie im folgenden Beispiel:",
+                    "updated": 1682020650780
                 },
                 {
                     "language": "TR",
@@ -522,8 +532,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die property incompatibleTypes kann auch verwendet werden, um explizit festzulegen, welche nodes keine parents (Eltern) sein können.",
-                    "updated": 1642118553362
+                    "text": "Die Eigenschaft incompatibleTypes kann auch verwendet werden, um explizit festzulegen, welche Knoten keine Eltern sein können.",
+                    "updated": 1682020684667
                 },
                 {
                     "language": "TR",
@@ -557,8 +567,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Diese property definiert, auf welche nodes die aktuell definierte node verweisen kann, wobei diese node als mögliche reference parents (Referenzeltern) betrachtet werden. Die Werte werden in einem String (Zeichenkette) mit einer Liste von node typen wie im folgenden Beispiel ausgedrückt:",
-                    "updated": 1642118656503
+                    "text": "Diese Eigenschaft definiert, auf welche Knoten der aktuell definierte Knoten verweisen kann, wobei diese Knoten als mögliche Referenzeltern betrachtet werden. Die Werte werden in einer Zeichenkette mit einer Liste von Knotentypen (Node Types) wie im folgenden Beispiel ausgedrückt: ",
+                    "updated": 1682020698398
                 },
                 {
                     "language": "TR",
@@ -619,8 +629,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Mit dieser property können Sie das Menü dieses node typs im Design Space definieren. Dieses Menü besteht aus einem Array von Menu Items Objekten wie im folgenden Beispiel:",
-                    "updated": 1642118896744
+                    "text": "Diese Eigenschaft ermöglicht es Ihnen, das Menü dieses Knotentyps (Node Type) im Designbereich (Design Space) zu definieren. Dieses Menü besteht aus einem Array von Menüobjekten, wie im folgenden Beispiel:",
+                    "updated": 1682020755699
                 },
                 {
                     "language": "TR",
@@ -647,8 +657,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Obwohl es Ihnen freisteht, jeden beliebigen Menüpunkt hinzuzufügen, gibt es einige, die bereits standardisiert sind. Diese Standard-Menüpunkte werden aus Gründen der Konsistenz auch an einer bestimmten Position im Menü platziert.",
-                    "updated": 1642118943340
+                    "text": "Obwohl es Ihnen freisteht, jeden beliebigen Menüpunkt hinzuzufügen, gibt es einige, die bereits standardisiert sind. Diese Standard-Menüpunkte werden aus Gründen der Konsistenz auch an einer bestimmten Stelle im Menü platziert.",
+                    "updated": 1682020778131
                 },
                 {
                     "language": "TR",
@@ -669,8 +679,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "configure: ist immer das erste Item",
-                    "updated": 1642118964256
+                    "text": "configure: ist immer als erstes Element",
+                    "updated": 1682020824402
                 },
                 {
                     "language": "TR",
@@ -691,8 +701,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "run: nach der Konfiguration (configure), wenn es eine gibt",
-                    "updated": 1642119036213
+                    "text": "run: nach der Konfiguration, wenn es eine gibt ",
+                    "updated": 1682020852923
                 },
                 {
                     "language": "TR",
@@ -712,8 +722,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "delete: es ist immer der letzte",
-                    "updated": 1642119054455
+                    "text": "delete: ist immer das letzte Element",
+                    "updated": 1682020903404
                 },
                 {
                     "language": "TR",
@@ -750,8 +760,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Diese property wird benötigt, wenn der zu definierende Node Type eine configuration hat. In diesen Fällen wird diese property den Anfangswert für diese Konfiguration festlegen. Beispiel:",
-                    "updated": 1642119140131
+                    "text": "Diese Eigenschaft wird benötigt, wenn der zu definierende Knotentyp (Node Type) eine Konfiguration hat. In solchen Fällen wird diese Eigenschaft den Anfangswert für diese Konfiguration festlegen. Beispiel:",
+                    "updated": 1682020914204
                 },
                 {
                     "language": "TR",
@@ -775,6 +785,11 @@
                     "text": "editörler",
                     "updated": 1654390796903,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Herausgeber",
+                    "updated": 1682020922075
                 }
             ]
         },
@@ -789,8 +804,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Mit dieser property wird dem System mitgeteilt, welcher Editor für diesen Node Type zur Verfügung steht.  Beispiel:",
-                    "updated": 1642119178768
+                    "text": "Mit dieser Eigenschaft wird dem System mitgeteilt, welcher Editor für diesen Knotentyp zur Verfügung steht. Beispiel:",
+                    "updated": 1682020935787
                 },
                 {
                     "language": "TR",
@@ -816,8 +831,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es gibt einige bestehende Editoren:",
-                    "updated": 1642119207421
+                    "text": "Es gibt einige bestehende Editoren: ",
+                    "updated": 1682020967524
                 },
                 {
                     "language": "TR",
@@ -838,8 +853,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "config: editor für node configurations.",
-                    "updated": 1642119239112
+                    "text": "config: Editor für Knotenkonfigurationen.",
+                    "updated": 1682020976972
                 },
                 {
                     "language": "TR",
@@ -860,8 +875,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "code: editor für javascript code.",
-                    "updated": 1642119244333
+                    "text": "code: Editor für Javascript-Code.",
+                    "updated": 1682020985441
                 },
                 {
                     "language": "TR",
@@ -882,8 +897,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "formula: Formeln, ausgedrückt in Javascript.",
-                    "updated": 1642119298908
+                    "text": "formula: Formeln, ausgedrückt in javascript.",
+                    "updated": 1682020994669
                 },
                 {
                     "language": "TR",
@@ -905,8 +920,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "condition: conditions (Bedingungen) editor.",
-                    "updated": 1642119335171
+                    "text": "condition: Bedingungen für die Bearbeitung",
+                    "updated": 1682021089633
                 },
                 {
                     "language": "TR",
@@ -927,8 +942,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Damit der Benutzer den hier konfigurierten Editor auch tatsächlich öffnen kann, muss es einen Menu Item (Menüpunkt) geben, der die Aktion \"Configure\" hat.",
-                    "updated": 1642119387103
+                    "text": "Damit der Benutzer den hier konfigurierten Editor tatsächlich öffnen kann, muss es einen Menüpunkt (Menu Item) mit der Aktion \"Konfigurieren\" geben.",
+                    "updated": 1682021102979
                 },
                 {
                     "language": "TR",

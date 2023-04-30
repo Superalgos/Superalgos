@@ -112,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
-                    "updated": 1630872031627,
+                    "text": "No es necesario ser un experto, pero necesitarás algunos conocimientos generales del sistema para comprender de qué se trata. Warning!!! This translation is outdated. English version is... No need to be an expert, but you do need to know how to operate the system! Otherwise, the process may be confusing and even frustrating! Please update this translation.",
+                    "updated": 1682519385408,
                     "style": "Success"
                 },
                 {

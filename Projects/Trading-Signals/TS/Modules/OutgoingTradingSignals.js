@@ -1,3 +1,5 @@
+const { unique } = require("@tensorflow/tfjs-node")
+
 exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) {
 
     let thisObject = {
@@ -52,10 +54,11 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) 
             /*
             This is the signal message we are going to send.
             */
+            const now = new Date()
             let tradingSignalMessage = {
                 tradingSignal: {
                     uniqueId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    timestamp: (new Date()).valueOf(),
+                    timestamp: now.valueOf(),
                     source: {
                         tradingSystem: {
                             node: {
@@ -87,6 +90,10 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) 
                 return
             }
             TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastSignal(tradingSignalMessage, socialTradingBot)
+            /* Update task status with progress message */
+            let UTCtime = now.toISOString().split(/T/)[1]
+            UTCtime = UTCtime.split(/\./).shift() + " UTC"
+            TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Signal broadcasted at " + UTCtime, false)
         }
     }
 }

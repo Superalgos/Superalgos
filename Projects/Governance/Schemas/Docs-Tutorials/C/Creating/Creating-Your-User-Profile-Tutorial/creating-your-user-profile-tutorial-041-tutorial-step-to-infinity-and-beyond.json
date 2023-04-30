@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Pongamos manos a la obra! Usaremos el comando app.contribute para enviar tu perfil.",
-                "updated": 1630899120379,
+                "text": " En la fila Governance-Plugins, debería ver el archivo del plugin User Profile en la lista.",
+                "updated": 1682522148351,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Copia el comando reemplazando el marcador de posición con tu nombre de usuario de Github, pégualo en el cuadro de búsqueda y clic en Enter.",
-                    "updated": 1630899305591,
+                    "text": "Introduzca un mensaje de confirmación, como \"Primer envío de perfil\", y haga clic en el botón Contribuir. ",
+                    "updated": 1682522189293,
                     "style": "Callout"
                 },
                 {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si todo está configurado correctamente, deberías ver un mensaje que indica que se ha enviado tu solicitud de extracción. ¡Esto significa que su perfil ha sido enviado al repositorio principal de Superalgos y se fusionará automáticamente en solo unos minutos!",
-                    "updated": 1630899224657,
+                    "text": "Si todo está configurado correctamente, en unos segundos el archivo del plugin debería desaparecer de la lista y deberías recibir un mensaje confirmando que la contribución ha sido enviada. Esto significa que tu perfil ha sido enviado al repositorio Governance-Plugins y será automáticamente fusionado en unas horas.",
+                    "updated": 1682522220406,
                     "style": "Text"
                 },
                 {

@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo.",
-                    "updated": 1630872813106,
+                    "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo. ",
+                    "updated": 1682519448847,
                     "style": "Text"
                 },
                 {
@@ -111,8 +111,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!",
-                    "updated": 1630872874947,
+                    "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!  ",
+                    "updated": 1682519485336,
                     "style": "Success"
                 },
                 {

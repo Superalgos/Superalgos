@@ -13,8 +13,8 @@
             },
             {
                 "language": "ES",
-                "text": "Construyendo su User Profile implica vincular su Governance Address a su identidad en Github.com, utilizando el Profile Constructor.",
-                "updated": 1640974895423
+                "text": "Construyendo tu User Profile implica vincular tu Governance Address a tu identidad en Github.com, utilizando el Profile Constructor.",
+                "updated": 1682595702917
             },
             {
                 "language": "TR",
@@ -43,6 +43,11 @@
                     "language": "TR",
                     "text": "Bu kılavuz, birkaç dakika içinde hız kazanmanızı sağlayacaktır. İhtiyacınız olan şey (gereksinimler):",
                     "updated": 1645106314882
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta guía te ayudará a ponerte al día en pocos minutos. Esto es lo que necesitarás (requisitos):",
+                    "updated": 1682595717886
                 },
                 {
                     "language": "DE",
@@ -90,8 +95,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Conocimientos previos: conocimiento básico del funcionamiento de la Plataforma Superalgos. Si aún no lo ha hecho, asegúrese de seguir los tutoriales en el Getting Started Tutorials Plugin Workspace antes de sumergirse en el Governance Project.",
-                    "updated": 1640975079801
+                    "text": "Conocimientos previos: conocimiento básico del funcionamiento de la Plataforma Superalgos. Si aún no lo has hecho, asegúrate de seguir los tutoriales en el Getting Started Tutorials Plugin Workspace antes de sumergirte en el Governance Project.",
+                    "updated": 1682595753905
                 },
                 {
                     "language": "TR",
@@ -117,8 +122,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Identidad: su nombre de usuario de GitHub.com.",
-                    "updated": 1640975015288
+                    "text": "Identidad: tu nombre de usuario de GitHub.com.",
+                    "updated": 1682595762988
                 },
                 {
                     "language": "TR",
@@ -143,8 +148,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Opcional: Trust Wallet o cualquier billetera que pueda importar una clave privada de Binance Smart Chain (BSC).",
-                    "updated": 1640975107912
+                    "text": "Opcional: Trust Wallet o cualquier billetera que puedas importar una clave privada de Binance Smart Chain (BSC).",
+                    "updated": 1682595770064
                 },
                 {
                     "language": "TR",
@@ -170,8 +175,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El proceso que se describe a continuación se cubre,, en el Creating Your User Profile Tutorial.. Es muy recomendable hacer el tutorial. Si lo hace, no es necesario que siga las instrucciones a continuación.",
-                    "updated": 1640975227513
+                    "text": "El proceso que se describe a continuación se cubre en el Creating Your User Profile Tutorial. Es muy recomendable hacer el tutorial. Si lo haces, no es necesario que sigas las instrucciones a continuación.",
+                    "updated": 1682595792629
                 },
                 {
                     "language": "TR",
@@ -200,6 +205,10 @@
                     "updated": 1645106656040
                 },
                 {
+                    "language": "ES",
+                    "text": "Hagámoslo",
+                    "updated": 1682595804253
+                },
                     "language": "DE",
                     "text": "Packen wir's an!",
                     "updated": 1682281088343
@@ -217,8 +226,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "1. Load the Token Distribution Superalgos Plugin Workspace  ( Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens)",
-                    "updated": 1640975270823
+                    "text": "1. Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens",
+                    "updated": 1682595904895
                 },
                 {
                     "language": "TR",
@@ -271,8 +280,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "2. Spawn and Configure the Profile Constructor (Generar y configurar el constructor de perfiles)",
-                    "updated": 1640975441023
+                    "text": "2. Generar y configurar el constructor de perfiles",
+                    "updated": 1682595920322
                 },
                 {
                     "language": "TR",
@@ -298,8 +307,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El Profile Constructor es el dispositivo que utilizará para vincular su identidad de Github.com con la dirección BSC donde tiene o planea guardar sus Tokens de Superalgos SA. Lo llamamos su Governance Address.",
-                    "updated": 1640975496831
+                    "text": "El Profile Constructor es el dispositivo que utilizarás para vincular tu identidad de Github.com con la dirección BSC donde tienes o planeas guardar tus Tokens de Superalgos SA. Lo llamamos tu Governance Address.",
+                    "updated": 1682596026879
                 },
                 {
                     "language": "TR",
@@ -328,8 +337,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que haya terminado de configurar la dirección, debe hacer una copia de seguridad de su clave privada de la forma que desee y eliminarla del Profile Constructor para que la clave privada se elimine del Workspace.No te preocupes ... te recordaré todo esto cuando llegue el momento.",
-                    "updated": 1640975575576
+                    "text": "Una vez que hayas terminado de configurar la dirección, debes hacer una copia de seguridad de tu clave privada de la forma que desees y eliminarla del Profile Constructor para que la clave privada se elimine del Workspace. No te preocupes... te recordaré todo esto cuando llegue el momento.",
+                    "updated": 1682596106278
                 },
                 {
                     "language": "TR",
@@ -355,8 +364,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ve a la jerarquía Governance Project y seleccione Add Profile Constructor en el menú.",
-                    "updated": 1640975635680
+                    "text": "Ve a la jerarquía Governance Project y selecciona Add Profile Constructor en el menú.",
+                    "updated": 1682596225469
                 },
                 {
                     "language": "TR",
@@ -409,8 +418,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si ya tienes una Superalgos SA Token address, puede ingresar la frase mnemotécnica asociada para verificar la propiedad de la dirección. Si no tiene una dirección, deje la propiedad mnemotécnica vacía para que el Profile Constructor le cree una nueva dirección.",
-                    "updated": 1640975753129
+                    "text": "Si ya tienes una Superalgos SA Token address, puedes ingresar la frase mnemotécnica asociada para verificar la propiedad de la dirección. Si no tienes una dirección, deja la propiedad mnemotécnica vacía para que el Profile Constructor te cree una nueva dirección.",
+                    "updated": 1682596246169
                 },
                 {
                     "language": "TR",
@@ -435,8 +444,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Continúe y seleccione Add Profile Constructor también.",
-                    "updated": 1640975791183
+                    "text": "Continúa y selecciona Add Profile Constructor también.",
+                    "updated": 1682596255878
                 },
                 {
                     "language": "TR",
@@ -465,6 +474,10 @@
                     "updated": 1645107992392
                 },
                 {
+                    "language": "ES",
+                    "text": "3. Construye tu perfil",
+                    "updated": 1682596272283
+                },
                     "language": "DE",
                     "text": "3. Erstellen Sie Ihr Profil",
                     "updated": 1682281211763
@@ -482,8 +495,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El siguiente paso consiste en construir el perfil, pero antes de hacerlo, déjeme explicarle en qué consiste el proceso:",
-                    "updated": 1640975921430
+                    "text": "El siguiente paso consiste en construir el perfil, pero antes de hacerlo, déjame explicarte en qué consiste el proceso:",
+                    "updated": 1682596286528
                 },
                 {
                     "language": "TR",
@@ -509,8 +522,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si no ingresó un mnemónico, se generará una dirección BSC y la clave privada correspondiente.",
-                    "updated": 1640975948820
+                    "text": "Si no ingresaste un mnemónico, se generará una dirección BSC y la clave privada correspondiente.",
+                    "updated": 1682596296565
                 },
                 {
                     "language": "TR",
@@ -536,8 +549,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Se firmará un mensaje criptográfico con su nombre de usuario de GitHub.com con la clave privada correspondiente a la dirección recién generada o el mnemónico que ingresó. Este mensaje se almacenará en su User Profile para que podamos autenticar que proviene de usted una vez que envíe su perfil como un complemento en el Governance Project.",
-                    "updated": 1640976009396
+                    "text": "Se firmará un mensaje criptográfico con tu nombre de usuario de GitHub.com con la clave privada correspondiente a la dirección recién generada o el mnemónico que ingresaste. Este mensaje se almacenará en tu User Profile para que podamos autenticar que proviene de ti una vez que envíes tu perfil como un complemento en el Governance Project.",
+                    "updated": 1682596328860
                 },
                 {
                     "language": "TR",
@@ -588,8 +601,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Acceda al menú del Profile Constructor y haga clic en la opción Build Profile. Haga clic nuevamente para confirmar la operación.",
-                    "updated": 1640976093514
+                    "text": "Accede al menú del Profile Constructor y haz clic en la opción Build Profile. Haz clic nuevamente para confirmar la operación.",
+                    "updated": 1682596347680
                 },
                 {
                     "language": "TR",
@@ -632,8 +645,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si ya tiene tokens en su Governance Address, deberías ver el poder de Blockchain entrando en su User Profile.El sistema puede tardar aproximadamente un minuto en obtener los datos de la cadena de bloques. Si no tiene tokens, obtendrá cero Blockchain Power.",
-                    "updated": 1640976183270
+                    "text": "Si ya tiene tokens en tu Governance Address, deberías ver el poder de Blockchain entrando en tu User Profile. El sistema puede tardar aproximadamente un minuto en obtener los datos de la cadena de bloques. Si no tiene tokens, obtendrás cero Blockchain Power.",
+                    "updated": 1682596371886
                 },
                 {
                     "language": "TR",
@@ -667,6 +680,10 @@
                     "updated": 1645108168232
                 },
                 {
+                    "language": "ES",
+                    "text": "Comprueba tus configuraciones",
+                    "updated": 1682596392350
+                },
                     "language": "DE",
                     "text": "Überprüfen Sie Ihre Konfigurationen",
                     "updated": 1682281278695
@@ -684,8 +701,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora, tóma un minuto para comprobar la configuración del nodo User Profile. YDebería ver un mensaje similar al siguiente:",
-                    "updated": 1640976244912
+                    "text": "Ahora, tóma un minuto para comprobar la configuración del nodo User Profile. Deberías ver un mensaje similar al siguiente:",
+                    "updated": 1682596402700
                 },
                 {
                     "language": "TR",
@@ -716,8 +733,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren su perfil con Token Power.",
-                    "updated": 1640976284184
+                    "text": "Así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil con Token Power",
+                    "updated": 1682596457251
                 },
                 {
                     "language": "TR",
@@ -747,6 +764,10 @@
                     "updated": 1645108285155
                 },
                 {
+                    "language": "ES",
+                    "text": "Haz copias de seguridad de tus llaves",
+                    "updated": 1682596475972
+                },
                     "language": "DE",
                     "text": "Sichern Sie Ihren Schlüssel",
                     "updated": 1682281546223
@@ -765,8 +786,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si usó un mnemónico para autenticar una dirección existente, puede ignorar lo que viene a continuación.",
-                    "updated": 1640976301596
+                    "text": "Si usaste un mnemónico para autenticar una dirección existente, puedes ignorar lo que viene a continuación.",
+                    "updated": 1682596492453
                 },
                 {
                     "language": "TR",
@@ -792,8 +813,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Esto es muy importante! Si elige generar una nueva dirección, ¡debe hacer una copia de seguridad de su clave privada! Posteriormente, tendrá los Tokens de Superalgos SA en esta dirección. Antes de hacerlo, debe almacenar de forma segura la clave privada que utilizará para acceder a la dirección.",
-                    "updated": 1640976320753
+                    "text": "¡Esto es muy importante! Si eliges generar una nueva dirección, ¡debes hacer una copia de seguridad de tu clave privada! Posteriormente, tendrás los Tokens de Superalgos SA en esta dirección. Antes de hacerlo, debes almacenar de forma segura la clave privada que utilizarás para acceder a la dirección.",
+                    "updated": 1682596532098
                 },
                 {
                     "language": "TR",
@@ -819,8 +840,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En este punto, Superalgos no ofrece una solución integrada para realizar copias de seguridad de sus claves privadas de forma segura. Todo lo que hace el sistema en este punto es crear un par de dirección BSC / clave privada y entregarlo en la configuración del nodo Profile Constructor. Depende de usted decidir cómo va a manejar esta información confidencial.",
-                    "updated": 1640976381579
+                    "text": "En este punto, Superalgos no ofrece una solución integrada para realizar copias de seguridad de tus claves privadas de forma segura. Todo lo que hace el sistema en este punto es crear un par de dirección BSC / clave privada y entregarlo en la configuración del nodo Profile Constructor. Depende de ti decidir cómo vas a manejar esta información confidencial.",
+                    "updated": 1682596559251
                 },
                 {
                     "language": "TR",
@@ -845,8 +866,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Acceda a la configuración del Profile Constructor.Encontrará la dirección y la clave privada en el siguiente formato, de modo que pueda realizar una copia de seguridad de la información de la forma que considere conveniente.",
-                    "updated": 1640976424255
+                    "text": "Accede a la configuración del Profile Constructor. Encontrarás la dirección y la clave privada en el siguiente formato, de modo que puedas realizar una copia de seguridad de la información de la forma que consideres conveniente.",
+                    "updated": 1682596578877
                 },
                 {
                     "language": "TR",
@@ -885,6 +906,10 @@
                     "updated": 1645108908647
                 },
                 {
+                    "language": "ES",
+                    "text": "Borrar el constructor",
+                    "updated": 1682596591840
+                },
                     "language": "DE",
                     "text": "Löschen Sie den Konstruktor",
                     "updated": 1682281699966
@@ -903,8 +928,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que esté satisfecho con su copia de seguridad de la clave privada, o si utilizó un mnemónico de una dirección existente, debe eliminarla del nodo Profile Constructor! INo es seguro almacenar su clave privada en el Workspace, ya que puede enviarlo accidentalmente a GitHub.com con una de sus contribuciones. Además, recuerde que los espacios de trabajo se guardan en el disco como archivos JSON sin cifrar, sin ningún tipo de seguridad.",
-                    "updated": 1640976510789
+                    "text": "Una vez que estés satisfecho con tu copia de seguridad de la clave privada, o si utilizaste un mnemónico de una dirección existente, debes eliminarla del nodo Profile Constructor! No es seguro almacenar tu clave privada en el Workspace, ya que puedes enviarlo accidentalmente a GitHub.com con una de tus contribuciones. Además, recuerda que los espacios de trabajo se guardan en el disco como archivos JSON sin cifrar, sin ningún tipo de seguridad.",
+                    "updated": 1682596628801
                 },
                 {
                     "language": "TR",
@@ -938,6 +963,10 @@
                     "updated": 1645108990759
                 },
                 {
+                    "language": "ES",
+                    "text": "Importar clave privada en una cartera",
+                    "updated": 1682596640767
+                },
                     "language": "DE",
                     "text": "Private Key in eine Wallet importieren",
                     "updated": 1682281720295
@@ -956,8 +985,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Este paso no es necesario para interactuar con la gobernanza, sin embargo, lo cubriremos ya que, muy probablemente, desee hacerlo en algún momento, y se recomienda de todos modos, incluso si no es estrictamente necesario.",
-                    "updated": 1640976530494
+                    "text": "Este paso no es necesario para interactuar con la gobernanza, sin embargo, lo cubriremos ya que, muy probablemente, desees hacerlo en algún momento, y se recomienda de todos modos, incluso si no es estrictamente necesario.",
+                    "updated": 1682596651109
                 },
                 {
                     "language": "TR",
@@ -983,8 +1012,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Este paso es relevante solo si creó una nueva dirección BSC. Si, en cambio, ingresó el mnemónico de una dirección existente, puede omitir esta parte con seguridad.",
-                    "updated": 1640976548348
+                    "text": "Este paso es relevante solo si creaste una nueva dirección BSC. Si, en cambio, ingresaste el mnemónico de una dirección existente, puedes omitir esta parte con seguridad.",
+                    "updated": 1682596674971
                 },
                 {
                     "language": "TR",
@@ -1009,8 +1038,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La idea es importar la dirección / clave privada que acaba de crear en una billetera funcional de hardware o software, para que pueda controlar los tokens que eventualmente enviará a esta dirección.",
-                    "updated": 1640976565443
+                    "text": "La idea es importar la dirección / clave privada que acabsa de crear en una billetera funcional de hardware o software, para que puedas controlar los tokens que eventualmente enviarás a esta dirección.",
+                    "updated": 1682596689774
                 },
                 {
                     "language": "TR",
@@ -1035,8 +1064,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Esto no es necesario para interactuar con la gobernanza, ya que todo lo que necesita para hacerlo es enviar Tokens de Superalgos SA a la dirección. Sin embargo, es bastante obvio que en algún momento es posible que desee mover esos tokens. También debe asegurarse de controlar la dirección antes de enviar tokens allí. Entonces, ¡sigamos con esto!",
-                    "updated": 1640976627504
+                    "text": "Esto no es necesario para interactuar con la gobernanza, ya que todo lo que necesita para hacerlo es enviar Tokens de Superalgos SA a la dirección. Sin embargo, es bastante obvio que en algún momento es posible que desees mover esos tokens. También debes asegurarte de controlar la dirección antes de enviar tokens allí. Entonces, ¡sigamos con esto!",
+                    "updated": 1682596710959
                 },
                 {
                     "language": "TR",
@@ -1061,8 +1090,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cubriremos cómo importar su clave privada a Trust Wallet. Si está utilizando cualquier otra billetera, deberá averiguar el proceso equivalente.",
-                    "updated": 1640976653363
+                    "text": "Cubriremos cómo importar tu clave privada a Trust Wallet. Si estás utilizando cualquier otra billetera, deberás averiguar el proceso equivalente.",
+                    "updated": 1682596729322
                 },
                 {
                     "language": "TR",
@@ -1087,8 +1116,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en el botón \"Configuración\".",
-                    "updated": 1640976669545
+                    "text": "Haz clic en el botón \"Configuración\".",
+                    "updated": 1682596736320
                 },
                 {
                     "language": "TR",
@@ -1181,8 +1210,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en la opción \"Ya tengo una billetera\".",
-                    "updated": 1640976711552
+                    "text": "Haz clic en la opción \"Ya tengo una billetera\".",
+                    "updated": 1682596753156
                 },
                 {
                     "language": "TR",
@@ -1212,8 +1241,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga Click en “Smart Chain”.",
-                    "updated": 1640976731756
+                    "text": "Haz Click en “Smart Chain”.",
+                    "updated": 1682596761691
                 },
                 {
                     "language": "TR",
@@ -1243,8 +1272,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en la pestaña \"Clave privada\".",
-                    "updated": 1640976746653
+                    "text": "Haz clic en la pestaña \"Clave privada\".",
+                    "updated": 1682596769902
                 },
                 {
                     "language": "TR",
@@ -1296,8 +1325,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Copie su clave privada y haga clic en \"PEGAR\". Lo sé, Trust Wallet se ejecuta en su teléfono móvil, por lo que debe averiguar cómo acceder a su clave privada desde su teléfono.",
-                    "updated": 1640976783073
+                    "text": "Copia tu clave privada y haz clic en \"PEGAR\". Lo sé, Trust Wallet se ejecuta en tu teléfono móvil, por lo que debes averiguar cómo acceder a tu clave privada desde tu teléfono.",
+                    "updated": 1682596797372
                 },
                 {
                     "language": "TR",
@@ -1322,8 +1351,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ingrese un Nombre para la billetera (algo parecido a “Perfil de Superalgos”?) Y haga clic en el botón “IMPORTAR”.",
-                    "updated": 1640976800773
+                    "text": "Ingresa un Nombre para la billetera (algo parecido a “Perfil de Superalgos”?) Y haz clic en el botón “IMPORTAR”.",
+                    "updated": 1682596807780
                 },
                 {
                     "language": "TR",
@@ -1352,6 +1381,10 @@
                     "updated": 1645109469698
                 },
                 {
+                    "language": "ES",
+                    "text": "Deberías recibir un mensaje del tipo \"Tu monedero se ha creado correctamente\". Esto significa que tienes el control de la dirección.",
+                    "updated": 1682596823457
+                },
                     "language": "DE",
                     "text": "Sie sollten eine Meldung erhalten, die in etwa lautet \"Ihre Wallet wurde erfolgreich erstellt\". Das bedeutet, dass Sie die Kontrolle über die Adresse haben!",
                     "updated": 1682282011145

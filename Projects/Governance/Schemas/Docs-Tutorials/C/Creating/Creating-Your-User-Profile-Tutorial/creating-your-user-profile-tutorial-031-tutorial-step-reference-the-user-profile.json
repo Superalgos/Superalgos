@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora que tienes el objetivo User Profile en el espacio de trabajo, todo lo que queda es establecer la referencia de tu nodo User Referrer al User Profile.",
-                "updated": 1630896187960,
+                "text": "Ahora que has localizado el Perfil de Usuario target en el área de trabajo, todo lo que queda es establecer la referencia desde tu nodo User Referrer al Perfil de Usuario",
+                "updated": 1682521325762,
                 "style": "Definition"
             },
             {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si crees que tiene más de un referente, ¡no dude en agregar nodos de User Referrer y configurar las referencias con tus perfiles!",
-                    "updated": 1630896311540,
+                    "text": "Si crees que tienes más de un referente, ¡no dudes en agregar nodos de User Referrer y configurar las referencias con tus perfiles!",
+                    "updated": 1682521345002,
                     "style": "Note"
                 },
                 {

@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "No solo Workspaces se pueden modificar",
-                "updated": 1629346887546
+                "text": "No solo los Workspaces se pueden modificar",
+                "updated": 1682357652290
             },
             {
                 "language": "IT",
@@ -123,7 +123,6 @@
                     "updated": 1640633473041
                 },
                 {
-
                     "language": "NL",
                     "text": "Ik heb een heel eenvoudige Workspace voor je voorbereid met een nieuwe Data Mine en de knooppunten gerangschikt om alles te verwijderen wat ik niet nodig heb voor deze tutorial.",
                     "updated": 1670773041584

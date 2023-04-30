@@ -1,5 +1,3 @@
-const { unique } = require("@tensorflow/tfjs-node")
-
 exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) {
 
     let thisObject = {

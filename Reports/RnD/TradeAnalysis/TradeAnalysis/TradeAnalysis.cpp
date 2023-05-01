@@ -13,14 +13,7 @@
 using namespace std;
 
 bool gSimpleBallances; // User has entered 0, 0 for initial ballances, won't track Holding amounts very well
-
-typedef enum
-{
-	lineType_Heading,
-    lineType_Summary,
-	lineType_TradePiece,
-	lineType_Unknown
-}LineType;
+bool gIncTriggerCondition;
 
 int main(int argc, char* argv[])
 {
@@ -34,6 +27,7 @@ int main(int argc, char* argv[])
 	int      itr;
 	int      numDays;            // "Day Number"
 	int      numTrades;          // "Trade Number"
+	double       dayTotFees;     // "Fees (USD)" (Summary)
 	double       startingTotWallet;
 	double       dailyTotWallet; // "Daily Running Tot Profit (USDT)"
 	tm           currentDay;     // "Day Number"
@@ -99,12 +93,15 @@ int main(int argc, char* argv[])
 	else
 		summaryLine.printHeader();
 
+	gIncTriggerCondition = false;
+
 	// File parsing loop
-	while (true) // reading line
+	while (true) // reading file
 	{
 		tokenCount = 1;
-		while (true) // reading token
+		while (true) // reading line
 		{
+			// Check for empty file
 			if (tradeFile.eof())
 			{
 				endOfFile = true;
@@ -112,10 +109,11 @@ int main(int argc, char* argv[])
 			}
 
 			charCount = 0;
-			while (true)
+			while (true) // reading token
 			{
-				tradeFile >> noskipws >> myChar;
+				tradeFile >> noskipws >> myChar; // single character read
 
+				// 1st line type determination
 				if (tokenCount == 1 && charCount == 0)
 				{
 					// Determine line type by first character
@@ -129,11 +127,33 @@ int main(int argc, char* argv[])
 						break;
 					case '2':
 						lineType = lineType_Summary;
+						// Reset summaryLine here (part order variables)
+						summaryLine.feeBothEst = 0;
 						break;
 					default:
 						lineType = lineType_Unknown;
 					}
 				}
+
+				// Adjust line type to be more specific if line is part of an order
+				if (tokenCount == 2 && charCount == 0 && lineType == lineType_TradePiece)
+				{
+					switch (myChar)
+					{
+					case '2':
+						lineType = lineType_TradePiece_Piece;
+						break;
+					case 'D':
+						lineType = lineType_TradePiece_Heading;
+						break;
+					}
+				}
+
+				if (lineType == lineType_Heading && tokenCount == 10 && charCount == 6)
+					if (token == "Trigge")
+						gIncTriggerCondition = true;
+					else // Heading Column 10 is "status"
+						tokenCount++;
 
 				if (tradeFile.eof())
 				{
@@ -153,24 +173,26 @@ int main(int argc, char* argv[])
 
 			switch( lineType )
 			{
-			case lineType_Summary:
-				summaryLine.feedToken(tokenCount, token);
-				break;
+				case lineType_Summary:
+					summaryLine.feedToken(lineType_Summary, tokenCount, token);
+					break;
+				case lineType_TradePiece_Piece:
+					summaryLine.feedToken(lineType_TradePiece_Piece, tokenCount, token);
+					break;
 			}
 
 			token = "";
 			tokenCount++;
 
+			if (lineType != lineType_Heading && tokenCount == 10 && !gIncTriggerCondition)
+				tokenCount++;
+
 			if (tradeFile.eof())
 			{
 				endOfFile = true;
-			}
-			else if (myChar == '\n')
-			{
 				break;
 			}
-
-			if (endOfFile)
+			else if (myChar == '\n')
 			{
 				break;
 			}
@@ -179,11 +201,12 @@ int main(int argc, char* argv[])
 		switch (lineType)
 		{
 		    case lineType_Summary:
-			{
 				vectorSummaryLine.push_back(summaryLine);
-
 				break;
-			}
+			case lineType_TradePiece_Piece:
+				// Update last vectorSummaryLine summaryLine
+				vectorSummaryLine[vectorSummaryLine.size() - 1].feeBothEst += summaryLine.feeBothEst;
+				break;
 		}
 
 		if (endOfFile)
@@ -232,6 +255,7 @@ int main(int argc, char* argv[])
 
 			numDays = 1;
 			numTrades = 0;
+			dayTotFees = 0;
 
 			startingTotWallet = vectorSummaryLine[itr].totBallances();
 			dailyTotWallet    = vectorSummaryLine[itr].totBallances();
@@ -248,6 +272,8 @@ int main(int argc, char* argv[])
 		if (vectorSummaryLine[itr].type == buySell_sell)
 			numTrades++;
 
+		dayTotFees += vectorSummaryLine[itr].feeBothEst;
+
 		// * Print majority of line
 		if ( ( vectorSummaryLine[itr].lastLineOfDay ) || !summaryOnly )
 		{
@@ -263,6 +289,9 @@ int main(int argc, char* argv[])
 			if (vectorSummaryLine[itr].lastLineOfDay) // add totals to end of last line of the day.
 			{
 				cout << ", ";
+
+				if (summaryOnly)
+					cout << dayTotFees << ", ";  // "Fees (USD)"
 
 				if (vectorSummaryLine[itr].type == buySell_buy)
 				{

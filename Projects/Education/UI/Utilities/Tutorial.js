@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesTutorial() {
+function newEducationUtilitiesTutorial() {
     let thisObject = {
         saveTutorial: saveTutorial,
         loadTutorial: loadTutorial

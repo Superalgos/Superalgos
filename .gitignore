@@ -11,6 +11,8 @@ debug.log
 *.db
 Projects/Foundations/Icons/Thumbs.db
 *.bat
+# exception for installer batch
+!clone_superalgos.bat
 !launch-windows.bat
 !create-shortcut-windows.bat
 !uninstall-shortcut-windows.bat

@@ -5,10 +5,10 @@
         "**/node_modules": true,
         "**/My-Social-Trading-Data": true,
         "**/My-Network-Nodes-Data": true,
-        // "**/My-Workspaces": true,
+        "**/My-Workspaces": true,
         "**/My-Secrets": true,
         "**/My-Data-Storage": true,
-        // "**/My-Log-Files": true,
+        "**/My-Log-Files": true,
     },
     "search.exclude": {
         "**/Data-Storage*": true,
@@ -22,6 +22,5 @@
         "**/My-Log-Files*": true,
     },
     "search.maintainFileSearchCache": true,
-    "editor.mouseWheelZoom": true,
-    "java.compile.nullAnalysis.mode": "disabled"
+    "editor.mouseWheelZoom": true
 }

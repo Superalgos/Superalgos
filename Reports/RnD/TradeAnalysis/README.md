@@ -17,6 +17,7 @@ Build TradeAnalysis
 cd ~/Superalgos/Reports/RnD/TradeAnalysis/TradeAnalysis
 cmake .
 cmake –build .
+make
 ```
 Prepare your signing file.
 Make a copy and rename the tradeFetcherSecretExample.json file and at the same time move this to your Superalgos secrets directory
@@ -27,15 +28,15 @@ Edit this file and fill in your Binance API key information
 
 Make the DoReport.sh shell script executable
 ```
-chmod +x ~/Superalgos/Reports/RnD/TradeAnalysisDoReport.sh
+chmod +x ~/Superalgos/Reports/RnD/TradeAnalysis/My-Trade-Reports/DoReport.sh
 ```
-Create a directory under ~/Superalgos/Reports/RnD/TradeAnalysis for the current month, i.e.
+Create a directory under ~/Superalgos/Reports/RnD/TradeAnalysis/My-Trade-Reports for the current month, i.e.
 ```
-mkdir ~/Superalgos/Reports/RnD/TradeAnalysis/2023-01
+mkdir ~/Superalgos/Reports/RnD/TradeAnalysis/My-Trade-Reports/2023-01
 ```
 You can now run the example shell script to fetch and generate your report.
 ```
-cd ~/Superalgos/Reports/RnD/TradeAnalysis/2023-01
+cd ~/Superalgos/Reports/RnD/TradeAnalysis/My-Trade-Reports/2023-01
 ../DoReport.sh
 ```
 Note, it may take a minute to fetch your trade data.

@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si no hay un Market configurado con el par con el que deseas trabajar en Exchange Markets, debes configurar la definición de mercado antes de instalarlo.",
-                "updated": 1629164083032,
+                "text": "Si no hay ningún Mercado configurado con el par que desea trabajar en Mercados de Intercambio, deberá configurar la definición del mercado antes de instalarlo.",
+                "updated": 1682426344694,
                 "style": "Definition"
             },
             {

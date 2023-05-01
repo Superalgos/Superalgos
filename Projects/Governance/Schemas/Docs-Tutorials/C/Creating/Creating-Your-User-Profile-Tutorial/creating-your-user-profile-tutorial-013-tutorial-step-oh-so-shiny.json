@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Estamos casi alli. Ahora has clic enBuild Profile y ve cómo sucede la magia. Así es, ¡acabas de crear tu perfil!",
-                "updated": 1630888309658,
+                "text": "¡Ya casi hemos terminado! Para finalizar el proceso, debes hacer clic con el botón derecho en el nodo Constructor de perfiles.",
+                "updated": 1682520248613,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si bien no tuvimos que sudar mucho para crear tu perfil, sucedieron algunas cosas asombrosas detrás de escena.",
-                    "updated": 1630888348614,
+                    "text": "Si deseas crear un nuevo monedero, haz clic en el botón Crear perfil y nuevo monedero. Si deseas vincular un monedero existente, haz clic en el botón Crear perfil con mnemónico.",
+                    "updated": 1682520290097,
                     "style": "Text"
                 },
                 {
@@ -81,6 +81,11 @@
                     "language": "ID",
                     "text": "Selesai! Sekarang, inilah yang terjadi di balik layar...",
                     "updated": 1670854112190
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hecho! Ahora, esto es lo que pasó entre bastidores...",
+                    "updated": 1682520307521
                 }
             ]
         },
@@ -91,8 +96,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "TEl constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
-                    "updated": 1630888438347,
+                    "text": "El constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
+                    "updated": 1682520334425,
                     "style": "Note"
                 },
                 {

@@ -105,8 +105,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un nodo Time Machine oara cada Trading Session creada en el Production Trading Tasks.",
-                    "updated": 1629251407209
+                    "text": "Un nodo Time Machine para cada Trading Session creada en el Production Trading Tasks.",
+                    "updated": 1682428167929
                 },
                 {
                     "language": "DE",

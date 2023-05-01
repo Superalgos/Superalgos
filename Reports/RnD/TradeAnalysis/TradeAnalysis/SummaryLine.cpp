@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstring>
 #include "TradeAnalysis.h"
 #include "ctype.h"
 
@@ -212,7 +213,7 @@ void SummaryLine::printSelf()
 		{
 			cout << "??????, ";
 		}
-		cout << ", ";
+		cout << ", "
 		    << status << ", "	        // "Status"
 		    << feeBothEst << ", ";	    // Fee (USD)
 

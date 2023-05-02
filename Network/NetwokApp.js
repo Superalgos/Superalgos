@@ -119,8 +119,8 @@ exports.newNetworkApp = function newNetworkApp() {
                 thisObject.webSocketsInterface.initialize()
                 SA.logger.info('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
             }
-/*
-TODO this breaks the network if uncommented with a complete p2p node tree setted up
+            /*
+             TODO this breaks the network if uncommented with a complete p2p node tree setted up
             if (
                 thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
                 thisObject.p2pNetworkNode.node.networkInterfaces.webrtcNetworkInterface !== undefined
@@ -132,7 +132,7 @@ TODO this breaks the network if uncommented with a complete p2p node tree setted
                 thisObject.webSocketsInterface.initialize()
                 SA.logger.info('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
             }
-*/
+             */
             if (
                 thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
                 thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface !== undefined

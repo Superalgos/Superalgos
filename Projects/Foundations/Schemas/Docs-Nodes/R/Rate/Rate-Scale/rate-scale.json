@@ -142,17 +142,17 @@
         },
         {
             "style": "Text",
-            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
+            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Sample Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
             "updated": 1616513013651,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Plugin Workspaces. Шкала может быть автоматической по минимальному значению, по максимальному значению, по обоим параметрам или по отсутствию (ручной режим).",
+                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Sample Workspaces. Шкала может быть автоматической по минимальному значению, по максимальному значению, по обоим параметрам или по отсутствию (ручной режим).",
                     "updated": 1639380722929
                 },
                 {
                     "language": "TR",
-                    "text": "Sistem, bazı Eklenti Çalışma Alanlarında ( Plugin Workspace ) varsayılan olarak açık olan otomatik bir ölçek ayarına sahiptir. Ölçek minimum değerinde, maksimum değerinde, her ikisinde veya hiçbirinde (manuel mod) otomatik olabilir.",
+                    "text": "Sistem, bazı Eklenti Çalışma Alanlarında ( Sample Workspace ) varsayılan olarak açık olan otomatik bir ölçek ayarına sahiptir. Ölçek minimum değerinde, maksimum değerinde, her ikisinde veya hiçbirinde (manuel mod) otomatik olabilir.",
                     "updated": 1674918209092
                 }
             ]

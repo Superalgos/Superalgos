@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "workspace"
         },
-        "text": "Plugin Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
+        "text": "Sample Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
         "translations": [
             {
                 "language": "IT",
@@ -23,39 +23,39 @@
             },
             {
                 "language": "ES",
-                "text": "Los Plugin Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
+                "text": "Los Sample Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
                 "updated": 1675207503797,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Plugin Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
+                "text": "Sample Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
                 "updated": 1634167337552,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Plugin Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
+                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Sample Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
                 "updated": 1636013396906
             },
             {
                 "language": "RU",
-                "text": "\nPlugin Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
+                "text": "\nSample Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
                 "updated": 1636192226552
             },
             {
                 "language": "NL",
-                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
+                "text": "Sample Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
                 "updated": 1666614769872
             },
             {
                 "language": "FR",
-                "text": "Les Plugin Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
+                "text": "Les Sample Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
                 "updated": 1667986626783
             },
             {
                 "language": "PL",
-                "text": "Dostarczane z systemem Plugin Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
+                "text": "Dostarczane z systemem Sample Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
                 "updated": 1675002653309
             }
         ],
@@ -120,44 +120,44 @@
         },
         {
             "style": "Callout",
-            "text": "Let's create a copy of this Plugin Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
+            "text": "Let's create a copy of this Sample Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
             "updated": 1629803279820,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Creemos una copia de este Plugin Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
+                    "text": "Creemos una copia de este Sample Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
                     "updated": 1675207601661,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Erstellen Sie eine Kopie dieses Plugin Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
+                    "text": "Erstellen Sie eine Kopie dieses Sample Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
                     "updated": 1634167512053,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Gelin bu Plugin Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "text": "Gelin bu Sample Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
                     "updated": 1644909265051
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте создадим копию этого Plugin Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
+                    "text": "Давайте создадим копию этого Sample Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
                     "updated": 1636192471516
                 },
                 {
                     "language": "NL",
-                    "text": "Laten we met een kopie deze Plugin Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
+                    "text": "Laten we met een kopie deze Sample Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
                     "updated": 1636978713661
                 },
                 {
                     "language": "FR",
-                    "text": "Créons une copie de ce Plugin Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
+                    "text": "Créons une copie de ce Sample Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
                     "updated": 1667986754674
                 },
                 {
                     "language": "PL",
-                    "text": "Utwórzmy kopię tego Plugin Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
+                    "text": "Utwórzmy kopię tego Sample Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
                     "updated": 1675002723308
                 }
             ]

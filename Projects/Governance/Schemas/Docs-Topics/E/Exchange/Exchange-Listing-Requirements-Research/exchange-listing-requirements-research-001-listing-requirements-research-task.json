@@ -363,27 +363,27 @@
         },
         {
             "style": "Text",
-            "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Tutorials Plugin Workspace and do the Beyond the Basics Tutorial.",
+            "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Tutorials Sample Workspace and do the Beyond the Basics Tutorial.",
             "updated": 1628509381517,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si no está familiarizado con el proceso de editar páginas en los Documentos y contribuir con las páginas que crea o edita, vaya a  Getting Started Tutorials Plugin Workspace y haga Beyond the Basics Tutorial.",
+                    "text": "Si no está familiarizado con el proceso de editar páginas en los Documentos y contribuir con las páginas que crea o edita, vaya a  Getting Started Tutorials Sample Workspace y haga Beyond the Basics Tutorial.",
                     "updated": 1637162184012
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы не знакомы с процессом редактирования страниц во вкладке Docs и внесения изменений в страницы, которые вы создаете или редактируете, перейдите в рабочее пространство Getting Started Tutorials Plugin Workspace и пройдите курс обучения Beyond the Basics Tutorial.",
+                    "text": "Если вы не знакомы с процессом редактирования страниц во вкладке Docs и внесения изменений в страницы, которые вы создаете или редактируете, перейдите в рабочее пространство Getting Started Tutorials Sample Workspace и пройдите курс обучения Beyond the Basics Tutorial.",
                     "updated": 1640782596008
                 },
                 {
                     "language": "TR",
-                    "text": "Dokümanlar'da sayfaları düzenleme ve oluşturduğunuz veya düzenlediğiniz sayfalara katkıda bulunma sürecine aşina değilseniz, lütfen Başlangıç Eğitimleri Eklentisi Çalışma Alanına ( Getting Started Tutorials Plugin Workspace ) gidin ve Temel Bilgilerin Ötesinde Eğitimini ( Beyond the Basics Tutorial ) yapın.",
+                    "text": "Dokümanlar'da sayfaları düzenleme ve oluşturduğunuz veya düzenlediğiniz sayfalara katkıda bulunma sürecine aşina değilseniz, lütfen Başlangıç Eğitimleri Eklentisi Çalışma Alanına ( Getting Started Tutorials Sample Workspace ) gidin ve Temel Bilgilerin Ötesinde Eğitimini ( Beyond the Basics Tutorial ) yapın.",
                     "updated": 1647005051610
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie mit dem Prozess der Bearbeitung von Seiten in den Docs und dem Einbringen der von Ihnen erstellten oder bearbeiteten Seiten nicht vertraut sind, gehen Sie bitte zum Getting Started Tutorials Plugin Workspace und machen Sie das Beyond the Basics Tutorial.",
+                    "text": "Wenn Sie mit dem Prozess der Bearbeitung von Seiten in den Docs und dem Einbringen der von Ihnen erstellten oder bearbeiteten Seiten nicht vertraut sind, gehen Sie bitte zum Getting Started Tutorials Sample Workspace und machen Sie das Beyond the Basics Tutorial.",
                     "updated": 1682435491092
                 }
             ]

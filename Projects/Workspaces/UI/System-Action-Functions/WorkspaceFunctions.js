@@ -12,21 +12,21 @@ function newWorkspacesSystemActionWorkspaceFunctions() {
         /* get the array of workspaces: [[…],[…],…] */
         let response = await httpRequestAsync(undefined, 'ListWorkspaces')
 
-        if (type === 'plugin') {
-            /* for plugin workspaces, the first value of the workspace array is a non-empty string containing the project */
-            let pluginWorkspaces = JSON.parse(response.message).filter(x => x[0] !== '')
-            let pluginWorkspaceProjects = []
+        if (type === 'sample') {
+            /* for sample workspaces, the first value of the workspace array is a non-empty string containing the project */
+            let sampleWorkspaces = JSON.parse(response.message).filter(x => x[0] !== '')
+            let sampleWorkspaceProjects = []
 
-            for (let workspace of pluginWorkspaces) {
-                if (pluginWorkspaceProjects.includes(workspace[0])) { continue }
-                pluginWorkspaceProjects.push(workspace[0])
+            for (let workspace of sampleWorkspaces) {
+                if (sampleWorkspaceProjects.includes(workspace[0])) { continue }
+                sampleWorkspaceProjects.push(workspace[0])
             }
             /* for every project, collect the corresponding workspaces into a submenu and assign them the switchWorkspace action*/
-            for (let project of pluginWorkspaceProjects) {
+            for (let project of sampleWorkspaceProjects) {
                 let projectSubmenuItem = {label: project, subMenu: []}
-                let projectPluginWorkspaces = JSON.parse(response.message).filter(x => x[0] === project)
-                for (let workspace of projectPluginWorkspaces) {
-                    let label = workspace[1].replace('Plugin → ', '').replace('.json', '')
+                let projectSampleWorkspaces = JSON.parse(response.message).filter(x => x[0] === project)
+                for (let workspace of projectSampleWorkspaces) {
+                    let label = workspace[1].replace('Sample → ', '').replace('.json', '')
                     let action = {name: 'switchWorkspace', params: ['\'' + project + '\'', '\'' + label + '\'']}
                     projectSubmenuItem.subMenu.push({label: label, action: action})
                 }

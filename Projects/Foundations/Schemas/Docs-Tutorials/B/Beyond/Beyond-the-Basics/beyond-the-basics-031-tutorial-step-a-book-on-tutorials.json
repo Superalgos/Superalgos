@@ -96,44 +96,44 @@
         },
         {
             "style": "Success",
-            "text": "Take a look at the list of tutorials available on each of the Plugin Workspaces and choose which one to do next!",
+            "text": "Take a look at the list of tutorials available on each of the Sample Workspaces and choose which one to do next!",
             "updated": 1630945219778,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Plugin Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
+                    "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Sample Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
                     "updated": 1619638304612,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Echa un vistazo a la lista de tutoriales disponibles en cada uno de los Plugin Workspaces y elige cuál quieres hacer a continuación.",
+                    "text": "Echa un vistazo a la lista de tutoriales disponibles en cada uno de los Sample Workspaces y elige cuál quieres hacer a continuación.",
                     "updated": 1675454759941,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen Sie sich die Liste der Tutorials an, die auf den einzelnen Plugin Workspaces verfügbar sind, und wählen Sie aus, welches Sie als nächstes machen wollen!",
+                    "text": "Schauen Sie sich die Liste der Tutorials an, die auf den einzelnen Sample Workspaces verfügbar sind, und wählen Sie aus, welches Sie als nächstes machen wollen!",
                     "updated": 1635152004196
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanlarının ( Plugin Workspace ) her birinde bulunan eğitim listesine bir göz atın ve bir sonraki adımda hangisini yapacağınızı seçin!",
+                    "text": "Eklenti Çalışma Alanlarının ( Sample Workspace ) her birinde bulunan eğitim listesine bir göz atın ve bir sonraki adımda hangisini yapacağınızı seçin!",
                     "updated": 1640003237540
                 },
                 {
                     "language": "RU",
-                    "text": "Просмотрите список учебных пособий, доступных на каждом из рабочих пространств плагинов (Plugin Workspaces), и выберите, каким из них заняться в следующий раз!",
+                    "text": "Просмотрите список учебных пособий, доступных на каждом из рабочих пространств плагинов (Sample Workspaces), и выберите, каким из них заняться в следующий раз!",
                     "updated": 1640164219826
                 },
                 {
                     "language": "ID",
-                    "text": "Lihatlah daftar tutorial yang tersedia di masing-masing Plugin Workspace dan pilih yang mana untuk dilakukan selanjutnya!",
+                    "text": "Lihatlah daftar tutorial yang tersedia di masing-masing Sample Workspace dan pilih yang mana untuk dilakukan selanjutnya!",
                     "updated": 1669154793859
                 },
                 {
                     "language": "NL",
-                    "text": "Bekijk de lijst met beschikbare zelfstudies op elk van de Plugin Workspaces en kies welke je hierna wilt doen!",
+                    "text": "Bekijk de lijst met beschikbare zelfstudies op elk van de Sample Workspaces en kies welke je hierna wilt doen!",
                     "updated": 1669750692446
                 }
             ]

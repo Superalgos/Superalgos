@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "4",
-    "type": "Tested Exchanges Plugin Workspace",
+    "type": "Tested Exchanges Sample Workspace",
     "definition": {
         "text": "This workspace features the collection of Crypto Exchange nodes corresponding to exchanges that have been or are currently being tested. Use this workspace if you intend to test new exchanges.",
         "updated": 1622624683862,

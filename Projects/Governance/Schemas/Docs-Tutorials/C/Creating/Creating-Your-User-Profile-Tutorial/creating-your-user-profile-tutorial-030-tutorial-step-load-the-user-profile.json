@@ -91,12 +91,12 @@
         },
         {
             "style": "Text",
-            "text": "New profiles are added to the governance Plugin Workspace before each distribution event.",
+            "text": "New profiles are added to the governance Sample Workspace before each distribution event.",
             "updated": 1660643324416,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Los nuevos perfiles se añaden al Plugin Workspace de gobierno antes de cada evento de distribución.",
+                    "text": "Los nuevos perfiles se añaden al Sample Workspace de gobierno antes de cada evento de distribución.",
                     "updated": 1682521246636,
                     "style": "Success"
                 },
@@ -117,7 +117,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Profil baru akan ditambahkan ke governance Plugin Workspace sebelum tiap event distribusi.",
+                    "text": "Profil baru akan ditambahkan ke governance Sample Workspaces ebelum tiap event distribusi.",
                     "updated": 1671528173184
                 }
             ]

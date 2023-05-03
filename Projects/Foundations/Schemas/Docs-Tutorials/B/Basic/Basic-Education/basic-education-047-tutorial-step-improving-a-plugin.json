@@ -53,24 +53,24 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This Indicator Bot is part of the Sparta Data Mine, which is usually included as a plugin in some plugin workspaces. To modify the plugin from within the UI and save the changes, you have two options:",
+            "text": "This Indicator Bot is part of the Sparta Data Mine, which is usually included as a plugin in some Sample Workspaces. To modify the plugin from within the UI and save the changes, you have two options:",
             "updated": 1629909479093,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Questo bot indicatore è parte del Master Data Mine, che è incluso come plugin in alcuni dei plugin workspace. Per modificare il plug-in dall'interfaccia utente e salvare le modifiche, hai due opzioni:",
+                    "text": "Questo bot indicatore è parte del Master Data Mine, che è incluso come plugin in alcuni dei Sample Workspace. Per modificare il plug-in dall'interfaccia utente e salvare le modifiche, hai due opzioni:",
                     "updated": 1666641428095,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Este Indicator Bot forma parte de Sparta Data Mine, que suele incluirse como plugin en algunos Plugin Workspaces. Para modificar el plugin desde la interfaz de usuario y guardar los cambios, tienes dos opciones:",
+                    "text": "Este Indicator Bot forma parte de Sparta Data Mine, que suele incluirse como plugin en algunos Sample Workspaces. Para modificar el plugin desde la interfaz de usuario y guardar los cambios, tienes dos opciones:",
                     "updated": 1675378058478,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Plugin-Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
+                    "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Sample Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
                     "updated": 1634589206307,
                     "style": "Text"
                 },

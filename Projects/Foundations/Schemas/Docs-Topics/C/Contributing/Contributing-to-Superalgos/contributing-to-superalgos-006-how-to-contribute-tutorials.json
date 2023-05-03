@@ -133,27 +133,27 @@
         },
         {
             "style": "Text",
-            "text": "If your tutorial deals with data, it is best to use the same exchange, market, and date ranges already in use in the Getting Started Plugin Workspace tutorials. This way, users will already have the data and can go through the tutorial easier.",
+            "text": "If your tutorial deals with data, it is best to use the same exchange, market, and date ranges already in use in the Getting Started Sample Workspace tutorials. This way, users will already have the data and can go through the tutorial easier.",
             "updated": 1621871223112,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
+                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Sample Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
                     "updated": 1640113215381
                 },
                 {
                     "language": "RU",
-                    "text": "Если ваш учебник посвящен данным, лучше всего использовать те же биржи, рынки и диапазоны дат, которые уже используются в учебниках Getting Started Plugin Workspace. Таким образом, пользователи уже будут иметь необходимые данные и смогут легче пройти обучение.",
+                    "text": "Если ваш учебник посвящен данным, лучше всего использовать те же биржи, рынки и диапазоны дат, которые уже используются в учебниках Getting Started Sample Workspace. Таким образом, пользователи уже будут иметь необходимые данные и смогут легче пройти обучение.",
                     "updated": 1640268844627
                 },
                 {
                     "language": "TR",
-                    "text": "Eğitiminiz verilerle ilgiliyse, Eklenti Çalışma Alanına ( Plugin Workspace ) Başlarken eğitimlerinde halihazırda kullanımda olan aynı borsa, pazar ve tarih aralıklarını kullanmak en iyisidir. Bu şekilde, kullanıcılar verilere zaten sahip olacak ve öğreticiyi daha kolay geçebilir.",
+                    "text": "Eğitiminiz verilerle ilgiliyse, Eklenti Çalışma Alanına ( Sample Workspace ) Başlarken eğitimlerinde halihazırda kullanımda olan aynı borsa, pazar ve tarih aralıklarını kullanmak en iyisidir. Bu şekilde, kullanıcılar verilere zaten sahip olacak ve öğreticiyi daha kolay geçebilir.",
                     "updated": 1645297237805
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn sich Ihr Tutorial mit Daten befasst, ist es am besten, dieselben Börsen-, Markt- und Datumsbereiche zu verwenden, die bereits in den Tutorials für den Plugin-Arbeitsbereich (Plugin Workspace) \"Erste Schritte\" verwendet werden. Auf diese Weise verfügen die Benutzer bereits über die Daten und können das Lernprogramm leichter durcharbeiten.",
+                    "text": "Wenn sich Ihr Tutorial mit Daten befasst, ist es am besten, dieselben Börsen-, Markt- und Datumsbereiche zu verwenden, die bereits in den Tutorials für den Plugin-Arbeitsbereich (Sample Workspace) \"Erste Schritte\" verwendet werden. Auf diese Weise verfügen die Benutzer bereits über die Daten und können das Lernprogramm leichter durcharbeiten.",
                     "updated": 1681511787796
                 }
             ]
@@ -261,27 +261,27 @@
         },
         {
             "style": "Text",
-            "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Plugin Workspace:",
+            "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Sample Workspace:",
             "updated": 1617712745906,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Tome, por ejemplo, las series de tutoriales en el Trading System Design Tutorials Plugin Workspace:",
+                    "text": "Tome, por ejemplo, las series de tutoriales en el Trading System Design Tutorials Sample Workspace:",
                     "updated": 1633365963577
                 },
                 {
                     "language": "RU",
-                    "text": "Возьмем, к примеру, серию учебников в Trading System Design Tutorials Plugin Workspace:",
+                    "text": "Возьмем, к примеру, серию учебников в Trading System Design Tutorials Sample Workspace:",
                     "updated": 1640269077954
                 },
                 {
                     "language": "TR",
-                    "text": "Örneğin, İşlem Sistemi Tasarım Öğreticileri Eklentisi Çalışma Alanındaki ( Trading System Design Tutorials Plugin Workspace ) öğreticiler dizisini alın:",
+                    "text": "Örneğin, İşlem Sistemi Tasarım Öğreticileri Eklentisi Çalışma Alanındaki ( Trading System Design Tutorials Sample Workspace ) öğreticiler dizisini alın:",
                     "updated": 1645297485094
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie zum Beispiel die Reihe der Tutorials im Plugin-Arbeitsbereich (Trading System Design Tutorials Plugin Workspace) für das Design von Handelssystemen:",
+                    "text": "Nehmen Sie zum Beispiel die Reihe der Tutorials im Plugin-Arbeitsbereich (Trading System Design Tutorials Sample Workspace) für das Design von Handelssystemen:",
                     "updated": 1681512080387
                 }
             ]
@@ -1894,7 +1894,7 @@
         },
         {
             "style": "List",
-            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
+            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Sample Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
             "translations": [
                 {
                     "language": "ES",
@@ -1908,12 +1908,12 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Öğretici, Başlarken Öğreticiler Eklentisi Çalışma Alanının ( Getting Started Tutorials Plugin Workspace ) ötesinde bir ön bilgi gerektiriyorsa, kullanıcıların önce ilgili öğreticileri tamamlayabilmesi için hangi ön bilgilerin gerekli olduğunu açıklamaya bir adım ayırın.",
+                    "text": "Öğretici, Başlarken Öğreticiler Eklentisi Çalışma Alanının ( Getting Started Tutorials Sample Workspace ) ötesinde bir ön bilgi gerektiriyorsa, kullanıcıların önce ilgili öğreticileri tamamlayabilmesi için hangi ön bilgilerin gerekli olduğunu açıklamaya bir adım ayırın.",
                     "updated": 1645300183494
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn für das Tutorial Vorkenntnisse erforderlich sind, die über den Plugin-Arbeitsbereich der Einführungs-Tutorials (Getting Started Tutorials Plugin Workspace) hinausgehen, sollten Sie in einem eigenen Schritt erklären, welche Vorkenntnisse erforderlich sind, damit die Benutzer zunächst die entsprechenden Tutorials durcharbeiten können.",
+                    "text": "Wenn für das Tutorial Vorkenntnisse erforderlich sind, die über den Plugin-Arbeitsbereich der Einführungs-Tutorials (Getting Started Tutorials Sample Workspace) hinausgehen, sollten Sie in einem eigenen Schritt erklären, welche Vorkenntnisse erforderlich sind, damit die Benutzer zunächst die entsprechenden Tutorials durcharbeiten können.",
                     "updated": 1681515882960
                 }
             ],
@@ -2159,7 +2159,7 @@
         },
         {
             "style": "Important",
-            "text": "Please use a clear and descriptive name and follow the naming convention ending the name with `Plugin Workspace`. Feel free to consult what a good name may be with other contributors in the Docs Group.",
+            "text": "Please use a clear and descriptive name and follow the naming convention ending the name with `Sample Workspace`. Feel free to consult what a good name may be with other contributors in the Docs Group.",
             "updated": 1621874212145,
             "translations": [
                 {
@@ -2169,7 +2169,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Plugin Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
+                    "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Sample Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
                     "updated": 1640275791724
                 },
                 {
@@ -2179,14 +2179,14 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Bitte verwenden Sie einen eindeutigen und beschreibenden Namen und halten Sie sich an die Namenskonvention, die den Namen mit \"Plugin Workspace\" beendet. Es steht Ihnen frei, sich mit anderen Mitwirkenden in der Docs-Gruppe (Docs Group) darüber zu beraten, was ein guter Name sein könnte.",
+                    "text": "Bitte verwenden Sie einen eindeutigen und beschreibenden Namen und halten Sie sich an die Namenskonvention, die den Namen mit \"Sample Workspace\" beendet. Es steht Ihnen frei, sich mit anderen Mitwirkenden in der Docs-Gruppe (Docs Group) darüber zu beraten, was ein guter Name sein könnte.",
                     "updated": 1681516527689
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "List of Plugin Workspaces and Tutorials",
+            "text": "List of Sample Workspaces and Tutorials",
             "updated": 1621875320874,
             "translations": [
                 {
@@ -2201,34 +2201,34 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Liste der Plugin-Workspaces und Tutorials",
+                    "text": "Liste der Sample Workspaces und Tutorials",
                     "updated": 1681517459798
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Add the workspace and the tutorial to this list: List of Plugin Workspaces and Tutorials, so that they show up in the First Steps Tutorials book.",
+            "text": "Add the workspace and the tutorial to this list: List of Sample Workspaces and Tutorials, so that they show up in the First Steps Tutorials book.",
             "updated": 1621875373640,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Agregue el espacio de trabajo y el tutorial a esta lista: List of Plugin Workspaces and Tutorials, para que aparezcan en el libro Tutoriales de primeros pasos.",
+                    "text": "Agregue el espacio de trabajo y el tutorial a esta lista: List of Sample Workspaces and Tutorials, para que aparezcan en el libro Tutoriales de primeros pasos.",
                     "updated": 1640110079022
                 },
                 {
                     "language": "RU",
-                    "text": "Добавьте рабочее пространство и учебник в этот список: List of Plugin Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
+                    "text": "Добавьте рабочее пространство и учебник в этот список: List of Sample Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
                     "updated": 1640275953541
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma alanını ve öğreticiyi bu listeye ekleyin: Eklenti Çalışma Alanları ve Öğreticiler Listesi ( List of Plugin Workspaces and Tutorials ), böylece İlk Adımlar Öğreticiler kitabında ( First Steps Tutorials ) görünecekler.",
+                    "text": "Çalışma alanını ve öğreticiyi bu listeye ekleyin: Eklenti Çalışma Alanları ve Öğreticiler Listesi ( List of Sample Workspaces and Tutorials ), böylece İlk Adımlar Öğreticiler kitabında ( First Steps Tutorials ) görünecekler.",
                     "updated": 1645300721010
                 },
                 {
                     "language": "DE",
-                    "text": "Fügen Sie den Arbeitsbereich und das Lernprogramm zu dieser Liste hinzu: Liste der Plugin-Arbeitsbereiche und Tutorials (List of Plugin Workspaces and Tutorials), damit sie im Buch Erste Schritte Tutorials (First Steps Tutorials) angezeigt werden.",
+                    "text": "Fügen Sie den Arbeitsbereich und das Lernprogramm zu dieser Liste hinzu: Liste der Plugin-Arbeitsbereiche und Tutorials (List of Sample Workspaces and Tutorials), damit sie im Buch Erste Schritte Tutorials (First Steps Tutorials) angezeigt werden.",
                     "updated": 1681517574975
                 }
             ]

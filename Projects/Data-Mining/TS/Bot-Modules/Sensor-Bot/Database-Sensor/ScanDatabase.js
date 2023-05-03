@@ -449,7 +449,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                     /* 
                                      We initialize here the dataValues object. These initial 
-                                     values should be overridden unless there is no 
+                                     values should be overridden unless there is no data
                                      fetched that matches with this minute. We need the 
                                      timestamp in order to calculate dataValueMinute.
                                     */
@@ -462,7 +462,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         volume: 0
                                     }
         
-                                    let record = rawDataArray[ohlcvArrayIndex]
+                                    let record = rawDataArray[dataArrayIndex]
         
                                     /* 
                                     We will check that we can have a record to 
@@ -482,11 +482,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         }
                                     }
         
-                                    let candleMinute = Math.trunc(candle.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                    let dataMinute = Math.trunc(dataChunk.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                                     let dataValueMinute
                                     /*
-                                    Some exchanges return inconsistent data. It is not guaranteed 
-                                    that each candle will have a timeStamp exactly at the beginning of an
+                                    Some data sources will return inconsistent data. It is not guaranteed 
+                                    that each chunk will have a timeStamp exactly at the beginning of an
                                     UTC minute. It is also not guaranteed that the distance
                                     between timestamps will be the same. To fix this, we will do this.
                                     */
@@ -500,13 +500,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     array, moving it one record forward, and that is what we are
                                     doing here. 
                                     */
-                                    while (dataValueMinute < candleMinute) {
+                                    while (dataValueMinute < dataMinute) {
         
                                         /* Move forward at the rawDataArray array. */
-                                        ohlcvArrayIndex++
+                                        dataArrayIndex++
         
                                         /* Check that we have not passed the end of the array */
-                                        if (ohlcvArrayIndex > rawDataArray.length - 1) {
+                                        if (dataArrayIndex > rawDataArray.length - 1) {
                                             /* 
                                             We run out of OHLCVs, we can not move to the next OHLCV, 
                                             we need to leave this loop. 
@@ -514,10 +514,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             break
                                         }
         
-                                        record = rawDataArray[ohlcvArrayIndex]
+                                        record = rawDataArray[dataArrayIndex]
         
                                         /*
-                                        Once this loop is broken, this is the OHLCV that needs 
+                                        Once this loop is broken, this is the dataValue that needs 
                                         to be considered. All the ones in the past are ignored.
                                         */
                                         dataValue = {
@@ -535,36 +535,34 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     }
         
                                     /*
-                                    If the candleMinute and the OHLCVMinute matches, then
-                                    we transfer the properties of the OHLCV into the 
-                                    candle object and the volume object. Two things to 
+                                    If the dataMinute and the dataValueMinute matches, then
+                                    we transfer the properties of the dataValue into the 
+                                    data object. Two things to 
                                     consider here:
         
                                     1. If they do not match, at this point it could only means
-                                    that the OHLCVMinute is in the future, in which case the
-                                    candle and volume will keep their initialization values
-                                    which in turn are equal to the latest candle and volumes.
+                                    that the dataValueMinute is in the future, in which case the
+                                    data object will keep their initialization values
+                                    which in turn are equal to the latest chunk of data.
                                     
-                                    2. They might be equal even though the OHLCV timestamp
+                                    2. They might be equal even though the dataValue timestamp
                                     did not match exactly the UTC minute, but since we are 
                                     comparing truncated values, then we force the matching
-                                    and we correct the shifting in time that sometimes happens
-                                    with exchange data.
+                                    and we correct the shifting in time that sometimes happens.
                                     */
-                                    if (candleMinute === dataValueMinute) {
+                                    if (dataMinute === dataValueMinute) {
                                         candle.open = dataValue.open
                                         candle.close = dataValue.close
                                         candle.min = dataValue.low
                                         candle.max = dataValue.hight
-                                        volume.buy = dataValue.volume / 2
-                                        volume.sell = dataValue.volume / 2
+                                        
         
                                         /* 
                                         Since we extracted this OHLCV value, we move 
                                         forward our array index.
                                         */
-                                        if (ohlcvArrayIndex < rawDataArray.length - 1) {
-                                            ohlcvArrayIndex++
+                                        if (dataArrayIndex < rawDataArray.length - 1) {
+                                            dataArrayIndex++
                                         } else {
                                             endOfTheOHLCVArrayReached = true
                                         }
@@ -576,8 +574,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     Here we remember the last candle and volume, in case
                                     we need it.
                                     */
-                                    lastDataChunk = candle
-                                    lastVolume = volume
+                                    lastDataChunk = dataChunk
         
                                     if (needSeparator === false) {
                                         needSeparator = true;
@@ -588,7 +585,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                     /* Add the candle to the file content.*/
                                     candlesFileContent = candlesFileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
-                                    volumesFileContent = volumesFileContent + separator + '[' + volume.buy + "," + volume.sell + "," + volume.begin + "," + volume.end + "]";
         
                                     /* We store the last candle of the day in order to have a previous candles during next execution. */
                                     if (minuteOfTheDay === 1440 - 1) {
@@ -604,15 +600,15 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                     function logAndHeartBeat() {
                                         /* We need the processing date for logging purposes only */
-                                        let processingDate = new Date(candle.begin)
+                                        let processingDate = new Date(dataChunk.begin)
                                         processingDate =
                                             processingDate.getUTCFullYear() + '-' +
                                             SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
                                             SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
         
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> ohlcvArrayIndex = " + ohlcvArrayIndex + " -> total = " + rawDataArray.length)
-                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (ohlcvArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
+                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + rawDataArray.length)
+                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
                                     }
                                 }
         
@@ -624,7 +620,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 we still need to save the full day of content, and 
                                 we do it only if at least one candle has been processed.
                                 */
-                                if (ohlcvArrayIndex > 0) {
+                                if (dataArrayIndex > 0) {
                                     saveFile(currentDay)
                                     return
                                 }

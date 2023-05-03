@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Construyamos la madre de todas las estrategias trading: The Moving Average Cross",
-                "updated": 1629342995750,
+                "text": "Construyamos la madre de todas las Trading Strategies The Moving Average Cross",
+                "updated": 1682357180656,
                 "style": "Definition"
             },
             {
@@ -93,12 +93,11 @@
                     "updated": 1640632703163
                 },
                 {
-
                     "language": "NL",
                     "text": "Voor deze tutorial ga ik ervan uit dat:",
                     "updated": 1670772594355
-              },
-              {
+                },
+                {
                     "language": "ID",
                     "text": "Untuk tutorial ini aku asumsikan bahwa:",
                     "updated": 1670299062560
@@ -142,7 +141,6 @@
                     "updated": 1640632786502
                 },
                 {
-
                     "language": "NL",
                     "text": "U hebt de Welkome Tutorial in de Getting Started Workspace gedaan",
                     "updated": 1670772642586
@@ -151,7 +149,6 @@
                     "language": "ID",
                     "text": "Kamu telah menyelesaikan Welcome Tutorial pada Getting Started Workspace",
                     "updated": 1670299086037
-
                 }
             ],
             "updated": 1629342770748
@@ -193,7 +190,6 @@
                     "updated": 1640632808287
                 },
                 {
-
                     "language": "NL",
                     "text": "Je navigeert je gemakkelijk door de Workspace en de Charts",
                     "updated": 1670772686931
@@ -202,7 +198,7 @@
                     "language": "ID",
                     "text": "Kamu nyaman dalam berpindah-pindah disekitaran antara Workspace dan Charts",
                     "updated": 1670299098434
-         }
+                }
             ],
             "updated": 1629342792390
         },
@@ -244,7 +240,6 @@
                     "updated": 1640632820606
                 },
                 {
-
                     "language": "NL",
                     "text": "Je hebt een basiskennis van wat een Trading Bot en een strategie is",
                     "updated": 1670772706179

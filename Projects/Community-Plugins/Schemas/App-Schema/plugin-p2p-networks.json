@@ -1,5 +1,5 @@
 {
-    "type": "Plugin P2P-Networks",
+    "type": "Plugin P2P Networks",
     "menuItems": [
         {
             "action": "Add Missing Plugin P2P Networks",
@@ -12,6 +12,16 @@
             "iconProject": "Network",
             "actionFunction": "payload.executeAction",
             "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Add Specified P2P Network",
+            "label": "Add Specified P2P Network",
+            "iconPathOn": "p2p-network",
+            "iconPathOff": "p2p-network",
+            "iconProject": "Network",
+            "actionProject": "Network",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
@@ -29,6 +39,9 @@
     "propertyNameAtParent": "pluginP2PNetworks",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
+    },
+    "editors": {
+        "list": true
     },
     "childrenNodesProperties": [
         {

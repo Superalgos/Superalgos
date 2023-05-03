@@ -10,7 +10,7 @@ exports.newDashboardsApp = function newDashboardsApp() {
         
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-                SA.logger.error("The Superalgos Dashboards Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Dashboards Client might be already running.")
+                SA.logger.error("The Superalgos Dashboards Client cannot be started. Reason: the port configured might be being used by another application, or Superalgos Dashboards Client might be already running.")
                 return
             }
             SA.logger.error('Dashboards App -> uncaughtException -> err.message = ' + err.message)

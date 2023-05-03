@@ -112,12 +112,12 @@
         },
         {
             "style": "Success",
-            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
+            "text": "To do a tutorial, load the corresponding Sample Workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
             "updated": 1617036749800,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para hacer un tutorial, carga el correspondiente Plugin Workspace, busca el tutorial en la parte inferior del espacio de diseño y selecciona Play en el menú.",
+                    "text": "Para hacer un tutorial, carga el correspondiente Sample Workspace, busca el tutorial en la parte inferior del espacio de diseño y selecciona Play en el menú.",
                     "updated": 1675374016887
                 },
                 {
@@ -132,7 +132,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
+                    "text": "Untuk melakukan tutorial, muat Sample Workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
                     "updated": 1640594831930
                 },
                 {
@@ -142,7 +142,7 @@
                 },
                 {
                     "language": "PL",
-                    "text": "Aby wykonać samouczek, załaduj odpowiedni plugin workspace. Znajdź samouczek na dole Design Space i wciśnij Play w menu.",
+                    "text": "Aby wykonać samouczek, załaduj odpowiedni Sample Workspace. Znajdź samouczek na dole Design Space i wciśnij Play w menu.",
                     "updated": 1674743455800
                 }
             ]
@@ -222,7 +222,7 @@
         },
         {
             "style": "Title",
-            "text": "List of Plugin Workspaces and Tutorials",
+            "text": "List of Sample Workspaces and Tutorials",
             "translations": [
                 {
                     "language": "RU",
@@ -231,44 +231,44 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
+                    "text": "Eklenti Çalışma Alanları (Sample Workspaces) ve Öğreticilerin (Tutorial) Listesi",
                     "updated": 1638915383541
                 },
                 {
                     "language": "ID",
-                    "text": "Daftar Plugin Workspaces dan Tutorials",
+                    "text": "Daftar Sample Workspaces dan Tutorials",
                     "updated": 1640595042286
                 },
                 {
                     "language": "DE",
-                    "text": "Liste der Plugin Workspaces und Tutorials",
+                    "text": "Liste der Sample Workspaces und Tutorials",
                     "updated": 1650359575312
                 },
                 {
                     "language": "ES",
-                    "text": "Listado de Plugin Workspaces y Tutoriales",
+                    "text": "Listado de Sample Workspaces y Tutoriales",
                     "updated": 1667506752109
                 },
                 {
                     "language": "PL",
-                    "text": "Lista Plugin Workspaces oraz Samouczków",
+                    "text": "Lista Sample Workspaces oraz Samouczków",
                     "updated": 1674745024051
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
+            "text": "For your convenience, find a relation of Sample Workspaces and the tutorials each of them feature.",
             "updated": 1617105574778,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para tu conveniencia, aquí tienes un listado de todos los Plugin Workspace y los tutoriales de cada uno de ellos.",
+                    "text": "Para tu conveniencia, aquí tienes un listado de todos los Sample Workspace y los tutoriales de cada uno de ellos.",
                     "updated": 1675204702411
                 },
                 {
                     "language": "RU",
-                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Plugin Workspaces) и учебников, которые есть в каждом из них.",
+                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Sample Workspaces) и учебников, которые есть в каждом из них.",
                     "updated": 1637920336885
                 },
                 {
@@ -278,24 +278,24 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
+                    "text": "Untuk kenyamanan kamu, temukan hubungan Sample Workspaces dan tutorial dari masing-masing fitur.",
                     "updated": 1640595103045
                 },
                 {
                     "language": "DE",
-                    "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Plugin-Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
+                    "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Sample Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
                     "updated": 1650359610718
                 },
                 {
                     "language": "PL",
-                    "text": "Dla Twojej wygody przedstawiamy powiązanie danego Plugin Workspace z konkretnym samouczkiem.",
+                    "text": "Dla Twojej wygody przedstawiamy powiązanie danego Sample Workspace z konkretnym samouczkiem.",
                     "updated": 1674745571190
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
+            "text": "Foundations->Concept->List of Sample Workspaces and Tutorials->Content",
             "updated": 1610955413534
         },
         {

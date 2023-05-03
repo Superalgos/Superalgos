@@ -14,12 +14,12 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
 
         for(let i = 0; i < projects.length; i++) {
             let project = projects[i]
-            readPluginWorkspaces()
+            readSampleWorkspaces()
 
-            function readPluginWorkspaces() {
-                let pluginName = project
-                if(global.env.PROJECT_PLUGIN_MAP[project] && global.env.PROJECT_PLUGIN_MAP[project].dir) pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir
-                let dirPath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/Workspaces'
+            function readSampleWorkspaces() {
+                let sampleName = project
+                if(global.env.PROJECT_PLUGIN_MAP[project] && global.env.PROJECT_PLUGIN_MAP[project].dir) sampleName = global.env.PROJECT_PLUGIN_MAP[project].dir
+                let dirPath = global.env.PATH_TO_PLUGINS + '/' + sampleName + '/Workspaces'
                 try {
                     fs.readdir(dirPath, onDirRead)
 
@@ -34,7 +34,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                             //SA.logger.warn('Error reading a directory content. filePath = ' + dirPath)
                         } else {
                             for(let i = 0; i < fileList.length; i++) {
-                                let name = 'Plugin \u2192 ' + fileList[i]
+                                let name = 'Sample \u2192 ' + fileList[i]
                                 updatedFileList.push([project, name])
                             }
                         }

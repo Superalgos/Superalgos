@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No harm in checking the file saved correctly, right? A file with your Github username and.json extension should exist in the below path!",
-                    "updated": 1630898402192,
+                    "text": "No pasa nada por comprobar que el archivo se ha guardado correctamente, ¿verdad? ¡Un archivo con su nombre de usuario de Github y la extensión json debe existir en la ruta de abajo!",
+                    "updated": 1682521987453,
                     "style": "Success"
                 },
                 {

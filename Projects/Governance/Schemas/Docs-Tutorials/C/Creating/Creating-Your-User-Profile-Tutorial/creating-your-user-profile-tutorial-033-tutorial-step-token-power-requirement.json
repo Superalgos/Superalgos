@@ -144,8 +144,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Por defecto, Token Power fluye en cantidades iguales a todos los nodos descendientes! ¡Puedes cambiar esto difícil!",
-                    "updated": 1630897224172,
+                    "text": "Por defecto, el flujo de Token Power es igual para todos los nodos descendientes. Sin embargo, puedes cambiarlo.",
+                    "updated": 1682521587839,
                     "style": "List"
                 },
                 {

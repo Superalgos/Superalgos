@@ -36,8 +36,8 @@
         },
         {
             "style": "Table",
-            "text": "| Item | Description |\n| textColor | Defines the color of the data's label text |\n| valueColor | Defines the color of the data's value |\n| textSize | Defines the text size of the data's label  |\n| valueFontSize | Defines the text size of the data's  value |\n| textOpacity | Defines the opacity of the data's label text |\n| valueOpacity | Defines the opacity of the data's value |",
-            "updated": 1665980522788
+            "text": "| Item | Description |\n| labelText | Defines the label text of the data |\n| textColor | Defines the color of the data's label text |\n| valueColor | Defines the color of the data's value |\n| textSize | Defines the text size of the data's label |\n| valueFontSize | Defines the text size of the data's value |\n| textOpacity | Defines the opacity of the data's label text |\n| valueOpacity | Defines the opacity of the data's value |",
+            "updated": 1681261149878
         },
         {
             "style": "Text",

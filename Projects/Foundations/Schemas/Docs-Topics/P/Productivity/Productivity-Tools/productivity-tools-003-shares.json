@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Функция общего доступа работает почти так же, как и функция резервного копирования, но при этом отбрасывается личная информация, например, ключи от биржи.",
                 "updated": 1640436713134
+            },
+            {
+                "language": "DE",
+                "text": "Die Freigabefunktion funktioniert fast genauso wie die Sicherungsfunktion, wobei jedoch persönliche Informationen wie Austauschschlüssel verworfen werden.",
+                "updated": 1681245784512
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Функция общего доступа работает почти так же, как и функция резервного копирования, с той лишь разницей, что в общем доступе не хранится личная информация, например, ключи API обмена.",
                     "updated": 1640436699759
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Freigabefunktion funktioniert fast genauso wie die Sicherungsfunktion, mit dem einzigen Unterschied, dass bei der Freigabe keine persönlichen Daten, wie z. B. API-Schlüssel, gespeichert werden.",
+                    "updated": 1681245796619
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "В связи с этим мы не будем анализировать эту функцию дальше, кроме напоминания пользователям, что рекомендуется выработать привычку делиться только общими ресурсами, а не резервными копиями, чтобы избежать возможного случайного распространения ключей от биржи.",
                     "updated": 1640436758965
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Zusammenhang werden wir diese Funktion nicht weiter analysieren, sondern lediglich darauf hinweisen, dass es empfehlenswert ist, sich anzugewöhnen, nur Freigaben und keine Sicherungskopien freizugeben, um die mögliche versehentliche Verbreitung von Austauschschlüsseln zu vermeiden.",
+                    "updated": 1681245845160
                 }
             ]
         },
@@ -68,8 +83,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "С другой стороны, крайне важно обратить ваше внимание еще на один вопрос, касающийся обмена работой и - что еще важнее - использования чужой работы.",
+                    "text": "С другой стороны, крайне важно обратить ваше вни��ание еще на один вопрос, касающийся обмена работой и - что еще важнее - использования чужой работы.",
                     "updated": 1640436780760
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Übrigen ist es wichtig, Sie auf einen weiteren Punkt aufmerksam zu machen, der die gemeinsame Nutzung von Arbeit und - was noch wichtiger ist - die Verwendung der Arbeit anderer Personen betrifft.",
+                    "updated": 1681245867257
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "RU",
                     "text": "Вы могли заметить, что система принимает код JavaScript во многих формах ввода, таких как конфигурации, условия, формулы и многое другое. На данный момент нет никаких ограничений на код, который может быть использован. Это особенность проекта, так как мы хотим, чтобы опытные пользователи могли использовать свои навыки программирования для получения максимальной отдачи от системы.",
                     "updated": 1640436840945
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben vielleicht bemerkt, dass das System JavaScript-Code in einer Vielzahl von Eingabeformen wie Konfigurationen, Bedingungen, Formeln und mehr akzeptiert. An dieser Stelle gibt es keine Beschränkung für den Code, der verwendet werden kann. Dies ist ein Designmerkmal, da wir möchten, dass fortgeschrittene Benutzer ihre Programmierkenntnisse einsetzen können, um das System optimal zu nutzen.",
+                    "updated": 1681245879915
                 }
             ]
         },
@@ -102,6 +127,11 @@
                     "language": "RU",
                     "text": "Однако это также означает, что использование рабочих пространств или любых других структур данных, полученных из ненадежных источников, не лишено рисков. Напротив, это может быть выбором с высокой степенью риска, поскольку возможно внедрение вредоносного кода, который, например, может попытаться украсть API-ключи пользователей.",
                     "updated": 1640436876909
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet aber auch, dass die Verwendung von Arbeitsbereichen oder anderen Datenstrukturen, die aus nicht vertrauenswürdigen Quellen stammen, nicht frei von Risiken ist. Im Gegenteil, es kann eine risikoreiche Wahl sein, da es möglich ist, bösartigen Code einzuschleusen, der zum Beispiel versucht, die API-Schlüssel von Personen zu stehlen.",
+                    "updated": 1681245892232
                 }
             ]
         },
@@ -119,6 +149,11 @@
                     "language": "RU",
                     "text": "Остерегайтесь использования общих структур данных из ненадежных источников, поскольку они могут содержать вредоносный код, который может, например, украсть ваши ключи к биржам.",
                     "updated": 1640436906319
+                },
+                {
+                    "language": "DE",
+                    "text": "Hüten Sie sich davor, gemeinsam genutzte Datenstrukturen aus nicht vertrauenswürdigen Quellen zu verwenden, da sie bösartigen Code enthalten können, der z. B. Ihre Austauschschlüssel stehlen könnte.",
+                    "updated": 1681245903879
                 }
             ]
         },

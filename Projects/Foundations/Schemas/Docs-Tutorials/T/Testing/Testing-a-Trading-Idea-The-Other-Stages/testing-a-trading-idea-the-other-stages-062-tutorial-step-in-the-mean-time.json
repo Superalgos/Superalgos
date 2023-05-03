@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Если вы готовы идти дальше самостоятельно, овладение стратегиями строительства требует немного чтения и много практики!",
                 "updated": 1642945925381
+            },
+            {
+                "language": "ES",
+                "text": "Si estás dispuesto a seguir por tu cuenta, dominar las estrategias de construcción requiere algo de lectura y mucha práctica.",
+                "updated": 1682356168831
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Продолжайте свое образование, читая следующие разделы документации:",
                     "updated": 1642945941264
+                },
+                {
+                    "language": "ES",
+                    "text": "Continúe su formación leyendo las siguientes secciones de la documentación:",
+                    "updated": 1682356189496
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Нюансы стадий торговых стратегий.",
                     "updated": 1642945964227
+                },
+                {
+                    "language": "ES",
+                    "text": "Los detallados pasos de Trading Strategies.",
+                    "updated": 1682356272030
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Весь раздел Trading Engine.",
                     "updated": 1642945983030
+                },
+                {
+                    "language": "ES",
+                    "text": "Toda la sección Trading Engine.",
+                    "updated": 1682356287573
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "RU",
                     "text": "Всю тему Overview of the Management Issue.",
                     "updated": 1642946072930
+                },
+                {
+                    "language": "ES",
+                    "text": "Todo el tema sobre la Overview of the Management Issue.",
+                    "updated": 1682356424421
                 }
             ]
         },
@@ -132,6 +157,11 @@
                     "language": "RU",
                     "text": "Вы можете продолжать развивать то, что мы начали в этой серии, или пойти своим путем и начать реализовывать свою собственную идею! Удачи, и до встречи на следующем уроке!",
                     "updated": 1642946097526
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes seguir desarrollando lo que empezamos en esta serie, ¡o seguir tu propio camino y empezar a poner en práctica tu propia idea! Buena suerte, ¡y nos vemos en el próximo tutorial!",
+                    "updated": 1682356447213
                 }
             ]
         }

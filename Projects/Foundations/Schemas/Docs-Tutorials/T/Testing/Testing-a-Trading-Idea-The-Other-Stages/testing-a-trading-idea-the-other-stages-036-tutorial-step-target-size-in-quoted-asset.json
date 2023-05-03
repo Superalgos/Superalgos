@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Я не упомянул об этом ранее: мы будем определять целевой размер в котируемом активе, а не в базовом активе, как мы делали для стадии открытия!",
                 "updated": 1642942575503
+            },
+            {
+                "language": "ES",
+                "text": "No lo he mencionado antes: ¡definiremos el Target Size en el activo cotizado, no en el activo base como hicimos para la fase abierta!",
+                "updated": 1681054070692
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Это естественно, ведь это наш актив!",
                     "updated": 1642942586178
+                },
+                {
+                    "language": "ES",
+                    "text": "Es natural que lo hagamos, ¡pues es el activo que tenemos ahora!",
+                    "updated": 1681054102422
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Удалите узел Target Size In Base Asset!",
                     "updated": 1642942592702
+                },
+                {
+                    "language": "ES",
+                    "text": "Elimine el nodo Target Size In Base Asset.",
+                    "updated": 1681054090419
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Я создал это для формулы копирования путей целевого размера... Используйте его, убедившись, что вы не вводите разрывы строк на путях узлов!",
                     "updated": 1642942637182
+                },
+                {
+                    "language": "ES",
+                    "text": "Construí esto para la fórmula del tamaño del target copiando rutas... Úsalo, asegurándote de no introducir saltos de línea en las rutas de los nodos.",
+                    "updated": 1681054125207
                 }
             ]
         },

@@ -40,45 +40,45 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Workspaces marked as Plugin Workspaces ship with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins always remain unchanged.",
+            "text": "Workspaces marked as Sample Workspaces ship with the software. The rest are yours. When you open a Sample Workspace a copy of it is made for you. Plugins always remain unchanged.",
             "updated": 1659283217279,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Workspaces, die als Plugin Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Plugin Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
+                    "text": "Workspaces, die als Sample Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Sample Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
                     "updated": 1622985089032,
                     "style": "Note"
                 },
                 {
                     "language": "RU",
-                    "text": "Рабочие пространства, помеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
+                    "text": "Рабочие пространства, помеченные как Sample Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
                     "updated": 1662032055782
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
+                    "text": "Eklenti Çalışma Alanları (Sample Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
                     "updated": 1641717980838
                 },
                 {
                     "language": "ID",
-                    "text": "Workspaces yang ditandai sebagai Plugin Workspace menyatu bersama perangkat lunak. Yang lainnya adalah milikmu. Saat kamu membuka plugin workspace, salinannya dibuat untuk kamu seorang saja. dan Plugin-nya tetap tidak akan berubah.",
+                    "text": "Workspaces yang ditandai sebagai Sample Workspace menyatu bersama perangkat lunak. Yang lainnya adalah milikmu. Saat kamu membuka Sample Workspace, salinannya dibuat untuk kamu seorang saja. dan Plugin-nya tetap tidak akan berubah.",
                     "updated": 1673828276493
                 },
                 {
                     "language": "ES",
-                    "text": "Los Workspaces marcados como Plugin Workspaces se suministran con el software. El resto son suyos. Cuando abre un Plugin Workspaces, se hace una copia del mismo. Los plugins siempre permanecen inalterados.",
+                    "text": "Los Workspaces marcados como Sample Workspaces se suministran con el software. El resto son suyos. Cuando abre un Sample Workspaces, se hace una copia del mismo. Los plugins siempre permanecen inalterados.",
                     "updated": 1675462781502
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "This tutorial requires starting with a fresh Plugin Trading Bot Layers Tutorial workspace. So, unless you loaded the plugin workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
+            "text": "This tutorial requires starting with a fresh Plugin Trading Bot Layers Tutorial workspace. So, unless you loaded the Sample Workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
             "updated": 1659283233157,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Plugin Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
+                    "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Sample Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
                     "updated": 1622985298857,
                     "style": "Important"
                 },
@@ -94,7 +94,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Tutorial ini harus dimulai dengan Plugin Trading Bot Layers Tutorial workspace yang baru. Jadi, kecuali kamu memuat plugin workspace tepat sebelum memulai, silahkan pilih itu dari panel workspace di sebelah kiri dan kembali ke aku setelah workspace dimuat - cukup klik Resume pada menu-ku!",
+                    "text": "Tutorial ini harus dimulai dengan Plugin Trading Bot Layers Tutorial workspace yang baru. Jadi, kecuali kamu memuat Sample Workspace tepat sebelum memulai, silahkan pilih itu dari panel workspace di sebelah kiri dan kembali ke aku setelah workspace dimuat - cukup klik Resume pada menu-ku!",
                     "updated": 1673828330402
                 },
                 {

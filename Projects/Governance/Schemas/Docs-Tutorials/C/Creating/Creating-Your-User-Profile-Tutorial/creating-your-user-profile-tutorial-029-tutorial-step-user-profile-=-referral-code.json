@@ -162,8 +162,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Artículos de Blog: Some by Julian-Molina, Luis-Fernando-Molina,... Por favor, comprueba el autor!",
-                    "updated": 1632025647858
+                    "text": "Artículos de blog: Por favor, compruebe el autor",
+                    "updated": 1682520988515
                 },
                 {
                     "language": "RU",
@@ -196,6 +196,11 @@
                     "language": "ID",
                     "text": "Tanyakan kepada komunitas yang mungkin telah membuat video atau postingan media sosial yang menarik kamu!",
                     "updated": 1671527689495
+                },
+                {
+                    "language": "ES",
+                    "text": "Consulta con la comunidad que haya producido el vídeo o la publicación en las redes sociales que te enganchó.",
+                    "updated": 1682521020433
                 }
             ]
         }

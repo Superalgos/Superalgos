@@ -43,6 +43,14 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Super Scripts",
+            "relatedUiObject": "Super Scripts",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,

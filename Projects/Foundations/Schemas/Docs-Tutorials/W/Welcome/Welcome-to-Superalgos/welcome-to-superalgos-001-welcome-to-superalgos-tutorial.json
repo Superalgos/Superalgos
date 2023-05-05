@@ -90,12 +90,12 @@
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+            "text": "Workspace: Getting Started Tutorials Sample Workspace.",
             "updated": 1622633723741,
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
+                    "text": "Espace de travail: Getting Started Tutorials Sample Workspace.",
                     "updated": 1623949967730,
                     "style": "List"
                 },

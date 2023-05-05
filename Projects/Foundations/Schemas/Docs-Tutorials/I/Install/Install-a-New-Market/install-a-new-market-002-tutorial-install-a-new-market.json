@@ -76,8 +76,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "1. Añadiendo los assets para el exchange de elección.",
-                    "updated": 1628985249427,
+                    "text": "1. Añadiendo los Assets para el exchange de elección.",
+                    "updated": 1682425103443,
                     "style": "List"
                 },
                 {
@@ -108,8 +108,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "2. Creación de un mercado con dichos assets.",
-                    "updated": 1628990068651,
+                    "text": "2. Creación de un market con dichos assets.",
+                    "updated": 1682425409315,
                     "style": "List"
                 },
                 {
@@ -140,8 +140,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "3. Instalando el mercado",
-                    "updated": 1628990055678,
+                    "text": "3. Instalando el market",
+                    "updated": 1682425417225,
                     "style": "List"
                 },
                 {
@@ -174,7 +174,7 @@
                 {
                     "language": "ES",
                     "text": "Cuando hagas clic en el botón Next a continuación, irás al nodo Exchange Assets bajo Binance, en la jerarquía Crypto Ecosystem. Puedes aprender a instalar un mercado en este exchange para que puedas hacer lo mismo en tu exchange de elección más adelante.",
-                    "updated": 1628991773444,
+                    "updated": 1682427208499,
                     "style": "Callout"
                 },
                 {

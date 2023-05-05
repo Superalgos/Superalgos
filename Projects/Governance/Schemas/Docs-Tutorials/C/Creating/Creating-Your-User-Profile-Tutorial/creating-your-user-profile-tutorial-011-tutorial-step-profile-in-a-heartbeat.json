@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil.",
-                "updated": 1630882802325,
+                "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil y crear o vincular un monedero compatible con la Máquina Virtual Ethereum (EVM).",
+                "updated": 1682520000877,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Crearás una billetera Binance Smart Chain única que está conectada con tu perfil: tu Governance Address.",
-                    "updated": 1630886603829,
+                    "text": "El monedero admite fichas BSC y Ethereum, y está conectado con tu perfil. Llamamos a este monedero tu Dirección de Gobernanza. ",
+                    "updated": 1682520071372,
                     "style": "Text"
                 },
                 {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Sin embargo, si ya posees una billetera BSC, tendrás la opción de vincular esa dirección en lugar de crear una nueva.",
-                    "updated": 1630886627305,
+                    "text": "Sin embargo, si ya posee un monedero EVM, tendrá la opción de vincular esa dirección en lugar de crear una nueva.",
+                    "updated": 1682520097362,
                     "style": "Note"
                 },
                 {
@@ -112,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y le asignará a tu perfil una cantidad equivalente de Token Power.",
-                    "updated": 1630886677089,
+                    "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y te asignará a tu perfil una cantidad equivalente de Token Power.",
+                    "updated": 1682520114121,
                     "style": "Text"
                 },
                 {

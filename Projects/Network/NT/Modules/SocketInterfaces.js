@@ -14,7 +14,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         onConnectionClosed: onConnectionClosed,
         addFollower: addFollower,
         removeFollower: removeFollower,
-        broadcastSignalsToClients: broadcastSignalsToClients,
+        broadcastMessageToClients: broadcastMessageToClients,
+        broadcastSignalsToFollowers: broadcastSignalsToFollowers,
         initialize: initialize,
         finalize: finalize
     }
@@ -1031,50 +1032,63 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         }
     }
 
-    async function broadcastSignalsToClients(socketMessage, sendingBot) {
+    async function broadcastMessageToClients(socketMessage, sendingBot) {
         /*
-        TODO: Replace this function with a mechanism to broadcast signals only to Followers.
+        This function broadcasts messages to all clients connected to the node, regardless if they are actively following.
+        The function is no longer used for distributing trading signals, but may be helpful for distributing other message types.
         */
         try {
-            const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
-            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size
-            let DELAY_BETWEEN_USER_PROFILES = 1000 // milliseconds
-            if (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS >= 60) {
-                DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
-            }
-            let lastUserProfileId
             let accumulatedDelay = 0
             let positionInQueue = 0
-            let positionInFollowerQueue = 0
             let queueSize = thisObject.networkClients.length
 
             /* Obtain Signal Identifier */
-            let signalId
-            try {
-                let messagePayload = JSON.parse(socketMessage.payload)
-                messagePayload = JSON.parse(messagePayload.signalMessage)
-                signalId = messagePayload.signalId
-                signalId = signalId.split(/[-]+/).shift()
-            } catch(err) {
-                signalId = '<unknown>'
+            let signalId = getSignalId(socketMessage)
+          
+            /* Send signals to all connected network clients */
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let networkClient = thisObject.networkClients[i]
+                positionInQueue++
+                socketMessage.rankingStats = {
+                    accumulatedDelay:accumulatedDelay,
+                    positionInQueue: positionInQueue,
+                    queueSize: queueSize
+                }
+                /*
+                Here we are ready to send the signal...
+                */
+                networkClient.socket.send(JSON.stringify(socketMessage))
+                SA.logger.info('Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
             }
+            return true
+        } catch (err) {
+            SA.logger.error('Socket Interfaces -> broadcastMessageToClients -> err.stack = ' + err.stack)
+        }
+    }
 
-            /* Send signals to subscribed followers */
-            let receiverList = []
+    async function broadcastSignalsToFollowers(socketMessage, sendingBot) {
+        /*
+        This function broadcasts signals only to subscribed followers.
+        */
+        try {
+            let lastUserProfileId
+            let accumulatedDelay = 0
+            let positionInFollowerQueue = 0
             let followerList = []
             let followerMinTokenPower = sendingBot.config.followerMinTokenPower || 0
+            /* Get list of users following this bot */
             if (thisObject.senderMap.get(sendingBot.id)?.followerList !== undefined) {
                 followerList = thisObject.senderMap.get(sendingBot.id).followerList
             }
-            
-            /* Count connections for stats - this can be simplified once only transmissions to followers will be active */
-            let followerQueueSize = 0
-            for (let i = 0; i < followerList.length; i++) {
-                let followerDetails = thisObject.followerMap.get(followerList[i])
-                if (followerDetails?.followerConnections !== undefined) {
-                    followerQueueSize = followerQueueSize + followerDetails.followerConnections.length
-                }
-            }       
+            const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
+            const COUNT_FOLLOWERS_CONNECTED = followerList.length
+            let DELAY_BETWEEN_USER_PROFILES = 1000 // milliseconds
+            if (COUNT_FOLLOWERS_CONNECTED >= 60) {
+                DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_FOLLOWERS_CONNECTED - 1)
+            }
+
+            /* Obtain Signal Identifier */
+            let signalId = getSignalId(socketMessage)
 
             for (let i = 0; i < followerList.length; i++) {
                 let followerDetails = thisObject.followerMap.get(followerList[i])
@@ -1091,12 +1105,6 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         removeFollower(callerDetails, followerList[i])
                     }
                     continue
-                }
-        
-                if (i === 0) {
-                    positionInFollowerQueue = 1 
-                } else {
-                    positionInFollowerQueue++
                 }
 
                 /*
@@ -1116,63 +1124,38 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
                 }
                 lastUserProfileId = followerDetails.userProfileId
-           
+                positionInFollowerQueue++
+
+                /* Send one message for each active connection of the current follower */
                 for (let j = 0; j < followerConnections.length; j++) {
-                    positionInFollowerQueue = positionInFollowerQueue + j
                     socketMessage.rankingStats = {
                         accumulatedDelay: accumulatedDelay,
                         positionInQueue: positionInFollowerQueue,
-                        queueSize: queueSize
+                        queueSize: COUNT_FOLLOWERS_CONNECTED
                     }
                     let receiver = thisObject.callersMap.get(followerConnections[j])
                     if (receiver === undefined) { continue }
                     receiver.socket.send(JSON.stringify(socketMessage))
-                    receiverList.push(receiver.socket.id)
                     SA.logger.info('Signal ' + signalId + '- sent to Follower ' + receiver.userProfile?.name + ', position ' + positionInFollowerQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
                 }
 
             }
-            
-            let nonFollowerConnections = 0
-            /* Send signals to all connected network clients */
-            for (let i = 0; i < thisObject.networkClients.length; i++) {
-                let networkClient = thisObject.networkClients[i]
-
-                /* Do not send signal again if it was already sent to follower via the same connection */
-                if (receiverList.includes(networkClient.socket.id)) { continue }
-                nonFollowerConnections++
-                positionInQueue = followerQueueSize + nonFollowerConnections       
-                /*
-                It is possible that many connections belong to the same user profile. When that happens, they are all together 
-                in succession because the networkClients array is ordered by the amount of tokens, which in general 
-                are different from one user to the other.
-
-                Everytime we detect that a new user user profile in the sequence of network clients we need to notify, 
-                we will apply the calculated delay.
-                */
-                if (
-                    lastUserProfileId !== undefined &&
-                    lastUserProfileId !== networkClient.userProfile.id &&
-                    DELAY_BETWEEN_USER_PROFILES <= MAX_DELAY_FOR_ZERO_RANKING
-                ) {
-                    accumulatedDelay = accumulatedDelay + DELAY_BETWEEN_USER_PROFILES
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
-                }
-                lastUserProfileId = networkClient.userProfile.id
-                socketMessage.rankingStats = {
-                    accumulatedDelay:accumulatedDelay,
-                    positionInQueue: positionInQueue,
-                    queueSize: queueSize
-                }
-                /*
-                Here we are ready to send the signal...
-                */
-                networkClient.socket.send(JSON.stringify(socketMessage))
-                SA.logger.info('Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
-            }
             return true
         } catch (err) {
-            SA.logger.error('Socket Interfaces -> broadcastSignalsToClients -> err.stack = ' + err.stack)
+            SA.logger.error('Socket Interfaces -> broadcastSignalsToFollowers -> err.stack = ' + err.stack)
         }
+    }
+
+    function getSignalId(socketMessage) {
+        let signalId
+        try {
+            let messagePayload = JSON.parse(socketMessage.payload)
+            messagePayload = JSON.parse(messagePayload.signalMessage)
+            signalId = messagePayload.signalId
+            signalId = signalId.split(/[-]+/).shift()
+        } catch(err) {
+            signalId = '<unknown>'
+        }
+        return signalId
     }
 }

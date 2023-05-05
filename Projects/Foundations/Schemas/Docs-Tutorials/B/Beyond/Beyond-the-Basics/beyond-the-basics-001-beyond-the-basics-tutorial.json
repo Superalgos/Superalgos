@@ -69,7 +69,7 @@
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Plugin Workspace.",
+            "text": "Workspace: Getting Started Sample Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -79,7 +79,7 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+                    "text": "Workspace: Getting Started Tutorials Sample Workspace.",
                     "updated": 1675448884756
                 }
             ]

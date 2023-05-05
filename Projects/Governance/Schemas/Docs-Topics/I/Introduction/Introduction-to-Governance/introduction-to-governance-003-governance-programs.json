@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "La Community puede participar en múltiples Governance Programs, cada uno diseñado para cumplir un objetivo específico. Los programas se agrupan en los siguientes dominios: Onboarding Programs, Community Building Programs, Votes and Claims Programs, y Financial Programs.",
-                "updated": 1637405573505
+                "text": "La Community puede participar en múltiples Governance Program, cada uno diseñado para cumplir un objetivo específico. Los programas se agrupan en los siguientes dominios: Onboarding Programs, Community Building Programs, Votes Program and Claims Program, y Financial Programs.",
+                "updated": 1682595052733
             },
             {
                 "language": "RU",
@@ -44,6 +44,11 @@
                     "language": "DE",
                     "text": "Onboarding-Programme",
                     "updated": 1676840391702
+                },
+                {
+                    "language": "ES",
+                    "text": "Programas de incorporación",
+                    "updated": 1682594388083
                 }
             ]
         },

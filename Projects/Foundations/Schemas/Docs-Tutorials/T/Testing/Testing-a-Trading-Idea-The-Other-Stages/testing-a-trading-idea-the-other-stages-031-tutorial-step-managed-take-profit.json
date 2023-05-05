@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Теперь, когда у нас есть формула для фиксированной цели стоп-лосс, не должно быть трудно придумать формулу для цели тейк-профит!",
                 "updated": 1642942048030
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que tenemos una fórmula para un Target fijo de Stop Loss, no debería ser difícil encontrar la fórmula para el target de Take Profit.",
+                "updated": 1681048425181
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Нам просто нужно вычесть 10% из значения узла целевой ставки входа:",
                     "updated": 1642942060461
+                },
+                {
+                    "language": "ES",
+                    "text": "Sólo tenemos que restar un 10% al valor nodo entry target rate.",
+                    "updated": 1681048683117
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Используйте для формулы тейк-профита Phase #1!",
                     "updated": 1642942075650
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilízalo para la fórmula de toma de beneficios de la fase 1.",
+                    "updated": 1681048732696
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Мы закончили этап управления (Manage Stage)!",
                     "updated": 1642942092425
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hemos terminado con la Manage Stage!",
+                    "updated": 1681048756408
                 }
             ]
         }

@@ -48,11 +48,11 @@
         },
         {
             "style": "Text",
-            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
+            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started Sample Workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Plugin Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
+                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Sample Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
                     "updated": 1640538248209
                 },
                 {

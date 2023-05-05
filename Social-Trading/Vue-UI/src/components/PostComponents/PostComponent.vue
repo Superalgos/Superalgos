@@ -1,9 +1,10 @@
 <template>
     <div :id="id" class="post-object-container" >
         <div class="post-object">
+            <!-- Post Header -->
             <div id="post-user-name-div">
-                <p id="post-user-name"> {{this.userName}} </p>
-                <p id="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
+                <p class="post-user-name"> {{this.userName}} </p>
+                <p class="post-date"> &nbsp; &#9702; {{this.postDate}} </p>
             </div>
             <div class="date-time header-right">
                 <!-- Reactions on post displayed here -->
@@ -17,7 +18,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
 
-                <p id="post-date-time">{{formatTimestamp}}</p>
+                <p class="post-date-time">{{formatTimestamp}}</p>
             </div>
             <div class="post-message">
                 <p id="post-body">{{postBody}}</p>
@@ -28,12 +29,12 @@
 </template>
 
 <script>
-import EmojiList from '../../../utils/EmojiList';
+import EmojiReactions from '../../../utils/EmojiReactions';
 
 export default {
-  components: { },
+    components: { },
     name: 'post-component',
-    props: ['timestamp', 'userName', 'postBody', 'postImage', 'originPostHash', 'id', 'reactions', 'originSocialPersonaId'],
+    props: ['timestamp', 'userName', 'postBody', 'postImage', 'id', 'reactions', 'originPost'],
     data() {
         return {
             postDate: undefined,
@@ -76,7 +77,7 @@ export default {
                     if (reaction[1] > 0) {
                         let reactionIndex = reaction[0]
                         let newReaction = {
-                            emoji: EmojiList[reactionIndex],
+                            emoji: EmojiReactions[reactionIndex - 1],
                             reactionCount: reaction[1]
                         }
                         reactionsArray.push(newReaction);
@@ -128,24 +129,25 @@ export default {
     margin-left: 3%;
     height: 40px;
 }
-#post-user-name {
+.post-user-name {
     font-size: 30;
     font-weight: 700;
 }
 .header-right {
     display: flex;
-    justify-content: space-between;
-    width: auto;
+    justify-content: right;
+    width: 100%;
+    white-space: nowrap;
 }
 /* Post Timestamp */
 .date-time {
     grid-area: date-time;
     justify-self: right;
     margin-right: 2%;
-    height: fit-content;
+    height: 50px;
 }
-#post-date-time {
-    text-align: bottom;
+.post-date-time {
+    margin-right: 30px;
 }
 
 
@@ -173,7 +175,7 @@ export default {
     width: 100%;
 }
 
-#post-date {
+.post-date {
     color: rgb(99, 98, 98);
     font-weight: 600;
 }
@@ -193,7 +195,8 @@ export default {
     display: flex;
     flex-direction: row;
     height: fit-content;
-    padding: 1px;
+    width: fit-content;
+    padding: 0px;
     margin-right: 10px;
 }
 
@@ -209,6 +212,36 @@ export default {
     background-color:rgb(237, 237, 237);
 }
 
+.repost {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 4%;
+    border: solid 1px black;
+}
+.repost-username-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+}
+
+.repost-header {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+.repost-message {
+    margin-left: 30px;
+}
+
+.repost-date-time {
+    display: flex;
+    flex-direction: row;
+}
 
 
 </style>

@@ -819,7 +819,7 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Skipped'
         }
-        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance(true)
         doUpdateTutorialDiv = true
     }
@@ -837,10 +837,10 @@ function newEducationTutorialSpace() {
             Reset the Status of Current and Previous Node
             so that RESUME goes to the right node.
             */
-            UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+            UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
             previousNode = navigationStack[navigationStack.length - 3]
             if (previousNode !== undefined) {
-                UI.projects.foundations.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
             }
             previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -878,7 +878,7 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Done'
         }
-        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance()
         doUpdateTutorialDiv = true
     }
@@ -1051,7 +1051,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {
@@ -1059,7 +1059,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
                 resetNextNode(tutorialTopic)
             }
         }
@@ -1129,7 +1129,7 @@ function newEducationTutorialSpace() {
                             let tutorial = {
                                 status: undefined
                             }
-                            UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
+                            UI.projects.education.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             navigationStack.push(currentNode)
@@ -1165,7 +1165,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.education.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)
@@ -1204,7 +1204,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.education.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)

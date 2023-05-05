@@ -56,14 +56,15 @@
         },
         {
             "style": "Title",
-            "text": "Braid Filter Products & Properties",
+            "text": "QQE Mod Products & Properties",
             "translations": [
                 {
                     "language": "DE",
                     "text": "QQE Mod Produkte & Eigenschaften",
                     "updated": 1671697708522
                 }
-            ]
+            ],
+            "updated": 1680863213490
         },
         {
             "style": "Table",

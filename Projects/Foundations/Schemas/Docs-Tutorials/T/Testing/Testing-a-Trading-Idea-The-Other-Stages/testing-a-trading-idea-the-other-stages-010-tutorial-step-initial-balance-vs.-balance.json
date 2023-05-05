@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Как вы можете видеть, initialBalance определяется в Session Base Asset. Это просто вопрос выбора!",
                 "updated": 1642777458872
+            },
+            {
+                "language": "ES",
+                "text": "Como puede ver, el InitialBalance se define en el Session Base Asset. ¡Esto es sólo una cuestión de elección!",
+                "updated": 1680705389791
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы определили его в базовый актив, потому что это имеет смысл для нашей торговой идеи, которая заключается в том, чтобы продать часть биткоина, которым мы владеем, чтобы снова купить его по более дешевой цене.",
                     "updated": 1642777483018
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo definimos en el activo base porque tiene sentido para nuestra idea de trading, que pretende vender algún bitcoin que tengamos para recomprarlo a un precio más barato.",
+                    "updated": 1680705917447
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Но мы не можем использовать значение initialBalance для нашего целевого размера! Вы можете понять, почему?",
                     "updated": 1642777502464
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero no podemos utilizar el valor del InitialBalance para nuestro Target Size! ¿Por qué?",
+                    "updated": 1680706325285
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Целевой размер, который мы определяем, действителен для каждой позиции, которую будет использовать стратегия. Если бы это был начальный баланс (InitialBalance) и мы потеряли несколько биткоинов в первой позиции, мы бы получили ошибку во второй позиции, поскольку к тому времени у нас уже не было бы столько биткоинов!",
                     "updated": 1642777546207
+                },
+                {
+                    "language": "ES",
+                    "text": "El target size que definimos es válido para cada posición que tomará la estrategia. Si fuera el InitialBalance y perdiéramos algún bitcoin en la primera posición, obtendríamos un error en la segunda posición, ya que entonces ¡ya no tendríamos tanto bitcoin!",
+                    "updated": 1680706501558
                 }
             ]
         }

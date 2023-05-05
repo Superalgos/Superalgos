@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Casi me olvido! Antes de que se vaya, Voy a darle un curso intensivo para que pueda jugar un poco con algo de Token Power real!",
-                "updated": 1633297571727
+                "text": "Casi me olvido! Antes de que te vayas, Voy a darte un curso intensivo para que puedas jugar un poco con algo de Token Power real!",
+                "updated": 1682522317630
             },
             {
                 "language": "RU",
@@ -45,8 +45,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Estamos espiando en el User Profile del leader de develop, particularlmente en su Delegation Program! la misión: deleguese a si mismo algo de Token Power para que pueda jugar con el flujo dentro de su propio perfil!",
-                    "updated": 1633297853468
+                    "text": "Nos colamos en el Perfil de Usuario de Julian, ¡en concreto en su Programa de Delegación! Tu misión: ¡delegarte un poco de Token Power para que puedas jugar con los flujos dentro de tu propio perfil!",
+                    "updated": 1682522336390
                 },
                 {
                     "language": "RU",
@@ -76,8 +76,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Use el nodo de User Delegate a la derecha para referenciar a su propio User Profile!",
-                    "updated": 1633298180980
+                    "text": "Utiliza el Interruptor de Poder Delegado para añadir un nodo de Delegado de Usuario y hacer referencia a tu perfil.",
+                    "updated": 1682522359922
                 },
                 {
                     "language": "RU",
@@ -109,8 +109,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Puede libremente jugar con otros User Profiles.",
-                    "updated": 1633297955207
+                    "text": "Puedes jugar libremente con otros Perfiles de Usuario ya que no se guardan con tu espacio de trabajo. ",
+                    "updated": 1682522387266
                 },
                 {
                     "language": "RU",
@@ -140,8 +140,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Aunque los someta al repositorio, serían rechazados por nuestro bot controlando que profiles son actualizados por sus dueños unicamente.",
-                    "updated": 1633298152744
+                    "text": "Aunque los someta al repositorio, serían rechazados por nuestro bot controlando que perfiles son actualizados por sus dueños unicamente.",
+                    "updated": 1682522413225
                 },
                 {
                     "language": "RU",

@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Zusammenfassung: Wenn Sie eine Docs Topic Page oder eine Docs Tutorial Page hinzufügen, können Sie eine Seitenzahl definieren. Die Nummer bestimmt die Position der Seite im Inhaltsverzeichnis. Um eine Seite zwischen anderen Seiten einzufügen, können Sie Dezimalwerte verwenden. Verwenden Sie den Befehl Repaginate, um alle Seitenzahlen neu zu berechnen und den gesamten Satz in ganzen Zahlen zu belassen.",
-                "updated": 1633895007044
+                "text": "Wenn Sie eine Doku-Themenseite oder eine Doku-Übungsseite (Docs Tutorial Page) hinzufügen, können Sie eine Seitenzahl festlegen. Die Nummer bestimmt die Position der Seite im Inhaltsverzeichnis. Um eine Seite zwischen anderen Seiten einzufügen, können Sie Dezimalwerte verwenden. Verwenden Sie den Befehl Repaginieren, um alle Seitenzahlen neu zu berechnen und den gesamten Satz in ganzen Zahlen zu belassen.",
+                "updated": 1681417126208
             },
             {
                 "language": "RU",
@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Stellen Sie sicher, dass Sie sich mit der Superalgos Documentation  Gruppe beraten, bevor Sie den Befehl Docs Repaginate für bestehende Themen oder Tutorials verwenden. Die Repaginierung ändert alle Dateien in der Sammlung. Aus diesem Grund kann der Befehl zu Konflikten mit anderen Benutzern führen, die ebenfalls an diesen Dateien arbeiten.",
-                    "updated": 1633895079781
+                    "text": "Konsultieren Sie unbedingt die Superalgos Documentation Group, bevor Sie den Befehl Docs Repaginate für bestehende Themen oder Tutorials verwenden. Die Repaginierung ändert alle Dateien in der Sammlung. Aus diesem Grund kann der Befehl zu Konflikten mit anderen Benutzern führen, die ebenfalls an diesen Dateien arbeiten.",
+                    "updated": 1681417139813
                 },
                 {
                     "language": "RU",
@@ -177,8 +177,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Benutzung",
-                    "updated": 1633895223510
+                    "text": "Verwendung",
+                    "updated": 1681417406828
                 },
                 {
                     "language": "RU",
@@ -199,8 +199,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nachdem Sie ein Thema oder ein Tutorial repaginiert haben, löschen Sie am besten alle Dateien, die mit diesem Thema / Tutorial verbunden sind, manuell von der Festplatte. Nachdem Sie sie gelöscht haben, führen Sie den Befehl repaginate und anschließend den Befehl docs.save aus.",
-                    "updated": 1633895303843
+                    "text": "Nachdem Sie ein Thema oder einen Lehrgang (Tutorial) repaginiert haben, löschen Sie am besten alle Dateien, die mit diesem Thema/Lehrgang (Tutorial) verbunden sind, manuell von der Festplatte. Nachdem Sie sie gelöscht haben, führen Sie den Befehl \"repaginate\" und dann den Befehl docs.save aus.",
+                    "updated": 1681417513804
                 },
                 {
                     "language": "RU",
@@ -221,8 +221,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Neuverteilung kennzeichnet alle Dateien dieses Topic / Tutorial als geändert, so dass Sie sich nicht um die gelöschten Dateien kümmern müssen, da sie alle neu erstellt werden.",
-                    "updated": 1633895347236
+                    "text": "Die Neuverteilung kennzeichnet alle Dateien dieses Themas / Tutorial ´s als geändert, so dass Sie sich nicht um die gelöschten Dateien kümmern müssen, da sie alle neu erstellt werden.",
+                    "updated": 1681417571495
                 },
                 {
                     "language": "RU",
@@ -242,8 +242,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nach der Neuverteilung laden Sie die Benutzeroberfläche / UI neu, damit nur die neu verteilte Version gespeichert wird.",
-                    "updated": 1633895375600
+                    "text": "Nach der Neuverteilung laden Sie die Benutzeroberfläche (UI) neu, damit nur die neu verteilte Version gespeichert wird.",
+                    "updated": 1681417552292
                 },
                 {
                     "language": "RU",

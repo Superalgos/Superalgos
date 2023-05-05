@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { createReply, getPosts } from '../../services/PostService'
+import { createReply, getReplies } from '../../services/PostService'
 import store from '../../store/index'
 
 export default {
@@ -52,12 +52,25 @@ export default {
 
             createReply(message)
             .then(response => {
-                console.log(response)
                 if (response.statusText == 'OK') {
                     this.commentBody = '';
                     let commentToClear = document.getElementById("new-comment-input")
                     commentToClear.innerText = '';
-                    getPosts();
+
+                    let message = {
+                        originSocialPersonaId: myNodeId,
+                        originPostHash: postHash
+                    }
+
+                    getReplies(message)
+                        .then(response => {
+
+                            if (response.statusText === 'OK') {
+                                let commentArray = response.data.data;
+                                commentArray.reverse();
+                                store.commit("SET_POST_COMMENTS_ARRAY", commentArray);
+                            }
+                        });
                 } else {
                     console.error(`Response status ${response.status} received when sending comment.`)
                 }

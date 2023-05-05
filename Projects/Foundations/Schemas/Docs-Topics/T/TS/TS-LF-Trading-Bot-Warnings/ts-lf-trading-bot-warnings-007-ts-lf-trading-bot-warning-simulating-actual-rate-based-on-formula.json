@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret botu, Gerçek Oranı ( Actual Rate ) hesaplamak için Simüle Edilmiş Gerçek Oran ( Simulated Actual Rate ) düğümünde tanımlanan Formülü ( Formula ) kullandı ve Ticaret Parametrelerinde ( Trading Parameters ) tanımlandığı gibi Slippage dayalı hesaplamayı geçersiz kıldı.",
                 "updated": 1647172634114
+            },
+            {
+                "language": "DE",
+                "text": "Der Handelsroboter hat die im Knoten Simulierter tatsächlicher Kurs (Simulated Actual Rate) definierte Formel (Formula) zur Berechnung des tatsächlichen Kurses (Actual Rate) verwendet und dabei die in den Handelsparametern (Trading Parameters) definierte Berechnung auf der Grundlage des Slippage außer Kraft gesetzt.",
+                "updated": 1681146203007
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Alım satım botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
                     "updated": 1647172648515
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681146219462
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "İşlem Bilgisi",
                     "updated": 1647172700105
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681146251473
                 }
             ]
         },
@@ -81,6 +96,11 @@
                     "language": "TR",
                     "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
                     "updated": 1647172759612
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681146281741
                 }
             ]
         },
@@ -105,6 +125,11 @@
                     "language": "TR",
                     "text": "Daha Fazlasını Öğrenin",
                     "updated": 1647172814611
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681146287230
                 }
             ]
         },
@@ -121,6 +146,11 @@
                     "language": "TR",
                     "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
                     "updated": 1647172826760
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681146296633
                 }
             ]
         },
@@ -132,6 +162,11 @@
                     "language": "TR",
                     "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
                     "updated": 1647172839902
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung mit der Börse simulieren (Simulating Sync With the Exchange)",
+                    "updated": 1681146303249
                 }
             ]
         },
@@ -143,6 +178,11 @@
                     "language": "TR",
                     "text": "Simüle Edilmiş Gerçek Oran ( Simulated Actual Rate )",
                     "updated": 1647172878401
+                },
+                {
+                    "language": "DE",
+                    "text": "Simulierte tatsächliche Rate (Simulated Actual Rate)",
+                    "updated": 1681146311389
                 }
             ]
         }

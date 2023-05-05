@@ -629,11 +629,6 @@
                     "functionName": "newFoundationsUtilitiesDrawPrint"
                 },
                 {
-                    "name": "Tutorial",
-                    "propertyName": "tutorial",
-                    "functionName": "newFoundationsUtilitiesTutorial"
-                },
-                {
                     "name": "Menu",
                     "propertyName": "menu",
                     "functionName": "newFoundationsUtilitiesMenu"
@@ -1443,6 +1438,11 @@
                     "name": "Docs",
                     "propertyName": "docs",
                     "functionName": "newEducationUtilitiesDocs"
+                },
+                {
+                    "name": "Tutorial",
+                    "propertyName": "tutorial",
+                    "functionName": "newEducationUtilitiesTutorial"
                 }
             ],
             "spaces": [
@@ -1771,6 +1771,17 @@
     {
         "name": "Network",
         "propertyName": "network",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newNetworkFunctionLibraryPluginsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
         "NT": {
             "globals": [
                 {
@@ -1895,7 +1906,7 @@
             ]
         },
         "plugins": [
-            "P2P-Networks"
+            "P2P Networks"
         ]
     },
     {

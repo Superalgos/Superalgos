@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Ahora está listo para enviar tu nuevo perfil al repositorio principal de Superalgos!",
-                "updated": 1630898921155,
+                "text": "¡Ahora estás listo para enviar tu nuevo perfil al repositorio principal de Superalgos!",
+                "updated": 1682522044756,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Configure tus credenciales de API de Github para prepararte para contribuir con tu perfil!",
-                    "updated": 1630898955283,
+                    "text": " Haz clic en la pestaña Contribuciones y, si aún no lo has hecho, configura tus credenciales de la API de Github para prepararte para contribuir con tu perfil.",
+                    "updated": 1682522066106,
                     "style": "Callout"
                 },
                 {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si no sabe de lo que estoy hablando, es posible que necesites un repaso sobre cómo enviar una contribución a Superalgos. Lee estos pasos tomados del Tutorial Beyond the Basics para recordarte cómo es el proceso de autenticación de GitHub.",
-                    "updated": 1630899010292,
+                    "text": "Si no sabes de qué estoy hablando, puede que necesites un repaso sobre cómo enviar una contribución a Superalgos. Si ese es el caso, es posible que desees volver a ver el tutorial más allá de lo básico para recordar el proceso de autenticación de GitHub.",
+                    "updated": 1682522099393,
                     "style": "Warning"
                 },
                 {

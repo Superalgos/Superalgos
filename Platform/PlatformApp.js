@@ -10,7 +10,7 @@ exports.newPlatformApp = function newPlatformApp() {
 
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-                SA.logger.info("The Superalgos Platform Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Platform Client might be already running.")
+                SA.logger.info("The Superalgos Platform Client cannot be started. Reason: the port configured might be being used by another application, or Superalgos Platform Client might be already running.")
                 return
             }
             SA.logger.error('Platform App -> uncaughtException -> err.message = ' + err.message)

@@ -98,10 +98,10 @@
                 }
             },
             {
-                "label": "Sample Workspaces ",
+                "label": "Native Workspaces ",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
-                    "params": ["sample"]
+                    "params": ["plugin"]
                 }
             },
             {

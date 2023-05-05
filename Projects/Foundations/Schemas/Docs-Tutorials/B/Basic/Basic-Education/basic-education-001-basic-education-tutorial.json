@@ -75,7 +75,7 @@
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Sample Workspace.",
+            "text": "Workspace: Getting Started Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -84,12 +84,12 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Workspace: Aan de slag Sample Workspace.",
+                    "text": "Workspace: Aan de slag Native Workspace.",
                     "updated": 1668333649599
                 },
                 {
                     "language": "ES",
-                    "text": "Workspace: Getting Started Tutorials Sample Workspace.",
+                    "text": "Workspace: Getting Started Tutorials Native Workspace.",
                     "updated": 1675448862661
                 }
             ]

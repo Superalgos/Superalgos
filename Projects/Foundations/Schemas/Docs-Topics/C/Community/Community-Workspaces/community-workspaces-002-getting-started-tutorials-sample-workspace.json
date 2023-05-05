@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "2",
-    "type": "Getting Started Tutorials Sample Workspace",
+    "type": "Getting Started Tutorials Native Workspace",
     "definition": {
         "text": "This workspace is the first point of contact with Superalgos. Its purpose is to get new users familiar with all the basic aspects of Superalgos.",
         "updated": 1630066493238,

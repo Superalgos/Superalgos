@@ -70,32 +70,32 @@
         },
         {
             "style": "Callout",
-            "text": "The Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies! You will learn more about them and put them to good use in the tutorials that teach you how to build Trading Systems, available in the Trading System Design Tutorials Sample Workspace.",
+            "text": "The Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies! You will learn more about them and put them to good use in the tutorials that teach you how to build Trading Systems, available in the Trading System Design Tutorials Native Workspace.",
             "updated": 1617185406035,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Trading Bot Ebenen sind ein grundlegendes Werkzeug beim Entwerfen, Testen und Debuggen von Strategien! In den Tutorials zum Aufbau von Trading Systemen, die Sie im Trading System Design Tutorials Sample Workspace finden, erfahren Sie mehr über sie und können sie sinnvoll einsetzen.",
+                    "text": "Die Trading Bot Ebenen sind ein grundlegendes Werkzeug beim Entwerfen, Testen und Debuggen von Strategien! In den Tutorials zum Aufbau von Trading Systemen, die Sie im Trading System Design Tutorials Native Workspace finden, erfahren Sie mehr über sie und können sie sinnvoll einsetzen.",
                     "updated": 1639146193374
                 },
                 {
                     "language": "RU",
-                    "text": "Слои торгового бота - это фундаментальный инструмент при разработке, тестировании и отладке стратегий! Вы узнаете больше о них и сможете применить их на практике в учебниках, обучающих созданию торговых систем, доступных в рабочем пространстве Trading System Design Tutorials Sample Workspace.",
+                    "text": "Слои торгового бота - это фундаментальный инструмент при разработке, тестировании и отладке стратегий! Вы узнаете больше о них и сможете применить их на практике в учебниках, обучающих созданию торговых систем, доступных в рабочем пространстве Trading System Design Tutorials Native Workspace.",
                     "updated": 1640632103029
                 },
                 {
                     "language": "TR",
-                    "text": "Alım Satım Bot Katmanları (Trading Bot Layers), stratejiler tasarlarken, test ederken ve hata ayıklarken temel bir araçtır! \" Trading System Design Tutorials Sample Workspace \" eklentisinde bulunan Ticaret Sistemlerinin nasıl kurulacağını öğreten eğitimlerde bunlar hakkında daha fazla bilgi edinecek ve bunları iyi bir şekilde kullanacaksınız.",
+                    "text": "Alım Satım Bot Katmanları (Trading Bot Layers), stratejiler tasarlarken, test ederken ve hata ayıklarken temel bir araçtır! \" Trading System Design Tutorials Native Workspace \" eklentisinde bulunan Ticaret Sistemlerinin nasıl kurulacağını öğreten eğitimlerde bunlar hakkında daha fazla bilgi edinecek ve bunları iyi bir şekilde kullanacaksınız.",
                     "updated": 1642518835072
                 },
                 {
                     "language": "ID",
-                    "text": "Layer Trading Bot adalah alat fundamental saat merancang, menguji, dan men-debug strategi! Kamu akan mempelajari lebih lanjut tentang mereka dan memanfaatkannya dengan baik dalam tutorial yang mengajarkanmu cara membangun Trading Systems, tersedia di Trading System Design Tutorials Sample Workspace.",
+                    "text": "Layer Trading Bot adalah alat fundamental saat merancang, menguji, dan men-debug strategi! Kamu akan mempelajari lebih lanjut tentang mereka dan memanfaatkannya dengan baik dalam tutorial yang mengajarkanmu cara membangun Trading Systems, tersedia di Trading System Design Tutorials Native Workspace.",
                     "updated": 1674112057223
                 },
                 {
                     "language": "ES",
-                    "text": "Las capas del Trading Bot son una herramienta fundamental a la hora de diseñar, probar y depurar estrategias. Aprenderás más sobre ellas y les darás un buen uso en los tutoriales que te enseñan a construir Sistemas de Trading, disponibles en los Trading System Design Tutorials Sample Workspaces.",
+                    "text": "Las capas del Trading Bot son una herramienta fundamental a la hora de diseñar, probar y depurar estrategias. Aprenderás más sobre ellas y les darás un buen uso en los tutoriales que te enseñan a construir Sistemas de Trading, disponibles en los Trading System Design Tutorials Native Workspaces.",
                     "updated": 1675469035698
                 }
             ]

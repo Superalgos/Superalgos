@@ -43,7 +43,7 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         if (
             thisObject.node.p2pNetworkReference.referenceParent === undefined  
         ) {
-            SA.logger.warn('User Profile "' +  userProfile.name + '" has declared a P2P Network Node with a Network Node Reference child that does not reference any P2P Network. A reference is missing from Network Node Reference node. If this is your user profile and you are trying to set up a new Network Node, please use the P2P-Network-Demo Plugin Workspace to do so. There you will find the Mainet and Testnet Network nodes that you need to reference. Another solution is to clone the P2P Network Node of a User Profile that has a running one, and adapt it with your own configs. If this User Profile is not yours, you can ignore this warning.')
+            SA.logger.warn('User Profile "' +  userProfile.name + '" has declared a P2P Network Node with a Network Node Reference child that does not reference any P2P Network. A reference is missing from Network Node Reference node. If this is your user profile and you are trying to set up a new Network Node, please use the P2P-Network-Demo Sample Workspace to do so. There you will find the Mainet and Testnet Network nodes that you need to reference. Another solution is to clone the P2P Network Node of a User Profile that has a running one, and adapt it with your own configs. If this User Profile is not yours, you can ignore this warning.')
             throw ('Bad Configuration -> thisObject.node.p2pNetworkReference.referenceParent === undefined')
         }
 

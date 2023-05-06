@@ -1,5 +1,5 @@
 # Use the official tensorflow latest with gpu and jupyter notebook
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM tensorflow/tensorflow:2.10.0-jupyter
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,6 +8,6 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the necessary libraries
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 

@@ -8,6 +8,19 @@
     letter-spacing: 0.2px;
 }
 
+#workspace-title {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color:#FFF;
+    padding: 8px 10px;
+    background-image: radial-gradient(rgba(0,0,0,0.7) 40%, rgba(0,0,0,0));
+}
+
 nav il {
     position: relative;
     display: block;

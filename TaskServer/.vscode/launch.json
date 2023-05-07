@@ -8,6 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program on Linux",
+            "args": "vsCodeDebug",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -17,6 +18,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program on Windows",
+            "args": "vsCodeDebug",
             "skipFiles": [
                 "<node_internals>/**"
             ],

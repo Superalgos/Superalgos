@@ -3,8 +3,8 @@
     "pageNumber": "1",
     "type": "Load a User Profile",
     "definition": {
-        "text": "Use this guide if you ever wish to load a User Profile into any of the Governance Workspaces.",
-        "updated": 1630681599427,
+        "text": "Utiliza esta guía si alguna vez deseas cargar un Perfil de Usuario en cualquiera de los Espacios de Trabajo de Gobernanza.",
+        "updated": 1683557384167,
         "translations": [
             {
                 "language": "ES",
@@ -32,8 +32,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's say you wish to declare your referrer in the Referral Program, or maybe you wish to support the Contribution Claims of a fellow developer. ",
-            "updated": 1630681643918,
+            "text": "Digamos que quieres declarar a tu referente en el Referral Program, o tal vez queres apoyar las Contribution Claims de un colega desarrollador.",
+            "updated": 1683558253458,
             "translations": [
                 {
                     "language": "ES",
@@ -60,7 +60,7 @@
         },
         {
             "style": "Callout",
-            "text": "In either case, you will need to load the User Profile of the person in question so that you may establish the appropriate references.",
+            "text": "En ambos casos, tendrás que cargar el perfil de usuario de la persona en cuestión para poder establecer las referencias adecuadas.",
             "translations": [
                 {
                     "language": "ES",
@@ -83,12 +83,13 @@
                     "text": "In jedem Fall müssen Sie das Benutzerprofil (User Profile) der betreffenden Person laden, damit Sie die entsprechenden Referenzen erstellen können.",
                     "updated": 1674842662642
                 }
-            ]
+            ],
+            "updated": 1683558274703
         },
         {
             "style": "Note",
-            "text": "Or maybe you wish to load your own User Profile in one of the Other Governance Workspaces. It's the same process after all!",
-            "updated": 1630677919945,
+            "text": "O tal vez quieres cargar tu propio Perfil de Usuario en uno de los Otros Espacios de Trabajo de Gobernanza. Al fin y al cabo, se trata del mismo proceso.",
+            "updated": 1683558311831,
             "translations": [
                 {
                     "language": "ES",
@@ -137,8 +138,8 @@
         },
         {
             "style": "List",
-            "text": "Find out the person's User Profile name. If you know the person's identity on Github.com, then that's all you need to know. If you don't, then you may need to contact the person and ask! If it's your profile, then no need to do much in this regard!",
-            "updated": 1630681681124,
+            "text": "Averigua el nombre del User Profile de la persona. Si conoces la identidad de la persona en Github.com, eso es todo lo que necesitas saber. ¡Si no, entonces es posible que tengas que ponerte en contacto con la persona y preguntarle! Si se trata de tu perfil, ¡no necesitas hacer mucho al respecto!",
+            "updated": 1683558418385,
             "translations": [
                 {
                     "language": "ES",
@@ -164,8 +165,8 @@
         },
         {
             "style": "List",
-            "text": "Verify that a file with the same name exists in the following path within the Superalgos folder in your hard drive...",
-            "updated": 1630597624699,
+            "text": "Comprueba que existe un archivo con el mismo nombre en la siguiente ruta dentro de la carpeta Superalgos de tu disco duro...",
+            "updated": 1683558438601,
             "translations": [
                 {
                     "language": "ES",
@@ -196,8 +197,8 @@
         },
         {
             "style": "List",
-            "text": "If the file doesn't exist, make sure you have the latest version of the app. If it's still missing after updating, let the person know and wait for the profile to be submitted.",
-            "updated": 1630597643975,
+            "text": "Comprueba que existe un archivo con el mismo nombre en la siguiente ruta dentro de la carpeta Superalgos de tu disco duro...",
+            "updated": 1683558451743,
             "translations": [
                 {
                     "language": "ES",
@@ -223,8 +224,8 @@
         },
         {
             "style": "List",
-            "text": "If the file is there and assuming you already are in the workspace you wish to work with, go to the Plugins hierarchy and find the Dummy Plugin File under Plugin User Profiles > Governance Plugin Project.",
-            "updated": 1630597669225,
+            "text": "Si el archivo está ahí y asumiendo que ya se encuentra en el espacio de trabajo con el que quieres trabajar, vaya a la jerarquía de Plugins y encuentre el Archivo de Plugin Dummy bajo Plugin User Profiles > Governance Plugin Project.",
+            "updated": 1683558659891,
             "translations": [
                 {
                     "language": "ES",
@@ -250,7 +251,7 @@
         },
         {
             "style": "List",
-            "text": "Access the configuration of the Dummy profile and change the fileName property using the appropriate name (Github.com username). Replace the name of the node too, to avoid confusion later on.",
+            "text": "Accede a la configuración del perfil Dummy y cambia la propiedad fileName utilizando el nombre apropiado (nombre de usuario de Github.com). Sustituye también el nombre del nodo, para evitar confusiones posteriores.",
             "translations": [
                 {
                     "language": "ES",
@@ -272,11 +273,12 @@
                     "text": "Greifen Sie auf die Konfiguration des Dummy-Profils zu und ändern Sie die Eigenschaft fileName durch den entsprechenden Namen (Github.com username). Ersetzen Sie auch den Namen des Knotens, um spätere Verwechslungen zu vermeiden.",
                     "updated": 1674843580792
                 }
-            ]
+            ],
+            "updated": 1683558714989
         },
         {
             "style": "List",
-            "text": "Save the Current Workspace with Ctrl + Alt + Shift + Key-S and refresh the page.",
+            "text": "Guarda el espacio de trabajo actual con Ctrl + Alt + Mayús + Tecla-S y actualiza la página.",
             "translations": [
                 {
                     "language": "ES",
@@ -298,11 +300,12 @@
                     "text": "Speichern Sie den aktuellen Arbeitsbereich (Current Workspace) mit Ctrl + Alt + Shift + Key-S und aktualisieren Sie die Seite.",
                     "updated": 1674843680158
                 }
-            ]
+            ],
+            "updated": 1683558766065
         },
         {
             "style": "List",
-            "text": "Once the page reloads, you should see the new profile along with the rest! That's it!",
+            "text": "Una vez que la página se recargue, deberías ver el nuevo perfil junto con el resto. Ya está.",
             "translations": [
                 {
                     "language": "ES",
@@ -324,7 +327,8 @@
                     "text": "Sobald die Seite neu geladen ist, sollten Sie das neue Profil zusammen mit dem Rest sehen! Das war's!",
                     "updated": 1674843705113
                 }
-            ]
+            ],
+            "updated": 1683558781469
         }
     ]
 }

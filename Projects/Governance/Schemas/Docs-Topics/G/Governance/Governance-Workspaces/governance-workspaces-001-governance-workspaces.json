@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": " Superalgos Pools es la jerarquía de nivel superior que pone en marcha la definición del todo el proyecto superalgos ( Superalgos Project.) Cuenta con la definición de varios nodos Pool describiendo las principales áreas de desarrollo del proyecto que la Community desea incentivar.",
-                "updated": 1640614348830
+                "text": "Superalgos Pools es la jerarquía de nivel superior que inicia la definición de todo el Superalgos Project. Cuenta con la definición de varios nodos Pool que describe las principales áreas de desarrollo del proyecto que la Community desea incentivar.",
+                "updated": 1683564399415
             },
             {
                 "language": "RU",
@@ -38,6 +38,11 @@
                     "language": "TR",
                     "text": "Ana Governance Workspaces",
                     "updated": 1645098111854
+                },
+                {
+                    "language": "ES",
+                    "text": "Espacio de trabajo principal de Gobernanza",
+                    "updated": 1683564294136
                 }
             ]
         },
@@ -48,8 +53,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Token Distribution Superalgos Governance Workspace (Espacio de trabajo de gobernanza de Superalgos de distribución de tokens) es el workspace principal. Cargue este workspace para comenzar su interacción con la gobernanza. Aquí es donde normalmente construiría y configuraría su User Profile (Pérfil de usuario).",
-                    "updated": 1637404937644
+                    "text": "El Token Distribution Superalgos Governance Workspace (Espacio de trabajo de gobernanza de Superalgos de distribución de tokens) es el workspace principal. Carga este workspace para comenzar tu interacción con la gobernanza. Aquí es donde normalmente construirías y configurarías tu User Profile (Pérfil de usuario).",
+                    "updated": 1683564265744
                 },
                 {
                     "language": "RU",
@@ -76,6 +81,11 @@
                     "language": "TR",
                     "text": "Adlandırma Kuralı",
                     "updated": 1645098936050
+                },
+                {
+                    "language": "ES",
+                    "text": "Convención de nomenclatura",
+                    "updated": 1683564309405
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "text": "XXX, Projenin gerçek adı ile değiştirilir.",
                     "updated": 1654395421679,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "XXX se sustituye por el nombre real del Proyecto.",
+                    "updated": 1683564336092
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "text": "Yönetişim Çalışma Alanlarında Yolunuzu Bulma",
                     "updated": 1654395427467,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cómo orientarse en los espacios de trabajo de la gobernanza",
+                    "updated": 1683563943140
                 }
             ]
         },
@@ -193,6 +213,11 @@
                     "language": "TR",
                     "text": "Superalgos Havuz Hiyerarşisi",
                     "updated": 1645099102194
+                },
+                {
+                    "language": "ES",
+                    "text": "Jerarquía de Superalgos Pools",
+                    "updated": 1683564382313
                 }
             ]
         },
@@ -236,6 +261,11 @@
                     "text": "Hesaplamaların Kapsamı",
                     "updated": 1654395453640,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Alcance de los cálculos",
+                    "updated": 1683564455467
                 }
             ]
         },

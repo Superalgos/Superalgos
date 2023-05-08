@@ -38,6 +38,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profilleri",
                     "updated": 1646310271980
+                },
+                {
+                    "language": "ES",
+                    "text": "Perfiles de usuario",
+                    "updated": 1683564709673
                 }
             ]
         },
@@ -75,6 +80,11 @@
                     "language": "TR",
                     "text": "Tanımların Kapsamı",
                     "updated": 1646310322844
+                },
+                {
+                    "language": "ES",
+                    "text": "Alcance de las definiciones",
+                    "updated": 1683564722186
                 }
             ]
         },
@@ -122,8 +132,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Un proyecto específico de jerarquía Pools (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) definiendo poolspara las principales áreas del software, incluyendo pools para activos , funciones, posiciones, correcciones de errores y mejoras.",
-                    "updated": 1640614918499
+                    "text": "Un proyecto específico de jerarquía Pools (por ejemplo, Projecto-Fundamentos o Projecto-Educación) definiendo pools para las principales áreas del software, incluyendo pools para activos, funciones, posiciones, correcciones de errores y mejoras.",
+                    "updated": 1683564743352
                 },
                 {
                     "language": "TR",
@@ -144,8 +154,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Un proyecto específico de jerarquía Pools para activos (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) proporcionando una definición m��s granular de varios poolspara varias categorías de activos, como interfaz de usuario, servidor de tareas, esquemas de aplicaciones, código personalizado, educación, multimedia y complementos.",
-                    "updated": 1640614838539
+                    "text": "Un proyecto específico de jerarquía Pools para activos (por ejemplo, Projecto-Fundamentos o Projecto-Educación) proporcionando una definición más granular de varios pools para varias categorías de activos, como interfaz de usuario, servidor de tareas, esquemas de aplicaciones, código personalizado, educación, multimedia y complementos.",
+                    "updated": 1683564928956
                 },
                 {
                     "language": "TR",
@@ -162,6 +172,11 @@
                     "language": "TR",
                     "text": "Pozisyonlar",
                     "updated": 1646311639810
+                },
+                {
+                    "language": "ES",
+                    "text": "Posiciones",
+                    "updated": 1683564962685
                 }
             ]
         },
@@ -194,6 +209,11 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1646311699215
+                },
+                {
+                    "language": "ES",
+                    "text": "Características",
+                    "updated": 1683564955582
                 }
             ]
         },
@@ -226,6 +246,11 @@
                     "language": "TR",
                     "text": "Varlıklar",
                     "updated": 1646311733104
+                },
+                {
+                    "language": "ES",
+                    "text": "Activos",
+                    "updated": 1683564983685
                 }
             ]
         },

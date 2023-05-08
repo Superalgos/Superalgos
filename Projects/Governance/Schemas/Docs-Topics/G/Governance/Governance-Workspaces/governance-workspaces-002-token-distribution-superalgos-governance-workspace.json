@@ -38,6 +38,11 @@
                     "language": "TR",
                     "text": "Öğretici",
                     "updated": 1646307604705
+                },
+                {
+                    "language": "ES",
+                    "text": "Tutoriales",
+                    "updated": 1683564515993
                 }
             ]
         },
@@ -48,8 +53,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Creating Your User Profile Tutorial   (Tutorial de creación de su perfil de usuario)",
-                    "updated": 1637406504592
+                    "text": "Creating Your User Profile Tutorial (Tutorial de creación de tu perfil de usuario)",
+                    "updated": 1683564497206
                 },
                 {
                     "language": "TR",
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profilleri",
                     "updated": 1646307676670
+                },
+                {
+                    "language": "ES",
+                    "text": "Perfiles de usuario",
+                    "updated": 1683564544474
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "TR",
                     "text": "Tanımların Kapsamı",
                     "updated": 1646307774442
+                },
+                {
+                    "language": "ES",
+                    "text": "Alcance de las definiciones",
+                    "updated": 1683564559603
                 }
             ]
         },
@@ -118,8 +133,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Este workspaceincluye definiciones que abarcan todo el Superalgos Project.",
-                    "updated": 1637406627595
+                    "text": "Este workspace incluye definiciones que abarcan todo el Superalgos Project.",
+                    "updated": 1683564565664
                 },
                 {
                     "language": "RU",
@@ -174,6 +189,11 @@
                     "language": "TR",
                     "text": "Pozisyonlar",
                     "updated": 1646308341897
+                },
+                {
+                    "language": "ES",
+                    "text": "Puestos",
+                    "updated": 1683564604351
                 }
             ]
         },
@@ -184,8 +204,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos Marketing (posiciones relacionadas con el marketing de todo el proyecto),",
-                    "updated": 1637406711264
+                    "text": "Superalgos Marketing (posiciones relacionadas con el marketing de todo el proyecto).",
+                    "updated": 1683564622772
                 },
                 {
                     "language": "RU",
@@ -229,6 +249,11 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1646308815906
+                },
+                {
+                    "language": "ES",
+                    "text": "Características",
+                    "updated": 1683564646413
                 }
             ]
         },
@@ -262,6 +287,11 @@
                     "language": "TR",
                     "text": "Varlıklar",
                     "updated": 1646308884977
+                },
+                {
+                    "language": "ES",
+                    "text": "Activos (assets)",
+                    "updated": 1683564675131
                 }
             ]
         },

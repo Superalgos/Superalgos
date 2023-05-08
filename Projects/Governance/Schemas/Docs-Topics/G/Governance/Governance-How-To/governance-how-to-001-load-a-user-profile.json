@@ -3,13 +3,13 @@
     "pageNumber": "1",
     "type": "Load a User Profile",
     "definition": {
-        "text": "Utiliza esta guía si alguna vez deseas cargar un Perfil de Usuario en cualquiera de los Espacios de Trabajo de Gobernanza.",
-        "updated": 1683557384167,
+        "text": "Use this guide if you ever want to upload a User Profile to any of the Governance Workspaces.",
+        "updated": 1683561010408,
         "translations": [
             {
                 "language": "ES",
-                "text": "Utilice esta guía si alguna vez desea cargar un User Profile en cualquiera de los Governance Workspaces.",
-                "updated": 1630895973316,
+                "text": "Utiliza esta guía si alguna vez deseas cargar un User Profile en cualquiera de los Governance Workspaces.",
+                "updated": 1683563006459,
                 "style": "Definition"
             },
             {
@@ -32,13 +32,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Digamos que quieres declarar a tu referente en el Referral Program, o tal vez queres apoyar las Contribution Claims de un colega desarrollador.",
-            "updated": 1683558253458,
+            "text": "Let's say you want to declare your referrer in the Referral Program, or maybe you want to support the Contribution Claims of a fellow developer.",
+            "updated": 1683561030580,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Supongamos que deseas declarar tu referente en el Referral Program, o tal vez desees apoyar el Contribution Claims de un compañero desarrollador.",
-                    "updated": 1632025791877,
+                    "text": "Supongamos que deseas declarar tu referente en el Referral Program, o tal vez deseas apoyar el Contribution Claims de un compañero desarrollador. ",
+                    "updated": 1683563032238,
                     "style": "Text"
                 },
                 {
@@ -60,12 +60,12 @@
         },
         {
             "style": "Callout",
-            "text": "En ambos casos, tendrás que cargar el perfil de usuario de la persona en cuestión para poder establecer las referencias adecuadas.",
+            "text": "In both cases, you will need to upload the user profile of the person in question in order to establish the appropriate references.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En cualquier caso, deberás cargar el User Profile de la persona en cuestión para que pueda establecer las referencias adecuadas.",
-                    "updated": 1632025827657,
+                    "text": "En cualquier caso, deberás cargar el User Profile de la persona en cuestión para que puedas establecer las referencias adecuadas.  ",
+                    "updated": 1683563045447,
                     "style": "Callout"
                 },
                 {
@@ -84,17 +84,17 @@
                     "updated": 1674842662642
                 }
             ],
-            "updated": 1683558274703
+            "updated": 1683561043070
         },
         {
             "style": "Note",
-            "text": "O tal vez quieres cargar tu propio Perfil de Usuario en uno de los Otros Espacios de Trabajo de Gobernanza. Al fin y al cabo, se trata del mismo proceso.",
-            "updated": 1683558311831,
+            "text": "Or maybe you want to upload your own User Profile to one of the Other Governance Workspaces. After all, it's the same process.",
+            "updated": 1683561695952,
             "translations": [
                 {
                     "language": "ES",
                     "text": "O tal vez quieras cargar tu propio User Profile en uno de los Other Governance Workspaces. ¡Es el mismo proceso después de todo!",
-                    "updated": 1632025920310,
+                    "updated": 1683563127502,
                     "style": "Note"
                 },
                 {
@@ -133,18 +133,23 @@
                     "language": "DE",
                     "text": "Beginnen Sie hier!",
                     "updated": 1674843090169
+                },
+                {
+                    "language": "ES",
+                    "text": "Empieza aquí",
+                    "updated": 1683563142785
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Averigua el nombre del User Profile de la persona. Si conoces la identidad de la persona en Github.com, eso es todo lo que necesitas saber. ¡Si no, entonces es posible que tengas que ponerte en contacto con la persona y preguntarle! Si se trata de tu perfil, ¡no necesitas hacer mucho al respecto!",
-            "updated": 1683558418385,
+            "text": "Find out the person's User Profile name. If you know the person's identity on Github.com, that's all you need to know - if not, then you may need to contact the person and ask! If it's your profile, you don't need to do much about it!",
+            "updated": 1683561713017,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Encuentre el nombre del User Profile de la persona. Si conoce como se identifica la persona en Github.com, entonces eso es todo lo que necesita saber. Si no, puede necesitar contactar a la persona y preguntárselo! Si es su profile, entonces no es necesario hacer demaciado al respecto!",
-                    "updated": 1633517388693
+                    "text": "Encuentra el nombre del User Profile de la persona. Si conoces como se identifica la persona en Github.com, entonces eso es todo lo que necesitas saber. Si no, puedes necesitar contactar a la persona y preguntárselo! Si es tu profile, entonces no es necesario hacer demasiado al respecto!  ",
+                    "updated": 1683563225603
                 },
                 {
                     "language": "RU",
@@ -165,13 +170,13 @@
         },
         {
             "style": "List",
-            "text": "Comprueba que existe un archivo con el mismo nombre en la siguiente ruta dentro de la carpeta Superalgos de tu disco duro...",
-            "updated": 1683558438601,
+            "text": "Check that there is a file with the same name in the following path in the Superalgos folder of your hard disk...",
+            "updated": 1683561725153,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Verifiqueque un archivo con el mismo nombre exista en la siguiente ruta dentro de Superalgos folder en su disco duro...",
-                    "updated": 1633517151535
+                    "text": "Verifica que un archivo con el mismo nombre exista en la siguiente ruta dentro de Superalgos folder en su disco duro...",
+                    "updated": 1683563266107
                 },
                 {
                     "language": "RU",
@@ -197,13 +202,13 @@
         },
         {
             "style": "List",
-            "text": "Comprueba que existe un archivo con el mismo nombre en la siguiente ruta dentro de la carpeta Superalgos de tu disco duro...",
-            "updated": 1683558451743,
+            "text": "Check that there is a file with the same name in the following path in the Superalgos folder of your hard disk...",
+            "updated": 1683561742444,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el archivo no existe, asegúrese que tiene a última versión de la app. Si falta aún después de hacer la actualización, permite que la persona sepa y espere que el profile sea incluído.",
-                    "updated": 1633517577195
+                    "text": "Comprueba que existe un archivo con el mismo nombre en la siguiente ruta en la carpeta Superalgos de tu disco duro... ",
+                    "updated": 1683563325419
                 },
                 {
                     "language": "RU",
@@ -224,13 +229,13 @@
         },
         {
             "style": "List",
-            "text": "Si el archivo está ahí y asumiendo que ya se encuentra en el espacio de trabajo con el que quieres trabajar, vaya a la jerarquía de Plugins y encuentre el Archivo de Plugin Dummy bajo Plugin User Profiles > Governance Plugin Project.",
-            "updated": 1683558659891,
+            "text": "If the file is there and assuming it is already in the workspace you want to work with, go to the Plugin hierarchy and find the Plugin Dummy File under Plugin User Profiles > Governance Plugin Project.",
+            "updated": 1683561755073,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el archivo aparece y suponiendo que ya se encuentre en el espacio del workspace con el que desea trabajar, vaya a la jerarquía de Plugins y encuentre el Dummy Plugin File debajo de Plugin User Profiles > Governance Plugin Project.",
-                    "updated": 1633520923071
+                    "text": "Si el archivo está ahí y asumiendo que ya está en el espacio de trabajo con el que quiere trabajar, vaya a la jerarquía de Plugin y encuentre el Plugin Dummy File bajo Plugin User Profiles > Governance Plugin Project. ",
+                    "updated": 1683563468229
                 },
                 {
                     "language": "RU",
@@ -251,12 +256,12 @@
         },
         {
             "style": "List",
-            "text": "Accede a la configuración del perfil Dummy y cambia la propiedad fileName utilizando el nombre apropiado (nombre de usuario de Github.com). Sustituye también el nombre del nodo, para evitar confusiones posteriores.",
+            "text": "Access the Dummy profile configuration and change the fileName property using the appropriate name (Github.com username). Replace also the node name, to avoid confusion later.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Acceda a la configuración del Dummy  profile y modifique la propiedad del fileName usando el nombre apropriado (Github.com username). Reemplace el nombre del nodo también, para evitar confusiones más tarde.",
-                    "updated": 1633521011506
+                    "text": "Accede a la configuración del perfil Dummy y cambia la propiedad fileName utilizando el nombre apropiado (nombre de usuario de Github.com). Sustituye también el nombre del nodo, para evitar confusiones posteriores. ",
+                    "updated": 1683563502116
                 },
                 {
                     "language": "RU",
@@ -274,16 +279,16 @@
                     "updated": 1674843580792
                 }
             ],
-            "updated": 1683558714989
+            "updated": 1683561772901
         },
         {
             "style": "List",
-            "text": "Guarda el espacio de trabajo actual con Ctrl + Alt + Mayús + Tecla-S y actualiza la página.",
+            "text": "Save the current workspace with Ctrl + Alt + Alt + Shift + S-key and refresh the page.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Guarde el Current Workspace con Ctrl + Alt + Shift + Key-S y refresque la página.",
-                    "updated": 1633518088269
+                    "text": "Guarde el Current Workspace con Ctrl + Alt + Shift + Key-S y refresque la página. ",
+                    "updated": 1683563584741
                 },
                 {
                     "language": "RU",
@@ -301,16 +306,16 @@
                     "updated": 1674843680158
                 }
             ],
-            "updated": 1683558766065
+            "updated": 1683561789336
         },
         {
             "style": "List",
-            "text": "Una vez que la página se recargue, deberías ver el nuevo perfil junto con el resto. Ya está.",
+            "text": "Once the page reloads, you should see the new profile along with the rest. You are done.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Una vez que la página se recargue, debería ver el profile nuevojunto con el resto de ellos! Eso es!",
-                    "updated": 1633518182330
+                    "text": "Una vez que la página se recargue, debería ver el nuevo perfil junto con el resto. Ya ha terminado.",
+                    "updated": 1683563709584
                 },
                 {
                     "language": "RU",
@@ -328,7 +333,7 @@
                     "updated": 1674843705113
                 }
             ],
-            "updated": 1683558781469
+            "updated": 1683561803978
         }
     ]
 }

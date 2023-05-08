@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Token Rewards and Weight Power Flow",
     "definition": {
-        "text": "Let’s analyze the flow of Token Rewards through Pools in parallel with the flow of Token Power, and in particular Weight Power, as they are interdependent.",
-        "updated": 1624780824020,
+        "text": "Analicemos el flujo de Recompensas en Fichas a través de los Pools en paralelo con el flujo de Poder en Fichas, y en particular el Poder de Peso, ya que son interdependientes.",
+        "updated": 1683552041046,
         "translations": [
             {
                 "language": "ES",
@@ -44,8 +44,8 @@
         },
         {
             "style": "Title",
-            "text": "The Master Distribution Pool",
-            "updated": 1630510334093,
+            "text": "El fondo de distribución principal",
+            "updated": 1683552055264,
             "translations": [
                 {
                     "language": "ES",
@@ -71,8 +71,8 @@
         },
         {
             "style": "Text",
-            "text": "Each release distributes a number of tokens as specified in the configuration of the top-level Superalgos Pools hierarchy. The head of this hierarchy is the master distribution pool, where it all begins in terms of the flow of Token Rewards.",
-            "updated": 1630510402640,
+            "text": "Cada versión distribuye un número de tokens tal y como se especifica en la configuración de la jerarquía de Pools Superalgos de nivel superior. La cabeza de esta jerarquía es el pool de distribución maestro, donde todo comienza en términos del flujo de Token Rewards.",
+            "updated": 1683552077510,
             "translations": [
                 {
                     "language": "ES",
@@ -98,8 +98,8 @@
         },
         {
             "style": "Note",
-            "text": "Visualize the flow of Token Rewards as a cascade starting at the head of the Superalgos Pools hierarchy that needs to trickle down to the different Pool nodes in the hierarchy, and then jump to the heads of other Project Definition Hierarchies.",
-            "updated": 1630511702008,
+            "text": "Visualiza el flujo de Token Rewards como una cascada que comienza en la cabeza de la jerarquía de Superalgos Pools y que necesita filtrarse hacia abajo a los diferentes nodos de Pool en la jerarquía, y luego saltar a las cabezas de otras Jerarquías de Definición de Proyectos.",
+            "updated": 1683552108073,
             "translations": [
                 {
                     "language": "ES",
@@ -125,8 +125,8 @@
         },
         {
             "style": "Text",
-            "text": "Unlike the flow of Token Power within a User Profile, which is determined by configurations entered by the owner of the profile, the flow of Token Rewards is subject to the will of the Community. In other words, it is the community that must decide how rewards flow, and how many tokens must go to incentivize what. ",
-            "updated": 1630511815154,
+            "text": "A diferencia del flujo de Poder de Fichas dentro de un Perfil de Usuario, que viene determinado por las configuraciones introducidas por el propietario del perfil, el flujo de Recompensas de Fichas está sujeto a la voluntad de la Comunidad. En otras palabras, es la comunidad la que debe decidir cómo fluyen las recompensas, y cuántos tokens deben ir a incentivar qué.",
+            "updated": 1683552134832,
             "translations": [
                 {
                     "language": "ES",
@@ -152,8 +152,8 @@
         },
         {
             "style": "Subtitle",
-            "text": "This is Where Weight Votes Come in the Picture",
-            "updated": 1630512058431,
+            "text": "Aquí es donde entran en juego los votos por peso",
+            "updated": 1683552149014,
             "translations": [
                 {
                     "language": "RU",
@@ -174,8 +174,8 @@
         },
         {
             "style": "Callout",
-            "text": "Weight Votes are the instrument the Community uses to expresses how Token Rewards should flow. Token Rewards flow within the hierarchy in response to Weight Votes cast by the Community. That is, the Community decides the Weight of each Pool by casting Weight Votes.",
-            "updated": 1630512042083,
+            "text": "Los votos ponderados son el instrumento que utiliza la Comunidad para expresar cómo deben fluir las recompensas en fichas. Las Recompensas en fichas fluyen dentro de la jerarquía en respuesta a los Votos de peso emitidos por la Comunidad. Es decir, la Comunidad decide el Peso de cada Fondo emitiendo Votos de Peso.",
+            "updated": 1683552169798,
             "translations": [
                 {
                     "language": "ES",
@@ -201,8 +201,8 @@
         },
         {
             "style": "Text",
-            "text": "This is where Token Rewards intersect with Weight Power, as it is Weight Power that drives the flow of Token Rewards through Weight Votes.",
-            "updated": 1630510680354,
+            "text": "Aquí es donde las Recompensas en Fichas se cruzan con el Poder de Peso, ya que es el Poder de Peso el que impulsa el flujo de Recompensas en Fichas a través de los Votos de Peso.",
+            "updated": 1683552186325,
             "translations": [
                 {
                     "language": "ES",
@@ -228,8 +228,8 @@
         },
         {
             "style": "Note",
-            "text": "Remember that your Token Power flows into the different programs available under your User Profile. The portion of Token Power that flows into your Voting Program turns into Voting Power, which is channeled through different types of switches. You use Weight Votes Switch nodes to turn Voting Power into Weight Power that then flows into Weight Votes.",
-            "updated": 1630512123642,
+            "text": "Recuerde que tu Poder de Fichas fluye hacia los diferentes programas disponibles en su Perfil de Usuario. La porción de Energía de Fichas que fluye hacia tu Programa de Votación se convierte en Energía de Votación, que se canaliza a través de diferentes tipos de interruptores. Los nodos de conmutación de votos ponderados se utilizan para convertir el poder de voto en poder ponderado que, a su vez, se convierte en votos ponderados.",
+            "updated": 1683552224572,
             "translations": [
                 {
                     "language": "ES",
@@ -255,8 +255,8 @@
         },
         {
             "style": "Subtitle",
-            "text": "For Example",
-            "updated": 1630512233819,
+            "text": "Por ejemplo",
+            "updated": 1683552231562,
             "translations": [
                 {
                     "language": "RU",
@@ -277,8 +277,8 @@
         },
         {
             "style": "Text",
-            "text": "When you reference a Pool node with a Pool Weight Vote node, you are conferring the Weight Power in your Pool Weight Vote to that particular Pool node.",
-            "updated": 1630512248393,
+            "text": "Cuando hace referencia a un nodo de Pool con un nodo de Pool Weight Vote, está confiriendo el Weight Power en su Pool Weight Vote a ese nodo de Pool en particular.",
+            "updated": 1683552256255,
             "translations": [
                 {
                     "language": "ES",
@@ -304,8 +304,8 @@
         },
         {
             "style": "Text",
-            "text": "Now that this Pool node has some Weight, the Token Rewards available at the top of the hierarchy may flow into this Pool node. How much? It depends on the Weight Power the Pool gets relative to the Weight Power the rest of the Pools in the hierarchy get!",
-            "updated": 1630512360936,
+            "text": "Ahora que este nodo Pool tiene algo de Peso, las Recompensas por Fichas disponibles en la parte superior de la jerarquía pueden fluir hacia este nodo Pool. ¿Cuánto? Depende del Poder de Peso que tenga la Reserva en relación con el Poder de Peso que tengan el resto de Reservas de la jerarquía.",
+            "updated": 1683552282784,
             "translations": [
                 {
                     "language": "ES",
@@ -344,8 +344,8 @@
         },
         {
             "style": "Json",
-            "text": "Weight (of a node) = Node's Incoming Weight Power / \n                      Sum of Weight Power in the Hierarchy * 100",
-            "updated": 1630512395411,
+            "text": "Peso (de un nodo) = Potencia de peso entrante del nodo / \n                      Suma de la potencia de peso en la jerarquía * 100",
+            "updated": 1683552314396,
             "translations": [
                 {
                     "language": "RU",
@@ -356,8 +356,8 @@
         },
         {
             "style": "Note",
-            "text": "If a Pool node ends up with no Weight Power, then no Token Rewards flow into the node.",
-            "updated": 1630512412251,
+            "text": "Si un nodo del Pool se queda sin Energía Ponderal, no te llegará ninguna Recompensa en Fichas.",
+            "updated": 1683552343661,
             "translations": [
                 {
                     "language": "RU",
@@ -378,8 +378,8 @@
         },
         {
             "style": "Title",
-            "text": "Token Rewards Flow Into Other Hierarchies",
-            "updated": 1630510284691,
+            "text": "Las recompensas de los tokens fluyen hacia otras jerarquías",
+            "updated": 1683552358615,
             "translations": [
                 {
                     "language": "ES",
@@ -405,7 +405,7 @@
         },
         {
             "style": "Text",
-            "text": "Pool nodes in the top-level Superalgos Pools hierarchy reference other hierarchies where project definitions continue. Those hierarchies may be other Pools, Positions, Features, or Asset hierarchies.",
+            "text": "Los nodos de Pool en la jerarquía superior de Superalgos Pools hacen referencia a otras jerarquías donde continúan las definiciones de proyectos. Estas jerarquías pueden ser otras jerarquías de pools, posiciones, características o activos.",
             "translations": [
                 {
                     "language": "ES",
@@ -427,12 +427,13 @@
                     "text": "Pool -Knoten in der Superalgos Pools -Hierarchie auf oberster Ebene verweisen auf andere Hierarchien, in denen die Projektdefinitionen fortgesetzt werden. Diese Hierarchien können andere Pools, Positions, Features oder Asset -Hierarchien sein.",
                     "updated": 1678822712052
                 }
-            ]
+            ],
+            "updated": 1683552378551
         },
         {
             "style": "Callout",
-            "text": "When a Pool node in the Superalgos Pools hierarchy gets some Weight Power, the Token Rewards flowing to the node are immediately passed on to the referenced hierarchy. So, now the referenced hierarchy has Token Rewards of its own at the head of the hierarchy!",
-            "updated": 1630513045548,
+            "text": "Cuando un nodo de reserva de la jerarquía de reservas de Superalgos obtiene algún poder de peso, las fichas de recompensa que fluyen hacia el nodo se transfieren inmediatamente a la jerarquía de referencia. Así, ¡ahora la jerarquía referenciada tiene sus propias recompensas en fichas a la cabeza de la jerarquía!",
+            "updated": 1683552447638,
             "translations": [
                 {
                     "language": "ES",
@@ -458,8 +459,8 @@
         },
         {
             "style": "Text",
-            "text": "How do Token Rewards flow within these secondary hierarchies? In the exact manner! When Weight Votes are cast within the hierarchy, Token Rewards flow into the affected nodes in proportion to the Weight calculated within the scope of the hierarchy.",
-            "updated": 1630512699763,
+            "text": "¿Cómo fluyen los Token Rewards dentro de estas jerarquías secundarias? Exactamente igual. Cuando se emiten votos por peso dentro de la jerarquía, las recompensas en fichas fluyen hacia los nodos afectados en proporción al peso calculado dentro del ámbito de la jerarquía.",
+            "updated": 1683552516325,
             "translations": [
                 {
                     "language": "ES",
@@ -485,7 +486,7 @@
         },
         {
             "style": "Important",
-            "text": "The scope of the calculation of Weight proportions is limited to the hierarchy in question.",
+            "text": "El alcance del cálculo de las proporciones de Weight se limita a la jerarquía en cuestión.",
             "translations": [
                 {
                     "language": "ES",
@@ -507,12 +508,13 @@
                     "text": "Der Umfang der Berechnung der calculation of Weight (Gewichtsanteile) ist auf die betreffende Hierarchie beschränkt.",
                     "updated": 1678822747440
                 }
-            ]
+            ],
+            "updated": 1683552541565
         },
         {
             "style": "Note",
-            "text": "The cycle goes on and on through all the existing levels of nested hierarchies. The processes and flows are the same regardless of the type of hierarchy.",
-            "updated": 1630512917168,
+            "text": "El ciclo sigue y sigue a través de todos los niveles existentes de jerarquías anidadas. Los procesos y flujos son los mismos independientemente del tipo de jerarquía.",
+            "updated": 1683552560316,
             "translations": [
                 {
                     "language": "ES",

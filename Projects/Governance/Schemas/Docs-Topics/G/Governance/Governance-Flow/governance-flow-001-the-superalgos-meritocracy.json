@@ -3,8 +3,8 @@
     "pageNumber": "1",
     "type": "The Superalgos Meritocracy",
     "definition": {
-        "text": "The Superalgos Governance Project implements a meritocratic system by which the more you contribute, the more you are entitled to influence the direction of development. ",
-        "updated": 1624780224978,
+        "text": "El Proyecto de Gobernanza de Superalgos aplica un sistema meritocrático por el que cuanto más contribuyas, más derecho tendrás a influir en la dirección del desarrollo.",
+        "updated": 1683551953175,
         "translations": [
             {
                 "language": "ES",
@@ -26,8 +26,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Everything starts with your existing holdings of Superalgos SA Tokens that you earned for previous contributions. Your holdings confer you Token Power.",
-            "updated": 1624780384340,
+            "text": "Todo comienza con las Fichas de Superalgos SA que ya tienes y que ganaste por contribuciones anteriores. Tus participaciones te confieren Poder de Fichas.",
+            "updated": 1683551975844,
             "translations": [
                 {
                     "language": "ES",
@@ -61,8 +61,8 @@
         },
         {
             "style": "Text",
-            "text": "There is a second concept that is crucial to how Superalgos values contributions: Reputation.",
-            "updated": 1630508777182,
+            "text": "Hay un segundo concepto que es crucial para la forma en que Superalgos valora las contribuciones: La reputación.",
+            "updated": 1683551995886,
             "translations": [
                 {
                     "language": "ES",

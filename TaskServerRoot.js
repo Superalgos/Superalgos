@@ -75,9 +75,7 @@ async function runRoot() {
    * using the taskId as a folder name
    * `<PATH_TO_LOG_FILES>/Tasks/<TASK_ID>`
    */
-  let taskId
-  if (process.argv[2]== undefined) { taskId = "debug"} else { taskId = process.argv[2] }
-  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Tasks', taskId)
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Tasks', process.argv[2])
   SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'TS')
   
   /* 

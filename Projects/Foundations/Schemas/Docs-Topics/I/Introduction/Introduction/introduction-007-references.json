@@ -30,6 +30,11 @@
                 "language": "NL",
                 "text": "Om een referentie vast te stellen, klikt u met de rechtermuisknop op het eerste knooppunt en sleept u het naar het doelknooppunt. Gebruik de delink knop in het menu om een referentie te verwijderen.",
                 "updated": 1668338997266
+            },
+            {
+                "language": "ES",
+                "text": "l\n",
+                "updated": 1683740171398
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "language": "DE",
                     "text": "Richtung",
                     "updated": 1643178762989
+                },
+                {
+                    "language": "ES",
+                    "text": "Dirección",
+                    "updated": 1683739831056
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "NL",
                     "text": "Referenties hebben een richtingseigenschap met betrekking tot elk van de knooppunten die bij de referentie betrokken zijn: het knooppunt dat de referentie tot stand brengt, stelt een uitgaande referentie in, terwijl degene die de referentie accepteert een inkomende referentie instelt.",
                     "updated": 1668338647809
+                },
+                {
+                    "language": "ES",
+                    "text": "Las referencias tienen una propiedad de dirección relativa a cada uno de los nodos involucrados en la referencia: el nodo que establece la referencia establece una referencia de salida, mientras que el que acepta la referencia establece una referencia de entrada.",
+                    "updated": 1683739858857
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "NL",
                     "text": "Een Backtesting Session brengt bijvoorbeeld een uitgaande referentie tot stand met een Trading System. Hierdoor heeft de sessie toegang tot de informatie binnen de hele hiërarchie van het handelssysteem, inclusief strategieën. Op het niveau van het handelssysteem wordt dezelfde referentie gezien als een inkomende referentie.",
                     "updated": 1668338688023
+                },
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, una Backtesting sesion establece una referencia de salida con un Sistema de trading. Esto permite que la sesión acceda a la información dentro de toda la jerarquía del sistema de trading, incluidas las estrategias. A nivel del sistema de comercio, la misma referencia se ve como una referencia entrante.",
+                    "updated": 1683739911935
                 }
             ]
         },
@@ -146,6 +166,11 @@
                     "language": "NL",
                     "text": "Een knooppunt kan slechts één uitgaande referentie produceren, maar het kan meerdere inkomende referenties accepteren.",
                     "updated": 1668338720701
+                },
+                {
+                    "language": "ES",
+                    "text": "Un nodo puede producir solo una referencia de salida, sin embargo, puede tomar varias referencias de entrada.",
+                    "updated": 1683739929336
                 }
             ]
         },
@@ -172,6 +197,11 @@
                     "language": "DE",
                     "text": "Geltungsbereich",
                     "updated": 1643179205457
+                },
+                {
+                    "language": "ES",
+                    "text": "Alcance",
+                    "updated": 1683739942618
                 }
             ]
         },
@@ -203,6 +233,11 @@
                     "language": "NL",
                     "text": "Een referentie die tot stand wordt gebracht tussen knooppunten van een bepaalde structuur binnen een hiërarchie wordt een interne referentie genoemd met betrekking tot de genoemde structuur van knooppunten. Evenzo wordt een referentie die tot stand is gebracht met een knooppunt buiten de genoemde structuur, dat wil zeggen in een ander deel van de hiërarchie of in een andere hiërarchie, een externe referentie genoemd.",
                     "updated": 1668338752770
+                },
+                {
+                    "language": "ES",
+                    "text": "Una referencia establecida entre nodos de cualquier estructura particular dentro de una jerarquía se dice que es una referencia interna relativa a dicha estructura de nodos. De un mismo modo, una referencia establecida con un nodo fuera de dicha estructura, es decir, en una parte diferente de la jerarquía o en otra jerarquía, se dice que es una referencia externa.",
+                    "updated": 1683740007970
                 }
             ]
         },
@@ -235,6 +270,11 @@
                     "language": "NL",
                     "text": "Voorbeelden van interne verwijzingen zijn te vinden in de hiërarchieën Data Mine en Crypto Ecosystem. Laten we bijvoorbeeld kort kijken naar een dergelijk geval binnen een Plotter Module.",
                     "updated": 1668338783386
+                },
+                {
+                    "language": "ES",
+                    "text": "Se pueden encontrar ejemplos de referencias internas en las jerarquías Data Mine y Crypto Ecosystem. Por ejemplo, analicemos brevemente uno de esos casos dentro de un módulo de trazador.",
+                    "updated": 1683739976111
                 }
             ]
         },
@@ -267,6 +307,11 @@
                     "language": "NL",
                     "text": "De onderstaande opname toont het Shapes knooppunt en verschillende sub-knooppunten: aan de ene kant verschillende Polygoon knooppunten; aan de andere kant, het knooppunt Chart Points.",
                     "updated": 1668338832753
+                },
+                {
+                    "language": "ES",
+                    "text": "La siguiente captura muestra el nodo Formas y varios nodos descendientes: por un lado, varios nodos Polígono; por otro lado, el nodo Chart Points.",
+                    "updated": 1683740028978
                 }
             ]
         },
@@ -303,6 +348,11 @@
                     "language": "NL",
                     "text": "Merk op dat hoekpunten onder elke polygoon verwijzen naar punten onder het knooppunt van chart points.",
                     "updated": 1668338862641
+                },
+                {
+                    "language": "ES",
+                    "text": "Observe que los vértices debajo de cada polígono hacen referencia a puntos debajo del nodo de puntos del gráfico.",
+                    "updated": 1683740043342
                 }
             ]
         },
@@ -335,6 +385,11 @@
                     "language": "NL",
                     "text": "Dit betekent dat het knooppunt Shapes verschillende interne referenties heeft.",
                     "updated": 1668338879168
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto significa que el nodo Shapes presenta varias referencias internas.",
+                    "updated": 1683740070339
                 }
             ]
         },
@@ -367,6 +422,11 @@
                     "language": "NL",
                     "text": "De back-up-, kloon- en deelbewerkingen maken verschillend gebruik van de eigenschappen van referenties. We zullen deze drie uitgebreid behandelen, zodat u het meeste uit deze functies kunt halen.",
                     "updated": 1668338901977
+                },
+                {
+                    "language": "ES",
+                    "text": "Las operaciones de copia de seguridad, clonación y uso compartido hacen diferentes usos de las propiedades de las referencias. Cubriremos los tres extensamente para que pueda aprovechar al máximo estas características.",
+                    "updated": 1683740093610
                 }
             ]
         },
@@ -394,6 +454,11 @@
                     "language": "DE",
                     "text": "Grafische Darstellung",
                     "updated": 1643179862875
+                },
+                {
+                    "language": "ES",
+                    "text": "Representación grafica",
+                    "updated": 1683740104240
                 }
             ]
         },
@@ -426,6 +491,11 @@
                     "language": "NL",
                     "text": "Verwijzingen worden grafisch weergegeven met vage grijze stippellijnen, maar zijn standaard niet zichtbaar. Referenties worden zichtbaar wanneer u de muisaanwijzer op een knooppunt houdt dat een referentie heeft, of wanneer u de weergave van alle referenties activeert met de volgende toetsencombinatie:",
                     "updated": 1668338930529
+                },
+                {
+                    "language": "ES",
+                    "text": "Las referencias se representan gráficamente con líneas de puntos grises tenues, pero no son visibles de forma predeterminada. Las referencias se vuelven visibles cuando pasa el puntero del mouse sobre un nodo que tiene una referencia, o cuando activa la visualización de todas las referencias con la siguiente combinación de teclas:",
+                    "updated": 1683740117267
                 }
             ]
         },
@@ -462,6 +532,11 @@
                     "language": "NL",
                     "text": "Om referenties zichtbaar te maken, moeten beide knooppunten die bij de referentie betrokken zijn, zichtbaar zijn.",
                     "updated": 1668338949493
+                },
+                {
+                    "language": "ES",
+                    "text": "Para que las referencias sean visibles, ambos nodos involucrados en la referencia deben ser visibles.",
+                    "updated": 1683740127888
                 }
             ]
         },
@@ -498,6 +573,11 @@
                     "language": "NL",
                     "text": "Hoe referenties tot stand te brengen en te verwijderen",
                     "updated": 1668338965915
+                },
+                {
+                    "language": "ES",
+                    "text": "Cómo establecer y eliminar referencias",
+                    "updated": 1683740136618
                 }
             ]
         },

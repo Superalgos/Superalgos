@@ -54,6 +54,7 @@ function newWorkspace() {
     let savingWorkspaceIntervalId
     let workingAtTask = 0
     let loadedWorkspaceNode
+    let currentWorkspaceTitle
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
@@ -116,8 +117,10 @@ function newWorkspace() {
                         UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
                         if (queryString.initialWorkspaceType !== 'My-Workspaces') {
                             webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
+                            currentWorkspaceTitle = 'Sample'
                         } else {
                             webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
+                            currentWorkspaceTitle = 'User'
                         }
                     } else {
                         /*
@@ -125,8 +128,8 @@ function newWorkspace() {
                         */
                         UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
                         webCommand = 'LoadMyWorkspace' + '/' + lastUsedWorkspace
+                        currentWorkspaceTitle = 'User'
                     }
-
                     httpRequest(undefined, webCommand, onFileReceived)
                     function onFileReceived(err, text, response) {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -137,6 +140,7 @@ function newWorkspace() {
                             return
                         }
                         thisObject.workspaceNode = JSON.parse(text)
+                        currentWorkspaceTitle = currentWorkspaceTitle + '/' + thisObject.workspaceNode.name
                         thisObject.workspaceNode.project = 'Foundations'
                         recreateWorkspace()
                     }
@@ -268,7 +272,9 @@ function newWorkspace() {
                 }
             }
         }
-        topMenu.innerHTML = html
+        const workspaceTitle = '<div id="workspace-title"></div>'
+        topMenu.innerHTML = html + '</ul></nav>' + workspaceTitle
+        setWorkspaceTitle()
     }
 
     async function saveWorkspace(callBackFunction) {
@@ -778,24 +784,28 @@ function newWorkspace() {
         if (project !== "") {
             name = name.replace('Plugin \u2192 ', '')
             webCommand = 'LoadPlugin' + '/' + project + '/' + 'Workspaces' + '/' + name + '.json'
+            currentWorkspaceTitle = 'Sample'
         } else {
             webCommand = 'LoadMyWorkspace' + '/' + name
+            currentWorkspaceTitle = 'User'
         }
-
+        
         httpRequest(undefined, webCommand, onFileReceived)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
                 return
             }
-
+            
             loadedWorkspaceNode = JSON.parse(text)
+            currentWorkspaceTitle = currentWorkspaceTitle + '/' + loadedWorkspaceNode.name
             UI.projects.foundations.spaces.cockpitSpace.toTop()
 
             UI.projects.foundations.spaces.floatingSpace.container.frame.position.x = browserCanvas.width / 2 - UI.projects.foundations.spaces.floatingSpace.container.frame.width / 2
             UI.projects.foundations.spaces.floatingSpace.container.frame.position.y = browserCanvas.height / 2 - UI.projects.foundations.spaces.floatingSpace.container.frame.height / 2
 
             workingAtTask = 1
+            setWorkspaceTitle()
         }
     }
 
@@ -863,5 +873,10 @@ function newWorkspace() {
         }
         return nodeActionSwitch.executeAction(action)
 
+    }
+
+    function setWorkspaceTitle() {
+        let workspaceTitle = document.getElementById('workspace-title')
+        workspaceTitle.innerHTML = currentWorkspaceTitle
     }
 }

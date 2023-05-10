@@ -48,6 +48,11 @@
                     "language": "DE",
                     "text": "Im Design Space wird der Kopf oder der übergeordnete Node jeder Hierarchie durch das entsprechende Symbol dargestellt, das von einem immer vorhandenen weißen Ring umgeben ist, so dass sie im Workspace leichter zu finden sind.",
                     "updated": 1641760501185
+                },
+                {
+                    "language": "ES",
+                    "text": "En el espacio de diseño, el nodo principal o principal de cada jerarquía está representado por el icono correspondiente rodeado por un anillo blanco siempre presente, para que sean más fáciles de ubicar dentro del espacio de trabajo.",
+                    "updated": 1683738028009
                 }
             ]
         },
@@ -70,6 +75,11 @@
                     "language": "DE",
                     "text": "Hierarchien, die als Plugin in einen Workspace eingebunden sind, werden nicht auf Workspace-Ebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
                     "updated": 1641760717804
+                },
+                {
+                    "language": "ES",
+                    "text": "Las jerarquías incluidas en el espacio de trabajo como complementos no se guardan a nivel del espacio de trabajo. Como tal, los cambios realizados en esas jerarquías no persisten. Si desea modificar un complemento y seguir trabajando con la versión modificada en el futuro, debe clonar o hacer una copia de seguridad del complemento y trabajar en la copia resultante.",
+                    "updated": 1683738888245
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "EL",
                     "text": "Foundations Project (Θεμέλια Έργου)",
                     "updated": 1641829322472
+                },
+                {
+                    "language": "ES",
+                    "text": "Proyecto de Fundaciones",
+                    "updated": 1683738901355
                 }
             ]
         },
@@ -125,6 +140,11 @@
                     "language": "EL",
                     "text": "Crypto Ecosystem (Οικοσύστημα Κρύπτο)",
                     "updated": 1641829398687
+                },
+                {
+                    "language": "ES",
+                    "text": "Ecosistema criptográfico",
+                    "updated": 1683738925882
                 }
             ]
         },
@@ -322,6 +342,11 @@
                     "language": "EL",
                     "text": "Super Scripts (Σούπερ Σενάρια)",
                     "updated": 1641829613351
+                },
+                {
+                    "language": "ES",
+                    "text": "Súper guiones",
+                    "updated": 1683739014734
                 }
             ]
         },

@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Bots sind ein entscheidendes Konzept in Superalgos und ein guter Leitfaden, um zu erklären, wie Hierarchien miteinander interagieren.",
                 "updated": 1641741276059
+            },
+            {
+                "language": "ES",
+                "text": "Los bots son un concepto crucial en Superalgos y un buen hilo para explicar cómo interactúan las jerarquías entre sí.",
+                "updated": 1683736884884
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Während die Begriffe Trading Bot, Trading Strategie und Trading System manchmal synonym verwendet werden, ist die Unterscheidung in Superalgos scharf und unmissverständlich. Lassen Sie uns mit drei grundlegenden Definitionen beginnen:",
                     "updated": 1641741337487
+                },
+                {
+                    "language": "ES",
+                    "text": "Aunque a veces se utilizan indistintamente los términos bot de trading, estrategia de trading y sistema de trading, en Superalgos la distinción es tajante e inequívoca. Empecemos ofreciendo tres definiciones fundamentales:",
+                    "updated": 1683736584043
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "DE",
                     "text": "Trading System: Ein Trading System ist ein Rahmenwerk, das die Low-Level-Logik handhabt, die dazu dient, die Prozesse und Methoden zu strukturieren, die für die Implementierung und den Einsatz von Trading Strategies verwendet werden.",
                     "updated": 1641741502917
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading System: Un sistema de trading es un marco que maneja la lógica de bajo nivel que sirve para estructurar los procesos y métodos utilizados para implementar y desplegar estrategias comerciales.",
+                    "updated": 1683737000566
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "DE",
                     "text": "Trading Strategy: Eine Trading Strategy (Handelsstrategie) ist die Beschreibung einer Reihe von Aktionen oder Ereignissen, die schrittweise ausgeführt werden. Ereignisse werden ausgelöst, wenn bestimmte Bedingungen erfüllt sind, die bestimmte Marktsituationen beschreiben. Handelsstrategien sind darauf ausgelegt, ein bestimmtes Ziel im Rahmen des umfassenderen Plans eines Handelssystems durch das Eingehen und Verwalten von Positionen zu erreichen.",
                     "updated": 1641742187305
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Strategy: Una estrategia de trading es la descripción de un conjunto de acciones o eventos que se ejecutan en etapas. Los eventos se activan con la validación de condiciones precisas que describen situaciones específicas del mercado. Las estrategias de trading están diseñadas para lograr un objetivo específico dentro del plan más amplio de un sistema de trading a través de la toma y gestión de posiciones.",
+                    "updated": 1683737044675
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "DE",
                     "text": "Trading Bot: Ein Trading Bot ist ein Computerprogramm, das auf der Grundlage von Datensätzen, die von anderen Bots (Counting Sensors, Indikatoren und sogar anderen Trading-Bots) als Produkte ausgegeben werden, die in einem Handelssystem definierte Handelslogik anwendet, um einerseits eine vollständige Handelssimulation zu generieren (Ausgabe von Datensätzen, die Trades, die Wirkung von Strategien, die Validierung von Bedingungen usw. umfassen) und andererseits die Ausführung von Aufträgen während einer Forward-Testing- oder Live-Trading-Session zu verwalten.",
                     "updated": 1641742338856
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Bot: Un trading bot es un programa informático que, basado en conjuntos de datos expuestos como productos por otros bots (sensores de conteo, indicadores e incluso otros bots comerciales), aplica la lógica comercial definida en un sistema comercial para, por un lado, generar una simulación comercial completa. (salida de conjuntos de datos que incluyen transacciones, la acción de estrategias, validación de condiciones, etc.) y, por otro lado, administrar la ejecución de órdenes cuando se está en una sesión de prueba o negociación en vivo.",
+                    "updated": 1683737108565
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "DE",
                     "text": "In Superalgos sind Trading Systems und Trading Strategies Definitionen, die die Handelslogik beschreiben, während der Trading Bot das Computerprogramm ist, das die Handelslogik verwendet, um Strategien zu testen, Simulationen zu erstellen und zu handeln.",
                     "updated": 1641742387913
+                },
+                {
+                    "language": "ES",
+                    "text": "En Superalgos, los sistemas de trading y las estrategias de trading son definiciones que describen la lógica comercial, mientras que el bot de trading es el programa informático que utiliza la lógica comercial para probar estrategias, producir simulaciones y operar.",
+                    "updated": 1683737147266
                 }
             ]
         },
@@ -149,6 +179,11 @@
                     "language": "DE",
                     "text": "In dieser Dokumentation wird ausführlich auf diese drei Konzepte eingegangen. Vorläufig reicht die obige Unterscheidung aus, um fortzufahren.",
                     "updated": 1641742417822
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta documentación amplía intensamente estos tres conceptos. Por el momento, la distinción anterior es suficiente para continuar.",
+                    "updated": 1683737183588
                 }
             ]
         },
@@ -170,6 +205,11 @@
                     "language": "DE",
                     "text": "Bevor wir die einzelnen Hierarchien eingehend erforschen, ist ein kurzer Überblick angebracht. Eines der wichtigsten grundlegenden Konzepte in Superalgos ist das der Bots. Anhand der Bots wollen wir Ihnen zeigen, wie die verschiedenen Hierarchien in Superalgos miteinander interagieren.",
                     "updated": 1641757433329
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de sumergirse en una exploración en profundidad de cada jerarquía, se requiere una descripción general rápida. Uno de los conceptos subyacentes más importantes en Superalgos es el de los bots. Luego, usemos los bots como hilo conductor para mostrarle cómo las diferentes jerarquías en Superalgos interactúan entre sí.",
+                    "updated": 1683737206069
                 }
             ]
         },
@@ -191,6 +231,11 @@
                     "language": "DE",
                     "text": "Bot-Definitionen",
                     "updated": 1641757446978
+                },
+                {
+                    "language": "ES",
+                    "text": "Definiciones de bots",
+                    "updated": 1683737220213
                 }
             ]
         },
@@ -212,6 +257,11 @@
                     "language": "DE",
                     "text": "Auf den Seiten, die Data Mines und Trading Mines beschreiben, werden Sie lernen, dass Bots Algorithmen sind, die in solchen Minen definiert werden. Das heißt, Minen enthalten den Quellcode und die Konfiguration - den kompletten Satz an Definitionen - der drei existierenden Arten von Bots: Sensoren, Indikatoren und den Trading Bot.",
                     "updated": 1641758511780
+                },
+                {
+                    "language": "ES",
+                    "text": "En las páginas que describen las minas de datos y las trading minas , aprenderá que los bots son algoritmos definidos en dichas minas. Es decir, las minas contienen el código fuente y la configuración (el conjunto completo de definiciones) de los tres tipos de bots existentes: sensores, indicadores y el bot comercial.",
+                    "updated": 1683737275107
                 }
             ]
         },
@@ -233,6 +283,11 @@
                     "language": "DE",
                     "text": "Als Benutzer können Sie alle Bots in den Minen verwenden, die mit dem System ausgeliefert werden. Als Entwickler können Sie Ihre eigenen Minen erstellen, um Ihre eigenen Sensoren, Indikatoren und sogar einen neuen Trading-Bot zu entwickeln.",
                     "updated": 1641757561971
+                },
+                {
+                    "language": "ES",
+                    "text": "Como usuario, puede usar todos los bots en las minas de datos que se envían con el sistema. Como desarrollador, puede crear sus propias minas para desarrollar sus propios sensores, indicadores e incluso un nuevo trading bot.",
+                    "updated": 1683737315364
                 }
             ]
         },
@@ -254,6 +309,11 @@
                     "language": "DE",
                     "text": "Bot-Instanzen",
                     "updated": 1641757587831
+                },
+                {
+                    "language": "ES",
+                    "text": "Instancias de bots",
+                    "updated": 1683737326100
                 }
             ]
         },
@@ -275,6 +335,11 @@
                     "language": "DE",
                     "text": "Die Verwendung eines dieser Bots erfordert die Erstellung einer Instanz der Bot-Definition, damit diese Instanz den Code des Bots ausführen kann. In den seltensten Fällen müssen Sie Bot-Instanzen manuell erstellen, da bei der Installation eines neuen Marktes alle erforderlichen Bot-Instanzen für Ihre Data-Mining-Operation und für die Durchführung von Handelssitzungen erstellt werden (Märkte werden übrigens innerhalb der Krypto-Ökosystem-Hierarchie definiert und installiert).",
                     "updated": 1641757618628
+                },
+                {
+                    "language": "ES",
+                    "text": "El uso de cualquiera de estos bots implica crear una instancia de la definición del bot, de modo que esta instancia pueda ejecutar el código del bot. Rara vez necesitará crear instancias de bot manualmente, ya que el proceso de instalación de un nuevo mercado crea todas las instancias de bot necesarias para su operación de minería de datos y para ejecutar sesiones de negociación (por cierto, los mercados se definen e instalan desde dentro de la jerarquía del ecosistema criptográfico) .",
+                    "updated": 1683737345332
                 }
             ]
         },
@@ -296,6 +361,11 @@
                     "language": "DE",
                     "text": "Eine Bot-Instanz ist ein Verweis auf einen Bot, wie er in einer Daten- oder Handelsmine definiert ist. Die Instanz des Bots führt die definierten Prozesse aus und erzeugt die definierten Datenprodukte.",
                     "updated": 1641757678220
+                },
+                {
+                    "language": "ES",
+                    "text": "Una instancia de bot es una referencia a un bot tal como se define en un trading mine o de datos. La instancia del bot ejecuta los procesos definidos y genera los productos de datos definidos.",
+                    "updated": 1683737435912
                 }
             ]
         },
@@ -317,6 +387,11 @@
                     "language": "DE",
                     "text": "Bot-Instanzen werden innerhalb der Netzwerkhierarchie ausgeführt. Sie verwenden Task-Manager und Tasks, um Bot-Instanzen zu steuern, d. h. um sie zu starten und zu stoppen. Ebenfalls in der Netzhierarchie liegen die Konfigurationen darüber, wo die von ihnen erzeugten Daten gespeichert werden sollen.",
                     "updated": 1641757696179
+                },
+                {
+                    "language": "ES",
+                    "text": "Las instancias de bot se ejecutan desde dentro de la jerarquía de la red. Utiliza administradores de tareas y tareas para controlar instancias de bot, es decir, para iniciarlas y detenerlas. También en la jerarquía de la red se encuentran las configuraciones sobre dónde se almacenarán los datos que generan.",
+                    "updated": 1683737480699
                 }
             ]
         },
@@ -338,6 +413,11 @@
                     "language": "DE",
                     "text": "Bot-Abhängigkeiten",
                     "updated": 1641757817729
+                },
+                {
+                    "language": "ES",
+                    "text": "Dependencias de bots",
+                    "updated": 1683737494822
                 }
             ]
         },
@@ -359,6 +439,11 @@
                     "language": "DE",
                     "text": "Bei der Ausführung laufen die Bot-Instanzen in einer verzweigten Reihenfolge, die durch ihren Status und ihre Datenabhängigkeiten bestimmt wird. Wenn z. B. Bot Alice von den Daten abhängt, die von Bot Bob erzeugt werden, wird Alice so konfiguriert, dass sie ausgeführt wird, sobald Bob seine Ausführung beendet hat. Diese Konfigurationen sind bereits in den entsprechenden Datenminen für alle vorhandenen Bots eingerichtet. Sie müssen sich also nur darum kümmern, wenn Sie neue Bots entwickeln.",
                     "updated": 1641759638398
+                },
+                {
+                    "language": "ES",
+                    "text": "Tras la ejecución, las instancias de bot se ejecutan en una secuencia ramificada determinada por su estado y dependencias de datos. Por ejemplo, si el bot Alice depende de los datos producidos por el bot Bob, entonces Alice está configurada para ejecutarse tan pronto como Bob finalice su ejecución. Estas configuraciones ya están establecidas en las minas de datos correspondientes para todos los bots existentes. Por lo tanto, solo debe preocuparse por esto si desarrolla nuevos bots.",
+                    "updated": 1683737531864
                 }
             ]
         },
@@ -380,6 +465,11 @@
                     "language": "DE",
                     "text": "Was Sie als Benutzer verstehen müssen, ist, dass, wenn Alice von den Daten abhängt, die Bob produziert, Bob laufen muss, damit Alice ihre Arbeit machen kann. Wenn Bob nicht läuft, kann Alice nur dasitzen und warten, bis Bob seinen Teil erledigt hat.",
                     "updated": 1641759651611
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que debe comprender como usuario es que, si Alice depende de los datos que produce Bob, entonces Bob debe estar corriendo para que Alice haga su trabajo. Si Bob no está corriendo, Alice solo puede sentarse y esperar a que Bob haga su parte primero.",
+                    "updated": 1683737547949
                 }
             ]
         },
@@ -401,6 +491,11 @@
                     "language": "DE",
                     "text": "Ein gutes Beispiel für derartige Abhängigkeiten ist eine Live-Trading-Session. In einem solchen Fall hängt der Trading-Bot vom Sensor und allen Indikator-Bots ab, die im referenzierten Trading System verwendet werden. Die Indikatoren müssen die Daten verarbeiten, damit der Trading-Bot sie in Echtzeit auswerten kann. Daher muss vor der Durchführung einer Live-Trading-Session die Data-Mining-Operation ausgeführt werden und auf dem neuesten Stand sein.",
                     "updated": 1641759752672
+                },
+                {
+                    "language": "ES",
+                    "text": "Un buen ejemplo de tales dependencias se puede encontrar cuando se ejecuta una sesión de trading en vivo. En tal caso, el trading bot depende del sensor y de todos los bots indicadores utilizados en el trading system al que se hace referencia. Los indicadores deben procesar los datos para que el trading bot pueda analizarlos en tiempo real. Por lo tanto, antes de ejecutar una sesión de tradind en vivo, la operación de minería de datos debe estar en ejecución y actualizada.",
+                    "updated": 1683737664646
                 }
             ]
         },
@@ -422,6 +517,11 @@
                     "language": "DE",
                     "text": "Ausführung der Bots",
                     "updated": 1641759787452
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecución de bots",
+                    "updated": 1683737680177
                 }
             ]
         },
@@ -443,6 +543,11 @@
                     "language": "DE",
                     "text": "Jeder Bot läuft so lange, wie er für die Ausführung seiner Aufgabe benötigt, in der Regel in der Größenordnung von einigen Sekunden, und schläft dann, bis der nächste Zyklus ansteht. Das heißt, die Bots laufen in kurzen Intervallen, in häufigen Zyklen. Der Grund für dieses Verhalten ist, dass die Bots darauf vorbereitet sind, Live-Daten zu lesen und online zu verarbeiten.",
                     "updated": 1641759843963
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada bot se ejecuta durante el tiempo que sea necesario para realizar su trabajo, generalmente en el orden de unos pocos segundos, y permanece dormido hasta que vence el siguiente ciclo. Es decir, los bots se ejecutan en ráfagas breves, en ciclos frecuentes. El motivo de este comportamiento es que los bots están preparados para leer fuentes de datos en vivo y procesarlas en línea.",
+                    "updated": 1683737698408
                 }
             ]
         },
@@ -464,6 +569,11 @@
                     "language": "DE",
                     "text": "Bots müssen wissen, mit welchem Markt oder welcher Börse sie arbeiten sollen. Die Börsen und Märkte sind in der Hierarchie des Krypto-Ökosystems definiert. Bots erhalten diese Informationen, indem sie Referenzen zu den entsprechenden Märkten in dieser Hierarchie herstellen.",
                     "updated": 1641759873181
+                },
+                {
+                    "language": "ES",
+                    "text": "Los bots necesitan saber con qué mercado de qué intercambio deben trabajar. Los intercambios y los mercados se definen en la jerarquía del ecosistema criptográfico. Los bots obtienen esa información estableciendo referencias con los mercados apropiados en esa jerarquía.",
+                    "updated": 1683737714924
                 }
             ]
         },
@@ -485,6 +595,11 @@
                     "language": "DE",
                     "text": "Im Falle des Trading-Bots muss er auch wissen, welche Art von Trading-Session er durchführen soll und welche Regeln des Trading-System er befolgen soll. Aus diesen Gründen werden Trading Bots mit einer bestimmten Sitzung gekoppelt, die ihrerseits auf ein Handelssystem verweist.",
                     "updated": 1641760067260
+                },
+                {
+                    "language": "ES",
+                    "text": "En el caso del trading bot, también necesita saber qué tipo de sesión de trading debe ejecutar y qué reglas del trading system debe seguir. Por esos motivos, los trading bots se emparejan con una sesión específica, que a su vez hace referencia a un sistema de trading.",
+                    "updated": 1683737841949
                 }
             ]
         },
@@ -506,6 +621,11 @@
                     "language": "DE",
                     "text": "Trading-Systeme selbst sind Hierarchien. Ein Trading System können Sie erstellen, indem Sie einem Framework folgen, in dem Strategien in Stufen beschrieben werden. Sie müssen nicht programmieren, um eine Strategie zu erstellen, da die Regeln mit einfachen mathematischen Aussagen geschrieben werden. Allerdings sind sowohl grundlegende als auch fortgeschrittene JavaScript-Kenntnisse von Vorteil. Sie können Ihr Handelssystem testen und einsetzen, indem Sie Handelssitzungen innerhalb der Netzwerkhierarchie durchführen.",
                     "updated": 1641760198660
+                },
+                {
+                    "language": "ES",
+                    "text": "Los sistemasde trading son en sí mismos jerarquías. Puede crear un sistema de trading siguiendo un marco en el que las estrategias se describen en etapas. No necesita codificar para crear una estrategia, ya que las reglas están escritas con declaraciones matemáticas simples. Sin embargo, tanto el conocimiento básico como el avanzado de JavaScript le darán una ventaja. Puede probar e implementar su sistema comercial ejecutando sesiones comerciales desde dentro de la jerarquía de la red.",
+                    "updated": 1683737884718
                 }
             ]
         },

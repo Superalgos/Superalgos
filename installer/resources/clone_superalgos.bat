@@ -8,3 +8,4 @@ git checkout origin/master -ft
 node setup
 node setupPlugins %3 %5
 node updateGithubRepos
+pause

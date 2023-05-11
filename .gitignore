@@ -56,3 +56,6 @@ Platform/WebServer/externalScripts/jquery-3.6.0.js
 
 # Temporary translations
 *_translated.json
+
+# installer files
+unins000.dat

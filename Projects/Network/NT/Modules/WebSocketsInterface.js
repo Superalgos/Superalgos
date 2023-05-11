@@ -54,6 +54,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
                 caller.socket.on('close', onConnectionClosed)
 
+                // Refresh all connections every 1hr.
+                setTimeout(refreshConnections, 3600000);
+
                 /* Active bi-directional heartbeat of the websockets connection to detect and handle hidden connection drops */
                 caller.socket.isAlive = true
                 caller.socket.on('pong', heartbeat)
@@ -91,7 +94,17 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     let socketId = this.id
                     thisObject.socketInterfaces.onConnectionClosed(socketId)
                 }
+
+                // Terminate Connection on server side so client side can reconnect.
+                function refreshConnections() {
+                    clearInterval(interval)
+                    return caller.socket.terminate()
+                }
             }
+
+
+            
+
         } catch (err) {
             SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }

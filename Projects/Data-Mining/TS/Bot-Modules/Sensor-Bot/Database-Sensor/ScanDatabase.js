@@ -17,6 +17,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let lastDataChunkOfTheDay
     let uiStartDate = new Date(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.startDate)
     let firstTimeThisProcessRun = false
+    let lastId
+    let firstId
+    let thisReport;
+    let since
     let initialProcessTimestamp
     let beginingOfMarket
     let lastFile
@@ -82,97 +86,97 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                         lastId = thisReport.file.lastId
                         //lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
-                        
                         defineSince()
                         secondCallBack(dbPath, dbName, saveMessages)
-
-                        function defineSince() {
-                            if (thisReport.file.uiStartDate === undefined) {
-                                thisReport.file.uiStartDate = uiStartDate
-                            } else {
-                                thisReport.file.uiStartDate = new Date(thisReport.file.uiStartDate)
-                            }
-                            if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
-                                since = uiStartDate.valueOf()
-                                initialProcessTimestamp = since
-                                firstTimeThisProcessRun = true
-                                beginingOfMarket = new Date(uiStartDate.valueOf())
-                            } else {
-                                if (lastFile !== undefined) {
-                                    since = lastFile.valueOf()
-                                    initialProcessTimestamp = lastFile.valueOf()
-                                    if (thisReport.file.mustLoadRawData !== undefined) {
-                                        mustLoadRawData = thisReport.file.mustLoadRawData
-                                    }
-                                } else {
-                                    since = uiStartDate.valueOf()
-                                    initialProcessTimestamp = uiStartDate.valueOf()
-                                }
-                            }
-                            if (mustLoadRawData) {  // there is raw data to load
-                                getRawDataArray()   // so fetch it from the file where it was saved on the last run of this process
-                            }
-                            function getRawDataArray() {
-                                mustLoadRawData = false
-                                let fileName = "Data.json"
-                                let datetime = new Date(lastFile.valueOf())
-                                let dateForPath = datetime.getUTCFullYear() + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                                let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
-                                let fullFileName = filePath + '/' + fileName
-                                fileStorage.getTextFile(fullFileName, onFileReceived)
-    
-                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> getRawDataArray -> from file = " + fullFileName)
-    
-                                function onFileReceived(err, text) {
-                                    try {
-                                        if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                            try {
-                                                rawDataArray = JSON.parse(text);
-                                                let dataLength = rawDataArray.length
-                                                if (dataLength > 1) {
-                                                    since = rawDataArray[dataLength - 2][0]  // set the beginning of the fetch back to the start of the second last ohlcv received
-                                                    rawDataArray.pop()  // ditch the last ohlcv received since it may be incomplete
-                                                } else {
-                                                    rawDataArrayFile = []  // we got less than two ohlcvs so we might as well start again from the beginning of the day
-                                                }
-                                            } catch (err) {
-                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
-                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                return
-                                            }
-                                        } else {
-                                            if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
-                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> getRawDataArray -> onFileReceived -> File not found -> err = " + err.stack)
-                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                return
-                                            } else {
-                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Received -> err = " + err.stack)
-                                                callBackFunction(err);
-                                                return
-                                            }
-                                        }
-                                    } catch (err) {
-                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> getRawDataArray -> onFileReceived -> err = " + err.stack);
-                                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                    }
-                                }
-                            }
-                        }
 
                     } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
                         firstTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
+                        defineSince()
                         callBack(dbPath, dbName, saveMessages)
+                    }
+
+                    function defineSince() {
+                        if (thisReport.file.uiStartDate === undefined) {
+                            thisReport.file.uiStartDate = uiStartDate
+                        } else {
+                            thisReport.file.uiStartDate = new Date(thisReport.file.uiStartDate)
+                        }
+                        if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
+                            since = uiStartDate.valueOf()
+                            initialProcessTimestamp = since
+                            firstTimeThisProcessRun = true
+                            beginingOfMarket = new Date(uiStartDate.valueOf())
+                        } else {
+                            if (lastFile !== undefined) {
+                                since = lastFile.valueOf()
+                                initialProcessTimestamp = lastFile.valueOf()
+                                if (thisReport.file.mustLoadRawData !== undefined) {
+                                    mustLoadRawData = thisReport.file.mustLoadRawData
+                                }
+                            } else {
+                                since = uiStartDate.valueOf()
+                                initialProcessTimestamp = uiStartDate.valueOf()
+                            }
+                        }
+                        if (mustLoadRawData) {  // there is raw data to load
+                            getRawDataArray()   // so fetch it from the file where it was saved on the last run of this process
+                        }
+                        function getRawDataArray() {
+                            mustLoadRawData = false
+                            let fileName = "Data.json"
+                            let datetime = new Date(lastFile.valueOf())
+                            let dateForPath = datetime.getUTCFullYear() + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
+                            let fullFileName = filePath + '/' + fileName
+                            fileStorage.getTextFile(fullFileName, onFileReceived)
+
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[INFO] start -> getRawDataArray -> from file = " + fullFileName)
+
+                            function onFileReceived(err, text) {
+                                try {
+                                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                        try {
+                                            rawDataArray = JSON.parse(text);
+                                            let dataLength = rawDataArray.length
+                                            if (dataLength > 1) {
+                                                since = rawDataArray[dataLength - 2][0]  // set the beginning of the fetch back to the start of the second last ohlcv received
+                                                rawDataArray.pop()  // ditch the last ohlcv received since it may be incomplete
+                                            } else {
+                                                rawDataArrayFile = []  // we got less than two ohlcvs so we might as well start again from the beginning of the day
+                                            }
+                                        } catch (err) {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                            return
+                                        }
+                                    } else {
+                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> File not found -> err = " + err.stack)
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                            return
+                                        } else {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Received -> err = " + err.stack)
+                                            callBackFunction(err);
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> getRawDataArray -> onFileReceived -> err = " + err.stack);
+                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        }
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -227,7 +231,31 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         })          
                     })
                 }).then(data => {
-                    callBack(data)
+                    // Convert data object to data array with timestamp as first entry  
+                    let dataArray = []
+                    let dataInfo = []
+                    let dataValues = []
+                    let dataRow = []
+                    const rows = Object.entries(data);
+                    for (const [key, row] of rows) {
+                        dataInfo = []
+                        dataValues = []
+                        dataRow = []
+                        let columnData = Object.entries(row);
+                        for (let [key, value] of columnData) {
+                            if (key === dbTimestamp) {
+                                dataInfo.unshift(value)
+                            } else if (key === "ID") {
+                                dataInfo.push(value)
+                            } else {
+                                dataValues.push(value)
+                            }
+                            dataRow = dataInfo.concat(dataValues)
+                        }
+                        dataArray.push(dataRow)
+                    }
+
+                    callBack(dataArray)
                 })
             }
 
@@ -272,13 +300,37 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         })          
                     })
                 }).then(data => {
-                    callBack(data)
+                    // Convert data object to data array with timestamp as first entry  
+                    let dataArray = []
+                    let dataInfo = []
+                    let dataValues = []
+                    let dataRow = []
+                    const rows = Object.entries(data);
+                    for (const [key, row] of rows) {
+                        dataInfo = []
+                        dataValues = []
+                        dataRow = []
+                        let columnData = Object.entries(row);
+                        for (let [key, value] of columnData) {
+                            if (key === dbTimestamp) {
+                                dataInfo.unshift(value)
+                            } else if (key === "ID") {
+                                dataInfo.push(value)
+                            } else {
+                                dataValues.push(value)
+                            }
+                            dataRow = dataInfo.concat(dataValues)
+                        }
+                        dataArray.push(dataRow)
+                    }
+
+                    callBack(dataArray)
                 })
             }
 
-            function saveMessages(data) {
+            function saveMessages(dataArray) {
                 try {
-                    save(data)
+                    save(dataArray)
 
                     function save(rawDataArray) {
                         /* 
@@ -303,18 +355,18 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let endOfDataArrayReached = false
                             let currentDay = Math.trunc((initialProcessTimestamp - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
     
-                        let lastDataChunk = {
-                            begin: 0,
-                            end: 0,
-                            dataValues: []
-                        }
+                            let lastDataChunk = {
+                                begin: 0,
+                                end: 0,
+                                dataValues: []
+                            }
     
-                        let dataArrayIndex = 0
-                        lastId = undefined
+                            let dataArrayIndex = 0
+                            lastId = undefined
     
-                        if (lastDataChunkOfTheDay !== undefined) {
-                            lastDataChunk = JSON.parse(JSON.stringify(lastDataChunkOfTheDay))
-                        }
+                            if (lastDataChunkOfTheDay !== undefined) {
+                                lastDataChunk = JSON.parse(JSON.stringify(lastDataChunkOfTheDay))
+                            }
     
                             /* 
                             At a macro level, we will be creating one file per day, so we will
@@ -448,18 +500,14 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     }
         
                                     /* 
-                                     We initialize here the dataValues object. These initial 
+                                     We initialize here the loadedData object. These initial 
                                      values should be overridden unless there is no data
                                      fetched that matches with this minute. We need the 
                                      timestamp in order to calculate dataValueMinute.
                                     */
-                                    let dataValue = {
+                                    let loadedData = {
                                         timestamp: (new Date()).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
-                                        open: 0,
-                                        hight: 0,
-                                        low: 0,
-                                        close: 0,
-                                        volume: 0
+                                        dataValues: []
                                     }
         
                                     let record = rawDataArray[dataArrayIndex]
@@ -470,20 +518,21 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     in the situation that we could not get a single
                                     record from the exchange. We still want to be
                                     here so that everything is properly logged.
+
+                                    Slice off first two elements in the array for loaded data values.
                                     */
+                                    let loadedValues = [...record.slice(2)];
+
                                     if (record !== undefined) {
-                                        dataValue = {
+                                        loadedData = {
                                             timestamp: record[0],
-                                            open: record[1],
-                                            hight: record[2],
-                                            low: record[3],
-                                            close: record[4],
-                                            volume: record[5]
+                                            id: record[1],
+                                            dataValues: loadedValues
                                         }
                                     }
         
-                                    let dataMinute = Math.trunc(dataChunk.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
-                                    let dataValueMinute
+                                    let dataChunkMinute = Math.trunc(dataChunk.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                    let loadedDataMinute
                                     /*
                                     Some data sources will return inconsistent data. It is not guaranteed 
                                     that each chunk will have a timeStamp exactly at the beginning of an
@@ -491,16 +540,16 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     between timestamps will be the same. To fix this, we will do this.
                                     */
         
-                                    dataValueMinute = Math.trunc(dataValue.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                    loadedDataMinute = Math.trunc(loadedData.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
         
                                     /*
                                     If the minute of the record item received from the exchange is
                                     less than the minute of the current minute in our loop, 
-                                    that means that we need to reposition the inded at the rawDataArray 
+                                    that means that we need to reposition the index at the rawDataArray 
                                     array, moving it one record forward, and that is what we are
                                     doing here. 
                                     */
-                                    while (dataValueMinute < dataMinute) {
+                                    while (loadedDataMinute < dataChunkMinute) {
         
                                         /* Move forward at the rawDataArray array. */
                                         dataArrayIndex++
@@ -508,7 +557,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         /* Check that we have not passed the end of the array */
                                         if (dataArrayIndex > rawDataArray.length - 1) {
                                             /* 
-                                            We run out of OHLCVs, we can not move to the next OHLCV, 
+                                            We run out of loaded data, we can not move to the next chunk, 
                                             we need to leave this loop. 
                                             */
                                             break
@@ -517,61 +566,58 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         record = rawDataArray[dataArrayIndex]
         
                                         /*
-                                        Once this loop is broken, this is the dataValue that needs 
-                                        to be considered. All the ones in the past are ignored.
+                                        Once this loop is broken, this is the loadedData that needs 
+                                        to be considered. All the ones in the past are ignored. 
+
+                                        Slice off first two elements in the array for loaded data values.
                                         */
-                                        dataValue = {
+
+                                        loadedValues = [...record.slice(2)];
+                                    
+                                        loadedData = {
                                             timestamp: record[0],
-                                            open: record[1],
-                                            hight: record[2],
-                                            low: record[3],
-                                            close: record[4],
-                                            volume: record[5],
-                                            id: record[6]
+                                            id: record[1],
+                                            dataValues: loadedValues
                                         }
         
                                         /* Recalculate this to see if we need to break the loop*/
-                                        dataValueMinute = Math.trunc(dataValue.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                        loadedDataMinute = Math.trunc(loadedData.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                                     }
         
                                     /*
-                                    If the dataMinute and the dataValueMinute matches, then
-                                    we transfer the properties of the dataValue into the 
+                                    If the dataChunkMinute and the loadedDataMinute matches, then
+                                    we transfer the properties of the loadedData into the 
                                     data object. Two things to 
                                     consider here:
         
                                     1. If they do not match, at this point it could only means
-                                    that the dataValueMinute is in the future, in which case the
+                                    that the loadedDataMinute is in the future, in which case the
                                     data object will keep their initialization values
                                     which in turn are equal to the latest chunk of data.
                                     
-                                    2. They might be equal even though the dataValue timestamp
+                                    2. They might be equal even though the loadedData timestamp
                                     did not match exactly the UTC minute, but since we are 
                                     comparing truncated values, then we force the matching
                                     and we correct the shifting in time that sometimes happens.
                                     */
-                                    if (dataMinute === dataValueMinute) {
-                                        candle.open = dataValue.open
-                                        candle.close = dataValue.close
-                                        candle.min = dataValue.low
-                                        candle.max = dataValue.hight
-                                        
+                                    if (dataChunkMinute === loadedDataMinute) {
+                                        dataChunk.dataValues = loadedData.dataValues
         
                                         /* 
-                                        Since we extracted this OHLCV value, we move 
+                                        Since we extracted this data chunk's value, we move 
                                         forward our array index.
                                         */
                                         if (dataArrayIndex < rawDataArray.length - 1) {
                                             dataArrayIndex++
                                         } else {
-                                            endOfTheOHLCVArrayReached = true
+                                            endOfDataArrayReached = true
                                         }
         
-                                        lastId = dataValue.id
+                                        lastId = loadedData.id
                                     }
         
                                     /*
-                                    Here we remember the last candle and volume, in case
+                                    Here we remember the last data chunk, in case
                                     we need it.
                                     */
                                     lastDataChunk = dataChunk
@@ -583,12 +629,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         separator = ',';
                                     }
         
-                                    /* Add the candle to the file content.*/
-                                    candlesFileContent = candlesFileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
+                                    // TODO: make adding file content work no matter how many data values there are.
+                                    /* Add the dataChunk to the file content.*/
+                                    fileContent = fileContent + separator + '[' + JSON.stringify(dataChunk.dataValues) + "," + dataChunk.begin + "," + dataChunk.end + "]";
         
                                     /* We store the last candle of the day in order to have a previous candles during next execution. */
                                     if (minuteOfTheDay === 1440 - 1) {
-                                        lastDataChunkOfTheDay = JSON.parse(JSON.stringify(candle))
+                                        lastDataChunkOfTheDay = JSON.parse(JSON.stringify(dataChunk))
                                     }
         
                                     /* Reporting we are doing well */
@@ -628,17 +675,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 controlLoop()
         
                                 function saveFile(day) {
-                                    candlesFileContent = candlesFileContent + ']'
-                                    volumesFileContent = volumesFileContent + ']'
+                                    fileContent = fileContent + ']'
                                     ohlcvsFileContent = getRawDataToSave(day)
         
                                     let fileName = 'Data.json'
         
                                     filesToCreate++
-                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
-        
-                                    filesToCreate++
-                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
         
                                     if (ohlcvsFileContent !== undefined) {
                                         filesToCreate++
@@ -648,7 +691,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         mustLoadRawData = false
                                     }
         
-                                    candlesFileContent = '['
+                                    fileContent = '['
                                     volumesFileContent = '['
                                     needSeparator = false
                                 }

@@ -2,7 +2,8 @@
 exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     const MODULE_NAME = "Scan Database";
-    const FOLDER_NAME = "Database-Files";
+    const DATA_FOLDER_NAME = "Database-Files/One-Min";
+    const RAWDATA_FOLDER_NAME = "Raw-Database-Files/One-Min";
     const sqlite3 = require('sqlite3').verbose() 
 
     let thisObject = {
@@ -28,11 +29,15 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let dbName = undefined
     let dbTimestamp = undefined
 
+    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
+
     return thisObject;
 
     function initialize(pStatusDependencies, callBackFunction) {
         try {
             statusDependencies = pStatusDependencies;
+            
 
             // TODO: handle error in configs with hints
             dbPath = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databasePath
@@ -129,7 +134,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
+                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + RAWDATA_FOLDER_NAME + '/' + dateForPath;
                             let fullFileName = filePath + '/' + fileName
                             fileStorage.getTextFile(fullFileName, onFileReceived)
 
@@ -207,7 +212,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         }
                     )
             
-                    // TODO: make two queries, one for inital load, another for addtional loops
                     // TODO: get query values from task node configs 
                     database.serialize(() => {
                         // Gather all Data from Table
@@ -521,9 +525,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                                     Slice off first two elements in the array for loaded data values.
                                     */
-                                    let loadedValues = [...record.slice(2)];
-
+                                    
                                     if (record !== undefined) {
+                                        let loadedValues = [...record.slice(2)];
                                         loadedData = {
                                             timestamp: record[0],
                                             id: record[1],
@@ -629,7 +633,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         separator = ',';
                                     }
         
-                                    // TODO: make adding file content work no matter how many data values there are.
                                     /* Add the dataChunk to the file content.*/
                                     fileContent = fileContent + separator + '[' + JSON.stringify(dataChunk.dataValues) + "," + dataChunk.begin + "," + dataChunk.end + "]";
         
@@ -655,7 +658,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                             "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + rawDataArray.length)
-                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
+                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
                                     }
                                 }
         
@@ -676,30 +679,29 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                 function saveFile(day) {
                                     fileContent = fileContent + ']'
-                                    ohlcvsFileContent = getRawDataToSave(day)
+                                    let rawFileContent = getRawDataToSave(day)
         
                                     let fileName = 'Data.json'
         
                                     filesToCreate++
-                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
         
-                                    if (ohlcvsFileContent !== undefined) {
+                                    if (rawFileContent !== undefined) {
                                         filesToCreate++
-                                        fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n', onFileCreated);
+                                        fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, RAWDATA_FOLDER_NAME) + '/' + fileName, rawFileContent + '\n', onFileCreated);
                                         mustLoadRawData = true
                                     } else {
                                         mustLoadRawData = false
                                     }
         
                                     fileContent = '['
-                                    volumesFileContent = '['
                                     needSeparator = false
                                 }
         
                                 function getRawDataToSave(day) {
                                     /*
-                                    What we are doing here is determining whether the currently accumulated raw OHCLV's should be saved or not,
-                                    so that the next time the bot process runs, it must continue from where the raw OHLCV's ended.
+                                    What we are doing here is determining whether the currently accumulated raw Data should be saved or not,
+                                    so that the next time the bot process runs, it must continue from where the raw Data ended.
                                     If the current end of the array contains elements beyond the day being processed, it means that the full
                                     day has been successfully downloaded, so it is not necessary to save this data.
                                     */
@@ -764,28 +766,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             //abort = true
                         }   
 
-                        // TODO: code after this will most likely be depricated 
-                       /* if (fileContent !== undefined) {
-                            // TODO: Need logic to splite and package data into one min files here
-                            fileContent.append(JSON.stringify(data))
-                        } else {
-                            // we are going to save the current messages.
-                            fileContent = JSON.stringify(data)
-                        }
-
-                        let fileName = 'Data.json'
-                        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
-                        fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-                            if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> saveMessages -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                            } else {
-                                writeStatusReport()
-                            }
-                        }*/
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -797,9 +777,15 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
             function writeStatusReport() {
                 try {
+                    if (lastFile === undefined) { return }
                     thisReport.file = {
-                        lastRun: (new Date()).toISOString(),
-                        uiStartDate: uiStartDate.toUTCString(),
+                        lastFile: {
+                            year: lastFile.getUTCFullYear(),
+                            month: (lastFile.getUTCMonth() + 1),
+                            days: lastFile.getUTCDate(),
+                            hours: lastFile.getUTCHours(),
+                            minutes: lastFile.getUTCMinutes()
+                        },
                         beginingOfMarket: {
                             year: beginingOfMarket.getUTCFullYear(),
                             month: (beginingOfMarket.getUTCMonth() + 1),
@@ -808,6 +794,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             minutes: beginingOfMarket.getUTCMinutes()
                         },
                         uiStartDate: uiStartDate.toUTCString(),
+                        lastRun: (new Date()).toISOString(),
                         mustLoadRawData: mustLoadRawData
                     };
                     thisReport.save(onSaved);

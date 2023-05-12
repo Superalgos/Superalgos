@@ -782,7 +782,7 @@ function newWorkspace() {
 
         let webCommand
         if (project !== "") {
-            name = name.replace('Plugin \u2192 ', '')
+            name = name.replace('Native \u2192 ', '')
             webCommand = 'LoadPlugin' + '/' + project + '/' + 'Workspaces' + '/' + name + '.json'
             currentWorkspaceTitle = 'Sample'
         } else {

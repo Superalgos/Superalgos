@@ -54,6 +54,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
                 caller.socket.on('close', onConnectionClosed)
 
+
                 /* Active bi-directional heartbeat of the websockets connection to detect and handle hidden connection drops */
                 caller.socket.isAlive = true
                 caller.socket.on('pong', heartbeat)
@@ -92,6 +93,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     thisObject.socketInterfaces.onConnectionClosed(socketId)
                 }
             }
+
+
+            
+
         } catch (err) {
             SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }

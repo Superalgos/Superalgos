@@ -1,9 +1,9 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "1",
-    "type": "Sample Workspaces",
+    "type": "Native Workspaces",
     "definition": {
-        "text": "Superalgos ships with several Sample Workspaces set up by the community to facilitate user onboarding. This topic covers each of them and explains their purpose.",
+        "text": "Superalgos ships with several Native Workspaces set up by the community to facilitate user onboarding. This topic covers each of them and explains their purpose.",
         "updated": 1616145035073,
         "translations": [
             {
@@ -27,12 +27,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Each Sample Workspaces hipping with Superalgos was built with a specific purpose. ",
+            "text": "Each Native Workspaces hipping with Superalgos was built with a specific purpose. ",
             "updated": 1616172565179,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cada Sample Workspace incluído en Superalgos ha sido cnstruido para un propósito específico.",
+                    "text": "Cada Native Workspace incluído en Superalgos ha sido cnstruido para un propósito específico.",
                     "updated": 1633281831625,
                     "style": "Text"
                 },

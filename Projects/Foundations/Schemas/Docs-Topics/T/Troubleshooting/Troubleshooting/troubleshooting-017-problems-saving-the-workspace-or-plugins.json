@@ -323,22 +323,22 @@
         },
         {
             "style": "Text",
-            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Sample Workspace.",
+            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Native Workspace.",
             "updated": 1620846971983,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если система не находит никакого названия в локальном хранилище браузера, или если она находит название, но не может найти файл этого рабочего пространства, то она попытается загрузить рабочее пространство \"по умолчанию\", которое является Getting Started Sample Workspace.",
+                    "text": "Если система не находит никакого названия в локальном хранилище браузера, или если она находит название, но не может найти файл этого рабочего пространства, то она попытается загрузить рабочее пространство \"по умолчанию\", которое является Getting Started Native Workspace.",
                     "updated": 1640541727756
                 },
                 {
                     "language": "TR",
-                    "text": "Sistem, tarayıcının yerel deposunda herhangi bir ad bulamazsa veya bir ad bulur ancak bu çalışma alanının dosyasını bulamazsa, 'varsayılan' çalışma alanını, yani Başlarken Eklenti Çalışma Alanı'nı ( Getting Started Sample Workspace ) yüklemeye çalışır.",
+                    "text": "Sistem, tarayıcının yerel deposunda herhangi bir ad bulamazsa veya bir ad bulur ancak bu çalışma alanının dosyasını bulamazsa, 'varsayılan' çalışma alanını, yani Başlarken Eklenti Çalışma Alanı'nı ( Getting Started Native Workspace ) yüklemeye çalışır.",
                     "updated": 1647872602958
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn das System keinen Namen im lokalen Speicher des Browsers findet oder wenn es einen Namen findet, aber die Datei dieses Arbeitsbereichs nicht finden kann, versuchen sie den'Standard'-Arbeitsbereich zu laden, d .h. den Plugin-Arbeitsbereich (Sample Workspace) \"Erste Schritte\".",
+                    "text": "Wenn das System keinen Namen im lokalen Speicher des Browsers findet oder wenn es einen Namen findet, aber die Datei dieses Arbeitsbereichs nicht finden kann, versuchen sie den'Standard'-Arbeitsbereich zu laden, d .h. den Plugin-Arbeitsbereich (Native Workspace) \"Erste Schritte\".",
                     "updated": 1678650769848
                 }
             ]
@@ -388,21 +388,21 @@
         },
         {
             "style": "Text",
-            "text": "The first time you run Superalgos it will load the Getting Started Sample Workspace. The system will try to save the loaded workspace every minute. But Sample Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. ",
+            "text": "The first time you run Superalgos it will load the Getting Started Native Workspace. The system will try to save the loaded workspace every minute. But Native Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. ",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "При первом запуске Superalgos будет загружено рабочее пространство Getting Started Sample Workspace. Система будет пытаться сохранить загруженное рабочее пространство каждую минуту. Но рабочее пространство Sample Workspaces не может быть заменено загруженным, вместо этого создается его копия в папке My Workspaces с названием узла типа Workspace, который представляет все рабочее пространство. Создать новое рабочее пространство можно, переименовав узел рабочего пространства и сохранив его после этого.",
+                    "text": "При первом запуске Superalgos будет загружено рабочее пространство Getting Started Native Workspace. Система будет пытаться сохранить загруженное рабочее пространство каждую минуту. Но рабочее пространство Native Workspaces не может быть заменено загруженным, вместо этого создается его копия в папке My Workspaces с названием узла типа Workspace, который представляет все рабочее пространство. Создать новое рабочее пространство можно, переименовав узел рабочего пространства и сохранив его после этого.",
                     "updated": 1640541811121
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos'u ilk çalıştırdığınızda, Başlarken Eklenti Çalışma Alanını ( Sample Workspace ) yükleyecektir. Sistem, yüklenen çalışma alanını her dakika kaydetmeye çalışacaktır. Ancak Eklenti Çalışma Alanları ( Sample Workspace ), yüklenenle değiştirilemez, bunun yerine Çalışma Alanlarım klasöründe, tüm çalışma alanını temsil eden Çalışma Alanı ( Workspaces ) türü düğüm adıyla bir kopyası oluşturulur. Yeni bir çalışma alanı yaratmanın yolu, çalışma alanı düğümünü yeniden adlandırmak ve bundan sonra kaydetmektir.",
+                    "text": "Superalgos'u ilk çalıştırdığınızda, Başlarken Eklenti Çalışma Alanını ( Native Workspace ) yükleyecektir. Sistem, yüklenen çalışma alanını her dakika kaydetmeye çalışacaktır. Ancak Eklenti Çalışma Alanları ( Native Workspace ), yüklenenle değiştirilemez, bunun yerine Çalışma Alanlarım klasöründe, tüm çalışma alanını temsil eden Çalışma Alanı ( Workspaces ) türü düğüm adıyla bir kopyası oluşturulur. Yeni bir çalışma alanı yaratmanın yolu, çalışma alanı düğümünü yeniden adlandırmak ve bundan sonra kaydetmektir.",
                     "updated": 1647872763170
                 },
                 {
                     "language": "DE",
-                    "text": "Das System wird versuchen, den geladenen Arbeitsbereich jede Minute zu speichern. Plugin-Arbeitsbereiche (Sample Workspace) können jedoch nicht durch den geladenen ersetzt werden, sondern es wird eine Kopie davon im Ordner Meine Arbeitsbereiche (Workspaces) mit dem Namen des Knotens vom Typ Arbeitsbereich (Workspace) erstellt, der den gesamten Arbeitsbereich repräsentiert. Um einen neuen Arbeitsbereich zu erstellen, muss der Arbeitsbereichsknoten umbenannt und anschließend gespeichert werden.",
+                    "text": "Das System wird versuchen, den geladenen Arbeitsbereich jede Minute zu speichern. Plugin-Arbeitsbereiche (Native Workspace) können jedoch nicht durch den geladenen ersetzt werden, sondern es wird eine Kopie davon im Ordner Meine Arbeitsbereiche (Workspaces) mit dem Namen des Knotens vom Typ Arbeitsbereich (Workspace) erstellt, der den gesamten Arbeitsbereich repräsentiert. Um einen neuen Arbeitsbereich zu erstellen, muss der Arbeitsbereichsknoten umbenannt und anschließend gespeichert werden.",
                     "updated": 1678650035600
                 }
             ]
@@ -452,28 +452,28 @@
         },
         {
             "style": "Text",
-            "text": "Every time you open the left side bar, the system will search the Sample Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel.",
+            "text": "Every time you open the left side bar, the system will search the Native Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Каждый раз, когда вы открываете левую боковую вкладку, система будет искать папку Sample Workspaces и помещать все найденные там файлы в эту кладку. Она также просканирует всю папку My Workspaces и добавит эти файлы в нижнюю часть левой боковой вклади.",
+                    "text": "Каждый раз, когда вы открываете левую боковую вкладку, система будет искать папку Native Workspaces и помещать все найденные там файлы в эту кладку. Она также просканирует всю папку My Workspaces и добавит эти файлы в нижнюю часть левой боковой вклади.",
                     "updated": 1640541998896
                 },
                 {
                     "language": "TR",
-                    "text": "Sol taraftaki çubuğu her açtığınızda, sistem Sample Workspaces klasörünü arayacak ve orada bulunan tüm dosyaları sol taraftaki panele yerleştirecektir. Ayrıca tüm Çalışma Alanlarım klasörünü tarayacak ve bu dosyaları sol yan panelin altına ekleyecektir.",
+                    "text": "Sol taraftaki çubuğu her açtığınızda, sistem Native Workspaces klasörünü arayacak ve orada bulunan tüm dosyaları sol taraftaki panele yerleştirecektir. Ayrıca tüm Çalışma Alanlarım klasörünü tarayacak ve bu dosyaları sol yan panelin altına ekleyecektir.",
                     "updated": 1647873349212
                 },
                 {
                     "language": "DE",
-                    "text": "Jedes Mal, wenn Sie die linke Seitenleiste öffnen, durchsucht das System den Ordner Sample Workspaces und platziert alle dort gefundenen Dateien in der linken Seitenleiste. Es durchsucht auch alle My Workspaces -Ordner und fügt diese Dateien unten in der linken Seitenleiste hinzu.",
+                    "text": "Jedes Mal, wenn Sie die linke Seitenleiste öffnen, durchsucht das System den Ordner Native Workspaces und platziert alle dort gefundenen Dateien in der linken Seitenleiste. Es durchsucht auch alle My Workspaces -Ordner und fügt diese Dateien unten in der linken Seitenleiste hinzu.",
                     "updated": 1678650086373
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Sample Workspaces finishes, you will see the ones saved / renamed by you.",
+            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Native Workspaces finishes, you will see the ones saved / renamed by you.",
             "translations": [
                 {
                     "language": "RU",
@@ -482,7 +482,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um auf einen gespeicherten oder umbenannten Arbeitsbereich zuzugreifen, öffnen Sie das linke Seitenfenster und scrollen Sie nach unten, um die von Ihnen gespeicherten/umbenannten Arbeitsbereiche (Sample Workspaces) zu sehen.",
+                    "text": "Um auf einen gespeicherten oder umbenannten Arbeitsbereich zuzugreifen, öffnen Sie das linke Seitenfenster und scrollen Sie nach unten, um die von Ihnen gespeicherten/umbenannten Arbeitsbereiche (Native Workspaces) zu sehen.",
                     "updated": 1678650101817
                 }
             ]
@@ -506,22 +506,22 @@
         },
         {
             "style": "Text",
-            "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Sample Workspace. ",
+            "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Native Workspace. ",
             "updated": 1620847650616,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Возможно, файл был поврежден, или версия системы изменилась и не распознает ваш формат файла. Вам нужно переместить файл рабочего пространства из папки My Workspaces, чтобы система загрузила рабочее пространство по умолчанию, которым будет являться рабочее пространство Getting Started Sample Workspace.",
+                    "text": "Возможно, файл был поврежден, или версия системы изменилась и не распознает ваш формат файла. Вам нужно переместить файл рабочего пространства из папки My Workspaces, чтобы система загрузила рабочее пространство по умолчанию, которым будет являться рабочее пространство Getting Started Native Workspace.",
                     "updated": 1640542133436
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Kaydedilmiş veya yeniden adlandırılmış bir çalışma alanına erişmek için sol yan paneli açın ve aşağıya doğru kaydırın, Eklenti Çalışma Alanları ( Sample Workspaces ) listesi tamamlandıktan sonra, sizin tarafınızdan kaydedilen / yeniden adlandırılanları göreceksiniz.",
+                    "text": "Not: Kaydedilmiş veya yeniden adlandırılmış bir çalışma alanına erişmek için sol yan paneli açın ve aşağıya doğru kaydırın, Eklenti Çalışma Alanları ( Native Workspaces ) listesi tamamlandıktan sonra, sizin tarafınızdan kaydedilen / yeniden adlandırılanları göreceksiniz.",
                     "updated": 1647873384836
                 },
                 {
                     "language": "DE",
-                    "text": "Es kann vorkommen, dass die Datei beschädigt wurde oder die Systemversion sich geändert hat und Ihr Dateiformat nicht erkennt. Sie müssen Ihre Arbeitsbereichsdatei aus dem Ordner \"Meine Arbeitsbereiche\" (My Workspaces) verschieben, damit das System den Standardarbeitsbereich lädt, d. h. den Plugin-Arbeitsbereich (Sample Workspace) \"Erste Schritte\".",
+                    "text": "Es kann vorkommen, dass die Datei beschädigt wurde oder die Systemversion sich geändert hat und Ihr Dateiformat nicht erkennt. Sie müssen Ihre Arbeitsbereichsdatei aus dem Ordner \"Meine Arbeitsbereiche\" (My Workspaces) verschieben, damit das System den Standardarbeitsbereich lädt, d. h. den Plugin-Arbeitsbereich (Native Workspace) \"Erste Schritte\".",
                     "updated": 1678650124854
                 }
             ]
@@ -571,21 +571,21 @@
         },
         {
             "style": "Text",
-            "text": "If you are using a Sample Workspace, the way to recover is by loading that Sample Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well.",
+            "text": "If you are using a Native Workspace, the way to recover is by loading that Native Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если вы используете подключаемое рабочее пространство (Sample Workspace), способ восстановления заключается в повторной загрузке этого подключаемого рабочего пространства. Естественно, система сохранит копию в папке My Workspaces, перезаписав все внесенные вами изменения. После этого все задачи будут выполняться нормально.",
+                    "text": "Если вы используете подключаемое рабочее пространство (Native Workspace), способ восстановления заключается в повторной загрузке этого подключаемого рабочего пространства. Естественно, система сохранит копию в папке My Workspaces, перезаписав все внесенные вами изменения. После этого все задачи будут выполняться нормально.",
                     "updated": 1640542235344
                 },
                 {
                     "language": "TR",
-                    "text": "Bir Eklenti Çalışma Alanı ( Sample Workspaces ) kullanıyorsanız, kurtarmanın yolu, o Eklenti Çalışma Alanını yeniden yüklemektir. Sistem, doğal olarak, yaptığınız değişikliklerin üzerine yazarak Çalışma Alanlarım ( Workspaces ) klasörüne bir kopya kaydedecektir. Oradan tüm görevler iyi çalışmalıdır.",
+                    "text": "Bir Eklenti Çalışma Alanı ( Native Workspaces ) kullanıyorsanız, kurtarmanın yolu, o Eklenti Çalışma Alanını yeniden yüklemektir. Sistem, doğal olarak, yaptığınız değişikliklerin üzerine yazarak Çalışma Alanlarım ( Workspaces ) klasörüne bir kopya kaydedecektir. Oradan tüm görevler iyi çalışmalıdır.",
                     "updated": 1647873830342
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie einen Plugin-Arbeitsbereich (Sample Workspace) verwenden, können Sie diesen wiederherstellen, indem Sie den Plugin-Arbeitsbereich (Sample Workspace) erneut laden. Das System speichert dann natürlich eine Kopie im Ordner Mein Arbeitsbereich (My Workspaces) und überschreibt dabei alle von Ihnen vorgenommenen Änderungen. Von dort aus sollten alle Aufgaben gut laufen.",
+                    "text": "Wenn Sie einen Plugin-Arbeitsbereich (Native Workspace) verwenden, können Sie diesen wiederherstellen, indem Sie den Plugin-Arbeitsbereich (Native Workspace) erneut laden. Das System speichert dann natürlich eine Kopie im Ordner Mein Arbeitsbereich (My Workspaces) und überschreibt dabei alle von Ihnen vorgenommenen Änderungen. Von dort aus sollten alle Aufgaben gut laufen.",
                     "updated": 1678650171416
                 }
             ]

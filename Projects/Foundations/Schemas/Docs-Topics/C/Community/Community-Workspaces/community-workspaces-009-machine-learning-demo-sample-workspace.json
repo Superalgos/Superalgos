@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "9",
-    "type": "Machine Learning Demo Sample Workspace",
+    "type": "Machine Learning Demo Native Workspace",
     "definition": {
         "text": "The workspace features the basic setup to start exploring the integration of the TensorFlow Project.",
         "updated": 1616693308998,

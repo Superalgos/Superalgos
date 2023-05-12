@@ -13,7 +13,7 @@ function newWorkspacesSystemActionWorkspaceFunctions() {
         let response = await httpRequestAsync(undefined, 'ListWorkspaces')
 
         if (type === 'plugin') {
-            /* for native workspaces, the first value of the workspace array is a non-empty string containing the project */
+            /* for Native workspaces, the first value of the workspace array is a non-empty string containing the project */
             let pluginWorkspaces = JSON.parse(response.message).filter(x => x[0] !== '')
             let pluginWorkspaceProjects = []
 

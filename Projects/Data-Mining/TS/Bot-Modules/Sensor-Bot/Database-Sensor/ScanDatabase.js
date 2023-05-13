@@ -17,7 +17,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let statusDependencies
     let lastDataChunkOfTheDay
     let uiStartDate = new Date(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.startDate)
-    let firstTimeThisProcessRun = false
     let lastId
     let firstId
     let thisReport;
@@ -28,6 +27,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let dbPath = undefined
     let dbName = undefined
     let dbTimestamp = undefined
+    let rawDataArray
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
@@ -79,7 +79,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         return;
                     }
 
-                    /* Check if the uiStartDate is Invalid, if so lets set it to the Epoch and let the getMarketStart function later take care of it */
+                    //TODO: getDataStart to determine the start of date if the uiStartDate is not specified or inaccurate 
+                    /* Check if the uiStartDate is Invalid, if so lets set it to the Epoch and let the getDataStart function later take care of it */
                     if(isNaN(uiStartDate)) {
                         uiStartDate = new Date(0)
                     }
@@ -95,7 +96,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         secondCallBack(dbPath, dbName, saveMessages)
 
                     } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
-                        firstTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                         defineSince()
                         callBack(dbPath, dbName, saveMessages)
@@ -108,19 +108,15 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             thisReport.file.uiStartDate = new Date(thisReport.file.uiStartDate)
                         }
                         if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
-                            since = uiStartDate.valueOf()
-                            initialProcessTimestamp = since
-                            firstTimeThisProcessRun = true
+                            initialProcessTimestamp = uiStartDate.valueOf()
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
                             if (lastFile !== undefined) {
-                                since = lastFile.valueOf()
                                 initialProcessTimestamp = lastFile.valueOf()
                                 if (thisReport.file.mustLoadRawData !== undefined) {
                                     mustLoadRawData = thisReport.file.mustLoadRawData
                                 }
                             } else {
-                                since = uiStartDate.valueOf()
                                 initialProcessTimestamp = uiStartDate.valueOf()
                             }
                         }
@@ -138,21 +134,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let fullFileName = filePath + '/' + fileName
                             fileStorage.getTextFile(fullFileName, onFileReceived)
 
-                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getRawDataArray -> from file = " + fullFileName)
+                            SA.logger.info(MODULE_NAME + " start -> getRawDataArray -> from file = " + fullFileName)
 
                             function onFileReceived(err, text) {
                                 try {
                                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                         try {
                                             rawDataArray = JSON.parse(text);
-                                            let dataLength = rawDataArray.length
-                                            if (dataLength > 1) {
-                                                since = rawDataArray[dataLength - 2][0]  // set the beginning of the fetch back to the start of the second last ohlcv received
-                                                rawDataArray.pop()  // ditch the last ohlcv received since it may be incomplete
-                                            } else {
-                                                rawDataArrayFile = []  // we got less than two ohlcvs so we might as well start again from the beginning of the day
-                                            }
                                         } catch (err) {
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
@@ -336,18 +324,20 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 try {
                     save(dataArray)
 
-                    function save(rawDataArray) {
+                    function save(newDataArray) {
                         /* 
                         What we are going to do in this function is to save all data  
                         received from the database. We need to partition the batch of data
                         into 1 day files. At the same time we need to take care of the situation
                         that some data may be inconsistent. We have detected some cases
-                        where data is sub minute or does not begin at second 0 of the minute but are a little
-                        bit shifted. We will try to detect this and fix it as we go. 
+                        where data is sub minute and have multiple values in a minute or does not 
+                        begin at second 0 of the minute but are a little bit shifted. We will try 
+                        to detect this and fix it as we go aggregating data into descrete one minute chunks.
         
                         We have the data received from the database at the array data
                         */
-                        console.log(rawDataArray)
+                        console.log(newDataArray)
+                        //TODO: rawDataArray needs checked to make sure that we are not overwriting previoucsly saveed data
                         try { 
                             let fileContent = '['
 
@@ -411,10 +401,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 if the process was canceled for any reason at the middle, 
                                 or the data stops mid day.
                                 */
-                                if (dataArrayIndex >= rawDataArray.length - 1) {
+                                if (dataArrayIndex >= newDataArray.length - 1) {
                                     writeStatusReport()
                                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> saveOHLCVs -> controlLoop -> Exiting because I reached the end of the rawDataArray array. ")
+                                        "[INFO] start -> saveOHLCVs -> controlLoop -> Exiting because I reached the end of the newDataArray array. ")
                                     return
                                 }
         
@@ -514,7 +504,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         dataValues: []
                                     }
         
-                                    let record = rawDataArray[dataArrayIndex]
+                                    let record = newDataArray[dataArrayIndex]
         
                                     /* 
                                     We will check that we can have a record to 
@@ -549,17 +539,17 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     /*
                                     If the minute of the record item received from the exchange is
                                     less than the minute of the current minute in our loop, 
-                                    that means that we need to reposition the index at the rawDataArray 
+                                    that means that we need to reposition the index at the newDataArray 
                                     array, moving it one record forward, and that is what we are
                                     doing here. 
                                     */
                                     while (loadedDataMinute < dataChunkMinute) {
         
-                                        /* Move forward at the rawDataArray array. */
+                                        /* Move forward at the newDataArray array. */
                                         dataArrayIndex++
         
                                         /* Check that we have not passed the end of the array */
-                                        if (dataArrayIndex > rawDataArray.length - 1) {
+                                        if (dataArrayIndex > newDataArray.length - 1) {
                                             /* 
                                             We run out of loaded data, we can not move to the next chunk, 
                                             we need to leave this loop. 
@@ -567,7 +557,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             break
                                         }
         
-                                        record = rawDataArray[dataArrayIndex]
+                                        record = newDataArray[dataArrayIndex]
         
                                         /*
                                         Once this loop is broken, this is the loadedData that needs 
@@ -611,7 +601,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         Since we extracted this data chunk's value, we move 
                                         forward our array index.
                                         */
-                                        if (dataArrayIndex < rawDataArray.length - 1) {
+                                        if (dataArrayIndex < newDataArray.length - 1) {
                                             dataArrayIndex++
                                         } else {
                                             endOfDataArrayReached = true
@@ -657,8 +647,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
         
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + rawDataArray.length)
-                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
+                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + newDataArray.length)
+                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
                                     }
                                 }
         
@@ -706,28 +696,28 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     day has been successfully downloaded, so it is not necessary to save this data.
                                     */
                                     let rawDataFileData
-                                    let dataLength = rawDataArray.length
+                                    let dataLength = newDataArray.length
                                     if (dataLength > 0) {
                                         // first get the start of the day after this day we are checking
                                         let timestamp = (day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
                                             SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
-                                        if (rawDataArray[dataLength - 1][0] < timestamp) {
+                                        if (newDataArray[dataLength - 1][0] < timestamp) {
                                             // there is no data for the next day, so now trim this day's data to remove anything before it
                                             timestamp -= SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                                             let dataIndex = 0
                                             while (dataIndex < dataLength - 1) {
-                                                if (rawDataArray[dataIndex][0] < timestamp) {  // this data is from a previous day
+                                                if (newDataArray[dataIndex][0] < timestamp) {  // this data is from a previous day
                                                     dataIndex++
                                                 } else {
                                                     break  // found the beginning of this day's data
                                                 }
                                             }
                                             if (dataIndex > 0) {
-                                                rawDataArray = rawDataArray.slice(dataIndex, dataLength)  // remove data from previous days
-                                                dataLength = rawDataArray.length
+                                                newDataArray = newDataArray.slice(dataIndex, dataLength)  // remove data from previous days
+                                                dataLength = newDataArray.length
                                             }
                                             if (dataLength > 0) {
-                                                rawDataFileData = JSON.stringify(rawDataArray)  // finally we have what we need to save
+                                                rawDataFileData = JSON.stringify(newDataArray)  // finally we have what we need to save
                                             }
                                         }
                                     }

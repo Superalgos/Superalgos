@@ -2,8 +2,9 @@
 exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     const MODULE_NAME = "Scan Database";
-    const DATA_FOLDER_NAME = "Database-Files/One-Min";
-    const RAWDATA_FOLDER_NAME = "Raw-Database-Files/One-Min";
+    // TODO: set up dynamic folder names from dataset defintion us name of product and dataset node names
+    const DATA_FOLDER_NAME = "Scanned-Data/One-Min";
+    const RAWDATA_FOLDER_NAME = "Raw-Scanned-Data/One-Min";
     const sqlite3 = require('sqlite3').verbose() 
 
     let thisObject = {
@@ -27,6 +28,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let dbPath = undefined
     let dbName = undefined
     let dbTimestamp = undefined
+    let datasetDef = undefined
     let rawDataArray
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
@@ -43,6 +45,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
             dbPath = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databasePath
             dbName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTableName
             dbTimestamp = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTimestampColumn
+            datasetDef = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[0].referenceParent.processOutput.outputDatasetFolders[0].outputDatasets[0].referenceParent.parentNode.record
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
@@ -671,6 +674,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     fileContent = fileContent + ']'
                                     let rawFileContent = getRawDataToSave(day)
         
+                                    // TODO:can hook this up to add dynamic name from dataset definition
                                     let fileName = 'Data.json'
         
                                     filesToCreate++

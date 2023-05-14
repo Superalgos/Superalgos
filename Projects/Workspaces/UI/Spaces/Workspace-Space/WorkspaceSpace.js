@@ -70,7 +70,7 @@ function newWorkspacesWorkspaceSpace() {
 
     function getContainer(point, purpose) {
         // if (thisObject.sidePanelTab === undefined) { return }
-        let container
+        // let container
 
         // container = thisObject.sidePanelTab.getContainer(point, purpose)
         // if (container !== undefined) { return container }

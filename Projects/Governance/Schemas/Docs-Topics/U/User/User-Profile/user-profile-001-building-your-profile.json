@@ -100,7 +100,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ön bilgi: Superalgos Platformunun nasıl çalıştığına dair temel bir anlayış. Henüz yapmadıysanız, Yönetişim Projesine dalmadan önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki (Getting Started Tutorials Sample) öğreticileri yaptığınızdan emin olun.",
+                    "text": "Ön bilgi: Superalgos Platformunun nasıl çalıştığına dair temel bir anlayış. Henüz yapmadıysanız, Yönetişim Projesine dalmadan önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki (Getting Started Tutorials Native Workspace) öğreticileri yaptığınızdan emin olun.",
                     "updated": 1645106428430
                 },
                 {
@@ -227,7 +227,7 @@
                 },
                 {
                     "language": "ES",
-                    "text": "1. Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens",
+                    "text": "1. Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens (Token Distribution Superalgos Native Workspace) ",
                     "updated": 1682595904895
                 },
                 {
@@ -237,7 +237,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Laden Sie den Arbeitsbereich für das Superalgos-Sample Token Distribution",
+                    "text": "Laden Sie den Arbeitsbereich für das Superalgos-Native Token Distribution",
                     "updated": 1682281095606
                 }
             ]
@@ -264,7 +264,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können mit dem Superalgos-Sample-Arbeitsbereich (Native Workspace ) für die Token-Verteilung beginnen, damit Sie später mit den Superalgos-Projektdefinitionen (Superalgos Project definitions) auf oberster Ebene interagieren können.",
+                    "text": "Sie können mit dem Superalgos-Native-Arbeitsbereich (Native Workspace ) für die Token-Verteilung beginnen, damit Sie später mit den Superalgos-Projektdefinitionen (Superalgos Project definitions) auf oberster Ebene interagieren können.",
                     "updated": 1682281109896
                 }
             ]
@@ -541,7 +541,7 @@
         },
         {
             "style": "List",
-            "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a Sample in the Governance Project.",
+            "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a Plugin in the Governance Project.",
             "updated": 1630080772975,
             "translations": [
                 {
@@ -561,7 +561,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wird mit dem privaten Schlüssel signiert, der der soeben generierten Adresse oder dem von Ihnen eingegebenen Mnemonik entspricht. Diese Nachricht wird in Ihrem Benutzerprofil (User Profile) gespeichert, damit wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Sample im Governance-Projekt (Governance Project) einreichen.",
+                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wird mit dem privaten Schlüssel signiert, der der soeben generierten Adresse oder dem von Ihnen eingegebenen Mnemonik entspricht. Diese Nachricht wird in Ihrem Benutzerprofil (User Profile) gespeichert, damit wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Plugin im Governance-Projekt (Governance Project) einreichen.",
                     "updated": 1682281237455
                 }
             ]

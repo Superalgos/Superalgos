@@ -117,7 +117,7 @@ function newWorkspace() {
                         UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
                         if (queryString.initialWorkspaceType !== 'My-Workspaces') {
                             webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
-                            currentWorkspaceTitle = 'Sample'
+                            currentWorkspaceTitle = 'Native'
                         } else {
                             webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
                             currentWorkspaceTitle = 'User'
@@ -784,7 +784,7 @@ function newWorkspace() {
         if (project !== "") {
             name = name.replace('Native \u2192 ', '')
             webCommand = 'LoadPlugin' + '/' + project + '/' + 'Workspaces' + '/' + name + '.json'
-            currentWorkspaceTitle = 'Sample'
+            currentWorkspaceTitle = 'Native'
         } else {
             webCommand = 'LoadMyWorkspace' + '/' + name
             currentWorkspaceTitle = 'User'

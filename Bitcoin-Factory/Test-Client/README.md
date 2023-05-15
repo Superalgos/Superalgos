@@ -103,7 +103,7 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 
 ## App Setup
 
-The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Sample Workspace, and from there you will run the Test Client task.
+The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Native Workspace, and from there you will run the Test Client task.
 
 ## Setting up your Superalgos Profile and the Task to run
 
@@ -244,7 +244,7 @@ IMPORTANT NOTES:
 Now you are ready to get things rolling! You will need to open two terminals. One to run the docker container and the other to run the Test-Client Task within the Superalgos Platform.
 
 - First run the Docker Container (See below in the "Instructions for each OS" section).
-- Then run the Test Client Task located at the Bitcoin Factory Demo Sample Workspace. 
+- Then run the Test Client Task located at the Bitcoin Factory Demo Native Workspace. 
 
 ### Docker Container Terminal Output 
 Once the docker container is running correctly you will see at the first terminal an output similar to this:

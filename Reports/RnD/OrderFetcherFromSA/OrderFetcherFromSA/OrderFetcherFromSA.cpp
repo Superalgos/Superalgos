@@ -28,27 +28,6 @@ orderMap([](const string& lhs, const string& rhs)
 
 bool debug = 0;
 
-// namespace fs = filesystem;
-
-void TraverseDirectory(const path& path, int level)
-{
-    // Print directory name
-    cout << string(level * 2, ' ') << "+- " << path.filename().string() << endl;
-
-    // Recursively traverse subdirectories
-    for (auto& entry : directory_iterator(path))
-    {
-        if (entry.is_directory())
-        {
-            TraverseDirectory(entry.path(), level + 1);
-        }
-        else
-        {
-            cout << string((level + 1) * 2, ' ') << "- " << entry.path().filename().string() << endl;
-        }
-    }
-}
-
 void myDailyLoop( string path1, string stPair, string stBuySell)
 {
     stringstream  line;
@@ -82,7 +61,6 @@ void myDailyLoop( string path1, string stPair, string stBuySell)
         timeinfo = localtime(&unix_time);
 
         // Format time as string
-        //strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
         strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
 
         if (debug)
@@ -118,9 +96,7 @@ void myDailyLoop( string path1, string stPair, string stBuySell)
 
         key= to_string(data[count][0]);
 
-//        if( data[count][6] == "Filled" )
-//        orderMap.insert({ key, line.str() });
-          orderMap[key]= line.str();
+        orderMap[key]= line.str();
     }
 } // myDailyLoop
 
@@ -224,9 +200,6 @@ int main(int argc, char** argv)
         ("d,debug", "Print long debug information")
         ;
 
-    // options.parse_positional({});
-
-    // auto result = options.parse(argc, argv);
     result = options.parse(argc, argv);
 
     if (argc == 1 || result.count("help") || !result.count("exchange") )
@@ -237,23 +210,6 @@ int main(int argc, char** argv)
 
     if (result.count("debug"))
         debug = 1;
-
-    // * End Process program arguments
-
-
-    // path path2;
-
-    // TraverseDirectory(path, 0);
-
-    // Look for "Platform" directory
-
-//    directory_iterator      it;
-//    const directory_entry&  entry= *it;
-//
-//    for ( it =  path1; it != directory_iterator(); ++it)
-//    {
-//        entry = *it;
-
 
     bool foundExchange= false;
 
@@ -348,119 +304,3 @@ int main(int argc, char** argv)
 
     return 1;
 } // main
-
-
-
-// if (entry.is_directory() &&
-//     entry.path().filename().string() == "Platform")
-// {
-//     cout << "Found \"Platform\" directory" << endl;
-// 
-//     //            string gregsString;
-//     //
-//     //            gregsString = path1.string();
-//     //
-//     path2 = entry.path();
-//     //
-//                 // Look for "My-Data-Storage" directory
-//     for (auto& entry2 : directory_iterator(path2))
-//     {
-//         if (entry2.is_directory() &&
-//             entry2.path().filename().string() == "My-Data-Storage")
-//         {
-//             cout << "Found \"My-Data-Storage\" directory" << endl;
-//         }
-//     }
-// }
-
-
-
-//  int main()
-//  {
-//  	// path pwd = current_path();
-//  	// path newPath;
-//  	// 
-//  	// cout << endl;
-//  	// cout << endl;
-//  	// cout << pwd.string() << endl;
-//  	// cout << endl;
-//  	// cout << endl;
-//  	// 
-//  	// 
-//  	// recursive_directory_iterator dirIter(pwd.string());
-//  	// 
-//  	// // dirIter.pop();
-//  	// 
-//  	// newPath= dirIter->path();
-//  	// 
-//  	// cout << newPath.string() << endl;
-//  
-//  	
-//  	//path pwd = current_path();
-//  
-//  
-//  	//char filepath[] = pwd.string();
-//  
-//  	
-//  	// Create object library
-//  //	path library_path(current_path());
-//  	path library_path( "/Users/greg/Superalgos" );
-//  
-//  	if ( is_directory(library_path) )
-//  	{
-//  		directory_iterator iter( library_path );
-//  		directory_iterator end;
-//  
-//  		while ( iter != end )
-//  		{
-//  			if (is_directory(iter->path()))
-//  			{
-//  //				object_idx.push_back(images.size());
-//  //				object_names.push_back(iter->path().filename().generic_string());
-//  
-//  				//std::cout << "Object: " <<  object_names.back() << " " << object_idx.back() << std::endl;
-//  
-//  				cout << iter->path() << endl;
-//  
-//  				if (iter->path() == "Platform")
-//  				{
-//  					// Found Platform Directory
-//  					cout << "*** Found Platform Directory ***" << endl;
-//  				}
-//  // 				// Handle Symlink Directories
-//  // 				if ( is_symlink( iter->path() ) )
-//  // 				{
-//  // //					iter = recursive_directory_iterator(canonical(read_symlink(iter->path()), library_path));
-//  // 				}
-//  			}
-//  			else
-//  			{
-//  				// Initialize object feature
-//  //				Mat img_object = imread(iter->path().generic_string(), CV_LOAD_IMAGE_COLOR);
-//  
-//  //				if (!img_object.data)
-//  //				{
-//  //					throw std::runtime_error("Error Reading Image");
-//  //				}
-//  //				ImageData img = processImage(img_object);
-//  //				img.name = iter->path().stem().generic_string();
-//  				//std::cout << "Object: " << object_names.back() << " Image: " << img.name << std::endl;
-//  
-//  //				if (img.name == object_names.back())
-//  //				{
-//  //					object_img_idx.push_back(images.size());
-//  //					//std::cout << object_names.back() << " " << images.size() << std::endl;
-//  //				}
-//  //
-//  //				//-- Step 3: Add to object library
-//  //				images.push_back(std::move(img));
-//  			}
-//  			++iter;
-//  		}
-//  	}
-//  
-//  
-//  
-//  
-//  	return 0;
-//  }

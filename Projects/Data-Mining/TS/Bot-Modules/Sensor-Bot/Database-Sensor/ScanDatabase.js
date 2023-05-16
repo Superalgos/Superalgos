@@ -17,7 +17,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
     let lastDataChunkOfTheDay
-    let uiStartDate = new Date(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.startDate)
     let lastId
     let firstId
     let thisReport;
@@ -28,7 +27,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let dbPath = undefined
     let dbName = undefined
     let dbTimestamp = undefined
+    let uiStartDate = undefined
     let datasetDef = undefined
+    let recordDef = undefined
     let rawDataArray
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
@@ -39,13 +40,14 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     function initialize(pStatusDependencies, callBackFunction) {
         try {
             statusDependencies = pStatusDependencies;
-            
 
             // TODO: handle error in configs with hints
             dbPath = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databasePath
             dbName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTableName
             dbTimestamp = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTimestampColumn
-            datasetDef = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[0].referenceParent.processOutput.outputDatasetFolders[0].outputDatasets[0].referenceParent.parentNode.record
+            uiStartDate = new Date(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.startDate)
+            datasetDef = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[0].referenceParent.processOutput.outputDatasetFolders[0].outputDatasets[0].referenceParent
+            recordDef = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[0].referenceParent.processOutput.outputDatasetFolders[0].outputDatasets[0].referenceParent.parentNode.record
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
@@ -206,7 +208,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     // TODO: get query values from task node configs 
                     database.serialize(() => {
                         // Gather all Data from Table
-                        database.all(`SELECT * FROM ${dbName}`, (error, data) => {
+                        
+                        database.all(`SELECT * FROM ${dbName} WHERE ${dbTimestamp} >= ${beginingOfMarket.getTime()}`, (error, data) => {
                             console.log('Loading data from table')
             
                             if (error) {

@@ -418,50 +418,25 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             }
 
                             function chunkingNewDayData(newData) {
+                                console.log("saving to a fresh day file")
+
+                                let currentMinChunk = toOneMinChunk(newData)
                                 // we want to convert incoming data into a one min chunk and assign it to the day file
                                 console.log(currentTimestamp)
-                                console.log(newData)
-                                let minuteChunk =[]
+                                console.log(currentMinChunk)
 
-                                for (let j = 0; j < recordDef.properties.length; j++) {
-                                    let property = recordDef.properties[j]
-                                    if (property.config) {
-                                        switch (property.config.codeName) {
-                                            case "begin":
-                                                let begin = currentTimestamp
-                                                begin.setSeconds(0, 0)
-                                                // always put the begin property at the beginning of the minute chunk array
-                                                minuteChunk.splice(0, 0, begin.getTime())
-                                                break;
-                                            case "end":
-                                                let end = currentTimestamp
-                                                end.setSeconds(0, 0)
-                                                end.setMinutes(currentTimestamp.getMinutes() + 1)
-                                                // always put the end property in the second spot of the minute chunk array
-                                                minuteChunk.splice(1, 0, end.getTime())
-                                                break;
-                                            case undefined:
-                                                return
-                                                // TODO: probably should error out here
-                                            default:
-                                                minuteChunk.push(newData[property.config.codeName])
-                                                break;
-                                          }                  
-                                    
-                                          console.log(minuteChunk)
-                                          //TODO: add newly formed chunk to the day file
-                                    } else {
-                                        // TODO: maybe add hint to make sure a config is added for this property
-                                    }
-                                }
-                                console.log("saving new day data")
+
+
                                 // TODO: run the normal saving logic
                                 lastTimestamp = currentTimestamp
                             }
 
-                            function aggregatingAndChunkingNewDayData () {
-                                console.log("aggregating and saving new day data")
+                            function aggregatingAndChunkingNewDayData(newData) {
+                                console.log("aggregating and saving new day data to old day file")
+                                
+                                
                                 console.log("this is our old saved data", rawDataArray)
+                                let currentMinChunk = toOneMinChunk(newData)
                                 //TODO: aggregate new data in with the old data
                                 function aggregationMethodAvg() {
                                     /* 
@@ -486,6 +461,58 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     }
                                 }
                                 lastTimestamp = currentTimestamp
+                            }
+
+                            function toOneMinChunk(newData) {
+                                // We take in new data an convert it into a one min chunk array according to the record properties defined at the UI
+                                console.log(currentTimestamp)
+                                console.log(newData)
+                                let minuteChunk =[]
+                                let hasBegin = false
+                                let hasEnd = false
+
+                                for (let j = 0; j < recordDef.properties.length; j++) {
+                                    let property = recordDef.properties[j]
+                                    if (property.config) {
+                                        switch (property.config.codeName) {
+                                            case "begin":
+                                                let begin = currentTimestamp
+                                                begin.setSeconds(0, 0)
+                                                // always put the begin property at the beginning of the minute chunk array
+                                                minuteChunk.splice(0, 0, begin.getTime())
+                                                hasBegin = true
+                                                break;
+                                            case "end":
+                                                let end = currentTimestamp
+                                                end.setSeconds(0, 0)
+                                                end.setMinutes(currentTimestamp.getMinutes() + 1)
+                                                // always put the end property in the second spot of the minute chunk array
+                                                minuteChunk.splice(1, 0, end.getTime())
+                                                hasEnd = true
+                                                break;
+                                            case undefined:
+                                                return
+                                                // TODO: probably should error out here
+                                            default:
+                                                // all other record properties are assigned based on the order of the nodes in the UI
+                                                minuteChunk.push(newData[property.config.codeName])
+                                                break;
+                                          }                  
+                                    } else {
+                                        // TODO: maybe add hint to make sure a config is added for this property
+                                        minuteChunk = undefined
+                                        SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
+                                    }
+                                }
+                                if (hasBegin === true && hasEnd === true) {
+                                    return minuteChunk
+
+                                } else{
+                                    SA.logger.error("Missing Begin or End Value in Record definition.  Defintion has valid Begin value: ", hasBegin, " Defintion has valid End value: ", hasEnd )
+                                    minuteChunk = undefined
+                                    return minuteChunk
+                                }
+                                
                             }
 
 

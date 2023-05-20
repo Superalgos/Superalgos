@@ -32,7 +32,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let datasetDef = undefined
     let recordDef = undefined
     let rawDataArray
-    let fullFileNameOldData
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
@@ -125,58 +124,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 }
                             } else {
                                 initialProcessTimestamp = uiStartDate.valueOf()
-                            }
-                        }
-                        if (mustLoadRawData) {  // there is raw data to load
-                            getRawDataArray()   // so fetch it from the file where it was saved on the last run of this process
-                        } else {
-                            rawDataArray = undefined
-                        }
-                        function getRawDataArray() {
-                            mustLoadRawData = false
-                            let fileName = "Data.json"
-                            let datetime = new Date(lastFile.valueOf())
-                            let dateForPath = datetime.getUTCFullYear() + '/' +
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + RAWDATA_FOLDER_NAME + '/' + dateForPath;
-                            fullFileNameOldData = filePath + '/' + fileName
-                            fileStorage.getTextFile(fullFileNameOldData, onFileReceived)
-
-                            SA.logger.info(MODULE_NAME + " start -> getRawDataArray -> from file = " + fullFileNameOldData)
-
-                            function onFileReceived(err, text) {
-                                try {
-                                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                        try {
-                                            rawDataArray = JSON.parse(text);
-                                        } catch (err) {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                            return
-                                        }
-                                    } else {
-                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> getRawDataArray -> onFileReceived -> File not found -> err = " + err.stack)
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                            return
-                                        } else {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Received -> err = " + err.stack)
-                                            callBackFunction(err);
-                                            return
-                                        }
-                                    }
-                                } catch (err) {
-                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> getRawDataArray -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                }
                             }
                         }
                     }
@@ -347,7 +294,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         We have the data received from the database as an array of objects corrosponding to each row of data
                         */
                         console.log("this is our new data", newDataArray)
-                        console.log("this is our old saved data", rawDataArray)
+                        
                         try { 
 
                             let startingDate
@@ -370,27 +317,41 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 } else {
                                     console.log(`This timestamp format: ${rawTimestamp} is not currenly supported. Please raise an issue in the develop groups to get it added!`)
                                 }
-
                     
                                 // Check to see if we have old data to account for or not
-                                if (rawDataArray !== undefined) { 
+                                if (mustLoadRawData) {
+                                    mustLoadRawData = false
                                     startingDate = new Date(initialProcessTimestamp)
-                                    // Check if the day from that data overlaps with the day of our new data
+
+                                    // Check if the day of the old data overlaps with the day of our new data
                                     if ( startingDate.getFullYear() === currentTimestamp.getFullYear() &&
                                          startingDate.getMonth() === currentTimestamp.getMonth() &&
                                          startingDate.getDate() === currentTimestamp.getDate()) {
-                                            aggregatingAndChunkingNewDayData()
+                                            
+                                            // If it does we load the old data before aggregating it with the new data
+                                            let fileName = "Data.json"
+                                            let datetime = new Date(lastFile.valueOf())
+                                            let dateForPath = datetime.getUTCFullYear() + '/' +
+                                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + RAWDATA_FOLDER_NAME + '/' + dateForPath;
+                                            let fullFileName = filePath + '/' + fileName
+                                            SA.logger.info(MODULE_NAME + " saveMessage -> save -> loading saved data from file = " + fullFileName)
+                                            fileStorage.getTextFile(fullFileName, onFileReceived)
+                                        
                                          } else {
-                                            chunkingNewDayData() 
+                                            chunkingNewDayData(row) 
                                          }
                                 } else {
-                                    // Check if this is the first save loop for this current execution of the bot or if we are on a new da
+                                    /* Check if this is the first save loop for this current execution of the bot 
+                                       Or if we are on a new day meaning we will be starting a new saving cycle
+                                    */
                                     if (lastTimestamp === undefined ||
                                         currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
                                         currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
                                         currentTimestamp.getDate() !== lastTimestamp.getDate() ) {
-                                        //Run intial checks to see if there is old data that needs aggregated with this new data
-                                        // Check if this data has a corresponding day file or not
+
+                                        //Run intial checks to see if there is old data associated with this day that needs aggregated with this new data
                                         startingDate = currentTimestamp
                                         let fileName = "Data.json"
                                         let dateForPath = startingDate.getUTCFullYear() + '/' +
@@ -399,58 +360,100 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + RAWDATA_FOLDER_NAME + '/' + dateForPath;
                                         let fullFileName = filePath + '/' + fileName
                                         let fullFilePath = global.env.PATH_TO_DATA_STORAGE + '/' + fullFileName
-                                            console.log(fullFilePath)
+                                            //console.log(fullFilePath)
+                                        // Check if this data has a corresponding day file or not
                                         if (SA.nodeModules.fs.existsSync(fullFilePath)) {
-                                            // if it does then load the old data
+                                            // If it does we load it and start the aggregation process
+                                            SA.logger.info(MODULE_NAME + " saveMessage - > save -> loading saved data from file = " + fullFileName)
                                             fileStorage.getTextFile(fullFileName, onFileReceived)
-
-                                            SA.logger.info(MODULE_NAME + " save -> from file = " + fullFileName)
             
-                                            function onFileReceived(err, text) {
-                                                try {
-                                                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                                        try {
-                                                            rawDataArray = JSON.parse(text);
-                                                            aggregatingAndChunkingNewDayData()
-                                                        } catch (err) {
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[ERROR] save -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[WARN] save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                            return
-                                                        }
-                                                    } else {
-                                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[WARN] save -> onFileReceived -> File not found -> err = " + err.stack)
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[WARN] save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                            return
-                                                        } else {
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[ERROR] save -> onFileReceived -> Error Received -> err = " + err.stack)
-                                                            callBackFunction(err);
-                                                            return
-                                                        }
-                                                    }
-                                                } catch (err) {
-                                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] save -> onFileReceived -> err = " + err.stack);
-                                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                                }
-                                            }
                                         } else {
-                                            chunkingNewDayData()
+                                            chunkingNewDayData(row)
                                         }
                                     } else {
-                                        // add the next set of data to the current day file
+                                        // Add the next set of data to the current day file
                                         aggregatingAndChunkingNewDayData()
                                     }
                                 }
                             }
 
-                            function chunkingNewDayData () {
+                            function onFileReceived(err, text) {
+                                try {
+                                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                        try {
+                                            rawDataArray = JSON.parse(text);
+                                            aggregatingAndChunkingNewDayData()
+
+                                        } catch (err) {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR]  saveMessage -> save -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                                rawDataArray = []
+                                                chunkingNewDayData(row)
+                                            return
+                                        }
+                                    } else {
+                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN]  saveMessage -> save -> onFileReceived -> File not found -> err = " + err.stack)
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                                rawDataArray = []
+                                                chunkingNewDayData(row)
+                                            return
+                                        } else {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR]  saveMessage -> save -> onFileReceived -> Error Received -> err = " + err.stack)
+                                            callBackFunction(err);
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] saveMessage -> save  -> onFileReceived -> err = " + err.stack);
+                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function chunkingNewDayData(newData) {
+                                // we want to convert incoming data into a one min chunk and assign it to the day file
+                                console.log(currentTimestamp)
+                                console.log(newData)
+                                let minuteChunk =[]
+
+                                for (let j = 0; j < recordDef.properties.length; j++) {
+                                    let property = recordDef.properties[j]
+                                    if (property.config) {
+                                        switch (property.config.codeName) {
+                                            case "begin":
+                                                let begin = currentTimestamp
+                                                begin.setSeconds(0, 0)
+                                                // always put the begin property at the beginning of the minute chunk array
+                                                minuteChunk.splice(0, 0, begin.getTime())
+                                                break;
+                                            case "end":
+                                                let end = currentTimestamp
+                                                end.setSeconds(0, 0)
+                                                end.setMinutes(currentTimestamp.getMinutes() + 1)
+                                                // always put the end property in the second spot of the minute chunk array
+                                                minuteChunk.splice(1, 0, end.getTime())
+                                                break;
+                                            case undefined:
+                                                return
+                                                // TODO: probably should error out here
+                                            default:
+                                                minuteChunk.push(newData[property.config.codeName])
+                                                break;
+                                          }                  
+                                    
+                                          console.log(minuteChunk)
+                                          //TODO: add newly formed chunk to the day file
+                                    } else {
+                                        // TODO: maybe add hint to make sure a config is added for this property
+                                    }
+                                }
                                 console.log("saving new day data")
                                 // TODO: run the normal saving logic
                                 lastTimestamp = currentTimestamp
@@ -458,7 +461,30 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                             function aggregatingAndChunkingNewDayData () {
                                 console.log("aggregating and saving new day data")
+                                console.log("this is our old saved data", rawDataArray)
                                 //TODO: aggregate new data in with the old data
+                                function aggregationMethodAvg() {
+                                    /* 
+                                    This is the AVG type of aggregation.
+                                    */
+                                    recordDef 
+                                    for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                                        let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
+                                        if (property.config.aggregationMethod === 'Avg') {
+            
+                                            if (outputElementAverage[property.config.codeName] === undefined) {
+                                                outputElementAverage[property.config.codeName] = {}
+                                                outputElementAverage[property.config.codeName].sum = 0
+                                                outputElementAverage[property.config.codeName].count = 0
+                                            }
+            
+                                            outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
+                                            outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
+            
+                                            outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                                        }
+                                    }
+                                }
                                 lastTimestamp = currentTimestamp
                             }
 

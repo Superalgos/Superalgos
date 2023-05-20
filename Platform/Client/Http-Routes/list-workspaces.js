@@ -34,7 +34,7 @@ exports.newListWorkspacesRoute = function newListWorkspacesRoute() {
                             //SA.logger.warn('Error reading a directory content. filePath = ' + dirPath)
                         } else {
                             for(let i = 0; i < fileList.length; i++) {
-                                let name = 'Plugin \u2192 ' + fileList[i]
+                                let name = 'Native \u2192 ' + fileList[i]
                                 updatedFileList.push([project, name])
                             }
                         }

@@ -301,6 +301,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let rawTimestamp
                             let currentTimestamp
                             let lastTimestamp = undefined
+                            let currentDay
+                            let fileContent = []
+                            let heartBeatCounter = 0
 
                             //TODO: Inital time checks only need to be run on first iteration but check if we are on the right day still each loop
                             for (row of newDataArray) {
@@ -424,42 +427,76 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 // we want to convert incoming data into a one min chunk and assign it to the day file
                                 console.log(currentTimestamp)
                                 console.log(currentMinChunk)
+                                console.log("filecontent before new save: ", fileContent)
 
+                                // save minute chunk to fresh day file
+                                fileContent = []
+                                currentDay = currentTimestamp
+                                fileContent.push(currentMinChunk)
+                                console.log("filecontent after new save: ", fileContent)
 
-
-                                // TODO: run the normal saving logic
                                 lastTimestamp = currentTimestamp
                             }
 
                             function aggregatingAndChunkingNewDayData(newData) {
                                 console.log("aggregating and saving new day data to old day file")
                                 
-                                
                                 console.log("this is our old saved data", rawDataArray)
+                                console.log("this is our current file content", fileContent)
                                 let currentMinChunk = toOneMinChunk(newData)
+                                aggregationMethodAvg(currentMinChunk)
+
                                 //TODO: aggregate new data in with the old data
-                                function aggregationMethodAvg() {
+                                function aggregationMethodAvg(newDataChunk) {
                                     /* 
                                     This is the AVG type of aggregation.
                                     */
-                                    recordDef 
-                                    for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
-                                        let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
-                                        if (property.config.aggregationMethod === 'Avg') {
-            
-                                            if (outputElementAverage[property.config.codeName] === undefined) {
-                                                outputElementAverage[property.config.codeName] = {}
-                                                outputElementAverage[property.config.codeName].sum = 0
-                                                outputElementAverage[property.config.codeName].count = 0
-                                            }
-            
-                                            outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
-                                            outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
-            
-                                            outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                                   
+                                    // check if new data chunk in same day as current day
+                                    if (currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
+                                        currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
+                                        currentTimestamp.getDate() !== lastTimestamp.getDate()) {
+                                            //move to new day 
+                                    } else {
+                                            //say on same day
+                                        }
+
+
+                                    for (let j = 0; j < recordDef.properties.length; j++) {
+                                        let property = recordDef.properties[j]
+                                        if (property.config) {
+                                            switch (property.config.codeName) {
+                                                case "begin":
+                                                    let begin = currentTimestamp
+                                                    begin.setSeconds(0, 0)
+                                                    // always put the begin property at the beginning of the minute chunk array
+                                                    minuteChunk.splice(0, 0, begin.getTime())
+                                                    hasBegin = true
+                                                    break;
+                                                case "end":
+                                                    let end = currentTimestamp
+                                                    end.setSeconds(0, 0)
+                                                    end.setMinutes(currentTimestamp.getMinutes() + 1)
+                                                    // always put the end property in the second spot of the minute chunk array
+                                                    minuteChunk.splice(1, 0, end.getTime())
+                                                    hasEnd = true
+                                                    break;
+                                                case undefined:
+                                                    return
+                                                    // TODO: probably should error out here
+                                                default:
+                                                    // all other record properties are assigned based on the order of the nodes in the UI
+                                                    minuteChunk.push(newData[property.config.codeName])
+                                                    break;
+                                              }                  
+                                        } else {
+                                            // TODO: maybe add hint to make sure a config is added for this property
+                                            minuteChunk = undefined
+                                            SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
                                         }
                                     }
                                 }
+
                                 lastTimestamp = currentTimestamp
                             }
 
@@ -504,6 +541,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
                                     }
                                 }
+
                                 if (hasBegin === true && hasEnd === true) {
                                     return minuteChunk
 
@@ -516,12 +554,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             }
 
 
-                            let fileContent = '['
 
                             let needSeparator = false
                             let error
                             let separator
-                            let heartBeatCounter = 0
+                            
                             let savingProcedureFinished = false
                             let endOfDataArrayReached = false
                             

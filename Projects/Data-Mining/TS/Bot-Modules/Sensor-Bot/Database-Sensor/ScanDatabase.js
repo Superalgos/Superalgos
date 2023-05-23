@@ -31,7 +31,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let uiStartDate = undefined
     let datasetDef = undefined
     let recordDef = undefined
-    let rawDataArray
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
@@ -301,7 +300,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let rawTimestamp
                             let currentTimestamp
                             let lastTimestamp = undefined
-                            let currentDay
                             let fileContent = []
                             let heartBeatCounter = 0
 
@@ -321,11 +319,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     console.log(`This timestamp format: ${rawTimestamp} is not currenly supported. Please raise an issue in the develop groups to get it added!`)
                                 }
                     
-                                // Check to see if we have old data to account for or not
+                                // Check to see if the old data in the last day file overlaps with the new data coming in
                                 if (mustLoadRawData) {
                                     mustLoadRawData = false
                                     startingDate = new Date(initialProcessTimestamp)
-
+                                    
                                     // Check if the day of the old data overlaps with the day of our new data
                                     if ( startingDate.getFullYear() === currentTimestamp.getFullYear() &&
                                          startingDate.getMonth() === currentTimestamp.getMonth() &&
@@ -380,19 +378,20 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 }
                             }
 
+                            // TODO: Save left over file content here
+
                             function onFileReceived(err, text) {
                                 try {
                                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                         try {
-                                            rawDataArray = JSON.parse(text);
+                                            fileContent = JSON.parse(text);
                                             aggregatingAndChunkingNewDayData()
 
                                         } catch (err) {
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[ERROR]  saveMessage -> save -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                rawDataArray = []
+                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
                                                 chunkingNewDayData(row)
                                             return
                                         }
@@ -401,8 +400,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[WARN]  saveMessage -> save -> onFileReceived -> File not found -> err = " + err.stack)
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty rawDataArray.");
-                                                rawDataArray = []
+                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
                                                 chunkingNewDayData(row)
                                             return
                                         } else {
@@ -421,7 +419,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             }
 
                             function chunkingNewDayData(newData) {
-                                console.log("saving to a fresh day file")
+
+                                console.log("Adding current data to a fresh day file")
 
                                 let currentMinChunk = toOneMinChunk(newData)
                                 // we want to convert incoming data into a one min chunk and assign it to the day file
@@ -431,73 +430,85 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                                 // save minute chunk to fresh day file
                                 fileContent = []
-                                currentDay = currentTimestamp
                                 fileContent.push(currentMinChunk)
                                 console.log("filecontent after new save: ", fileContent)
 
                                 lastTimestamp = currentTimestamp
+                                return
                             }
 
                             function aggregatingAndChunkingNewDayData(newData) {
+
+                                // check if new data chunk in same day as current day if not save current file content and start a fresh day file
+                                if (currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
+                                    currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
+                                    currentTimestamp.getDate() !== lastTimestamp.getDate()) {
+                                    
+                                    console.log('filecontent before save: ', fileContent)
+                                    saveFile()
+                                    chunkingNewDayData(newData) 
+                                    console.log('filecontent before save: ', fileContent)
+                                }
+
                                 console.log("aggregating and saving new day data to old day file")
                                 
-                                console.log("this is our old saved data", rawDataArray)
                                 console.log("this is our current file content", fileContent)
-                                let currentMinChunk = toOneMinChunk(newData)
-                                aggregationMethodAvg(currentMinChunk)
+                                // reverse loop through file content in order to find if there is a minute chunk that we should aggregate the data into
+                                for (let j = fileContent.length - 1; j >= 0; j--) {
+                                    let unixTimestamp = currentTimestamp.getTime()
+                                    
+                                    if (unixTimestamp > fileContent[j][1]) {
+                                        // if the timestamp is greater than the end of the last minute chunk then we know we need a new minute chunk and push it to the file content
+                                        let currentMinChunk = toOneMinChunk(newData)
+                                        fileContent.push(currentMinChunk)
+                                        lastTimestamp = currentTimestamp
+                                        return
 
+                                    } else if ( unixTimestamp >= fileContent[j][0] &&  unixTimestamp <= fileContent[j][1] ) {
+                                        // if this data falls within this minute chunk then we aggregate the new data in
+                                        aggregationMethodAvg(j, fileContent[j], newData)
+                                        lastTimestamp = currentTimestamp
+                                        return
+
+                                    } 
+                                }
+
+                                //If we make it through the whole loop of current minute chunks and make it here then we know this minute chunk should be at the very beginning of the file
+                                let currentMinChunk = toOneMinChunk(newData)
+                                fileContent.splice(0, 0, currentMinChunk)
+                                lastTimestamp = currentTimestamp
+                                return
+                                
                                 //TODO: aggregate new data in with the old data
-                                function aggregationMethodAvg(newDataChunk) {
+                                function aggregationMethodAvg(fileContentIndex, oldDataChunk, newDataChunk) {
                                     /* 
                                     This is the AVG type of aggregation.
                                     */
-                                   
-                                    // check if new data chunk in same day as current day
-                                    if (currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
-                                        currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
-                                        currentTimestamp.getDate() !== lastTimestamp.getDate()) {
-                                            //move to new day 
-                                    } else {
-                                            //say on same day
-                                        }
-
 
                                     for (let j = 0; j < recordDef.properties.length; j++) {
                                         let property = recordDef.properties[j]
                                         if (property.config) {
                                             switch (property.config.codeName) {
                                                 case "begin":
-                                                    let begin = currentTimestamp
-                                                    begin.setSeconds(0, 0)
-                                                    // always put the begin property at the beginning of the minute chunk array
-                                                    minuteChunk.splice(0, 0, begin.getTime())
-                                                    hasBegin = true
                                                     break;
                                                 case "end":
-                                                    let end = currentTimestamp
-                                                    end.setSeconds(0, 0)
-                                                    end.setMinutes(currentTimestamp.getMinutes() + 1)
-                                                    // always put the end property in the second spot of the minute chunk array
-                                                    minuteChunk.splice(1, 0, end.getTime())
-                                                    hasEnd = true
                                                     break;
                                                 case undefined:
                                                     return
                                                     // TODO: probably should error out here
                                                 default:
-                                                    // all other record properties are assigned based on the order of the nodes in the UI
-                                                    minuteChunk.push(newData[property.config.codeName])
+                                                    // Average in new data to the existing record property 
+                                                    oldDataChunk[j] = oldDataChunk[j] + newDataChunk[property.config.codeName] / 2
                                                     break;
                                               }                  
                                         } else {
                                             // TODO: maybe add hint to make sure a config is added for this property
-                                            minuteChunk = undefined
                                             SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
                                         }
                                     }
+                                    fileContent[fileContentIndex] = oldDataChunk
+                                    return
                                 }
-
-                                lastTimestamp = currentTimestamp
                             }
 
                             function toOneMinChunk(newData) {
@@ -553,35 +564,38 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 
                             }
 
+                            function saveFile() {
 
-
-                            let needSeparator = false
-                            let error
-                            let separator
-                            
-                            let savingProcedureFinished = false
-                            let endOfDataArrayReached = false
-                            
+                                // TODO:can hook this up to add dynamic name from dataset definition
+                                let fileName = 'Data.json'
     
-                            let lastDataChunk = {
-                                begin: 0,
-                                end: 0,
-                                dataValues: []
+                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
+     
+                                fileContent = []
+                                return
                             }
-    
-                            let dataArrayIndex = 0
-                            lastId = undefined
-    
-                            if (lastDataChunkOfTheDay !== undefined) {
-                                lastDataChunk = JSON.parse(JSON.stringify(lastDataChunkOfTheDay))
+
+                            // TODO: possibly need this function to generate path for saving day file     
+/**
+ * The function returns a file path based on a timestamp and folder name.
+ * @param timestamp - A Unix timestamp representing a specific date and time.
+ * @param folderName - The name of the folder where the file will be saved.
+ * @returns a file path string that includes the root file path, the folder name, and a date string
+ * based on the timestamp input.
+ */
+                            function getFilePath(timestamp, folderName) {
+                                let datetime = new Date(timestamp)
+                                let dateForPath = datetime.getUTCFullYear() + '/' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
+                                return filePath
                             }
     
                             /* 
                             At a macro level, we will be creating one file per day, so we will
                             run into a loop that each run will represent one day.
                             */
-                            controlLoop()
-
                             function controlLoop() {
                                 /* 
                                 This loop advances one day, and if it does not need to stop
@@ -881,63 +895,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
         
                                 controlLoop()
         
-                                function saveFile(day) {
-                                    fileContent = fileContent + ']'
-                                    let rawFileContent = getRawDataToSave(day)
+
         
-                                    // TODO:can hook this up to add dynamic name from dataset definition
-                                    let fileName = 'Data.json'
-        
-                                    filesToCreate++
-                                    fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
-        
-                                    if (rawFileContent !== undefined) {
-                                        filesToCreate++
-                                        fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, RAWDATA_FOLDER_NAME) + '/' + fileName, rawFileContent + '\n', onFileCreated);
-                                        mustLoadRawData = true
-                                    } else {
-                                        mustLoadRawData = false
-                                    }
-        
-                                    fileContent = '['
-                                    needSeparator = false
-                                }
-        
-                                function getRawDataToSave(day) {
-                                    /*
-                                    What we are doing here is determining whether the currently accumulated raw Data should be saved or not,
-                                    so that the next time the bot process runs, it must continue from where the raw Data ended.
-                                    If the current end of the array contains elements beyond the day being processed, it means that the full
-                                    day has been successfully downloaded, so it is not necessary to save this data.
-                                    */
-                                    let rawDataFileData
-                                    let dataLength = newDataArray.length
-                                    if (dataLength > 0) {
-                                        // first get the start of the day after this day we are checking
-                                        let timestamp = (day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
-                                            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
-                                        if (newDataArray[dataLength - 1][0] < timestamp) {
-                                            // there is no data for the next day, so now trim this day's data to remove anything before it
-                                            timestamp -= SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
-                                            let dataIndex = 0
-                                            while (dataIndex < dataLength - 1) {
-                                                if (newDataArray[dataIndex][0] < timestamp) {  // this data is from a previous day
-                                                    dataIndex++
-                                                } else {
-                                                    break  // found the beginning of this day's data
-                                                }
-                                            }
-                                            if (dataIndex > 0) {
-                                                newDataArray = newDataArray.slice(dataIndex, dataLength)  // remove data from previous days
-                                                dataLength = newDataArray.length
-                                            }
-                                            if (dataLength > 0) {
-                                                rawDataFileData = JSON.stringify(newDataArray)  // finally we have what we need to save
-                                            }
-                                        }
-                                    }
-                                    return rawDataFileData
-                                }
+
         
                                 function onFileCreated(err) {
                                     if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -952,15 +912,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         controlLoop()
                                     }
                                 }
-        
-                                function getFilePath(timestamp, folderName) {
-                                    let datetime = new Date(timestamp)
-                                    let dateForPath = datetime.getUTCFullYear() + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                                    let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
-                                    return filePath
-                                }
+
                             }
 
                         } catch (err) {
@@ -970,7 +922,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             //abort = true
                         }   
-
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

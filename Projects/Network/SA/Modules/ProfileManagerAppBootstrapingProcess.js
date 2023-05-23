@@ -194,7 +194,7 @@ exports.newNetworkModulesProfileManagerAppBootstrapingProcess = function newNetw
         async function loadTemporaryTokenPower() {
             /* Redistribute Token Power based on balances from earlier loads until blockchain balances will have reloaded */
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-            userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
+            SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)
         }
 
         async function extractInfoFromUserProfiles() {

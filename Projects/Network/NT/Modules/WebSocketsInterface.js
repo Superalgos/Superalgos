@@ -123,7 +123,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 caller.socket.on('message', onMessage)
 
                 function onMessage(message) {
-                    thisObject.socketInterfaces.onMenssage(message, caller, calledTimestamp)
+                    thisObject.socketInterfaces.onMessage(message, caller, calledTimestamp)
                 }
 
                 function heartbeat() {

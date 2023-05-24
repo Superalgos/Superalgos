@@ -40,7 +40,7 @@ function newWebSocketsWebAppClient() {
                 socketClient.onerror = err => { onError(err) }
 
                 function onConnection() {
-                    socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+                    socketClient.onmessage = socketMessage => { onMessage(socketMessage) }
                     resolve()
                 }
 
@@ -72,17 +72,17 @@ function newWebSocketsWebAppClient() {
                 messageType: 'Request',
                 payload: message
             }
-            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
+            onMessageFunctionsMap.set(socketMessage.messageId, onMessageFunction)
             socketClient.send(
                 JSON.stringify(socketMessage)
             )
 
-            function onMenssageFunction(response) {
+            function onMessageFunction(response) {
                 try {
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> response.message = ' + response.message)
+                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMessage -> response.message = ' + response.message)
                         reject(response.message)
                     }
 
@@ -94,20 +94,20 @@ function newWebSocketsWebAppClient() {
         }
     }
 
-    function onMenssage(socketMessage) {
+    function onMessage(socketMessage) {
 
         let message = JSON.parse(socketMessage.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        onMenssageFunction = onMessageFunctionsMap.get(message.messageId)
+        onMessageFunction = onMessageFunctionsMap.get(message.messageId)
         onMessageFunctionsMap.delete(message.messageId)
 
-        if (onMenssageFunction !== undefined) {
+        if (onMessageFunction !== undefined) {
             /*
             The message received is a response to a message sent.
             */
-            onMenssageFunction(message)
+            onMessageFunction(message)
         } else {
             /*
             The message received is a not response to a message sent.
@@ -117,8 +117,8 @@ function newWebSocketsWebAppClient() {
             try {
                 event = JSON.parse(message)
             } catch (err) {
-                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> message = ' + message)
-                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMessage -> message = ' + message)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMessage -> err.stack = ' + err.stack)
                 thisObject.socket.close()
                 return
             }

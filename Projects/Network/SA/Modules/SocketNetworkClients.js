@@ -206,7 +206,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             Network Node and from now on, all response messages will be received
             at this following function.
             */
-            thisObject.socket.onmessage = socketMessage => { onMenssage(socketMessage) }
+            thisObject.socket.onmessage = socketMessage => { onMessage(socketMessage) }
             resolve()
         }
     }
@@ -261,7 +261,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         }
     }
 
-    function onMenssage(socketMessage) {
+    function onMessage(socketMessage) {
 
         let messageHeader = JSON.parse(socketMessage.data)
         /*

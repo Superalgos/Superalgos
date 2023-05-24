@@ -41,6 +41,7 @@ exports.createCommand = function createCommand() {
                 storeData: args.storeData,
                 storeLogs: args.storeLogs,
                 storeWorkspaces: args.storeWorkspaces,
+                p2pNetworkNodeSigningAccount: args.p2pNetworkNodeSigningAccount,
             }
 
             if(!validateAvailablePorts(profile, existingProfiles)) {return }

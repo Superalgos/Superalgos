@@ -17,7 +17,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
-    let lastDataChunkOfTheDay
+    
     let lastId
     let firstId
     let thisReport;
@@ -26,11 +26,12 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let beginingOfMarket
     let lastFile
     let dbPath = undefined
-    let dbName = undefined
+    let dbTable = undefined
     let dbTimestamp = undefined
     let uiStartDate = undefined
     let datasetDef = undefined
     let recordDef = undefined
+    let currentNewData = undefined
 
     // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
@@ -43,7 +44,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
             // TODO: handle error in configs with hints
             dbPath = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databasePath
-            dbName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTableName
+            dbTable = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTableName
             dbTimestamp = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.databaseTimestampColumn
             uiStartDate = new Date(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.startDate)
             datasetDef = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[0].referenceParent.processOutput.outputDatasetFolders[0].outputDatasets[0].referenceParent
@@ -67,9 +68,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 return
             }
 
-            getContextVariables(dbPath, dbName, firstTimeGetDatabaseData, getDatabaseData)
+            getContextVariables(dbPath, dbTable, firstTimeGetDatabaseData, getDatabaseData)
 
-            function getContextVariables(dbPath, dbName, callBack, secondCallBack) {
+            function getContextVariables(dbPath, dbTable, callBack, secondCallBack) {
                 try {
                     let reportKey = 
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + 
@@ -98,12 +99,12 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         lastId = thisReport.file.lastId
                         //lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                         defineSince()
-                        secondCallBack(dbPath, dbName, saveMessages)
+                        secondCallBack(dbPath, dbTable, saveMessages)
 
                     } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                         defineSince()
-                        callBack(dbPath, dbName, saveMessages)
+                        callBack(dbPath, dbTable, saveMessages)
                     }
 
                     function defineSince() {
@@ -137,7 +138,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 }
             }
 
-            function firstTimeGetDatabaseData(dbPath, dbName, callBack){
+            function firstTimeGetDatabaseData(dbPath, dbTable, callBack){
                 // Function to load the whole database on first run
                 return new Promise((resolve, reject) => {
                     // Create connection to database
@@ -159,7 +160,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     database.serialize(() => {
                         // Gather all Data from Table
                         
-                        database.all(`SELECT * FROM ${dbName} WHERE ${dbTimestamp} >= ${beginingOfMarket.getTime()}`, (error, data) => {
+                        database.all(`SELECT * FROM ${dbTable} WHERE ${dbTimestamp} >= ${beginingOfMarket.getTime()}`, (error, data) => {
                             console.log('Loading data from table')
             
                             if (error) {
@@ -207,7 +208,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 })
             }
 
-            function getDatabaseData(dbPath, dbName, callBack){
+            function getDatabaseData(dbPath, dbTable, callBack){
                 // Function to get new database rows
                 return new Promise((resolve, reject) => {
                     // Create connection to database
@@ -228,7 +229,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     database.serialize(() => {
                         // Gather Data based on second query from Table
                         unixTimestamp = Date.parse(thisReport.file.lastRun);
-                        database.all(`SELECT * FROM ${dbName} WHERE ${dbTimestamp} >= ${unixTimestamp}`, (error, data) => {
+                        database.all(`SELECT * FROM ${dbTable} WHERE ${dbTimestamp} >= ${unixTimestamp}`, (error, data) => {
                             console.log('Loading new data from table')
             
                             if (error) {
@@ -307,6 +308,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             for (row of newDataArray) {
                                 // make sure the timestamp is formatted correctly to be accepted by the date object
                                 rawTimestamp = row[dbTimestamp]
+                                currentNewData = row
                                 currentTimestamp
                                 if (String(rawTimestamp).length === 10) {
                                     currentTimestamp = new Date(rawTimestamp)
@@ -341,7 +343,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             fileStorage.getTextFile(fullFileName, onFileReceived)
                                         
                                          } else {
-                                            chunkingNewDayData(row) 
+                                            chunkingNewDayData(currentNewData) 
                                          }
                                 } else {
                                     /* Check if this is the first save loop for this current execution of the bot 
@@ -369,11 +371,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             fileStorage.getTextFile(fullFileName, onFileReceived)
             
                                         } else {
-                                            chunkingNewDayData(row)
+                                            chunkingNewDayData(currentNewData)
                                         }
                                     } else {
                                         // Add the next set of data to the current day file
-                                        aggregatingAndChunkingNewDayData()
+                                        aggregatingAndChunkingNewDayData(currentNewData)
                                     }
                                 }
                             }
@@ -385,14 +387,14 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                         try {
                                             fileContent = JSON.parse(text);
-                                            aggregatingAndChunkingNewDayData()
+                                            aggregatingAndChunkingNewDayData(currentNewData)
 
                                         } catch (err) {
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[ERROR]  saveMessage -> save -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
-                                                chunkingNewDayData(row)
+                                                chunkingNewDayData(currentNewData)
                                             return
                                         }
                                     } else {
@@ -401,7 +403,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                                 "[WARN]  saveMessage -> save -> onFileReceived -> File not found -> err = " + err.stack)
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
-                                                chunkingNewDayData(row)
+                                                chunkingNewDayData(currentNewData)
                                             return
                                         } else {
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -433,6 +435,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 fileContent.push(currentMinChunk)
                                 console.log("filecontent after new save: ", fileContent)
 
+                                currentNewData = undefined
                                 lastTimestamp = currentTimestamp
                                 return
                             }
@@ -476,6 +479,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 //If we make it through the whole loop of current minute chunks and make it here then we know this minute chunk should be at the very beginning of the file
                                 let currentMinChunk = toOneMinChunk(newData)
                                 fileContent.splice(0, 0, currentMinChunk)
+
+                                currentNewData = undefined
                                 lastTimestamp = currentTimestamp
                                 return
                                 
@@ -498,7 +503,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                                     // TODO: probably should error out here
                                                 default:
                                                     // Average in new data to the existing record property 
-                                                    oldDataChunk[j] = oldDataChunk[j] + newDataChunk[property.config.codeName] / 2
+                                                    let sum = oldDataChunk[j] + newDataChunk[property.config.codeName]
+                                                    oldDataChunk[j] =  sum / 2
                                                     break;
                                               }                  
                                         } else {

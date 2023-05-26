@@ -16,7 +16,7 @@ using namespace std;
 using namespace filesystem;
 using json = nlohmann::json;
 
-cxxopts::Options options("OrderFetcherFromSA", "Program to fetch Binance, Order Export style information");
+cxxopts::Options options("OrderFetcherFromSA", "Program to fetch Order information in the style of Binance's Order Export");
 
 cxxopts::ParseResult result;
 
@@ -149,7 +149,7 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
 
     if (!foundMonth && month)
     {
-        printf("Didn't find anything for supplied month\n");
+        // printf("Didn't find anything for supplied month\n");
         return;
     }
 
@@ -194,9 +194,8 @@ int main(int argc, char** argv)
     // * Process program arguments
     options.add_options()
         ("e,exchange", "i.e. binance. * This is a mandatory argument *", cxxopts::value<string>())
-        ("o,outfile", "Output file name", cxxopts::value<string>())
         ("m,month", "Orders for specific month. i.e. 1 = Jan, 2 = Feb etc.", cxxopts::value<int>())
-        ("h,help", "Basic usage help")
+        ("h,help", "(This) basic usage help")
         ("d,debug", "Print long debug information")
         ;
 

@@ -134,6 +134,9 @@ exports.commonProfileFunctions = function commonProfileFunctions() {
         }).option('storeWorkspaces', {
             description: 'A different location for Workspace storage',
             string: true
+        }).option('p2pNetworkNodeSigningAccount', {
+            description: 'A network node signing account to use',
+            string: true
         })
     }
 

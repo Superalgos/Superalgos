@@ -47,6 +47,7 @@ exports.describeCommand = function describeCommand() {
         table.push(['Log file storage', logValueOrEmptyString(match.storeLogs)])
         table.push(['Data file storage', logValueOrEmptyString(match.storeData)])
         table.push(['Workspaces file storage', logValueOrEmptyString(match.storeWorkspaces)])
+        table.push(['P2P network node signing account', logValueOrEmptyString(match.p2pNetworkNodeSigningAccount)])
         log(table.toString())
 
         /**

@@ -47,6 +47,7 @@ exports.updateCommand = function updateCommand() {
         updateAttributeIfValid('storeData')
         updateAttributeIfValid('storeLogs')
         updateAttributeIfValid('storeWorkspaces')
+        updateAttributeIfValid('p2pNetworkNodeSigningAccount')
         existingProfiles.splice(matchIndex, 1, match)
         existingProfiles.push(match)
         storeProfiles(documentPath, existingProfiles)

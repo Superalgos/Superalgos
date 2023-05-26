@@ -535,11 +535,11 @@
         },
         {
             "style": "Title",
-            "text": "Sample Workspaces",
+            "text": "Native Workspaces",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Sample Workspaces ( Conectando espacios de trabajo)",
+                    "text": "Native Workspaces ( Conectando espacios de trabajo)",
                     "updated": 1633107189340,
                     "style": "Title"
                 },
@@ -550,7 +550,7 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Sample Workspaces (Χώροι Εργασίας Πρόσθετων)",
+                    "text": "Native Workspaces (Χώροι Εργασίας Πρόσθετων)",
                     "updated": 1641830046311
                 },
                 {
@@ -562,56 +562,56 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos ships with several Sample Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
+            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
             "updated": 1629893908384,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos incluye un abanico de Sample Workspaces. Estos son workspaces pre-configurados montados para propósitos determinados, por ejemplo, para contener tutoriales, estrategias demo, proyectos específicos, y otros.",
+                    "text": "Superalgos incluye un abanico de Native Workspaces. Estos son workspaces pre-configurados montados para propósitos determinados, por ejemplo, para contener tutoriales, estrategias demo, proyectos específicos, y otros.",
                     "updated": 1633107236673,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos поставляется с несколькими рабочими пространствами плагинов Sample Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
+                    "text": "Superalgos поставляется с несколькими рабочими пространствами плагинов Native Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
                     "updated": 1638345229136
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos wird mit mehreren Sample Workspaces ausgeliefert. Dies sind vorkonfigurierte Workspaces, die für bestimmte Zwecke erstellt wurden, z. B. um Tutorials, Demostrategien, bestimmte Projekte usw. zu hosten.",
+                    "text": "Superalgos wird mit mehreren Native Workspaces ausgeliefert. Dies sind vorkonfigurierte Workspaces, die für bestimmte Zwecke erstellt wurden, z. B. um Tutorials, Demostrategien, bestimmte Projekte usw. zu hosten.",
                     "updated": 1639345052372
                 },
                 {
                     "language": "EL",
-                    "text": "Το Superalgos έρχεται με πολλούς Sample Workspaces (Χώρους Εργασίας Πρόσθετων). Αυτοί είναι προ διαμορφωμένοι χώροι εργασίας που έχουν δημιουργηθεί για συγκεκριμένους σκοπούς, για παράδειγμα, για τη φιλοξενία σεμιναρίων, στρατηγικών επίδειξης, συγκεκριμένων έργων και ούτω καθεξής.",
+                    "text": "Το Superalgos έρχεται με πολλούς Native Workspaces (Χώρους Εργασίας Πρόσθετων). Αυτοί είναι προ διαμορφωμένοι χώροι εργασίας που έχουν δημιουργηθεί για συγκεκριμένους σκοπούς, για παράδειγμα, για τη φιλοξενία σεμιναρίων, στρατηγικών επίδειξης, συγκεκριμένων έργων και ούτω καθεξής.",
                     "updated": 1641830073316
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos çeşitli Eklenti Çalışma Alanları (Sample Workspaces) ile birlikte gelir. Bunlar belirli amaçlar için önceden yapılandırılmış çalışma alanlarıdır, örneğin öğreticileri, demo stratejilerini, belirli projeleri vb. barındırmak için.",
+                    "text": "Superalgos çeşitli Eklenti Çalışma Alanları (Native Workspaces) ile birlikte gelir. Bunlar belirli amaçlar için önceden yapılandırılmış çalışma alanlarıdır, örneğin öğreticileri, demo stratejilerini, belirli projeleri vb. barındırmak için.",
                     "updated": 1654762734451
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "In the workspaces tab, Sample Workspaces are marked with the words \"Sample Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
+            "text": "In the workspaces tab, Native Workspaces are marked with the words \"Native Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
             "updated": 1622634983432,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En el tabulador de workspaces, los Sample Workspaces estan mencionados así sobre un fondo negro que los diferencia de tus propios workspaces.",
+                    "text": "En el tabulador de workspaces, los Native Workspaces estan mencionados así sobre un fondo negro que los diferencia de tus propios workspaces.",
                     "updated": 1633107278282,
                     "style": "Note"
                 },
                 {
                     "language": "RU",
-                    "text": "На вкладке \"Workspaces\" отмечены словами «Sample Workspaces» и имеют черный фон, чтобы вы могли отличить их от ваших собственных рабочих пространств.",
+                    "text": "На вкладке \"Workspaces\" отмечены словами «Native Workspaces» и имеют черный фон, чтобы вы могли отличить их от ваших собственных рабочих пространств.",
                     "updated": 1638345341385
                 },
                 {
                     "language": "DE",
-                    "text": "Auf der Registerkarte \"Workspaces\" sind Sample Workspaces mit den Worten \"Sample Workspace\" gekennzeichnet und haben einen schwarzen Hintergrund, damit Sie sie von Ihren eigenen Workspaces unterscheiden können.",
+                    "text": "Auf der Registerkarte \"Workspaces\" sind Native Workspaces mit den Worten \"Native Workspace\" gekennzeichnet und haben einen schwarzen Hintergrund, damit Sie sie von Ihren eigenen Workspaces unterscheiden können.",
                     "updated": 1639345123503
                 },
                 {
@@ -621,40 +621,40 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma alanları (Workspace) sekmesinde, eklenti çalışma alanları \"Eklenti Çalışma Alanı\" (Sample Workspace) sözcükleriyle işaretlenir ve kaydettiğiniz kendi çalışma alanlarınızdan ayırt edebilmeniz için siyah bir arka plana sahiptir.",
+                    "text": "Çalışma alanları (Workspace) sekmesinde, eklenti çalışma alanları \"Eklenti Çalışma Alanı\" (Native Workspace) sözcükleriyle işaretlenir ve kaydettiğiniz kendi çalışma alanlarınızdan ayırt edebilmeniz için siyah bir arka plana sahiptir.",
                     "updated": 1654762797930
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "When you load, modify, and save a Sample Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the My-Workspaces folder. This file is a copy of the Sample Workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
+            "text": "When you load, modify, and save a Native Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the My-Workspaces folder. This file is a copy of the Native Workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
             "updated": 1629894244406,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando sube, modifica y guarda un Sample Workspace, el plugin permanece intacto, esto significa que el plugin no se modifica sino que un nuevo archivo se crea en tu carpeta de My-workspaces. Este archivo es una copia del plugin con las modificaciones que ha introducido. La copia está guardada con el nombre del nodo de workspace, que normalmente es el mismo nombre del plugin. Para grabarlo con un nombre diferente debe cambiar el título del nodo y guardarlo",
+                    "text": "Cuando sube, modifica y guarda un Native Workspace, el plugin permanece intacto, esto significa que el plugin no se modifica sino que un nuevo archivo se crea en tu carpeta de My-workspaces. Este archivo es una copia del plugin con las modificaciones que ha introducido. La copia está guardada con el nombre del nodo de workspace, que normalmente es el mismo nombre del plugin. Para grabarlo con un nombre diferente debe cambiar el título del nodo y guardarlo",
                     "updated": 1633107369531,
                     "style": "Important"
                 },
                 {
                     "language": "RU",
-                    "text": "Когда вы загружаете, изменяете и сохраняете Sample Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочего пространства плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочее пространство под другим именем, необходимо изменить имя узла рабочего пространства и сохранить.",
+                    "text": "Когда вы загружаете, изменяете и сохраняете Native Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочего пространства плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочее пространство под другим именем, необходимо изменить имя узла рабочего пространства и сохранить.",
                     "updated": 1638345532766
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie einen Sample Workspace laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner My-Workspaces erstellt. Diese Datei ist eine Kopie des Plugin-Arbeitsbereichs mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen der Node  Workspace gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Workspace unter einem anderen Namen zu speichern, müssen Sie den Namen der Workspace Node ändern und speichern.",
+                    "text": "Wenn Sie einen Native Workspace laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner My-Workspaces erstellt. Diese Datei ist eine Kopie des Plugin-Arbeitsbereichs mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen der Node  Workspace gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Workspace unter einem anderen Namen zu speichern, müssen Sie den Namen der Workspace Node ändern und speichern.",
                     "updated": 1639345443024
                 },
                 {
                     "language": "EL",
-                    "text": "Όταν φορτώνετε, τροποποιείτε και αποθηκεύετε έναν Sample Workspace (Χώρο Εργασίας Πρόσθετων), το πραγματικό αρχείο του πρόσθετου παραμένει άθικτο, δηλαδή, το πρόσθετο δεν τροποποιείται. Αντίθετα, δημιουργείται ένα νέο αρχείο στο φάκελο My-Workspaces. Αυτό το αρχείο είναι ένα αντίγραφο του χώρου εργασίας του πρόσθετου που περιλαμβάνει τις τροποποιήσεις που εισαγάγατε. Το αντίγραφο αποθηκεύεται με το όνομα του κόμβου Χώρου Εργασίας, το οποίο είναι συνήθως το ίδιο όνομα με το πρόσθετο. Για να αποθηκεύσετε το χώρο εργασίας με διαφορετικό όνομα, πρέπει να αλλάξετε το όνομα του κόμβου του χώρου εργασίας και να το αποθηκεύσετε.",
+                    "text": "Όταν φορτώνετε, τροποποιείτε και αποθηκεύετε έναν Native Workspace (Χώρο Εργασίας Πρόσθετων), το πραγματικό αρχείο του πρόσθετου παραμένει άθικτο, δηλαδή, το πρόσθετο δεν τροποποιείται. Αντίθετα, δημιουργείται ένα νέο αρχείο στο φάκελο My-Workspaces. Αυτό το αρχείο είναι ένα αντίγραφο του χώρου εργασίας του πρόσθετου που περιλαμβάνει τις τροποποιήσεις που εισαγάγατε. Το αντίγραφο αποθηκεύεται με το όνομα του κόμβου Χώρου Εργασίας, το οποίο είναι συνήθως το ίδιο όνομα με το πρόσθετο. Για να αποθηκεύσετε το χώρο εργασίας με διαφορετικό όνομα, πρέπει να αλλάξετε το όνομα του κόμβου του χώρου εργασίας και να το αποθηκεύσετε.",
                     "updated": 1641830110805
                 },
                 {
                     "language": "TR",
-                    "text": "Bir Eklenti Çalışma Alanını (Sample Workspace) yüklediğinizde, değiştirdiğinizde ve kaydettiğinizde, asıl eklenti dosyası olduğu gibi kalır, yani eklenti değiştirilmez. Bunun yerine, My-Workspaces klasöründe yeni bir dosya oluşturulur. Bu dosya, eklenti çalışma alanının sizin yaptığınız değişiklikleri içeren bir kopyasıdır. Kopya, genellikle eklentiyle aynı ad olan Çalışma Alanı düğümünün adıyla kaydedilir. Çalışma alanını farklı bir adla kaydetmek için Çalışma Alanı düğümünün adını değiştirmeniz ve kaydetmeniz gerekir.",
+                    "text": "Bir Eklenti Çalışma Alanını (Native Workspace) yüklediğinizde, değiştirdiğinizde ve kaydettiğinizde, asıl eklenti dosyası olduğu gibi kalır, yani eklenti değiştirilmez. Bunun yerine, My-Workspaces klasöründe yeni bir dosya oluşturulur. Bu dosya, eklenti çalışma alanının sizin yaptığınız değişiklikleri içeren bir kopyasıdır. Kopya, genellikle eklentiyle aynı ad olan Çalışma Alanı düğümünün adıyla kaydedilir. Çalışma alanını farklı bir adla kaydetmek için Çalışma Alanı düğümünün adını değiştirmeniz ve kaydetmeniz gerekir.",
                     "updated": 1654762862636
                 }
             ]
@@ -719,17 +719,17 @@
         },
         {
             "style": "Success",
-            "text": "The Blank Template Sample Workspace is the best to start with if you wish to create your own setup.",
+            "text": "The Blank Template Native Workspace is the best to start with if you wish to create your own setup.",
             "updated": 1629894382983,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Для начала лучше всего использовать шаблон Blank Template Sample Workspace, если вы хотите создать свою собственную настройку.",
+                    "text": "Для начала лучше всего использовать шаблон Blank Template Native Workspace, если вы хотите создать свою собственную настройку.",
                     "updated": 1638345758533
                 },
                 {
                     "language": "DE",
-                    "text": "Der Blank Template Sample Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
+                    "text": "Der Blank Template Native Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
                     "updated": 1639347042936
                 },
                 {
@@ -739,7 +739,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Sample Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
+                    "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Native Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
                     "updated": 1654763011045
                 }
             ]

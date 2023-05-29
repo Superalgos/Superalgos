@@ -1208,6 +1208,14 @@
                     "fileName": "ScanDatabase.js",
                     "folderName": "Sensor-Bot/Database-Sensor"
                 }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Aggregation Methods",
+                    "propertyName": "aggregationMethods",
+                    "functionName": "newDataMiningFunctionLibrariesAggregationMethods",
+                    "fileName": "AggregationMethods.js"
+                }
             ]
         },
         "plugins": [

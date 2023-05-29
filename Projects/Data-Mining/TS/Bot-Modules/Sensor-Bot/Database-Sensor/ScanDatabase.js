@@ -21,6 +21,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let lastId
     let firstId
     let thisReport;
+    let processIsRunning = false
     let since
     let initialProcessTimestamp
     let beginingOfMarket
@@ -59,7 +60,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     }
 
     function start(callBackFunction) {
-        try {
+        if (processIsRunning === false) {
+            console.log("process running")
+            processIsRunning = true
+            try {
 
             let mustLoadRawData = false
 
@@ -291,10 +295,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     */
 
                     let rawMinChunksArray = sortData(dataArray)
-                    console.log("sorted data", rawMinChunksArray)
+                    console.log("sorted data", JSON.stringify(rawMinChunksArray))
 
                     let minChunksArray = aggregateMinChunks(rawMinChunksArray)
-                    console.log("aggregated data", minChunksArray)
+                    console.log("aggregated data", JSON.stringify(minChunksArray))
                     //save(minChunksArray)
                     //save(dataArray)
 
@@ -473,15 +477,46 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     }
 
                     function aggregateMinChunks(rawMinChunks) {
-                        const { fork } = require('child_process')
-                        let rawChunks = rawMinChunks
-                        let processedChunks = []
-                        let aggregationType = "avg"
+                        let processedMinChunks 
+                        processedMinChunks = processSync(rawMinChunks)
 
-                        processChunksInParallel(rawChunks)
-                            .then(result => {console.log("processed chunks", result)})
+                        return processedMinChunks
 
-                        function processChunksInParallel(rawChunks) {
+                        function processSync(rawMinChunks) {
+                            let rawChunks = rawMinChunks
+                            let processedChunks = []
+                            let processedChunk
+
+                            for (let i = 0; i < rawChunks.length; i++) {
+                                switch (datasetDef.config.aggregationMethod) {
+                                    case "Avg":
+                                        SA.logger.info("Aggrergating data using simple average")
+                                        processedChunk = TS.projects.dataMining.functionLibraries.aggregationMethods.average(recordDef.properties, rawMinChunks[i])
+                                        processedChunks.push(processedChunk)
+                                        break
+                                    default: 
+                                        SA.logger.warn("Unknown aggregation method defined in dataset defintion config, falling back to simple average")
+                                        processedChunk = TS.projects.dataMining.functionLibraries.aggregationMethods.average(recordDef.properties, rawMinChunks)
+                                        processedChunks.push(processedChunk)
+                                        break
+                                }
+                            }
+
+                            return processedChunks
+                        }
+
+                        function processAsyc (rawMinChunks) {
+                        
+                            const { fork } = require('child_process')
+                       
+                            /* processChunksInParallel(rawChunks)
+                                .then(result => {
+                                console.log("this is our finsihed chunks", result)
+                                return result
+                            })*/
+
+                            function processChunksInParallel(rawChunks) {
+                            console.log("in processChunksInParallel", rawChunks)
 
                             return new Promise((resolve, reject) => {
                               let aggregatedChunks = [];
@@ -507,9 +542,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 worker.send(rawChunks[i], aggregationType);
                               }
                             });
-                          }
-
-                        return processedChunks
+                            }
+                        }
                     }
 
                     function save(newDataArray) {
@@ -1361,11 +1395,15 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
-        } catch (err) {
+            } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] start -> err = " + err.stack);
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            }
+            processIsRunning = false
+        } else {
+            console.log("process already running");
         }
     }
 };

@@ -1,4 +1,9 @@
-exports.newNetworkRoot = function newNetworkRoot() {
+/*
+This module represents the Nodejs command that is run as a subprocess to persist
+user profile balances as a non-blocking process.
+*/
+
+function newNetworkProfileManager() {
     /*
     This module represents the execution root of the Network Node.
     We use this module that is outside the Network folder to 
@@ -55,8 +60,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
             graphql: require("@octokit/graphql"),
             axios: require('axios'),
             crypto: require('crypto'),
-            octokit: require('@octokit/rest'),
-            childProcess: require('child_process')
+            octokit: require('@octokit/rest')
         }
         SA.version = require('./package.json').version
 
@@ -75,7 +79,9 @@ exports.newNetworkRoot = function newNetworkRoot() {
         let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
 
-        NT.app = require('./Network/NetwokApp.js').newNetworkApp()
+        NT.app = require('./Network/NetwokProfileManagerApp.js').newNetworkProfileManagerApp()
         NT.app.run()
     }
 }
+
+newNetworkProfileManager().run();

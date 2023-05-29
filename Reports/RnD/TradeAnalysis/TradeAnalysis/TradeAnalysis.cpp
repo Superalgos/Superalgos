@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
 					endOfFile = true;
 					break;
 				}
-				else if (myChar == ',' || myChar == '\n')
+				else if (myChar == ',' || myChar == '\n' || myChar == '\r')
 				{
 					break;
 				}
@@ -192,7 +192,7 @@ int main(int argc, char* argv[])
 				endOfFile = true;
 				break;
 			}
-			else if (myChar == '\n')
+			else if (myChar == '\n' || myChar == '\r')
 			{
 				break;
 			}
@@ -296,7 +296,7 @@ int main(int argc, char* argv[])
 				if (vectorSummaryLine[itr].type == buySell_buy)
 				{
 					if (summaryOnly)
-						cout << setprecision(5);
+						cout << defaultfloat << setprecision(5);
 					else
 						cout << setw(1) << setprecision(1);
 					cout << numTrades + 0.5 << ", "; // "Trade Number"
@@ -309,8 +309,10 @@ int main(int argc, char* argv[])
 
 				if(!gSimpleBallances)
 				{
-					cout << 100 * vectorSummaryLine[itr].runDailyProfit()  / dailyTotWallet    << "%, "   // "Daily % Profit"
-						 << 100 * vectorSummaryLine[itr].runTotAssChange() / startingTotWallet << "%, ";  // "% Profit Since Start"
+					cout << fixed << setprecision(4)
+						 << 100 * vectorSummaryLine[itr].runDailyProfit() / dailyTotWallet << "%, "   // "Daily % Profit"
+						 << 100 * vectorSummaryLine[itr].runTotAssChange() / startingTotWallet << "%, "   // "% Profit Since Start"
+						 << defaultfloat;
 				}
 
 				cout << numDays;                                                                          // "Day Number"

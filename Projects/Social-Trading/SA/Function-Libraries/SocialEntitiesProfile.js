@@ -181,6 +181,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response) 
                 return
             }
+            saveApiAppFile()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             reloadSecretsArray()
             if (response.result === 'Error') {
                 resolve(response)
@@ -250,7 +255,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         if (userProfile.socialPersonas === undefined) {
                             userProfile.socialPersonas = {
                                 type: 'Social Personas',
-                                name: 'New Social Personas',
+                                name: profileMessage.socialEntityHandle,
                                 project: 'Social-Trading',
                                 savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -472,6 +477,48 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+            
+            function saveApiAppFile() {
+             
+                const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ', '-') + "-Data"
+                /*
+                Try to load the Secrets file. 
+                */
+                let filePath = global.env.PATH_TO_SECRETS + '/'
+                let fileName = "ApisSecrets.json"
+                let fileContent 
+                try {
+                    fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+                }catch(err) {
+                    /* If the file does not exist, then we'll get here.*/
+                }
+                
+                let secretsFile
+                if (fileContent === undefined) {
+                    secretsFile = {
+                        secrets: []
+                    }
+                } else {
+                    secretsFile = JSON.parse(fileContent)
+                }
+
+                /*
+                Deal with secrets
+                */
+                let secret = {
+                    nodeCodeName: SOCIAL_TRADING_REPO_NAME,
+                    token: profileMessage.storageProviderToken
+                }
+
+                secretsFile.secrets.push(secret)
+                /*
+                Save Signing Accounts Secrets File
+                */
+                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(secretsFile, undefined, 4))
+            
+                
             }
 
             function reloadSecretsArray() {

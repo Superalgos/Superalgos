@@ -13,7 +13,6 @@ Build OrderFetcherFromSA
 ```
 cd ~/Superalgos/Reports/RnD/OrderFetcherFromSA/OrderFetcherFromSA
 cmake .
-cmake –build .
 make
 ```
 ### Other Operating Systems

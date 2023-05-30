@@ -6,6 +6,17 @@ exports.newDataMiningFunctionLibrariesAggregationMethods = function () {
 
   return thisObject
 
+  /**
+   * The function calculates the average of specific record properties in an array of data.
+   * @param recordProperties - An array of objects that define the properties of the data being
+   * processed. Each object contains a configuration object with a codeName property that corresponds
+   * to the property name in the raw data, and other properties that define how the data should be
+   * processed.
+   * @param dataArray - The array of raw data rows that needs to be processed to calculate the average
+   * of certain record properties.
+   * @returns an array containing the beginning and ending time for a chunk of data, followed by the
+   * average value for each record property in the input data array.
+   */
   function average(recordProperties, dataArray) {
     let outputElementAverage = {}
     let outputElement = {}

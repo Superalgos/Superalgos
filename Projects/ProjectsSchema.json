@@ -1795,12 +1795,6 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
-                },
-                {
-                    "name": "Persistence",
-                    "propertyName": "persistence",
-                    "functionName":"newNetworkGlobalsPersistence",
-                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [
@@ -1838,6 +1832,12 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newNetworkGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [

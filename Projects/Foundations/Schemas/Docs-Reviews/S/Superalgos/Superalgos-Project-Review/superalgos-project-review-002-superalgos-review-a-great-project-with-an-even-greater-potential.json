@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Merhaba, ben 0xperez ve bu benim Superalgos incelemem!",
                 "updated": 1666710878741
+            },
+            {
+                "language": "DE",
+                "text": "Hallo, ich bin 0xperez und dies ist meine Superalgos Rezension!",
+                "updated": 1685388073606
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos'u ilk denediğimde gözlerime inanamadım: yazılım geliştirme alanında olduğumdan beri, özellikle finans odaklı, bu kadar çok harika işlevi tek bir sistemde toplayan bu kadar güçlü bir platform görmedim. Veri görselleştirme yetenekleri ve Superalgos'un ele aldığı birçok süreç akışın anlaşılmasını büyük ölçüde artıran benzersiz bir özelliktir. Her bir işlevsellik parçası, geliştiricilerin ve katkıda bulunanların yazılımı oluşturmak ve geliştirmek için harcadıkları çabayı ve ustalığı gösterir. Henüz beta aşamasında olmasına rağmen Superalgos, hem karmaşıklık hem de sunulan özellikler açısından kendi kategorisindeki birçok yazılımı geride bırakıyor. Aktif, arkadaş canlısı ve yardımsever bu topluluk beni sıcak bir şekilde karşıladı ve platform hakkında faydalı ipuçları verdi. Daha derine dalmak ve katkıda bulunmaya başlamak için sabırsızlanıyorum!",
                     "updated": 1666711156201
+                },
+                {
+                    "language": "DE",
+                    "text": "Als ich Superalgos zum ersten Mal ausprobierte, traute ich meinen Augen nicht: Seit ich im Bereich der Softwareentwicklung tätig bin, vor allem im Finanzbereich, habe ich noch nie eine so leistungsfähige Plattform gesehen, die so viele großartige Funktionen in einem einzigen System vereint. Die Möglichkeiten der Datenvisualisierung sind eine einzigartige Funktion, die das Verständnis der vielen Prozesse und Abläufe, die Superalgos handhabt, erheblich verbessert, und jedes Stück Funktionalität zeigt den Aufwand und die Arbeit, die die Entwickler und alle Mitwirkenden in die Erstellung und Entwicklung der Software stecken. Obwohl Superalgos sich noch in der Beta-Phase befindet, übertrifft es viele andere Programme in seiner Kategorie sowohl in Bezug auf die Komplexität als auch auf die angebotenen Funktionen. Die Community ist aktiv, freundlich und hilfsbereit und hat mich sofort herzlich willkommen geheißen und mir nützliche Hinweise gegeben. Ich kann es kaum erwarten, tiefer einzutauchen und meinen Beitrag zu leisten!",
+                    "updated": 1685388143314
                 }
             ]
         },

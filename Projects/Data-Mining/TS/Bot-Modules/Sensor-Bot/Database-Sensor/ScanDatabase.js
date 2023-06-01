@@ -300,8 +300,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     let minChunksArray = aggregateMinChunks(rawMinChunksArray)
                     console.log("aggregated data", JSON.stringify(minChunksArray))
                     let files = divideIntoDayFiles(minChunksArray)
-                    console.log("files to save", files)
-                    //save(files)
+                    console.log("files to save", JSON.stringify(files))
+
+                    saveFiles(files)
+
+                    /******* MAIN DATA PROCESSING FUNCIONS *******/
 
                     /**
                      * The function sorts new data into one minute chunks based on timestamps .
@@ -324,7 +327,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 let firstDataRow = newDataArray[0]
                                 let currentTimestamp = validateRawTimestamp(firstDataRow[dbTimestamp])
                                 
-                                if(checkIfOverlap(startingDate, currentTimestamp)) {
+                                if(checkIfOnSameDay(startingDate, currentTimestamp)) {
                                 // Check if the raw chunk associated with the last day file overlaps with the day of our new min chunk
                                 
                                     // Check if we can access the old raw minute chunk to load and aggregate with our current data 
@@ -574,30 +577,30 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         }
                     }
 
+                    /**
+                     * The function divides aggregated minute chunks into day files based on timestamps
+                     * and merges them with previously saved day files if necessary.
+                     * @param aggregatedMinChunks - An array of one minute chunks (each represented as
+                     * an array with at least three elements: start timestamp, end timestamps, and data
+                     * values) that need to be sorted into day files.
+                     * @returns The function `divideIntoDayFiles` returns an array of day files, where
+                     * each day file is an array of minChunks.
+                     */
                     function divideIntoDayFiles (aggregatedMinChunks) {
                         try { 
-
-                            let startingDate
-                            let rawTimestamp
-                            let currentTimestamp
-                            let lastTimestamp = undefined
-
+                            // now that we have aggregated min chunks, loop through them placing them into day files 
                             let lastSavedFile
-                            let fileContent = []
-                            let heartBeatCounter = 0
-                            let files = []
-
-                            /**** day file building and aggregation process *****/
-                            
-                            // now that we have aggregated min chunks, loop through them placing them into day files            
+                            let files = [] 
+                            let heartBeatCounter = 0                   
+                                 
+                            // Load data from the last day file if needed
                             if (mustLoadRawData) {
-                                // Load data from the last day file
                                 mustLoadRawData = false
-                                startingDate = new Date(initialProcessTimestamp)
+                                let startingDate = new Date(initialProcessTimestamp)
                                 let currentTimestamp = new Date(minChunk[0])
                                     
                                 // Check if the day of the last day file overlaps with the day of our new min chunk
-                                if (checkIfOverlap(startingDate, currentTimestamp)) { 
+                                if (checkIfOnSameDay(startingDate, currentTimestamp)) { 
                                     // If it does we load the old day file before adding our new data to it
                                     let fileName = "Data.json"
                                     let dateForPath = startingDate.getUTCFullYear() + '/' +
@@ -620,15 +623,27 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         files = sortIntoDays(aggregatedMinChunks, undefined) 
                                     }
                                 } else {
-                                    // Fall back to sorting into days without the old file data
-                                    SA.logger.info(MODULE_NAME + " processAndSaveMessages -> divideIntoDayFiles -> starting new day file to save data within at file = " + fullFileName)
+                                    // old file not needed to process this data since it is not on the same day
+                                    SA.logger.info(MODULE_NAME + " processAndSaveMessages -> divideIntoDayFiles -> starting new day file to save data")
                                     files = sortIntoDays(aggregatedMinChunks, undefined) 
                                 }
+                            } else {
+                                SA.logger.info(MODULE_NAME + " processAndSaveMessages -> divideIntoDayFiles -> starting new day file to save data")
+                                files = sortIntoDays(aggregatedMinChunks, undefined)  
                             }
+
+                            return files
                             
-
-                            // TODO: Save left over file content here
-
+                            /**
+                             * The function sorts data into day files based on timestamps.
+                             * @param newMinChunks - an array of one minute chunks (each represented as an
+                             * array with at least three elements: start timestamp, end timestamps, and data values) that need to be
+                             * sorted into day files.
+                             * @param oldMinChunks - an array of one minute chunks coming from a previously saved day
+                             * file
+                             * @returns an array of day files, where each day file is an array of
+                             * minChunks.
+                             */
                             function sortIntoDays(newMinChunks, oldMinChunks) {
                                 let currentDay = []
                                 let dayFiles = []
@@ -641,13 +656,44 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     dayFiles.push(currentDay)
                                     currentDay = []
 
-                                    // sort remaining chunks into day files
-                                    for (let minChunk of chunksToSort) { 
+                                    if (chunksToSort != undefined) {
+                                        // sort remaining chunks into day files
+                                        for (let minChunk of chunksToSort) { 
+                                            if (currentDay.length > 0) {
+                                                // check if chunk still in current day
+                                                let lastChunk = currentDay[currentDay.length - 1]
+                                                let lastChunkEnd = new Date(lastChunk[1])
+                                                let currentChunkBegin = new Date(minChunk[0])                                     //TODO: logic to get timestamps for current Day and minChunk
+                                                if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
+                                                    // if so add them to the same day
+                                                    currentDay.push(minChunk)
+                                                    console.log("adding to current day as ", currentDay)
+                                                } else {
+                                                    // if not save the current day file and continue to the next
+                                                    dayFiles.push(currentDay)
+                                                    currentDay = []
+                                                    currentDay.push(minChunk)
+                                                }
+                                            } else {
+                                                currentDay.push(minChunk)
+                                                console.log("starting current day as ", currentDay)
+                                            }
+                                        }
+
+                                        dayFiles.push(currentDay) 
+                                    }
+
+                                    return dayFiles
+                                } else {
+                                    // Else we need to start fresh and sort into day files
+                                    for (let minChunk of newMinChunks) { 
                                         if (currentDay.length > 0) {
                                             // check if chunk still in current day
-                                            //TODO: logic to get timestamps for current Day and minChunk
-                                            if (checkIfOverlap()) {
-                                                //TODO: add timestamps from current day and current chunk
+                                            let lastChunk = currentDay[currentDay.length - 1]
+                                            let lastChunkEnd = new Date(lastChunk[1])
+                                            let currentChunkBegin = new Date(minChunk[0])                                     //TODO: logic to get timestamps for current Day and minChunk
+                                            if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
+                                                // if so add them to the same day
                                                 currentDay.push(minChunk)
                                                 console.log("adding to current day as ", currentDay)
                                             } else {
@@ -661,240 +707,122 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             console.log("starting current day as ", currentDay)
                                         }
                                     }
-                                    
-                                    return dayFiles
-                                } else {
-                                    // Else we need to start fresh and sort into day files
-                                    for (let minChunk of newMinChunks) { 
 
-                                    }
+                                    dayFiles.push(currentDay)
     
                                     return dayFiles
                                 }
                             }
 
-                            function mergeChunks(newChunks, oldChunks) {
-                                //TODO: make sure to slice off any newly aggregated minchunk
-                                return [currentDayFile, chunksAfterCurrentDay] 
-                            }
-
-
-
-
-
-                            function chunkingNewDayData(newData) {
-
-                                console.log("Adding current data to a fresh day file")
-
-                                let currentMinChunk = toOneMinChunk(newData)
-                                // we want to convert incoming data into a one min chunk and assign it to the day file
-                                console.log(currentTimestamp)
-                                console.log(currentMinChunk)
-                                console.log("filecontent before new save: ", fileContent)
-
-                                // save minute chunk to fresh day file
-                                fileContent = []
-                                fileContent.push(currentMinChunk)
-                                console.log("filecontent after new save: ", fileContent)
-
-                                currentNewData = undefined
-                                lastTimestamp = currentTimestamp
-                                return
-                            }
-
-                            function aggregatingAndChunkingNewDayData(newData) {
-
-                                // check if new data chunk in same day as current day if not save current file content and start a fresh day file
-                                if (currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
-                                    currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
-                                    currentTimestamp.getDate() !== lastTimestamp.getDate()) {
-                                    
-                                    console.log('filecontent before save: ', fileContent)
-                                    saveFile()
-                                    chunkingNewDayData(newData) 
-                                    console.log('filecontent before save: ', fileContent)
-                                }
-
-                                console.log("aggregating and saving new day data to old day file")
-                                
-                                console.log("this is our current file content", fileContent)
-                                // reverse loop through file content in order to find if there is a minute chunk that we should aggregate the data into
-                                for (let j = fileContent.length - 1; j >= 0; j--) {
-                                    let unixTimestamp = currentTimestamp.getTime()
-                                    
-                                    if (unixTimestamp > fileContent[j][1]) {
-                                        // if the timestamp is greater than the end of the last minute chunk then we know we need a new minute chunk and push it to the file content
-                                        let currentMinChunk = toOneMinChunk(newData)
-                                        fileContent.push(currentMinChunk)
-                                        lastTimestamp = currentTimestamp
-                                        return
-
-                                    } else if ( unixTimestamp >= fileContent[j][0] &&  unixTimestamp <= fileContent[j][1] ) {
-                                        // if this data falls within this minute chunk then we aggregate the new data in
-                                        aggregationMethodAvg(j, fileContent[j], newData)
-                                        lastTimestamp = currentTimestamp
-                                        return
-
-                                    } 
-                                }
-
-                                //If we make it through the whole loop of current minute chunks and make it here then we know this minute chunk should be at the very beginning of the file
-                                let currentMinChunk = toOneMinChunk(newData)
-                                fileContent.splice(0, 0, currentMinChunk)
-
-                                currentNewData = undefined
-                                lastTimestamp = currentTimestamp
-                                return
-                                
-                                //TODO: aggregate new data in with the old data
-                                function aggregationMethodAvg(fileContentIndex, oldDataChunk, newDataChunk) {
-                                    /* 
-                                    This is the AVG type of aggregation.
-                                    */
-
-                                    for (let j = 0; j < recordDef.properties.length; j++) {
-                                        let property = recordDef.properties[j]
-                                        if (property.config) {
-                                            switch (property.config.codeName) {
-                                                case "begin":
-                                                    break;
-                                                case "end":
-                                                    break;
-                                                case undefined:
-                                                    return
-                                                    // TODO: probably should error out here
-                                                default:
-                                                    // Average in new data to the existing record property 
-                                                    let sum = oldDataChunk[j] + newDataChunk[property.config.codeName]
-                                                    oldDataChunk[j] =  sum / 2
-                                                    break;
-                                              }                  
-                                        } else {
-                                            // TODO: maybe add hint to make sure a config is added for this property
-                                            SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
-                                        }
-                                    }
-                                    fileContent[fileContentIndex] = oldDataChunk
-                                    return
-                                }
-                            }
-
-                            function toOneMinChunk(newData) {
-                                // We take in new data an convert it into a one min chunk array according to the record properties defined at the UI
-                                console.log(currentTimestamp)
-                                console.log(newData)
-                                let minuteChunk =[]
-                                let hasBegin = false
-                                let hasEnd = false
-
-                                for (let j = 0; j < recordDef.properties.length; j++) {
-                                    let property = recordDef.properties[j]
-                                    if (property.config) {
-                                        switch (property.config.codeName) {
-                                            case "begin":
-                                                let begin = currentTimestamp
-                                                begin.setSeconds(0, 0)
-                                                // always put the begin property at the beginning of the minute chunk array
-                                                minuteChunk.splice(0, 0, begin.getTime())
-                                                hasBegin = true
-                                                break;
-                                            case "end":
-                                                let end = currentTimestamp
-                                                end.setSeconds(0, 0)
-                                                end.setMinutes(currentTimestamp.getMinutes() + 1)
-                                                // always put the end property in the second spot of the minute chunk array
-                                                minuteChunk.splice(1, 0, end.getTime())
-                                                hasEnd = true
-                                                break;
-                                            case undefined:
-                                                return
-                                                // TODO: probably should error out here
-                                            default:
-                                                // all other record properties are assigned based on the order of the nodes in the UI
-                                                minuteChunk.push(newData[property.config.codeName])
-                                                break;
-                                          }                  
-                                    } else {
-                                        // TODO: maybe add hint to make sure a config is added for this property
-                                        minuteChunk = undefined
-                                        SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
-                                    }
-                                }
-
-                                if (hasBegin === true && hasEnd === true) {
-                                    return minuteChunk
-
-                                } else{
-                                    SA.logger.error("Missing Begin or End Value in Record definition.  Defintion has valid Begin value: ", hasBegin, " Defintion has valid End value: ", hasEnd )
-                                    minuteChunk = undefined
-                                    return minuteChunk
-                                }
-                                
-                            }
-
-                            function saveFile() {
-
-                                // TODO:can hook this up to add dynamic name from dataset definition
-                                let fileName = 'Data.json'
-    
-                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
-                            
-                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, currentRawMinChunk + '\n', onFileCreated);
-                                console.log("saving current raw min chunk", currentRawMinChunk)
-                                
-                                mustLoadRawData = true
-                                fileContent = []
-                                return
-                            }
-
-                            // TODO: possibly need this function to generate path for saving day file     
                             /**
-                             * The function returns a file path based on a timestamp and folder name.
-                             * @param timestamp - A Unix timestamp representing a specific date and time.
-                             * @param folderName - The name of the folder where the file will be saved.
-                             * @returns a file path string that includes the root file path, the folder name, and a date string
-                             * based on the timestamp input.
+                             * The function merges new chunks of data with old chunks of data based on
+                             * their timestamps.
+                             * @param newChunks - An array of new chunks to be merged with the old
+                             * chunks.
+                             * @param oldChunks - An array of arrays representing one minute time intervals
+                             * (chunks). Each inner array has at least three elements: the start
+                             * time, end time, and data values of the chunk.
+                             * @returns an array with two elements: the first element is the current
+                             * day file (an array of chunks), and the second element is either an array
+                             * of chunks that come after the current day or undefined if all chunks are
+                             * on the same day.
                              */
-                            function getFilePath(timestamp, folderName) {
-                                let datetime = new Date(timestamp)
-                                let dateForPath = datetime.getUTCFullYear() + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                                let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
-                                return filePath
+                            function mergeChunks(newChunks, oldChunks) {
+                                let currentDayFile = oldChunks
+                                let chunksAfterCurrentDay
+
+                                let lastChunk = oldChunks[oldChunks.length - 1]
+                                let lastChunkBegin = new Date(lastChunk[0])
+                                let lastChunkEnd = new Date(lastChunk[1])
+
+                                let firstNewChunk = newChunks[0]
+                                let firstNewChunkBegin = new Date(firstNewChunk[0]) 
+                                let firstNewChunkEnd = new Date(firstNewChunk[1])
+
+                                if (firstNewChunkBegin.getTime() ===  lastChunkBegin.getTime() &&
+                                    firstNewChunkEnd.getTime() === lastChunkEnd.getTime()) {
+                                        // Replace last min chunk with newly aggregated one
+                                        currentDayFile.splice(-1, 1, firstNewChunk)
+                                        newChunks.shift()
+                                } 
+
+                                for (let i = 0; i < newChunks.length; i++) {
+                                    let currentChunk = newChunks[i]
+                                    let currentChunkBegin = new Date(currentChunk[0])
+                                    if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
+                                        currentDayFile.push(newChunks[i])
+                                    } else {
+                                        chunksAfterCurrentDay = newChunks.slice(i)
+                                        return [currentDayFile, chunksAfterCurrentDay]
+                                    }
+                                }
+
+                                //If all chunks are on the same day then we will return the current day file and leave the chunks to sort as undefined
+                                return [currentDayFile, undefined] 
                             }
-    
-                                                            /*
-                                It might have happened that the User is stopping the Task. If that
-                                is the case, we need to stop this processing here.
-                                */
-                                if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                                    return
-                                }
-        
-                                /* 
-                                If we had any problem saving the latest file, we will also abort 
-                                this process here, so that we can record our progress until it stopped
-                                working.
-                                */
-                                if (error) {
-                                    callBackFunction(error);
-                                    return;
-                                }
 
                         } catch (err) {
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                            //abort = true
                         }  
                     }
 
-                    function save(newDataArray) {
+                    function saveFiles(files) {
 
                         //TODO: asyncCreateTextFile use instead of callback function for creating files
+                        //TODO: make sure lastFile is updated during save process
+                        function saveFile() {
+
+                            // TODO:can hook this up to add dynamic name from dataset definition
+                            let fileName = 'Data.json'
+
+                            fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
+                        
+                            fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, currentRawMinChunk + '\n', onFileCreated);
+                            console.log("saving current raw min chunk", currentRawMinChunk)
+                            
+                            mustLoadRawData = true
+                            fileContent = []
+                            return
+                        }
+
+                        // TODO: possibly need this function to generate path for saving day file     
+                        /**
+                         * The function returns a file path based on a timestamp and folder name.
+                         * @param timestamp - A Unix timestamp representing a specific date and time.
+                         * @param folderName - The name of the folder where the file will be saved.
+                         * @returns a file path string that includes the root file path, the folder name, and a date string
+                         * based on the timestamp input.
+                         */
+                        function getFilePath(timestamp, folderName) {
+                            let datetime = new Date(timestamp)
+                            let dateForPath = datetime.getUTCFullYear() + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
+                            return filePath
+                        }
+
+                                                        /*
+                            It might have happened that the User is stopping the Task. If that
+                            is the case, we need to stop this processing here.
+                            */
+                            if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                                return
+                            }
+    
+                            /* 
+                            If we had any problem saving the latest file, we will also abort 
+                            this process here, so that we can record our progress until it stopped
+                            working.
+                            */
+                            if (error) {
+                                callBackFunction(error);
+                                return;
+                            }
                         
                         try { 
 
@@ -908,75 +836,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let fileContent = []
                             let heartBeatCounter = 0
 
-
-
-                            /**** day file building and aggregation process *****/
-                            //TODO: Inital time checks only need to be run on first iteration but check if we are on the right day still each loop
-                            for (minChunk of rawMinChunkArray) {
-                                // now that we have sorted raw min chunks loop through the placing them into day files as well as aggregating the data to processed min chunks using the aggregation method
-                    
-                                // Load data from the last day file
-                                // check if last minite chunk needs recalculated 
-                                // aggregate all new raw minute chunks and then add them to the appropreate day file
-                                if (mustLoadRawData) {
-                                    mustLoadRawData = false
-                                    startingDate = new Date(initialProcessTimestamp)
-                                    
-                                    // Check if the day of the last day file overlaps with the day of our new min chunk
-                                    if ( startingDate.getFullYear() === currentTimestamp.getFullYear() &&
-                                         startingDate.getMonth() === currentTimestamp.getMonth() &&
-                                         startingDate.getDate() === currentTimestamp.getDate()) {
-                                            
-                                            // If it does we load the old day file before aggregating it with the new data
-                                            let fileName = "Data.json"
-                                            let datetime = new Date(lastFile.valueOf())
-                                            let dateForPath = datetime.getUTCFullYear() + '/' +
-                                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + DATA_FOLDER_NAME + '/' + dateForPath;
-                                            let fullFileName = filePath + '/' + fileName
-                                            SA.logger.info(MODULE_NAME + " saveMessage -> save -> loading saved data from file = " + fullFileName)
-                                            fileStorage.getTextFile(fullFileName, onFileReceived)
-                                        
-                                         } else {
-                                            chunkingNewDayData(minChunk) 
-                                         }
-                                } else {
-                                    /* Check if this is the first save loop for this current execution of the bot 
-                                       Or if we are on a new day meaning we will be starting a new saving cycle
-                                    */
-                                    if (lastTimestamp === undefined ||
-                                        currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
-                                        currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
-                                        currentTimestamp.getDate() !== lastTimestamp.getDate() ) {
-
-                                        //Run intial checks to see if there is an old day file associated with this day that needs aggregated with this new data
-                                        startingDate = currentTimestamp
-                                        let fileName = "Data.json"
-                                        let dateForPath = startingDate.getUTCFullYear() + '/' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCMonth() + 1, 2) + '/' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCDate(), 2)
-                                        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + DATA_FOLDER_NAME + '/' + dateForPath;
-                                        let fullFileName = filePath + '/' + fileName
-                                        let fullFilePath = global.env.PATH_TO_DATA_STORAGE + '/' + fullFileName
-                                            //console.log(fullFilePath)
-                                        // Check if this data has a corresponding day file or not
-                                        if (SA.nodeModules.fs.existsSync(fullFilePath)) {
-                                            // If it does we load it and start the aggregation process
-                                            SA.logger.info(MODULE_NAME + " saveMessage - > save -> loading saved data from file = " + fullFileName)
-                                            fileStorage.getTextFile(fullFileName, onFileReceived)
-            
-                                        } else {
-                                            chunkingNewDayData(minChunk)
-                                        }
-                                    } else {
-                                        // Add the next set of data to the current day file
-                                        aggregatingAndChunkingNewDayData(minChunk)
-                                    }
-                                }
-                            }
-
-                            // TODO: Save left over file content here
 
 
                             function onFileReceived(err, text) {
@@ -1015,158 +874,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         "[ERROR] saveMessage -> save  -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
-                            }
-
-
-
-                            function chunkingNewDayData(newData) {
-
-                                console.log("Adding current data to a fresh day file")
-
-                                let currentMinChunk = toOneMinChunk(newData)
-                                // we want to convert incoming data into a one min chunk and assign it to the day file
-                                console.log(currentTimestamp)
-                                console.log(currentMinChunk)
-                                console.log("filecontent before new save: ", fileContent)
-
-                                // save minute chunk to fresh day file
-                                fileContent = []
-                                fileContent.push(currentMinChunk)
-                                console.log("filecontent after new save: ", fileContent)
-
-                                currentNewData = undefined
-                                lastTimestamp = currentTimestamp
-                                return
-                            }
-
-                            function aggregatingAndChunkingNewDayData(newData) {
-
-                                // check if new data chunk in same day as current day if not save current file content and start a fresh day file
-                                if (currentTimestamp.getFullYear() !==  lastTimestamp.getFullYear() ||
-                                    currentTimestamp.getMonth() !== lastTimestamp.getMonth() ||
-                                    currentTimestamp.getDate() !== lastTimestamp.getDate()) {
-                                    
-                                    console.log('filecontent before save: ', fileContent)
-                                    saveFile()
-                                    chunkingNewDayData(newData) 
-                                    console.log('filecontent before save: ', fileContent)
-                                }
-
-                                console.log("aggregating and saving new day data to old day file")
-                                
-                                console.log("this is our current file content", fileContent)
-                                // reverse loop through file content in order to find if there is a minute chunk that we should aggregate the data into
-                                for (let j = fileContent.length - 1; j >= 0; j--) {
-                                    let unixTimestamp = currentTimestamp.getTime()
-                                    
-                                    if (unixTimestamp > fileContent[j][1]) {
-                                        // if the timestamp is greater than the end of the last minute chunk then we know we need a new minute chunk and push it to the file content
-                                        let currentMinChunk = toOneMinChunk(newData)
-                                        fileContent.push(currentMinChunk)
-                                        lastTimestamp = currentTimestamp
-                                        return
-
-                                    } else if ( unixTimestamp >= fileContent[j][0] &&  unixTimestamp <= fileContent[j][1] ) {
-                                        // if this data falls within this minute chunk then we aggregate the new data in
-                                        aggregationMethodAvg(j, fileContent[j], newData)
-                                        lastTimestamp = currentTimestamp
-                                        return
-
-                                    } 
-                                }
-
-                                //If we make it through the whole loop of current minute chunks and make it here then we know this minute chunk should be at the very beginning of the file
-                                let currentMinChunk = toOneMinChunk(newData)
-                                fileContent.splice(0, 0, currentMinChunk)
-
-                                currentNewData = undefined
-                                lastTimestamp = currentTimestamp
-                                return
-                                
-                                //TODO: aggregate new data in with the old data
-                                function aggregationMethodAvg(fileContentIndex, oldDataChunk, newDataChunk) {
-                                    /* 
-                                    This is the AVG type of aggregation.
-                                    */
-
-                                    for (let j = 0; j < recordDef.properties.length; j++) {
-                                        let property = recordDef.properties[j]
-                                        if (property.config) {
-                                            switch (property.config.codeName) {
-                                                case "begin":
-                                                    break;
-                                                case "end":
-                                                    break;
-                                                case undefined:
-                                                    return
-                                                    // TODO: probably should error out here
-                                                default:
-                                                    // Average in new data to the existing record property 
-                                                    let sum = oldDataChunk[j] + newDataChunk[property.config.codeName]
-                                                    oldDataChunk[j] =  sum / 2
-                                                    break;
-                                              }                  
-                                        } else {
-                                            // TODO: maybe add hint to make sure a config is added for this property
-                                            SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
-                                        }
-                                    }
-                                    fileContent[fileContentIndex] = oldDataChunk
-                                    return
-                                }
-                            }
-
-                            function toOneMinChunk(newData) {
-                                // We take in new data an convert it into a one min chunk array according to the record properties defined at the UI
-                                console.log(currentTimestamp)
-                                console.log(newData)
-                                let minuteChunk =[]
-                                let hasBegin = false
-                                let hasEnd = false
-
-                                for (let j = 0; j < recordDef.properties.length; j++) {
-                                    let property = recordDef.properties[j]
-                                    if (property.config) {
-                                        switch (property.config.codeName) {
-                                            case "begin":
-                                                let begin = currentTimestamp
-                                                begin.setSeconds(0, 0)
-                                                // always put the begin property at the beginning of the minute chunk array
-                                                minuteChunk.splice(0, 0, begin.getTime())
-                                                hasBegin = true
-                                                break;
-                                            case "end":
-                                                let end = currentTimestamp
-                                                end.setSeconds(0, 0)
-                                                end.setMinutes(currentTimestamp.getMinutes() + 1)
-                                                // always put the end property in the second spot of the minute chunk array
-                                                minuteChunk.splice(1, 0, end.getTime())
-                                                hasEnd = true
-                                                break;
-                                            case undefined:
-                                                return
-                                                // TODO: probably should error out here
-                                            default:
-                                                // all other record properties are assigned based on the order of the nodes in the UI
-                                                minuteChunk.push(newData[property.config.codeName])
-                                                break;
-                                          }                  
-                                    } else {
-                                        // TODO: maybe add hint to make sure a config is added for this property
-                                        minuteChunk = undefined
-                                        SA.logger.error("Invalid Property Config for Property:", JSON.stringify(property))
-                                    }
-                                }
-
-                                if (hasBegin === true && hasEnd === true) {
-                                    return minuteChunk
-
-                                } else{
-                                    SA.logger.error("Missing Begin or End Value in Record definition.  Defintion has valid Begin value: ", hasBegin, " Defintion has valid End value: ", hasEnd )
-                                    minuteChunk = undefined
-                                    return minuteChunk
-                                }
-                                
                             }
 
                             function saveFile() {
@@ -1533,6 +1240,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         }   
                     }
 
+                    /******* UTILITY FUNCIONS *******/
+
                     /**
                      * The function validates a raw timestamp and returns a Date object.
                      * @param rawTimestamp - a timestamp value that needs to be validated and converted
@@ -1571,7 +1280,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                      * currentTimestamp parameter. If they match, the function returns true, otherwise
                      * it returns false.
                      */
-                    function checkIfOverlap(startingDate, currentTimestamp) {
+                    function checkIfOnSameDay(startingDate, currentTimestamp) {
                         if ( startingDate.getFullYear() === currentTimestamp.getFullYear() &&
                              startingDate.getMonth() === currentTimestamp.getMonth() &&
                              startingDate.getDate() === currentTimestamp.getDate()) {
@@ -1580,7 +1289,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                              return false
                         }
                     }
-
 
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

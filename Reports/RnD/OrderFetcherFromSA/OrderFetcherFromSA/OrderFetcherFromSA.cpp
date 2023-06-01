@@ -16,7 +16,7 @@ using namespace std;
 using namespace filesystem;
 using json = nlohmann::json;
 
-cxxopts::Options options("OrderFetcherFromSA", "Program to fetch Order information in the style of Binance's Order Export");
+cxxopts::Options options("OrderFetcherFromSA", "Program to fetch Order information in the style of Binance's Order Export\n");
 
 cxxopts::ParseResult result;
 
@@ -182,9 +182,8 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
 
 int main(int argc, char** argv)
 {
-    path path1 = "/Users/greg/Superalgos"; // Starting directory
+    path  path1 = "~/Superalgos"; // Starting directory
 
-    path1 += "/Platform/My-Data-Storage/Project/Algorithmic-Trading/Trading-Mine/Masters/Low-Frequency";
 
     string  stExchange;
     string  stPair;
@@ -194,6 +193,7 @@ int main(int argc, char** argv)
     // * Process program arguments
     options.add_options()
         ("e,exchange", "i.e. binance. * This is a mandatory argument *", cxxopts::value<string>())
+        ("p,path-to-SA-install", "This is the path up to the 'Superalgos' directory of your install.\nFor Windows users it might be something like '/Users/YourUserName'", cxxopts::value<string>())
         ("m,month", "Orders for specific month. i.e. 1 = Jan, 2 = Feb etc.", cxxopts::value<int>())
         ("h,help", "(This) basic usage help")
         ("d,debug", "Print long debug information")
@@ -203,6 +203,7 @@ int main(int argc, char** argv)
 
     if (argc == 1 || result.count("help") || !result.count("exchange") )
     {
+        cout << endl << "Order Fetcher (direct) from Superalgos (logs)         Ver: " << version << endl << endl;
         cout << options.help() << endl;
         return 0;
     }
@@ -211,6 +212,22 @@ int main(int argc, char** argv)
         debug = 1;
 
     bool foundExchange= false;
+
+    if (result.count("path-to-SA-install"))
+    {
+        path1 = result["path-to-SA-install"].as<string>();
+        path1 += "/Superalgos";
+    }
+
+
+    if (!exists(path1))
+    {
+        cout << endl << "Could not find Superalgos directory: " << path1 << endl;
+        cout << "Perhaps the path to Superalgos isn't quite right?" << endl;
+        return 0;
+    }
+
+    path1 += "/Platform/My-Data-Storage/Project/Algorithmic-Trading/Trading-Mine/Masters/Low-Frequency";
 
     // Get Exchange
     for (auto& entry : directory_iterator(path1))

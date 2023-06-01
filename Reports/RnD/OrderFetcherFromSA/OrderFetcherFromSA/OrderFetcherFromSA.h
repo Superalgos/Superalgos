@@ -3,6 +3,8 @@
 
 #pragma once
 
+const char version[] = "0.4.1";
+
 #include <iostream>
 
 // TODO: Reference additional headers your program requires here.

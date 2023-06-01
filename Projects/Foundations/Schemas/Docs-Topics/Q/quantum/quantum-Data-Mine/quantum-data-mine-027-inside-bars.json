@@ -1,0 +1,46 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 27,
+    "type": "Inside Bars",
+    "definition": {
+        "text": "The Inside Bars indicator makes use of the pattern that the current candle is enveloped by the previous bar, and has the potential to break out from here, especially when there are two signals that follow each other."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Inside Bars On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "When the indicator detects a candle that is \"inside\" of the previous one, an arrow is produced, with the colour depending on the direction of the current candle; Green for upward, and red for downward."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-inside-bars-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "There are no modifiable parameters for this indicator."
+        },
+        {
+            "style": "Title",
+            "text": "Inside Bars Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| InsideBars | ib | value, double |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the value signal is given, and is is a double:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.ib.value == 1 && chart.at15min.ib.double == 1"
+        }
+    ]
+}

@@ -12,7 +12,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: 1;
     font-family: 'Saira Condensed';
     font-weight: bold;
     letter-spacing: 0.2px;

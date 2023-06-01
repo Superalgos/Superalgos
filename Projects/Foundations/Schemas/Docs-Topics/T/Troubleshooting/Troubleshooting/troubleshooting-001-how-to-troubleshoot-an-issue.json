@@ -501,7 +501,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "5. Does the issue persist when using one of the Sample Workspaces?",
+            "text": "5. Does the issue persist when using one of the Native Workspaces?",
             "updated": 1612875632190,
             "translations": [
                 {
@@ -523,7 +523,7 @@
         },
         {
             "style": "Text",
-            "text": "If the issue may not be reproduced using one of the Sample Workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
+            "text": "If the issue may not be reproduced using one of the Native Workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
             "updated": 1612875627341,
             "translations": [
                 {
@@ -566,7 +566,7 @@
         },
         {
             "style": "Text",
-            "text": "Start over and reproduce the modifications on the Sample Workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
+            "text": "Start over and reproduce the modifications on the Native Workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
             "updated": 1612875667631,
             "translations": [
                 {

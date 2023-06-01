@@ -85,27 +85,27 @@
         },
         {
             "style": "List",
-            "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Sample Workspace before diving into the Governance Project.",
+            "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Native Workspace before diving into the Governance Project.",
             "updated": 1630067826681,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочем пространстве подключаемого модуля Getting Started Tutorials Sample Workspace , прежде чем погрузиться в проект управления Governance Project.",
+                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочем пространстве подключаемого модуля Getting Started Tutorials Native Workspace , прежде чем погрузиться в проект управления Governance Project.",
                     "updated": 1638705588992
                 },
                 {
                     "language": "ES",
-                    "text": "Conocimientos previos: conocimiento básico del funcionamiento de la Plataforma Superalgos. Si aún no lo has hecho, asegúrate de seguir los tutoriales en el Getting Started Tutorials Sample Workspace antes de sumergirte en el Governance Project.",
+                    "text": "Conocimientos previos: conocimiento básico del funcionamiento de la Plataforma Superalgos. Si aún no lo has hecho, asegúrate de seguir los tutoriales en el Getting Started Tutorials Native Workspace antes de sumergirte en el Governance Project.",
                     "updated": 1682595753905
                 },
                 {
                     "language": "TR",
-                    "text": "Ön bilgi: Superalgos Platformunun nasıl çalıştığına dair temel bir anlayış. Henüz yapmadıysanız, Yönetişim Projesine dalmadan önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki (Getting Started Tutorials Sample) öğreticileri yaptığınızdan emin olun.",
+                    "text": "Ön bilgi: Superalgos Platformunun nasıl çalıştığına dair temel bir anlayış. Henüz yapmadıysanız, Yönetişim Projesine dalmadan önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki (Getting Started Tutorials Native Workspace) öğreticileri yaptığınızdan emin olun.",
                     "updated": 1645106428430
                 },
                 {
                     "language": "DE",
-                    "text": "Vorkenntnisse: ein grundlegendes Verständnis für die Funktionsweise der Superalgos-Plattform. Wenn Sie das noch nicht getan haben, stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Sample Workspace (Getting Started Tutorials Sample Workspace ) durcharbeiten, bevor Sie sich mit dem Governance-Projekt beschäftigen.",
+                    "text": "Vorkenntnisse: ein grundlegendes Verständnis für die Funktionsweise der Superalgos-Plattform. Wenn Sie das noch nicht getan haben, stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Native Workspace (Getting Started Tutorials Native Workspace ) durcharbeiten, bevor Sie sich mit dem Governance-Projekt beschäftigen.",
                     "updated": 1682281022028
                 }
             ]
@@ -218,53 +218,53 @@
         },
         {
             "style": "Subtitle",
-            "text": "1. Load the Token Distribution Superalgos Sample Workspace ",
+            "text": "1. Load the Token Distribution Superalgos Native Workspace ",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "1. Загрузите модуль Token Distribution Superalgos Sample Workspace ",
+                    "text": "1. Загрузите модуль Token Distribution Superalgos Native Workspace ",
                     "updated": 1638705693035
                 },
                 {
                     "language": "ES",
-                    "text": "1. Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens",
+                    "text": "1. Cargue el espacio de trabajo del complemento Superalgos de distribución de tokens (Token Distribution Superalgos Native Workspace) ",
                     "updated": 1682595904895
                 },
                 {
                     "language": "TR",
-                    "text": "1. Token Distribution Superalgos Sample Workspace Eklentisini yükleyin.",
+                    "text": "1. Token Distribution Superalgos Native Workspace Eklentisini yükleyin.",
                     "updated": 1645106679051
                 },
                 {
                     "language": "DE",
-                    "text": "Laden Sie den Arbeitsbereich für das Superalgos-Sample Token Distribution",
+                    "text": "Laden Sie den Arbeitsbereich für das Superalgos-Native Token Distribution",
                     "updated": 1682281095606
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "You may start with the Token Distribution Superalgos Sample Workspace so that you may later interact with the top-level Superalgos Project definitions.",
+            "text": "You may start with the Token Distribution Superalgos Native Workspace so that you may later interact with the top-level Superalgos Project definitions.",
             "updated": 1630435453964,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Вы можете начать с рабочего пространства плагина Token Distribution Superalgos Sample Workspace , чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
+                    "text": "Вы можете начать с рабочего пространства плагина Token Distribution Superalgos Native Workspace , чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
                     "updated": 1638705889923
                 },
                 {
                     "language": "ES",
-                    "text": "Puedes comenzar con el Sample Workspace de distribución de tokens Superalgos para que luego pueda interactuar con el nivel superior de definiciones del Superalgos Project.",
+                    "text": "Puedes comenzar con el Native Workspace de distribución de tokens Superalgos para que luego pueda interactuar con el nivel superior de definiciones del Superalgos Project.",
                     "updated": 1640975408974
                 },
                 {
                     "language": "TR",
-                    "text": "Daha sonra üst düzey Superalgos Projesi özellikleriyle etkileşime geçebilmek için Token Distribution Superalgos Sample Workspace ile başlayabilirsiniz.",
+                    "text": "Daha sonra üst düzey Superalgos Projesi özellikleriyle etkileşime geçebilmek için Token Distribution Superalgos Native Workspace ile başlayabilirsiniz.",
                     "updated": 1645106733427
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können mit dem Superalgos-Sample-Arbeitsbereich (Sample Workspace ) für die Token-Verteilung beginnen, damit Sie später mit den Superalgos-Projektdefinitionen (Superalgos Project definitions) auf oberster Ebene interagieren können.",
+                    "text": "Sie können mit dem Superalgos-Native-Arbeitsbereich (Native Workspace ) für die Token-Verteilung beginnen, damit Sie später mit den Superalgos-Projektdefinitionen (Superalgos Project definitions) auf oberster Ebene interagieren können.",
                     "updated": 1682281109896
                 }
             ]
@@ -541,7 +541,7 @@
         },
         {
             "style": "List",
-            "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a Sample in the Governance Project.",
+            "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a Plugin in the Governance Project.",
             "updated": 1630080772975,
             "translations": [
                 {
@@ -561,7 +561,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wird mit dem privaten Schlüssel signiert, der der soeben generierten Adresse oder dem von Ihnen eingegebenen Mnemonik entspricht. Diese Nachricht wird in Ihrem Benutzerprofil (User Profile) gespeichert, damit wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Sample im Governance-Projekt (Governance Project) einreichen.",
+                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wird mit dem privaten Schlüssel signiert, der der soeben generierten Adresse oder dem von Ihnen eingegebenen Mnemonik entspricht. Diese Nachricht wird in Ihrem Benutzerprofil (User Profile) gespeichert, damit wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Plugin im Governance-Projekt (Governance Project) einreichen.",
                     "updated": 1682281237455
                 }
             ]

@@ -157,7 +157,7 @@
         },
         {
             "style": "Text",
-            "text": "The new version will always ship with its own Sample Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
+            "text": "The new version will always ship with its own Native Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
             "updated": 1617648003762,
             "translations": [
                 {
@@ -167,12 +167,12 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yeni sürüm her zaman kendi Eklenti Çalışma Alanlarıyla ( Sample Workspaces ) birlikte gönderilir. Sürüm duyurusu, yeni sürümün geriye dönük uyumlu olup olmadığını açıkça belirtmelidir. Değilse, duyuru önceki sürümden yükseltme ile ilgili tüm hususları kapsamalıdır.",
+                    "text": "Yeni sürüm her zaman kendi Eklenti Çalışma Alanlarıyla ( Native Workspaces ) birlikte gönderilir. Sürüm duyurusu, yeni sürümün geriye dönük uyumlu olup olmadığını açıkça belirtmelidir. Değilse, duyuru önceki sürümden yükseltme ile ilgili tüm hususları kapsamalıdır.",
                     "updated": 1647860113590
                 },
                 {
                     "language": "DE",
-                    "text": "Die neue Version wird immer mit ihren eigenen Sample Workspaces ausgeliefert. Aus der Ankündigung sollte hervorgehen, ob die neue Version abwärtskompatibel ist oder nicht. Wenn dies nicht der Fall ist, sollte die Ankündigung alle Überlegungen enthalten, die für ein Upgrade von der Vorgängerversion relevant sind.",
+                    "text": "Die neue Version wird immer mit ihren eigenen Native Workspaces ausgeliefert. Aus der Ankündigung sollte hervorgehen, ob die neue Version abwärtskompatibel ist oder nicht. Wenn dies nicht der Fall ist, sollte die Ankündigung alle Überlegungen enthalten, die für ein Upgrade von der Vorgängerversion relevant sind.",
                     "updated": 1678644308281
                 }
             ]

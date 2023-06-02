@@ -184,31 +184,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         })          
                     })
                 }).then(data => {
-                    // Convert data object to data array with timestamp as first entry  
-                    let dataArray = data
-                    /*let dataInfo = []
-                    let dataValues = []
-                    let dataRow = []
-                    const rows = Object.entries(data);
-                    for (const [key, row] of rows) {
-                        dataInfo = []
-                        dataValues = []
-                        dataRow = []
-                        let columnData = Object.entries(row);
-                        for (let [key, value] of columnData) {
-                            if (key === dbTimestamp) {
-                                dataInfo.unshift(value)
-                            } else if (key === "ID") {
-                                dataInfo.push(value)
-                            } else {
-                                dataValues.push(value)
-                            }
-                            dataRow = dataInfo.concat(dataValues)
-                        }
-                        dataArray.push(dataRow)
-                    }*/
-
-                    callBack(dataArray)
+                    callBack(data)
                 })
             }
 
@@ -253,31 +229,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         })          
                     })
                 }).then(data => {
-                    // Convert data object to data array with timestamp as first entry  
-                    let dataArray = []
-                    let dataInfo = []
-                    let dataValues = []
-                    let dataRow = []
-                    const rows = Object.entries(data);
-                    for (const [key, row] of rows) {
-                        dataInfo = []
-                        dataValues = []
-                        dataRow = []
-                        let columnData = Object.entries(row);
-                        for (let [key, value] of columnData) {
-                            if (key === dbTimestamp) {
-                                dataInfo.unshift(value)
-                            } else if (key === "ID") {
-                                dataInfo.push(value)
-                            } else {
-                                dataValues.push(value)
-                            }
-                            dataRow = dataInfo.concat(dataValues)
-                        }
-                        dataArray.push(dataRow)
-                    }
-
-                    callBack(dataArray)
+                    callBack(data)
                 })
             }
 
@@ -299,10 +251,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                     let minChunksArray = aggregateMinChunks(rawMinChunksArray)
                     console.log("aggregated data", JSON.stringify(minChunksArray))
+
                     let files = divideIntoDayFiles(minChunksArray)
                     console.log("files to save", JSON.stringify(files))
 
-                    saveFiles(files)
+                    saveFiles(files, rawMinChunksArray)
 
                     /******* MAIN DATA PROCESSING FUNCIONS *******/
 
@@ -332,10 +285,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 
                                     // Check if we can access the old raw minute chunk to load and aggregate with our current data 
                                     let fileName = "Data.json"
-                                    let dateForPath = startingDate.getUTCFullYear() + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCMonth() + 1, 2) + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCDate(), 2)
-                                    let filePath = SA.nodeModules.path.join(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT, "Output", RAWDATA_FOLDER_NAME, dateForPath);
+                                    let filePath = getFilePath(startingDate, RAWDATA_FOLDER_NAME)
                                     let fullFileName = SA.nodeModules.path.join(filePath, fileName);
                                     let fullFilePath = SA.nodeModules.path.join(global.env.PATH_TO_DATA_STORAGE, fullFileName);
                                     console.log(fullFilePath);
@@ -603,10 +553,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 if (checkIfOnSameDay(startingDate, currentTimestamp)) { 
                                     // If it does we load the old day file before adding our new data to it
                                     let fileName = "Data.json"
-                                    let dateForPath = startingDate.getUTCFullYear() + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCMonth() + 1, 2) + '/' +
-                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(startingDate.getUTCDate(), 2)
-                                    let filePath = SA.nodeModules.path.join(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT, "Output", DATA_FOLDER_NAME, dateForPath);
+                                    let filePath = getFilePath(startingDate, DATA_FOLDER_NAME)
                                     let fullFileName = SA.nodeModules.path.join(filePath, fileName);
                                     let fullFilePath = SA.nodeModules.path.join(global.env.PATH_TO_DATA_STORAGE, fullFileName);
                                     console.log(fullFilePath);
@@ -769,41 +716,75 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         }  
                     }
 
-                    function saveFiles(files) {
+                    function saveFiles(files, rawMinChunks) {
+
 
                         //TODO: asyncCreateTextFile use instead of callback function for creating files
                         //TODO: make sure lastFile is updated during save process
-                        function saveFile() {
+                        try { 
+                            let heartBeatCounter = 0
+                            let filesCreated = 0 
+                            let rawMinSaved = false
 
-                            // TODO:can hook this up to add dynamic name from dataset definition
-                            let fileName = 'Data.json'
+                            saveLastRawMin(rawMinChunks)
 
-                            fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
-                        
-                            fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, currentRawMinChunk + '\n', onFileCreated);
-                            console.log("saving current raw min chunk", currentRawMinChunk)
+                            function saveLastRawMin(rawChunks) {
+                                // TODO:can hook this up to add dynamic name from dataset definition
+                                let fileName = 'Data.json'
+                                let lastRawChunk = rawChunks[rawChunks.length - 1]
+                                let lastTimestamp = new Date(lastRawChunk[0])
+                                let rawFilePath = SA.nodeModules.path.join(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, RAWDATA_FOLDER_NAME), fileName)
+                                console.log("path to new raw min chunk file", rawFilePath)
+                                fileStorage.createTextFile(rawFilePath, currentRawMinChunk + '\n', onFileCreated);
+                                console.log("saving current raw min chunk", currentRawMinChunk)
+
+                                mustLoadRawData = true
+                            }
+
+                            function saveFile() {
+
+                                // TODO:can hook this up to add dynamic name from dataset definition
+                                let fileName = 'Data.json'
+    
+                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);   
+                               
+                            }
+
+                            function onFileCreated(err) {
+                                if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
+                                    error = err // This allows the loop to be broken.
+                                    return
+                                }
+                                filesCreated++
+                                lastFile = new Date((currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
+                                if (filesCreated === filesToCreate) {
+                                    controlLoop()
+                                }
+                            }
+
+                            function logAndHeartBeat() {
+                                /* We need the processing date for logging purposes only */
+                                let processingDate = new Date(dataChunk.begin)
+                                processingDate =
+                                    processingDate.getUTCFullYear() + '-' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+
+                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + newDataArray.length)
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
+                            }
                             
-                            mustLoadRawData = true
-                            fileContent = []
-                            return
-                        }
 
-                        // TODO: possibly need this function to generate path for saving day file     
-                        /**
-                         * The function returns a file path based on a timestamp and folder name.
-                         * @param timestamp - A Unix timestamp representing a specific date and time.
-                         * @param folderName - The name of the folder where the file will be saved.
-                         * @returns a file path string that includes the root file path, the folder name, and a date string
-                         * based on the timestamp input.
-                         */
-                        function getFilePath(timestamp, folderName) {
-                            let datetime = new Date(timestamp)
-                            let dateForPath = datetime.getUTCFullYear() + '/' +
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
-                            return filePath
-                        }
+
+                        } catch (err) {
+                            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        }   
 
                                                         /*
                             It might have happened that the User is stopping the Task. If that
@@ -824,420 +805,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 return;
                             }
                         
-                        try { 
 
-                            let startingDate
-                            let rawTimestamp
-                            let currentTimestamp
-                            let lastTimestamp = undefined
-
-                            let currentRawMinChunk = undefined
-                            let rawMinChunkArray = []
-                            let fileContent = []
-                            let heartBeatCounter = 0
-
-
-
-                            function onFileReceived(err, text) {
-                                try {
-                                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                        try {
-                                            fileContent = JSON.parse(text);
-                                            aggregatingAndChunkingNewDayData(minChunk)
-
-                                        } catch (err) {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR]  saveMessage -> save -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
-                                                chunkingNewDayData(minChunk)
-                                            return
-                                        }
-                                    } else {
-                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN]  saveMessage -> save -> onFileReceived -> File not found -> err = " + err.stack)
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN]  saveMessage -> save -> onFileReceived -> Falling back to default start with empty fileContent.");
-                                                chunkingNewDayData(minChunk)
-                                            return
-                                        } else {
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR]  saveMessage -> save -> onFileReceived -> Error Received -> err = " + err.stack)
-                                            callBackFunction(err);
-                                            return
-                                        }
-                                    }
-                                } catch (err) {
-                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] saveMessage -> save  -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-
-                            function saveFile() {
-
-                                // TODO:can hook this up to add dynamic name from dataset definition
-                                let fileName = 'Data.json'
-    
-                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);
-                            
-                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, currentRawMinChunk + '\n', onFileCreated);
-                                console.log("saving current raw min chunk", currentRawMinChunk)
-                                
-                                mustLoadRawData = true
-                                fileContent = []
-                                return
-                            }
-
-                            // TODO: possibly need this function to generate path for saving day file     
-/**
- * The function returns a file path based on a timestamp and folder name.
- * @param timestamp - A Unix timestamp representing a specific date and time.
- * @param folderName - The name of the folder where the file will be saved.
- * @returns a file path string that includes the root file path, the folder name, and a date string
- * based on the timestamp input.
- */
-                            function getFilePath(timestamp, folderName) {
-                                let datetime = new Date(timestamp)
-                                let dateForPath = datetime.getUTCFullYear() + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                                let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
-                                return filePath
-                            }
-    
-                            /* 
-                            At a macro level, we will be creating one file per day, so we will
-                            run into a loop that each run will represent one day.
-                            */
-                            function controlLoop() {
-                                /* 
-                                This loop advances one day, and if it does not need to stop
-                                for any reason, it will execute the loop function so as to process
-                                the next day. 
-                                */
-                                currentDay++
-        
-                                /*
-                                It might have happened that the User is stopping the Task. If that
-                                is the case, we need to stop this processing here.
-                                */
-                                if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                                    return
-                                }
-        
-                                /* 
-                                If we had any problem saving the latest file, we will also abort 
-                                this process here, so that we can record our progress until it stopped
-                                working.
-                                */
-                                if (error) {
-                                    callBackFunction(error);
-                                    return;
-                                }
-        
-                                /*
-                                One possible exit is when we reached the amount of data downloaded. 
-                                This does not necessarily happen at the end of the day
-                                if the process was canceled for any reason at the middle, 
-                                or the data stops mid day.
-                                */
-                                if (dataArrayIndex >= newDataArray.length - 1) {
-                                    writeStatusReport()
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> saveOHLCVs -> controlLoop -> Exiting because I reached the end of the newDataArray array. ")
-                                    return
-                                }
-        
-                                /* 
-                                The most common exit is at the end of the market. There is 
-                                nothing else to save, so we finish here. 
-                                */
-                                if (savingProcedureFinished === true) {
-                                    writeStatusReport()
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ")
-                                    return
-                                }
-        
-                                /*
-                                If there is no reason to exit, we will process the next day.
-                                */
-                                setImmediate(loop)
-                            }
-
-                            function loop() {
-                                /*
-                                Here we will try to match the data received with each possible
-                                minute of a single day.
-                                */
-        
-                                let filesToCreate = 0
-                                let filesCreated = 0
-        
-                                /* 
-                                We will loop around all the possible 1 minute chunks that have been found
-                                on a single day. For each minute of the day, we will try to find
-                                the matching data. This would be an easy task if we assumed all data was 
-                                in one minute chunks but we also want to account for inconsistent and 
-                                sub-minute data. Sometimes, some data is missing. We have also seen data 
-                                that does not start at an UTC minute, they are shifted in time some seconds. 
-                                In order to address all these inconsistencies the process gets a little 
-                                bit complicated.
-                                */
-                                for (let minuteOfTheDay = 0; minuteOfTheDay < 60 * 24; minuteOfTheDay++) {
-        
-                                    /* 
-                                    We initialize our data objects positioning them
-                                    at the current minute of the day of the current day. We also
-                                    initialize them with the last data chunk property values.
-                                    The reason we do this last thing is because we don't know if 
-                                    we are going to find or not a matching chunk of data for this minute. If we do find one
-                                    these property values will be overwritten, and if not, they will 
-                                    hold at least the last know value.
-                                    */
-                                    let dataChunk = {
-                                        begin: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
-                                        end: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
-                                        dataValues: lastDataChunk.dataValues,
-                                    }
-        
-                                    /* 
-                                    Here we will check that the current chunk is not going into the future.
-                                    Remember we are looping around all possible minutes of a day, and when 
-                                    that day is the current actual day, and the current minute is in the future,
-                                    it makes no sense to continue inside this loop since we are not going
-                                    to find more data chunks that will match.
-        
-                                    At the same time, we are going to check that we haven't processed the whole
-                                    raw data array. Once we reached the end of it, it makes no sense to continue
-                                    inside this loop.
-                                    */
-                                    if (
-                                        dataChunk.begin > (new Date()).valueOf() ||
-                                        endOfDataArrayReached === true
-                                    ) {
-                                        /* We stop when the current chunk is pointing to a time in the future.*/
-                                        savingProcedureFinished = true
-                                        /* 
-                                        This will be our last file saved.
-                                        */
-                                        saveFile(currentDay)
-        
-                                        /*
-                                        We will produce our last log and heartbeat, since we have just 
-                                        reached the head of the data.
-                                        */
-                                        logAndHeartBeat()
-        
-                                        /* We exit the loop and we ain't coming back*/
-                                        return
-                                    }
-        
-                                    /* 
-                                     We initialize here the loadedData object. These initial 
-                                     values should be overridden unless there is no data
-                                     fetched that matches with this minute. We need the 
-                                     timestamp in order to calculate dataValueMinute.
-                                    */
-                                    let loadedData = {
-                                        timestamp: (new Date()).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
-                                        dataValues: []
-                                    }
-        
-                                    let record = newDataArray[dataArrayIndex]
-        
-                                    /* 
-                                    We will check that we can have a record to 
-                                    analyze. It might happen that we don't have one
-                                    in the situation that we could not get a single
-                                    record from the exchange. We still want to be
-                                    here so that everything is properly logged.
-
-                                    Slice off first two elements in the array for loaded data values.
-                                    */
-                                    
-                                    if (record !== undefined) {
-                                        let loadedValues = [...record.slice(2)];
-                                        loadedData = {
-                                            timestamp: record[0],
-                                            id: record[1],
-                                            dataValues: loadedValues
-                                        }
-                                    }
-        
-                                    let dataChunkMinute = Math.trunc(dataChunk.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
-                                    let loadedDataMinute
-                                    /*
-                                    Some data sources will return inconsistent data. It is not guaranteed 
-                                    that each chunk will have a timeStamp exactly at the beginning of an
-                                    UTC minute. It is also not guaranteed that the distance
-                                    between timestamps will be the same. To fix this, we will do this.
-                                    */
-        
-                                    loadedDataMinute = Math.trunc(loadedData.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
-        
-                                    /*
-                                    If the minute of the record item received from the exchange is
-                                    less than the minute of the current minute in our loop, 
-                                    that means that we need to reposition the index at the newDataArray 
-                                    array, moving it one record forward, and that is what we are
-                                    doing here. 
-                                    */
-                                    while (loadedDataMinute < dataChunkMinute) {
-        
-                                        /* Move forward at the newDataArray array. */
-                                        dataArrayIndex++
-        
-                                        /* Check that we have not passed the end of the array */
-                                        if (dataArrayIndex > newDataArray.length - 1) {
-                                            /* 
-                                            We run out of loaded data, we can not move to the next chunk, 
-                                            we need to leave this loop. 
-                                            */
-                                            break
-                                        }
-        
-                                        record = newDataArray[dataArrayIndex]
-        
-                                        /*
-                                        Once this loop is broken, this is the loadedData that needs 
-                                        to be considered. All the ones in the past are ignored. 
-
-                                        Slice off first two elements in the array for loaded data values.
-                                        */
-
-                                        loadedValues = [...record.slice(2)];
-                                    
-                                        loadedData = {
-                                            timestamp: record[0],
-                                            id: record[1],
-                                            dataValues: loadedValues
-                                        }
-        
-                                        /* Recalculate this to see if we need to break the loop*/
-                                        loadedDataMinute = Math.trunc(loadedData.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
-                                    }
-        
-                                    /*
-                                    If the dataChunkMinute and the loadedDataMinute matches, then
-                                    we transfer the properties of the loadedData into the 
-                                    data object. Two things to 
-                                    consider here:
-        
-                                    1. If they do not match, at this point it could only means
-                                    that the loadedDataMinute is in the future, in which case the
-                                    data object will keep their initialization values
-                                    which in turn are equal to the latest chunk of data.
-                                    
-                                    2. They might be equal even though the loadedData timestamp
-                                    did not match exactly the UTC minute, but since we are 
-                                    comparing truncated values, then we force the matching
-                                    and we correct the shifting in time that sometimes happens.
-                                    */
-                                    if (dataChunkMinute === loadedDataMinute) {
-                                        dataChunk.dataValues = loadedData.dataValues
-        
-                                        /* 
-                                        Since we extracted this data chunk's value, we move 
-                                        forward our array index.
-                                        */
-                                        if (dataArrayIndex < newDataArray.length - 1) {
-                                            dataArrayIndex++
-                                        } else {
-                                            endOfDataArrayReached = true
-                                        }
-        
-                                        lastId = loadedData.id
-                                    }
-        
-                                    /*
-                                    Here we remember the last data chunk, in case
-                                    we need it.
-                                    */
-                                    lastDataChunk = dataChunk
-        
-                                    if (needSeparator === false) {
-                                        needSeparator = true;
-                                        separator = '';
-                                    } else {
-                                        separator = ',';
-                                    }
-        
-                                    /* Add the dataChunk to the file content.*/
-                                    fileContent = fileContent + separator + '[' + JSON.stringify(dataChunk.dataValues) + "," + dataChunk.begin + "," + dataChunk.end + "]";
-        
-                                    /* We store the last candle of the day in order to have a previous candles during next execution. */
-                                    if (minuteOfTheDay === 1440 - 1) {
-                                        lastDataChunkOfTheDay = JSON.parse(JSON.stringify(dataChunk))
-                                    }
-        
-                                    /* Reporting we are doing well */
-                                    heartBeatCounter--
-                                    if (heartBeatCounter <= 0) {
-                                        heartBeatCounter = 1440
-                                        logAndHeartBeat()
-                                    }
-        
-                                    function logAndHeartBeat() {
-                                        /* We need the processing date for logging purposes only */
-                                        let processingDate = new Date(dataChunk.begin)
-                                        processingDate =
-                                            processingDate.getUTCFullYear() + '-' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
-        
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + newDataArray.length)
-                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
-                                    }
-                                }
-        
-                                /* 
-                                When the bot is processing historical information, it
-                                happens that during the whole processing of one day
-                                it did not reach either the head of the market (a future time)
-                                nor the end of the Raw Data Array. In this situation
-                                we still need to save the full day of content, and 
-                                we do it only if at least one candle has been processed.
-                                */
-                                if (dataArrayIndex > 0) {
-                                    saveFile(currentDay)
-                                    return
-                                }
-        
-                                controlLoop()
-        
-
-        
-
-        
-                                function onFileCreated(err) {
-                                    if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
-                                        error = err // This allows the loop to be broken.
-                                        return;
-                                    }
-                                    filesCreated++
-                                    lastFile = new Date((currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
-                                    if (filesCreated === filesToCreate) {
-                                        controlLoop()
-                                    }
-                                }
-
-                            }
-
-                        } catch (err) {
-                            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
-                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                            //abort = true
-                        }   
                     }
 
                     /******* UTILITY FUNCIONS *******/
@@ -1288,6 +856,23 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         } else {
                              return false
                         }
+                    }
+
+                    /**
+                     * The function returns a file path based on a timestamp and folder name.
+                     * @param timestamp - A Unix timestamp representing a specific date and time.
+                     * @param folderName - The name of the folder where the file will be saved.
+                     * @returns a file path based on the input timestamp and folder name. The file path
+                     * is constructed using the year, month, and date from the timestamp, and is
+                     * located in a specific directory defined by the process index and file path root.
+                     */
+                    function getFilePath(timestamp, folderName) {
+                        let datetime = new Date(timestamp)
+                        let dateForPath = SA.nodeModules.path.join(datetime.getUTCFullYear(),
+                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2),
+                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2))
+                        let filePath = SA.nodeModules.path.join(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT, "Output", folderName, dateForPath);                                         
+                        return filePath
                     }
 
                 } catch (err) {

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Bu, Superalgos ile bir ay çalıştıktan ve öğrendikten sonra yapılan bir güncelleme incelemesidir",
                 "updated": 1669191067954
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist ein aktueller Bericht nach einem Monat Arbeit mit und Lernen von Superalgos",
+                "updated": 1685390039487
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos'u yaklaşık bir aydır kullanıyorum. Superalgos'tan önce ticaret bilgim ve deneyimim sınırlıydı. Kuşkusuz, ilk öğrenme eğrisi biraz eziciydi. Tüm programlama dünyasında oldukça yeniyim, raspberry pi'lerle yeni tanışmam GitHub'da Superalgos'a rastlamamı sağladı. Başlangıç stratejisi ile biraz eğlendim ve başarılı bir şekilde farklı sonuçlar elde etmek için burada ve orada değiştirdim. Bu noktada muhtemelen 100 saatten fazla öğreticiler üzerinde çalıştım, şaka değil. Eğitimler aracılığıyla öğrendiklerimi almak ve borsa sitelerinde / ticaret stratejisi sitelerinde daha fazla araştırma yapmak zorunda kaldım ve daha net bir anlayış geliştirmeye başladım. Diğer stratejilerde henüz bir başarı elde edemedim. Burada ve orada referansların bazen görünmemesi ve bunları manuel olarak gözden geçirip uygulamak zorunda kalmamla ilgili küçük sorunlar yaşıyorum gibi görünüyor. Ama sanırım beni engelleyen bazı donanım sorunları da yaşadım. MacBook'um geri test ve ticaret sırasında grafiği sevmiyor, yavaş ve hatalı. Sunucuyu pi'mde ve gui'yi Macbook'umda çalıştırmada bazı başarılar elde ettim. Sonunda bilgisayarımı deneyebilirim. Sonuç olarak, sorunlarımın çoğu kullanıcı hatası. Genel olarak, Superalgos'un harika bir program ve topluluk olduğunu düşünüyorum ve bunun bir parçası olduğum için inanılmaz derecede heyecanlıyım ve bir gün bazı değerli katkılarda bulunmayı umuyorum!",
                     "updated": 1669191044298
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich benutze Superalgos jetzt seit etwa einem Monat. Vor Superalgos war mein Wissen und meine Erfahrung im Handel begrenzt. Zugegeben, die anfängliche Lernkurve war ein bisschen überwältigend. Ich bin ein ziemlicher Neuling in der Welt des Programmierens und bin durch meine kürzliche Einführung in die Raspberry Pi's auf Superalgos und auf GitHub gestoßen. Ich hatte etwas Spaß mit der Einstiegsstrategie und habe sie hier und da optimiert, um verschiedene Ergebnisse mit Erfolg zu erzielen. Zu diesem Zeitpunkt verbrachte ich wahrscheinlich über 100 Stunden Arbeit mit Tutorials, kein Witz. Ich lernte mit den Tutorials, erkundigte mich auf Exchange-Websites / Handelsstrategie Websites und begann immer mehr zu verstehen. Mit den anderen Strategien hatte ich bisher noch keinen Erfolg. Ich scheine hier und da kleine Probleme mit Verweisen zu haben, die manchmal nicht angezeigt werden, und ich muss manuell durchgehen und sie anwenden. Aber Ive hatte auch einige Hardware-Probleme, die mich zurückgehalten haben, ich denke. Mein MacBook liebt nicht die Charting während Backtesting und Handel, langsam und störungsfrei laufen. Ive hatte einige Erfolg läuft der Server auf meinem Pi und gui auf meinem Macbook. Alles in allem, die meisten meiner Probleme sind Benutzerfehler. Insgesamt denke ich, dass Superalgos ein fantastisches Programm und eine fantastische Community ist, und ich bin unglaublich begeistert, ein Teil davon zu sein, und hoffe, dass ich eines Tages einige wertvolle Beiträge leisten kann!",
+                    "updated": 1685390051201
                 }
             ]
         },

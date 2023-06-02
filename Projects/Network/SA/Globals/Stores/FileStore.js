@@ -24,8 +24,9 @@ exports.newNetworkGlobalsStoresFileStore = function newNetworkGlobalsStoresFileS
         if(dir.length > 1) {
             dir.pop()
         }
-        if(!SA.nodeModules.fs.existsSync(dir)) {
-            SA.nodeModules.fs.mkdirSync(dir, {recursive: true})
+        const dirPath = dir.join('/')
+        if(!SA.nodeModules.fs.existsSync(dirPath)) {
+            SA.nodeModules.fs.mkdirSync(dirPath, {recursive: true})
         }
         writeFile([])
     }

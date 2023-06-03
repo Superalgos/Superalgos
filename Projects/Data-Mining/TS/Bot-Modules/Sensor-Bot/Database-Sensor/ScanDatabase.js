@@ -177,7 +177,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     console.error("Error closing connection", error.message)
                                     reject(error)
                                 } else {
-                                    console.log('Returning data and closing connection')
                                     resolve(data)
                                 }
                             })
@@ -222,7 +221,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     console.error("Error closing connection", error.message)
                                     reject(error)
                                 } else {
-                                    console.log('Returning new data and closing connection')
                                     resolve(data)
                                 }
                             })
@@ -245,6 +243,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     to detect this and fix it as we go aggregating data into descrete one minute chunks.
                     We have the data received from the database as an array of objects corrosponding to each row of data
                     */
+                    if (dataArray.length === 0) { 
+                        SA.logger.info('no new data to save this time')
+                        processIsRunning = false
+                        return 
+                    }
 
                     let rawMinChunksArray = sortData(dataArray)
                     console.log("sorted data", JSON.stringify(rawMinChunksArray))
@@ -268,14 +271,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                      */
                     function sortData(newDataArray) { 
                   
-                        let startingDate
                         let currentRawMinChunk = undefined
                         let rawMinChunks = []
                         console.log("this is our new data", newDataArray)
                         try { 
 
                             if (mustLoadRawData) { 
-                                startingDate = new Date(initialProcessTimestamp)
+                                let startingDate = new Date(initialProcessTimestamp)
                                 
                                 let firstDataRow = newDataArray[0]
                                 let currentTimestamp = validateRawTimestamp(firstDataRow[dbTimestamp])
@@ -285,9 +287,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 
                                     // Check if we can access the old raw minute chunk to load and aggregate with our current data 
                                     let fileName = "Data.json"
-                                    let filePath = getFilePath(startingDate, RAWDATA_FOLDER_NAME)
-                                    let fullFileName = SA.nodeModules.path.join(filePath, fileName);
-                                    let fullFilePath = SA.nodeModules.path.join(global.env.PATH_TO_DATA_STORAGE, fullFileName);
+                                    let filePath = getFilePath(initialProcessTimestamp, RAWDATA_FOLDER_NAME)
+                                    let fullFileName = filePath + '/' + fileName;
+                                    let fullFilePath = global.env.PATH_TO_DATA_STORAGE + '/' + fullFileName;
                                     console.log(fullFilePath);
 
                                     if (SA.nodeModules.fs.existsSync(fullFilePath)) {
@@ -553,9 +555,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 if (checkIfOnSameDay(startingDate, currentTimestamp)) { 
                                     // If it does we load the old day file before adding our new data to it
                                     let fileName = "Data.json"
-                                    let filePath = getFilePath(startingDate, DATA_FOLDER_NAME)
-                                    let fullFileName = SA.nodeModules.path.join(filePath, fileName);
-                                    let fullFilePath = SA.nodeModules.path.join(global.env.PATH_TO_DATA_STORAGE, fullFileName);
+                                    let filePath = getFilePath(initialProcessTimestamp, DATA_FOLDER_NAME)
+                                    let fullFileName = filePath + '/' + fileName;
+                                    let fullFilePath = global.env.PATH_TO_DATA_STORAGE + '/' + fullFileName;
                                     console.log(fullFilePath);
 
                                     if (SA.nodeModules.fs.existsSync(fullFilePath)) {
@@ -724,30 +726,39 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                         try { 
                             let heartBeatCounter = 0
                             let filesCreated = 0 
-                            let rawMinSaved = false
+                            let filesToCreate = files.length + 1 // add one for raw min chunk file
+                            let lastFileDate
+
 
                             saveLastRawMin(rawMinChunks)
+                            for (let file of files) { 
+                                saveFile(file)
+                                console.log("saving file " + file)
+                            }
 
                             function saveLastRawMin(rawChunks) {
                                 // TODO:can hook this up to add dynamic name from dataset definition
                                 let fileName = 'Data.json'
                                 let lastRawChunk = rawChunks[rawChunks.length - 1]
-                                let lastTimestamp = new Date(lastRawChunk[0])
-                                let rawFilePath = SA.nodeModules.path.join(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, RAWDATA_FOLDER_NAME), fileName)
+                                let fileContent = JSON.stringify(lastRawChunk)
+                                let lastTimestamp = lastRawChunk[0]
+                                let rawFilePath = getFilePath(lastTimestamp, RAWDATA_FOLDER_NAME) + '/' + fileName
                                 console.log("path to new raw min chunk file", rawFilePath)
-                                fileStorage.createTextFile(rawFilePath, currentRawMinChunk + '\n', onFileCreated);
-                                console.log("saving current raw min chunk", currentRawMinChunk)
+                                fileStorage.createTextFile(rawFilePath, fileContent + '\n', onFileCreated);
+                                console.log("saving last raw min chunk", fileContent)
 
                                 mustLoadRawData = true
                             }
 
-                            function saveFile() {
+                            function saveFile(file) {
 
                                 // TODO:can hook this up to add dynamic name from dataset definition
                                 let fileName = 'Data.json'
-    
-                                fileStorage.createTextFile(getFilePath(lastTimestamp.getDate() * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, DATA_FOLDER_NAME) + '/' + fileName, fileContent + '\n', onFileCreated);   
-                               
+                                let lastTimestamp = file[0][0]
+                                lastFileDate = new Date(lastTimestamp)
+                                let fileContent = JSON.stringify(file)
+                                let filePath = getFilePath(lastTimestamp, DATA_FOLDER_NAME) + '/' + fileName
+                                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);   
                             }
 
                             function onFileCreated(err) {
@@ -758,9 +769,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     return
                                 }
                                 filesCreated++
-                                lastFile = new Date((currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
+                                lastFile = lastFileDate
                                 if (filesCreated === filesToCreate) {
-                                    controlLoop()
+                                    SA.logger.info("Saving Complete")
+                                    writeStatusReport()
+                                    return
                                 }
                             }
 
@@ -776,36 +789,12 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + newDataArray.length)
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
                             }
-                            
-
-
                         } catch (err) {
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                        }   
-
-                                                        /*
-                            It might have happened that the User is stopping the Task. If that
-                            is the case, we need to stop this processing here.
-                            */
-                            if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                                return
-                            }
-    
-                            /* 
-                            If we had any problem saving the latest file, we will also abort 
-                            this process here, so that we can record our progress until it stopped
-                            working.
-                            */
-                            if (error) {
-                                callBackFunction(error);
-                                return;
-                            }
-                        
-
+                        }         
                     }
 
                     /******* UTILITY FUNCIONS *******/
@@ -868,10 +857,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                      */
                     function getFilePath(timestamp, folderName) {
                         let datetime = new Date(timestamp)
-                        let dateForPath = SA.nodeModules.path.join(datetime.getUTCFullYear(),
-                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2),
-                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2))
-                        let filePath = SA.nodeModules.path.join(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT, "Output", folderName, dateForPath);                                         
+                        let dateForPath = SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCFullYear(), 2) + '/' +
+                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                          SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/' + "Output" + '/' + folderName + '/' + dateForPath;                                         
                         return filePath
                     }
 
@@ -902,7 +891,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             minutes: beginingOfMarket.getUTCMinutes()
                         },
                         uiStartDate: uiStartDate.toUTCString(),
-                        lastRun: (new Date()).toISOString(),
+                        lastRun: (new Date()).toUTCString(),
                         mustLoadRawData: mustLoadRawData
                     };
                     thisReport.save(onSaved);
@@ -912,9 +901,11 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
+                            processIsRunning = false
                             return;
                         }
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                        processIsRunning = false
                     }
                 } catch (err) {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -929,7 +920,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 "[ERROR] start -> err = " + err.stack);
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
             }
-            processIsRunning = false
         } else {
             console.log("process already running");
         }

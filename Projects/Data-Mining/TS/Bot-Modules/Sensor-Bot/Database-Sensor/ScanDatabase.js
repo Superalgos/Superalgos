@@ -245,6 +245,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     */
                     if (dataArray.length === 0) { 
                         SA.logger.info('no new data to save this time')
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
                         processIsRunning = false
                         return 
                     }
@@ -722,7 +723,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
 
                         //TODO: asyncCreateTextFile use instead of callback function for creating files
-                        //TODO: make sure lastFile is updated during save process
                         try { 
                             let heartBeatCounter = 0
                             let filesCreated = 0 

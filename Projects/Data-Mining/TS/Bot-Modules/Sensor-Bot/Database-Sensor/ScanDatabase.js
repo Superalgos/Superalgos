@@ -6,7 +6,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     // TODO: set up dynamic folder names from dataset defintion us name of product and dataset node names
     const DATA_FOLDER_NAME = "Scanned-Data/One-Min";
     const RAWDATA_FOLDER_NAME = "Raw-Scanned-Data/One-Min";
-    const sqlite3 = require('sqlite3').verbose() 
 
     let thisObject = {
         initialize: initialize,
@@ -72,6 +71,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 return
             }
 
+            firstTimeGetDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.firstCallToSQLiteDB
+            getDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.callToSQLiteDB
+
             getContextVariables(dbPath, dbTable, firstTimeGetDatabaseData, getDatabaseData)
 
             function getContextVariables(dbPath, dbTable, callBack, secondCallBack) {
@@ -100,15 +102,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process has run.
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                         lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
-                        lastId = thisReport.file.lastId
-                        //lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                         defineSince()
-                        secondCallBack(dbPath, dbTable, processAndSaveMessages)
+                        secondCallBack(dbPath, dbTable, dbTimestamp, thisReport.file.lastRun, processAndSaveMessages)
 
                     } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                         defineSince()
-                        callBack(dbPath, dbTable, processAndSaveMessages)
+                        callBack(dbPath, dbTable, dbTimestamp, beginingOfMarket, processAndSaveMessages)
                     }
 
                     function defineSince() {
@@ -140,95 +140,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     }
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
-            }
-
-            function firstTimeGetDatabaseData(dbPath, dbTable, callBack){
-                // Function to load the whole database on first run
-                return new Promise((resolve, reject) => {
-                    // Create connection to database
-                    
-                    const database = new sqlite3.Database(
-                        dbPath, 
-                        sqlite3.OPEN_READWRITE, 
-                        (error) => {
-                            if (error) {
-                                console.error("Error connecting to database", error.message)
-                                reject(error)
-                            }
-                        // TODO: Make comments formated correctly 
-                        console.log("Connected to database")
-                        }
-                    )
-            
-                    // TODO: get query values from task node configs 
-                    database.serialize(() => {
-                        // Gather all Data from Table
-                        
-                        database.all(`SELECT * FROM ${dbTable} WHERE ${dbTimestamp} >= ${beginingOfMarket.getTime()}`, (error, data) => {
-                            console.log('Loading data from table')
-            
-                            if (error) {
-                                console.error("Error executing query", error)
-                                reject(error)
-                            }
-            
-                            database.close((error) => {
-                                if (error) {
-                                    console.error("Error closing connection", error.message)
-                                    reject(error)
-                                } else {
-                                    resolve(data)
-                                }
-                            })
-                        })          
-                    })
-                }).then(data => {
-                    callBack(data)
-                })
-            }
-
-            function getDatabaseData(dbPath, dbTable, callBack){
-                // Function to get new database rows
-                return new Promise((resolve, reject) => {
-                    // Create connection to database
-                    
-                    const database = new sqlite3.Database(
-                        dbPath, 
-                        sqlite3.OPEN_READWRITE, 
-                        (error) => {
-                            if (error) {
-                                console.error("Error connecting to database", error.message)
-                                reject(error)
-                            }
-                        // TODO: Make comments formated correctly 
-                        console.log("Connected to database")
-                        }
-                    )
-
-                    database.serialize(() => {
-                        // Gather Data based on second query from Table
-                        unixTimestamp = Date.parse(thisReport.file.lastRun);
-                        database.all(`SELECT * FROM ${dbTable} WHERE ${dbTimestamp} >= ${unixTimestamp}`, (error, data) => {
-                            console.log('Loading new data from table')
-            
-                            if (error) {
-                                console.error("Error executing query", error)
-                                reject(error)
-                            }
-            
-                            database.close((error) => {
-                                if (error) {
-                                    console.error("Error closing connection", error.message)
-                                    reject(error)
-                                } else {
-                                    resolve(data)
-                                }
-                            })
-                        })          
-                    })
-                }).then(data => {
-                    callBack(data)
-                })
             }
 
             function processAndSaveMessages(dataArray) {

@@ -1215,6 +1215,12 @@
                     "propertyName": "aggregationMethods",
                     "functionName": "newDataMiningFunctionLibrariesAggregationMethods",
                     "fileName": "AggregationMethods.js"
+                },
+                {
+                    "name": "Database Access",
+                    "propertyName": "databaseAccess",
+                    "functionName": "newDataMiningFunctionLibrariesDatabaseAccess",
+                    "fileName": "DatabaseAccess.js"
                 }
             ]
         },

@@ -176,7 +176,7 @@ exports.newOpenStorageModulesOpenStorageTaskServerClient = function newOpenStora
                     storageContainerId: storageContainer.id,
                     password: password
                 }
-
+                SA.logger.debug('Open Storage Task Server Client -> Candle signal file has been saved, broadcasting signal')
                 TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastFileKey(fileKey, socialTradingBot)
             }
 

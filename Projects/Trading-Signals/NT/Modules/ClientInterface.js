@@ -18,12 +18,14 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
     }
 
     async function messageReceived(messageHeader, socketMessage) {
+        SA.logger.debug('Trading-Signals -> Client Interface -> Message Received')
 
         if (messageHeader.requestType === undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface requestType Not Provided.'
             }
+            SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType Not Provided.')
             return response
         }
 
@@ -145,6 +147,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     result: 'Error',
                     message: 'Client Interface requestType Not Supported.'
                 }
+                SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType does not have a case match.')
                 return response
             }
         }
@@ -154,6 +157,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 result: 'Error',
                 message: 'Client Interface requestType Not Supported.'
             }
+            SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType (' + messageHeader.requestType + ') Not Supported: ')
             return response
         }
 
@@ -167,6 +171,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     result: 'Error',
                     message: 'Signal Could Not be Broadcasted to Network Clients.'
                 }
+                SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Signal Could Not be Broadcasted to Network Clients.')
             }
 
             if (response === undefined) {
@@ -174,6 +179,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     result: 'Ok',
                     message: 'Signal Accepted & Broadcasted.'
                 }
+                SA.logger.debug('Trading-Signals -> Client Interface -> Message Received -> Signal Accepted & Broadcast.')
             }
             return response
         }

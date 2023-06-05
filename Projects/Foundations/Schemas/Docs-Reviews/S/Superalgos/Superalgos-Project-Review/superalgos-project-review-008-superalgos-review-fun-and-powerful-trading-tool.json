@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Superalgos, veri ticareti ve analizi için güçlü araçlarla giriş seviyesi bir arayüzün mükemmel bir karışımıdır.",
                 "updated": 1669193755409
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist die perfekte Mischung aus einer Einstiegsoberfläche und leistungsstarken Tools für den Handel und die Datenanalyse.",
+                "updated": 1685391954810
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos hakkındaki ilk izlenimim biraz karışıktı, ancak öğreticileri okuduktan sonra yazılıma çok ısındım. Arayüzde gezinmek bazen biraz zor olsa da, bu onu biraz zorlayıcı ve dolayısıyla eğlenceli hale getiriyor. Veri madenleri ve ticaret sistemleri ile deney yapmak beni özellikle heyecanlandırıyor.",
                     "updated": 1669193785388
+                },
+                {
+                    "language": "DE",
+                    "text": "Mein erster Eindruck von superalgos war ein wenig gemischt, aber nachdem ich die Tutorials durchgelesen hatte, wurde ich mit der Software sehr warm. Die Benutzeroberfläche ist zwar manchmal etwas schwierig zu bedienen, aber das macht es zu einer Herausforderung und damit zu einem Vergnügen. Ich finde es besonders spannend, mit Data Mines und Handelssystemen zu experimentieren.",
+                    "updated": 1685391975698
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Projeyi çevreleyen topluluk, yazılımın verileri kontrol eden üçüncü taraf bir web sitesi aracılığıyla çalıştırılmadığı gerçeğinin yanı sıra en büyük cazibe merkezlerinden biridir. Aktif bir katılımcı olmayı dört gözle bekliyorum ve özellikle makine öğrenimi konusunda öğrenebilmeyi ve katkıda bulunabilmeyi umuyorum. Yeni sürümün TensorFlow'u içermesi gerçekten heyecan verici!",
                     "updated": 1669193851445
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Gemeinschaft, die das Projekt umgibt, ist eine der größten Attraktionen, ebenso wie die Tatsache, dass die Software nicht über eine Website eines Dritten läuft, der die Daten kontrolliert. Ich freue mich darauf, einen aktiven Beitrag zu leisten und hoffe vor allem, dass ich im Bereich des maschinellen Lernens etwas lernen und beitragen kann. Ich bin wirklich begeistert, dass die neue Version TensorFlow enthält!",
+                    "updated": 1685391985866
                 }
             ]
         },

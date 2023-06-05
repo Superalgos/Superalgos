@@ -271,9 +271,12 @@ void SummaryLine::printSummarySelf()
 		 
 		 << dateTime.tm_year + 1900 << ", ";
 
-	cout << totBallances() << ", "    // "Wallet Ballance (USDT)"
-		 << runTotAssChange() << ", " // "Profit Since Start (USDT)"
-		 << runDailyProfit();         // "Daily Profit (USDT)"
+	cout << fixed << setprecision(2)
+ 		 << avgTradingPrice << ", "   // "Last BTC Price (USD)"
+		 << setprecision(4)
+		 << totBallances() << ", "    // "Wallet Ballance (USD)"
+		 << runTotAssChange() << ", " // "Profit Since Start (USD)"
+		 << runDailyProfit();         // "Daily Profit (USD)"
 }
 
 void SummaryLine::printHeader()
@@ -325,13 +328,13 @@ void SummaryLine::printHeader()
 
 void SummaryLine::printSummaryHeader()
 {
-	cout
-		<< "Date (UTC),"
-		<< "Wallet Ballance (USD),"
-		<< "Profit Since Start (USD),"
-		<< "Daily Profit (USD),"
-		<< "Fees (USD),"
-		<< "Number Of Trades,";
+	cout << "Date (UTC),"
+		 << "Last BTC Price (USD),"
+		 << "Wallet Ballance (USD),"
+		 << "Profit Since Start (USD),"
+		 << "Daily Profit (USD),"
+		 << "Fees (USD),"
+		 << "Number Of Trades,";
 
 	if (!gSimpleBallances)
 		cout << "Complex Daily Profit (%),"

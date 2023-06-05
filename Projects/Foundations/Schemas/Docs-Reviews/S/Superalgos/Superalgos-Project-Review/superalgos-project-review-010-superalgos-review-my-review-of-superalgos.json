@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Şimdiye kadar yazılımı sevdim! Öğrenilmesi gereken pek çok şey var. Ayrıca yazılımla istediğinizi yapma özgürlüğü... benzersiz.",
                 "updated": 1669194957283
+            },
+            {
+                "language": "DE",
+                "text": "Ich liebe die Software bis jetzt! Es gibt eine Menge Dinge, die man lernen muss. Auch die Freiheit, mit der Software zu machen, was man will, ist... einzigartig.",
+                "updated": 1685392288349
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669195013864
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf Eidt \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern, und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1685392383537
                 }
             ]
         }

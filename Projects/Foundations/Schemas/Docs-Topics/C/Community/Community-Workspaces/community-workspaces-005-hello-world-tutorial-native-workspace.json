@@ -1,29 +1,29 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "5",
-    "type": "Hello World Tutorial Sample Workspace",
+    "type": "Hello World Tutorial Native Workspace",
     "definition": {
-        "text": "This workspace serves as a demonstration on how to build a very simple strategy, complementing the education provided by the Trading System Design Tutorials Sample Workspace, with a different approach.",
+        "text": "This workspace serves as a demonstration on how to build a very simple strategy, complementing the education provided by the Trading System Design Tutorials Native Workspace, with a different approach.",
         "updated": 1616148044271,
         "translations": [
             {
                 "language": "ES",
-                "text": "Este workspace sirve como demostración de cómo construir una estrategia muy simple, complementando la educación brindada por el Trading System Design Tutorials Sample Workspace, con un enfoque diferente.",
+                "text": "Este workspace sirve como demostración de cómo construir una estrategia muy simple, complementando la educación brindada por el Trading System Design Tutorials Native Workspace, con un enfoque diferente.",
                 "updated": 1636725234290
             },
             {
                 "language": "RU",
-                "text": "Это рабочее пространство служит демонстрацией того, как построить очень простую стратегию, дополняя обучение, предоставляемое учебником Trading System Design Tutorials Sample Workspace, с другим подходом.",
+                "text": "Это рабочее пространство служит демонстрацией того, как построить очень простую стратегию, дополняя обучение, предоставляемое учебником Trading System Design Tutorials Native Workspace, с другим подходом.",
                 "updated": 1639056308603
             },
             {
                 "language": "DE",
-                "text": "Dieser Workspace dient als Demonstration, wie man eine sehr einfache Strategie erstellt, und ergänzt die Ausbildung, die der Sample Workspace \"Trading System Design Tutorials\" bietet, mit einem anderen Ansatz.",
+                "text": "Dieser Workspace dient als Demonstration, wie man eine sehr einfache Strategie erstellt, und ergänzt die Ausbildung, die der Native Workspace \"Trading System Design Tutorials\" bietet, mit einem anderen Ansatz.",
                 "updated": 1639496010559
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu çalışma alanı, Trading System Design Tutorials Sample Workspace tarafından sağlanan eğitimi farklı bir yaklaşımla tamamlayan, çok basit bir stratejinin nasıl oluşturulacağının bir gösterimi olarak hizmet eder.",
+                "text": "Özet: Bu çalışma alanı, Trading System Design Tutorials Native Workspace tarafından sağlanan eğitimi farklı bir yaklaşımla tamamlayan, çok basit bir stratejinin nasıl oluşturulacağının bir gösterimi olarak hizmet eder.",
                 "updated": 1644675878323
             }
         ]

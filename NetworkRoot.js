@@ -55,7 +55,8 @@ exports.newNetworkRoot = function newNetworkRoot() {
             graphql: require("@octokit/graphql"),
             axios: require('axios'),
             crypto: require('crypto'),
-            octokit: require('@octokit/rest')
+            octokit: require('@octokit/rest'),
+            childProcess: require('child_process')
         }
         SA.version = require('./package.json').version
 

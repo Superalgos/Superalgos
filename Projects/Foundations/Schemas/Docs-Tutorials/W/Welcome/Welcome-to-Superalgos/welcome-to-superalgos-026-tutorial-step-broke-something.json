@@ -64,7 +64,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "... you may easily start over with the original Getting Started Tutorials Sample Workspace or the Partner Exchange workspace you may be using!",
+            "text": "... you may easily start over with the original Getting Started Tutorials Native Workspace or the Partner Exchange workspace you may be using!",
             "translations": [
                 {
                     "language": "IT",
@@ -74,7 +74,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Kamu dapat dengan mudah memulai kembali dengan Getting Started Tutorials Sample Workspace!",
+                    "text": "Kamu dapat dengan mudah memulai kembali dengan Getting Started Tutorials Native Workspace!",
                     "updated": 1639744807414,
                     "style": "Callout"
                 },
@@ -86,13 +86,13 @@
                 },
                 {
                     "language": "DE",
-                    "text": "... können Sie ganz einfach mit dem ursprünglichen Sample Workspace der Getting Started Tutorials oder dem Partner Exchange workspace, den Sie möglicherweise verwenden, neu beginnen!",
+                    "text": "... können Sie ganz einfach mit dem ursprünglichen Native Workspace der Getting Started Tutorials oder dem Partner Exchange workspace, den Sie möglicherweise verwenden, neu beginnen!",
                     "updated": 1642150404435,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": " ... вы можете легко начать заново с оригинального рабочего пространства плагина Getting Started Tutorials Sample Workspace или рабочего пространства Partner Exchange, которое вы, возможно, используете! ",
+                    "text": " ... вы можете легко начать заново с оригинального рабочего пространства плагина Getting Started Tutorials Native Workspace или рабочего пространства Partner Exchange, которое вы, возможно, используете! ",
                     "updated": 1641809270756,
                     "style": "Callout"
                 },
@@ -103,17 +103,17 @@
                 },
                 {
                     "language": "NL",
-                    "text": ".. u kunt gemakkelijk opnieuw beginnen met de originele Getting Started Tutorials Sample Workspace of de Partner Exchange-werkruimte die u mogelijk gebruikt!",
+                    "text": ".. u kunt gemakkelijk opnieuw beginnen met de originele Getting Started Tutorials Native Workspace of de Partner Exchange-werkruimte die u mogelijk gebruikt!",
                     "updated": 1666614531205
                 },
                 {
                     "language": "FR",
-                    "text": "... vous pouvez facilement recommencer à partir de l'espace de travail original Getting Started Tutorials Sample Workspace ou de l'espace de travail de l'échange de partenaires que vous utilisez peut-être !",
+                    "text": "... vous pouvez facilement recommencer à partir de l'espace de travail original Getting Started Tutorials Native Workspace ou de l'espace de travail de l'échange de partenaires que vous utilisez peut-être !",
                     "updated": 1667986479697
                 },
                 {
                     "language": "PL",
-                    "text": "...możesz łatwo zacząć od oryginalnej przestrzeni roboczej Getting Started Tutorials Sample Workspace lub przestrzeni roboczej Partner Exchange, której używasz!",
+                    "text": "...możesz łatwo zacząć od oryginalnej przestrzeni roboczej Getting Started Tutorials Native Workspace lub przestrzeni roboczej Partner Exchange, której używasz!",
                     "updated": 1675002477574
                 }
             ],
@@ -121,29 +121,29 @@
         },
         {
             "style": "Text",
-            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Sample Workspace will load and the tutorial will show up again, fresh from the start!",
+            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Native Workspace will load and the tutorial will show up again, fresh from the start!",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Tutto ciò che devi fare è tirare la tab sul lato sinistro dello schermo e cliccare sul Sample Workspace Getting-Started.",
+                    "text": "Tutto ciò che devi fare è tirare la tab sul lato sinistro dello schermo e cliccare sul Native Workspace Getting-Started.",
                     "updated": 1614791245119,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
-                    "text": "Dalam kasus seperti itu, cukup tarik tab di sisi kiri, gulir, temukan plugin Getting Started Tutorials, dan klik! Sample Workspace dasar akan dimuat dan tutorial akan muncul lagi, baru dari awal!",
+                    "text": "Dalam kasus seperti itu, cukup tarik tab di sisi kiri, gulir, temukan plugin Getting Started Tutorials, dan klik! Native Workspace dasar akan dimuat dan tutorial akan muncul lagi, baru dari awal!",
                     "updated": 1639744920683,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "En tal caso, simplemente tira de la pestaña de la izquierda, desplázate, encuentra el espacio de trabajo y ¡haz clic en él! El Sample Workspace original se cargará y el tutorial se mostrará de nuevo, ¡nuevo desde el principio!",
+                    "text": "En tal caso, simplemente tira de la pestaña de la izquierda, desplázate, encuentra el espacio de trabajo y ¡haz clic en él! El Native Workspace original se cargará y el tutorial se mostrará de nuevo, ¡nuevo desde el principio!",
                     "updated": 1675207383962,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie in einem solchen Fall einfach die Registerkarte \"Workspaces\" auf der linken Seite, scrollen Sie, finden Sie \"Sample Workspace\" und klicken Sie darauf! Der ursprüngliche Sample Workspace wird geladen und das Tutorial wird wieder angezeigt, frisch von Anfang an! ",
+                    "text": "Ziehen Sie in einem solchen Fall einfach die Registerkarte \"Workspaces\" auf der linken Seite, scrollen Sie, finden Sie \"Native Workspace\" und klicken Sie darauf! Der ursprüngliche Native Workspace wird geladen und das Tutorial wird wieder angezeigt, frisch von Anfang an! ",
                     "updated": 1642150611897,
                     "style": "Text"
                 },
@@ -155,12 +155,12 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir durumda, sadece sol taraftaki sekmeyi çekin, kaydırın, çalışma alanını bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı (Sample Workspace) yüklenecek ve öğretici en baştan tekrar görünecektir!",
+                    "text": "Böyle bir durumda, sadece sol taraftaki sekmeyi çekin, kaydırın, çalışma alanını bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı (Native Workspace) yüklenecek ve öğretici en baştan tekrar görünecektir!",
                     "updated": 1669837803330
                 },
                 {
                     "language": "NL",
-                    "text": "In zo'n geval open je gewoon het tabblad aan de linkerkant, scroll, zoek de werkruimte en klik erop! De originele Sample Workspace wordt geladen en de tutorial zal weer verschijnen, vers vanaf het begin!",
+                    "text": "In zo'n geval open je gewoon het tabblad aan de linkerkant, scroll, zoek de werkruimte en klik erop! De originele Native Workspace wordt geladen en de tutorial zal weer verschijnen, vers vanaf het begin!",
                     "updated": 1666614635676
                 },
                 {
@@ -170,7 +170,7 @@
                 },
                 {
                     "language": "PL",
-                    "text": "W takim przypadku wystarczy otworzyć zakładkę, która jest po lewej stronie, przewinąć, znaleźć obszar roboczy i kliknąć go! Oryginalny Sample Workspace załaduje się i samouczek pojawi się ponownie!",
+                    "text": "W takim przypadku wystarczy otworzyć zakładkę, która jest po lewej stronie, przewinąć, znaleźć obszar roboczy i kliknąć go! Oryginalny Native Workspace załaduje się i samouczek pojawi się ponownie!",
                     "updated": 1675002567922
                 }
             ],
@@ -189,7 +189,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sample Workspaces werden mit dem System ausgeliefert. Sie werden später lernen, auch Ihre eigenen zu erstellen! ",
+                    "text": "Native Workspaces werden mit dem System ausgeliefert. Sie werden später lernen, auch Ihre eigenen zu erstellen! ",
                     "updated": 1642150629213,
                     "style": "Success"
                 },
@@ -201,7 +201,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Sample Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz! Ayrıca ekranın sol üst köşesindeki çalışma alanı (Workspaces) menüsünü de kullanabilirsiniz.",
+                    "text": "Eklenti Çalışma Alanları ( Native Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz! Ayrıca ekranın sol üst köşesindeki çalışma alanı (Workspaces) menüsünü de kullanabilirsiniz.",
                     "updated": 1665963815175
                 },
                 {
@@ -211,7 +211,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Sample Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
+                    "text": "Native Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
                     "updated": 1639744717855
                 },
                 {

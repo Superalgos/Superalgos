@@ -87,6 +87,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) 
                 SA.logger.error('In order to be able to broadcast signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
                 return
             }
+            SA.logger.debug('Outgoing Trading Signals -> broadcasting signal')
             TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastSignal(tradingSignalMessage, socialTradingBot)
             /* Update task status with progress message */
             let UTCtime = now.toISOString().split(/T/)[1]

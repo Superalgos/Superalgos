@@ -239,6 +239,21 @@ function newWorkspace() {
                 if (menu.filter(x => x.order !== undefined).length > 0) {
                     menu.sort((a,b) => a.order - b.order)
                 } 
+                else {
+                    /* 
+                     * This sorting will force list items with children to the top in alphabetical order
+                     * and all items without children will be ordered below
+                     */ 
+                    menu.sort((a,b) => {
+                        if (a.subMenu !== undefined && b.subMenu === undefined) {
+                            return -1
+                        }
+                        if (a.subMenu === undefined && b.subMenu !== undefined) {
+                            return 1
+                        }
+                        return a.label < b.label ? -1 : 1
+                    })
+                }
                 for (let item of menu) {
                     /* We define the systemActionSwitch here to allow for a menu item to execute actions of another project.
                     An action property looks like this: {"name": "…", "params": […], "systemActionProject": "…"},

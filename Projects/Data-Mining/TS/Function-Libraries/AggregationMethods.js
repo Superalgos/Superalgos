@@ -27,10 +27,18 @@ exports.newDataMiningFunctionLibrariesAggregationMethods = function () {
     processedChunk.push(dataArray[0])
     processedChunk.push(dataArray[1])
     // loop through each raw data row
+
     for (let i = 2; i < dataArray.length; i++) {
       rawDataRow = dataArray[i]
       // loop through each record property
       for (let j = 2; j < recordProperties.length; j++) {
+
+        // If value is a string only the most recent string value is kept
+        if (recordProperties[j].config.isString === true) {
+          outputElementAverage[recordProperties[j].config.codeName] = rawDataRow[recordProperties[j].config.codeName]
+          continue
+        }
+
         // define the output element for the current record property on the first loop
         if (outputElementAverage[recordProperties[j].config.codeName] === undefined) {
           outputElementAverage[recordProperties[j].config.codeName] = {}
@@ -46,8 +54,12 @@ exports.newDataMiningFunctionLibrariesAggregationMethods = function () {
     processedChunk
 
     for (let j = 2; j < recordProperties.length; j++) {
-      outputElement[recordProperties[j].config.codeName] = outputElementAverage[recordProperties[j].config.codeName].sum / outputElementAverage[recordProperties[j].config.codeName].count
-      processedChunk.push(outputElement[recordProperties[j].config.codeName])
+      if (recordProperties[j].config.isString === false) {
+        outputElement[recordProperties[j].config.codeName] = outputElementAverage[recordProperties[j].config.codeName].sum / outputElementAverage[recordProperties[j].config.codeName].count
+        processedChunk.push(outputElement[recordProperties[j].config.codeName])
+      } else {
+        processedChunk.push(outputElementAverage[recordProperties[j].config.codeName])
+      }
     }
 
     return processedChunk

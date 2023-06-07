@@ -162,10 +162,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     }
 
                     let rawMinChunksArray = sortData(dataArray)
-                    console.log("sorted data", JSON.stringify(rawMinChunksArray))
+                    console.log("sorted data", rawMinChunksArray)
 
                     let minChunksArray = aggregateMinChunks(rawMinChunksArray)
-                    console.log("aggregated data", JSON.stringify(minChunksArray))
+                    console.log("aggregated data", minChunksArray)
 
                     let files = divideIntoDayFiles(minChunksArray)
                     console.log("files to save", JSON.stringify(files))
@@ -207,18 +207,18 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     if (SA.nodeModules.fs.existsSync(fullFilePath)) {
                                     // If it does we load it and start the sorting process
                                         SA.logger.info(MODULE_NAME + " processAndSaveMessages - > sortData -> loading saved raw minute chunk from file = " + fullFileName)
-                                        currentRawMinChunk = fs.readFileSync(fullFilePath, 'utf8')
-                                        rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk, rawMinChunks)
+                                        currentRawMinChunk = JSON.parse(SA.nodeModules.fs.readFileSync(fullFilePath, 'utf8'))
+                                        rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk)
     
                                     } else {
                                         SA.logger.warn("old saved raw minute chunk not found")
                                         currentRawMinChunk = undefined
-                                        rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk, rawMinChunks)
+                                        rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk)
                                     }
                                 }
                             } else {
                                 // if we do not then we sort into chunks without any starting raw chunk
-                                rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk, rawMinChunks)
+                                rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk)
                             }
 
                             /**
@@ -234,28 +234,18 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                              * and contains an array of data rows that fall within that minute.
                              * @returns an array of sorted data chunks based on one minute intervals.
                              */
-                            function toRawOneMinChunks(newDataArray, oldRawChunk, rawMinChunks) {
+                            function toRawOneMinChunks(newDataArray, oldRawChunk) {
                                 // We take in new data and sort it according to minute chunks
                                 let rawTimestamp
                                 let currentTimestamp
                                 let currentRawChunk = oldRawChunk
-                                let chunksArray = rawMinChunks
+                                let chunksArray = []
 
                                 for (row of newDataArray) {
                                     // make sure the timestamp is formatted correctly to be accepted by the date object
                                     rawTimestamp = row[dbTimestamp]
+                                    currentTimestamp = validateRawTimestamp(rawTimestamp)
                                     currentNewData = row
-
-                                    if (String(rawTimestamp).length === 10) {
-                                        currentTimestamp = new Date(rawTimestamp)
-    
-                                    } else if (String(rawTimestamp).length === 13) {
-                                        currentTimestamp = new Date()
-                                        currentTimestamp.setTime(rawTimestamp)
-    
-                                    } else {
-                                        console.log(`This timestamp format: ${rawTimestamp} is not currenly supported. Please raise an issue in the develop groups to get it added!`)
-                                    }
                                     
                                     /* Reporting we are doing well */
                                     logAndHeartBeat(currentTimestamp)
@@ -273,7 +263,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             currentRawChunk.push(currentNewData)
                                             continue
 
-                                        } else if (unixTimestamp > currentRawMinChunk[1]) {
+                                        } else if (unixTimestamp > currentRawChunk[1]) {
                                             // Add previous raw min chunk to the array before we start a new chunk
                                             chunksArray.push(currentRawChunk)
                                             currentRawChunk = newRawMinChunk(currentTimestamp, currentNewData)
@@ -282,7 +272,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                         } else {
                                             SA.logger.error("Timestamp is out of order: ", currentTimestamp, " Expected to be after ", currentRawMinChunk)
                                         }
-                                        console.log("currentRawChunk", currentRawChunk)
                                     }
                                 }
 
@@ -382,6 +371,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let processedChunks = []
                             let processedChunk
 
+                            //TODO: move this switch within aggregation methods so that aggregation type can be chosen by property again
                             for (let i = 0; i < rawChunks.length; i++) {
                                 switch (datasetDef.config.aggregationMethod) {
                                     case "Avg":
@@ -461,7 +451,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             if (mustLoadRawData) {
                                 mustLoadRawData = false
                                 let startingDate = new Date(initialProcessTimestamp)
-                                let currentTimestamp = new Date(minChunk[0])
+                                let currentTimestamp = new Date(aggregatedMinChunks[0][0])
                                     
                                 // Check if the day of the last day file overlaps with the day of our new min chunk
                                 if (checkIfOnSameDay(startingDate, currentTimestamp)) { 
@@ -475,7 +465,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     if (SA.nodeModules.fs.existsSync(fullFilePath)) {
                                         // If it does we load it and start the sorting process
                                         SA.logger.info(MODULE_NAME + " processAndSaveMessages - > divideIntoDayFiles -> loading last saved file from file = " + fullFileName)
-                                        lastSavedFile = fs.readFileSync(fullFilePath, 'utf8')
+                                        lastSavedFile = JSON.parse(SA.nodeModules.fs.readFileSync(fullFilePath, 'utf8'))
                                         files = sortIntoDays(aggregatedMinChunks, lastSavedFile)
                                         
                                     } else {
@@ -613,6 +603,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
                                         currentDayFile.push(newChunks[i])
                                     } else {
+                                        //TODO: test this branch
                                         chunksAfterCurrentDay = newChunks.slice(i)
                                         return [currentDayFile, chunksAfterCurrentDay]
                                     }
@@ -642,6 +633,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
 
                             saveLastRawMin(rawMinChunks)
+                            if (files.length >= 2) {
+                                console.log('saving')
+                             }
+
                             for (let file of files) { 
                                 saveFile(file)
                                 console.log("saving file " + file)

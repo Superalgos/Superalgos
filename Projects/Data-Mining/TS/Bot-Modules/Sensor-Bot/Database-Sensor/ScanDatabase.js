@@ -50,14 +50,14 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            SA.logger.error(MODULE_NAME + "initialize -> err = " + err.stack);
+            SA.logger.error(MODULE_NAME + " initialize -> err = " + err.stack);
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
     function start(callBackFunction) {
         if (processIsRunning === false) {
-            SA.logger.info(MODULE_NAME + "Starting Scanner")
+            SA.logger.info(MODULE_NAME + " Starting Scanner")
             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  "Starting Scanner") // tell the world we are alive and doing well                                
 
             processIsRunning = true
@@ -73,7 +73,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
             firstTimeGetDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.firstCallToSQLiteDB
             getDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.callToSQLiteDB
 
-            SA.logger.info(MODULE_NAME + "Connecting to Database")
+            SA.logger.info(MODULE_NAME + " Connecting to Database")
             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  "Connecting to Database") // tell the world we are alive and doing well                                
         
             getContextVariables(dbPath, dbTable, firstTimeGetDatabaseData, getDatabaseData)
@@ -157,7 +157,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     We have the data received from the database as an array of objects corrosponding to each row of data
                     */
                     if (dataArray.length === 0) { 
-                        SA.logger.info(MODULE_NAME + 'No new data to save at this time. Waiting for next bot loop.')
+                        SA.logger.info(MODULE_NAME + ' No new data to save at this time. Waiting for next bot loop.')
                         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'No new data to save at this time. Waiting for next bot loop.')                           
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
                         processIsRunning = false
@@ -497,7 +497,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     dayFiles.push(currentDay)
                                     currentDay = []
 
-                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                    SA.logger.info(MODULE_NAME + ' Sorting into Day files. Current file count: ' + dayFiles.length)
                                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                           
                    
                                     if (chunksToSort != undefined) {
@@ -517,7 +517,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                                     currentDay = []
                                                     currentDay.push(minChunk)
 
-                                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                                    SA.logger.info(MODULE_NAME + ' Sorting into Day files. Current file count: ' + dayFiles.length)
                                                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                                 }
                                             } else {
@@ -527,7 +527,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                                         dayFiles.push(currentDay) 
 
-                                        SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                        SA.logger.info(MODULE_NAME + ' Sorting into Day files. Current file count: ' + dayFiles.length)
                                         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                     }
 
@@ -549,7 +549,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                                 currentDay = []
                                                 currentDay.push(minChunk)
 
-                                                SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                                SA.logger.info(MODULE_NAME + ' Sorting into Day files. Current file count: ' + dayFiles.length)
                                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                             }
                                         } else {
@@ -559,7 +559,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                                     dayFiles.push(currentDay)
 
-                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                    SA.logger.info(MODULE_NAME + ' Sorting into Day files. Current file count: ' + dayFiles.length)
                                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
     
                                     return dayFiles
@@ -632,14 +632,13 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let filesToCreate = files.length + 1 // add one for raw min chunk file
                             let lastFileDate
 
-                            SA.logger.info(MODULE_NAME + 'Saving Files. Current file count: ' + filesToCreate)
+                            SA.logger.info(MODULE_NAME + ' Saving Files. Current file count: ' + filesToCreate)
                             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Saving Files...')                          
 
                             saveLastRawMin(rawMinChunks)
 
                             for (let file of files) { 
                                 saveFile(file)
-                                console.log("saving file " + file)
                             }
 
                             function saveLastRawMin(rawChunks) {
@@ -651,7 +650,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 let rawFilePath = getFilePath(lastTimestamp, RAWDATA_FOLDER_NAME) + '/' + fileName
                                 console.log("path to new raw min chunk file", rawFilePath)
                                 fileStorage.createTextFile(rawFilePath, fileContent + '\n', onFileCreated);
-                                console.log("saving last raw min chunk", fileContent)
 
                                 mustLoadRawData = true
                             }
@@ -677,7 +675,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 filesCreated++
                                 lastFile = lastFileDate
                                 if (filesCreated === filesToCreate) {
-                                    SA.logger.info(MODULE_NAME + 'Saving Compelete!')
+                                    SA.logger.info(MODULE_NAME + ' Saving Compelete!')
                                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Saving Complete!')                          
 
                                     writeStatusReport()

@@ -10,7 +10,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         userProfilesMap: undefined,
         followerMap: undefined,
         senderMap: undefined,
-        onMenssage: onMenssage,
+        onMessage: onMessage,
         onConnectionClosed: onConnectionClosed,
         addFollower: addFollower,
         removeFollower: removeFollower,
@@ -142,7 +142,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         web3 = undefined
     }
 
-    async function onMenssage(message, caller, calledTimestamp) {
+    async function onMessage(message, caller, calledTimestamp) {
         try {
             let socketMessage
             try {
@@ -269,6 +269,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                 }
                                 case 'Trading Signals': {
                                     if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                        SA.logger.debug('Network Websocket Client -> Trading Signals -> Message Received')
                                         response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(
                                             payload,
                                             caller

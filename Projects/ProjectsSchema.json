@@ -808,6 +808,12 @@
                     "propertyName": "loggerVariables",
                     "functionName": "newFoundationsGlobalsLoggerVariables",
                     "fileName": "LoggerVariables.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName": "newFoundationsGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "functionLibraries": [
@@ -1847,6 +1853,12 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newNetworkGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [
@@ -1885,6 +1897,12 @@
                     "propertyName": "appBootstrapingProcess",
                     "functionName": "newNetworkModulesAppBootstrapingProcess",
                     "fileName": "AppBootstrapingProcess.js"
+                },
+                {
+                    "name": "Profile Manager App Bootstraping Process",
+                    "propertyName": "profileManagerAppBootstrapingProcess",
+                    "functionName": "newNetworkModulesProfileManagerAppBootstrapingProcess",
+                    "fileName": "ProfileManagerAppBootstrapingProcess.js"
                 },
                 {
                     "name": "P2P Network Reachable Nodes",

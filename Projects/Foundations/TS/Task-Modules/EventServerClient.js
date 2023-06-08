@@ -31,7 +31,8 @@
     }
      
     let messageCounter = 0
-    let commandCounter = 0 
+    let commandCounter = 0
+    let connectionString = undefined
 
     return thisObject
 
@@ -47,7 +48,10 @@
             if (INFO_LOG === true) {
                 SA.logger.info('setuptWebSockets at ' + host + ':' + port)
             }
-            WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
+
+            connectionString = 'ws://' + host + ':' + port
+            SA.logger.debug(TS.id + ' creating WS connection to ' + connectionString)
+            WEB_SOCKETS_CLIENT = new WEB_SOCKET(connectionString)
 
             WEB_SOCKETS_CLIENT.onerror = err => {
                 SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
@@ -174,12 +178,16 @@
             setuptWebSockets()
             return
         }
-        isAlive = false
-        WEB_SOCKETS_CLIENT.ping()
+        SA.logger.debug('event server websocket ready state ' + WEB_SOCKETS_CLIENT.readyState + ' === ' + WEB_SOCKET.OPEN)
+        if(WEB_SOCKETS_CLIENT.readyState === WEB_SOCKET.OPEN) {
+            isAlive = false
+            WEB_SOCKETS_CLIENT.ping()
+        }
     }
 
     function heartbeat() {
         isAlive = true
+        SA.logger.debug(TS.id + ' received pong heart beat from ' + connectionString)
     }
     
     function createEventHandler(eventHandlerName, callerId, responseCallBack) {

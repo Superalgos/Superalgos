@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Superalgos'u yeni kullanmaya başladım ve şimdiye kadar çok şaşırdım. Tasarımın yapılandırılma şekli ve her şeyin görselleştirilmiş olması, bu alanlarda eksik olan karşılaştırılabilir sistemlere göre çok sezgisel ve kavranmasını kolaylaştırıyor.",
                 "updated": 1669195202679
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe gerade angefangen, Superalgos zu benutzen, und bisher bin ich überwältigt. Die Art und Weise, wie das Design strukturiert ist und die Tatsache, dass alles visualisiert wird, macht es sehr intuitiv und leichter verständlich als vergleichbare Systeme, denen es in diesen Bereichen fehlt.",
+                "updated": 1685392556923
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Dahası, bu, her yapıyı (ticaret stratejisi, veri madenciliği, geriye dönük test, vb...) programlama deneyimine ihtiyaç duymadan son derece yapılandırılabilir hale getirir.",
                     "updated": 1669195256850
+                },
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus ist jede Struktur (Handelsstrategie, Data Mining, Backtesting usw.) in hohem Maße konfigurierbar, ohne dass Programmierkenntnisse erforderlich sind.",
+                    "updated": 1685392569747
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Dediğim gibi, bu projede çok yeniyim ve kullandığım kısa süre için bunu sevdim. İlk 3 öğreticiden geçtikten sonra, hem Superalgos projesi hem de kullanıcıları için potansiyelin tavan yaptığı oldukça açık.",
                     "updated": 1669195324050
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie gesagt, ich bin sehr neu in diesem Projekt und in der kurzen Zeit, in der ich es benutzt habe, habe ich mich in es verliebt. Nachdem ich mich in die ersten 3 Tutorials vertieft habe, wird es ziemlich offensichtlich, dass das Potenzial sowohl für das Superalgos-Projekt als auch für seine Benutzer unübertroffen ist.",
+                    "updated": 1685392583728
                 }
             ]
         },

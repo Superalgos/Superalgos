@@ -1,5 +1,3 @@
-const { roleMention } = require('discord.js');
-
 exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     const MODULE_NAME = "Scan Database";
@@ -29,9 +27,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let datasetDef = undefined
     let recordDef = undefined
     let currentNewData = undefined
-
-    // Here the pair is passed to the process if needed from the full codeName of the Market under Exchnage Markets
-    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
 
     return thisObject;
 
@@ -248,7 +243,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 let currentRawChunk = oldRawChunk
                                 let chunksArray = []
 
-                                for (row of newDataArray) {
+                                for (let row of newDataArray) {
                                     // make sure the timestamp is formatted correctly to be accepted by the date object
                                     rawTimestamp = row[dbTimestamp]
                                     currentTimestamp = validateRawTimestamp(rawTimestamp)
@@ -379,15 +374,16 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             return processedChunks
                         }
 
+                        /* TODO: Implement asyc processing
                         function processAsyc (rawMinChunks) {
                         
                             const { fork } = require('child_process')
                        
-                            /* processChunksInParallel(rawChunks)
+                            processChunksInParallel(rawChunks)
                                 .then(result => {
                                 console.log("this is our finsihed chunks", result)
                                 return result
-                            })*/
+                            })
 
                             function processChunksInParallel(rawChunks) {
                             console.log("in processChunksInParallel", rawChunks)
@@ -417,7 +413,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                               }
                             });
                             }
-                        }
+                        }*/
                     }
 
                     /**

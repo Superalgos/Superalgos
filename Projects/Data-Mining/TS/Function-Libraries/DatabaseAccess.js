@@ -35,6 +35,7 @@ exports.newDataMiningFunctionLibrariesDatabaseAccess = function () {
                     if (error_1) {
                         console.error("Error executing query", error_1)
                         reject(error_1)
+                        return
                     }
 
                     database.close((error_2) => {
@@ -77,6 +78,7 @@ exports.newDataMiningFunctionLibrariesDatabaseAccess = function () {
                     if (error_1) {
                         console.error("Error executing query", error_1)
                         reject(error_1)
+                        return
                     }
 
                     database.close((error_2) => {

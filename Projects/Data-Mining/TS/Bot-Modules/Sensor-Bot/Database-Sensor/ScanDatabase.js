@@ -17,11 +17,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
     
-    let lastId
-    let firstId
     let thisReport;
     let processIsRunning = false
-    let since
     let initialProcessTimestamp
     let beginingOfMarket
     let lastFile
@@ -33,7 +30,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     let recordDef = undefined
     let currentNewData = undefined
 
-    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    // Here the pair is passed to the process if needed from the full codeName of the Market under Exchnage Markets
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
 
     return thisObject;
@@ -60,7 +57,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
     function start(callBackFunction) {
         if (processIsRunning === false) {
-            console.log("process running")
+            SA.logger.info(MODULE_NAME + "Starting Scanner")
+            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  "Starting Scanner") // tell the world we are alive and doing well                                
+
             processIsRunning = true
             try {
 
@@ -74,6 +73,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
             firstTimeGetDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.firstCallToSQLiteDB
             getDatabaseData = TS.projects.dataMining.functionLibraries.databaseAccess.callToSQLiteDB
 
+            SA.logger.info(MODULE_NAME + "Connecting to Database")
+            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  "Connecting to Database") // tell the world we are alive and doing well                                
+        
             getContextVariables(dbPath, dbTable, firstTimeGetDatabaseData, getDatabaseData)
 
             function getContextVariables(dbPath, dbTable, callBack, secondCallBack) {
@@ -155,20 +157,21 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     We have the data received from the database as an array of objects corrosponding to each row of data
                     */
                     if (dataArray.length === 0) { 
-                        SA.logger.info('no new data to save this time')
+                        SA.logger.info(MODULE_NAME + 'No new data to save at this time. Waiting for next bot loop.')
+                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'No new data to save at this time. Waiting for next bot loop.')                           
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
                         processIsRunning = false
                         return 
                     }
 
                     let rawMinChunksArray = sortData(dataArray)
-                    console.log("sorted data", rawMinChunksArray)
+                    //console.log("sorted data", rawMinChunksArray)
 
                     let minChunksArray = aggregateMinChunks(rawMinChunksArray)
-                    console.log("aggregated data", minChunksArray)
+                    //console.log("aggregated data", minChunksArray)
 
                     let files = divideIntoDayFiles(minChunksArray)
-                    console.log("files to save", JSON.stringify(files))
+                    //console.log("files to save", files)
 
                     saveFiles(files, rawMinChunksArray)
 
@@ -185,7 +188,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                   
                         let currentRawMinChunk = undefined
                         let rawMinChunks = []
-                        console.log("this is our new data", newDataArray)
+                        //console.log("this is our new data", newDataArray)
                         try { 
 
                             if (mustLoadRawData) { 
@@ -212,13 +215,17 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
     
                                     } else {
                                         SA.logger.warn("old saved raw minute chunk not found")
-                                        currentRawMinChunk = undefined
-                                        rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk)
+                                        mustLoadRawData = false
+                                        rawMinChunks = toRawOneMinChunks(newDataArray, undefined)
                                     }
+                                } else {
+                                    // if not on the same day we sort for a new day file
+                                    mustLoadRawData = false
+                                    rawMinChunks = toRawOneMinChunks(newDataArray, undefined)
                                 }
                             } else {
                                 // if we do not then we sort into chunks without any starting raw chunk
-                                rawMinChunks = toRawOneMinChunks(newDataArray, currentRawMinChunk)
+                                rawMinChunks = toRawOneMinChunks(newDataArray, undefined)
                             }
 
                             /**
@@ -248,8 +255,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     currentNewData = row
                                     
                                     /* Reporting we are doing well */
-                                    logAndHeartBeat(currentTimestamp)
-    
+                                    logAndHeartBeat(currentTimestamp, ' Sorting data ', newDataArray, row)
+
                                     if (currentRawChunk === undefined) {
                                         // This means we have just started the sorting process so we create an new raw one minute chunk and add the incoming data row
                                         currentRawChunk = newRawMinChunk(currentTimestamp, currentNewData)
@@ -310,28 +317,6 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 return newRawMinChunk
                             }
 
-                            /**
-                             * The function logs and sends a heartbeat message during the process of
-                             * sorting data.
-                             * @param currentTimestamp - The current timestamp is a variable that holds
-                             * the current date and time. It is used in this function to log the
-                             * processing date and time and to provide a timestamp for the heartbeat
-                             * message.
-                             */
-                            function logAndHeartBeat(currentTimestamp) {
-                                /* We need the processing date for logging purposes only */
-                                        let processingDate = currentTimestamp
-                                        let dataIndex = newDataArray.indexOf(row);
-                                        processingDate =
-                                            processingDate.getUTCFullYear() + '-' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
-                                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
-        
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataIndex + " -> total = " + newDataArray.length)
-                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
-                            }
-
                         } catch (err) {
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -373,6 +358,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
 
                             //TODO: move this switch within aggregation methods so that aggregation type can be chosen by property again
                             for (let i = 0; i < rawChunks.length; i++) {
+
+                                /* Reporting we are doing well */
+                                logAndHeartBeat(new Date(rawChunks[i][0]), ' Aggregating data ', rawChunks, i)
+
                                 switch (datasetDef.config.aggregationMethod) {
                                     case "Avg":
                                         SA.logger.info("Aggrergating data using simple average")
@@ -500,6 +489,7 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 let dayFiles = []
                                 let chunksToSort = []
                                 
+                                // TODO: refactor boths side of the main logic switch to use the same core sorting logic via a function
                                 // if we have an old day file to start from we first figure out where our new data begins in regards to the old data
                                 if (oldMinChunks != undefined) {
                                     // merge the old minChunks with new minChunks to create the most complete day
@@ -507,6 +497,9 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                     dayFiles.push(currentDay)
                                     currentDay = []
 
+                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                           
+                   
                                     if (chunksToSort != undefined) {
                                         // sort remaining chunks into day files
                                         for (let minChunk of chunksToSort) { 
@@ -514,24 +507,28 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                                 // check if chunk still in current day
                                                 let lastChunk = currentDay[currentDay.length - 1]
                                                 let lastChunkEnd = new Date(lastChunk[1])
-                                                let currentChunkBegin = new Date(minChunk[0])                                     //TODO: logic to get timestamps for current Day and minChunk
+                                                let currentChunkBegin = new Date(minChunk[0])
                                                 if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
                                                     // if so add them to the same day
-                                                    currentDay.push(minChunk)
-                                                    console.log("adding to current day as ", currentDay)
+                                                    currentDay.push(minChunk) 
                                                 } else {
                                                     // if not save the current day file and continue to the next
                                                     dayFiles.push(currentDay)
                                                     currentDay = []
                                                     currentDay.push(minChunk)
+
+                                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                                 }
                                             } else {
                                                 currentDay.push(minChunk)
-                                                console.log("starting current day as ", currentDay)
                                             }
                                         }
 
                                         dayFiles.push(currentDay) 
+
+                                        SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                     }
 
                                     return dayFiles
@@ -542,24 +539,28 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                             // check if chunk still in current day
                                             let lastChunk = currentDay[currentDay.length - 1]
                                             let lastChunkEnd = new Date(lastChunk[1])
-                                            let currentChunkBegin = new Date(minChunk[0])                                     //TODO: logic to get timestamps for current Day and minChunk
+                                            let currentChunkBegin = new Date(minChunk[0])
                                             if (checkIfOnSameDay(lastChunkEnd, currentChunkBegin)) {
                                                 // if so add them to the same day
                                                 currentDay.push(minChunk)
-                                                console.log("adding to current day as ", currentDay)
                                             } else {
                                                 // if not save the current day file and continue to the next
                                                 dayFiles.push(currentDay)
                                                 currentDay = []
                                                 currentDay.push(minChunk)
+
+                                                SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
                                             }
                                         } else {
                                             currentDay.push(minChunk)
-                                            console.log("starting current day as ", currentDay)
                                         }
                                     }
 
                                     dayFiles.push(currentDay)
+
+                                    SA.logger.info(MODULE_NAME + 'Sorting into Day files. Current file count: ' + dayFiles.length)
+                                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Sorting into Day files. Current file count: ' + dayFiles.length)                          
     
                                     return dayFiles
                                 }
@@ -631,11 +632,10 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                             let filesToCreate = files.length + 1 // add one for raw min chunk file
                             let lastFileDate
 
+                            SA.logger.info(MODULE_NAME + 'Saving Files. Current file count: ' + filesToCreate)
+                            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Saving Files...')                          
 
                             saveLastRawMin(rawMinChunks)
-                            if (files.length >= 2) {
-                                console.log('saving')
-                             }
 
                             for (let file of files) { 
                                 saveFile(file)
@@ -677,24 +677,14 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                 filesCreated++
                                 lastFile = lastFileDate
                                 if (filesCreated === filesToCreate) {
-                                    SA.logger.info("Saving Complete")
+                                    SA.logger.info(MODULE_NAME + 'Saving Compelete!')
+                                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  'Saving Complete!')                          
+
                                     writeStatusReport()
                                     return
                                 }
                             }
 
-                            function logAndHeartBeat() {
-                                /* We need the processing date for logging purposes only */
-                                let processingDate = new Date(dataChunk.begin)
-                                processingDate =
-                                    processingDate.getUTCFullYear() + '-' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
-                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
-
-                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> dataArrayIndex = " + dataArrayIndex + " -> total = " + newDataArray.length)
-                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (dataArrayIndex + 1).toFixed(0) + " / " + newDataArray.length + " Data from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
-                            }
                         } catch (err) {
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -768,6 +758,32 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                                           SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                         let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/' + "Output" + '/' + folderName + '/' + dateForPath;                                         
                         return filePath
+                    }
+
+                    /**
+                     * The function logs and sends a heartbeat message during the process of
+                     * sorting data.
+                     * @param currentTimestamp - The current timestamp is a variable that holds
+                     * the current date and time. It is used in this function to log the
+                     * processing date and time and to provide a timestamp for the heartbeat
+                     * message.
+                     */
+                    function logAndHeartBeat(currentTimestamp, processAction, dataArray, index) {
+                        /* We need the processing date for logging purposes only */
+                        let processingDate = currentTimestamp
+                        let dataIndex
+                        if (typeof index === 'object') {
+                            dataIndex = dataArray.indexOf(index);
+                        } else {
+                            dataIndex = index
+                        }
+                        processingDate =
+                            processingDate.getUTCFullYear() + '-' +
+                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
+                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+        
+                        SA.logger.info(MODULE_NAME + processAction + (dataIndex + 1).toFixed(0) + " / " + dataArray.length + " Data from table - " + dbTable + " @ " + processingDate)
+                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex,  processAction + (dataIndex + 1).toFixed(0) + " / " + dataArray.length + " Data from table - " + dbTable + " @ " + processingDate) // tell the world we are alive and doing well                                
                     }
 
                 } catch (err) {

@@ -20,11 +20,12 @@ exports.newNetworkGlobalsStoresFileStore = function newNetworkGlobalsStoresFileS
      * Checks that the directory exists and creates an initial file for storage
      */
     function initialize() {
-        const dir = filename.split('/')
+        const pathSeparator = SA.nodeModules.path.sep
+        const dir = filename.split(pathSeparator)
         if(dir.length > 1) {
             dir.pop()
         }
-        const dirPath = dir.join('/')
+        const dirPath = dir.join(pathSeparator)
         if(!SA.nodeModules.fs.existsSync(dirPath)) {
             SA.nodeModules.fs.mkdirSync(dirPath, {recursive: true})
         }

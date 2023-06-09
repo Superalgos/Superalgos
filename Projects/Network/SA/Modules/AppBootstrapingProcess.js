@@ -56,7 +56,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 taskArgs.push('logLevel=' + global.env.LOG_LEVEL)
             }
             setInterval(() => {
-                if(currentChildProcess !== undefined) {
+                if(currentChildProcess !== undefined && currentChildProcess.connected) {
                     currentChildProcess.disconnect();
                 }
                 currentChildProcess = SA.nodeModules.childProcess.fork(path, taskArgs, { stdio: 'inherit' })

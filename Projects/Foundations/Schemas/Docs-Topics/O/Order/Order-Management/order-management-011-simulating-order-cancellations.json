@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Имитация отмены ордера довольно проста, поскольку торговый бот имеет всю необходимую информацию для дальнейших действий.",
                 "updated": 1640336683359
+            },
+            {
+                "language": "DE",
+                "text": "Die Simulation der Stornierung eines Auftrags ist recht einfach, da der Trading-Bot über alle erforderlichen Informationen verfügt, um den Auftrag auszuführen.",
+                "updated": 1679763309712
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Имитация отмены ордера практически тривиальна. Конечно, этот процесс применим только для бэктестинга и бумажных торговых сессий.",
                     "updated": 1640336703850
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Simulation der Stornierung eines Auftrags ist recht einfach, da der Trading-Bot über alle erforderlichen Informationen verfügt, um den Auftrag auszuführen.",
+                    "updated": 1679763318312
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Ордер будет закрыт без проблем, поскольку бот имеет полный контроль над деталями ордера.",
                     "updated": 1640336734003
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Auftrag wird nahtlos abgeschlossen, da der Bot die volle Kontrolle über die Details des Auftrags hat.",
+                    "updated": 1679763333208
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "RU",
                     "text": "Как только ордер закроется, бот выполняет расчеты для корректировки размера этапа (см. раздел Accounting).",
                     "updated": 1640336773658
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald der Auftrag abgeschlossen ist, führt der Bot die Berechnungen zur Anpassung der Bühnengröße durch (siehe Abrechnung).",
+                    "updated": 1679763427605
                 }
             ]
         }

@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si los activos con los que desea trabajar no se enumeran en Activos de Exchange, primero debe agregarlos y configurarlos.",
-                "updated": 1629162948016,
+                "text": "Si los activos con los que deseas trabajar no se enumeran en Activos de Exchange, primero debes agregarlos y configurarlos.",
+                "updated": 1682427228985,
                 "style": "Definition"
             },
             {
@@ -45,8 +45,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En esta sección del tutorial, aprenderás a definir con qué assets deseas trabajar.",
-                    "updated": 1629162994984,
+                    "text": "En esta sección del tutorial, aprenderás a definir con qué Assets deseas trabajar.",
+                    "updated": 1682427238739,
                     "style": "Callout"
                 },
                 {
@@ -77,8 +77,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cada exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de basura es siempre una buena idea.",
-                    "updated": 1629163406741,
+                    "text": "Cada Exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de chatarra es siempre una buena idea.",
+                    "updated": 1682427351252,
                     "style": "Success"
                 },
                 {

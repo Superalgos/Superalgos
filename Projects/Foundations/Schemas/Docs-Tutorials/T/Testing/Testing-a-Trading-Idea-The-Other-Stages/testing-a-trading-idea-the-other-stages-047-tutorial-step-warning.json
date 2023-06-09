@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Я вижу три предупреждающих знака 28 февраля на свече 9 hs. Мы должны взглянуть и посмотреть, о чем предупреждения!",
                 "updated": 1642944255263
+            },
+            {
+                "language": "ES",
+                "text": "Veo tres señales de advertencia el 28 de febrero en la vela de las 9 hs. ¡Deberíamos echar un vistazo y ver de qué se tratan las advertencias!",
+                "updated": 1681733193362
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Как и в случае с ошибками, количество и размер знаков указывают на последовательность, в которой были записаны предупреждения!",
                     "updated": 1642944292557
+                },
+                {
+                    "language": "ES",
+                    "text": "Al igual que en el caso de los errores, el número y el tamaño de las viñetas indican la secuencia en la que se registraron las advertencias.",
+                    "updated": 1681733213714
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Коснитесь мышкой первой предупреждающего значка, большего по размеру, 28 февраля в 10 часов...",
                     "updated": 1642944335633
+                },
+                {
+                    "language": "ES",
+                    "text": "Toca con el ratón la primera bala de advertencia, la más grande, el 28 de febrero a las 10 hs...",
+                    "updated": 1681733228425
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Предупреждения создаются каждый раз, когда торговый бот вносит коррективы в информацию, которая в противном случае не была бы очевидной. Это похоже на многословный режим, который бот использует, чтобы оставить след своих действий.",
                     "updated": 1642944353816
+                },
+                {
+                    "language": "ES",
+                    "text": "Las advertencias se crean cada vez que el bot de negociación realiza ajustes en la información que, de otro modo, no serían evidentes. Es como un modo verboso que el bot utiliza para dejar rastro de sus acciones.",
+                    "updated": 1681733245219
                 }
             ]
         }

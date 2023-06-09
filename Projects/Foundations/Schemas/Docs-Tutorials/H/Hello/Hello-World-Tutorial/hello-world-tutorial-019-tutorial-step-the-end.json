@@ -40,8 +40,8 @@
                 "language": "NL",
                 "text": "Dit is de laatste stap in deze zelfstudie, maar een eerste grote stap voor jou!",
                 "updated": 1670776898670
-              },
-              {
+            },
+            {
                 "language": "ID",
                 "text": "Inilah langkah akhir dari tutorial ini tapi langkah awal yang besar untuk kamu!",
                 "updated": 1670589483948
@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, le dejo algunos consejos que puede explorar.",
-                    "updated": 1629578879458
+                    "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, te dejo algunos consejos que puedes explorar.",
+                    "updated": 1682357936063
                 },
                 {
                     "language": "IT",
@@ -104,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tal vez puedas agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage.",
-                    "updated": 1629578981875
+                    "text": "Tal vez puedes agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage",
+                    "updated": 1682357954347
                 },
                 {
                     "language": "IT",
@@ -190,8 +190,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Gracias por tu tiempo. Puede leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
-                    "updated": 1629579335349
+                    "text": "Gracias por tu tiempo. Puedes leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
+                    "updated": 1682357964929
                 },
                 {
                     "language": "IT",

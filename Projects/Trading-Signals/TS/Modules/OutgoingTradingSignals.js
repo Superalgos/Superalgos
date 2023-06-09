@@ -52,10 +52,11 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) 
             /*
             This is the signal message we are going to send.
             */
+            const now = new Date()
             let tradingSignalMessage = {
                 tradingSignal: {
                     uniqueId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    timestamp: (new Date()).valueOf(),
+                    timestamp: now.valueOf(),
                     source: {
                         tradingSystem: {
                             node: {
@@ -86,7 +87,12 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function(processIndex) 
                 SA.logger.error('In order to be able to broadcast signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
                 return
             }
+            SA.logger.debug('Outgoing Trading Signals -> broadcasting signal')
             TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastSignal(tradingSignalMessage, socialTradingBot)
+            /* Update task status with progress message */
+            let UTCtime = now.toISOString().split(/T/)[1]
+            UTCtime = UTCtime.split(/\./).shift() + " UTC"
+            TS.projects.foundations.functionLibraries.taskFunctions.taskHearBeat("Signal broadcasted at " + UTCtime, false)
         }
     }
 }

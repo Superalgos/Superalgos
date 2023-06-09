@@ -1,0 +1,50 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 24,
+    "type": "Jurik Volatility",
+    "definition": {
+        "text": "The Jurik Filtered Composite Fractal Behaviour Volatility index creates an enhanced version of the classic ADX indicator."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Jurik Volatility On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is regarded as a superior version of classical ADX indicator and lets you see the underlying trend activity. It has extremely low lag, is very smooth and responsive. It provides the trend strength filter, as well as a moving average that acts as a trend filter."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-jurik-volatility.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Jurik Volatility indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Jurik Volatility\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-jurik-volatility-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Jurik Volatility Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| JurikVolatility | jcfb | value, filter |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the Jurik value rises above the trend filter:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.jcfb.value > chart.at15min.jcfb.filter && chart.at15min.jcfb.previous.value > chart.at15min.jcfb.previous.filter"
+        }
+    ]
+}

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы находимся на новом графике! Давайте настроим его так, чтобы мы могли увидеть результаты бэктеста!",
                 "updated": 1642943747337
+            },
+            {
+                "language": "ES",
+                "text": "¡Estamos en un nuevo gráfico! Vamos a configurarlo para ver los resultados del backtest.",
+                "updated": 1681055399415
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Включите следующие слои в каждом из менеджеров слоев (не забудьте закрыть все панели плоттера):",
                     "updated": 1642943766650
+                },
+                {
+                    "language": "ES",
+                    "text": "Active las siguientes capas en cada uno de los gestores de capas (no olvides cerrar todos los paneles del trazador):",
+                    "updated": 1681055437501
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "TR",
                     "text": "Mum Verileri (Candles Data): \"Mumlar\".",
                     "updated": 1641799061164
+                },
+                {
+                    "language": "ES",
+                    "text": "Candles Data: \" Candle \".",
+                    "updated": 1681055562049
                 }
             ]
         },
@@ -80,6 +95,11 @@
                     "language": "TR",
                     "text": "Bollinger Verileri(Bollinger Data): \"Bollinger Bantları\".",
                     "updated": 1641799086123
+                },
+                {
+                    "language": "ES",
+                    "text": "Bollinger Data: \" Bollinger Band \".",
+                    "updated": 1681055591942
                 }
             ]
         },
@@ -97,6 +117,11 @@
                     "language": "RU",
                     "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", и \"Take Profit\".",
                     "updated": 1642943789359
+                },
+                {
+                    "language": "ES",
+                    "text": "Simulation Objects: \" Strategies \", Market Buy Orders, \" Market Sell Orders \", \" Position Base Asset \", \" Stop Loss \" y \" Take Profit \".",
+                    "updated": 1681055646038
                 }
             ]
         },
@@ -119,6 +144,11 @@
                     "language": "RU",
                     "text": "Trading System: \"Trading System Errors\" и \"Trading System Warnings\".",
                     "updated": 1642943796381
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading System: \" Trading System Errors \" y \" Trading System Warnings \".",
+                    "updated": 1681056197138
                 }
             ]
         },
@@ -140,6 +170,11 @@
                     "language": "RU",
                     "text": "Следующий шаг показывает, что вы должны увидеть!",
                     "updated": 1642943812533
+                },
+                {
+                    "language": "ES",
+                    "text": "El siguiente paso muestra lo que debería ver.",
+                    "updated": 1681055718766
                 }
             ]
         }

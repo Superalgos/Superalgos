@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это событие не требует пояснений и работает как остальные события, с которыми вы уже знакомы, с ситуациями и условиями.",
                 "updated": 1642780119368
+            },
+            {
+                "language": "ES",
+                "text": "Este evento se explica por sí mismo y funciona como los demás eventos que ya conoces, con situaciones y condiciones.",
+                "updated": 1680805942837
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Хотя решение о занятии позиции принимается на этапе Trigger Stage, событие Create Order Event предлагает детальный контроль над каждым ордером, чтобы вы могли решить, в какой именно момент или в какой рыночной ситуации его разместить.",
                     "updated": 1642780150149
+                },
+                {
+                    "language": "ES",
+                    "text": "Aunque la decisión de tomar una posición se toma en el Trigger Stage, el Evento Crear Orden ofrece un control granular sobre cada orden, para que pueda decidir el momento preciso o la situación del mercado en la que colocarla.",
+                    "updated": 1680805972002
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "В нашем случае мы разместим ордер сразу после срабатывания события Take Position Event, поэтому введите true в узле JavaScript Code одного условия, созданного по умолчанию вместе с ордером. Это заставит условие вернуть true, как только оно будет обработано.",
                     "updated": 1642780261348
+                },
+                {
+                    "language": "ES",
+                    "text": "En nuestro caso, colocaremos la orden inmediatamente después de que se active el Evento de Take Position, así que sigue adelante y escribe true en el nodo JavaScript Code de la condición creada por defecto con la orden. Esto hace que la condición devuelva true tan pronto como sea evaluada.",
+                    "updated": 1680806019983
                 }
             ]
         }

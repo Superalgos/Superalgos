@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para empezar, quiero que se sienta un poco más cómodo con la forma en que Charting Space está arreglado.",
-                    "updated": 1628641961306
+                    "text": "Para empezar, quiero que te sientas un poco más cómodo con la forma en que Charting Space está arreglado.",
+                    "updated": 1682430012998
                 },
                 {
                     "language": "DE",
@@ -94,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Así es! Hay un Dashboard configurado para Backtesting,uno para Live Trading, Y un tercero para Learning Tasks. Dashboards son una forma conveniente de agrupar gráficos según el tipo o cualquier otro criterio, para el caso.",
-                    "updated": 1628642097225
+                    "text": "¡Así es! Hay un Dashboard configurado para Backtesting, uno para Live Trading, y un tercero para Learning Tasks. Dashboards son una forma conveniente de agrupar gráficos según el tipo o cualquier otro criterio, para el caso.",
+                    "updated": 1682430034306
                 },
                 {
                     "language": "DE",

@@ -19,6 +19,9 @@
 
     let WEB_SOCKETS_CLIENT
     const WEB_SOCKET = SA.nodeModules.ws
+    
+    let isAlive = false
+    let pingInterval
 
     if (host === undefined) {
         host = 'localhost'
@@ -28,7 +31,8 @@
     }
      
     let messageCounter = 0
-    let commandCounter = 0 
+    let commandCounter = 0
+    let connectionString = undefined
 
     return thisObject
 
@@ -44,7 +48,10 @@
             if (INFO_LOG === true) {
                 SA.logger.info('setuptWebSockets at ' + host + ':' + port)
             }
-            WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
+
+            connectionString = 'ws://' + host + ':' + port
+            SA.logger.debug(TS.id + ' creating WS connection to ' + connectionString)
+            WEB_SOCKETS_CLIENT = new WEB_SOCKET(connectionString)
 
             WEB_SOCKETS_CLIENT.onerror = err => {
                 SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
@@ -56,7 +63,11 @@
                     if (INFO_LOG === true) {
                         SA.logger.info('Websocket connection opened.')
                     }
-    
+                    
+                    /* Send keepalive message every 10 seconds */
+                    isAlive = true
+                    pingInterval = setInterval(ping, 10000)
+
                     if (callBackFunction !== undefined) {
                         callBackFunction()
                     }
@@ -64,8 +75,12 @@
                     SA.logger.error('Task Server -> Event Server Client -> setuptWebSockets ->  onopen -> err = ' + err.stack) 
                 }
             }
+            WEB_SOCKETS_CLIENT.on('pong', heartbeat)
             WEB_SOCKETS_CLIENT.onmessage = e => {
                 try {
+                    /* If we receive a message, the connection is alive. */                    
+                    heartbeat()
+                    
                     if (INFO_LOG === true) {
                         SA.logger.info('Websocket Message Received: ' + e.data.substring(0, 1000))
                     }
@@ -119,6 +134,7 @@
             }
             sendCommand(eventCommand)
         }
+        clearInterval(pingInterval)
         WEB_SOCKETS_CLIENT.close();
     }
 
@@ -155,6 +171,25 @@
         }
     }
 
+    function ping() {
+        if (isAlive === false) {
+            WEB_SOCKETS_CLIENT.terminate()
+            SA.logger.error('Task Server -> Event Server Client -> No connection keep-alive signal received. Terminating and trying to re-initialize.')
+            setuptWebSockets()
+            return
+        }
+        SA.logger.debug('event server websocket ready state ' + WEB_SOCKETS_CLIENT.readyState + ' === ' + WEB_SOCKET.OPEN)
+        if(WEB_SOCKETS_CLIENT.readyState === WEB_SOCKET.OPEN) {
+            isAlive = false
+            WEB_SOCKETS_CLIENT.ping()
+        }
+    }
+
+    function heartbeat() {
+        isAlive = true
+        SA.logger.debug(TS.id + ' received pong heart beat from ' + connectionString)
+    }
+    
     function createEventHandler(eventHandlerName, callerId, responseCallBack) {
         let eventCommand = {
             action: 'createEventHandler',

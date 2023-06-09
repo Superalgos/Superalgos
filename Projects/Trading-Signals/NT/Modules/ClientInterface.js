@@ -18,12 +18,14 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
     }
 
     async function messageReceived(messageHeader, socketMessage) {
+        SA.logger.debug('Trading-Signals -> Client Interface -> Message Received')
 
         if (messageHeader.requestType === undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface requestType Not Provided.'
             }
+            SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType Not Provided.')
             return response
         }
 
@@ -92,13 +94,13 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     }
                 }
                 if (followedBotReference?.payload?.tokenPower !== undefined) {
-                    allocatedTokenPower = followedBotReference.payload.tokenPower
+                    allocatedTokenPower = parseFloat(followedBotReference.payload.tokenPower.toFixed(0))
                 }
 
                 if (allocatedTokenPower < followerMinTokenPower) {
                     let response = {
                         result: 'Error',
-                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toSABalanceString(followerMinTokenPower) + ' to follow.',
+                        message: 'Bot requires minimum ' + SA.projects.governance.utilities.balances.toTokenPowerString(followerMinTokenPower) + ' Token Power to follow.',
                         followedBotReferenceId: followedBotReferenceId
                     }
                     return response
@@ -145,6 +147,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     result: 'Error',
                     message: 'Client Interface requestType Not Supported.'
                 }
+                SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType does not have a case match.')
                 return response
             }
         }
@@ -154,6 +157,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                 result: 'Error',
                 message: 'Client Interface requestType Not Supported.'
             }
+            SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Client Interface requestType (' + messageHeader.requestType + ') Not Supported: ')
             return response
         }
 
@@ -162,11 +166,12 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
             Broadcast the Signal to all clients connected to this Network Node.
             */
             let response
-            if (await NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToClients(socketMessage, sendingBot) !== true) {
+            if (await NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToFollowers(socketMessage, sendingBot) !== true) {
                 response = {
                     result: 'Error',
                     message: 'Signal Could Not be Broadcasted to Network Clients.'
                 }
+                SA.logger.error('Trading-Signals -> Client Interface -> Message Received -> Signal Could Not be Broadcasted to Network Clients.')
             }
 
             if (response === undefined) {
@@ -174,6 +179,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
                     result: 'Ok',
                     message: 'Signal Accepted & Broadcasted.'
                 }
+                SA.logger.debug('Trading-Signals -> Client Interface -> Message Received -> Signal Accepted & Broadcast.')
             }
             return response
         }

@@ -183,12 +183,12 @@ Open a command terminal, navigate to the directory you want to Superalgos folder
 Copy and paste 
 
 ```sh
-curl https://raw.githubusercontent.com/Superalgos/Superalgos/install.sh ./
+wget https://raw.githubusercontent.com/Superalgos/Superalgos/develop/install.sh
 ```
 
-Run the script with you Github username and API token `sh install.sh --username <username> --token <token>` 
+Run the script with you Github username and API token `sh install.sh -u <username> -t <token>` 
 
-This will check you ahve git and node installed, it will then clone your forked repository into a folder name Superalgos. The script will install all the node dependencies, fork and clone all the plugin repositories and install the global superalgos cli.
+This will check you have git and node installed, it will then clone your forked repository into a folder name Superalgos. The script will install all the node dependencies, fork and clone all the plugin repositories and install the global superalgos cli.
 
 # :small_orange_diamond: Usage
 

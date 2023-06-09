@@ -61,6 +61,10 @@ export default {
     flex-direction: column;
 }
 
+#post-user-name {
+    font-weight: 600;
+}
+
 #comment-top-div {
     display: flex;
     flex-direction: row;

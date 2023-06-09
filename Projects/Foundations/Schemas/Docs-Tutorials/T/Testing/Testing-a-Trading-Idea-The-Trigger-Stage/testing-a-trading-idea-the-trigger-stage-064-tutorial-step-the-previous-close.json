@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Два последовательных закрытия означают, что текущая и предыдущая свечи закрываются ниже нижней полосы!",
                 "updated": 1642661289834
+            },
+            {
+                "language": "ES",
+                "text": "¡Dos cierres consecutivos significa que la vela actual y la anterior cierran por debajo de la banda inferior!",
+                "updated": 1679100755424
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Чтобы описать закрытие предыдущей свечи, нам нужно использовать свойство previous для изменения каждого свойства каждого индикатора, используемого по обе стороны выражения:",
                     "updated": 1642661527711
+                },
+                {
+                    "language": "ES",
+                    "text": "Para describir el cierre de la vela anterior, tenemos que utilizar la propiedad previous para modificar cada propiedad de cada indicador utilizado en ambos lados de la declaración:",
+                    "updated": 1679100747996
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "RU",
                     "text": "Создайте новое условие в той же ситуации и используйте приведенный выше код!",
                     "updated": 1642661372482
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Crea una nueva condición bajo la misma situación y utiliza el código anterior!",
+                    "updated": 1679100772299
                 }
             ]
         }

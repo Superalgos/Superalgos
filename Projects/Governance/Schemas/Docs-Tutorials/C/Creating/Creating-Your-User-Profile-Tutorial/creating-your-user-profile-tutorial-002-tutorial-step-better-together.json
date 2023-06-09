@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este es el Governance Project! Hoy te ayudaré a crear un User ProfileY únete a los primeros Governance Programs",
-                "updated": 1630870722161,
+                "text": "Este es el Governance Project! Hoy te ayudaré a crear un User Profile y únete a los primeros Governance Programs",
+                "updated": 1682519245072,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pero antes de comenzar, debe saber que solo puede enviar su perfil a la rama Develop , ¡así que es hora de cambiar!",
-                    "updated": 1630870746617,
+                    "text": "Pero antes de comenzar, debes saber que solo puede enviar su perfil a la rama Develop, ¡así que es hora de cambiar! ",
+                    "updated": 1682519282957,
                     "style": "Note"
                 },
                 {
@@ -79,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Ve al pie de página y cambia la rama Contrubutions  a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial!",
-                    "updated": 1630870801873,
+                    "text": "Ve al pie de página y cambia la rama Contrubutions a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial! ",
+                    "updated": 1682519327985,
                     "style": "Callout"
                 },
                 {

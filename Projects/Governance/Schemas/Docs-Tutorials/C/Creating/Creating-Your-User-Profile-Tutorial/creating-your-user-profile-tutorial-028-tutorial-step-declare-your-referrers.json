@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡El programa está implementado! ¡Ahora tienes que declarar tu referente para cumplir con el segundo requisito!",
-                "updated": 1630895782489,
+                "text": "¡El programa está en marcha! Ahora tienes que indicar tu referente para cumplir el segundo requisito. ",
+                "updated": 1682520824685,
                 "style": "Definition"
             },
             {
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Declarar tus referencias es la mejor manera de agradecer a las personas que pueden haber escrito ese artículo o tweet, producido ese video, mantenido el sitio web etc....",
-                    "updated": 1632024727440,
+                    "text": "Puede que hayas conocido Superalgos a través de un artículo, un vídeo, un comentario en Reddit, un tweet, la página web oficial o alguien que te ha hablado de nosotros.",
+                    "updated": 1682520866688,
                     "style": "Success"
                 },
                 {
@@ -80,6 +80,11 @@
                     "language": "ID",
                     "text": "Menyatakan perujukmu adalah jalan terbaik untuk berterima kasih kepada orang yang telah bekerja untuk itu!",
                     "updated": 1671527162213
+                },
+                {
+                    "language": "ES",
+                    "text": "Dar a conocer a las personas que te han recomendado es la mejor manera de dar las gracias a los que han hecho el trabajo.",
+                    "updated": 1682520927790
                 }
             ]
         },

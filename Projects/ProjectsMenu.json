@@ -98,7 +98,7 @@
                 }
             },
             {
-                "label": "Plugin Workspaces",
+                "label": "Native Workspaces ",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["plugin"]

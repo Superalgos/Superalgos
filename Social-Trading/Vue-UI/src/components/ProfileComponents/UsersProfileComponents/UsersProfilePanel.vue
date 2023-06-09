@@ -2,7 +2,7 @@
     <div class="modal-profile-overlay">
         <div id="" class="profile" >
             <div class="top-bar">
-                <p  class="bold">Profile</p>
+                <p  class="bold center-header">Profile</p>
                 <input class="close-btn" type="button" value="X" v-on:click="closeUsersProfile">
             </div>
             <div class="profile-body">
@@ -145,24 +145,6 @@ export default {
     height: 75vh;
     color: black;
 }
-.top-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-right: 1%;
-    margin-left: 45%;
-    align-items: center;
-}
-.close-btn {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-}
-.close-btn:hover {
-    background-color: rgba(243, 45, 45, 0.884);
-    border: solid 1px red;
-    border-radius: 3px;
-}
 
 #update-profile-pic {
     display: flex;
@@ -180,7 +162,6 @@ export default {
     'profile-head profile-body' ;
     width: 100%;
     height: 91%;
-    border-top: solid 1px black;
 }
 
 .profile-head-left-div {

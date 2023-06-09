@@ -420,7 +420,7 @@ function newEducationDocSpace() {
             rightNavArrow.style.display = "inline"
         } else {
             panel.style.width = "0px";
-            panelToggleBtn.style.right = -0.5 * panelToggleBtnWidth + "px"
+            panelToggleBtn.style.right = -0.3 * panelToggleBtnWidth + "px"
             leftNavArrow.style.display = "inline"
             rightNavArrow.style.display = "none"
         }

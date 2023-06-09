@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Я уже упоминал, что, как и при установке ручного ордера на бирже, вы можете определить размер в любом из активов!",
                 "updated": 1642777034934
+            },
+            {
+                "language": "ES",
+                "text": "Antes he mencionado que, al igual que cuando se establece una orden manual en la bolsa, se puede definir el tamaño en cualquiera de los activos.",
+                "updated": 1680704651276
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Я не упомянул, что нельзя иметь два определения! Чтобы избежать двусмысленности, допускается только одно!",
                     "updated": 1642777046115
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que no he mencionado es que no se pueden tener dos definiciones. Para evitar ambigüedades, sólo se permite una.",
+                    "updated": 1680704679815
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Мы будем определять размер в базовом активе, поэтому удалите узел Target Size In Quoted Asset!",
                     "updated": 1642777072869
+                },
+                {
+                    "language": "ES",
+                    "text": "Definiremos el Target Size In Base Asset, así que elimine el nodo Target Size In Quoted Asset.",
+                    "updated": 1680704764806
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Здесь мы тоже будем действовать просто. На данный момент мы будем использовать весь баланс, доступный для сессии.",
                     "updated": 1642777098664
+                },
+                {
+                    "language": "ES",
+                    "text": "También ésta será sencilla. Por el momento, utilizaremos todo el saldo disponible para la sesión.",
+                    "updated": 1680704806727
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "Как мы это сделаем? Вы это увидите!",
                     "updated": 1642777128556
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cómo lo hacemos? Ya lo verás.",
+                    "updated": 1680704826077
                 }
             ]
         }

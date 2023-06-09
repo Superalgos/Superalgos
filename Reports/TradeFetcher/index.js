@@ -139,7 +139,7 @@ function mapTradesToCsvLine(trade) {
  */
 async function fetchOrders(exchange, startTime, endTime) {
     const params = {
-        type: 'spot',
+//        type: 'spot',
         endTime: getTime(endTime)
     }
     const orderHistory = await exchange.fetchOrders('BTCUSDT', getTime(startTime), 500, params)

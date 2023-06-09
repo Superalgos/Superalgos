@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Botların ve ticaretin ardındaki hareketleri anlamanın yepyeni bir yolu. Bu uygulama ile öğrenmemin her anını seviyorum. Her şeyi anlamak kesinlikle kolay bir iş değil ama öğreticileri tekrarlamak yardımcı oluyor. Ayrıca bu projenin arkasında, yardıma hazır harika bir topluluk var. Buna rastladığım için çok mutluyum. brombispi\n\nbrombispi",
                 "updated": 1669309908842
+            },
+            {
+                "language": "DE",
+                "text": "Eine ganz neue Art, die Beweggründe hinter dem Kurs von Bots und Trading zu verstehen. Ich liebe jeden Moment meines Lernens mit dieser App. Es ist definitiv nicht eine einfache Aufgabe, alles zu verstehen, aber die Wiederholung der Tutorials hilft. Auch eine große Gemeinschaft behnid dieses Projekt, die alle bereit sind, zu helfen. so froh, dass ich stumped auf diese. \n\nbrombispi",
+                "updated": 1686341193726
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669309927022
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der linken Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686341242286
                 }
             ]
         }

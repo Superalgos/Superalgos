@@ -9,6 +9,11 @@
                 "language": "TR",
                 "text": "Bu inceleme sayfası için bir özet yazın.",
                 "updated": 1669311240528
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1686342917254
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Proje çok güzel görünüyor.",
                     "updated": 1669311269654
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt sieht gut aus.",
+                    "updated": 1686342952166
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "TR",
                     "text": "Bu benim son derece yapıcı ve özgün incelememdi.",
                     "updated": 1669311292809
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies war meine äußerst konstruktive und originelle Kritik.",
+                    "updated": 1686342974301
                 }
             ]
         },

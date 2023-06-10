@@ -433,6 +433,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         name: storageContainer.name,
                         id: storageContainer.id
                     }
+                }
 
                 targetNode.availableStorage.storageContainerReferences.push(storageContainerReference)
             }

@@ -316,7 +316,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     userProfile,
                     targetNode,
                     targetNodeTypeCount,
-                    response
+                    response,
+                    savedPayloadNode
                 )
                 if (response.result === 'Error') { resolve(response) }
             }
@@ -420,23 +421,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     config: '{}'
                 }
 
-                let StorageContainerReference = {
+                let storageContainerReference = {
                     type: 'Storage Container Reference',
                     name: 'New Storage Container Reference',
                     project: 'Open-Storage',
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     config: '{}',
-                    savedPayload: [{
-                        referenceParent: {
-                            type: storageContainer.type,
-                            name: storageContainer.name,
-                            id: storageContainer.id
-                        }
-                    }]
-                }
-                StorageContainerReference.savedPayload.push(savedPayloadNode)
+                    savedPayload: savedPayloadNode, 
+                    referenceParent: {
+                        type: storageContainer.type,
+                        name: storageContainer.name,
+                        id: storageContainer.id
+                    }
 
-                targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
+                targetNode.availableStorage.storageContainerReferences.push(storageContainerReference)
             }
 
             async function pushUserProfileAndPullRequest() {

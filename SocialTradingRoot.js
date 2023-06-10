@@ -66,7 +66,6 @@ exports.newSocialTradingRoot = function newSocialTradingRoot() {
             graphql: require("@octokit/graphql"),
             axios: require('axios'),
             crypto: require('crypto'),
-            static: require('node-static'),
             childProcess: require('child_process')
         }
         SA.version = require('./package.json').version

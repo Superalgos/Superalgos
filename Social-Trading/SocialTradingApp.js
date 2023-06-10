@@ -151,25 +151,8 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 thisObject.expressHttpInterface = EXPRESS_HTTP_INTERFACE_MODULE.SocialTradingBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
                 console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
 
-                /* if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
-                    //Set up static file server for UI files
-                    const PATH_TO_UI_FILES = SA.nodeModules.path.resolve(__dirname, '../Vue-UI/dist')
-                    let fileServer = new SA.nodeModules.static.Server(PATH_TO_UI_FILES)
-        
-                    //Now Serve all needed UI files 
-                    httpRequest.addListener('end', function (){
-                        fileServer.serve(httpRequest, httpResponse)
-                    }).resume()
-        
-                } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vueDev') {
-                    let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
-                    let requestPath = requestPathAndParameters[0].split('/')
-                    let endpointOrFile = requestPath[1]
-        
-                   
-                
                 // TODO: move clean UI to use this httpinterface
-                } */
+                
             } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
                 /* 
                 These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.

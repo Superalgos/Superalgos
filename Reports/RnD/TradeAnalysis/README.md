@@ -16,7 +16,6 @@ Build TradeAnalysis
 ```
 cd ~/Superalgos/Reports/RnD/TradeAnalysis/TradeAnalysis
 cmake .
-cmake –build .
 make
 ```
 Prepare your signing file.

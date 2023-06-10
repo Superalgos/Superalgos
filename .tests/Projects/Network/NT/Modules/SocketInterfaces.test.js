@@ -170,7 +170,7 @@ describe('Testing addCaller queue ordering', () => {
         socketInterfaceModule.initialize()
         const timestamp = Date.now().valueOf()
 
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
@@ -191,19 +191,19 @@ describe('Testing addCaller queue ordering', () => {
         socketInterfaceModule.initialize()
         const timestamp = Date.now().valueOf()
 
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userOne.name, timestamp)
         }), caller(userOne.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userTwo.name, timestamp)
         }), caller(userTwo.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
@@ -226,19 +226,19 @@ describe('Testing addCaller queue ordering', () => {
         socketInterfaceModule.initialize()
         const timestamp = Date.now().valueOf()
 
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userThree.name, timestamp)
         }), caller(userThree.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userTwo.name, timestamp)
         }), caller(userTwo.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
@@ -261,19 +261,19 @@ describe('Testing addCaller queue ordering', () => {
         socketInterfaceModule.initialize()
         const timestamp = Date.now().valueOf()
 
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userTwo.name, timestamp)
         }), caller(userTwo.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',
             signature: userSignature(userOne.name, timestamp)
         }), caller(userOne.balance), timestamp)
-        await socketInterfaceModule.onMenssage(JSON.stringify({
+        await socketInterfaceModule.onMessage(JSON.stringify({
             step: 'Two',
             messageType: 'Handshake',
             callerRole: '',

@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "workspace"
         },
-        "text": "Sample Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
+        "text": "Native Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
         "translations": [
             {
                 "language": "IT",
@@ -23,39 +23,39 @@
             },
             {
                 "language": "ES",
-                "text": "Los Sample Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
+                "text": "Los Native Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
                 "updated": 1675207503797,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Sample Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
+                "text": "Native Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
                 "updated": 1634167337552,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Sample Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
+                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Native Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
                 "updated": 1636013396906
             },
             {
                 "language": "RU",
-                "text": "\nSample Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
+                "text": "\nNative Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
                 "updated": 1636192226552
             },
             {
                 "language": "NL",
-                "text": "Sample Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
+                "text": "Native Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
                 "updated": 1666614769872
             },
             {
                 "language": "FR",
-                "text": "Les Sample Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
+                "text": "Les Native Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
                 "updated": 1667986626783
             },
             {
                 "language": "PL",
-                "text": "Dostarczane z systemem Sample Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
+                "text": "Dostarczane z systemem Native Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
                 "updated": 1675002653309
             }
         ],
@@ -120,44 +120,44 @@
         },
         {
             "style": "Callout",
-            "text": "Let's create a copy of this Sample Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
+            "text": "Let's create a copy of this Native Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
             "updated": 1629803279820,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Creemos una copia de este Sample Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
+                    "text": "Creemos una copia de este Native Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
                     "updated": 1675207601661,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Erstellen Sie eine Kopie dieses Sample Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
+                    "text": "Erstellen Sie eine Kopie dieses Native Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
                     "updated": 1634167512053,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Gelin bu Sample Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "text": "Gelin bu Native Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
                     "updated": 1644909265051
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте создадим копию этого Sample Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
+                    "text": "Давайте создадим копию этого Native Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
                     "updated": 1636192471516
                 },
                 {
                     "language": "NL",
-                    "text": "Laten we met een kopie deze Sample Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
+                    "text": "Laten we met een kopie deze Native Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
                     "updated": 1636978713661
                 },
                 {
                     "language": "FR",
-                    "text": "Créons une copie de ce Sample Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
+                    "text": "Créons une copie de ce Native Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
                     "updated": 1667986754674
                 },
                 {
                     "language": "PL",
-                    "text": "Utwórzmy kopię tego Sample Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
+                    "text": "Utwórzmy kopię tego Native Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
                     "updated": 1675002723308
                 }
             ]

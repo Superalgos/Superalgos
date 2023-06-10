@@ -70,7 +70,7 @@
         },
         {
             "style": "Note",
-            "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 Sample Workspace.",
+            "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 Native Workspace.",
             "updated": 1611253775463,
             "translations": [
                 {
@@ -205,7 +205,7 @@
         },
         {
             "style": "Success",
-            "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 Sample Workspace.",
+            "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 Native Workspace.",
             "updated": 1611253891479,
             "translations": [
                 {

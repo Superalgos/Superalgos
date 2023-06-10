@@ -484,28 +484,28 @@
         },
         {
             "style": "List",
-            "text": "Any user may, at any point, load the corresponding Sample Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating.",
+            "text": "Any user may, at any point, load the corresponding Native Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating.",
             "updated": 1629995410591,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cualquier usuario puede, en cualquier momento, cargar el correspondiente Sample Workspaces y visualizar cómo la influencia está siendo ejercida por todos participantes titulares de Superalgos SA Token.",
+                    "text": "Cualquier usuario puede, en cualquier momento, cargar el correspondiente Native Workspaces y visualizar cómo la influencia está siendo ejercida por todos participantes titulares de Superalgos SA Token.",
                     "updated": 1682593948466,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Любой пользователь может в любой момент загрузить соответствующие рабочие пространства подключаемых модулей Sample Workspaces и визуализировать влияние всех участвующих держателей токенов Superalgos SA Token.",
+                    "text": "Любой пользователь может в любой момент загрузить соответствующие рабочие пространства подключаемых модулей Native Workspaces и визуализировать влияние всех участвующих держателей токенов Superalgos SA Token.",
                     "updated": 1638976735618
                 },
                 {
                     "language": "DE",
-                    "text": "Jeder Nutzer kann jederzeit die entsprechenden Sample Workspaces laden und den Einfluss aller beteiligten Superalgos SA Token-Inhaber visualisieren.",
+                    "text": "Jeder Nutzer kann jederzeit die entsprechenden Native Workspaces laden und den Einfluss aller beteiligten Superalgos SA Token-Inhaber visualisieren.",
                     "updated": 1640091410436
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir kullanıcı, herhangi bir noktada ilgili Eklenti Çalışma Alanlarını (Sample Workspaces) yükleyebilir ve katılan tüm Superalgos SA Token sahipleri tarafından etkinin nasıl uygulandığını görselleştirebilir.",
+                    "text": "Herhangi bir kullanıcı, herhangi bir noktada ilgili Eklenti Çalışma Alanlarını (Native Workspaces) yükleyebilir ve katılan tüm Superalgos SA Token sahipleri tarafından etkinin nasıl uygulandığını görselleştirebilir.",
                     "updated": 1645181237991
                 }
             ]

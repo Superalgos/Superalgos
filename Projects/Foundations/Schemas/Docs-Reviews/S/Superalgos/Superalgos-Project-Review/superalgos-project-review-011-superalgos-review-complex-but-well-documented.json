@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Superalgos, yeni başlayanlar için oldukça karmaşık ve zorlayıcıdır, ancak yerleşik öğreticiler, başlamanın bazı zorluklarını hafifletmeye yardımcı olur.",
                 "updated": 1669195081044
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist ziemlich komplex und anspruchsvoll für einen Anfänger, aber die eingebauten Tutorials helfen dabei, den Einstieg etwas zu erleichtern.",
+                "updated": 1685392466423
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu yazılım hakkında daha fazla şey öğrenmek için sabırsızlanıyorum.",
                     "updated": 1669195096575
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich freue mich darauf, mehr über diese Software zu erfahren.",
+                    "updated": 1685392475800
                 }
             ]
         }

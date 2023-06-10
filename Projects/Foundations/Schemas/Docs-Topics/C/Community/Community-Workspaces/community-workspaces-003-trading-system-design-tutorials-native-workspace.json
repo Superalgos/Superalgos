@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "3",
-    "type": "Trading System Design Tutorials Sample Workspace",
+    "type": "Trading System Design Tutorials Native Workspace",
     "definition": {
         "text": "This workspace features a series of tutorials about designing trading systems. It is the first step users should take to learn about building strategies after completing their basic education.",
         "updated": 1616145724293,

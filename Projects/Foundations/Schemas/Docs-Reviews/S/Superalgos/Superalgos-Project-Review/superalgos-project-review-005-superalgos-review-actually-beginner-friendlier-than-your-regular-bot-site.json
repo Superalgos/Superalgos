@@ -9,6 +9,11 @@
                 "language": "TR",
                 "text": "Bu inceleme sayfası için bir özet yazın.",
                 "updated": 1669191223858
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1685390197618
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Botlarda yeniyim ve ne tecrübeli bir tüccarım ne de yazılımcıyım. Ticari bir botu çalıştırmaya çalışırken, ne yaptığımı anlamadığım için kısa sürede pes ettim. Elbette, Superalgos ilk başta göz korkutucu görünüyor ve kafamı toparlamam kesinlikle çok çaba gerektirecek, ancak yine de, her şey orada çalışmak için ortaya konmuş - tüm aşırı karmaşık şeyler merhametle benden gizlenmişken. Ve güzel tasarımıyla, sanki bir oyun oynuyormuşsunuz gibi hissettiriyor ;)",
                     "updated": 1669191182596
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin neu im Bereich der Bots und weder ein erfahrener Händler noch ein Programmierer. Bei dem Versuch, einen kommerziellen Bot zum Laufen zu bringen, habe ich bald aufgegeben, weil ich nicht verstand, was ich da tat. Sicher, Superalgos sieht auf den ersten Blick einschüchternd aus, und es wird mich sicher viel Mühe kosten, mich damit zurechtzufinden, aber andererseits ist alles zum Lernen da - während all die überkomplizierten Dinge gnädigerweise vor mir verborgen wurden. Und durch das schöne Design fühlt es sich irgendwie an, als würde man ein Spiel spielen ;) ",
+                    "updated": 1685390295761
                 }
             ]
         },

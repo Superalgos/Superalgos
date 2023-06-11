@@ -48,6 +48,11 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
 
     return thisObject
 
+    /**
+     * 
+     * @param {import('../Globals/DbContext').DbContext} dbContext
+     * @returns {Promise<void>}
+     */
     async function intialize(dbContext) {
         thisDbContext = dbContext
         await createTable()
@@ -86,20 +91,57 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
         return await thisDbContext.execute(query)
     }
 
+    /**
+     * @param {{
+     *   key: string,
+     *   value: any
+     * }} item 
+     * @returns {Promise<number>}
+     */
     async function deleteItem(item) {
-
+        const where = `${structure[item.key]} = ${item.value}`
+        const query = `DELETE FROM ${thisObject.TABLE_NAME()} WHERE ${where}`
+        return await thisDbContext.execute(query)
     }
 
+    /**
+     * @returns {Promise<void>}
+     */
     async function deleteAll() {
-
+        return await thisDbContext.execute(`TRUNCATE TABLE ${thisObject.TABLE_NAME()}`)
     }
 
-    async function findItem(item) {
-
+    /**
+     * @param {{
+     *   key: string,
+     *   value: any
+     * }} item 
+     * @param {string[]} propertiesToReturn
+     * @returns {Promise<UserItem>}
+     */
+    async function findItem(item, propertiesToReturn) {
+        const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
+            ? propertiesToReturn.map(key => structure[key].name).join(',')
+            : '*'
+        const where = `${structure[item.key]} = ${item.value}`
+        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME()} WHERE ${where} LIMIT 1`
+        return await thisDbContext.execute(query)
     }
 
+    /**
+     * @param {{
+     *   key: string,
+     *   values: []
+     * }} items 
+     * @returns {Promise<UserItem[]>}
+     */
     async function findMany(items) {
-
+        const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
+            ? propertiesToReturn.map(key => structure[key].name).join(',')
+            : '*'
+        const where = '' /* needs some consideration */ // `${structure[item.key]} = ${item.value}`
+        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME()} WHERE ${where}`
+        return await thisDbContext.execute(query)
     }
 
 }

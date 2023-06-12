@@ -23,8 +23,7 @@ const { Pool } = require('pg')
  */
 
 /**
- * 
- * @returns 
+ * @returns {DbContext}
  */
 exports.newDbContext = function newDbContext() {
     thisObject = {

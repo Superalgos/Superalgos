@@ -7,10 +7,12 @@
  * }} UserItem
  */
 
-exports.newUserBalanceRepository = function newUserBalanceRepository() {
+/**
+ * @param {import('../Internal/DbContext').DbContext}
+ */
+exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) {
     const thisObject = {
-        TABLE_NAME: () => 'user-balances',
-        intialize: intialize,
+        initialize: intialize,
         saveItem: saveItem,
         saveAll: saveAll,
         deleteItem: deleteItem,
@@ -19,10 +21,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
         findMany: findMany,
     }
 
-    /**
-     * @type {import('../Globals/DbContext').DbContext}
-     */
-    let thisDbContext = undefined
+    const TABLE_NAME = 'user-balances'
     const structure = {
         id: {
             name: 'id',
@@ -50,10 +49,10 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
 
     /**
      * 
-     * @param {import('../Globals/DbContext').DbContext} dbContext
+     * @param {import('../Internal/DbContext').DbContext} dbContext
      * @returns {Promise<void>}
      */
-    async function intialize(dbContext) {
+    async function intialize() {
         thisDbContext = dbContext
         await createTable()
     }
@@ -62,7 +61,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
         const columns = Object.keys(structure)
             .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)
             .join(',')
-        const query = `CREATE TABLE [IF NOT EXISTS] ${thisObject.TABLE_NAME()} (${columns});`
+        const query = `CREATE TABLE [IF NOT EXISTS] ${thisObject.TABLE_NAME} (${columns});`
         await thisDbContext.execute(query)
     }
 
@@ -72,7 +71,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
      */
     async function saveItem(item) {
         const query = `
-        INSERT INTO ${thisObject.TABLE_NAME()}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
+        INSERT INTO ${thisObject.TABLE_NAME}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
         VALUES (${item.id}, ${item.name}, ${item.balance}, ${item.updateAt})
         RETURNING ${structure.id.name}`
         return await thisDbContext.execute(query)
@@ -85,7 +84,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
     async function saveAll(items) {
         const values = items.map(item => `(${item.id}, ${item.name}, ${item.balance}, ${item.updateAt})`).join(',')
         const query = `
-        INSERT INTO ${thisObject.TABLE_NAME()}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
+        INSERT INTO ${thisObject.TABLE_NAME}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
         VALUES ${values}
         RETURNING ${structure.id.name}`
         return await thisDbContext.execute(query)
@@ -100,7 +99,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
      */
     async function deleteItem(item) {
         const where = `${structure[item.key]} = ${item.value}`
-        const query = `DELETE FROM ${thisObject.TABLE_NAME()} WHERE ${where}`
+        const query = `DELETE FROM ${thisObject.TABLE_NAME} WHERE ${where}`
         return await thisDbContext.execute(query)
     }
 
@@ -108,7 +107,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
      * @returns {Promise<void>}
      */
     async function deleteAll() {
-        return await thisDbContext.execute(`TRUNCATE TABLE ${thisObject.TABLE_NAME()}`)
+        return await thisDbContext.execute(`TRUNCATE TABLE ${thisObject.TABLE_NAME}`)
     }
 
     /**
@@ -124,11 +123,12 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
             ? propertiesToReturn.map(key => structure[key].name).join(',')
             : '*'
         const where = `${structure[item.key]} = ${item.value}`
-        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME()} WHERE ${where} LIMIT 1`
+        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME} WHERE ${where} LIMIT 1`
         return await thisDbContext.execute(query)
     }
 
     /**
+     * NOTE: currenlty returns all items as filters have not been implemented yet
      * @param {{
      *   key: string,
      *   values: []
@@ -139,8 +139,8 @@ exports.newUserBalanceRepository = function newUserBalanceRepository() {
         const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
             ? propertiesToReturn.map(key => structure[key].name).join(',')
             : '*'
-        const where = '' /* needs some consideration */ // `${structure[item.key]} = ${item.value}`
-        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME()} WHERE ${where}`
+        const where = '' /* needs some consideration */ // 'WHERE ' + items.map( item => `${structure[item.key]} = ${item.value}`).join(' AND ')
+        const query = `SELECT ${properties} FROM ${thisObject.TABLE_NAME} ${where}`
         return await thisDbContext.execute(query)
     }
 

@@ -37,6 +37,7 @@ exports.newLocalStorageGlobalsPersistence = function newLocalStorageGlobalsPersi
      * @param {string} name 
      */
     async function newPersistenceStore(storeType, name) {
+        SA.logger.info('Using ' + storeType + ' for local storage')
         switch (storeType) {
             case 'file':
                 return require('../Internal/FileStore').newFileStore(name)

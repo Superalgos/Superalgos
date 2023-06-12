@@ -22,6 +22,7 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
 
 
     async function getRepository(name) {
+        SA.logger.info('Requesting access to ' + name + ' table')
         switch (name) {
             case 'UserBalances':
                 const repo = require('../Repositories/UserBalanceRepository').newUserBalanceRepository(await getDbContext())

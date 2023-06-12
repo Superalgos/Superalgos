@@ -41,7 +41,7 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
         if (privateDbContext === undefined) {
             privateDbContext = require('../Internal/DbContext').newDbContext()
             return await privateDbContext.intialize({
-                databse: global.env.DATABASE.name,
+                database: global.env.DATABASE.database,
                 host: global.env.DATABASE.host,
                 password: global.env.DATABASE.password,
                 port: global.env.DATABASE.port,

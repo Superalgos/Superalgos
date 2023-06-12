@@ -39,7 +39,7 @@ exports.newLocalStorageGlobalsPersistence = function newLocalStorageGlobalsPersi
     async function newPersistenceStore(storeType, name) {
         switch (storeType) {
             case 'file':
-                return require('../Modules/FileStore').newNetworkGlobalsStoresFileStore(name)
+                return require('../Internal/FileStore').newFileStore(name)
             case 'database':
                 return await getDatabaseRepositories().getRepository(name)
             default: throw new Error('The store type ' + storeType + ' is not implemented, why not create it yourself.')

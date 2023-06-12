@@ -6,7 +6,7 @@ const { Pool } = require('pg')
 
 /**
  * @typedef {{
- *   databse: string
+ *   database: string
  *   host: string,
  *   password: string,
  *   port: number
@@ -47,7 +47,7 @@ exports.newDbContext = function newDbContext() {
         pool = new Pool({
             user: properties.user,
             host: properties.host,
-            database: properties.databse,
+            database: properties.database,
             password: properties.password,
             port: properties.port,
         })

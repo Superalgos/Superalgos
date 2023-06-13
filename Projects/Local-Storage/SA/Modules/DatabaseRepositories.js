@@ -46,7 +46,7 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
                 host: global.env.DATABASE.host,
                 password: global.env.DATABASE.password,
                 port: global.env.DATABASE.port,
-                user: global.env.DATABASE.username,
+                user: global.env.DATABASE.user,
             }
             SA.logger.info('Connecting to DB with config: ' + JSON.stringify({
                 host: config.host,

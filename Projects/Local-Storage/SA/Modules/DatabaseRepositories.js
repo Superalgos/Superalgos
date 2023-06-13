@@ -41,13 +41,21 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
     async function getDbContext() {
         if (privateDbContext === undefined) {
             privateDbContext = require('../Internal/DbContext').newDbContext()
-            return await privateDbContext.intialize({
+            const config = {
                 database: global.env.DATABASE.database,
                 host: global.env.DATABASE.host,
                 password: global.env.DATABASE.password,
                 port: global.env.DATABASE.port,
                 user: global.env.DATABASE.username,
-            }).then(() => privateDbContext)
+            }
+            SA.logger.info('Connecting to DB with config: ' + JSON.stringify({
+                host: config.host,
+                port: config.port,
+                user: config.user,
+                password: 'xxxxxxxxxxxxx',
+                database: config.database,
+            }))
+            return await privateDbContext.intialize(config).then(() => privateDbContext)
         }
         return privateDbContext
     }

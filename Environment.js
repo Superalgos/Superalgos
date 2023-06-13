@@ -112,15 +112,17 @@ exports.newEnvironment = function () {
         if(profile.logLevel !== undefined) { thisObject.LOG_LEVEL = profile.logLevel }
         if(profile.p2pNetworkNodeSigningAccount !== undefined) { thisObject.P2P_NETWORK_NODE_SIGNING_ACCOUNT = profile.p2pNetworkNodeSigningAccount }
         if(profile.database !== undefined) {
-            if(profile.database.type !== undefined) { thisObject.DATABASE.TYPE = profile.database.type }
-            if(profile.database.user_profile_database_name !== undefined) { thisObject.DATABASE.USER_PROFILE_DATABASE_NAME = profile.database.user_profile_database_name }
-            if(profile.persistence.database == 'database') {
-                thisObject.DATABASE.database = profile.database.database
-                thisObject.DATABASE.host = profile.database.host
-                thisObject.DATABASE.password = profile.database.password
-                thisObject.DATABASE.port = profile.database.port
-                thisObject.DATABASE.user = profile.database.username
+            if(profile.database.type !== undefined) { 
+                thisObject.DATABASE.TYPE = profile.database.type 
+                if(profile.database.type == 'database') {
+                    thisObject.DATABASE.database = profile.database.database
+                    thisObject.DATABASE.host = profile.database.host
+                    thisObject.DATABASE.password = profile.database.password
+                    thisObject.DATABASE.port = profile.database.port
+                    thisObject.DATABASE.user = profile.database.username
+                }
             }
+            if(profile.database.user_profile_database_name !== undefined) { thisObject.DATABASE.USER_PROFILE_DATABASE_NAME = profile.database.user_profile_database_name }
         }
     }
 

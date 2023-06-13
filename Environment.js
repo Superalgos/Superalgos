@@ -119,7 +119,7 @@ exports.newEnvironment = function () {
                     thisObject.DATABASE.host = profile.database.host
                     thisObject.DATABASE.password = profile.database.password
                     thisObject.DATABASE.port = profile.database.port
-                    thisObject.DATABASE.user = profile.database.username
+                    thisObject.DATABASE.user = profile.database.user
                 }
             }
             if(profile.database.user_profile_database_name !== undefined) { thisObject.DATABASE.USER_PROFILE_DATABASE_NAME = profile.database.user_profile_database_name }

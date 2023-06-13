@@ -49,7 +49,7 @@ exports.newLocalStorageGlobalsPersistence = function newLocalStorageGlobalsPersi
 
     function getDatabaseRepositories() {
         if(databaseRepositories === undefined) {
-            databaseRepositories = SA.projects.internalStorage.modules.databaseRepositories()
+            databaseRepositories = SA.projects.internalStorage.modules.databaseRepositories.newDatabaseRepositories()
         }
         return databaseRepositories
     }

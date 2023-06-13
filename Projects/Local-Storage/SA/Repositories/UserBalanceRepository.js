@@ -59,6 +59,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
             .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)
             .join(',')
         const query = `CREATE TABLE [IF NOT EXISTS] ${TABLE_NAME} (${columns});`
+        SA.logger.info('Executing query `' + query + '`')
         await dbContext.execute(query)
     }
 

@@ -55,7 +55,10 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
                 password: 'xxxxxxxxxxxxx',
                 database: config.database,
             }))
-            return await privateDbContext.intialize(config).then(() => privateDbContext)
+            return await privateDbContext.intialize(config).then(() => {
+                SA.logger.info('Initialized DbContext')
+                return privateDbContext
+            })
         }
         return privateDbContext
     }

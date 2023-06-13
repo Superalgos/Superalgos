@@ -1,0 +1,63 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "14",
+    "type": "TDFI",
+    "definition": {
+        "text": "The Trend Direction Force Index (TDFI) originally by Pyotr Wojdyo for the metastock trading platform, uses the idea that there is enough trend directional force to enter a trade. ",
+        "updated": 1686616075613
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Trend Direction Force Index on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output will show green values above the filter threshold for an upward trend direction, and red values below the filter threshold for a downward trend. Between the threshold values, the indicator's output will be grey."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-tdfi.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| LWProxy | tdfi | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"TDFI\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-tdfi-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the output value rises above the threshold value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.tdfi.value > 0.05"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

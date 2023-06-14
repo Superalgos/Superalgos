@@ -79,7 +79,7 @@ exports.newDbContext = function newDbContext() {
         const query = `SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = '${tableName}');`
         const result = await execute(query)
         SA.logger.info('Does the table exist? ' + result.rows[0].exists + ' is a ' + typeof(result.rows[0].exists))
-        return result.rows[0].exists == 'True' ? true : false
+        return result.rows[0].exists
     }
 
     /**

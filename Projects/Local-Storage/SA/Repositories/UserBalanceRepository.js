@@ -1,4 +1,12 @@
 /**
+ * @typedef {Object} DbUserBalance
+ * @property {string} id
+ * @property {string} name
+ * @property {number} balance
+ * @property {Date} updated_at
+ */
+
+/**
  * @typedef {{
  *   id: string,
  *   balance: number,
@@ -21,6 +29,10 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
         findMany: findMany,
     }
 
+    /*
+     * These fields are here to server as mapping references for the incoming objects
+     * if there is a change to the structure a migration file will need to be created
+     */
     const TABLE_NAME = 'user_balances'
     const structure = {
         id: {
@@ -48,25 +60,18 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
     return thisObject
 
     /**
+     * 
+     * @returns {import('knex').knex.QueryBuilder<DbUserBalance,{}>}
+     */
+    function _getTableContext() {
+        return dbContext.getTableContext(TABLE_NAME)
+    }
+
+    /**
      * @returns {Promise<void>}
      */
     async function intialize() {
-        await migrate()
-    }
-
-    async function migrate() {
-
-        if(!await dbContext.doesTableExist(TABLE_NAME)) {
-            SA.logger.info('Will now create the table')
-            return await dbContext.createTable(TABLE_NAME, structure)
-        }
-        SA.logger.info('Table already exists will now check column matches')
-        if(!await dbContext.doColumnsMatch(TABLE_NAME, structure)) {
-            SA.logger.info('Table structure has changed and needs migrating')
-            process.exit(0)
-        }
-        SA.logger.info('Table structure is unchanged, nothing to do')
-        process.exit(0)
+        return new Promise.resolve()
     }
 
     /**
@@ -74,11 +79,15 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<string>} item ID
      */
     async function saveItem(item) {
-        const query = `
-        INSERT INTO ${TABLE_NAME}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
-        VALUES (${item.id}, ${item.name}, ${item.balance}, ${item.updateAt})
-        RETURNING ${structure.id.name}`
-        return await dbContext.execute(query)
+        return await new Promise(res => {
+            const result = _getTableContext().insert({
+                    id: item.id,
+                    name: item.name,
+                    balance: item.balance,
+                    updated_at: item.updateAt,
+                }).returning('id')
+            res(result)
+        })
     }
 
     /**

@@ -78,9 +78,8 @@ exports.newDbContext = function newDbContext() {
     async function doesTableExist(tableName) {
         const query = `SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = '${tableName}');`
         const result = await execute(query)
-        SA.logger.info(JSON.stringify(result))
-        SA.logger.info('Does the table exist? ' + result.rows[0] + ' is a ' + typeof(result.rows[0]))
-        return result == 'True' ? true : false
+        SA.logger.info('Does the table exist? ' + result.rows[0].exists + ' is a ' + typeof(result.rows[0].exists))
+        return result.rows[0].exists == 'True' ? true : false
     }
 
     /**

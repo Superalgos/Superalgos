@@ -21,7 +21,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
         findMany: findMany,
     }
 
-    const TABLE_NAME = 'UserBalances'
+    const TABLE_NAME = 'user_balances'
     const structure = {
         id: {
             name: 'id',
@@ -58,15 +58,15 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
 
         if(!await dbContext.doesTableExist(TABLE_NAME)) {
             SA.logger.info('Will now create the table')
+            return await dbContext.createTable(TABLE_NAME, structure)
         }
         SA.logger.info('Table already exists will now check column matches')
+        if(!await dbContext.doColumnsMatch(TABLE_NAME, structure)) {
+            SA.logger.info('Table structure has changed and needs migrating')
+            process.exit(0)
+        }
+        SA.logger.info('Table structure is unchanged, nothing to do')
         process.exit(0)
-
-        // const columns = Object.keys(structure)
-        //     .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)
-        //     .join(',')
-        // const query = `CREATE TABLE [IF NOT EXISTS] ${TABLE_NAME} (${columns});`
-        // await dbContext.execute(query)
     }
 
     /**

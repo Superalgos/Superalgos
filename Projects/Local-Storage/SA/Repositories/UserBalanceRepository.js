@@ -60,6 +60,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
             SA.logger.info('Will now create the table')
         }
         SA.logger.info('Table already exists will now check column matches')
+        process.exit(0)
 
         // const columns = Object.keys(structure)
         //     .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)

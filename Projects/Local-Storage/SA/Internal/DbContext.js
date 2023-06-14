@@ -2,7 +2,7 @@
  * This is not added to the SA.nodeModules object as 
  * we don't want it being used anywhere else in the system 
  */
-const { Pool } = require('pg')
+const { Pool, QueryResult } = require('pg')
 
 /**
  * @typedef {{
@@ -59,7 +59,7 @@ exports.newDbContext = function newDbContext() {
      * Executes the given query returning the result object
      * 
      * @param {string} query
-     * @returns {Promise<any>} 
+     * @returns {Promise<QueryResult<any>>} 
      */
     async function execute(query) {
         if (pool === undefined) {
@@ -78,7 +78,8 @@ exports.newDbContext = function newDbContext() {
     async function doesTableExist(tableName) {
         const query = `SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = '${tableName}');`
         const result = await execute(query)
-        SA.logger.info('does the table exist? ' + result + ' is a ' + typeof(result))
+        SA.logger.info(JSON.stringify(result))
+        SA.logger.info('Does the table exist? ' + result.rows[0] + ' is a ' + typeof(result.rows[0]))
         return result == 'True' ? true : false
     }
 

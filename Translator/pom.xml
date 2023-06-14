@@ -18,7 +18,7 @@
         <protobuf.version>3.14.0</protobuf.version>
         <grpc.version>1.45.1</grpc.version>
         <selenium.version>4.1.4</selenium.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
     </properties>
     <dependencies>
         <dependency>

@@ -65,7 +65,7 @@ exports.newDbContext = function newDbContext() {
         if (pool === undefined) {
             throw new Error("The Database has not been initialized, you query will not be executed")
         }
-        await pool.query(query)
+        return await pool.query(query)
     }
 
 

@@ -8,7 +8,7 @@
  */
 
 /**
- * @param {import('../Internal/DbContext').DbContext}
+ * @param {import('../Internal/DbContext').DbContext} dbContext
  */
 exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) {
     const thisObject = {
@@ -51,15 +51,21 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<void>}
      */
     async function intialize() {
-        await createTable()
+        await migrate()
     }
 
-    async function createTable() {
-        const columns = Object.keys(structure)
-            .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)
-            .join(',')
-        const query = `CREATE TABLE [IF NOT EXISTS] ${TABLE_NAME} (${columns});`
-        await dbContext.execute(query)
+    async function migrate() {
+
+        if(!await dbContext.doesTableExist(TABLE_NAME)) {
+            SA.logger.info('Will now create the table')
+        }
+        SA.logger.info('Table already exists will now check column matches')
+
+        // const columns = Object.keys(structure)
+        //     .map(key => `${structure[key].name} ${structure[key].type} ${structure[key].params.join(' ')}`)
+        //     .join(',')
+        // const query = `CREATE TABLE [IF NOT EXISTS] ${TABLE_NAME} (${columns});`
+        // await dbContext.execute(query)
     }
 
     /**

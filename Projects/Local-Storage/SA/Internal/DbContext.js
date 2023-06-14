@@ -17,6 +17,7 @@ const { Pool } = require('pg')
 /**
  * @typedef {{
  *   intialize: {(properties: ConnectionProperties) => Promise<void>},
+ *   doesTableExist: {(tableName: string) => Promise<boolean>},
  *   execute: {(query: string) => Promise<any>},
  *   finalize: {() => Promise<void>},
  * }} DbContext
@@ -29,6 +30,7 @@ exports.newDbContext = function newDbContext() {
     thisObject = {
         intialize: intialize,
         execute: execute,
+        doesTableExist: doesTableExist,
         finalize: finalize,
     }
 
@@ -64,6 +66,20 @@ exports.newDbContext = function newDbContext() {
             throw new Error("The Database has not been initialized, you query will not be executed")
         }
         await pool.query(query)
+    }
+
+
+    /**
+     * Runs a query to check if the table already exists, return true or false
+     * 
+     * @param {string} tableName 
+     * @returns {Promise<boolean>}
+     */
+    async function doesTableExist(tableName) {
+        const query = `SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = '${tableName}');`
+        const result = await execute(query)
+        SA.logger.info('does the table exist? ' + result + ' is a ' + typeof(result))
+        return result == 'True' ? true : false
     }
 
     /**

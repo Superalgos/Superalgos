@@ -60,8 +60,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
     return thisObject
 
     /**
-     * 
-     * @returns {import('knex').knex.QueryBuilder<DbUserBalance,{}>}
+     * @returns {import('knex').knex.QueryBuilder} knex query builder
      */
     function _getTableContext() {
         return dbContext.getTableContext(TABLE_NAME)
@@ -95,12 +94,15 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<string[]>} list of items IDs
      */
     async function saveAll(items) {
-        const values = items.map(item => `(${item.id}, ${item.name}, ${item.balance}, ${item.updateAt})`).join(',')
-        const query = `
-        INSERT INTO ${TABLE_NAME}(${structure.id.name}, ${structure.name.name}, ${structure.balance.name}, ${structure.updateAt.name}) 
-        VALUES ${values}
-        RETURNING ${structure.id.name}`
-        return await dbContext.execute(query)
+        return await new Promise(res => {
+            const result = _getTableContext().insert(items.map(item => ({
+                id: item.id,
+                name: item.name,
+                balance: item.balance,
+                updated_at: item.updateAt,
+            }))).returning('id')
+            return res(result)
+        })
     }
 
     /**

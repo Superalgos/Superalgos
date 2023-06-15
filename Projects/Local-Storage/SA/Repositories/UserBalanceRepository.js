@@ -113,16 +113,22 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<number>}
      */
     async function deleteItem(item) {
-        const where = `${structure[item.key]} = ${item.value}`
-        const query = `DELETE FROM ${TABLE_NAME} WHERE ${where}`
-        return await dbContext.execute(query)
+        return await new Promise(res => {
+            const result = _getTableContext()
+                .where(structure[item.key], item.value)
+                .del()
+            res(result)
+        })
     }
 
     /**
      * @returns {Promise<void>}
      */
     async function deleteAll() {
-        return await dbContext.execute(`TRUNCATE TABLE ${TABLE_NAME}`)
+        return await new Promise(res => {
+            const result = _getTableContext().del()
+            res(result)
+        })
     }
 
     /**

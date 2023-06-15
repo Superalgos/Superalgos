@@ -78,15 +78,12 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<string>} item ID
      */
     async function saveItem(item) {
-        return await new Promise(res => {
-            const result = _getTableContext().insert({
-                    id: item.id,
-                    name: item.name,
-                    balance: item.balance,
-                    updated_at: item.updateAt,
-                }).returning('id')
-            res(result)
-        })
+        return await _getTableContext().insert({
+            id: item.id,
+            name: item.name,
+            balance: item.balance,
+            updated_at: item.updateAt,
+        }).returning('id')
     }
 
     /**
@@ -94,15 +91,12 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<string[]>} list of items IDs
      */
     async function saveAll(items) {
-        return await new Promise(res => {
-            const result = _getTableContext().insert(items.map(item => ({
-                id: item.id,
-                name: item.name,
-                balance: item.balance,
-                updated_at: item.updateAt,
-            }))).returning('id')
-            return res(result)
-        })
+        return await _getTableContext().insert(items.map(item => ({
+            id: item.id,
+            name: item.name,
+            balance: item.balance,
+            updated_at: item.updateAt,
+        }))).returning('id')
     }
 
     /**
@@ -113,22 +107,16 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<number>}
      */
     async function deleteItem(item) {
-        return await new Promise(res => {
-            const result = _getTableContext()
-                .where(structure[item.key], item.value)
-                .del()
-            res(result)
-        })
+        return await _getTableContext()
+            .where(structure[item.key], item.value)
+            .del()
     }
 
     /**
      * @returns {Promise<void>}
      */
     async function deleteAll() {
-        return await new Promise(res => {
-            const result = _getTableContext().del()
-            res(result)
-        })
+        return _getTableContext().del()
     }
 
     /**
@@ -141,11 +129,11 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      */
     async function findItem(item, propertiesToReturn) {
         const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
-            ? propertiesToReturn.map(key => structure[key].name).join(',')
+            ? propertiesToReturn.map(key => structure[key].name).join(', ')
             : '*'
-        const where = `${structure[item.key]} = ${item.value}`
-        const query = `SELECT ${properties} FROM ${TABLE_NAME} WHERE ${where} LIMIT 1`
-        return await dbContext.execute(query)
+        return await _getTableContext()
+            .where(structure[item.key].name, item.value)
+            .returning(properties)
     }
 
     /**

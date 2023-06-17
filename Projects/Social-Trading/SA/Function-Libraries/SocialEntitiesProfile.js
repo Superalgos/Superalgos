@@ -479,46 +479,69 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             }
             
             function saveApiAppFile() {
-             
-                const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ', '-') + "-Data"
-                /*
-                Try to load the Secrets file. 
-                */
-                let filePath = global.env.PATH_TO_SECRETS + '/'
-                let fileName = "ApisSecrets.json"
-                let fileContent 
-                try {
-                    fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
-                }catch(err) {
-                    /* If the file does not exist, then we'll get here.*/
-                }
-                
-                let secretsFile
-                if (fileContent === undefined) {
-                    secretsFile = {
-                        secrets: []
-                    }
-                } else {
-                    secretsFile = JSON.parse(fileContent)
-                }
-
-                /*
-                Deal with secrets
-                */
-                let secret = {
-                    nodeCodeName: SOCIAL_TRADING_REPO_NAME,
-                    token: profileMessage.storageProviderToken
-                }
-
-                secretsFile.secrets.push(secret)
-                /*
-                Save Signing Accounts Secrets File
-                */
-                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
-                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(secretsFile, undefined, 4))
+              let filePath = global.env.PATH_TO_SECRETS + '/';
+              let fileName = "ApisSecrets.json";
+              let fileContent;
             
-                
+              // Check if the folder exists. If not, create it.
+              SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath);
+            
+              // Check if the file exists
+              if (!SA.nodeModules.fs.existsSync(filePath + '/' + fileName)) {
+                console.warn('Warning: The file does not exist.');
+                return;
+              }
+            
+              try {
+                fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName);
+              } catch (err) {
+                console.error('Error occurred while reading the file:', err);
+                return;
+              }
+            
+              let secretsFile;
+              try {
+                secretsFile = JSON.parse(fileContent);
+              } catch (err) {
+                console.error('Error occurred while parsing the file content:', err);
+                return;
+              }
+            
+              // Check if the content was returned correctly
+              if (!secretsFile || typeof secretsFile !== 'object') {
+                console.error('Error: Invalid file content.');
+                return;
+              }
+            
+              // Check if the secret already exists
+              const existingSecretIndex = secretsFile.secrets.findIndex(
+                (secret) => secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME
+              );
+            
+              if (existingSecretIndex !== -1) {
+                // Replace the existing secret with the new one
+                secretsFile.secrets[existingSecretIndex].token = profileMessage.storageProviderToken;
+              } else {
+                // Add a new secret
+                let secret = {
+                  nodeCodeName: SOCIAL_TRADING_REPO_NAME,
+                  token: profileMessage.storageProviderToken
+                };
+            
+                secretsFile.secrets.push(secret);
+              }
+            
+              try {
+                SA.nodeModules.fs.writeFileSync(
+                  filePath + '/' + fileName,
+                  JSON.stringify(secretsFile, undefined, 4)
+                );
+              } catch (err) {
+                console.error('Error occurred while writing to the file:', err);
+                return;
+              }
             }
+
 
             function reloadSecretsArray() {
                 try {

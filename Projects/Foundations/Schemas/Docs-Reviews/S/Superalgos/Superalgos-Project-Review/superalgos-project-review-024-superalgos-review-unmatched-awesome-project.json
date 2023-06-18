@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Bir grup tüccar arkadaşın bir araya gelerek otomatik bir ticaret projesi üzerinde çalışmaya karar vermesi ve ardından bu projenin beta 11'e ulaşması oldukça şaşırtıcı. \nBu projenin devrim niteliğindeki eşi benzeri görülmemiş doğasının yanı sıra gelecekte planlanan işlevleri ve diğer önemli proje hedeflerini düşündüğümde, sadece mutlak ŞAŞKINLIK içinde başımı sallayabilirim.\nAyrıca, ticaret botlarıyla yolculuğuma yeni başlamıştım, açtığım 20 veya 50 sekmeyi zar zor geçtim ve bir şekilde SuperAlgos'a rastladım. Projeniz beni hemen yakaladı. Başka hiçbir şey dikkatimi bu kadar güçlü çekmedi.\n\nAyrıca teşekkürler, çünkü diğer 50 sekmeden geçerken bana zaman kazandırdı!\nHemen dışarı çıktım ve neredeyse 10 yıldır almayı düşündüğüm Raspberry Pi 4 B'yi satın aldım.\n\nHer neyse, kelimelerim muhteşem projenizin hakkını veremez.\nVe henüz yüzeyi bile kazımadım.\n\nPlatformunuzda ve gelecekteki işlevlerinizde ve proje kilometre taşlarınızda ustalaşmayı dört gözle bekliyorum.\nEthereum düğümleriyle entegrasyon mu? Vay anasını.\n\nLütfen finansal gizlilik, finansal egemenlik, anonimlik, bireysel gizlilik vb. haklara saygı duymaya devam ettiğinizden emin olun. Platformunuzun/projenizin yapabildiği kadar.\nSEC ve benzeri \"otoritelerin\" bu gibi projelere müdahale etmesine izin veremeyiz ve vermemeliyiz.\nTeşekkürler\n Jerome \nhttps://github.com/romeox7",
                 "updated": 1670875580354
+            },
+            {
+                "language": "DE",
+                "text": "\nDass sich eine Gruppe von Trader-Freunden zusammenfindet und beschließt, ein automatisches Handelsprojekt in Angriff zu nehmen, und dann die Beta-11-Version dieses Projekts erreicht, ist ziemlich cool. Und in Anbetracht des beispiellosen Charakters dieses Projekts, der an eine Revolution grenzt, sowie der geplanten zukünftigen Funktionalitäten und anderen bedeutenden Projektzielen, kann ich nur den Kopf schütteln vor lauter WUNDER. Auch ich stand erst am Anfang meiner Reise mit Handelsrobotern, war kaum durch meine 20 oder 50 geöffneten Tabs gegangen und stolperte irgendwie über SuperAlgos. Ich war sofort von Ihrem Projekt gefangen. Nichts anderes hat meine Aufmerksamkeit so stark erregt. Auch danke, weil es mir Zeit erspart hat, diese 50 anderen Registerkarten durchzugehen! Ich bin sofort losgezogen und habe mir einen Raspberry Pi 4 B zugelegt, nachdem ich fast 10 Jahre lang darüber nachgedacht hatte, einen zu kaufen. Wie auch immer, meine Worte können Ihrem erstaunlichen Projekt nicht gerecht werden. Und ich habe noch nicht einmal an der Oberfläche gekratzt. Ich freue mich darauf, Ihre Plattform und Ihre zukünftigen Funktionalitäten und Projektmeilensteine zu meistern. Integration mit Ethereum-Knoten? Heilige Kuh. Bitte stellen Sie sicher, dass Sie weiterhin das Recht auf finanzielle Privatsphäre, finanzielle Souveränität, Anonymität, individuelle Privatsphäre, etc. respektieren. Soviel wie Ihre Plattform/Ihr Projekt dazu in der Lage ist. Wir können und sollten nicht zulassen, dass die SEC und ähnliche \"Behörden\" sich in Projekte wie diese einmischen. Bitte stellen Sie sicher, dass Ihre Plattform 100% resistent gegen fragwürdige zentralisierte Machtstrukturen ist/wird... Danke Jerome https://github.com/romeox7",
+                "updated": 1686342808494
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
                     "updated": 1670875482882
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686342821350
                 }
             ]
         }

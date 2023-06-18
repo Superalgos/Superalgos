@@ -427,11 +427,31 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     project: 'Open-Storage',
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     config: '{}',
-                    savedPayload: savedPayloadNode, 
-                    referenceParent: {
-                        type: storageContainer.type,
-                        name: storageContainer.name,
-                        id: storageContainer.id
+                    savedPayload: {
+                        position: {
+                            x: 0,
+                            y: 0
+                        },
+                        targetPosition: {
+                            x: 0,
+                            y: 0
+                        },
+                        floatingObject: {
+                            isPinned: false,
+                            isFrozen: false,
+                            isCollapsed: false,
+                            angleToParent: 2,
+                            distanceToParent: 3,
+                            arrangementStyle: 0
+                        },
+                        uiObject: {
+                            isRunning: false
+                        },
+                        referenceParent: {
+                            type: storageContainer.type,
+                            name: storageContainer.name,
+                            id: storageContainer.id
+                        }
                     }
                 }
 

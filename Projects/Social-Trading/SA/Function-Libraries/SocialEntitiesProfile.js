@@ -540,7 +540,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             
               if (existingSecretIndex !== -1) {
                 // Replace the existing secret with the new one
-                secretsFile.secrets[existingSecretIndex].token = profileMessage.storageProviderToken;
+                secretsFile.secrets[existingSecretIndex].apiToken = profileMessage.storageProviderToken;
               } else {
                 // Add a new secret
                 let secret = {

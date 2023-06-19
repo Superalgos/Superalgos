@@ -545,7 +545,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 // Add a new secret
                 let secret = {
                   nodeCodeName: SOCIAL_TRADING_REPO_NAME,
-                  token: profileMessage.storageProviderToken
+                  apiToken: profileMessage.storageProviderToken
                 };
             
                 secretsFile.secrets.push(secret);

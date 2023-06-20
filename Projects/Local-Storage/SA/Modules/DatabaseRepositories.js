@@ -24,8 +24,10 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
     async function getRepository(name) {
         SA.logger.info('Requesting access to ' + name + ' table')
         switch (name) {
-            case 'UserBalances':
-                const repo = require('../Repositories/UserBalanceRepository').newUserBalanceRepository(await getDbContext())
+            case 'migrate': 
+                return await getDbContext().migrate()
+            case 'users':
+                const repo = require('../Repositories/UsersRepository').newUsersRepository(getDbContext())
                 await repo.initialize()
                 return repo
             default:
@@ -36,9 +38,9 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
 
     /**
      * 
-     * @returns {Promise<import('../Internal/DbContext').DbContext>}
+     * @returns {import('../Internal/DbContext').DbContext}
      */
-    async function getDbContext() {
+    function getDbContext() {
         if (privateDbContext === undefined) {
             privateDbContext = require('../Internal/DbContext').newDbContext()
             const config = {
@@ -48,17 +50,15 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
                 port: global.env.DATABASE.port,
                 user: global.env.DATABASE.user,
             }
-            SA.logger.info('Connecting to DB with config: ' + JSON.stringify({
-                host: config.host,
-                port: config.port,
-                user: config.user,
-                password: 'xxxxxxxxxxxxx',
-                database: config.database,
-            }))
-            return await privateDbContext.intialize(config).then(() => {
-                SA.logger.info('Initialized DbContext')
-                return privateDbContext
-            })
+            // SA.logger.debug('Connecting to DB with config: ' + JSON.stringify({
+            //     host: config.host,
+            //     port: config.port,
+            //     user: config.user,
+            //     password: 'xxxxxxxxxxxxx',
+            //     database: config.database,
+            // }))
+            privateDbContext.intialize(config)
+            SA.logger.info('Initialized DbContext')
         }
         return privateDbContext
     }

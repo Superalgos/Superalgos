@@ -64,7 +64,7 @@ exports.newEnvironment = function () {
         ],
         DATABASE: {
             TYPE: 'file',
-            USER_PROFILE_DATABASE_NAME: path.join(basePath, './Platform/My-Data-Storage/Network/userProfileBalances.json')
+            USERS_TABLE: path.join(basePath, './Platform/My-Data-Storage/Network/userProfileBalances.json')
         },
     }
 
@@ -122,7 +122,7 @@ exports.newEnvironment = function () {
                     thisObject.DATABASE.user = profile.database.user
                 }
             }
-            if(profile.database.user_profile_database_name !== undefined) { thisObject.DATABASE.USER_PROFILE_DATABASE_NAME = profile.database.user_profile_database_name }
+            if(profile.database.users_table !== undefined) { thisObject.DATABASE.USERS_TABLE = profile.database.users_table }
         }
     }
 

@@ -27,7 +27,9 @@
     "startSocialTradingReact": "cd ./Social-Trading/React-UI && npm run startSocialTradingReactBackend && npm run startSocialTradingReactFrontend",
     "unitTest": "jest --silent",
     "unitTest:coverage": "jest --silent --coverage",
-    "unitTest:debug": "DEBUG=nock.* jest"
+    "unitTest:debug": "DEBUG=nock.* jest",
+    "migration-init": "knex init",
+    "migration-make": "knex migrate:make"
   },
   "main": "manageApps.js",
   "dependencies": {

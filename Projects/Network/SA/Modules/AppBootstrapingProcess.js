@@ -37,7 +37,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         pullUserProfiles,               // This is used to know if we need to git pull all User Profiles to keep this App uptodate with changes made by users of their User Profiles over tiem. Usually this is only needed at Network Nodes.
         loadAllUserProfileBalances      // At some Apps, there is no need to load and keep up to date all User Profile Balances. Only when this is true we will do that, otherwise we will only load the balance of the User Profile running this app. 
     ) {
-        userBalancePersistence = await SA.projects.localStorage.globals.persistence.newPersistenceStore(global.env.DATABASE.TYPE, global.env.DATABASE.USER_PROFILE_DATABASE_NAME)
+        userBalancePersistence = await SA.projects.localStorage.globals.persistence.newPersistenceStore(global.env.DATABASE.TYPE, global.env.DATABASE.USERS_TABLE)
         userBalancePersistence.initialize()
         thisObject.pullUserProfiles = pullUserProfiles
         thisObject.userAppCodeName = userAppCodeName
@@ -463,7 +463,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             }
             if(!thisObject.reloadFromStorage) {
                 // this should trigger persistence on the inital startup of the network, but later reply on the child process
-                await userBalancePersistence.saveAll(userProfiles.map(x => ({id: x[1].id, name: x[1].name, balance: x[1].balance, updatedAt: new Date().valueOf()})))
+                await userBalancePersistence.saveAll(userProfiles.map(x => ({id: x[1].id, name: x[1].name, balance: x[1].balance})))
             }
             /* Calculate available token power per node (incl. delegated power) and add information to node payloads */
             userProfiles = SA.projects.governance.functionLibraries.profileTokenPower.calculateTokenPower(userProfiles)

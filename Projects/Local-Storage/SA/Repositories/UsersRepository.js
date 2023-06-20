@@ -1,5 +1,7 @@
 /**
- * @typedef {Object} DbUserBalance
+ * Reference for the table columns
+ * 
+ * @typedef {Object} DbUser
  * @property {string} id
  * @property {string} name
  * @property {number} balance
@@ -18,7 +20,7 @@
 /**
  * @param {import('../Internal/DbContext').DbContext} dbContext
  */
-exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) {
+exports.newUsersRepository = function newUsersRepository(dbContext) {
     const thisObject = {
         initialize: intialize,
         saveItem: saveItem,
@@ -33,7 +35,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * These fields are here to server as mapping references for the incoming objects
      * if there is a change to the structure a migration file will need to be created
      */
-    const TABLE_NAME = 'user_balances'
+    const TABLE_NAME = 'users'
     const structure = {
         id: {
             name: 'id',
@@ -47,7 +49,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
         },
         balance: {
             name: 'balance',
-            type: 'BIGINT',
+            type: 'DECIMAL(32,8)',
             params: ['NOT NULL']
         },
         updateAt: {
@@ -70,7 +72,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<void>}
      */
     async function intialize() {
-        return new Promise.resolve()
+        return await Promise.resolve()
     }
 
     /**
@@ -82,7 +84,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
             id: item.id,
             name: item.name,
             balance: item.balance,
-            updated_at: item.updateAt,
+            updated_at: new Date(),
         }).returning('id')
     }
 
@@ -91,11 +93,12 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
      * @returns {Promise<string[]>} list of items IDs
      */
     async function saveAll(items) {
+        const now = new Date()
         return await _getTableContext().insert(items.map(item => ({
             id: item.id,
             name: item.name,
             balance: item.balance,
-            updated_at: item.updateAt,
+            updated_at: now,
         }))).returning('id')
     }
 
@@ -137,7 +140,7 @@ exports.newUserBalanceRepository = function newUserBalanceRepository(dbContext) 
     }
 
     /**
-     * NOTE: currenlty returns all items as filters have not been implemented yet
+     * NOTE: currently returns all items as filters have not been implemented yet
      * @param {{
      *   key: string,
      *   values: []

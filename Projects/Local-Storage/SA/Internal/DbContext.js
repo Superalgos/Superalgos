@@ -13,6 +13,7 @@
  *   intialize: {(properties: ConnectionProperties) => void},
  *   getTableContext: {() => import('knex').knex.QueryBuilder},
  *   finalize: {() => void},
+ *   migrate: {() => Promise<void>}
  * }} DbContext
  */
 
@@ -24,6 +25,7 @@ exports.newDbContext = function newDbContext() {
         intialize: intialize,
         getTableContext: getTableContext,
         finalize: finalize,
+        migrate: migrate,
     }
 
     /** @type {import('knex').knex} */ let db = undefined;
@@ -39,7 +41,7 @@ exports.newDbContext = function newDbContext() {
      * @returns {void}
      */
     function intialize(properties) {
-        if(db !== undefined) {
+        if(db === undefined) {
             db = require('knex')({
                 client: 'pg',
                 connection: {
@@ -72,5 +74,17 @@ exports.newDbContext = function newDbContext() {
      */
     function finalize() {
         db = undefined
+    }
+
+    /**
+     * Triggers any migrations to run on the database
+     * 
+     * @returns {Promise<void>}
+     */
+    async function migrate() {
+        if (db === undefined) {
+            throw new Error("The Database has not been initialized, you query will not be executed")
+        }
+        await db.migrate.latest()
     }
 }

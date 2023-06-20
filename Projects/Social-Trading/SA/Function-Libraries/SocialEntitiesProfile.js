@@ -140,7 +140,6 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ', '-') + "-Data"
             const { Octokit } = SA.nodeModules.octokit
-            const { Octokit } = SA.nodeModules.octokit
             const { retry } = SA.nodeModules.retry
             const RetryOctokit = Octokit.plugin(retry)
             const octokit = new RetryOctokit({

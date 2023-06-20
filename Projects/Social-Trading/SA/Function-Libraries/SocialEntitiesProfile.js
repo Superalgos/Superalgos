@@ -484,9 +484,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
               let fileName = "ApisSecrets.json"
               let fileContent
               let secretsFile
-            
-              let secretsFile;
-              
+                          
                 // Check if the file exists
                 let fileExists = SA.nodeModules.fs.existsSync(filePath + '/' + fileName);
 

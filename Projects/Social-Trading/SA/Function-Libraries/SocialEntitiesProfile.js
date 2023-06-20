@@ -524,9 +524,12 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
               
                 // Check if the secret already exists
-                const existingSecretIndex = secretsFile.secrets ? secretsFile.secrets.findIndex(
-                  (secret) => secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME
-                ) : -1
+                let existingSecretIndex = -1;
+                if (secretsFile && secretsFile.secrets != null) {
+                  existingSecretIndex = secretsFile.secrets.findIndex((secret) => {
+                    return secret && secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME;
+                  });
+                }
               
                 // Replace the existing secret with the new one
                 if (existingSecretIndex !== -1) {

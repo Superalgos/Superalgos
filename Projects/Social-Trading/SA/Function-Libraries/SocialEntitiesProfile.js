@@ -499,68 +499,90 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             }
             
             function saveApiAppFile() {
-              let filePath = global.env.PATH_TO_SECRETS + '/';
-              let fileName = "ApisSecrets.json";
-              let fileContent;
-            
-              // Check if the folder exists. If not, create it.
-              SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath);
-            
-              // Check if the file exists
-              if (!SA.nodeModules.fs.existsSync(filePath + '/' + fileName)) {
-                console.warn('Warning: The file does not exist.');
-                return;
-              }
-            
-              try {
-                fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName);
-              } catch (err) {
-                console.error('Error occurred while reading the file:', err);
-                return;
-              }
-            
-              let secretsFile;
-              try {
-                secretsFile = JSON.parse(fileContent);
-              } catch (err) {
-                console.error('Error occurred while parsing the file content:', err);
-                return;
-              }
-            
-              // Check if the content was returned correctly
-              if (!secretsFile || typeof secretsFile !== 'object') {
-                console.error('Error: Invalid file content.');
-                return;
-              }
-            
-              // Check if the secret already exists
-              const existingSecretIndex = secretsFile.secrets.findIndex(
-                (secret) => secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME
-              );
-            
-              if (existingSecretIndex !== -1) {
-                // Replace the existing secret with the new one
-                secretsFile.secrets[existingSecretIndex].apiToken = profileMessage.storageProviderToken;
-              } else {
-                // Add a new secret
-                let secret = {
-                  nodeCodeName: SOCIAL_TRADING_REPO_NAME,
-                  apiToken: profileMessage.storageProviderToken
+                let filePath = global.env.PATH_TO_SECRETS + '/'
+                let fileName = "ApisSecrets.json"
+                let fileContent
+                let secretsFile
+              
+                // Check if the folder exists. If not, create it.
+                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+              
+                // Check if the file exists
+                if (!SA.nodeModules.fs.existsSync(filePath + '/' + fileName)) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error: The ApisSecrets file does not exist.'
+                  }
+                  resolve(response)
+                }
+              
+                try {
+                  fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error occurred while reading the ApisSecrets file: ' + err.message
+                  }
+                  resolve(response)
+                }
+              
+                
+                try {
+                  secretsFile = JSON.parse(fileContent);
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error encountered parsing ApisSecrets.json: ' + err.message
+                  };
+                  resolve(response);
+                }
+              
+                // Check if the content was returned correctly
+                if (!secretsFile || typeof secretsFile !== 'object') {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error: Invalid file content.'
+                  }
+                  resolve(response)
+                }
+              
+                // Check if the secret already exists
+                const existingSecretIndex = secretsFile.secrets.findIndex(
+                  (secret) => secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME
+                )
+              
+                if (existingSecretIndex !== -1) {
+                  // Replace the existing secret with the new one
+                  secretsFile.secrets[existingSecretIndex].apiToken = profileMessage.storageProviderToken
+                } else {
+                  // Add a new secret
+                  let secret = {
+                    nodeCodeName: SOCIAL_TRADING_REPO_NAME,
+                    apiToken: profileMessage.storageProviderToken
+                  }
+              
+                  secretsFile.secrets.push(secret);
+                }
+              
+                try {
+                  SA.nodeModules.fs.writeFileSync(
+                    filePath + '/' + fileName,
+                    JSON.stringify(secretsFile, undefined, 4)
+                  );
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error occurred while writing to the ApisSecrets file: ' + err.message
+                  };
+                  resolve(response)
+                }
+              
+                const response = {
+                  result: 'Success',
+                  message: 'ApisSecrets.json updated successfully.'
                 };
-            
-                secretsFile.secrets.push(secret);
+                resolve(response)
               }
-            
-              try {
-                SA.nodeModules.fs.writeFileSync(
-                  filePath + '/' + fileName,
-                  JSON.stringify(secretsFile, undefined, 4)
-                );
-              } catch (err) {
-                console.error('Error occurred while writing to the file:', err);
-                return;
-              }
-            }
 
 
             function reloadSecretsArray() {

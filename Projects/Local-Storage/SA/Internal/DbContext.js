@@ -1,20 +1,18 @@
 /**
- * @typedef {{
- *   database: string
- *   host: string,
- *   password: string,
- *   port: number
- *   user: string,
- * }} ConnectionProperties
+ * @typedef {Object} ConnectionProperties
+ * @property {string} database
+ * @property {string} host
+ * @property {string} password
+ * @property {number} port
+ * @property {string} user
  */
 
 /**
- * @typedef {{
- *   intialize: {(properties: ConnectionProperties) => void},
- *   getTableContext: {() => import('knex').knex.QueryBuilder},
- *   finalize: {() => void},
- *   migrate: {() => Promise<void>}
- * }} DbContext
+ * @typedef {Object} DbContext
+ * @property {(properties: ConnectionProperties) => void} intialize
+ * @property {() => import('knex').knex.QueryBuilder} getTableContext
+ * @property {() => void} finalize
+ * @property {() => Promise<void>} migrate
  */
 
 /**
@@ -28,7 +26,8 @@ exports.newDbContext = function newDbContext() {
         migrate: migrate,
     }
 
-    /** @type {import('knex').knex} */ let db = undefined;
+    /** @type {import('knex').knex} */ 
+    let db = undefined;
 
     return thisObject
 

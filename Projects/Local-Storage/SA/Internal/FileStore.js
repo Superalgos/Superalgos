@@ -1,6 +1,6 @@
 /**
  * @param {string} filename 
- * @returns {import('../Globals/Persistence').NetworkPersistenceModel}
+ * @returns {import('../Globals/Persistence').PersistenceModel}
  */
 exports.newFileStore = function newFileStore(filename) {
     const thisObject = {

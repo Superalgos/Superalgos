@@ -1,14 +1,13 @@
 /**
- * @typedef {{
-*     initialize: initialize,
-*     finalize: finalize,
-*     saveItem: saveItem,
-*     saveAll: saveAll,
-*     deleteItem: deleteItem,
-*     deleteAll: deleteAll,
-*     findItem: findItem,
-*     findMany: findMany,
-* }} PersistenceModel
+ * @typedef {Object} PersistenceModel
+ * @property {() => Promise<void>} initialize
+ * @property {() => Promise<void>} finalize
+ * @property {(item: any) => Promise<string>} saveItem
+ * @property {(items: []) => Promise<string[]>} saveAll
+ * @property {(item: any) => Promise<void>} deleteItem
+ * @property {() => Promise<void>} deleteAll
+ * @property {(item: any) => Promise<any>} findItem
+ * @property {(items: any) => Promise<[]>} findMany
 */
 
 /**
@@ -35,6 +34,7 @@ exports.newLocalStorageGlobalsPersistence = function newLocalStorageGlobalsPersi
      * 
      * @param {string} storeType 
      * @param {string} name 
+     * @returns {Promise<PersistenceModel>}
      */
     async function newPersistenceStore(storeType, name) {
         SA.logger.info('Using ' + storeType + ' for local storage')

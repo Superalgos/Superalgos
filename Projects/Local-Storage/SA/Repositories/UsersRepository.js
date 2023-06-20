@@ -9,16 +9,16 @@
  */
 
 /**
- * @typedef {{
- *   id: string,
- *   balance: number,
- *   name: string,
- *   updateAt: Date
- * }} UserItem
+ * @typedef {Object} UserItem
+ * @property {string} id
+ * @property {string} name
+ * @property {number} balance
+ * @property {Date} updatedAt
  */
 
 /**
  * @param {import('../Internal/DbContext').DbContext} dbContext
+ * @returns {import('../Globals/Persistence').PersistenceModel}
  */
 exports.newUsersRepository = function newUsersRepository(dbContext) {
     const thisObject = {

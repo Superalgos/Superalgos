@@ -21,6 +21,11 @@ exports.newDatabaseRepositories = function newDatabaseRepositories() {
     return thisObject
 
 
+    /**
+     * 
+     * @param {string} name 
+     * @returns {Promise<void|import('../Globals/Persistence').PersistenceModel>}
+     */
     async function getRepository(name) {
         SA.logger.info('Requesting access to ' + name + ' table')
         switch (name) {

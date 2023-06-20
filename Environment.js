@@ -100,11 +100,10 @@ exports.newEnvironment = function () {
         if(profile.portWssPlatform !== undefined) { thisObject.PLATFORM_WEB_SOCKETS_INTERFACE_PORT = profile.portWssPlatform }
         if(profile.portWssNetwork !== undefined) { thisObject.NETWORK_WEB_SOCKETS_INTERFACE_PORT = profile.portWssNetwork }
         if(profile.portWssDashboard !== undefined) { thisObject.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT = profile.portWssDashboard }
-        // if(profile.portWssDesktop !== undefined) { thisObject.DESKTOP_WEB_SOCKETS_INTERFACE_PORT = profile.portWssDesktop }
-        // if(profile.hostDesktop !== undefined) { thisObject.DESKTOP_WEB_SOCKETS_INTERFACE_HOST = profile.hostDesktop }
+        if(profile.portWssDesktop !== undefined) { thisObject.SOCIALTRADING_WEB_SOCKETS_INTERFACE_PORT = profile.portWssDesktop }
+        if(profile.hostDesktop !== undefined) { thisObject.SOCIALTRADING_WEB_SOCKETS_INTERFACE_HOST = profile.hostDesktop }
         if(profile.portHttpPlatform !== undefined) { thisObject.PLATFORM_HTTP_INTERFACE_PORT = profile.portHttpPlatform }
-        if(profile.portHttpDesktop !== undefined)
-         { thisObject.DESKTOP_HTTP_INTERFACE_PORT = profile.portHttpDesktop }
+        if(profile.portHttpDesktop !== undefined) { thisObject.SOCIALTRADING_HTTP_INTERFACE_PORT = profile.portHttpDesktop }
         if(profile.portHttpNetwork !== undefined) { thisObject.NETWORK_HTTP_INTERFACE_PORT = profile.portHttpNetwork }
         if(profile.storeData !== undefined) { thisObject.PATH_TO_DATA_STORAGE = profile.storeData }
         if(profile.storeLogs !== undefined) { thisObject.PATH_TO_LOG_FILES = profile.storeLogs }

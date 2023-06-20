@@ -560,7 +560,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     nodeCodeName: SOCIAL_TRADING_REPO_NAME,
                     apiToken: profileMessage.storageProviderToken
                   }
-              
+                   secretsFile = secretsFile || { secrets: [] };
                   secretsFile.secrets.push(secret);
                 }
               

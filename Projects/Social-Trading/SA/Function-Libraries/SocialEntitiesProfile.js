@@ -181,6 +181,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response) 
                 return
             }
+            saveApiAppFile()
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             reloadSecretsArray()
             if (response.result === 'Error') {
                 resolve(response)
@@ -472,6 +477,96 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
 
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+
+            function saveApiAppFile() {
+                let filePath = global.env.PATH_TO_SECRETS + '/'
+                let fileName = "ApisSecrets.json"
+                let fileContent
+                let secretsFile
+              
+                // Check if the file exists
+                let fileExists = SA.nodeModules.fs.existsSync(filePath + '/' + fileName)
+              
+                if (!fileExists) {
+                  // Create the file if it doesn't exist
+                  SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify({ secrets: [] }, undefined, 4));
+                }
+              
+                try {
+                  fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error occurred while reading the ApisSecrets.json: ' + err.message
+                  };
+                  resolve(response)
+                }
+              
+                try {
+                  secretsFile = JSON.parse(fileContent)
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error encountered parsing ApisSecrets File: ' + err.message
+                  };
+                  resolve(response)
+                }
+              
+                // Check if the content was returned correctly
+                if (!(secretsFile != null && Array.isArray(secretsFile) && secretsFile.every(item => typeof item === 'object' && item.nodeCodeName && item.apiToken))) {
+                  const expectedContent = 'Expected file content: "secrets": [{ "nodeCodeName": "Github-Storage-Container-userName-Data", "apiToken": "gitToken1" }, { "nodeCodeName": "Github-Storage-Container-handle-Data", "apiToken": "gitToken2" }, ...]'
+                  const response = {
+                    result: 'Error',
+                    message: 'Error: Invalid file content. ' + expectedContent
+                  };
+                  resolve(response)
+                }
+              
+                // Check if the secret already exists
+                const existingSecretIndex = secretsFile.secrets ? secretsFile.secrets.findIndex(
+                  (secret) => secret.nodeCodeName === SOCIAL_TRADING_REPO_NAME
+                ) : -1
+              
+                // Replace the existing secret with the new one
+                if (existingSecretIndex !== -1) {
+                  if (profileMessage.storageProviderToken != null) {
+                    secretsFile.secrets[existingSecretIndex].apiToken = profileMessage.storageProviderToken
+                  } else {
+                    const response = {
+                      result: 'Error',
+                      message: 'Error: The storage provider token is null or undefined.'
+                    };
+                    resolve(response);
+                  }
+                } else {
+                  // Add a new secret
+                  let secret = {
+                    nodeCodeName: SOCIAL_TRADING_REPO_NAME,
+                    apiToken: profileMessage.storageProviderToken
+                  };
+              
+                  secretsFile.secrets.push(secret)
+                }
+              
+                try {
+                  SA.nodeModules.fs.writeFileSync(
+                    filePath + '/' + fileName,
+                    JSON.stringify(secretsFile, undefined, 4)
+                  );
+                } catch (err) {
+                  const response = {
+                    result: 'Error',
+                    message: 'Error occurred while writing to the ApisSecrets file: ' + err.message
+                  };
+                  resolve(response)
+                }
+              
+                const response = {
+                  result: 'Success',
+                  message: 'ApisSecrets.json updated successfully.'
+                };
+                resolve(response)
             }
 
             function reloadSecretsArray() {

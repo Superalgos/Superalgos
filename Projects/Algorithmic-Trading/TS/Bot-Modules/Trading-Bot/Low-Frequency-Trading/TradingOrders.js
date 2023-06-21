@@ -296,7 +296,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
 
         await calculateOrderRate()
-        await -calculateOrderSize()
+        await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
         if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {

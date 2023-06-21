@@ -491,9 +491,9 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                     let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                     let name = property.config.codeName
                     let method = property.config.aggregationMethod
-                    if (name == 'begin' || name == 'end') { continue }
-
-                    if (method == 'First' ||
+                    if (name == 'begin' ||
+                        name == 'end' ||
+                        method == 'First' ||
                         method == 'Last' ||
                         method == 'Min'  ||
                         method == 'Max'  ||

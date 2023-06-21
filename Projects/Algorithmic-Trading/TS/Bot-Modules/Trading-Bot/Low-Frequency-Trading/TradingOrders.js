@@ -447,7 +447,14 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                 switch (tradingEngineStage.stageDefinedIn.value) {
                     case 'Base Asset': {
                         /* If a 'formula' is present at the Order Node, the formula will be used as the 'percentageOfAlgorithm' value */
-                        let percentageOfAlgorithmSize = tradingSystemOrder.formula !== undefined ? tradingSystem.evalFormulas(tradingSystemOrder.formula, 'Formula', tradingEngineOrder) : tradingSystemOrder.config.percentageOfAlgorithmSize
+                        let percentageOfAlgorithmSize
+                        if (tradingSystemOrder.formula !== undefined){
+                            tradingSystem.evalFormulas(tradingSystemOrder.formula, 'Formula', tradingEngineOrder)
+                            percentageOfAlgorithmSize = tradingSystem.formulas.get(tradingSystemOrder.formula.id)
+                        }
+                        else {
+                            percentageOfAlgorithmSize = tradingSystemOrder.config.percentageOfAlgorithmSize
+                        }
                         /* Size in Base Asset */
                         tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * percentageOfAlgorithmSize / 100
                         tradingEngineOrder.orderBaseAsset.size.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
@@ -495,7 +502,14 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     }
                     case 'Quoted Asset': {
                         /* If a 'formula' is present at the Order Node, the formula will be used as the 'percentageOfAlgorithm' value */
-                        let percentageOfAlgorithmSize = tradingSystemOrder.formula !== undefined ? tradingSystem.evalFormulas(tradingSystemOrder.formula, 'Formula', tradingEngineOrder) : tradingSystemOrder.config.percentageOfAlgorithmSize
+                        let percentageOfAlgorithmSize
+                        if (tradingSystemOrder.formula !== undefined){
+                            tradingSystem.evalFormulas(tradingSystemOrder.formula, 'Formula', tradingEngineOrder)
+                            percentageOfAlgorithmSize = tradingSystem.formulas.get(tradingSystemOrder.formula.id)
+                        }
+                        else {
+                            percentageOfAlgorithmSize = tradingSystemOrder.config.percentageOfAlgorithmSize
+                        }
                         /* Size in Quoted Asset */
                         tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * percentageOfAlgorithmSize / 100
                         tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)

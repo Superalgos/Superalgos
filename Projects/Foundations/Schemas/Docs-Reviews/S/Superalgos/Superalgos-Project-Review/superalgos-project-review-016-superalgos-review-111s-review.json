@@ -9,6 +9,11 @@
                 "language": "TR",
                 "text": "Bu inceleme sayfası için bir özet yazın.",
                 "updated": 1669309594555
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1686340287262
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Son derece havalı ve sezgisel bir GUI'ye sahip. Ancak, ana gösterge panelinde ciddi bir araç ipucu eksikliği var. Yeni gelenler ya sembollerin anlamını ikinci kez tahmin etmek ya da her düğmenin işlevlerini doğru hatırlayıp hatırlamadıklarını iki kez kontrol etmek için öğreticiye / konsola geri dönmek zorundadır",
                     "updated": 1669309624320
+                },
+                {
+                    "language": "DE",
+                    "text": "Es hat eine extrem coole und intuitive GUI. Es gibt jedoch einen großen Mangel an Tooltips im Haupt-Dashboard. Neulinge müssen entweder die Bedeutung der Symbole erraten oder zum Tutorial/zur Konsole zurückkehren, um zu überprüfen, ob sie sich an die Funktionen der einzelnen Schaltflächen richtig erinnern.",
+                    "updated": 1686341011848
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "TR",
                     "text": "Uygulama içi dokümantasyon, uygulamanın kendisi ile birlikte barındırılıyor gibi görünüyor ve bu, ne yazık ki kullanıcıların önceki ve sonraki dokümantasyon sayfasına geri dönmek için yerel chorme tarayıcımızdaki <- ve -> düğmelerini kullanmasına izin vermiyor. Sağlanan alternatif bir geri ve ileri düğmesi olmasına rağmen, Beta 9'dan itibaren kullanımı hala oldukça kullanışsızdır.",
                     "updated": 1669309702104
+                },
+                {
+                    "language": "DE",
+                    "text": "Die In-App-Dokumentation scheint zusammen mit der Anwendung selbst gehostet zu werden, was es den Nutzern leider nicht ermöglicht, die <- und ->-Schaltflächen in unserem nativen Chrome-Browser zu verwenden, um zur vorherigen und nächsten Dokumentationsseite zurückzukehren. Zwar gibt es eine alternative Schaltfläche \"Zurück\" und \"Weiter\", doch ist sie in der Beta 9 noch immer recht umständlich zu bedienen.",
+                    "updated": 1686341099584
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "TR",
                     "text": "Bununla birlikte, büyük bir potansiyel gösteriyor gibi görünüyor ve bu araçla ticaret botları tasarlamayı dört gözle bekliyorum.",
                     "updated": 1669309731963
+                },
+                {
+                    "language": "DE",
+                    "text": "Abgesehen davon scheint es ein großes Potenzial zu haben, und ich freue mich darauf, mit diesem Tool Handelsroboter zu entwickeln.",
+                    "updated": 1686341113990
                 }
             ]
         }

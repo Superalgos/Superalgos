@@ -11,6 +11,16 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "createOrderEvent",
             "label": "Add Create Order Event",
             "relatedUiObject": "Create Order Event",
@@ -55,6 +65,12 @@
     },
     "propertyNameAtParent": "marketBuyOrders",
     "childrenNodesProperties": [
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": false
+        },
         {
             "name": "createOrderEvent",
             "type": "node",

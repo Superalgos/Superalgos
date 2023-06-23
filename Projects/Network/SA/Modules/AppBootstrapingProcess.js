@@ -380,7 +380,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                  */
                 userProfile.balance = 0
                 if(thisObject.reloadFromStorage) {
-                    const storedProfile = await userBalancePersistence.findItem(userProfile.id)
+                    const storedProfile = await userBalancePersistence.findItem({key: 'id', value: userProfile.id})
+                    SA.logger.info(JSON.stringify(storedProfile))
                     if(storedProfile !== undefined) {
                         userProfile.balance = storedProfile.balance
                         SA.logger.info('User profile ' + userProfile.name + ' balance loaded from storage')

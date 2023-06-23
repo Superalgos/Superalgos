@@ -78,12 +78,15 @@ exports.newFileStore = function newFileStore(filename) {
     }
 
     /**
-     * @param {number|string} item 
+     * @param {{
+     *   key: string,
+     *   value: any
+     * }} item 
      */
-    async function findItem(itemId) {
+    async function findItem(item) {
         // SA.logger.debug('file storage -> find item -> searching for item id' + itemId)
         const contents = await readFile()
-        const idx = contents.findIndex(x => x.id == itemId)
+        const idx = contents.findIndex(x => x[item.key] == item.value)
         // SA.logger.debug('file storage -> find item -> found item index -> ' + idx)
         return idx > -1 ? contents[idx] : undefined
     }

@@ -80,12 +80,16 @@ exports.newUsersRepository = function newUsersRepository(dbContext) {
      * @returns {Promise<string>} item ID
      */
     async function saveItem(item) {
-        return await _getTableContext().insert({
-            id: item.id,
-            name: item.name,
-            balance: item.balance,
-            updated_at: new Date(),
-        }).returning('id')
+        return await await _getTableContext()
+            .insert({
+                id: item.id,
+                name: item.name,
+                balance: item.balance,
+                updated_at: new Date(),
+            })
+            .onConflict('id')
+            .merge()
+            .returning('id')
     }
 
     /**
@@ -94,12 +98,16 @@ exports.newUsersRepository = function newUsersRepository(dbContext) {
      */
     async function saveAll(items) {
         const now = new Date()
-        return await _getTableContext().insert(items.map(item => ({
-            id: item.id,
-            name: item.name,
-            balance: item.balance,
-            updated_at: now,
-        }))).returning('id')
+        return await _getTableContext()
+            .insert(items.map(item => ({
+                id: item.id,
+                name: item.name,
+                balance: item.balance,
+                updated_at: now,
+            })))
+            .onConflict('id')
+            .merge()
+            .returning('id')
     }
 
     /**
@@ -134,26 +142,55 @@ exports.newUsersRepository = function newUsersRepository(dbContext) {
         const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
             ? propertiesToReturn.map(key => structure[key].name).join(', ')
             : '*'
-        return await _getTableContext()
+        const results = await _getTableContext()
             .where(structure[item.key].name, item.value)
+            .limit(1)
             .returning(properties)
+        return _responseMapper(results[0], propertiesToReturn)
     }
-
+    
     /**
      * NOTE: currently returns all items as filters have not been implemented yet
      * @param {{
      *   key: string,
      *   values: []
      * }} items 
+     * @param {string[]} propertiesToReturn
      * @returns {Promise<UserItem[]>}
      */
-    async function findMany(items) {
-        const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
-            ? propertiesToReturn.map(key => structure[key].name).join(',')
-            : '*'
-        const where = '' /* needs some consideration */ // 'WHERE ' + items.map( item => `${structure[item.key]} = ${item.value}`).join(' AND ')
-        const query = `SELECT ${properties} FROM ${TABLE_NAME} ${where}`
-        return await dbContext.execute(query)
+    async function findMany(items, propertiesToReturn) {
+       const properties = propertiesToReturn !== undefined && propertiesToReturn.length > 0 
+       ? propertiesToReturn.map(key => structure[key].name).join(',')
+       : '*'
+       const where = '' /* needs some consideration */ // 'WHERE ' + items.map( item => `${structure[item.key]} = ${item.value}`).join(' AND ')
+       const query = `SELECT ${properties} FROM ${TABLE_NAME} ${where}`
+       const results = await dbContext.execute(query)
+       return results.map(result => _responseMapper(result, propertiesToReturn))
     }
-
+    
+    /**
+     * 
+     * @param {DbUser} responseItem 
+     * @param {string[]|undefined} propertiesToReturn 
+     * @returns {UserItem}
+     */
+    function _responseMapper(responseItem, propertiesToReturn) {
+        return properties == '*' || propertiesToReturn === undefined ? {
+            id: responseItem.id,
+            name: responseItem.name,
+            balance: Number(responseItem.balance),
+            updatedAt: Date.parse(responseItem.updated_at)
+        } : propertiesToReturn.reduce((accumulator,key) => {
+            if(key == 'balance') {
+                accumulator[key] = Number(responseItem[structure[key]])
+            }
+            else if(key == 'updateAt') {
+                accumulator[key] = Date.parse(responseItem[structure[key]])
+            }
+            else {
+                accumulator[key] = responseItem[structure[key]]
+            }
+            return accumulator
+        }, {})
+    }
 }

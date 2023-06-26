@@ -7,7 +7,7 @@
             "name": "Bullet\\bullet-limit-buy-order",
             "project": "Foundations"
         },
-        "text": "You thought I would let you monitor the Live Trading Session watching the list of orders at the exchange? No way!",
+        "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!",
         "translations": [
             {
                 "language": "IT",
@@ -47,7 +47,7 @@
                 "updated": 1667135901054
             }
         ],
-        "updated": 1640291830600
+        "updated": 1687725533969
     },
     "paragraphs": [
         {

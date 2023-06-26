@@ -7,7 +7,7 @@
             "name": "Time\\time-machine",
             "project": "Foundations"
         },
-        "text": "I took the liberty of bringing you to a particular moment in time, interesting for what comes next.",
+        "text": "I took the liberty of bringing you to a particular moment in time, relevant to what comes next.",
         "translations": [
             {
                 "language": "IT",
@@ -51,7 +51,8 @@
                 "text": "J'ai pris la liberté de vous amener à un moment particulier dans le temps, intéressant pour la suite.",
                 "updated": 1676898789081
             }
-        ]
+        ],
+        "updated": 1687722253803
     },
     "paragraphs": [
         {

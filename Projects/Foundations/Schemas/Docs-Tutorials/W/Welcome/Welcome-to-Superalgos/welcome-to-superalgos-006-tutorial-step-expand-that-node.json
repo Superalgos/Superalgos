@@ -182,7 +182,7 @@
         },
         {
             "style": "Note",
-            "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations.",
+            "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations. Each node represents a concept or piece of info. There are hundreds!",
             "translations": [
                 {
                     "language": "ID",
@@ -236,7 +236,8 @@
                     "text": "Ustrukturyzowana reprezentacja informacji to sposób, w jaki Superalgos zarządza złożonością stojącą za elastycznymi i skalowalnymi operacjami handlowymi.",
                     "updated": 1674834624383
                 }
-            ]
+            ],
+            "updated": 1687631139207
         }
     ]
 }

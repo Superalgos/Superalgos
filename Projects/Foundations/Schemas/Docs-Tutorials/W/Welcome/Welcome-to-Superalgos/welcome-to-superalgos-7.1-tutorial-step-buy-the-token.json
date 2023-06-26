@@ -3,8 +3,8 @@
     "pageNumber": "107.1",
     "type": "Tutorial Step - Buy the Token!",
     "definition": {
-        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap or 1Inch is the way to go! This is why...",
-        "updated": 1660160240560,
+        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap or 1Inch is the way to go!",
+        "updated": 1687724433178,
         "icon": {
             "name": "Crypto-Exchanges\\pancakeswap",
             "project": "Foundations"
@@ -94,7 +94,7 @@
         },
         {
             "style": "Success",
-            "text": "Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!",
+            "text": "Every dollar goes directly to contributors!",
             "translations": [
                 {
                     "language": "RU",
@@ -126,7 +126,8 @@
                     "text": "Cada dólar que gastes en la compra de Superalgos SA Token se destinará directamente a la gente que te ofrece este increíble software.",
                     "updated": 1675364387763
                 }
-            ]
+            ],
+            "updated": 1687724636390
         },
         {
             "style": "Link",
@@ -153,11 +154,12 @@
         },
         {
             "style": "Text",
-            "text": "</br>"
+            "text": "&nbsp;",
+            "updated": 1687724385128
         },
         {
             "style": "Link",
-            "text": "Buy the token on 1Inch->app.1inch.io/#/56/classic/swap/BTCB/SA",
+            "text": "Buy the token on 1Inch->app.1inch.io/#/56/classic/swap/USDT/SA",
             "translations": [
                 {
                     "language": "NL",
@@ -169,7 +171,17 @@
                     "text": "Beli token di 1Inch->app.1inch.io/#/56/classic/swap/BTCB/SA",
                     "updated": 1671602851047
                 }
-            ]
+            ],
+            "updated": 1687724317594
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;"
+        },
+        {
+            "style": "Link",
+            "text": "Buy the token on PancakeSwap->pancakeswap.finance/swap?outputCurrency=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&chainId=56",
+            "updated": 1687724267362
         },
         {
             "style": "Text",

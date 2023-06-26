@@ -63,7 +63,7 @@
     },
     "paragraphs": [
         {
-            "style": "Callout",
+            "style": "Text",
             "text": "... you may easily start over with the original Getting Started Tutorials Native Workspace or the Partner Exchange workspace you may be using!",
             "translations": [
                 {
@@ -120,8 +120,8 @@
             "updated": 1640358082476
         },
         {
-            "style": "Text",
-            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Native Workspace will load and the tutorial will show up again, fresh from the start!",
+            "style": "Callout",
+            "text": "Check the Workspaces menu on the top-left corner. Find the Getting Started Tutorials workspace under:",
             "translations": [
                 {
                     "language": "IT",
@@ -174,57 +174,12 @@
                     "updated": 1675002567922
                 }
             ],
-            "updated": 1640358203586
+            "updated": 1687633039510
         },
         {
-            "style": "Success",
-            "text": "You may also use the Workspaces menu on the top-left corner of the screen!",
-            "updated": 1665734484606,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "También puedes utilizar el menú Workspaces, situado en la esquina superior izquierda de la pantalla.",
-                    "updated": 1675207424915,
-                    "style": "Success"
-                },
-                {
-                    "language": "DE",
-                    "text": "Native Workspaces werden mit dem System ausgeliefert. Sie werden später lernen, auch Ihre eigenen zu erstellen! ",
-                    "updated": 1642150629213,
-                    "style": "Success"
-                },
-                {
-                    "language": "RU",
-                    "text": "Вы также можете использовать меню Workspaces в левом верхнем углу экрана!",
-                    "updated": 1665737088812,
-                    "style": "Success"
-                },
-                {
-                    "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Native Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz! Ayrıca ekranın sol üst köşesindeki çalışma alanı (Workspaces) menüsünü de kullanabilirsiniz.",
-                    "updated": 1665963815175
-                },
-                {
-                    "language": "NL",
-                    "text": "U kunt ook het Workspaces menu in de linkerbovenhoek van het scherm gebruiken!",
-                    "updated": 1666614691684
-                },
-                {
-                    "language": "ID",
-                    "text": "Native Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
-                    "updated": 1639744717855
-                },
-                {
-                    "language": "FR",
-                    "text": "Vous pouvez également utiliser le menu Workspaces dans le coin supérieur gauche de l'écran !",
-                    "updated": 1667986547710
-                },
-                {
-                    "language": "PL",
-                    "text": "Możesz również skorzystać z menu Workspaces w lewym górnym rogu ekranu!",
-                    "updated": 1675002591209
-                }
-            ]
+            "style": "Json",
+            "text": "Workspaces > Native Workspaces > Foundations",
+            "updated": 1687633080755
         }
     ]
 }

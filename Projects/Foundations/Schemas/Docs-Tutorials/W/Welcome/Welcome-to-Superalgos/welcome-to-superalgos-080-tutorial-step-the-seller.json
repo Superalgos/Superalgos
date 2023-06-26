@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "execution-algorithm"
         },
-        "text": "We are now in the Close Stage. I thought it would be interesting to tell you more about execution algorithms, with another example.",
+        "text": "We are now in the Close Stage. I thought it would be interesting to tell you more about execution algorithms with another example.",
         "translations": [
             {
                 "language": "IT",
@@ -51,7 +51,8 @@
                 "text": "Nous sommes maintenant dans la phase de clôture du trade. J'ai pensé qu'il serait intéressant de vous en dire plus sur les algorithmes d'exécution, avec un autre exemple.",
                 "updated": 1676957993578
             }
-        ]
+        ],
+        "updated": 1687722867130
     },
     "paragraphs": [
         {

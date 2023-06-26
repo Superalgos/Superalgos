@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "indicator-process-instance"
         },
-        "text": "By now, all processes should be at 100%. When that happens, we refer to the data mining operation as being \"up to date\".",
+        "text": "If your machine and connection are fast, chances are all processes may already be at 100%. When that happens, the data mining operation is \"up to date\".",
         "translations": [
             {
                 "language": "IT",
@@ -59,7 +59,7 @@
                 "updated": 1675078216101
             }
         ],
-        "updated": 1616415623576
+        "updated": 1687634236798
     },
     "paragraphs": [
         {
@@ -173,8 +173,8 @@
             ]
         },
         {
-            "style": "Text",
-            "text": "To run a Live Trading Session, you need a constant feed of information from the exchange processed in realtime so that the Trading Bot may apply the rules of your Trading System to make live trading decisions.",
+            "style": "Warning",
+            "text": "If they're not there yet, go grab some coffee and come back later! Do not continue until all tasks are at 100%",
             "translations": [
                 {
                     "language": "IT",
@@ -226,7 +226,7 @@
                     "updated": 1675079135158
                 }
             ],
-            "updated": 1616415667438
+            "updated": 1687634575655
         }
     ]
 }

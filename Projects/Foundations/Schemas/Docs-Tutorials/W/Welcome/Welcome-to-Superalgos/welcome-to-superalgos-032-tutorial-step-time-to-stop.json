@@ -232,7 +232,7 @@
         },
         {
             "style": "Callout",
-            "text": "When all processes are up to date, select \"Stop All Tasks\" in the Market Data Tasks node. Notice that we can stop the tasks from a different node than the one we used to start them!",
+            "text": "When all processes are up to date, select \"Stop All Tasks\" in the Market Data Tasks node. ",
             "translations": [
                 {
                     "language": "IT",
@@ -284,7 +284,11 @@
                     "updated": 1675079511248
                 }
             ],
-            "updated": 1622197433719
+            "updated": 1687634721689
+        },
+        {
+            "style": "Text",
+            "text": "Notice you are stopping the tasks from a different node!"
         }
     ]
 }

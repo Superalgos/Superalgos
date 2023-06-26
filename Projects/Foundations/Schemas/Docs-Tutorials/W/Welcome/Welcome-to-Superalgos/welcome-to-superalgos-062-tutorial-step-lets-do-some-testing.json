@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "testing-trading-tasks"
         },
-        "text": "We are back on the Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",
+        "text": "We are back on the LAN Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",
         "translations": [
             {
                 "language": "IT",
@@ -51,7 +51,8 @@
                 "text": "Nous sommes de retour sur la hiérarchie du réseau pour vous montrer l'une des principales ressources de test de stratégie intégrées au Trading Bot.",
                 "updated": 1676897584758
             }
-        ]
+        ],
+        "updated": 1687718469424
     },
     "paragraphs": [
         {

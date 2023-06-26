@@ -58,7 +58,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The first layer manager to the left of this time machine features three layers. Those layers represent the data products that the Trading System we are going to test later on uses to make trading decisions.",
+            "text": "The first and second layer managers to the left feature two layers each. Those layers represent the data products that the Trading System we are going to test later on uses to make trading decisions.",
             "translations": [
                 {
                     "language": "IT",
@@ -103,7 +103,8 @@
                     "text": "Le premier gestionnaire de calques à gauche de cette Time Machine comporte trois calques. Ces calques représentent les produits de données du système de trading que nous allons tester plus tard.",
                     "updated": 1668413908501
                 }
-            ]
+            ],
+            "updated": 1687698699721
         },
         {
             "style": "Callout",

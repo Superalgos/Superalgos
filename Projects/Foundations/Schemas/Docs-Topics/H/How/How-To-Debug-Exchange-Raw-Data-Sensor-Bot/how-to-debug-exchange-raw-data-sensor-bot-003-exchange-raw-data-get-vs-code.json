@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Aslında istediğiniz herhangi bir IDE'yi kullanabilirsiniz, ancak henüz bir favoriniz yoksa, ücretsiz ve açık kaynaklı olan VS Code'u kullanmanızı öneririz.",
                 "updated": 1673376059653
+            },
+            {
+                "language": "DE",
+                "text": "Eigentlich können Sie jede IDE verwenden, die Ihnen gefällt, aber wenn Sie noch keinen Favoriten haben, empfehlen wir Ihnen VS Code, das kostenlos und quelloffen ist.",
+                "updated": 1687721045006
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "VS Code'u yüklemeye devam edin.",
                     "updated": 1673376078007
+                },
+                {
+                    "language": "DE",
+                    "text": "Installieren Sie nun VS Code.",
+                    "updated": 1687721053421
                 }
             ]
         }

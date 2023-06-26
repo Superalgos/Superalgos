@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Bu noktada, muhtemelen Favori Borsanızdan geçmiş bilgileri çıkarmanın mümkün olup olmadığını bileceksiniz.",
                 "updated": 1670940790433
+            },
+            {
+                "language": "DE",
+                "text": "An dieser Stelle werden Sie wahrscheinlich wissen, ob es möglich ist, historische Informationen aus Ihrem Favorite Exchange zu extrahieren oder nicht.",
+                "updated": 1687722186933
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Eğer siz bunu başardıysanız, topluluğun geri kalanı da bunu nasıl yapacağını öğrenmekten mutluluk duyacaktır.",
                     "updated": 1670940825829
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie es geschafft haben, wird der Rest der Gemeinschaft gerne lernen, wie man es auch macht.",
+                    "updated": 1687722254341
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Yeni Yapılandırma",
                     "updated": 1670940845871
+                },
+                {
+                    "language": "DE",
+                    "text": "Neue Konfiguration",
+                    "updated": 1687722277212
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Favori Borsanızın bazı özel yapılandırmalarla çalıştığını fark ettiyseniz, bu yapılandırmayı bir sonraki sürüme dahil edebilmek ve borsayı Test Edilen borsalar kategorisine taşıyabilmek için lütfen Ekip ile iletişime geçin.",
                     "updated": 1670940900841
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie festgestellt haben, dass Ihr Favorite Exchange mit einer speziellen Konfiguration funktioniert, kontaktieren Sie bitte das Team, damit wir diese Konfiguration in die nächste Version aufnehmen und den Exchange in den Zweig der getesteten Exchanges verschieben können.",
+                    "updated": 1687722297682
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Koddaki Değişiklikler",
                     "updated": 1670940928229
+                },
+                {
+                    "language": "DE",
+                    "text": "Änderungen im Code",
+                    "updated": 1687722306515
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Sensör Bot'un ( Sensor Bot's ) kodunu değiştirerek çalışmasını sağlamayı başardıysanız, lütfen değişikliklerinizle birlikte bir PR gönderin.",
                     "updated": 1670941002602
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie es geschafft haben, den Code des Sensor Bot´s zu ändern, reichen Sie bitte einen PR mit Ihren Änderungen ein.",
+                    "updated": 1687722329920
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "TR",
                     "text": "Dokümanlardaki Değişiklikler",
                     "updated": 1670941031491
+                },
+                {
+                    "language": "DE",
+                    "text": "Änderungen in Docs",
+                    "updated": 1687722338931
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "TR",
                     "text": "Bu kılavuzun eksik olduğunu veya daha fazla bilgiye ihtiyaç duyulduğunu fark ederseniz, lütfen belgeleri güncelleyin ve app.contrib komutuyla bir katkı olarak gönderin. Bu, başkalarının bu süreci daha az zahmetle takip etmesine yardımcı olacaktır.",
                     "updated": 1670941083065
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie feststellen, dass diese Anleitung unvollständig ist oder weitere Informationen benötigt werden, aktualisieren Sie bitte die Dokumente und senden Sie dies als Beitrag mit dem Befehl app.contribute. Das wird anderen helfen, diesen Prozess mit mehr Verständnis zu folgen.",
+                    "updated": 1687722426251
                 }
             ]
         }

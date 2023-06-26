@@ -184,8 +184,8 @@
         },
         {
             "style": "Success",
-            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
-            "updated": 1622635421285,
+            "text": "Go to the Platform/My-Workspaces folder to verify the new file is there. Find it on the menu too!",
+            "updated": 1687799579776,
             "translations": [
                 {
                     "language": "IT",

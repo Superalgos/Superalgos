@@ -109,7 +109,8 @@
         },
         {
             "style": "Json",
-            "text": "\\Projects\\Foundations\\Plugins\\Workspaces"
+            "text": "\\Plugins\\[Project]\\Workspaces",
+            "updated": 1687799294395
         },
         {
             "style": "List",

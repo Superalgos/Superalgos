@@ -1,8 +1,8 @@
 {
     "type": "User Workspace",
     "definition": {
-        "text": "Refers to a Workspace created by a user, and stored locally at the My-Workspaces folder.",
-        "updated": 1622192760962,
+        "text": "Refers to a Workspace created by a user, and stored locally at the Platform/My-Workspaces folder.",
+        "updated": 1687798631329,
         "translations": [
             {
                 "language": "ES",

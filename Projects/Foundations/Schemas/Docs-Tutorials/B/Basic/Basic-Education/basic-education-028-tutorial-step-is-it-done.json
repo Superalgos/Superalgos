@@ -52,8 +52,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You may find this technique to establish a reference to be a bit clumsy or impractical. If you have a better idea or know how to improve it, feel free to open a feature request issue. Make sure you consider the following:",
-            "updated": 1615808367637,
+            "text": "You may find this technique to establish a reference to be a bit clumsy or impractical. The truth is it works well in some contexts, and not that great in others. The challenges to establishing references are:",
+            "updated": 1687794843590,
             "translations": [
                 {
                     "language": "IT",
@@ -183,7 +183,7 @@
         },
         {
             "style": "Success",
-            "text": "In the meantime, let me assure you it's not that hard once you do it a couple of times!",
+            "text": "We'll try an alternative method in the next step!",
             "translations": [
                 {
                     "language": "IT",
@@ -217,7 +217,8 @@
                     "text": "Sementara itu, izinkan aku meyakinkan kamu bahwa itu tidak sulit begitu kamu melakukannya beberapa kali!",
                     "updated": 1644949547584
                 }
-            ]
+            ],
+            "updated": 1687794882508
         },
         {
             "style": "Text",

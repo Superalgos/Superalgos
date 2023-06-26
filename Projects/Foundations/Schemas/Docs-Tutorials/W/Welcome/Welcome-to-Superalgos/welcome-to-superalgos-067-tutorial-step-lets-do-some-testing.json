@@ -1,0 +1,205 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 67,
+    "type": "Tutorial Step - Let's Do Some Testing!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "testing-trading-tasks"
+        },
+        "text": "We are back on the LAN Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Rieccoci nella gerarchia Network. Ora ti mostro una delle risorse chiave per testare le strategie di un Trading Bot.",
+                "updated": 1618057404730,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Estamos de vuelta en la jerarquia del LAN Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
+                "updated": 1675278652712,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind zurück in der Netzwerkhierarchie, um Ihnen eine der wichtigsten Ressourcen für Strategietests zu zeigen, die in den Trading Bot integriert sind.",
+                "updated": 1634218612347
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Ticaret Botu'nda ( Trading Bot ) yerleşik olarak bulunan temel strateji test kaynaklarından birini göstermek için Ağ hiyerarşisine geri dönelim.",
+                "updated": 1636106918357
+            },
+            {
+                "language": "RU",
+                "text": "Мы вернулись к сетевой иерархии, чтобы показать вам один из основных ресурсов для тестирования стратегий, встроенных в Trading Bot.",
+                "updated": 1636747011896
+            },
+            {
+                "language": "ID",
+                "text": "Kita kembali ke hierarki Network untuk menunjukkan kepadamu salah satu core strategy-testing yang ada di Trading Bot.",
+                "updated": 1639710806131
+            },
+            {
+                "language": "NL",
+                "text": "We zijn terug in de netwerkhiërarchie om u een van de belangrijkste bronnen van het testen van strategieën te laten zien die zijn ingebouwd in de Trading Bot.",
+                "updated": 1666785925409
+            },
+            {
+                "language": "FR",
+                "text": "Nous sommes de retour sur la hiérarchie du réseau pour vous montrer l'une des principales ressources de test de stratégie intégrées au Trading Bot.",
+                "updated": 1676897584758
+            }
+        ],
+        "updated": 1687718469424
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But before you run your first Backtesting Session, let's go on a quick scouting mission to grasp how the Testing Trading Tasks node is set up.",
+            "updated": 1610638880718,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma prima di lanciare la nostra prima Backtesting Session, lanciamoci in una piccola esplorazione per capire come è configurato il nodo delle Testing Trading Tasks.",
+                    "updated": 1618057489202,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
+                    "updated": 1675278673366,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doch bevor Sie Ihre erste Backtesting Session starten, wollen wir uns erst einmal einen Überblick verschaffen, wie der Knoten Testing Trading Tasks aufgebaut ist.",
+                    "updated": 1634218620382
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak ilk Geri Test Oturumunuzu ( Backtesting Session ) çalıştırmadan önce, Ticaret Görevlerini Test Etme düğümünün ( Testing Trading Tasks) nasıl kurulduğunu kavramak için hızlı bir keşif görevine başlayalım.",
+                    "updated": 1636106975655
+                },
+                {
+                    "language": "RU",
+                    "text": "Но прежде чем Вы запустите свою первую Backtesting Session, давайте быстро продолжим  разведочную миссию, чтобы понять, как настроен узел Testing Trading Tasks.",
+                    "updated": 1636747139887
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapi sebelum kamu menjalankan Backtesting Session pertamamu, mari kita lakukan misi pencarian cepat untuk memahami bagaimana Testing Trading Tasks node diatur.",
+                    "updated": 1639710881281
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar voordat u uw eerste Backtesting Session uitvoert, gaan we op een snelle verkenningsmissie om te begrijpen hoe het knooppunt Testing Trading Tasks is opgebouwd.",
+                    "updated": 1666785983089
+                },
+                {
+                    "language": "FR",
+                    "text": "Mais avant d'exécuter votre première Backtesting Session, partons en mission de repérage rapide pour comprendre comment le nœud des Testing Trading Tasks est configuré.",
+                    "updated": 1676897664835
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Testing Trading Tasks node and look at the structure of offspring nodes... Looks familiar?",
+            "updated": 1616427797952,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Espandi il nodo delle Testing Trading Tasks e guarda come è strutturato...ti ricorda qualcosa?",
+                    "updated": 1618057585015,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Expande el nodo Testing Trading Tasks y mira la estructura de los nodos descendientes ... ¿Suena familiar?",
+                    "updated": 1624414662047,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Testing Trading Tasks und sehen Sie sich die Struktur der Nachfolgeknoten an... Kommt Ihnen das bekannt vor?",
+                    "updated": 1634218627346
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme düğümünü ( Testing Trading Tasks ) genişletin ve yavru düğümlerin yapısına bakın... Tanıdık geliyor mu?",
+                    "updated": 1636107045004
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Testing Trading Tasks и посмотрите на структуру узлов-потомков... Выглядит знакомо?",
+                    "updated": 1636747199218
+                },
+                {
+                    "language": "ID",
+                    "text": "Perluas Testing Trading Tasks node dan lihat struktur node turunannya... Terlihat familiar?",
+                    "updated": 1639710931330
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw het knooppunt Testing Trading Tasks uit en bekijk de structuur van de knooppunten afstammelingen... Komt het u bekend voor?",
+                    "updated": 1666786071806
+                },
+                {
+                    "language": "FR",
+                    "text": "Développez le nœud Testing Trading Taskset regardez la structure des nœuds ... Cela vous semble familier ?",
+                    "updated": 1676897713163
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Indeed! It resembles the Data Tasks section: tasks are organized by exchange, market, and trading mine, so that you may test any number of strategies optimized for different markets, on multiple exchanges.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esatto! Assomiglia alla sezione dei Data Tasks: le task sono organizzate per exchange, mercato e Trading Mine, cosicchè tu possa testare diverse strategie per mercati differenti e su exchange diversi.",
+                    "updated": 1618057668667,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por Exchange, Market y Trading Mine, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples Exchanges.",
+                    "updated": 1675278735349,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Tat! Sie ähnelt dem Abschnitt Data Tasks : Die Aufgaben sind nach Börse, Markt und Handelsmine geordnet, so dass Sie eine beliebige Anzahl von Strategien testen können, die für verschiedene Märkte an mehreren Börsen optimiert sind.",
+                    "updated": 1634218636921
+                },
+                {
+                    "language": "TR",
+                    "text": "Aslında Veri Görevleri (Data Tasks) bölümüne benzerdir. Görevler borsa, piyasa ve ticaret madeni tarafından düzenlenir. Böylece farklı işlem çiftleri için optimize edilmiş herhangi bir sayıda stratejiyi birden fazla borsada test edebilirsiniz.",
+                    "updated": 1669920521517
+                },
+                {
+                    "language": "RU",
+                    "text": "Действительно! Это похоже на раздел Data Tasks: задачи организованы по бирже, рынку и торговой шахте, вот поэтому Вы можете протестировать любое количество стратегий, оптимизированных для разных рынков и на нескольких биржах.",
+                    "updated": 1636747320904
+                },
+                {
+                    "language": "ID",
+                    "text": "Memang! Ini menyerupai bagian Data Tasks: tugas diatur berdasarkan exchange, market, dan trading mine, sehingga kamu dapat menguji sejumlah strategi yang dioptimalkan untuk markets yang berbeda, di banyak exchanges.",
+                    "updated": 1639711778514
+                },
+                {
+                    "language": "NL",
+                    "text": "Inderdaad! Het lijkt op de sectie Data Tasks: taken zijn georganiseerd per handelsplatform, markt en handels mine, zodat u een willekeurig aantal strategieën kunt testen die zijn geoptimaliseerd voor verschillende markten, op meerdere handelsplatformen.",
+                    "updated": 1666786167588
+                },
+                {
+                    "language": "FR",
+                    "text": "En effet ! Elle ressemble à la section Data Tasks : les tâches sont organisées par exchange, marché et mine de trading, de sorte que vous pouvez tester un nombre illimité de stratégies optimisées pour différents marchés, sur plusieurs exchanges.",
+                    "updated": 1676897785134
+                }
+            ]
+        }
+    ]
+}

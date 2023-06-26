@@ -1,0 +1,157 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 66,
+    "type": "Tutorial Step - Plotters Magic!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "plotter"
+        },
+        "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!\n",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ed ecco come vengono costruiti i Plotters! Essi creano rappresentazioni grafiche di tutti i dati...dalle candele, a qualsiasi altra cosa!",
+                "updated": 1618056813296,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Y así es como se construyen los plotters! Los plotters crean representaciones gráficas de datos... ¡desde velas, hasta todo lo demás! Please update this translation.",
+                "updated": 1675278226298,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Und so werden Plotter gebaut! Plotter erstellen grafische Darstellungen von Daten... von Kerzen bis hin zu allem anderen!",
+                "updated": 1634218493534
+            },
+            {
+                "language": "TR",
+                "text": "Ve Plotter'lar bu şekilde inşa edilir! Plotter'lar, mumlardan diğer şeylere kadar verilerin grafiksel gösterimini oluşturur!",
+                "updated": 1669920284730
+            },
+            {
+                "language": "RU",
+                "text": "И вот как строятся плоттеры! Плоттеры создают графические представления данных... от свечей до всего остального!",
+                "updated": 1636746375089
+            },
+            {
+                "language": "ID",
+                "text": "Dan beginilah cara plotters dibangun! Plotter membuat representasi grafis dari data... dari candles, hingga yang lainnya!",
+                "updated": 1639709684476
+            },
+            {
+                "language": "NL",
+                "text": "En zo worden plotters gebouwd! Plotters maken grafische weergaven van gegevens... van kaarsen tot al het andere!",
+                "updated": 1666785699306
+            },
+            {
+                "language": "FR",
+                "text": "Et c'est ainsi que les traceurs sont construits! Les traceurs créent des représentations graphiques des données... depuis les bougies à tout le reste! Warning!!! This translation is outdated.",
+                "updated": 1676897400121
+            }
+        ],
+        "updated": 1675278169952
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Again, visual scripting at its best! Plotters use stylized polygons made out of coordinate points to paint lines and shapes that represent data. Every layer made available on the charts is created with a set of definitions of the sort you are looking at right now. The particular case of the Resistances and Supports bot is a rather complex one, but does showcase the power of the tool!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Di nuovo, il meglio del visual scripting! I Plotters usano poligoni stilizzati definiti da punti e coordinate per disegnare linee e forme che rappresentano dati. Ogni layer disponibile sul grafico è creato da un insieme di definizioni come quello che stai guardando ora. Il caso del bot dei Supporti e Resistenze è abbastanza complesso, ma mostra la potenza di questo strumento!",
+                    "updated": 1618057031198,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "De nuevo, ¡scripting visual en su máxima expresión! Los plotters utilizan polígonos estilizados hechos de puntos de coordenadas para pintar líneas y formas que representan datos. Cada capa disponible en los gráficos se crea con un conjunto de definiciones del tipo que está viendo ahora mismo. El caso particular del bot Resistencias y Soportes es bastante complejo, pero muestra la potencia de la herramienta.",
+                    "updated": 1675278236252,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wiederum visuelles Skripting in seiner besten Form! Plotter verwenden stilisierte Polygone aus Koordinatenpunkten, um Linien und Formen zu zeichnen, die Daten darstellen. Jede Ebene, die in den Diagrammen zur Verfügung steht, wird mit einer Reihe von Definitionen erstellt, so wie Sie sie gerade sehen. Der besondere Fall des Bot Resistenzen und Unterstützungen ist ziemlich komplex, zeigt aber die Leistungsfähigkeit des Tools!",
+                    "updated": 1634218497006
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmanın en iyi yolu görsel komut dosyasıdır! Plotter'lar, verileri temsil eden çizgileri ve şekilleri işaretlemek için koordinat noktalarından yapılmış stilize çokgenler kullanır. Grafiklerde kullanıma sunulan her katman, şu anda baktığınız türden bir dizi tanımla oluşturulur. Dirençler ve Destekler botunun özel durumu oldukça karmaşıktır, ancak aracın gücünü sergilemektedir.!",
+                    "updated": 1636106574620
+                },
+                {
+                    "language": "RU",
+                    "text": "Опять же, визуальное описание в лучшем виде! Плоттеры используют стилизованные полигоны, произведенные из координатных точек для окрашивания линий и фигур, представляющих данные. Каждый слой произвел доступ на диаграммах, создавая наборы определений того типа, на который Вы смотрите прямо сейчас. Каждый случай бота сопротивления и поддержки является довольно сложным, но показывает мощность инструмента!",
+                    "updated": 1636746631697
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekali lagi, visual scripting yang terbaik! Plotter menggunakan polygons bergaya yang terbuat dari titik koordinat untuk melukis garis dan bentuk yang mewakili data. Setiap layer yang tersedia di charts dibuat dengan serangkaian definisi seperti yang kamu lihat sekarang. Kasus khusus bot Resistances dan Supports agak rumit, tetapi akan menunjukkan kekuatan Superalgos ini!",
+                    "updated": 1639709926721
+                },
+                {
+                    "language": "NL",
+                    "text": "Nogmaals, visuele scripting op zijn best! Plotters gebruiken gestileerde polygonen gemaakt van coördinaatpunten om lijnen en vormen te tekenen die gegevens vertegenwoordigen. Elke laag die in de grafieken beschikbaar wordt gemaakt, is gemaakt met een reeks definities van het soort waar u nu naar kijkt. Het specifieke geval van de Resistances and Supports bot is nogal complex, maar laat wel de kracht van de tool zien!",
+                    "updated": 1666785793012
+                },
+                {
+                    "language": "FR",
+                    "text": "Encore une fois, le script visuel à son apogée ! Les traceurs utilisent des polygones stylisés constitués de points de coordonnées pour peindre des lignes et des formes qui représentent des données. Chaque couche disponible sur les graphiques est créée à partir d'un ensemble de définitions du type de celles que vous regardez en ce moment. Le cas particulier du bot Résistances et Supports est assez complexe, mais il illustre bien la puissance de l'outil !",
+                    "updated": 1676897380772
+                }
+            ],
+            "updated": 1675278161644
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Support Zone 5 Polygon (to the left), expand it, and crawl your way up the branches for a sneak peek of how this beauty was built!",
+            "updated": 1636911282878,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cerca il Resistance 5 Polygon (qui a sinistra), espandilo e esplora i percorsi che collegano i vari componenti per osservare come è stata costruita questa bellezza!",
+                    "updated": 1618057208787,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Busca el polígono de la zona de soporte 5 (a la izquierda), expándelo y trepa por las ramas para ver cómo se construyó esta belleza",
+                    "updated": 1675278018093,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie das Polygon der Unterstützungszone 5 (links), erweitern Sie es und gehen Sie die Äste hinauf, um zu sehen, wie diese Schönheit gebaut wurde! ",
+                    "updated": 1642152254598
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek  Bölgesi 5 Poligonunu (Support Zone) (solda) bulun, genişletin ve bu güzelliğin nasıl inşa edildiğine bir göz atın.",
+                    "updated": 1665964221197
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите полигон Support Zone 5 (слева), расширьте его и проберитесь по ветвям, чтобы увидеть, как создавалась эта красота! ",
+                    "updated": 1641833235714
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan Support Zone 5 Polygon (ke kiri), perluas, dan jelajahi cabang-cabangnya untuk mengintip bagaimana keindahan ini dibangun!",
+                    "updated": 1639709793022
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek de Support Zone 5 Polygon (aan de linkerkant), breid deze uit en kruip je een weg omhoog langs de aftakkingen voor een voorproefje van hoe deze schoonheid werd gebouwd!",
+                    "updated": 1666785855321
+                },
+                {
+                    "language": "FR",
+                    "text": "Trouvez le polygone de la zone de support 5 (à gauche), développez-le et explorer le long des branches pour avoir un aperçu de la façon dont cette beauté a été construite !",
+                    "updated": 1668414674398
+                }
+            ]
+        }
+    ]
+}

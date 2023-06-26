@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 77,
+    "type": "Tutorial Step - Sell It Quick!",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-limit-sell-order",
+            "project": "Foundations"
+        },
+        "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Sicuramente hai notato che non ci sono più limit buy orders: al loro posto, cominciano ad apparire i sell orders!",
+                "updated": 1618061675585,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Estoy seguro de que has notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer!",
+                "updated": 1675280516347,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sicherlich haben Sie bemerkt, dass es keine limitierten Kaufaufträge mehr gibt, nachdem der Auftrag ausgeführt wurde. Stattdessen tauchen jetzt Verkaufsaufträge auf!",
+                "updated": 1634224422014
+            },
+            {
+                "language": "TR",
+                "text": "Sipariş doldurulduktan sonra artık limit satın alma emri olmadığını fark etmişsinizdir. Bunun yerine, satış emirleri ortaya çıkmaya başlar!",
+                "updated": 1636203864365
+            },
+            {
+                "language": "RU",
+                "text": "Я уверен, Вы заметили, что после того, как заказ был размещен, не осталось лимитных ордеров на покупку. Вместо этого начинают появляться заказы на продажу!",
+                "updated": 1637595913971
+            },
+            {
+                "language": "ID",
+                "text": "Aku yakin kamu mengetahui tidak ada lagi limit buy orders setelah pesanan terisi. Sebaliknya, sell orders mulai hadir!",
+                "updated": 1640562963215
+            },
+            {
+                "language": "NL",
+                "text": "Ik weet zeker dat je hebt opgemerkt dat er geen limiet aankooporders meer zijn nadat de bestelling is gevuld. In plaats daarvan verschijnen er verkooporders!",
+                "updated": 1666878322308
+            },
+            {
+                "language": "FR",
+                "text": "Je suis sûr que vous avez remarqué qu'il n'y a plus d'ordres d'achat limités après que l'ordre ait été exécuté. Au lieu de cela, les ordres de vente commencent à apparaître !",
+                "updated": 1676899092570
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Notice how the first Limit Sell Order is placed at 00:22 AM, the minute after the buy order filled!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come il Limit Sell Order è inserito alle 00:22, un minuto dopo che il buy order è stato evaso.",
+                    "updated": 1618061709740,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Observa cómo se coloca la primera Limit Sell Order a las 00:22 a.m., el minuto después de que se completó la orden de compra!",
+                    "updated": 1627313892474,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der erste Limit Sell Order um 00:22 Uhr platziert wird, eine Minute nachdem der Kaufauftrag ausgeführt wurde!",
+                    "updated": 1634224435222
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 'de nasıl verildiğine dikkat edin!",
+                    "updated": 1670007878805
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что первый Limit Sell Order выставляется в 00:21 утра - через минуту после выполнения ордера на покупку.",
+                    "updated": 1637596009712
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana Limit Sell Order pertama dipasang pada 00:22 AM, beberapa menit setelah buy order terisi!",
+                    "updated": 1640562980011
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe de eerste Limit Sell Order om 00:22 uur wordt geplaatst, de minuut nadat de kooporder is gevuld!",
+                    "updated": 1666878361205
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez comment le premier ordre de vente limite est placé à 00:22 AM, la minute après l'exécution de l'ordre d'achat !",
+                    "updated": 1676899124873
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's the same minute Superalgos would have gotten notice from the exchange that the order got filled. The Trading Bot connects with the exchange and goes through two distinct cycles. ",
+            "updated": 1616428810807,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È lo stesso minuto in cui Superalgos viene notificato dall'exchange che l'ordine è stato evaso. Il Trading Bot si connette con l'exchange e esegue due cicli distinti di operazioni.",
+                    "updated": 1618061767833,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es el minuto en que Superalgos habría recibido un aviso del exchange que se cumplió el pedido. El Trading Bot se conecta con el exchange y pasa por dos ciclos.",
+                    "updated": 1627313981863,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das ist die gleiche Minute, in der Superalgos die Nachricht von der Börse erhalten hätte, dass die Order ausgeführt wurde. Der Trading Bot verbindet sich mit der Börse und durchläuft zwei verschiedene Zyklen.",
+                    "updated": 1634224443687
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un borsadan siparişin doldurulduğuna dair bildirim almasıyla aynı dakika. Trading Bot, borsa ile bağlantı kurar ve iki farklı döngüden geçer.",
+                    "updated": 1636203973992
+                },
+                {
+                    "language": "RU",
+                    "text": "В ту же минуту Superalgos получил бы уведомление от биржи о том, что заказ был выполнен. Trading Bot соединяется с биржей и проходит два определенных цикла.",
+                    "updated": 1637596461485
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada saat yang sama Superalgos akan mendapat pemberitahuan dari exchange bahwa pesanan telah dipenuhi. Trading Bot terhubung dengan exchange dan melewati dua Cycle berbeda.",
+                    "updated": 1640563068267
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is op hetzelfde moment dat Superalgos bericht zou hebben gekregen van het handelsplatform dat de bestelling werd uitgevoerd. De Trading Bot maakt verbinding met het handelsplatform en doorloopt twee verschillende cycli.",
+                    "updated": 1666878430412
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est à la même minute que Superalgos aurait reçu un avis de l'exchange indiquant que l'ordre a été exécuté. Le Trading Bot se connecte à l'exchange et passe par deux cycles distincts.",
+                    "updated": 1676899163682
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In the first Cycle, it finds out the status of existing orders. In the second, it gives new instructions.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel primo Cycle, controlla lo stato degli ordini esistenti. Nel secondo, dà nuove istruzioni.",
+                    "updated": 1618061798692,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "El primer Cycle averigua el estado de los pedidos existentes. El segundo, da nuevas instrucciones.",
+                    "updated": 1627258710441,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im ersten Cycle informiert er sich über den Status der bestehenden Aufträge. Im zweiten Zyklus gibt er neue Anweisungen.",
+                    "updated": 1634224454050
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Döngüde mevcut siparişlerin durumunu öğrenir. İkincisinde yeni talimatlar verir.",
+                    "updated": 1636203996665
+                },
+                {
+                    "language": "RU",
+                    "text": "В первом Cycle он выясняет статус существующих ордеров. Во втором - дает новые инструкции.",
+                    "updated": 1637655276008
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada Cycle pertama, bot mengetahui status pesanan yang ada. Yang kedua, bot akan memberikan instruksi baru.",
+                    "updated": 1640563083904
+                },
+                {
+                    "language": "NL",
+                    "text": "In de eerste Cycle komt het de status van bestaande bestellingen te weten. In de tweede geeft het nieuwe instructies.",
+                    "updated": 1666878468319
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans le premier cycle, il s'informe du statut des ordres existants. Dans le second, il donne de nouvelles instructions.",
+                    "updated": 1676899191899
+                }
+            ]
+        }
+    ]
+}

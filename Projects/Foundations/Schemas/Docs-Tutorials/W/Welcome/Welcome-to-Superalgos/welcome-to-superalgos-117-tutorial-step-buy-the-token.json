@@ -1,0 +1,192 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 117,
+    "type": "Tutorial Step - Buy the Token!",
+    "definition": {
+        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap or 1Inch is the way to go!",
+        "updated": 1687724433178,
+        "icon": {
+            "name": "Crypto-Exchanges\\pancakeswap",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Jika kamu ingin mendukung orang-orang yang membangun Superalgos, membeli beberapa token di PancakeSwap atau 1Inch adalah cara yang harus dijalani! Inilah sebabnya...",
+                "updated": 1671602289461
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie die Leute, die Superalgos bauen, unterstützen wollen, ist der Kauf von Token bei PancakeSwap der richtige Weg! Das ist der Grund...",
+                "updated": 1641740815578
+            },
+            {
+                "language": "RU",
+                "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap или 1Inch - это то, что вам нужно! Вот почему...",
+                "updated": 1662035458578
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u inşa eden insanları desteklemek istiyorsanız, PancakeSwap veya 1Inch'te biraz jeton satın almak en doğru yoldur! İşte bu yüzden...",
+                "updated": 1670014500998,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Se desideri sostenere le persone che costruiscono Superalgo, l'acquisto di token in PancakeSwap o 1Inch è la strada da percorrere! Ecco perché...",
+                "updated": 1666387435875
+            },
+            {
+                "language": "NL",
+                "text": "Als je de mensen wilt steunen die Superalgos bouwen, is het kopen van tokens in PancakeSwap of 1Inch de juiste keuze! Dit is waarom...",
+                "updated": 1667137312855
+            },
+            {
+                "language": "ES",
+                "text": "Si quieres apoyar a la gente que construye Superalgos, ¡compra tokens en PancakeSwap o 1Inch! Este es el motivo...",
+                "updated": 1675364335296
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos is a community-owned crypto project. The native token is used to incentivize contributions, meaning that the project distributes the token exclusively among open-source contributors.",
+            "updated": 1660159630125,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Superalgos adalah proyek crypto milik komunitas. Token asli digunakan untuk memberi insentif pada tiap kontribusi, yang berarti bahwa proyek mendistribusikan token secara eksklusif kepada para kontributor sumber terbuka.",
+                    "updated": 1671602700309
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein gemeinschaftlich betriebenes Krypto-Projekt. Der native Token wird verwendet, um Anreize für Beiträge zu schaffen, was bedeutet, dass das Projekt den Token ausschließlich unter den Mitwirkenden verteilt. Jeder Dollar, den Sie für den Kauf des Superalgos SA Token ausgeben, geht direkt an die Leute, die Ihnen dieses großartige Stück Software liefern!",
+                    "updated": 1641740825089
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, то есть проект распределяет токен исключительно среди вкладчиков в проект с открытым исходным кодом.",
+                    "updated": 1662035519627
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, topluluğa ait bir kripto projesidir. Yerel token, katkıları teşvik etmek için kullanılır, yani proje tokenı yalnızca açık kaynaklı katkıda bulunanlar arasında dağıtır",
+                    "updated": 1670014507976,
+                    "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Superalgos è un progetto crittografico di proprietà della comunità. Il token nativo viene utilizzato per incentivare i contributi, il che significa che il progetto distribuisce il token esclusivamente tra i contributori open source.",
+                    "updated": 1666387485848
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos is een cryptoproject dat eigendom is van de gemeenschap. Het native token wordt gebruikt om bijdragen te stimuleren, wat inhoudt dat het project het token exclusief distribueert onder open-source deelnemers.",
+                    "updated": 1667137353350
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos es un proyecto criptográfico propiedad de la comunidad. El token nativo se utiliza para incentivar las contribuciones, lo que significa que el proyecto distribuye el token exclusivamente entre los contribuyentes de código abierto.",
+                    "updated": 1675364357337
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Every dollar goes directly to contributors!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый доллар, потраченный вами на покупку Superalgos SA Token, идет непосредственно тем, кто создал это потрясающее программное обеспечение!",
+                    "updated": 1662035534953
+                },
+                {
+                    "language": "IT",
+                    "text": "Ogni dollaro speso per l'acquisto del token Superalgos SA va direttamente alle persone che ti portano questo fantastico software!",
+                    "updated": 1666387516969
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke Euro die u uitgeeft aan het kopen van de Superalgos SA Token gaat rechtstreeks naar de mensen die u dit geweldige stukje software brengen!",
+                    "updated": 1667137392998
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos SA Token satın almak için harcadığınız her dolar doğrudan size bu harika yazılımı getiren kişilere gidiyor!",
+                    "updated": 1670014536860
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap dollar yang kamu habiskan untuk membeli token Superalgos SA pergi langsung ke orang-orang yang membawakanmu software luar biasa ini!",
+                    "updated": 1671602815150
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada dólar que gastes en la compra de Superalgos SA Token se destinará directamente a la gente que te ofrece este increíble software.",
+                    "updated": 1675364387763
+                }
+            ],
+            "updated": 1687724636390
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos SA Token->superalgos.org/token-overview.shtml",
+            "updated": 1649169863194,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos SA Token hakkında daha fazla bilgi edinin->superalgos.org/token-overview.shtml",
+                    "updated": 1654394312854,
+                    "style": "Link"
+                },
+                {
+                    "language": "NL",
+                    "text": "Meer informatie over het Superalgos SA-token->superalgos.org/token-overview.shtml",
+                    "updated": 1667137415562
+                },
+                {
+                    "language": "ID",
+                    "text": "Belajar lebih lanjut tentang Token Superalgos SA->superalgos.org/token-overview.shtml",
+                    "updated": 1671602839634
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;",
+            "updated": 1687724385128
+        },
+        {
+            "style": "Link",
+            "text": "Buy the token on 1Inch->app.1inch.io/#/56/classic/swap/USDT/SA",
+            "translations": [
+                {
+                    "language": "NL",
+                    "text": "Koop de token op 1Inch->app.1inch.io/#/56/classic/swap/BTCB/SA",
+                    "updated": 1667137436582
+                },
+                {
+                    "language": "ID",
+                    "text": "Beli token di 1Inch->app.1inch.io/#/56/classic/swap/BTCB/SA",
+                    "updated": 1671602851047
+                }
+            ],
+            "updated": 1687724317594
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;"
+        },
+        {
+            "style": "Link",
+            "text": "Buy the token on PancakeSwap->pancakeswap.finance/swap?outputCurrency=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&chainId=56",
+            "updated": 1687724267362
+        },
+        {
+            "style": "Text",
+            "text": "</br>",
+            "updated": 1660160149201
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 110,
+    "type": "Tutorial Step - Monitoring the Fun Way!",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-limit-buy-order",
+            "project": "Foundations"
+        },
+        "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Pensavi che ti avrei lasciato monitorare la sessione di trading dal vivo solo guardando l'elenco degli ordini sull'Exchange? Certo che no!",
+                "updated": 1666394563469,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Creías que te dejaría seguir la Live Trading Session viendo la lista de órdenes en la exchange? ¡Imposible!",
+                "updated": 1675362680600,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie dachten, ich würde Sie den Live Trading Session überwachen lassen, indem Sie die hässliche Liste der Aufträge an der Börse beobachten? Weit gefehlt!",
+                "updated": 1634245518290
+            },
+            {
+                "language": "TR",
+                "text": "Borsadaki emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemenize izin vereceğimi mi sandınız? Mümkün değil!",
+                "updated": 1666066204886
+            },
+            {
+                "language": "ID",
+                "text": "Kamu pikir aku akan membiarkan kamu memantau Live Trading Session dan menonton list order di exchange? Tidak mungkin!",
+                "updated": 1640596146921
+            },
+            {
+                "language": "RU",
+                "text": "Вы думали, что я позволю вам следить за ходом торговой сессии, наблюдая за списком ордеров на бирже? Ни за что!",
+                "updated": 1642771941525
+            },
+            {
+                "language": "NL",
+                "text": "Dacht je dat ik je de Live Trading Session zou laten volgen door de lijst met orders op het handelsplatform te bekijken? Echt niet!",
+                "updated": 1667135901054
+            }
+        ],
+        "updated": 1687725533969
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos produces the same kind of simulations you fell in love with for live sessions too, in realtime!",
+            "updated": 1616435345542,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos produce lo stesso tipo di simulazioni di cui ti sei innamorato anche per le live sessions, e lo fa in tempo reale!",
+                    "updated": 1618071876792,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos también produce el mismo tipo de simulaciones que te enamoraron para las sesiones en vivo, ¡en tiempo real!",
+                    "updated": 1624485018498,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos produziert die gleiche Art von Simulationen, in die Sie sich verliebt haben, auch für Live-Sessions, in Echtzeit!",
+                    "updated": 1634245526070
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, gerçek zamanlı olarak canlı oturumlar için de aşık olduğunuz simülasyonları üretir!",
+                    "updated": 1636632876142
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menghasilkan simulasi yang akan kamu cintai serta live sessions juga, secara realtime!",
+                    "updated": 1640596334283
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos производит те ж�� симуляции, в которые вы влюбились, и для живых сессий, в реальном времени!",
+                    "updated": 1642771958690
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos produceert hetzelfde soort simulaties waar je verliefd op werd, ook voor live sessies, in realtime!",
+                    "updated": 1667135923524
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Can you see the first few buy orders on the chart?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vedi i primi buy orders sul grafico?",
+                    "updated": 1618071889300,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes ver las primeras órdenes de compra?",
+                    "updated": 1625929057040,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Können Sie die ersten Kaufaufträge auf dem Chart sehen?",
+                    "updated": 1634245535663
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafikteki ilk birkaç satın alma siparişini görebiliyor musunuz?",
+                    "updated": 1636632901099
+                },
+                {
+                    "language": "ID",
+                    "text": "Dapatkah kamu melihat beberapa buy orders pertama pada chart?",
+                    "updated": 1640596368483
+                },
+                {
+                    "language": "RU",
+                    "text": "Видите ли вы на графике первые несколько ордеров на покупку?",
+                    "updated": 1642771971720
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie je de eerste paar kooporders in de grafiek?",
+                    "updated": 1667135936646
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "I just brought you to the present time, on the 1-minute chart. You should be able to see the latest candle forming and a few orders already. The Rate Scale is in automatic mode at both ends. Feel free to change the scales to your liking.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti ho appena portato al momento attuale, sul grafico da 1-min. Dovresti vedere le ultime candele che si formano e già alcuni ordini. La Rate Scale è in automatico a entrambi gli estremi: cambiala pure come preferisci.",
+                    "updated": 1618071961435,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te acabo de traer al presente, en el gráfico de 1 minuto. Deberías poder ver la última formación de velas y algunas órdenes. El Rate Scale está en modo automático en ambos extremos. Siéntete libre de cambiar las escalas a tu gusto.",
+                    "updated": 1675362723772,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie gerade in die Gegenwart gebracht, in den 1-Minuten-Chart. Sie sollten in der Lage sein, die letzte Kerze zu sehen, die sich gebildet hat, und bereits ein paar Aufträge. Die Rate Scale ist an beiden Enden im automatischen Modus. Es steht Ihnen frei, die Skalen nach Ihren Wünschen zu ändern.",
+                    "updated": 1634245542981
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni 1 dakikalık grafikte şimdiki zamana getirdim. En son mum oluşumunu ve birkaç siparişi zaten görebilmeliyorsun. Hız Ölçeği her iki uçta da otomatik modda. Ölçekleri beğeninize göre değiştirmekten çekinmeyin.",
+                    "updated": 1636632974769
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawa kamu ke waktu sekarang, pada 1-minute chart. Kamu harus dapat melihat pembentukan candle terbaru dan beberapa orders sudah ada. Rate Scale dalam mode otomatis di kedua ujungnya. Jangan ragu untuk mengubah scales sesuai keinginanmu.",
+                    "updated": 1640596463623
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что привел вас в настоящее время, на 1-минутном графике. Вы должны видеть, как формируется последняя свеча и уже есть несколько ордеров. Шкала цен находится в автоматическом режиме на обоих концах. Не стесняйтесь менять шкалы по своему вкусу.",
+                    "updated": 1642772032524
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb je zojuist naar de huidige tijd gebracht, op de 1-minutengrafiek. Je zou de laatste kaarsvorming en een paar orders al moeten kunnen zien. De Rate Scale staat aan beide uiteinden in de automatische modus. Voel je vrij om de as-schaal naar wens te veranderen.",
+                    "updated": 1667135990388
+                }
+            ]
+        }
+    ]
+}

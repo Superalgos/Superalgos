@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 84,
+    "type": "Tutorial Step - Formulations...",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "formula"
+        },
+        "text": "What you just went through is the definition of the Limit Buy Order that is placed and cancelled every minute until it gets filled.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quella che hai appena guardato è la definizione del Limit Buy Order che viene piazzato e cancellato ogni minuto finchè non viene evaso.",
+                "updated": 1618065276195,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Lo que acaba de pasar es la definición de la Limit Buy Order que se coloca y cancela cada minuto hasta que se llena.",
+                "updated": 1624459775257,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Was Sie gerade durchlaufen haben, ist die Definition der Limit Buy Order die jede Minute platziert und storniert wird, bis sie erfüllt ist.",
+                "updated": 1634225672180
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım her dakika verilen ve iptal edilen Limitli Alış Emrinin (Limit Buy Order ) tanımıdır.",
+                "updated": 1636208410014
+            },
+            {
+                "language": "RU",
+                "text": "То, что Вы только что прошли - это определение Limit Buy Order, который размещается и отменяется каждую минуту, пока не будет заполнен. ",
+                "updated": 1637756921540
+            },
+            {
+                "language": "ID",
+                "text": "Apa yang baru saja kamu alami adalah definisi dari Limit Buy Order yang ditempatkan dan dibatalkan setiap menit hingga terisi.",
+                "updated": 1640565182226
+            },
+            {
+                "language": "NL",
+                "text": "Wat u zojuist hebt doorgenomen, is de definitie van de Limit Buy Order die elke minuut wordt geplaatst en geannuleerd totdat deze wordt gevuld.",
+                "updated": 1666880047126
+            },
+            {
+                "language": "FR",
+                "text": "Ce que vous venez de voir est la définition de l'ordre d'achat limite qui est placé et annulé chaque minute jusqu'à ce qu'il soit exécuté.",
+                "updated": 1676957824823
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the node that determines the rate of the limit order. Remember what we discussed earlier about placing the order at the rate of the fourth support level?",
+            "updated": 1616429339703,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questo è il nodo che determina il prezzo del limit order. Ricordi quando abbiamo parlato di come l'ordine viene piazzato al quarto livello di supporto?",
+                    "updated": 1618065331055,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Este es el nodo que determina la tasa de la orden límite. ¿Recuerdas lo que discutimos anteriormente acerca de realizar el pedido a razón del cuarto nivel de soporte?",
+                    "updated": 1624459814745,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist der Knoten, der den Kurs der Limit-Order bestimmt. Erinnern Sie sich, was wir vorhin über die Platzierung der Order zum Kurs der vierten Unterstützungsebene besprochen haben?",
+                    "updated": 1634225663708
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, limit emrinin oranını belirleyen düğümdür. Dördüncü destek seviyesinde  sipariş vermekle ilgili daha önce konuştuğumuz şeyi hatırlıyor musunuz?",
+                    "updated": 1670008848206
+                },
+                {
+                    "language": "RU",
+                    "text": "Это узел, который определяет скорость лимитного ордера. Помните, что мы обсуждали ранее о размещении заказа по ставке четвертого уровня поддержки?",
+                    "updated": 1637757006124
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah node yang menentukan tingkat limit order. Ingat apa yang telah kita bahas sebelumnya tentang menempatkan pesanan pada tingkat support level keempat?",
+                    "updated": 1640565227794
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is het knooppunt dat de snelheid van de limietorder bepaalt. Weet je nog wat we eerder hebben besproken over het plaatsen van de order tegen het tarief van het vierde ondersteuningsniveau?",
+                    "updated": 1666880085030
+                },
+                {
+                    "language": "FR",
+                    "text": "Voici le nœud qui détermine le taux de l'ordre limite. Vous vous souvenez de ce que nous avons dit précédemment sur le placement de l'ordre au niveau du quatrième niveau de support ?",
+                    "updated": 1676957871387
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Formula attached to the Order Rate node and click Edit on the menu.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai alla Formula collegata al nodo Order Rate e clicca Edit sul menu.",
+                    "updated": 1618065364382,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a la Formula adjunta al nodo Order Rate y haz clic en Edit en el menú.",
+                    "updated": 1624459900810,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu der Formula, die mit dem Knoten Order Rate verbunden ist, und klicken Sie im Menü auf Bearbeiten.",
+                    "updated": 1634225683670
+                },
+                {
+                    "language": "TR",
+                    "text": "Sipariş Oranı ( Order Rate ) düğümünnün altındaki formüle ( Formula ) düğümüne gidin ve menüden Düzenle'ye (Edit) tıklayın.",
+                    "updated": 1636207530541
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к Formula, прикрепленной к узлу Order Rate и нажмите Edit в меню.",
+                    "updated": 1637757201102
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke Formula yang dilampirkan ke node Order Rate dan klik Edit pada menu.",
+                    "updated": 1640565275893
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de Formula die is gekoppeld aan het knooppunt Order Rate en klik op Edit in het menu.",
+                    "updated": 1666880123610
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez dans la formule rattachée au nœud Order Rate et cliquez sur Edit dans le menu.",
+                    "updated": 1676957917674
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Well... that is how it's done! As you can see, the syntax is virtually self-explanatory! It involves defining the time frame, the indicator, and the indicator property involved.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco, è così che funziona! Come vedi, la sintassi è intuitiva. Comprende la definizione del time frame, degli indicatori interessati e delle loro proprietà.",
+                    "updated": 1618065469493,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Bueno... ¡así es como se hace! Como puedes ver, la sintaxis es prácticamente auto-explicativa. Implica definir el marco de tiempo, el indicador y la propiedad del indicador involucrada.",
+                    "updated": 1675281020711,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun... so wird es gemacht! Wie Sie sehen können, ist die Syntax praktisch selbsterklärend! Sie umfasst die Definition des Zeitrahmens, des Indikators und der betreffenden Indikatoreigenschaft.",
+                    "updated": 1634225691378
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte... böyle yapılır! Gördüğünüz gibi, sözdizimi neredeyse kendi kendini açıklayıcıdır! Zaman dlimini (chart.at01min), göstergeyi ( Suport ) ve ilgili gösterge özelliğini ( support4rate ) içerir.",
+                    "updated": 1670008914878
+                },
+                {
+                    "language": "RU",
+                    "text": "Итак... как это происходит? Как Вы можете видеть, синтаксис практически не требует пояснений. Это включает в себя определение временных рамок, индикатор и соответствующее свойство индикатора.",
+                    "updated": 1637757425980
+                },
+                {
+                    "language": "ID",
+                    "text": "Nah... begitulah caranya! Seperti yang kamu lihat, syntax hampir cukup jelas! Ini melibatkan pendefinisian time frame, indicator, dan indicator property yang terlibat.",
+                    "updated": 1640565373278
+                },
+                {
+                    "language": "NL",
+                    "text": "Nou... zo wordt het gedaan! Zoals u kunt zien, is de syntaxis vrijwel vanzelfsprekend! Het omvat het definiëren van het tijdsbestek, de indicator en de betreffende indicatoreigenschap.",
+                    "updated": 1666880176910
+                },
+                {
+                    "language": "FR",
+                    "text": "Eh bien... c'est comme ça que ça se passe ! Comme vous pouvez le voir, la syntaxe est pratiquement explicite ! Il s'agit de définir le cadre temporel, l'indicateur, et la propriété de l'indicateur concerné.",
+                    "updated": 1676957948493
+                }
+            ]
+        }
+    ]
+}

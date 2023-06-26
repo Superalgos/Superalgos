@@ -1,0 +1,358 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Accessing Remotely?",
+    "definition": {
+        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
+        "icon": {
+            "name": "network-node",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Jika kamu menjalankan Client ini di mesin yang sama, saranku click Next dan skip step ini segera!",
+                "updated": 1614426991691,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step!",
+                "updated": 1614718112355,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si estas accediendo al Client desde el mismo equipo, puedes saltarte este paso!",
+                "updated": 1667509163737,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
+                "updated": 1623958262097,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je de Client benaderd vanaf hetzelfde apparaat, klik dan op Next en sla deze stap over!",
+                "updated": 1633886528639,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
+                "updated": 1634161773115,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Если Вы получаете доступ к Client с того же устройства, то можете нажать Next и пропустить этот шаг.",
+                "updated": 1637439306449
+            },
+            {
+                "language": "TR",
+                "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
+                "updated": 1635579026048
+            },
+            {
+                "language": "PL",
+                "text": "Jeżeli łączysz się do Client z tego samego komputera, możesz kliknąć Next i pominąć ten krok!",
+                "updated": 1674835718728
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are accessing the Client from a remote machine, you must adjust the LAN Network Node configuration.",
+            "updated": 1636909673978,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Jika kamu mengakses Client dari remote machine, kamu harus menyesuaikan konfigurasi LAN Network Node.",
+                    "updated": 1640568925485,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Se ti stai collegando al Client da remoto, devi configurare il Network Node prima di proseguire.",
+                    "updated": 1614718136636,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si está accediendo al Client desde un equipo remoto, debes configurar el LAN Network Node. ",
+                    "updated": 1667509246348,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous accédez au Client à partir d'une connexion a distance, vous devez ajuster la configuration du nœud LAN Network avant de poursuivre.",
+                    "updated": 1666253784910,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je de Client benaderd vanaf een ander apparaat moet je de LAN Network Node configuratie aanpassen.",
+                    "updated": 1666611338438,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Konfiguration des LAN-Netzwerkknotens anpassen.",
+                    "updated": 1642149728190,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если Вы получаете доступ к Client с удаленного устройства, то необходимо отрегулировать конфигурацию узел LAN Network Node перед тем, как Вы продолжите.",
+                    "updated": 1641803204715
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \" LAN Network Node \" düğümünün yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1669758282791
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeżeli łączysz się do Client z innego komputera, musisz dostosować konfigurację LAN Network Node.",
+                    "updated": 1674835808698
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Click Configure on the top-right corner of the LAN Network Node menu.",
+            "updated": 1636909656938,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Click Configure disebelah kanan atas dari LAN Network Node menu.",
+                    "updated": 1640568633375,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Clicca Configure nell'angolo in alto a destra del menu del Network Node.",
+                    "updated": 1614718181211,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en Configurar en la esquina superior derecha del menú LAN Network Node",
+                    "updated": 1675206646096,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur Configure dans le coin supérieur droit du noeud LAN Network.",
+                    "updated": 1666253845977,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
+                    "updated": 1623958430272,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op Configure in de rechterbovenhoek van het LAN Network Node menu.",
+                    "updated": 1666611398359,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Menüs LAN-Network Node. ",
+                    "updated": 1642149757458,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Configure в правом верхнем углу в меню узла LAN Network Node.",
+                    "updated": 1641803230835
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü menüsünün (LAN Network Node ) sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
+                    "updated": 1669758312596
+                },
+                {
+                    "language": "PL",
+                    "text": "Kliknij Configure w prawym górnym rogu menu LAN Network Node.",
+                    "updated": 1674835836809
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Change the host parameter for the IP address of the machine running the backend. ",
+            "updated": 1636909829414,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Ubah host parameter untuk IP Address dari mesin yang berjalan di backend.",
+                    "updated": 1640568700553,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Inserisci nel parametro host l'indirizzo IP della macchina su cui é in esecuzione il backend.",
+                    "updated": 1614718382791,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cambia el parámetro de host por la dirección IP de la máquina que ejecuta el servidor",
+                    "updated": 1675206651980,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
+                    "updated": 1666253928047,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Verander de waarde in het host veld, in het IP adres van het apparaat waar het backend draait.",
+                    "updated": 1666611484373,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie den Parameter host für die IP-Adresse des Rechners, auf dem das Backend läuft. ",
+                    "updated": 1642149771703,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin.",
+                    "updated": 1644848902048
+                },
+                {
+                    "language": "RU",
+                    "text": "Измените параметр host на IP-адрес устройства, на котором выполняется серверная часть.",
+                    "updated": 1641803399273
+                },
+                {
+                    "language": "PL",
+                    "text": "Zmień parametr host na adres IP maszyny, na której działa backend.",
+                    "updated": 1674835881448
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "If you use a reverse proxy, add this parameter...",
+            "updated": 1636909970492,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если Вы используете обратный прокси-сервер, добавьте этот параметр...",
+                    "updated": 1637439507774
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan reverse proxy, tambahkan parameter ini...",
+                    "updated": 1640568742574
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer bir ters proxy kullanıyorsanız, bu parametreyi ekleyin...",
+                    "updated": 1654394232057,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous utilisez un reverse proxy ajoutez ce paramètre...",
+                    "updated": 1666253948039
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer je een reverse proxy gebruikt, voeg dan deze instelling toe.",
+                    "updated": 1666611522719
+                },
+                {
+                    "language": "ES",
+                    "text": "Si utilizas un proxy inverso, añade este parámetro...",
+                    "updated": 1675206662613
+                },
+                {
+                    "language": "PL",
+                    "text": "Jeśli używasz reverse proxy, dodaj ten parametr...",
+                    "updated": 1674835894303
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "\"webSocketsExternalURL\": \"wss://mydomain.com:443\""
+        },
+        {
+            "style": "List",
+            "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute!",
+            "updated": 1636910042545,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Sekarang tutup editor. Jika konfigurasinya benar, pesan error akan hilang dengan cepat!",
+                    "updated": 1640568845885,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Esci dalla configurazione spostando il puntatore del mouse dalla bolla! Se i parametri sono corretti, il messaggio di errore nel Network Node dovrebbe scomparire nel giro di un minuto!",
+                    "updated": 1614718314979,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora cierra el editor. Si la configuración es correcta, ¡el mensaje de error debería desaparecer en un minuto!",
+                    "updated": 1675206672045,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Fermez maintenant l'éditeur. Si la configuration est correcte, le message d'erreur devrait disparaître en une minute !",
+                    "updated": 1666253997151,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "updated": 1623958550219,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Sluit nu de editor. Als de configuratie correct is aangepast, zal de foutmelding binnen een minuut verdwijnen!",
+                    "updated": 1666611638462,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie nun den Editor. Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung in einer Minute verschwinden! ",
+                    "updated": 1642149788915,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь закройте редактор. Если конфигурация верна, сообщение об ошибке должно исчезнуть через минуту.",
+                    "updated": 1637439573679
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi düzenleyiciyi kapatın. Yapılandırma doğruysa, hata mesajı bir dakika içinde kaybolacaktır!",
+                    "updated": 1644848933672
+                },
+                {
+                    "language": "PL",
+                    "text": "Teraz zamknij edytor. Jeśli konfiguracja jest poprawna, komunikat o błędzie powinien za chwilę zniknąć!",
+                    "updated": 1674835922922
+                }
+            ]
+        }
+    ]
+}

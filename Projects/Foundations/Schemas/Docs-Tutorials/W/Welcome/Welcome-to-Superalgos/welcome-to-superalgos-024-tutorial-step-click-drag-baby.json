@@ -1,0 +1,239 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Click & Drag Baby!",
+    "definition": {
+        "icon": {
+            "name": "Mouse\\hand-drag",
+            "project": "Foundations"
+        },
+        "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Voglio mostrarti qualcosa, mentre l'operazione di data mining è in corso. Ti insegnerò a camminare nel giro di un attimo!",
+                "updated": 1614788444726,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik!",
+                "updated": 1616698440258,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos!",
+                "updated": 1624227902845,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet: Ich bringe Ihnen bei, wie man sich im Entwurfsbereich bewegt... in zwei Sekunden!",
+                "updated": 1660419117659,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden!",
+                "updated": 1634926689787,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я хочу показать вам кое-что, пока проводится добыча данных. Я научу Вас передвигаться... за 2 секунды!",
+                "updated": 1641808444202,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede!",
+                "updated": 1635944955783
+            },
+            {
+                "language": "FR",
+                "text": "Je veux te montrer quelque chose pendant que l'opération d'extraction de données progresse. Je vais t'apprendre à marcher... en deux secondes !",
+                "updated": 1667204284159
+            },
+            {
+                "language": "PL",
+                "text": "Chcę Ci coś pokazać podczas gdy dane są gromadzone. Nauczę Cię chodzić... za dwie sekundy.",
+                "updated": 1674945809755
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Just click and drag with your mouse!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "É facile: clicca e trascina usando il mouse!",
+                    "updated": 1614788236203,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Cukup click dan drag mouse-mu!",
+                    "updated": 1616698465027,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Simplemente haz clic y arrastrar con el mouse.",
+                    "updated": 1624491408788,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken und ziehen Sie einfach mit Ihrer Maus!",
+                    "updated": 1634163520213,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gewoon klikken en slepen met je muis!",
+                    "updated": 1634926782434,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Просто нажмите на мышку и потащите!",
+                    "updated": 1635607627239,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle-Bırak gibi.",
+                    "updated": 1644850449377
+                },
+                {
+                    "language": "FR",
+                    "text": "Il suffit de cliquer et de glisser avec votre souris !",
+                    "updated": 1667204299017
+                },
+                {
+                    "language": "PL",
+                    "text": "Wystarczy kliknąć na węzeł i przeciągnąć myszką!",
+                    "updated": 1674945928842
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Easy, right? Great! However, the Design Space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
+            "updated": 1660143557922,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Semplice, no? Ad ogni modo, il Design Space è molto esteso e non vorrai farti venire la tendinite cliccando e trascinando in giro in questo modo.",
+                    "updated": 1614789321190,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mudah bukan? Bagus! Design space area yang luas, dan aku tidak enak jika melajarkanmu hal yang rumit dengan mendrag seperti ini. ",
+                    "updated": 1616698595115,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el Design Space es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
+                    "updated": 1668195607014,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Leicht, nicht wahr? Großartig! Der Entwurfsbereich ist jedoch riesig, und ich möchte nicht, dass Sie sich eine Sehnenscheidenentzündung zuziehen, wenn Sie ihn auf diese Weise durchqueren.",
+                    "updated": 1660419063464,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gemakkelijk toch? Echter de Design Space is enorm en ik zou niet willen dat je een muisarm krijgt als je zo rondsleept.",
+                    "updated": 1666613317769,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Легко, правда? Отлично! Однако пространство Design Space очень велико, и я бы не хотел, чтобы вы заработали тендинит, таскаясь по нему таким образом.",
+                    "updated": 1662032558703,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kolay değil mi? Harika! Ancak tasarım alanı çok büyük bir yer. Ama bu şekilde dolaşarak eklemlerine zarar vermeni istemem :=).",
+                    "updated": 1669837263042
+                },
+                {
+                    "language": "FR",
+                    "text": "Facile, non ? Génial ! Cependant, le Design Space est immense et je ne voudrais pas que vous ayez une tendinite en vous déplaçant comme cela.",
+                    "updated": 1667204335228
+                },
+                {
+                    "language": "PL",
+                    "text": "Proste, prawda? Świetnie! Jednak Design Space to ogromne miejsce i nie chciałabym, żebyś nabawił się zapalenia ścięgien przeciągając węzły w ten sposób.",
+                    "updated": 1674945919279
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "I'll teach you a couple more tricks in the next couple of steps.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nei prossimi step ti insegnerò un altro paio di trucchetti.",
+                    "updated": 1614788431318,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan melajarkan beberapa trik lanjutan di step berikutnya",
+                    "updated": 1616698622895,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te enseñaré un par de trucos más en los siguientes pasos.",
+                    "updated": 1618435496165,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde Ihnen in den nächsten Schritten noch ein paar weitere Tricks beibringen.",
+                    "updated": 1634163537155,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je nog een paar trucjes leren in de volgende stappen.",
+                    "updated": 1634927063636,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я научу Вас ещё паре трюкам в следующих нескольких шагах.",
+                    "updated": 1635608431495,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımda size birkaç numara daha öğreteceğim.",
+                    "updated": 1635945085983
+                },
+                {
+                    "language": "FR",
+                    "text": "Je vais t'apprendre d'autres astuces dans les prochaines étapes.",
+                    "updated": 1667204354547
+                },
+                {
+                    "language": "PL",
+                    "text": "W kolejnych krokach nauczę Cię jeszcze kilku sztuczek.",
+                    "updated": 1674945938298
+                }
+            ]
+        }
+    ]
+}

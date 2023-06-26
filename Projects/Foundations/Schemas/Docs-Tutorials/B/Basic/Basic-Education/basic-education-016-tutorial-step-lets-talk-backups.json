@@ -1,0 +1,185 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Let's Talk Backups",
+    "definition": {
+        "text": "Backups are very powerful, and there are various use cases! When you click on the button, the node and its offspring are saved on a JSON file!",
+        "updated": 1636302782978,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I backup sono molto potenti e ci sono vari casi d'uso! Quando fai clic sul pulsante, il nodo e la sua progenie vengono salvati su un file JSON!",
+                "updated": 1666638287267,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los Backups son muy potentes, ¡y hay varios casos de uso! Al hacer clic en el botón, el nodo y sus descendientes se guardan en un archivo JSON.",
+                "updated": 1675376002117,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Backups sind sehr leistungsfähig, und es gibt mehrere Anwendungsfälle! Wenn Sie auf die Schaltfläche \"Backup\" klicken, werden der Knoten und seine Unterknoten in einer JSON-Datei gespeichert!",
+                "updated": 1634333266362
+            },
+            {
+                "language": "TR",
+                "text": "Yedeklemeler ( Backups ) çok güçlüdür ve çeşitli kullanım durumları vardır! Düğmeye tıkladığınızda, düğüm ve yavruları bir JSON dosyasına kaydedilir!",
+                "updated": 1636789947185
+            },
+            {
+                "language": "RU",
+                "text": "Создание резервных копий является очень мощным инструментом, и существуют различные варианты его использования! Когда вы нажимаете на кнопку, узел и его потомки сохраняются в JSON-файле!",
+                "updated": 1640867467058
+            },
+            {
+                "language": "ID",
+                "text": "Backups sangat dibutuhkan, dan ada di berbagai kasus penggunaan! Ketika kamu mengklik tombol, node dan turunannya disimpan pada file JSON!",
+                "updated": 1644515762097
+            },
+            {
+                "language": "NL",
+                "text": "Backups zijn erg krachtig en er zijn verschillende gebruiksscenario's! Wanneer u op de knop klikt, worden het  knooppunt en zijn sub-knooppunten opgeslagen in een JSON-bestand!",
+                "updated": 1668337354259
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may want to backup a structure of nodes to safeguard your work or to keep a copy of the structure in its current state.",
+            "updated": 1615546257502,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi fare il backup di una struttura di nodi per salvare il tuo lavoro o mantenere una copia della struttura.",
+                    "updated": 1619465931399,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que desees realizar una copia de seguridad de una estructura de nodos para guardar tu trabajo o mantener una copia de la estructura en su estado actual.",
+                    "updated": 1626044659057,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können eine Struktur von Knoten sichern, um Ihre Arbeit zu schützen oder um eine Kopie der Struktur in ihrem aktuellen Zustand zu erhalten.",
+                    "updated": 1634333291426
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışmanızı korumak veya yapının bir kopyasını mevcut durumunda tutmak için bir düğüm yapısını yedeklemek isteyebilirsiniz.",
+                    "updated": 1636789960355
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете захотеть создать резервную копию структуры узлов, чтобы обезопасить свою работу или сохранить копию структуры в ее текущем состоянии.",
+                    "updated": 1640867481764
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin ingin membuat cadangan struktur node untuk melindungi pekerjaanmu atau menyimpan salinan struktur dalam kondisi saat ini.",
+                    "updated": 1644515843802
+                },
+                {
+                    "language": "NL",
+                    "text": "Mogelijk wilt u een back-up maken van een structuur van knooppunten om uw werk te beveiligen of om een kopie van de structuur in de huidige staat te houden.",
+                    "updated": 1668337376981
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a backup of the Lightning Strike trading system and check your downloads folder!",
+            "updated": 1615546438350,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai un backup del nodo Trading System e controlla la tua cartella Downloads!",
+                    "updated": 1619465951034,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie ein Backup des Lightning Strike trading system und überprüfen Sie Ihren Download-Ordner!",
+                    "updated": 1634333312934
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike ticaret sisteminin yedeğini alın ve indirilenler klasörünüzü kontrol edin!",
+                    "updated": 1636789977365
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию торговой системы Lightning Strike и проверьте папку загрузок!",
+                    "updated": 1640867496530
+                },
+                {
+                    "language": "ID",
+                    "text": "Cobalah backup Lightning Strike trading system dan periksa folder unduhan kamu!",
+                    "updated": 1644515910551
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Lightning Strike handelssysteem en controleer uw downloadmap!",
+                    "updated": 1668337404517
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz una copia de seguridad del Lightning Strike trading system y comprueba tu carpeta de descargas.",
+                    "updated": 1675376034096
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The file is downloaded by the browser and stored in the default Downloads folder. If you take multiple backups of the same file, the browser renames the file with sequential numbers.",
+            "updated": 1615546360738,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il file viene scaricato dal browser e salvato nella cartella Downloads di default. Se fai più backup dello stesso nodo, i file salvati e rinominati con numeri in sequenza.",
+                    "updated": 1619466028542,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "El navegador descarga el archivo y lo almacena en la carpeta Descargas. Si realizas varias copias del mismo archivo, el navegador cambia el nombre con números secuenciales.",
+                    "updated": 1626045200466,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Datei wird vom Browser heruntergeladen und im Standardordner Downloads gespeichert. Wenn Sie mehrere Sicherungskopien der gleichen Datei erstellen, benennt der Browser die Datei mit fortlaufenden Nummern um.",
+                    "updated": 1634333320554
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosya tarayıcı tarafından indirilir ve varsayılan İndirilenler klasöründe saklanır. Aynı dosyanın birden çok yedeğini alırsanız, tarayıcı dosyayı sıralı sayılarla yeniden adlandırır.",
+                    "updated": 1636789994542
+                },
+                {
+                    "language": "RU",
+                    "text": "Файл загружается браузером и сохраняется в папке Downloads по умолчанию. Если вы создаете несколько резервных копий одного и того же файла, браузер переименовывает файл с помощью порядковых номеров.",
+                    "updated": 1640867514165
+                },
+                {
+                    "language": "ID",
+                    "text": "File diunduh oleh browser dan disimpan di folder Unduhan utama. Jika kamu mengambil multiple backup dari file yang sama, browser mengganti nama file dengan nomor urut.",
+                    "updated": 1644515968103
+                },
+                {
+                    "language": "NL",
+                    "text": "Het bestand wordt gedownload door de browser en opgeslagen in de standaard map Downloads. Als u meerdere back-ups van hetzelfde bestand maakt, hernoemt de browser het bestand met opeenvolgende nummers.",
+                    "updated": 1668337427647
+                }
+            ]
+        }
+    ]
+}

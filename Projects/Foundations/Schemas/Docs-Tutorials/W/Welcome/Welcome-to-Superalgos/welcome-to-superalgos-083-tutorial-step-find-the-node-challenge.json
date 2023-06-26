@@ -7,7 +7,7 @@
             "name": "trading-engine",
             "project": "Algorithmic-Trading"
         },
-        "text": "The Trading Engine administers the complexity entailed in automated trading by making information accessible to users and trading systems.",
+        "text": "The Trading Engine is the data structure that keeps runtime info, making it accessible to users and trading systems.",
         "translations": [
             {
                 "language": "IT",
@@ -51,7 +51,8 @@
                 "text": "Le Trading Engine gère la complexité inhérente au trading automatisé en rendant les informations accessibles aux utilisateurs et aux systèmes de trading.",
                 "updated": 1676958407017
             }
-        ]
+        ],
+        "updated": 1687723172475
     },
     "paragraphs": [
         {

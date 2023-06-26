@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "indicator-bot-instance"
         },
-        "text": "That's right! Indicators will start working as soon as the sensor bot finishes her job!",
+        "text": "Indicators will start working as soon as the sensor bot finishes her job! All Data Tasks are coordinated!",
         "translations": [
             {
                 "language": "IT",
@@ -60,7 +60,8 @@
                 "text": "Właśnie tak! Wskaźniki zaczynają działać tak szybko jak Sensor Bot skończy swoją pracę!",
                 "updated": 1674944867817
             }
-        ]
+        ],
+        "updated": 1687631966901
     },
     "paragraphs": [
         {

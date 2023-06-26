@@ -105,9 +105,9 @@
             ]
         },
         {
-            "style": "Callout",
-            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client! This enables scalable operations:  any machine running the UI may control the enterprise!",
-            "updated": 1660148327004,
+            "style": "Success",
+            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client on any number of machines!",
+            "updated": 1687718666529,
             "translations": [
                 {
                     "language": "IT",
@@ -152,6 +152,10 @@
                     "updated": 1676897915456
                 }
             ]
+        },
+        {
+            "style": "Note",
+            "text": "This enables scalable operations: any machine running the UI may control the enterprise!"
         },
         {
             "style": "Text",

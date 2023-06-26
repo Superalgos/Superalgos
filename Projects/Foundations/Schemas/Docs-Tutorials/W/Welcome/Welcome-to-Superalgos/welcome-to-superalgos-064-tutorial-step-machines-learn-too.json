@@ -106,8 +106,8 @@
         },
         {
             "style": "Note",
-            "text": "The integration leverages the rest of the Superalgos infrastructure so that you may use your datasets to train ML algos and use the resulting models from within trading systems!",
-            "updated": 1660148549763,
+            "text": "The integration leverages the rest of the Superalgos infrastructure so that you may use your datasets to train ML algos and use the resulting models from within trading systems! You're welcome to join other developers to help complete the integration!",
+            "updated": 1687718874994,
             "translations": [
                 {
                     "language": "IT",
@@ -150,55 +150,6 @@
                     "language": "FR",
                     "text": "L'intégration s'appuie sur le reste de l'infrastructure de Superalgos afin que vous puissiez utiliser vos ensembles de données pour entraîner des algos ML et utiliser les modèles résultants dans les systèmes de trading!",
                     "updated": 1676898085649
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "Join the Superalgos Develop Group if you wish to help finish and test the integration!",
-            "updated": 1660148629740,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Dopo i primi tutorial, dai un'occhiata a Machine Learning Demo Native Workspace!",
-                    "updated": 1618058432041,
-                    "style": "Success"
-                },
-                {
-                    "language": "ES",
-                    "text": "Únete al grupo de desarrollo de Superalgos si quieres ayudar a terminar y probar la integración.",
-                    "updated": 1675278995134,
-                    "style": "Success"
-                },
-                {
-                    "language": "DE",
-                    "text": "Treten Sie der Superalgos Develop Group auf Telegram bei, falls Sie dabei helfen möchten, die Integration fertigzustellen und zu testen!",
-                    "updated": 1660475723475
-                },
-                {
-                    "language": "TR",
-                    "text": "Entegrasyonun tamamlanmasına ve test edilmesine yardımcı olmak istiyorsanız Superalgos Geliştirme Grubuna katılın!",
-                    "updated": 1669921094331
-                },
-                {
-                    "language": "RU",
-                    "text": "Присоединяйтесь к группе разработчиков Superalgos (Superalgos Develop Group), если вы хотите помочь завершить и протестировать интеграцию! ",
-                    "updated": 1662033349260
-                },
-                {
-                    "language": "ID",
-                    "text": "Nanti, lihat Ruang Kerja Plugin Demo CrossCategoricalEntropy ML!",
-                    "updated": 1639746475344
-                },
-                {
-                    "language": "NL",
-                    "text": "Word lid van de Superalgos Develop Group als je wilt helpen de integratie af te werken en te testen!",
-                    "updated": 1666786831445
-                },
-                {
-                    "language": "FR",
-                    "text": "Rejoignez le groupe de développement Superalgos si vous souhaitez aider à terminer et à tester l'intégration!",
-                    "updated": 1676898090736
                 }
             ]
         }

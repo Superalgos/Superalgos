@@ -94,7 +94,7 @@
         },
         {
             "style": "Important",
-            "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled, as explained earlier.",
+            "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled.",
             "translations": [
                 {
                     "language": "IT",
@@ -133,7 +133,8 @@
                     "text": "De Trading Bot plaatst één limietorder voor het initialBalance en annuleert het de volgende minuut als het niet wordt ingevuld, zoals eerder uitgelegd.",
                     "updated": 1667126613343
                 }
-            ]
+            ],
+            "updated": 1687725219827
         },
         {
             "style": "Note",

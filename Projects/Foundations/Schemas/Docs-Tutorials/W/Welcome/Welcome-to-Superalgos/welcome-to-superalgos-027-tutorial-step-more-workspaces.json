@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "workspace"
         },
-        "text": "Native Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
+        "text": "Indeed! You may work with as many as you wish and keep all of your work in perfect order!",
         "translations": [
             {
                 "language": "IT",
@@ -59,7 +59,7 @@
                 "updated": 1675002653309
             }
         ],
-        "updated": 1629803469668
+        "updated": 1687633417015
     },
     "paragraphs": [
         {
@@ -121,7 +121,7 @@
         {
             "style": "Callout",
             "text": "Let's create a copy of this Native Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
-            "updated": 1629803279820,
+            "updated": 1687633587423,
             "translations": [
                 {
                     "language": "ES",
@@ -163,8 +163,13 @@
             ]
         },
         {
-            "style": "Important",
-            "text": "Now open the Workspaces Tab on the left, scroll to the bottom, and find the only workspace with a purple background! That's your workspace! But no need to click on it!",
+            "style": "Text",
+            "text": "Remember, replace Ctrl with Cmd in MacOS!",
+            "updated": 1687633634278
+        },
+        {
+            "style": "Success",
+            "text": "Now check the User workspaces section of the menu! That's your copy of the workspace!",
             "translations": [
                 {
                     "language": "IT",
@@ -216,7 +221,7 @@
                     "updated": 1675002751094
                 }
             ],
-            "updated": 1629803460646
+            "updated": 1687633746735
         }
     ]
 }

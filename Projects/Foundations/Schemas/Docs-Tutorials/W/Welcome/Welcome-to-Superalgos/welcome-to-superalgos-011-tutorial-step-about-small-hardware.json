@@ -72,8 +72,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The core idea behind running the client in small physical or virtual hardware is to maximize cost efficiency in production deployments. In such contexts, the UI is used to a minimum.",
-            "updated": 1610616659750,
+            "text": "The core idea behind running the client in small physical or virtual hardware is to maximize cost efficiency in production deployments. In such contexts, the UI is used minimally.",
+            "updated": 1687631380997,
             "translations": [
                 {
                     "language": "IT",

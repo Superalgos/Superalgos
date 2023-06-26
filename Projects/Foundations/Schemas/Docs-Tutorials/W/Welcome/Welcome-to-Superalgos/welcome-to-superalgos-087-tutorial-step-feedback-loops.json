@@ -104,7 +104,7 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading Engine layers manager on the charts (the second counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space.",
+            "text": "Go to the Trading Engine layer manager on the charts (the first counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space.",
             "translations": [
                 {
                     "language": "IT",
@@ -148,7 +148,8 @@
                     "text": "Allez dans le gestionnaire des calques du Trading Engine sur les graphiques (le deuxième en partant de la gauche). Faites défiler vers le bas et activez le calque Limit Buy Orders. Passez maintenant le pointeur de la souris sur quelques-uns des ordres d'achat et vérifiez l'effet sur les nœuds de l'espace de design.",
                     "updated": 1676958831107
                 }
-            ]
+            ],
+            "updated": 1687723407336
         },
         {
             "style": "Text",

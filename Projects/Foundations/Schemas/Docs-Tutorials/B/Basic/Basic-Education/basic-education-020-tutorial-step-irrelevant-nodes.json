@@ -1,0 +1,142 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Irrelevant Nodes",
+    "definition": {
+        "text": "Nodes that are not attached to a hierarchy are not computed. They exist in the workspace, but they don't affect the workings of the system at any level.",
+        "updated": 1615575416918,
+        "icon": {
+            "name": "detach-node",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I nodi che non appartengono a una gerarchia non sono calcolati. Esistono nel workspace, ma non influenzano i calcoli del sistema in alcun modo.",
+                "updated": 1619467123969,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los nodos que no están adjuntos a una jerarquía no se calculan. Existen en el espacio de trabajo, pero no afectan el funcionamiento del sistema en ningún nivel.",
+                "updated": 1626359178095,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Knoten, die nicht mit einer Hierarchie verbunden sind, werden nicht berechnet. Sie sind zwar im Workspace vorhanden, haben aber keinen Einfluss auf die Funktionsweise des Systems auf irgendeiner Ebene.",
+                "updated": 1634333669893
+            },
+            {
+                "language": "TR",
+                "text": "Bir hiyerarşiye bağlı olmayan düğümler hesaplanmaz. Çalışma alanında bulunurlar, ancak sistemin işleyişini hiçbir düzeyde etkilemezler.",
+                "updated": 1636791617905
+            },
+            {
+                "language": "RU",
+                "text": "Узлы, не привязанные к иерархии, не вычисляются. Они существуют в рабочем пространстве, но не влияют на работу системы на любом уровне.",
+                "updated": 1640868091127
+            },
+            {
+                "language": "ID",
+                "text": "Node yang tidak melekat pada hierarki tidak dihitung. Mereka ada di workspace, tetapi mereka tidak mempengaruhi cara kerja sistem di tingkat mana pun.",
+                "updated": 1644947080812
+            },
+            {
+                "language": "NL",
+                "text": "Knooppunten die niet aan een hiërarchie zijn gekoppeld, worden niet berekend. Ze bestaan in de werkruimte, maar ze hebben op geen enkel niveau invloed op de werking van het systeem.",
+                "updated": 1668338245524
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This means that you may keep as many structures of nodes detached from hierarchies, for as long as you wish, keeping them at hand for later use, or for whatever reason.",
+            "updated": 1615580307483,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È quindi possibile conservare un numero qualsiasi di nodi o strutture scollegati dalle gerarchie, per quanto tempo si desidera, tenendoli a disposizione per un uso futuro o per un qualsiasi altro motivo.",
+                    "updated": 1619467283026,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto significa que puedes mantener tantas estructuras de nodos separados de las jerarquías, durante el tiempo que desees, manteniéndolos a mano para su uso posterior o por cualquier motivo.",
+                    "updated": 1675376193190,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie beliebig viele Strukturen von Knoten losgelöst von Hierarchien aufbewahren können, um sie für eine spätere Verwendung oder aus anderen Gründen zur Verfügung zu haben.",
+                    "updated": 1634333676692
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, hiyerarşilerden kopuk sayıda düğüm yapısını istediğiniz kadar tutabileceğiniz, bunları daha sonra kullanmak üzere veya herhangi bir nedenle elinizin altında tutabileceğiniz anlamına gelir.",
+                    "updated": 1636792301822
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что вы можете хранить столько структур узлов, отделенных от иерархий, сколько пожелаете, держа их под рукой для последующего использования или по любой другой причине.",
+                    "updated": 1640868111832
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini berarti bahwa kamu dapat menjaga sebanyak mungkin struktur node yang terlepas dari hierarki, selama yang kamu inginkan, menyimpannya untuk digunakan nanti, atau untuk alasan apa pun.",
+                    "updated": 1644947142354
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit betekent dat u zo lang als u wilt zoveel structuren van knooppunten los van hiërarchieën kunt houden, zodat u ze bij de hand kunt houden voor later gebruik of om welke reden dan ook.",
+                    "updated": 1668338264371
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "A common scenario is keeping multiple versions of certain definitions while building strategies, so that you may test a set of rules and switch to other rules for the next run. You may even keep multiple versions of entire strategies!",
+            "updated": 1615575707975,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Uno scenario comune è mantenere versioni multiple di alcune configurazioni mentre si costruiscono strategie, così da poter testare un set di regole e cambiarlo con un altro al test successivo. È perfino possibile mantenere diverse versioni di intere strategie!",
+                    "updated": 1619467375126,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puedes conservar varias versiones de estrategias completas!",
+                    "updated": 1675376212078,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein häufiges Szenario ist die Aufbewahrung mehrerer Versionen bestimmter Definitionen bei der Erstellung von Strategien, so dass Sie einen Satz von Regeln testen und beim nächsten Durchlauf zu anderen Regeln wechseln können. Sie können sogar mehrere Versionen von ganzen Strategien aufbewahren!",
+                    "updated": 1634333685177
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortak bir senaryo, stratejiler oluştururken belirli tanımların birden çok sürümünü tutmaktır, böylece bir sonraki çalıştırma için bir dizi kuralı test edebilir ve diğer kurallara geçebilirsiniz. Tüm stratejilerin birden fazla versiyonunu bile tutabilirsiniz!",
+                    "updated": 1636792469596
+                },
+                {
+                    "language": "RU",
+                    "text": "Распространенным сценарием является сохранение нескольких версий определенных определений при построении стратегий, чтобы вы могли протестировать набор правил и перейти к другим правилам для следующего запуска. Вы даже можете хранить несколько версий целых стратегий!",
+                    "updated": 1640868133379
+                },
+                {
+                    "language": "ID",
+                    "text": "Skenario umum yaitu menjaga beberapa versi definisi tertentu saat membangun strategi, sehingga kamu dapat menguji seperangkat aturan dan beralih ke aturan lain untuk menjalankan berikutnya. Kamu bahkan dapat menyimpan beberapa versi dari seluruh strategi!",
+                    "updated": 1644947237970
+                },
+                {
+                    "language": "NL",
+                    "text": "Een veelvoorkomend scenario is het behouden van meerdere versies van bepaalde definities tijdens het bouwen van strategieën, zodat u een set regels kunt testen en voor de volgende run naar andere regels kunt overschakelen. U kunt zelfs meerdere versies van volledige strategieën behouden!",
+                    "updated": 1668338298619
+                }
+            ]
+        }
+    ]
+}

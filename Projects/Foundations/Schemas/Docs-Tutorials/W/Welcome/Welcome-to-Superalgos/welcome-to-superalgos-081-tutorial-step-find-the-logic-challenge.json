@@ -1,0 +1,202 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 81,
+    "type": "Tutorial Step - Find the Logic Challenge!",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
+        },
+        "text": "Now that you know how the indicator works, can you find the relationship between buy orders and support levels?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora che sai come funzionano gli indicatori, puoi trovare la relazione tra buy orders e livelli di supporto?",
+                "updated": 1618064528654,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que sabes cómo funciona el indicador, ¿puedes encontrar la relación entre las órdenes de compra y los niveles de soporte?",
+                "updated": 1675280772627,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": " Jetzt, wo Sie wissen, wie der Indikator funktioniert, können Sie die Beziehung zwischen Kaufaufträgen und Unterstützungsniveaus finden?",
+                "updated": 1634225345768
+            },
+            {
+                "language": "TR",
+                "text": "Artık göstergenin nasıl çalıştığını bildiğinize göre, satın alma siparişleri ile destek seviyeleri arasındaki ilişkiyi bulabilir misiniz?",
+                "updated": 1636205670836
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда Вы знаете, как работает индикатор, можете ли Вы найти взаимосвязь между ордерами на покупку и уровнями поддержки?",
+                "updated": 1637754997019
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu mengetahui cara kerja indikator, dapatkah kamu menemukan hubungan antara buy orders dan support levels?",
+                "updated": 1640564328050
+            },
+            {
+                "language": "NL",
+                "text": "Nu u weet hoe de indicator werkt, kunt u de relatie tussen kooporders en ondersteuningsniveaus vinden?",
+                "updated": 1666879495400
+            },
+            {
+                "language": "FR",
+                "text": "Maintenant que vous savez comment fonctionne l'indicateur, pouvez-vous trouver la relation entre les ordres d'achat et les niveaux de support ?",
+                "updated": 1676899579969
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take some time to explore the period of time tested looking for clues on how support levels determine the rate of the Limit Buy Order!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi un'attimo per esplorare il periodo di tempo testato e cercare indizi su come i livelli di supporto determinino l'inserimento del Limit Buy Order!",
+                    "updated": 1618064580106,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate tu tiempo para explorar el período de tiempo probado en busca de pistas sobre cómo los niveles de apoyo determinan la tasa del Limit Buy Order!",
+                    "updated": 1624458322994,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich etwas Zeit, um den getesteten Zeitraum zu untersuchen und nach Hinweisen darauf zu suchen, wie die Unterstützungsniveaus den Kurs der Limit Buy Order bestimmen!",
+                    "updated": 1634225355612
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek seviyelerinin Limitli Alış Emri oranını nasıl belirlediğine dair ipuçlarını aramak ve test edilen süreyi keşfetmek için biraz zaman ayırın!",
+                    "updated": 1636206011307
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте некоторое время на изучение проверенного периода времени в поисках подсказок о том, как уровни поддержки определяют скорость Limit Buy Order!",
+                    "updated": 1637755087157
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu untuk menjelajahi periode waktu yang diuji untuk mencari petunjuk tentang bagaimana level support menentukan tingkat Limit Buy Order!",
+                    "updated": 1640564365008
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd om de geteste periode te verkennen en zoek naar aanwijzingen over hoe ondersteuningsniveaus de snelheid van de Limit Buy Order bepalen!",
+                    "updated": 1666879530872
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez le temps d'explorer la période testée à la recherche d'indices sur la façon dont les niveaux de support déterminent le taux de l'ordre d'achat limite !",
+                    "updated": 1676899604195
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's fun noticing how new levels form when price changes direction, and how an established level changes color when price bounces-off it.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È divertente osservare come i nuovi livelli si formano quando il prezzo cambia direzione, e come un livello cambia colore quando respinge il prezzo.",
+                    "updated": 1618064645034,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es divertido notar cómo se forman nuevos niveles cuando el precio cambia de dirección, y cómo un nivel establecido cambia de color cuando el precio rebota.",
+                    "updated": 1624458385692,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es macht Spaß, zu beobachten, wie sich neue Niveaus bilden, wenn der Preis seine Richtung ändert, und wie ein etabliertes Niveau seine Farbe ändert, wenn der Preis von ihm abprallt.",
+                    "updated": 1634225362477
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat yön değiştirdiğinde yeni seviyelerin nasıl oluştuğunu ve fiyat sıçradığında yerleşik bir seviyenin nasıl renk değiştirdiğini fark etmek eğlencelidir.",
+                    "updated": 1636206057671
+                },
+                {
+                    "language": "RU",
+                    "text": "Забавно наблюдать, как формируются новые уровни, когда цена меняет направление и как установленный уровень меняет цвет, когда цена отскакивает от него.",
+                    "updated": 1637755157171
+                },
+                {
+                    "language": "ID",
+                    "text": "Sangat menyenangkan memperhatikan bagaimana level baru terbentuk saat harga berubah arah, dan bagaimana level yang sudah terbuat berubah warna saat harga memantul darinya.",
+                    "updated": 1640564455282
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is leuk om te zien hoe nieuwe niveaus worden gevormd wanneer de prijs van richting verandert, en hoe een vastgesteld niveau van kleur verandert wanneer de prijs erop stuitert.",
+                    "updated": 1666879560128
+                },
+                {
+                    "language": "FR",
+                    "text": "Il est amusant de remarquer comment de nouveaux niveaux se forment lorsque le prix change de direction, et comment un niveau établi change de couleur lorsque le prix rebondit dessus.",
+                    "updated": 1676899627071
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "But the trick lies in counting levels above the order!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il trucco sta nel contare i livelli sopra l'ordine!",
+                    "updated": 1618064660104,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero el truco está en contar niveles por encima de la orden!",
+                    "updated": 1624458422706,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trick besteht darin, die Niveaus oberhalb der Order zu zählen!",
+                    "updated": 1634225370008
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak işin püf noktası, siparişin üzerindeki seviyeleri saymakta yatar!",
+                    "updated": 1670008400057
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако хитрость заключается в подсчете уровней выше порядка!",
+                    "updated": 1637755186829
+                },
+                {
+                    "language": "ID",
+                    "text": "Tapi triknya terletak pada menghitung level di atas order!",
+                    "updated": 1640564478555
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar de truc ligt in het tellen van niveaus boven de order!",
+                    "updated": 1666879594128
+                },
+                {
+                    "language": "FR",
+                    "text": " Mais l'astuce consiste à compter les niveaux au-dessus de l'ordre !",
+                    "updated": 1676899642840
+                }
+            ]
+        }
+    ]
+}

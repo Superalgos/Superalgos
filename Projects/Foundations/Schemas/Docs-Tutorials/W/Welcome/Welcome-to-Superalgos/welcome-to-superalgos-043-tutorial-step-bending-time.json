@@ -1,0 +1,231 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 43,
+    "type": "Tutorial Step - Bending time?",
+    "definition": {
+        "icon": {
+            "name": "Time\\time-machine",
+            "project": "Foundations"
+        },
+        "text": "Ok... maybe it's not actually like bending, but bear with me... You'll love how you can shape time machines to the format you wish.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok...forse non è proprio come controllare il tempo, ma facciamo finta... Adorerai come puoi configurare le Time Machine in qualsiasi modo tu desideri.",
+                "updated": 1614847760593,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Ok... mungkin sebenarnya tidak seperti kemunduran, tapi bersabarlah... Kamu akan menyukai bagaimana kamu bisa membentuk time machines ke format yang kamu inginkan.",
+                "updated": 1639745532902,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Vale... puede que en realidad no sea como doblar, pero ten paciencia conmigo... Te encantará cómo puedes moldear las máquinas del tiempo al formato que desees.",
+                "updated": 1675276504449,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ok... vielleicht ist es nicht wirklich wie Biegen, aber habt Nachsicht mit mir... Du wirst es lieben, wie du Zeitmaschinen in das von dir gewünschte Format bringen kannst. ",
+                "updated": 1642151599017,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tamam... belki aslında bükmek gibi değil ama sabredin... Zaman makinelerini istediğiniz formatta şekillendirebilmeyi çok seveceksiniz.",
+                "updated": 1669839775622
+            },
+            {
+                "language": "RU",
+                "text": " Ладно... может быть, на самом деле это не похоже на сгибание, но потерпите... Вам понравится, как вы можете придать машине времени желаемый формат.",
+                "updated": 1641833349615
+            },
+            {
+                "language": "NL",
+                "text": "Oké... misschien is het niet echt buigen, maar heb geduld... Je zult het geweldig vinden hoe je time machines kunt vormen in het formaat dat je wilt.",
+                "updated": 1666699044949
+            },
+            {
+                "language": "FR",
+                "text": "Ok... peut-être que ce n'est pas vraiment comme le voyage dans le temps, mais soyez indulgent avec moi... Vous allez adorer la façon dont vous pouvez façonner les time machines dans le format que vous souhaitez.",
+                "updated": 1668068257143
+            },
+            {
+                "language": "PL",
+                "text": "Ok... może to nie jest faktycznie jak zaginanie czasu, ale zrób to ze mną... Spodoba ci się sposób w jaki możesz konfigurować Time Machine.",
+                "updated": 1675084705839
+            }
+        ],
+        "updated": 1636911171982
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Hover your mouse pointer over any of the edges of the turquoise frame defining the time machine and see what happens. See how the edge is highlighted in yellow?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sposta il puntatore su uno qualsiasi dei lati della cornice turchese che definisce la Time Machine, e osserva cosa succede. Vedi come il lato si evidenzia in giallo?",
+                    "updated": 1614847838157,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Arahkan mouse pointermu ke salah satu tepi bingkai biru kehijauan yang menentukan time machine dan lihat apa yang terjadi. Lihat bagaimana tepi disorot dengan warna kuning?",
+                    "updated": 1616936418748,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pasa el puntero del mouse sobre cualquiera de los bordes del marco turquesa que define la máquina del tiempo y ve qué sucede. ¿Ves cómo el borde está resaltado en amarillo?",
+                    "updated": 1627304493474,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie Ihren Mauszeiger über einen der Ränder des türkisfarbenen Rahmens, der die Time Machine definiert, und sehen Sie, was passiert. Sehen Sie, wie der Rand gelb hervorgehoben wird?",
+                    "updated": 1634206251264,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare imlecinizi zaman makinesini tanımlayan turkuaz çerçevenin herhangi bir kenarının üzerine getirin ve ne olduğunu görün. Kenarın sarı ile nasıl vurgulandığını gördünüz mü?",
+                    "updated": 1636035384197
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на любой из краев бирюзовой рамки, определяющий машину времени, и посмотрите, что произойдет. Вы видите, как край рамки выделился желтым цветом?",
+                    "updated": 1636201897527
+                },
+                {
+                    "language": "NL",
+                    "text": "Beweeg uw muisaanwijzer over een van de randen van het turquoise kader dat de time machine definieert en kijk wat er gebeurt. Zie je hoe de rand geel is gemarkeerd?",
+                    "updated": 1666699076261
+                },
+                {
+                    "language": "FR",
+                    "text": "Passez le pointeur de votre souris sur l'un des bords du cadre turquoise définissant la machine à remonter le temps et voyez ce qui se passe. Vous voyez que le bord est surligné en jaune ?",
+                    "updated": 1668068284137
+                },
+                {
+                    "language": "PL",
+                    "text": "Najedź kursorem myszy na dowolną krawędź turkusowej ramki definiującej Time Machine i zobacz, co się stanie. Widzisz jak krawędź jest podświetlona na żółto?",
+                    "updated": 1675084751505
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Cool! Now, left-click the frame and pull!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Forte! Ora cliccalo con il tasto sinistro e tira!",
+                    "updated": 1614847870184,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Keren! Sekarang, click-kiri bingkai dan tarik!",
+                    "updated": 1616936445152,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Genial! ¡Ahora, haz clic izquierdo en el marco y tira!",
+                    "updated": 1624382849082,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehr gut! Klicken Sie nun mit der linken Maustaste auf den Rahmen und ziehen Sie!",
+                    "updated": 1634206263662,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Güzel! Şimdi çerçevenin sarı olan kenarını tutun ve çekin !",
+                    "updated": 1644912171441
+                },
+                {
+                    "language": "RU",
+                    "text": "Отлично! Теперь щелкните по рамке левой кнопкой мыши и потяните!",
+                    "updated": 1636202014634
+                },
+                {
+                    "language": "NL",
+                    "text": "Cool! Klik nu met de linkermuisknop op het frame en trek het uit!",
+                    "updated": 1666699111405
+                },
+                {
+                    "language": "FR",
+                    "text": "Cool ! Maintenant, faites un clic gauche sur le cadre et tirez !",
+                    "updated": 1668068309600
+                },
+                {
+                    "language": "PL",
+                    "text": "Super! Teraz kliknij lewym przyciskiem myszy na ramkę i przeciągnij!",
+                    "updated": 1675084765718
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This is how you may shape time machines to your liking.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questo modo puoi dare alle tue time machines la forma e aspetto che preferisci.",
+                    "updated": 1614847900032,
+                    "style": "Note"
+                },
+                {
+                    "language": "ID",
+                    "text": "Beginilah cara kamu membentuk time machine sesuai keinginan Anda.",
+                    "updated": 1616936472690,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Así es como puedes moldear las máquinas del tiempo a tu gusto.",
+                    "updated": 1624382834240,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf diese Weise können Sie die Time Machines nach Ihren Wünschen gestalten.",
+                    "updated": 1634206284213,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman makinelerini kendi zevkinize veya ihtiyacınıza göre şekillendirebilirsiniz.",
+                    "updated": 1644912179125
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как Вы можете формировать машины времени по своему нраву.",
+                    "updated": 1636202062369
+                },
+                {
+                    "language": "NL",
+                    "text": "Zo kun je time machines naar eigen wens vormgeven.",
+                    "updated": 1666699139664
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est ainsi que vous pouvez façonner les time machines à votre guise.",
+                    "updated": 1668068348797
+                },
+                {
+                    "language": "PL",
+                    "text": "W ten sposób można kształtować Time Machine według własnych upodobań.",
+                    "updated": 1675084779670
+                }
+            ]
+        }
+    ]
+}

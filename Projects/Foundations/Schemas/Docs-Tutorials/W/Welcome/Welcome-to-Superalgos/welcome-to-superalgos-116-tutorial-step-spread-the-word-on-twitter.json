@@ -1,0 +1,146 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 116,
+    "type": "Tutorial Step - Spread the Word on Twitter!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "twitter"
+        },
+        "text": "Making some noise on Twitter will help bring more traders to the project. More traders pushing the boundaries of the software is the best driver of evolution!",
+        "updated": 1610914488286,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Condividere il progetto su Twitter aiuterà a raggiungere più traders. Più traders che utilizzano il software è il miglior modo per incentivarne l'evoluzione!",
+                "updated": 1618072678582,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hacer algo de ruido en Twitter ayudará a atraer más traders al proyecto. ¡Más traders que traspasan los límites del software es el mejor motor de la evolución!",
+                "updated": 1624488263415,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie auf Twitter von sich reden machen, können Sie mehr Trader für das Projekt gewinnen. Mehr Trader, die die Grenzen der Software ausloten, sind der beste Motor für die Entwicklung!",
+                "updated": 1634247225135
+            },
+            {
+                "language": "TR",
+                "text": "Twitter'da biraz gürültü! yapmak, projeye daha fazla yatırımcının gelmesine yardımcı olacaktır. Yazılımın sınırlarını zorlayan daha fazla tüccar, evrimin en iyi itici gücüdür!",
+                "updated": 1636662683451
+            },
+            {
+                "language": "ID",
+                "text": "Membuat keributan di Twitter akan membantu membawa lebih banyak traders ke proyek. Semakin banyak traders yang membangun software  menjadi pendorong evolusi terbaik!",
+                "updated": 1640598993861
+            },
+            {
+                "language": "RU",
+                "text": "Поднятие шумихи в Twitter поможет привлечь в проект больше трейдеров. Больше трейдеров, расширяющих границы программного обеспечения, - лучший двигатель эволюции!",
+                "updated": 1642773566837
+            },
+            {
+                "language": "NL",
+                "text": "Door wat lawaai te maken op Twitter, zullen meer handelaren naar het project worden getrokken. Meer handelaren die de grenzen van de software verleggen, is de beste aanjager van evolutie!",
+                "updated": 1667137093903
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The more traders use Superalgos, the more they drive the Community to develop ever more advanced features! This is what you need to do:",
+            "updated": 1660160454551,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Più persone usano Superalgos, più spingeranno la Community a sviluppare funzionalità ancora migliori! Ecco cosa dovresti fare:",
+                    "updated": 1618072720212,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuantos más traders utilicen Superalgos, más impulsarán a la Comunidad a desarrollar funciones cada vez más avanzadas. Esto es lo que tienes que hacer:",
+                    "updated": 1675363759825,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Je mehr Trader Superalgos nutzen, desto mehr werden sie die Community dazu bringen, immer fortschrittlichere Funktionen zu entwickeln! Das müssen Sie tun:",
+                    "updated": 1634247236468
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüccarlar Superalgos'u ne kadar çok kullanırsa, Topluluğu daha da gelişmiş özellikler geliştirmeye o kadar çok yönlendirirler!",
+                    "updated": 1670014695182
+                },
+                {
+                    "language": "ID",
+                    "text": "Semakin banyak traders menggunakan Superalgos, semakin mereka akan mendorong Komunitas untuk mengembangkan fitur yang lebih maju! Inilah yang perlu kamu lakukan :",
+                    "updated": 1640599027497
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше трейдеров используют Superalgos, тем больше они стимулируют сообщество к разработке все более совершенных функций! Вот что вам нужно сделать:",
+                    "updated": 1662035420442
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe meer handelaren Superalgos gebruiken, hoe meer ze de community ertoe aanzetten om steeds geavanceerdere functies te ontwikkelen! Dit is wat u moet doen:",
+                    "updated": 1667137113303
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Click the link below to go to our Twitter page, follow us, and retweet some of our latest tweets. Make sure you tag traders you follow!",
+            "updated": 1687724873014,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai sulla nostra page di <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, seguici e ritwitta il nostro ultimo tweet. Assicurati di taggare i traders che segui!",
+                    "updated": 1618072761967,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve nuestra página de <a href='https://https://twitter.com/Superalgos'>Twitter</a>, síguenos y retuitea nuestro último tweet. ¡Asegúrate de etiquetar a todos los traders que sigas!",
+                    "updated": 1675364285031,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie auf unsere <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>-Seite, folgen Sie uns, und retweeten Sie unseren letzten Tweet. Vergewissern Sie sich, dass Sie die Trader, denen Sie folgen, markieren!",
+                    "updated": 1634247258867
+                },
+                {
+                    "language": "TR",
+                    "text": "Twitter sayfamıza gidin ( Twitter page ), bizi takip edin. Takip ettiğiniz trader'ları etiketlediğinizdem emin olun!",
+                    "updated": 1636662879352
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke Twitter page, follow kami, dan retweet cuitan terbaru kami. Pastikan kamu memberi tag pada traders yang kamu ikuti!",
+                    "updated": 1640599119470
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите на нашу страницу в Twitter, следуйте за нами и сделайте ретвит нашего последнего твита. Не забудьте отметить трейдеров, за которыми вы следите!",
+                    "updated": 1642773601542
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar onze <a href='https://twitter.com/superalgos'>Twitter pagina</a>, volg ons en retweet onze laatste tweet. Zorg ervoor dat je de handelaren die je volgt tagt!",
+                    "updated": 1667137233437
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Follow Superalgos on Twitter!->twitter.com/superalgos"
+        }
+    ]
+}

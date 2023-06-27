@@ -1,0 +1,447 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 122,
+    "type": "Tutorial Step - Get In Touch!",
+    "definition": {
+        "icon": {
+            "name": "telegram-bot",
+            "project": "Social-Bots"
+        },
+        "text": "Join the new Discord Server or the original Telegram groups! Click on a group to get the link on the Docs panel.",
+        "updated": 1660219884677,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Unisciti al nuovo Discord Server o ai gruppi Telegram ufficiali! Fai clic su un gruppo per aprire il link nel pannello Documenti.",
+                "updated": 1666395322965,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Únete al nuevo Discord Server o a los grupos originales de Telegram! Haz clic en un grupo para obtener el enlace en el panel Docs.",
+                "updated": 1675364960634,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Treten Sie dem neuen Discord Server oder unseren Telegram-Gruppen bei! Klicken Sie auf eine Gruppe, damit der Link im Dokumentationsbereich angezeigt wird.",
+                "updated": 1660479510911
+            },
+            {
+                "language": "TR",
+                "text": "Yeni Discord Sunucusuna veya orijinal Telegram gruplarına katıllmak için bağlantılara tıklayın.",
+                "updated": 1670332160799
+            },
+            {
+                "language": "ID",
+                "text": "Mampir untuk menyapa, mendapatkan bantuan, dan bertemu Komunitas! Kamu dapat bergabung dengan Discord Server baru atau grup Telegram asli di bawah ini, di mana semuanya dimulai!",
+                "updated": 1640600271999
+            },
+            {
+                "language": "RU",
+                "text": "Присоединяйтесь к новому серверу Discord или оригинальным группам Telegram! Нажмите на группу, чтобы получить ссылку на панели Docs. ",
+                "updated": 1662035801992
+            },
+            {
+                "language": "NL",
+                "text": "Word lid van de nieuwe Discord Server of de originele Telegram-groepen! Klik op een groep om de link in het deelvenster Documenten te krijgen.",
+                "updated": 1667138261316
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Discord Server — The server is new, thus less active!",
+            "updated": 1660161121024,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Discord Server  - ¡El servidor es nuevo, por lo tanto menos activo!",
+                    "updated": 1675364750328,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Discord Server — Der Server ist neu, deshalb auch noch weniger aktiv.",
+                    "updated": 1660479560351
+                },
+                {
+                    "language": "TR",
+                    "text": "Discord Server - Sunucu yenidir, bu nedenle daha az aktiftir!",
+                    "updated": 1670332225086
+                },
+                {
+                    "language": "ID",
+                    "text": "Announcements Channel — Dapatkan berita resmi lebih awal!",
+                    "updated": 1640600306704
+                },
+                {
+                    "language": "RU",
+                    "text": "Сервер Discord - новый сервер, поэтому менее активен!",
+                    "updated": 1662035848849
+                },
+                {
+                    "language": "IT",
+                    "text": "Discord Server — Il server è nuovo, quindi meno attivo!",
+                    "updated": 1666395348028
+                },
+                {
+                    "language": "NL",
+                    "text": "Discord Server — De server is nieuw, dus minder actief!",
+                    "updated": 1667138282667
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Announcements Channel — Get official news first!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Announcements Channel — Erhalten Sie Neuigkeiten zuerst!",
+                    "updated": 1660479593265
+                },
+                {
+                    "language": "RU",
+                    "text": "Announcements Channel - узнавайте официальные новости первыми!",
+                    "updated": 1662035949404
+                },
+                {
+                    "language": "IT",
+                    "text": "Announcements Channel — Ricevi prima le notizie ufficiali!",
+                    "updated": 1666395375693
+                },
+                {
+                    "language": "NL",
+                    "text": "Announcements Channel — Ontvang eerst officieel nieuws!",
+                    "updated": 1667138295259
+                },
+                {
+                    "language": "TR",
+                    "text": "Announcements Channel — Resmi duyurulara ulaşın!",
+                    "updated": 1670332270360
+                },
+                {
+                    "language": "ES",
+                    "text": "Announcements Channel — Recibe primero las noticias oficiales",
+                    "updated": 1675364788010
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Community Group — Let's talk Superalgos!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Community Group - Lasst uns über Superalgos reden!",
+                    "updated": 1634247474003
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Grubu ( Community Group ) — Haydi Superalgos hakkında konuşalım!",
+                    "updated": 1638914076141
+                },
+                {
+                    "language": "ID",
+                    "text": "Community Group — Mari biacara tentang Superalgos!",
+                    "updated": 1640600316779
+                },
+                {
+                    "language": "RU",
+                    "text": "Community Group — Давайте поговорим о Superalgos!",
+                    "updated": 1642774367244
+                },
+                {
+                    "language": "IT",
+                    "text": "Community Group — Parliamo di Superalgo!",
+                    "updated": 1666395402263
+                },
+                {
+                    "language": "NL",
+                    "text": "Community Group — Laten we het hebben over Superalgos!",
+                    "updated": 1667138308403
+                },
+                {
+                    "language": "ES",
+                    "text": "Community Group — ¡Hablemos de Superalgos!",
+                    "updated": 1675364807960
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Develop Group — Meet other developers!",
+            "updated": 1630944360229,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Develop Group - Triff andere Entwickler!",
+                    "updated": 1634247481455
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler Grubu ( Develop Group ) — Diğer geliştiricilerle tanışın!",
+                    "updated": 1638914087853
+                },
+                {
+                    "language": "ID",
+                    "text": "Develop Group — Bertemu dengan developers lainnya!",
+                    "updated": 1640600339329
+                },
+                {
+                    "language": "RU",
+                    "text": "Develop Group — Познакомьтесь с другими разработчиками!",
+                    "updated": 1642774376138
+                },
+                {
+                    "language": "IT",
+                    "text": "Develop Group — Incontra altri sviluppatori!",
+                    "updated": 1666395420058
+                },
+                {
+                    "language": "NL",
+                    "text": "Develop Group — Ontmoet andere ontwikkelaars!",
+                    "updated": 1667138321723
+                },
+                {
+                    "language": "ES",
+                    "text": "Develop Group — Conoce a otros desarrolladores",
+                    "updated": 1675364822567
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Support Group — Need help getting started?",
+            "updated": 1630944446828,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Support Group - Brauchen Sie Hilfe bei den ersten Schritten?",
+                    "updated": 1634247492820
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek Grubu ( Support Group ) — Başlarken yardıma mı ihtiyacınız var?",
+                    "updated": 1638914156904
+                },
+                {
+                    "language": "ID",
+                    "text": "Support Group — Butuh bantuan untuk memulai?",
+                    "updated": 1640600354723
+                },
+                {
+                    "language": "RU",
+                    "text": "Support Group — Нужна помощь в начале работы?",
+                    "updated": 1642774386257
+                },
+                {
+                    "language": "IT",
+                    "text": "Support Group — Hai bisogno di aiuto per iniziare?",
+                    "updated": 1666395444392
+                },
+                {
+                    "language": "NL",
+                    "text": "Support Group — Hulp nodig om aan de slag te gaan?",
+                    "updated": 1667138334651
+                },
+                {
+                    "language": "ES",
+                    "text": "Support Group — ¿Necesitas ayuda para empezar?",
+                    "updated": 1675364826614
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Token Group — Let's talk Governance and the token!",
+            "updated": 1630944580226,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Token Group - Reden wir über Governance und den Token!",
+                    "updated": 1634247507289
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Grubu ( Token Group ) — Yönetim ve Token hakkında konuşalım!",
+                    "updated": 1638914218979
+                },
+                {
+                    "language": "ID",
+                    "text": "Token Group — mari bicara tentang Governance dan token!",
+                    "updated": 1640600372583
+                },
+                {
+                    "language": "RU",
+                    "text": "Token Group — Давайте поговорим об управлении и токенах!",
+                    "updated": 1642774423070
+                },
+                {
+                    "language": "IT",
+                    "text": "Token Group — Parliamo di Governance e token!",
+                    "updated": 1666395468882
+                },
+                {
+                    "language": "NL",
+                    "text": "Token Group — Laten we praten over bestuur en het token!",
+                    "updated": 1667138349461
+                },
+                {
+                    "language": "ES",
+                    "text": "Token Group — ¡Hablemos de Gobernanza y de Token!",
+                    "updated": 1675364856192
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Machine Learning Group — Join the Bitcoin Factory!",
+            "updated": 1660161094486,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Machine Learning Group — Treten Sie der Bitcoin Factory bei!",
+                    "updated": 1660479614834
+                },
+                {
+                    "language": "IT",
+                    "text": "Machine Learning Group — Unisciti alla Bitcoin Factory!",
+                    "updated": 1666395482870
+                },
+                {
+                    "language": "NL",
+                    "text": "Machine Learning Group — Word lid van de Bitcoin Factory!",
+                    "updated": 1667138370189
+                },
+                {
+                    "language": "TR",
+                    "text": "Machine Learning Group — Bitcoin Fabrikasına katılın!",
+                    "updated": 1670332347945
+                },
+                {
+                    "language": "ES",
+                    "text": "Machine Learning Group — Únete a la Bitcoin Factory!",
+                    "updated": 1675364873437
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Group — Help test trading signals!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Group — Helfen Sie, Handelssignale zu testen!",
+                    "updated": 1660479627098
+                },
+                {
+                    "language": "IT",
+                    "text": "Trading Group — Aiuta a testare i segnali di trading!",
+                    "updated": 1666395547612
+                },
+                {
+                    "language": "NL",
+                    "text": "Trading Group — Help handelssignalen te testen!",
+                    "updated": 1667138382923
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Group — Alım satım sinyallerini test edin!",
+                    "updated": 1670332368864
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Group — ¡Ayuda a probar las señales de trading!",
+                    "updated": 1675364891911
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "UX-UI Group — Can you design?",
+            "updated": 1630944831647,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "UX-UI Group - Können Sie schöne Grafiken und Designs entwerfen?",
+                    "updated": 1660479645324
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Bir tasarımcı mısın?",
+                    "updated": 1670333823847
+                },
+                {
+                    "language": "ID",
+                    "text": "UX-UI Group — Apakah kamu bisa design?",
+                    "updated": 1640600382396
+                },
+                {
+                    "language": "RU",
+                    "text": "UX-UI Group — Вы умеете проектировать?",
+                    "updated": 1642774431885
+                },
+                {
+                    "language": "IT",
+                    "text": "UX-UI Group — Sai progettare?",
+                    "updated": 1666395572999
+                },
+                {
+                    "language": "NL",
+                    "text": "UX-UI Group — Kun jij ontwerpen?",
+                    "updated": 1667138395092
+                },
+                {
+                    "language": "ES",
+                    "text": "UX-UI Group — ¿Sabes diseñar?",
+                    "updated": 1675364926719
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Docs Group — Helps us improve the Docs!",
+            "updated": 1630944624658,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Group - Helfen Sie uns, die Dokumentation zu verbessern!",
+                    "updated": 1660479651399
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Grubu ( Docs Group ) — Dokümanları iyileştirmemize yardımcı olabilirsin!",
+                    "updated": 1638914389026
+                },
+                {
+                    "language": "ID",
+                    "text": "Docs Group — Bantu kami mengembangkan Docs!",
+                    "updated": 1640600445662
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Group — Помогает нам улучшить документацию (Docs)!",
+                    "updated": 1642774462655
+                },
+                {
+                    "language": "IT",
+                    "text": "Docs Group — Aiutaci a migliorare la documentazione!",
+                    "updated": 1666395595568
+                },
+                {
+                    "language": "NL",
+                    "text": "Docs Group — Helpt ons de Documenten te verbeteren!",
+                    "updated": 1667138408255
+                },
+                {
+                    "language": "ES",
+                    "text": "Docs Group — Ayúdanos a mejorar los Documentos",
+                    "updated": 1675364912389
+                }
+            ]
+        }
+    ]
+}

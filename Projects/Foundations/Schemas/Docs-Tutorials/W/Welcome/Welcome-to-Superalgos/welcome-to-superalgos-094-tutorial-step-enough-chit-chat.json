@@ -1,0 +1,270 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 94,
+    "type": "Tutorial Step - Enough Chit Chat!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "production-trading-tasks"
+        },
+        "text": "Ok, my friend... It's time for the real deal! Are you ready for a little Live Trading Session?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok, amico mio...è ora di entrare in azione! Sei pronto a una piccola Live Trading Session?",
+                "updated": 1618068381473,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Vale ... ¡Es hora de la verdad! ¿Estás listo para un poco de Live Trading Session?",
+                "updated": 1624464311994,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ok, mein Freund... Es ist Zeit für das echte Geschäft! Sind Sie bereit für eine kleine Live Trading Session?",
+                "updated": 1634226761390
+            },
+            {
+                "language": "TR",
+                "text": "Tamam dostum... Zamanı geldi! Küçük bir Canlı İşlem Seansına hazır mısınız?",
+                "updated": 1636403624650
+            },
+            {
+                "language": "ID",
+                "text": "Ok teman-ku... Sudah waktunya untuk kesepakatan yang sebenarnya! Apakah kamu siap untuk Live Trading Session skala kecil?",
+                "updated": 1640574501752
+            },
+            {
+                "language": "RU",
+                "text": "Ладно, друг мой... Пришло время для настоящего дела! Готов ли ты к небольшой реальной торговой сессии (Live Trading Session)?",
+                "updated": 1642769755730
+            },
+            {
+                "language": "NL",
+                "text": "Ok, mijn vriend... Het is tijd voor het echte werk! Ben je klaar voor een kleine Live Trading Session?",
+                "updated": 1667125871872
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll help you with the three main requirements:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti aiuterò con i tre requisiti principali:",
+                    "updated": 1618068402523,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te ayudaré con los tres requisitos principales:",
+                    "updated": 1624464383867,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde Ihnen bei den drei Hauptanforderungen helfen:",
+                    "updated": 1634226773215
+                },
+                {
+                    "language": "TR",
+                    "text": "Size üç ana gereksinim konusunda yardımcı olacağım:",
+                    "updated": 1636403650823
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan membantu kamu dengan tiga persyaratan utama :",
+                    "updated": 1640574534310
+                },
+                {
+                    "language": "RU",
+                    "text": "Я помогу вам выполнить три основных требования:",
+                    "updated": 1642769779975
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik help je met de drie belangrijkste vereisten:",
+                    "updated": 1667125886328
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Check your parameters, in particular, decide how much capital you wish to assign to the session.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Controlla i parametri: in particolar modo decidi bene quanto capitale assegnare alla sessione",
+                    "updated": 1618068548173,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Verifica sus parámetros, en particular, decide cuánto capital deseas asignar a la sesión.",
+                    "updated": 1675361428569,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie Ihre Parameter, insbesondere entscheiden Sie, wie viel Kapital Sie für die Sitzung bereitstellen möchten.",
+                    "updated": 1634226804180
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikle parametrelerinizi kontrol edin, seansa ne kadar sermaye atamak istediğinize karar verin.",
+                    "updated": 1636403672375
+                },
+                {
+                    "language": "ID",
+                    "text": "Periksa parametermu, khususnya, putuskan berapa banyak modal yang ingin kamu tetapkan untuk sesi tersebut.",
+                    "updated": 1640574582598
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте свои параметры, в частности, решите, сколько капитала вы хотите выделить на сессию.",
+                    "updated": 1642769796252
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer met name uw parameters en bepaal hoeveel kapitaal u aan de sessie wilt toewijzen.",
+                    "updated": 1667125903899
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Set up an Exchange Account Key so that the app may access your account at the exchange.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prepara un Exchange Account Key: necessaria perchè l'app possa accedere al tuo account sull'exchange.",
+                    "updated": 1618068559526,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Configura un Exchange Account Key para que la aplicación pueda acceder a tu cuenta en el exchange.",
+                    "updated": 1625934285852,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Richten Sie einen Exchange Account Key ein, damit die App auf Ihr Konto bei der Börse zugreifen kann.",
+                    "updated": 1634226810813
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamanın borsadaki hesabınıza erişebilmesi için bir Borsa Hesap Anahtarı ( Exchange Account Key ) ayarlayın.",
+                    "updated": 1636403721574
+                },
+                {
+                    "language": "ID",
+                    "text": "Siapkan Exchange Account Key sehingga aplikasi dapat mengakses akunmu di exchange.",
+                    "updated": 1640574621307
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройте ключ учетной записи биржи (\"Exchange Account Key\"), чтобы приложение могло получить доступ к вашей учетной записи на бирже.",
+                    "updated": 1642769821837
+                },
+                {
+                    "language": "NL",
+                    "text": "Stel een Exchange Account Key in zodat de app toegang heeft tot uw account op het handelsplatform.",
+                    "updated": 1667125943050
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Ensure a live data feed, that is, the data mining operation with the indicators required by the Trading System must be running and up to date.",
+            "updated": 1610642474628,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Garantisci un feed di dati continuo dal vivo: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
+                    "updated": 1666393257776,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegurate que la operación de minería de datos con los indicadores requeridos por el Trading System esté funcionando y actualizado con los datos en vivo.",
+                    "updated": 1624464716757,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass ein Live-Datenfeed, das heißt die Data-Mining-Operation mit den vom Trading System benötigten Indikatoren, läuft und auf dem neuesten Stand ist.",
+                    "updated": 1634226827105
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı bir veri akışı sağlayın, yani sisteminin gerektirdiği göstergelerle veri madenciliği operasyonunun çalışır durumda ve güncel olması gerekir.",
+                    "updated": 1636403773416
+                },
+                {
+                    "language": "ID",
+                    "text": "Pastikan umpan data langsung, yaitu data mining operation dengan indikator yang diperlukan oleh Trading System harus berjalan dan up to date.",
+                    "updated": 1640574700178
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что живой поток данных, т.е. операция по поиску данных с индикаторами, которые требуются торговой системе, работает и обновляется.",
+                    "updated": 1642769863710
+                },
+                {
+                    "language": "NL",
+                    "text": "Zorg voor een live datafeed, dat wil zeggen dat de datamining-operatie met de door het Trading System vereiste indicatoren actief en up-to-date moet zijn.",
+                    "updated": 1667125979184
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going. You will at least learn how things work!",
+            "updated": 1622232287190,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se non sei pronto per fare un po' di trading dal vivo per qualsiasi motivo, non preoccuparti, continua. Almeno imparerai come funzionano le cose!",
+                    "updated": 1666392783419,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no estás listo para operar en vivo por cualquier motivo, simplemente continúa. ¡Al menos aprenderás cómo funcionan las cosas!",
+                    "updated": 1624496689859,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie aus irgendeinem Grund noch nicht bereit sind, live zu handeln, machen Sie einfach weiter. Sie werden auf jeden Fall lernen, wie die Dinge funktionieren!",
+                    "updated": 1634226835104
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir nedenle canlı ticaret yapmaya hazır değilseniz, endişelenmeyin, devam edin. En azından işlerin nasıl yürüdüğünü öğreneceksin!",
+                    "updated": 1636403901281
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak siap untuk melakukan  live trading dengan alasan apa pun, jangan khawatir, teruskan saja. Kamu setidaknya akan belajar cara kerjanya!",
+                    "updated": 1640574747735
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы по каким-то причинам не готовы к реальной торговле, не волнуйтесь, просто продолжайте. Вы, по крайней мере, узнаете, как все работает!",
+                    "updated": 1642769880588
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je om welke reden dan ook niet klaar bent om live te handelen, maak je dan geen zorgen, ga gewoon door. Je leert in ieder geval hoe dingen werken!",
+                    "updated": 1667125995919
+                }
+            ]
+        }
+    ]
+}

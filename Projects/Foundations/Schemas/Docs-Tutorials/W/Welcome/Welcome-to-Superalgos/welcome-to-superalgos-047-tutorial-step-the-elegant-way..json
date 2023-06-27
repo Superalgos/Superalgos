@@ -1,0 +1,262 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 47,
+    "type": "Tutorial Step - The Elegant Way...",
+    "definition": {
+        "icon": {
+            "name": "Mouse\\mouse-pointer",
+            "project": "Foundations"
+        },
+        "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? Nessun problema... prova questo trucco!",
+                "updated": 1666390282402,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Aku tahu!, Memperbesar ke tempat acak tidak seperti langsung menuju ke kotak chart discreenmu, benar? Jangan khawatir... Coba trik ini!",
+                "updated": 1616948885540,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico alineado con tu pantalla, ¿verdad? No te preocupes... ¡prueba este truco!",
+                "updated": 1675277216757,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick!",
+                "updated": 1634207830054,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Biliyorum! Rastgele bir noktaya zoom yapmak, grafiği ekranınızda konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
+                "updated": 1644915994920
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
+                "updated": 1636204552263
+            },
+            {
+                "language": "NL",
+                "text": "Ik weet! Als u inzoomt op een willekeurige plek, is het onwaarschijnlijk dat de grafiek in verhouding van uw scherm wordt geplaatst, toch? Geen zorgen... probeer deze truc!",
+                "updated": 1666699799907
+            },
+            {
+                "language": "FR",
+                "text": "Je sais ! Il est peu probable que le fait de zoomer à un endroit aléatoire ne positionne pas la chart au bon endroit de votre écran, n'est-ce pas ? Ne vous inquiétez pas... essayez cette astuce !",
+                "updated": 1668068775328
+            }
+        ],
+        "updated": 1616417516192
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Adjust the aspect ratio: Point your mouse to the Backtesting Session chart (the one on top) and hit Ctrl + Shift + Alt + Key-A",
+            "updated": 1630942566854,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Sesuaikan aspect ratio: Arahkan mouse ke chart Backtesting Session (yang ada di atas) dan tekan Ctrl + Shift + Alt + Key-A",
+                    "updated": 1639745771769,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ajusta la relación de aspecto: Apunta con el ratón al gráfico de la Backtesting Session (el de la parte superior) y pulsa Ctrl + Shift + Alt + Key-A",
+                    "updated": 1675277119980,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie das Seitenverhältnis ein: Zeigen Sie mit der Maus auf den Chart der Backtesting Session (den oberen) und drücken Sie Ctrl + Shift + Alt + Key-A",
+                    "updated": 1634207859976,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "En-boy oranını ayarlayın: Farenizi Backtesting Session grafiğine (üstteki) getirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın",
+                    "updated": 1636036205725
+                },
+                {
+                    "language": "RU",
+                    "text": "Отрегулируйте соотношение сторон: наведите курсор мыши на график сеансов тестирования (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
+                    "updated": 1636204626786
+                },
+                {
+                    "language": "IT",
+                    "text": "Regola le proporzioni: punta il mouse sul grafico della sessione di backtesting (quello in alto) e premi Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-A</kbd>",
+                    "updated": 1666390318690
+                },
+                {
+                    "language": "NL",
+                    "text": "Pas de beeldverhouding aan: wijs met uw muis naar de Backtesting Session Chart (die bovenaan) en druk op <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Key-A</kbd>",
+                    "updated": 1666699907091
+                },
+                {
+                    "language": "FR",
+                    "text": "Ajustez le ratio d'aspect : Pointez votre souris sur le graphique de la session de backtesting (celui du haut) et appuyez sur Ctrl + Shift + Alt + Key-A",
+                    "updated": 1668068802852
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Zoom out: use the mouse wheel to go to the furthest zoom out position; only from this position will the next command work!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Zoom out: gunakan mouse wheel untuk memposisikan zoom out terkecil; hanya dari posisi ini perintah berikutnya akan bekerja!",
+                    "updated": 1616949119939,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
+                    "updated": 1624403987866,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl!",
+                    "updated": 1634207868032,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzaklaştır: Grafiği uzaklaştırmak için fare tekerleğini kullanın.",
+                    "updated": 1644916086212
+                },
+                {
+                    "language": "RU",
+                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
+                    "updated": 1636204795612
+                },
+                {
+                    "language": "IT",
+                    "text": "Rimpicciolisci: usa la rotellina del mouse per andare alla posizione di rimpicciolimento più lontana; solo da questa posizione il prossimo comando funzionerà!",
+                    "updated": 1666390389684
+                },
+                {
+                    "language": "NL",
+                    "text": "Uitzoomen: gebruik het muiswiel om naar de verste uitzoompositie te gaan; alleen vanuit deze positie zal het volgende commando werken!",
+                    "updated": 1666699941850
+                },
+                {
+                    "language": "FR",
+                    "text": "Zoom arrière : utilisez la molette de la souris pour atteindre la position de zoom arrière la plus éloignée ; ce n'est qu'à partir de cette position que la commande suivante fonctionnera !",
+                    "updated": 1668068822173
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Double-click once: this centers the chart and takes you to a certain level of zoom; a margin is left to fit the name and tab of the chart on the top-left corner.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai doppio click sulla Time Machine in cima: questo centrerà il grafico e lo zoomerà, lasciando del margine per visualizzarne il nome e la tab in alto a sinistra.",
+                    "updated": 1618647317393,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Double-click : Ini memusatkan chart dan membawamu ke tingkat zoom tertentu; margin terlihat kekiri agar pas dengan nama dan tab chart di sudut kiri atas.",
+                    "updated": 1639745801432,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Double-click una vez: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
+                    "updated": 1675277171972,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doppelklicken Sie einmal: Dies zentriert das Diagramm und bringt Sie zu einer bestimmten Zoomstufe; es wird ein Rand gelassen, damit der Name und die Registerkarte des Diagramms in die obere linke Ecke passen.",
+                    "updated": 1634207894965,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kez çift tıklayın: Bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
+                    "updated": 1644916096511
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
+                    "updated": 1636204908775
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik eenmaal: dit centreert de grafiek en brengt u naar een bepaald zoomniveau; er blijft een marge over de naam en het tabblad van het diagram in de linkerbovenhoek zichtbaar te houden.",
+                    "updated": 1666700012138
+                },
+                {
+                    "language": "FR",
+                    "text": "Double-cliquez une fois : cela centre le graphique et vous permet d'accéder à un certain niveau de zoom ; une marge est laissée pour que le nom et l'onglet du graphique s'affichent dans le coin supérieur gauche.",
+                    "updated": 1668068838984
+                }
+            ],
+            "updated": 1616418234728
+        },
+        {
+            "style": "List",
+            "text": "Double-click again: this takes you further in the chart, to the zoom level in which the chart perfectly fits the screen and Layer Managers emerge.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai un altro doppio click: questo ti trasporterà ulteriormente dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e far emergere i Layer Managers.",
+                    "updated": 1666390442830,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Double-click lagi: ini akan membawakamu lebih jauh di chart, ke tingkat zoom di mana chart sangat cocok dengan layar dan Layer Managers yang muncul.",
+                    "updated": 1639745729265,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Double-click otra vez: esto te lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
+                    "updated": 1675277187452,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiterer Doppelklick: bringt Sie weiter in das Diagramm, bis zu einer Zoomstufe, in der das Diagramm perfekt auf den Bildschirm passt und die Layer Manager erscheinen.",
+                    "updated": 1634207914480,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tekrar çift tıklayın: Bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
+                    "updated": 1644916107427
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме, к уровню масштабирвания, при котором диаграмма идеально соответствует экрану и появятся Layer Managers.",
+                    "updated": 1636204981598
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik nogmaals: hiermee gaat u verder in de grafiek, naar het zoomniveau waarop de grafiek perfect op het scherm past en Layer Managers tevoorschijn komen.",
+                    "updated": 1666700044985
+                },
+                {
+                    "language": "FR",
+                    "text": "Double-cliquez à nouveau : cela vous amène plus loin dans le graphique, au niveau de zoom dans lequel le graphique s'adapte parfaitement à l'écran et où les gestionnaires de couches apparaissent.",
+                    "updated": 1668068856581
+                }
+            ],
+            "updated": 1622198926988
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 111,
+    "type": "Tutorial Step - What's Next?",
+    "definition": {
+        "icon": {
+            "name": "help",
+            "project": "Foundations"
+        },
+        "text": "There are tons of things we haven't covered yet, like how to run a Live Trading Session! We'll get there, no worries!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare, come per esempio eseguire una vera Live Trading Session! Ci arriveremo, non preoccuparti!",
+                "updated": 1666391042541,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hay un montón de cosas que aún no hemos cubierto, ¡como por ejemplo cómo llevar a cabo una Live Trading Session! Ya llegaremos a eso, ¡no te preocupes!",
+                "updated": 1675362767262,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben - beispielsweise wie man eine Live-Handelssession startet. Keine Sorge, wir kommen bald dazu!",
+                "updated": 1660476258637
+            },
+            {
+                "language": "TR",
+                "text": "Henüz ele almadığımız tonlarca şey var, Canlı Alım Satım Seansının nasıl yürütüleceği gibi! Oraya da geleceğiz, endişelenmeyin!",
+                "updated": 1666066283314
+            },
+            {
+                "language": "ID",
+                "text": "Ada banyak hal yang belum kita bahas, aku tahu! Lihat saja sekeliling! Begitu banyak hal untuk dilihat! Ini membingungkan.",
+                "updated": 1640596516101
+            },
+            {
+                "language": "RU",
+                "text": "Мы еще не рассказали о многих вещах, например, о том, как проводить Live Trading Session! Мы сделаем это, не волнуйтесь!",
+                "updated": 1662034443853
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn heel veel dingen die we nog niet hebben behandeld, zoals het starten van een Live Trading Session! We komen er wel, geen zorgen!",
+                "updated": 1667136072355
+            }
+        ],
+        "updated": 1660155665756
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm sure you still have tons of questions... How do I build my own strategies? How do I build an indicator? How do I deploy a trading farm? How may I integrate with TradingView? How do I set up Telegram or Twitter announcements? How do I fetch data from other APIs?",
+            "updated": 1660158719018,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram o gli annunci Twitter?  Come recupero dati da altre API?",
+                    "updated": 1666391147915,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Seguro que aún tienes muchas preguntas... ¿Cómo construyo mis propias estrategias? ¿Cómo construyo un indicador? ¿Cómo despliego una granja de trading? ¿Cómo puedo integrarme con TradingView? ¿Cómo puedo configurar anuncios de Telegram o Twitter? ¿Cómo obtengo datos de otras API?",
+                    "updated": 1675362820832,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie baue ich einen Indikator? Wie erzeuge ich eine Trading-Farm? Wie kann ich eine Integration mit TradingView herstellen? Wie richte ich Telegram- oder Twitter-Benachrichtigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
+                    "updated": 1660476351227
+                },
+                {
+                    "language": "TR",
+                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluşturabilirim? Nasıl bir gösterge oluşturabilirim? Bir ticaret çiftliğini nasıl dağıtabilirim? TradingView ile nasıl entegre olabilirim? Telegram veya Twitter duyurularını nasıl ayarlayabilirim? Diğer API'lardan nasıl veri alabilirim?",
+                    "updated": 1666066358527
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku yakin kamu masih memiliki banyak pertanyaan yang mengambang di kepalamu... Bagaimana cara membangun strategiku sendiri? Bagaimana cara mengukur kinerja? Bagaimana cara membangun indikator? Bagaimana cara menggunakan trading farm? Bagaimana saya bisa berintegrasi dengan TradingView? Bagaimana cara mengatur Telegram announcements? Bagaimana cara mengambil data dari API lain?",
+                    "updated": 1640596695647
+                },
+                {
+                    "language": "RU",
+                    "text": "Я уверен, что у вас все еще есть масса вопросов... Как мне создавать свои собственные стратегии? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram или Twitter? Как получить данные из других API?",
+                    "updated": 1662034359006
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik weet zeker dat je nog heel veel vragen hebt... Hoe bouw ik mijn eigen strategieën? Hoe bouw ik een indicator? Hoe zet ik een trading farm in? Hoe kan ik integreren met TradingView? Hoe stel ik Telegram- of Twitter-aankondigingen in? Hoe haal ik gegevens op uit andere APIs?",
+                    "updated": 1667136125387
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "There are tutorials and over 1500 pages of documentation that cover all your questions!",
+            "updated": 1660158625875,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеются учебные пособия и более 1500 страниц документации, которые охватывают все ваши вопросы!",
+                    "updated": 1662034377425
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm sorularınızı kapsayan öğreticiler ve 1500 sayfadan fazla belge var! Docs'a göz atmanızda fayda var..",
+                    "updated": 1666066431352
+                },
+                {
+                    "language": "IT",
+                    "text": "Ci sono altri tutorial e oltre 1500 pagine di documentazione che coprono tutte le tue domande!",
+                    "updated": 1666391182472
+                },
+                {
+                    "language": "NL",
+                    "text": "Er zijn handleidingen en meer dan 1500 pagina's met documentatie die al uw vragen behandelen!",
+                    "updated": 1667136174143
+                },
+                {
+                    "language": "ES",
+                    "text": "Hay tutoriales y más de 1500 páginas de documentación que cubren todas tus preguntas.",
+                    "updated": 1675362839917
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "So let's look into the built-in documentation system before we move on with other stuff!",
+            "updated": 1660158656243,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Итак, давайте рассмотрим интегрированную систему документации, прежде чем переходить к другим вещам!",
+                    "updated": 1662034401247
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer konulara geçmeden önce yerleşik dokümantasyon (Docs) sistemine bir göz atalım!",
+                    "updated": 1666066466202
+                },
+                {
+                    "language": "IT",
+                    "text": "Quindi diamo un'occhiata al sistema di documentazione integrato prima di passare ad altre cose!",
+                    "updated": 1666391207835
+                },
+                {
+                    "language": "NL",
+                    "text": "Dus laten we eens kijken naar het ingebouwde documentatiesysteem voordat we verder gaan met andere dingen!",
+                    "updated": 1667136196273
+                },
+                {
+                    "language": "ES",
+                    "text": "Así que echemos un vistazo al sistema de documentación integrado antes de pasar a otras cosas.",
+                    "updated": 1675362850578
+                }
+            ]
+        }
+    ]
+}

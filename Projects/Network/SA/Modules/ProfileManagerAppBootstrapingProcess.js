@@ -23,7 +23,8 @@ exports.newNetworkModulesProfileManagerAppBootstrapingProcess = function newNetw
 
     const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
     let tempBalanceRanking = new Map()
-    /** @type {import('../Globals/Persistence').NetworkPersistenceModel} */ let userBalancePersistence = SA.projects.network.globals.persistence.newPersistenceStore(global.env.PERSISTENCE.NETWORK.TYPE, global.env.PERSISTENCE.NETWORK.USER_PROFILE_DATABASE_NAME)
+    /** @type {import('../../../Local-Storage/SA/Globals/Persistence').NetworkPersistenceModel} */
+    let userBalancePersistence = undefined
 
     return thisObject
 
@@ -32,13 +33,16 @@ exports.newNetworkModulesProfileManagerAppBootstrapingProcess = function newNetw
         p2pNetworkClientIdentity,       // Here we will set the Network Client Identity after we load all User Profiles and find the one that is running this App. 
         pullUserProfiles,               // This is used to know if we need to git pull all User Profiles to keep this App uptodate with changes made by users of their User Profiles over tiem. Usually this is only needed at Network Nodes.
         loadAllUserProfileBalances      // At some Apps, there is no need to load and keep up to date all User Profile Balances. Only when this is true we will do that, otherwise we will only load the balance of the User Profile running this app. 
-        ) {
+    ) {
+        userBalancePersistence = await SA.projects.localStorage.globals.persistence.newPersistenceStore(global.env.DATABASE.TYPE, global.env.DATABASE.USERS_TABLE)
+        userBalancePersistence.initialize()
         thisObject.pullUserProfiles = pullUserProfiles
         thisObject.userAppCodeName = userAppCodeName
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.loadAllUserProfileBalances = loadAllUserProfileBalances
         await run()
         process.send('update')
+        process.exit(0)
     }
 
     async function run() {

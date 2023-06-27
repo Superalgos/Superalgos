@@ -1,0 +1,186 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Nodes' Attaching Rules",
+    "definition": {
+        "text": "Click the help button on the Trading Parameters node to access the node's Docs page. I'm going to show you something...",
+        "icon": {
+            "name": "help",
+            "project": "Foundations"
+        },
+        "updated": 1615580946356,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Clicca il pulsante Help nel menu dei Trading Parameters per accedere alla pagina Docs del nodo. Ti mostrerò una cosa...",
+                "updated": 1619500388726,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Haz clic en el botón de ayuda en el nodo Trading Parameters para acceder a la página de documentos del nodo. ",
+                "updated": 1626373913487,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Klicken Sie auf die Hilfe-Schaltfläche des Knotens Trading Parameters, um die Seite Docs des Knotens aufzurufen. Ich werde Ihnen jetzt etwas zeigen...",
+                "updated": 1634333867183
+            },
+            {
+                "language": "TR",
+                "text": "Düğümün Yardım/Dokümanlar sayfasına erişmek için İşlem Parametreleri ( Trading Parameters ) düğümündeki yardım düğmesine tıklayın. Sana bir şey göstereceğim...",
+                "updated": 1636792560853
+            },
+            {
+                "language": "RU",
+                "text": "Нажмите кнопку справки на узле Trading Parameters, чтобы перейти на страницу документации узла. Я собираюсь показать вам кое-что...",
+                "updated": 1640868242738
+            },
+            {
+                "language": "ID",
+                "text": "Klik tombol help pada node Trading Parameters untuk mengakses halaman node Docs. Aku akan menunjukkan sesuatu kepada kamu...",
+                "updated": 1644947308982
+            },
+            {
+                "language": "NL",
+                "text": "Klik op de help-knop op het knooppunt Trading Parameters om toegang te krijgen tot de pagina Docs van het knooppunt. Ik ga je iets laten zien...",
+                "updated": 1668338430794
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Scroll the page all the way to the bottom until you find the \"Trading Parameters Attaching Rules\" title.",
+            "updated": 1622372858654,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Scorri la pagina fino in fondo, finchè trovi il titolo \"Trading Parameters Attaching Rules\"!",
+                    "updated": 1619500470210,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplázate por la página hasta encontrar el título \"Trading Parameters Attaching Rules\".",
+                    "updated": 1626373943083,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Blättern Sie die Seite ganz nach unten, bis Sie den Titel \"Trading Parameters Attaching Rules\" finden.",
+                    "updated": 1634333875335
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Ticaret Parametreleri Ekleme Kuralları\" ( Trading Parameters Attaching Rules ) başlığını bulana kadar sayfayı sonuna kadar kaydırın.",
+                    "updated": 1636792599389
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите страницу до самого низа, пока не найдете заголовок \"Правила присоединения торговых параметров\" (\"Trading Parameters Attaching Rules\").",
+                    "updated": 1640868520513
+                },
+                {
+                    "language": "ID",
+                    "text": "Scroll halaman sampai ke bawah hingga kamu menemukan judul \"Trading Parameters Attaching Rules\".",
+                    "updated": 1644947349857
+                },
+                {
+                    "language": "NL",
+                    "text": "Scrol de pagina helemaal naar beneden totdat u de titel \"Trading Parameters Attaching Rules\" vindt.",
+                    "updated": 1668338449894
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Each node may be attached to certain node types. These attaching rules are listed on the node's page in the Docs.",
+            "updated": 1615583315164,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni nodo può essere attaccato solo a certi tipi di nodo. Questi criteri sono elencati nella pagina Docs di ogni nodo.",
+                    "updated": 1619500530342,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada nodo puede estar asociado a ciertos tipos de nodos. Estas reglas para adjuntar se enumeran en la página del nodo en los Documentos.",
+                    "updated": 1626373851467,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Knoten kann an bestimmte Knotentypen angehängt werden. Diese Verknüpfungsregeln sind auf der Seite des Knotens in den Docs aufgeführt.",
+                    "updated": 1634333881601
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğüm belirli düğüm türlerine eklenebilir. Bu ekleme kuralları, Dokümanlar'da düğümün sayfasında listelenir.",
+                    "updated": 1636792641639
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый узел может быть присоединен к определенным типам узлов. Эти правила присоединения перечислены на странице узла в документации.",
+                    "updated": 1640868549651
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap node dapat dilampirkan ke jenis node tertentu. Aturan dalam melampirkan ini tercantum pada halaman node di Docs.",
+                    "updated": 1644947384200
+                },
+                {
+                    "language": "NL",
+                    "text": "Elk knooppunt kan aan bepaalde soorten knooppunten worden gekoppeld. Deze koppelregels worden vermeld op de pagina van het knooppunt in de Docs.",
+                    "updated": 1668338478962
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "When there are several nodes that may accept the connection, each candidate displays a grey ring indicating their readiness to take the attachment. Only the candidate closer to the node to be attached is highlighted in orange.",
+            "updated": 1615582903959,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando più nodi possono accettare la connessione, ogni candidato mostra un cerchio grigio. Solo il candidato più vicino al nodo da collegare sarà evidenziato in arancione.",
+                    "updated": 1619500597194,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando hay varios nodos que pueden aceptar la conexión, cada candidato muestra un anillo gris que indica que están listos para tomar el archivo adjunto. Solo el candidato más cercano al nodo que se va a adjuntar se resalta en naranja.",
+                    "updated": 1626373870250,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es mehrere Knoten gibt, die die Verbindung annehmen können, zeigt jeder Kandidat einen grauen Ring an, der anzeigt, dass er bereit ist, die Verbindung anzunehmen. Nur der Kandidat, der sich näher am zu verbindenden Knoten befindet, ist orange markiert.",
+                    "updated": 1634333887983
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlantıyı kabul edebilecek birkaç düğüm olduğunda, her aday eki almaya hazır olduklarını belirten gri bir halka görüntüler. Yalnızca eklenecek düğüme daha yakın olan aday turuncu renkle vurgulanır.",
+                    "updated": 1636792767216
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда есть несколько узлов, которые могут принять соединение, каждый кандидат отображает серое кольцо, указывающее на его готовность принять присоединение. Только тот кандидат, который находится ближе к узлу, подлежащему присоединению, выделяется оранжевым цветом.",
+                    "updated": 1640868576676
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika ada beberapa node yang dapat menerima koneksi, setiap kandidat menampilkan cincin abu-abu yang menunjukkan kesiapan mereka untuk meng-attach. Hanya kandidat yang lebih dekat ke node yang akan di attach dan tersorot dalam warna oranye.",
+                    "updated": 1644949021786
+                },
+                {
+                    "language": "NL",
+                    "text": "Als er meerdere knooppunten zijn die de verbinding kunnen accepteren, geeft elke kandidaat een grijze ring weer die aangeeft dat ze klaar zijn om de verbinding te nemen. Alleen de kandidaat die zich het dichtst bij het te koppelen knooppunt bevindt, wordt oranje gemarkeerd.",
+                    "updated": 1668338522478
+                }
+            ]
+        }
+    ]
+}

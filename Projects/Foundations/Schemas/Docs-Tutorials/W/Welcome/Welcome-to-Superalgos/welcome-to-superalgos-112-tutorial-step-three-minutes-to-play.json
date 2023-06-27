@@ -1,0 +1,178 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 112,
+    "type": "Tutorial Step - Three Minutes to Play",
+    "definition": {
+        "text": "I'll give you a few minutes to play around with your live session, and when you are ready, we'll wrap things up and finish the tutorial!",
+        "icon": {
+            "name": "live-trading-session",
+            "project": "Foundations"
+        },
+        "updated": 1660219574343,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ti darò qualche minuto per giocare con la tua sessione dal vivo e, quando sarai pronto, concluderemo tutto e finiremo il tutorial!",
+                "updated": 1666394692797,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Te daré unos minutos para que juegues con tu sesión en vivo y, cuando estés listo, terminaremos el tutorial.",
+                "updated": 1675362893516,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen. Wenn Sie bereit sind, werden wir ein wenig aufräumen und das Tutorial beenden!",
+                "updated": 1660479733059
+            },
+            {
+                "language": "TR",
+                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda, işleri toparlayıp öğreticiyi bitireceğiz!",
+                "updated": 1666066527130
+            },
+            {
+                "language": "ID",
+                "text": "Aku akan memberi kamu beberapa menit untuk bermain-main dengan  live session-mu, dan ketika kamu siap, kita akan beralih ke hal-hal lain!",
+                "updated": 1640597996644
+            },
+            {
+                "language": "RU",
+                "text": "Я дам вам несколько минут, чтобы поиграть с вашей живой сессией, а когда вы будете готовы, мы завершим обучение!",
+                "updated": 1662034486412
+            },
+            {
+                "language": "NL",
+                "text": "Ik geef je een paar minuten om je live sessie uit te proberen, en als je klaar bent, ronden we de zaken af en maken we de handleiding af!",
+                "updated": 1667136288923
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take some time to process what you've learned so far...",
+            "updated": 1610647327253,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi del tempo per elaborare le cose che hai imparato finora...",
+                    "updated": 1618072011982,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate un tiempo para procesar lo que has aprendido hasta ahora ...",
+                    "updated": 1624485320649,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich etwas Zeit, um zu verarbeiten, was Sie bisher gelernt haben...",
+                    "updated": 1634245636711
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen şimdiye kadar öğrendiklerinizi anlayabilmek için biraz zaman ayırın...",
+                    "updated": 1636633177020
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu untuk memproses apa yang telah kamu pelajari sejauh ini...",
+                    "updated": 1640598037251
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите некоторое время тому, что вы узнали на данный момент...",
+                    "updated": 1642772758774
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd om te verwerken wat je tot nu toe hebt geleerd...",
+                    "updated": 1667136302635
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Once you are ready to move on, feel free to stop the Live Trading Session and Data Tasks. ",
+            "updated": 1660219609599,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando sarai pronto per andare avanti, puoi interrompere la sessione di trading dal vivo e le attività sui dati.",
+                    "updated": 1666394787078,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que estés listo para seguir adelante, no dudes en detener la Live Trading Session y las Data Tasks.",
+                    "updated": 1675362929661,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereit sind fortzufahren, können Sie Live Trading-Session und die Data Tasks stoppen.",
+                    "updated": 1660479779581
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu (Live Trading Session) ve Veri Görevlerini (Data Tasks) durdurmaktan çekinmeyin.",
+                    "updated": 1666066626880
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu siap untuk melanjutkan, jangan ragu untuk menghentikan Live Trading Session dan Data Tasks. Kamu dapat membiarkan session berjalan jika kamu mau, tetapi aku tidak akan mempercayai uang hasil jerih payahku untuk strategi demo tanpa batas!",
+                    "updated": 1640598134026
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы будете готовы двигаться дальше, не стесняйтесь остановить Live Trading Session и Data Tasks. ",
+                    "updated": 1662034511886
+                },
+                {
+                    "language": "NL",
+                    "text": "Zodra u klaar bent om verder te gaan, kunt u de Live Trading Session en Data Tasks stoppen.",
+                    "updated": 1667136337010
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie möchten, können Sie die Session laufen lassen. Ich würde mein hart verdientes Geld aber nicht der Demo-Strategie anvertrauen!",
+                    "updated": 1660479827747
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете оставить сессию запущенной, если хотите, но я бы не стал доверять свои с трудом заработанные деньги демо-стратегии на неопределенный срок!",
+                    "updated": 1662034532410
+                },
+                {
+                    "language": "TR",
+                    "text": "İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak ben zor kazandığım paramı süresiz olarak demo stratejisine emanet etmezdim!",
+                    "updated": 1666066651976
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi anche lasciare la sessione in esecuzione se lo desideri, ma non affiderei i miei sudati guadagni alla strategia demo a tempo indeterminato!",
+                    "updated": 1666395128522
+                },
+                {
+                    "language": "NL",
+                    "text": "Je mag de sessie laten lopen als je wilt, maar ik zou mijn zuurverdiende geld niet voor onbepaalde tijd aan de demo-strategie toevertrouwen!",
+                    "updated": 1667136370625
+                },
+                {
+                    "language": "ES",
+                    "text": "Si lo deseas, puedes dejar la sesión en marcha, pero yo no confiaría indefinidamente mi dinero a la estrategia de demostración.",
+                    "updated": 1675362948992
+                }
+            ]
+        }
+    ]
+}

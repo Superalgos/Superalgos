@@ -269,6 +269,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                 }
                                 case 'Trading Signals': {
                                     if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                        SA.logger.debug('Network Websocket Client -> Trading Signals -> Message Received')
                                         response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(
                                             payload,
                                             caller

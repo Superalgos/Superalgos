@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Сложная программа для совершения \"низкочастотных\" сделок. С некоторыми понятными заминками и огромным потенциалом.",
                 "updated": 1640412884780
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Ein ausgeklügeltes Programm für \"Low Frequency\" Trades. Mit einigen verständlichen Schluckauf und eine Welt von Potenzial.",
+                "updated": 1686339212241
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Во время написания этой статьи содержание моего обзора удалилось, возможно, это произошло из-за какого-то конфликта с grammarly, но я не совсем уверен, маленькое окно редактирования и отсутствие возможности изменять размер этого окна редактирования только усложнили предотвращение этого.",
                     "updated": 1640413068246
+                },
+                {
+                    "language": "DE",
+                    "text": "Während ich dies schrieb, löste sich der Inhalt meiner Rezension von selbst auf, vielleicht lag es an einem Konflikt mit Grammarly, aber ich bin mir nicht ganz sicher, das kleine Bearbeitungsfenster und die fehlende Möglichkeit, die Größe des besagten Bearbeitungsfensters anzupassen, hätten dies nur erschwert.",
+                    "updated": 1686339223847
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Это поле сначала говорило мне, что нужно щелкнуть левой кнопкой мыши вместо правой, что вызвало некоторую путаницу, которая не так раздражает, как очевидное отсутствие возможности стилизовать мой текст так же, как оригинальный текст, если есть способ, то он не описан.",
                     "updated": 1640413155769
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Feld begann ursprünglich damit, dass mir gesagt wurde, ich solle mit der linken Maustaste statt mit der rechten Maustaste klicken, was einige Verwirrung stiftete, was aber nicht so ärgerlich ist wie die offensichtlich fehlende Möglichkeit, meinen Text auf die gleiche Weise zu gestalten wie den ursprünglichen Text.",
+                    "updated": 1686339233550
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Более серьезной проблемой является то, что все привязки клавиш используются совместно с google chromes (один из предлагаемых браузеров) и отсутствие возможности легко изменить привязки клавиш из пользовательского интерфейса.",
                     "updated": 1640413196971
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein größeres Problem ist die Tatsache, dass alle Tastenkombinationen mit Google Chrome (einem der vorgeschlagenen Browser) gemeinsam genutzt werden, und die fehlende Möglichkeit, Tastenkombinationen innerhalb der Benutzeroberfläche einfach zu ändern.",
+                    "updated": 1686339243622
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Один из способов решения этой проблемы - использование чего-то вроде ElectronJS для стандартизации того, как он открывается для всех пользователей, не включая сеансы с headless. Привязка клавиш, общая с google chrome, это (я думаю) \"Ctrl+Shift+A\".",
                     "updated": 1640413310070
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Möglichkeit, dieses Problem zu lösen, ist die Verwendung von ElectronJS, um zu standardisieren, wie es für alle Benutzer geöffnet wird, auch für Headless-Sitzungen. Die gemeinsame Tastenkombination mit Google Chrome ist (glaube ich) \"Strg+Shift+A\".",
+                    "updated": 1686339253595
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Еще одна проблема, которую я только что обнаружил, - это отсутствие контроля над количеством пробелов между грамматическими символами.",
                     "updated": 1640413326141
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiteres Problem, das ich gerade entdeckt habe, ist meine mangelnde Kontrolle darüber, wie viele Leerzeichen zwischen den grammatikalischen Zeichen stehen.",
+                    "updated": 1686339265213
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Наконец, пока что я весьма впечатлен возможностями Superalgos, однако я был бы рад увидеть, что в какой-то момент будет добавлена функциональность, необходимая для поддержки большего количества бирж, даже если их данные не доступны, например, на 1-минутных свечах или они используют API, который не соответствует CCXT, Я пока не уверен, что это возможно в текущей версии Superalgos, но консолидация данных с нескольких бирж для использования с одной криптовалютой и наличие отдельных компьютеров, предназначенных для сбора данных и торговли в рамках одной сети, было бы важным шагом.",
                     "updated": 1640413370946
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließlich bin ich bisher ziemlich beeindruckt von den Fähigkeiten von Superalgos, aber ich würde mich freuen zu sehen, dass irgendwann die Funktionalität, die für die Unterstützung weiterer Börsen erforderlich ist, hinzugefügt wird, selbst wenn ihre Daten zum Beispiel nicht in 1-Minuten-Candlesticks verfügbar sind oder sie eine API verwenden, die nicht CCXT-konform ist, und ich bin mir noch nicht sicher, ob dies mit dem aktuellen Build von Superalgos machbar ist, aber die Konsolidierung von Daten von mehreren Börsen für die Verwendung mit einer Kryptowährung und mit separaten Computern, die sich dem Data Mining und dem Handel innerhalb eines Netzwerks widmen, wäre ein wichtiger Schritt.",
+                    "updated": 1686339276121
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "Нечто, что было бы невероятно интересно увидеть и что было бы намного проще (но все еще сложно) с добавлением инструментов ИИ, - это возможность вводить произвольные данные (например, сегменты новостей или некриптовалютные финансовые данные) вместе с их временными периодами, и чтобы это также можно было анализировать и использовать в ваших торговых системах.",
                     "updated": 1640413407355
+                },
+                {
+                    "language": "DE",
+                    "text": "Etwas, das unglaublich zu sehen wäre und mit dem Zusatz von KI-Tools viel einfacher (aber immer noch schwierig) wäre, wäre die Möglichkeit, beliebige Daten (wie zum Beispiel Segmente von Nachrichten oder Nicht-Krypto-Finanzdaten) zusammen mit ihren Zeiträumen einzuspeisen und diese auch in der Lage zu sein, geparst und in Ihren Handelssystemen verwendet zu werden.",
+                    "updated": 1686339359757
                 }
             ]
         },
@@ -106,6 +146,11 @@
                     "language": "RU",
                     "text": "В конечном счете, то, что эта система уже может делать, великолепно, то, что она может сделать с некоторыми нюансами, однако, может быть удивительным, и я надеюсь, что даже с моими скудными способностями я смогу решить некоторые из проблем, которые я перечислил выше.",
                     "updated": 1640413451673
+                },
+                {
+                    "language": "DE",
+                    "text": "Letztendlich ist das, was dieses System bereits kann, großartig, und was es mit ein wenig Pflege erreichen kann, könnte erstaunlich sein, und ich hoffe, dass ich selbst mit meinen bescheidenen Fähigkeiten in der Lage bin, einige der oben aufgeführten Probleme zu lösen.",
+                    "updated": 1686339303855
                 }
             ]
         },

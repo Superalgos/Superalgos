@@ -3,13 +3,23 @@
 
 #pragma once
 
-#include <iostream>
 
-const char version[] = "0.8.51";
+#include <iostream>
+#include <cstring>
+
+
+using namespace std;
+
+
+const char version[] = "0.8.6";
 
 extern bool gSimpleBallances; // User has entered 0, 0 for initial ballances, won't track Holding amounts very well
 
 extern bool gIncTriggerCondition;
+
+extern string ghtmlXGraph;
+extern string ghtmlYGraph;
+extern bool   gwantHtml;
 
 typedef enum
 {

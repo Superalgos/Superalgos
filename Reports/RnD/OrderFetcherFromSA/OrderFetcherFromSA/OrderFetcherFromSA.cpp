@@ -26,15 +26,16 @@ orderMap([](const string& lhs, const string& rhs)
     return lhs > rhs;
 }                                                 );
 
-bool debug = 0;
+bool debug = 0;   // Debug option/argument has been specified on command line
+bool explore = 0; // Explore option has been specified on command line
 
-void myDailyLoop( string path1, string stPair, string stBuySell)
+int myDailyLoop( string path1, string stPair, string stBuySell)
 {
     stringstream  line;
     ifstream input(path1);
 
     json     data;
-
+    int      count;
 
     input >> data;
 
@@ -51,7 +52,7 @@ void myDailyLoop( string path1, string stPair, string stBuySell)
     string key;
     string field;
 
-    for (int count = 0; count < data.size(); count++)
+    for (count = 0; count < data.size(); count++)
     {
         // Unix timestamp (in seconds)
         unix_time = data[count][4]; // milliseconds
@@ -98,9 +99,11 @@ void myDailyLoop( string path1, string stPair, string stBuySell)
 
         orderMap[key]= line.str();
     }
+
+    return count + 1;
 } // myDailyLoop
 
-void orderTypeLoop( string path1, string stPair, string stBuySell )
+void orderTypeLoop( bool lastOrderType, string path1, string stPair, string stBuySell )
 {
     string  stYear;
     string  stMonth;
@@ -115,6 +118,19 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
 
         if (debug)
             cout << "Got Year: " << stYear << endl;
+        else if (explore)
+        {
+            cout << "         ";
+
+            if (lastOrderType)
+                cout << " ";
+            else
+                cout << '|';
+
+            cout << "  ";
+
+            cout << (char)192 << " Year: " << stYear << endl;
+        }
 
         break;
     }
@@ -135,6 +151,19 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
 
         if (debug)
             cout << "Got Month: " << stMonth << endl;
+        else if (explore)
+        {
+            cout << "         ";
+
+            if (lastOrderType)
+                cout << " ";
+            else
+                cout << '|';
+
+            cout << "     ";
+
+            cout << (char)192 << " Month : " << stMonth << endl;
+        }
 
         if (month )
             if (month == atoi(stMonth.c_str()))
@@ -159,8 +188,21 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
     string dayPath;
 
     // Get Day
+
+    cout << "         ";
+
+    if (lastOrderType)
+        cout << " ";
+    else
+        cout << '|';
+
+    cout << "        ";
+    cout << (char)192 << " Day:Orders ";
+
     for (auto& entry : directory_iterator(path1))
     {
+        static int numOrders;
+
         // Got Day
         stDay = entry.path().filename().string();
 
@@ -176,8 +218,15 @@ void orderTypeLoop( string path1, string stPair, string stBuySell )
         if (debug)
             cout << dayPath << endl;
 
-        myDailyLoop(dayPath, stPair, stBuySell);
+        numOrders= myDailyLoop(dayPath, stPair, stBuySell);
+
+        if (explore && numOrders > 1)
+        {
+            cout << stDay << ":" << numOrders - 1 << ", ";
+        }
     }
+
+    cout << endl;
 } // orderTypeLoop
 
 int main(int argc, char** argv)
@@ -197,6 +246,7 @@ int main(int argc, char** argv)
         ("m,month", "Orders for specific month. i.e. 1 = Jan, 2 = Feb etc.", cxxopts::value<int>())
         ("h,help", "(This) basic usage help")
         ("d,debug", "Print long debug information")
+        ("x,explore", "Tree view of available data")
         ;
 
     result = options.parse(argc, argv);
@@ -210,6 +260,12 @@ int main(int argc, char** argv)
 
     if (result.count("debug"))
         debug = 1;
+
+    if (result.count("explore"))
+    {
+        debug = 0;
+        explore = 1;
+    }
 
     bool foundExchange= false;
 
@@ -229,6 +285,11 @@ int main(int argc, char** argv)
 
     path1 += "/Platform/My-Data-Storage/Project/Algorithmic-Trading/Trading-Mine/Masters/Low-Frequency";
 
+    if (explore)
+    {
+        cout << endl << "Starting Directory: " << path1.string() << endl << endl;
+    }
+
     // Get Exchange
     for (auto& entry : directory_iterator(path1))
     {
@@ -237,6 +298,8 @@ int main(int argc, char** argv)
 
         if (debug)
             cout << "Got Exchange: " << stExchange << endl;
+        else if( explore)
+            cout << "Exchange:" << stExchange << endl;
 
         if (stExchange == result["exchange"].as<string>())
         {
@@ -263,6 +326,8 @@ int main(int argc, char** argv)
 
         if (debug)
             cout << "Got Pair: " << stPair << endl;
+        else if (explore)
+            cout << "   " << (char)192 << " Pair: " << stPair << endl;
 
         break;
     }
@@ -280,6 +345,8 @@ int main(int argc, char** argv)
 
         if (debug)
             cout << "Got Strategy: " << stStrategy << endl;
+        else if (explore)
+            cout << "      " << (char)192 << " Strategy: " << stStrategy << endl;
 
         break;
     }
@@ -293,30 +360,41 @@ int main(int argc, char** argv)
     // First looking at Market Buy Orders
     pathToOrderType= path1.string();
     pathToOrderType += "/Market-Buy-Orders/Multi-Time-Frame-Daily/01-min";
-    orderTypeLoop(pathToOrderType, stPair, "BUY");
+    if (explore)
+        cout << "         " << (char)195 << " Order Type: Market Buy Orders" << endl;
+    orderTypeLoop(false, pathToOrderType, stPair, "BUY");
 
     // Then Market Sell Orders
     pathToOrderType = path1.string();
     pathToOrderType += "/Market-Sell-Orders/Multi-Time-Frame-Daily/01-min";
-    orderTypeLoop(pathToOrderType, stPair, "SELL");
+    if (explore)
+        cout << "         " << (char)195 << " Order Type: Market Sell Orders" << endl;
+    orderTypeLoop(false, pathToOrderType, stPair, "SELL");
 
     // Then Limit Buy Orders
     pathToOrderType = path1.string();
     pathToOrderType += "/Limit-Buy-Orders/Multi-Time-Frame-Daily/01-min";
-    orderTypeLoop(pathToOrderType, stPair, "BUY");
+    if (explore)
+        cout << "         " << (char)195 << " Order Type: Limit Buy Orders" << endl;
+    orderTypeLoop(false, pathToOrderType, stPair, "BUY");
 
     // Then Limit Sell Orders
     pathToOrderType = path1.string();
     pathToOrderType += "/Limit-Sell-Orders/Multi-Time-Frame-Daily/01-min";
-    orderTypeLoop(pathToOrderType, stPair, "SELL");
+    if (explore)
+        cout << "         " << (char)192 << " Order Type: Limit Sell Orders" << endl;
+    orderTypeLoop(true, pathToOrderType, stPair, "SELL");
 
 
     // Print Results
 
-    cout << "Date(UTC),OrderNo,Pair,Type,Order Price,Order Amount,AvgTrading Price,Filled,Total,status" << endl;
+    if (!explore)
+    {
+        cout << "Date(UTC),OrderNo,Pair,Type,Order Price,Order Amount,AvgTrading Price,Filled,Total,status" << endl;
 
-    for (const auto& [key, value] : orderMap)
-        std::cout << value << endl;
+        for (const auto& [key, value] : orderMap)
+            std::cout << value << endl;
+    }
 
     return 1;
 } // main

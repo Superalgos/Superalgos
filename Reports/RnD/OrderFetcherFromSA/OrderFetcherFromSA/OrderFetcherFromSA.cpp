@@ -231,7 +231,7 @@ void orderTypeLoop( bool lastOrderType, string path1, string stPair, string stBu
 
 int main(int argc, char** argv)
 {
-    path  path1 = "~/Superalgos"; // Starting directory
+    path  path1 = "~"; // Starting directory
 
 
     string  stExchange;
@@ -241,8 +241,8 @@ int main(int argc, char** argv)
 
     // * Process program arguments
     options.add_options()
-        ("e,exchange", "i.e. binance. * This is a mandatory argument *", cxxopts::value<string>())
-        ("p,path-to-SA-install", "This is the path up to the 'Superalgos' directory of your install.\nFor Windows users it might be something like '/Users/YourUserName'", cxxopts::value<string>())
+        ("e,exchange", "i.e. binance. *** This is a mandatory argument ***", cxxopts::value<string>())
+        ("p,path-to-SA-install", "This is the path up to and not including the 'Superalgos' directory of your install.\nFor Windows users it might be something like '/Users/YourUserName'", cxxopts::value<string>())
         ("m,month", "Orders for specific month. i.e. 1 = Jan, 2 = Feb etc.", cxxopts::value<int>())
         ("h,help", "(This) basic usage help")
         ("d,debug", "Print long debug information")
@@ -272,9 +272,9 @@ int main(int argc, char** argv)
     if (result.count("path-to-SA-install"))
     {
         path1 = result["path-to-SA-install"].as<string>();
-        path1 += "/Superalgos";
     }
 
+    path1 += "/Superalgos";
 
     if (!exists(path1))
     {

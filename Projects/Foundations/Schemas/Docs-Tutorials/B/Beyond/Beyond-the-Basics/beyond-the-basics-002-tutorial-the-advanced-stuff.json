@@ -96,8 +96,8 @@
         },
         {
             "style": "Warning",
-            "text": "This tutorial cover features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
-            "updated": 1649176246476,
+            "text": "This tutorial covers features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
+            "updated": 1687888974476,
             "translations": [
                 {
                     "language": "IT",

@@ -52,8 +52,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If everything went well with your authentication, you should see the App Message - Contribution Done page!",
-            "updated": 1617023256176,
+            "text": "If everything went well, you should see a confirmation that changes were contributed!",
+            "updated": 1688055888235,
             "translations": [
                 {
                     "language": "IT",
@@ -140,8 +140,8 @@
         },
         {
             "style": "Warning",
-            "text": "If something went wrong with the Git Authentication, please follow the instructions on the error page to troublshoot the issue or ask for help in the Develop Group.",
-            "updated": 1622029575359,
+            "text": "If something went wrong, please check your console or terminal for errors and feel free to ask for help in the Develop Group.",
+            "updated": 1688055986498,
             "translations": [
                 {
                     "language": "ES",

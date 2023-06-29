@@ -3,12 +3,12 @@
     "pageNumber": 25,
     "type": "Tutorial Step - Set Up the Token!",
     "definition": {
-        "text": "After you hit the Generate Token button, you'll get your precious token! Don't leave the page as you won't ever see it again!",
+        "text": "After you hit the Generate Token button, you'll get your precious token! Copy it before you leave the page! You won't see it again!",
         "icon": {
             "name": "github-api",
             "project": "Foundations"
         },
-        "updated": 1610815737032,
+        "updated": 1687972420009,
         "translations": [
             {
                 "language": "IT",
@@ -52,7 +52,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Copy the token, open the Github API node config, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user, not your email!",
+            "text": "In the Contributions Panel, expand the Github Credentials tab, enter your Github username (not your email!) on the first field, paste the token on the second field, and hit Save. ",
             "translations": [
                 {
                     "language": "IT",
@@ -91,12 +91,13 @@
                     "text": "Kopieer het token, open de configuratie van het Github API knooppunt en plak het tussen de dubbele aanhalingstekens van de token parameter. Vul de username parameter in met uw GitHub.com-gebruiker, niet met uw e-mailadres!",
                     "updated": 1669749676494
                 }
-            ]
+            ],
+            "updated": 1688041316691
         },
         {
             "style": "Note",
-            "text": "Superalgos stores the token in the workspace file, just like your Exchange Account Key. The token is used to autheticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
-            "updated": 1610817098653,
+            "text": "Superalgos stores the token in a JSON file in the My-Secrets folder. The token is used to authenticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
+            "updated": 1687972521470,
             "translations": [
                 {
                     "language": "IT",

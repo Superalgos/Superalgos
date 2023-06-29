@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "23",
+    "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
         "text": "For the Contributions Panel to work, you need to enter the credentials to authenticate with GiHub.com first!",

@@ -96,8 +96,8 @@
         },
         {
             "style": "Success",
-            "text": "Take a look at the list of tutorials available on each of the Native Workspaces and choose which one to do next!",
-            "updated": 1630945219778,
+            "text": "Take a look at the list of tutorials available on each of the Native Workspaces. The proposed sequence is recommended, but it's up to you!",
+            "updated": 1688056219873,
             "translations": [
                 {
                     "language": "IT",

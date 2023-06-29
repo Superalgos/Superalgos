@@ -26,8 +26,8 @@ orderMap([](const string& lhs, const string& rhs)
     return lhs > rhs;
 }                                                 );
 
-bool debug = 0;   // Debug option/argument has been specified on command line
-bool explore = 0; // Explore option has been specified on command line
+bool debug = false;   // Debug option/argument has been specified on command line
+bool explore = false; // Explore option has been specified on command line
 
 int myDailyLoop( string path1, string stPair, string stBuySell)
 {
@@ -187,18 +187,21 @@ void orderTypeLoop( bool lastOrderType, string path1, string stPair, string stBu
 
     string dayPath;
 
+
+    if (explore)
+    {
+        cout << "         ";
+
+        if (lastOrderType)
+            cout << " ";
+        else
+            cout << '|';
+
+        cout << "        ";
+        cout << (char)192 << " Day:Orders ";
+    }
+
     // Get Day
-
-    cout << "         ";
-
-    if (lastOrderType)
-        cout << " ";
-    else
-        cout << '|';
-
-    cout << "        ";
-    cout << (char)192 << " Day:Orders ";
-
     for (auto& entry : directory_iterator(path1))
     {
         static int numOrders;
@@ -231,7 +234,7 @@ void orderTypeLoop( bool lastOrderType, string path1, string stPair, string stBu
 
 int main(int argc, char** argv)
 {
-    path  path1 = "~"; // Starting directory
+    path  path1 = getenv("HOME"); // Starting directory
 
 
     string  stExchange;
@@ -242,7 +245,8 @@ int main(int argc, char** argv)
     // * Process program arguments
     options.add_options()
         ("e,exchange", "i.e. binance. *** This is a mandatory argument ***", cxxopts::value<string>())
-        ("p,path-to-SA-install", "This is the path up to and not including the 'Superalgos' directory of your install.\nFor Windows users it might be something like '/Users/YourUserName'", cxxopts::value<string>())
+        ("p,path-to-SA-install", "This is the path up to the 'Superalgos' directory of your install.\nFor Windows users it might be something like '/Users/YourUserName'\n"
+                                 "Careful when using '~' when trying to access your home directory and that you let the operating system expand it. i.e. don't put it in quotes", cxxopts::value<string>())
         ("m,month", "Orders for specific month. i.e. 1 = Jan, 2 = Feb etc.", cxxopts::value<int>())
         ("h,help", "(This) basic usage help")
         ("d,debug", "Print long debug information")
@@ -259,12 +263,12 @@ int main(int argc, char** argv)
     }
 
     if (result.count("debug"))
-        debug = 1;
+        debug = true;
 
     if (result.count("explore"))
     {
-        debug = 0;
-        explore = 1;
+        debug = false;
+        explore = true;
     }
 
     bool foundExchange= false;
@@ -276,7 +280,12 @@ int main(int argc, char** argv)
 
     path1 += "/Superalgos";
 
-    if (!exists(path1))
+    if (exists(path1))
+    {
+        if (debug)
+            cout << endl << "Found Path: " << path1 << endl;
+    }
+    else
     {
         cout << endl << "Could not find Superalgos directory: " << path1 << endl;
         cout << "Perhaps the path to Superalgos isn't quite right?" << endl;

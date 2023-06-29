@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "25.1",
+    "pageNumber": 26,
     "type": "Tutorial Step - The Contributions Panel",
     "definition": {
         "text": "The panel features a table listing the repositories that make up the Superalgos software. Each repo tracks changes independently.",

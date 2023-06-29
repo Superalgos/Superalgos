@@ -23,8 +23,8 @@
         },
         {
             "style": "Callout",
-            "text": "If you're ready to commit your review, click the Contribute button. You should get a confirmation that changes were committed.",
-            "updated": 1688053245727
+            "text": "If you're ready to commit your review, click the Contribute button. Check your console in case Git asks you to enter your username and token again.",
+            "updated": 1688057170185
         }
     ]
 }

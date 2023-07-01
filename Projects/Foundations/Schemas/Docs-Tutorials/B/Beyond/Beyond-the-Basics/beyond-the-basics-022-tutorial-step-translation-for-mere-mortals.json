@@ -3,12 +3,12 @@
     "pageNumber": 22,
     "type": "Tutorial Step - Translation for Mere Mortals",
     "definition": {
-        "text": "If you are not a developer or are not familiar with Git or GitHub, the previous step probably sounded like gibberish! I know!",
+        "text": "If you are not a developer or are not familiar with Git or GitHub, the previous paragraphs may have sounded like gibberish, I know!",
         "icon": {
             "name": "github",
             "project": "Foundations"
         },
-        "updated": 1610794461181,
+        "updated": 1688055080656,
         "translations": [
             {
                 "language": "IT",
@@ -139,8 +139,8 @@
         },
         {
             "style": "Note",
-            "text": "If you do understand Git, you are always free to decide what workflow is best for you!",
-            "updated": 1610792704217,
+            "text": "If you do understand Git, you are always free to decide what contribution workflow is best for you!",
+            "updated": 1688040644502,
             "translations": [
                 {
                     "language": "IT",

@@ -1,10 +1,10 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "23",
+    "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
-        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
-        "updated": 1610799914806,
+        "text": "For the Contributions Panel to work, you need to enter the credentials to authenticate with GiHub.com first!",
+        "updated": 1687965036004,
         "icon": {
             "name": "github-api",
             "project": "Foundations"
@@ -52,8 +52,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will use the Github Personal Access Token you created while installing the platform or create a new one if you lost it!",
-            "updated": 1649178153308,
+            "text": "You need to authenticate at GitHub.com so that the Client may create the Pull Request in the upstream Superalgos repositories on your behalf. To do that, you will use the Github Personal Access Token you created while installing the platform or create a new one if you lost it!",
+            "updated": 1688041087920,
             "translations": [
                 {
                     "language": "IT",

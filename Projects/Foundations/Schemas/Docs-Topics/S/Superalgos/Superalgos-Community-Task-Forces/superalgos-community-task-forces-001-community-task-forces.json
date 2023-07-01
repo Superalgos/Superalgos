@@ -4,7 +4,7 @@
     "type": "Community Task Forces",
     "definition": {
         "text": "Community Task Forces are open groups on a mission lead by top contributors and open to all Community members. Task forces are how Superalgos organizes the Community to leverage the strength inherent in great numbers of people collaborating. Joining a task force is a great way to contribute to the project!",
-        "updated": 1618850148871,
+        "updated": 1686513873295,
         "translations": [
             {
                 "language": "RU",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "DE",
-                "text": "Community Task Forces sind offene Gruppen, die von Top-Mitarbeitern geleitet werden und für alle Community-Mitglieder offen sind. Task Forces sind die Art und Weise, wie Superalgos die Community organisiert, um die Stärke zu nutzen, die in der Zusammenarbeit einer großen Anzahl von Menschen liegt. Der Beitritt zu einer Task Force ist eine großartige Möglichkeit, zum Projekt beizutragen!",
-                "updated": 1685946548128
+                "text": "Community Task Forces sind offene Gruppen, die von Top-Mitarbeitern geleitet werden und für alle Community-Mitglieder offen sind. Die Arbeit der Task Forces, ist die Art und Weise, wie Superalgos die Community organisiert, um die Stärke zu nutzen, die in der Zusammenarbeit einer großen Anzahl von Menschen liegt. Der Beitritt zu einer Task Force ist eine großartige Möglichkeit, einen Beitrag für das Projekt leisten! ",
+                "updated": 1687466338763
             }
         ]
     },
@@ -41,8 +41,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie einen Beitrag zu Superalgos leisten möchten, aber nicht wissen, wo Sie anfangen sollen, oder eine bestimmte Aufgabe suchen, dann ist die Mitarbeit in einer Arbeitsgruppe vielleicht die beste Option für Sie!",
-                    "updated": 1685946604053
+                    "text": "Wenn Sie einen Beitrag zu Superalgos leisten möchten, aber nicht wissen, wo Sie beginnen sollen, oder eine bestimmte Aufgabe suchen, dann ist die Mitarbeit in einer Arbeitsgruppe vielleicht die beste Möglichkeit für Sie! ",
+                    "updated": 1687466350931
                 }
             ]
         },
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Verschiedene Task Forces befassen sich mit unterschiedlichen Bereichen der Projektentwicklung und können von bestimmten Fähigkeiten und Fachkenntnissen profitieren. Sehen Sie sich die bestehenden Task Forces im TOC unten an und schließen Sie sich denjenigen an, die Sie am meisten interessieren!",
-                    "updated": 1685946615392
+                    "text": "Verschiedene Task Forces beschäftigen sich mit unterschiedlichen Bereichen der Projektentwicklung und können von bestimmten Fähigkeiten und Fachkenntnissen profitieren. Sehen Sie sich die bestehenden Task Forces im TOC unten an und schließen Sie sich derjenigen an, die Sie am meisten interessiert! ",
+                    "updated": 1687466362531
                 }
             ]
         },

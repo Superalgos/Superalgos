@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "12",
+    "pageNumber": 12,
     "type": "Tutorial Step - Let's Switch Already!",
     "definition": {
         "text": "Now that everything's clear, let's do the switch and get ready for what comes next!",
@@ -50,51 +50,6 @@
         ]
     },
     "paragraphs": [
-        {
-            "style": "Text",
-            "text": "This is what you need to do:",
-            "updated": 1617019437652,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Ecco cosa devi fare:",
-                    "updated": 1619634733402,
-                    "style": "Text"
-                },
-                {
-                    "language": "ES",
-                    "text": "Esto es lo que necesitas hacer:",
-                    "updated": 1628128191379,
-                    "style": "Text"
-                },
-                {
-                    "language": "DE",
-                    "text": "Das müssen Sie tun:",
-                    "updated": 1635147831988
-                },
-                {
-                    "language": "RU",
-                    "text": "Вот что вам нужно сделать:",
-                    "updated": 1640158582221
-                },
-                {
-                    "language": "TR",
-                    "text": "Yapmanız gereken şey bu:",
-                    "updated": 1654393904677,
-                    "style": "Text"
-                },
-                {
-                    "language": "ID",
-                    "text": "Inilah yang harus kamu lakukan:",
-                    "updated": 1668786118051
-                },
-                {
-                    "language": "NL",
-                    "text": "Dit is wat u moet doen:",
-                    "updated": 1669746798901
-                }
-            ]
-        },
         {
             "style": "List",
             "text": "Go back to the footer and select Develop as your Current Branch.",
@@ -270,6 +225,10 @@
                     "updated": 1669746914765
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "You may need to run nodeSetup if the app doesn't load properly after the switch."
         }
     ]
 }

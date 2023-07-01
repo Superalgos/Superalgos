@@ -4,25 +4,60 @@
     "type": "Superalgos Review - A New Contributor's Review",
     "definition": {
         "text": "A review from a very impressed JavaScript developer, potentially a new contributor",
-        "updated": 1678915688197
+        "updated": 1678915688197,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein Bericht von einem sehr beeindruckten JavaScript-Entwickler, der möglicherweise einen neuen Beitrag leisten wird",
+                "updated": 1687642324586
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Amazing work! Well done! I want to contribute to this project, if I find what others may benefit from. So far I'm deeply impressed.",
-            "updated": 1678915894312
+            "updated": 1678915894312,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erstaunliche Arbeit! Gut gemacht! Ich möchte zu diesem Projekt beitragen, wenn ich finde, dass andere davon profitieren können. Bis jetzt bin ich tief beeindruckt.",
+                    "updated": 1687642337057
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The only thing that annoys me to no end is that, whenever I enter something in the Search input field, I get this browser's pop-up dialog prompting me to save the password. I think that's probably because there are authentication input fields, like \"username\" and \"password\", in the same form. I see this page doesn't use form at all, so the whole document becomes a form, and the username/password fields trigger this pop-up on submit."
+            "text": "The only thing that annoys me to no end is that, whenever I enter something in the Search input field, I get this browser's pop-up dialog prompting me to save the password. I think that's probably because there are authentication input fields, like \"username\" and \"password\", in the same form. I see this page doesn't use form at all, so the whole document becomes a form, and the username/password fields trigger this pop-up on submit.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Einzige, was mich unendlich ärgert, ist, dass ich jedes Mal, wenn ich etwas in das Eingabefeld \"Suchen\" eingebe, ein Popup-Fenster des Browsers erhalte, in dem ich aufgefordert werde, das Passwort zu speichern. Ich denke, das liegt wahrscheinlich daran, dass es in demselben Formular Eingabefelder für die Authentifizierung gibt, wie \"Benutzername\" und \"Passwort\". Wie ich sehe, verwendet diese Seite überhaupt kein Formular, so dass das gesamte Dokument zu einem Formular wird, und die Felder \"Benutzername\" und \"Kennwort\" lösen beim Absenden dieses Popup-Fenster aus.",
+                    "updated": 1687642347000
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Sorry for polluting develop branch with my PRs, it took me an effort to figure out the github error I kept getting on app.contribute, all superalgos reported was the following"
+            "text": "Sorry for polluting develop branch with my PRs, it took me an effort to figure out the github error I kept getting on app.contribute, all superalgos reported was the following",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es tut mir leid, dass ich den Entwicklungszweig mit meinen PRs verunreinigt habe. Es hat mich einige Mühe gekostet, den Github-Fehler herauszufinden, den ich bei app.contribute immer wieder bekam, alles, was superalgos berichtete, war das Folgende",
+                    "updated": 1687642360865
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Logon failed, use ctrl+c to cancel basic credential prompt."
+            "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Logon failed, use ctrl+c to cancel basic credential prompt.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Fehler: Anmeldung fehlgeschlagen, verwenden Sie ctrl+c, um die Eingabeaufforderung für grundlegende Anmeldeinformationen abzubrechen.",
+                    "updated": 1687642372681
+                }
+            ]
         },
         {
             "style": "Text",
@@ -38,7 +73,14 @@
         },
         {
             "style": "Text",
-            "text": "Google helped to find the solution, I had to do git remote set-url origin with my github token authenticated https url, "
+            "text": "Google helped to find the solution, I had to do git remote set-url origin with my github token authenticated https url, ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Google half bei der Suche nach der Lösung, ich musste git remote set-url origin mit meinem Github-Token authentifiziert https url zu tun,",
+                    "updated": 1687642399961
+                }
+            ]
         },
         {
             "style": "Text",

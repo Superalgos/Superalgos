@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Let’s Try the Easy Way",
+    "definition": {
+        "text": "There's an easier alternative, provided there are few nodes in the workspace that can accept the reference.",
+        "updated": 1687796256938,
+        "icon": {
+            "name": "create-reference",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Engine Reference node on the right and break the existing reference double-clicking the delink button you used before.",
+            "updated": 1687796651876
+        },
+        {
+            "style": "Text",
+            "text": "The create reference button opens up a list with all nodes present in the workspace that accept a reference from the current node. Let's try it!",
+            "updated": 1687796912881
+        },
+        {
+            "style": "Callout",
+            "text": "Click the create reference button, and select the Low Frequency node from the drop down list.",
+            "updated": 1687796941224
+        }
+    ]
+}

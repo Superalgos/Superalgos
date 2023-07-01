@@ -53,21 +53,18 @@ exports.newSchemaRoute = function newSchemaRoute() {
                     for(let k = 0; k < files.length; k++) {
                         let name = files[k]
                         let nameSplitted = name.split(folder)
-                        let fileName = nameSplitted[1]
-                        for(let i = 0; i < 10; i++) {
-                            fileName = fileName.replace('\\', '/')
-                        }
+                        let fileName = nameSplitted[1].replaceAll(SA.nodeModules.path.sep, '/') // runs a regex replace against all versions of the file separator
                         let fileToRead = filePath + folder + fileName
-
-                        let fileContent = fs.readFileSync(fileToRead)
-                        let schemaDocument
-                        try {
-                            schemaDocument = JSON.parse(fileContent)
-                        } catch(err) {
-                            SA.logger.warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                        if(fileToRead.indexOf('.DS_Store') > -1) {
                             continue
                         }
-                        schemaArray.push(schemaDocument)
+                        let fileContent = fs.readFileSync(fileToRead)
+                        try {
+                            let schemaDocument = JSON.parse(fileContent)
+                            schemaArray.push(schemaDocument)
+                        } catch(err) {
+                            SA.logger.warn('sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                        }
                     }
                     let schema = JSON.stringify(schemaArray)
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(schema, httpResponse)

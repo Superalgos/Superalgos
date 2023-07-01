@@ -2607,5 +2607,27 @@
             ]
         },
         "plugins": []
+    },
+    {
+        "name": "Local-Storage",
+        "propertyName": "localStorage",
+        "SA": {
+            "globals": [
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newLocalStorageGlobalsPersistence",
+                    "fileName": "Persistence.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "DatabaseRepositories",
+                    "propertyName": "databaseRepositories",
+                    "functionName":"newDatabaseRepositories",
+                    "fileName": "DatabaseRepositories.js"
+                }
+            ]
+        }
     }
 ]

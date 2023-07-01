@@ -1,0 +1,392 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 72,
+    "type": "Tutorial Step - What? When? How?",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-parameters",
+            "project": "Foundations"
+        },
+        "text": "Trading Parameters determine key aspects of how the trading session is run. Let's take a quick, superficial look...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I Trading Parameters controllano gli aspetti chiave dell'esecuzione della sessione di trading. Diamo un'occhiata veloce...",
+                "updated": 1618060155151,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Trading Parameters bestimmen wichtige Aspekte des Ablaufs einer Handelssitzung. Werfen wir einen kurzen, oberflächlichen Blick darauf...",
+                "updated": 1634222050905
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Parametreleri ( Trading Parameters ), alım satım seansının nasıl yürütüldüğünün temel yönlerini belirler. Hızlı, yüzeysel bir göz atalım...",
+                "updated": 1636120903968
+            },
+            {
+                "language": "RU",
+                "text": "Trading Parameters определяют ключевые аспекты того, как проходит торговая сессия. Давайте быстро и поверхностно взглянем на это...",
+                "updated": 1636929360190
+            },
+            {
+                "language": "ID",
+                "text": "Trading Parameters menentukan aspek kunci dari bagaimana trading session dijalankan. Mari kita lihat sekilas...",
+                "updated": 1639747547017
+            },
+            {
+                "language": "NL",
+                "text": "Trading Parameters bepalen de belangrijkste aspecten van hoe de handelssessie wordt uitgevoerd. Laten we een snelle, oppervlakkige blik werpen....",
+                "updated": 1666875371447
+            },
+            {
+                "language": "ES",
+                "text": "Los Trading Parameters determinan aspectos clave del funcionamiento de la sesión de trading. Echemos un vistazo breve y superficial...",
+                "updated": 1675279923471
+            },
+            {
+                "language": "FR",
+                "text": "Résumé : Les paramètres de trading déterminent les aspects clés du déroulement de la session de trading. Jetons un coup d'œil rapide...",
+                "updated": 1676898418354
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Session Base Asset : no capital is assigned in BTC.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Session Base Asset: 0 BTC",
+                    "updated": 1618060455866,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Base Asset : no se asigna capital en BTC.",
+                    "updated": 1675279969900,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Session Base Asset: Es wird kein Kapital in BTC zugewiesen.",
+                    "updated": 1634222067587
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye tahsis edilmemiştir.",
+                    "updated": 1669921572178
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Base Asset (Базовый актив сессии): капитал в BTC не назначается.",
+                    "updated": 1641832734731
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Base Asset: tidak ada modal yang ditetapkan dalam BTC.",
+                    "updated": 1639747618439
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Base Asset: er wordt geen kapitaal toegewezen in BTC.",
+                    "updated": 1666875409526
+                },
+                {
+                    "language": "FR",
+                    "text": "Session Base Asset:  aucun capital n'est attribué en BTC.",
+                    "updated": 1676898452564
+                }
+            ],
+            "updated": 1640288657193
+        },
+        {
+            "style": "List",
+            "text": "Session Quoted Asset: 1000 USDT of initial capital.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Session Quoted Asset: 1000 USDT di capitale iniziale",
+                    "updated": 1618060205541,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Quoted Asset: 1000 USDT de capital inicial.",
+                    "updated": 1627313540525,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Session Quoted Asset: 1000 USDT des Anfangskapitals.",
+                    "updated": 1634222071545
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Quoted Asset (Oturumda Kote Edilen Varlık): 1000 USDT başlangıç sermayesi.",
+                    "updated": 1636121192365
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Quoted Asset (Котируемый актив сессии): 1000 USDT начального капитала.",
+                    "updated": 1641832810681
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Quoted Asset: 1000 USDT dari modal awal.",
+                    "updated": 1639747647586
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Quoted Asset: 1000 USDT aan startkapitaal.",
+                    "updated": 1666875425518
+                },
+                {
+                    "language": "FR",
+                    "text": "Session Quoted Asset: 1000 USDT de capital initial.",
+                    "updated": 1676898465801
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Range: we'll test a single day, 2020-09-01.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Time Range: test su un singolo giorno (2020-09-01)",
+                    "updated": 1618060612074,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Range: probaremos un solo día, 2020-09-01.",
+                    "updated": 1627313579546,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Time Range: Wir testen einen einzigen Tag, 2020-09-01.",
+                    "updated": 1634222083921
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Range (Zaman Aralığı): Tek bir günü test edeceğiz, 01 Eylül 2020",
+                    "updated": 1636121263576
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Range (Временной диапазон): мы будем тестировать один день, 2020-09-01.",
+                    "updated": 1641832891534
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Range: kami akan menguji dalam satu hari, 2020-09-01.",
+                    "updated": 1639747681537
+                },
+                {
+                    "language": "NL",
+                    "text": "Time Range: we testen één enkele dag, 01-09-2020.",
+                    "updated": 1666875447838
+                },
+                {
+                    "language": "FR",
+                    "text": "Time Range: nous allons tester un seul jour, le 2020-09-01.",
+                    "updated": 1676898479667
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Frame: orders are placed/canceled every minute, thus 01-min is appropriate.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Time Frame: 01-min (dato che gli ordini vengono inseriti/cancellati ogni minuto)",
+                    "updated": 1618060502887,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Frame: los pedidos se colocan / cancelan cada minuto, por lo que 01-min es apropiado.",
+                    "updated": 1627313609332,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Time Frame: Aufträge werden jede Minute erteilt/storniert, daher ist 01-min angemessen.",
+                    "updated": 1634222093512
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Frame (Zaman periyodu): siparişler her dakika verilir/iptal edilir, bu nedenle 01 dakika uygundur.",
+                    "updated": 1636121307468
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Frame (Таймфрейм): ордера размещаются/отменяются каждую минуту, поэтому подходит 01-мин.",
+                    "updated": 1641832993200
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Frame: order ditempatkan/dibatalkan setiap menit, jadi 01-menit sesuai.",
+                    "updated": 1639747733061
+                },
+                {
+                    "language": "NL",
+                    "text": "Time Frame: bestellingen worden elke minuut geplaatst/geannuleerd, dus 01-min is geschikt.",
+                    "updated": 1666875465702
+                },
+                {
+                    "language": "FR",
+                    "text": "Time Frame: les ordres sont placés/annulés toutes les minutes, donc 01-min est approprié.",
+                    "updated": 1676898496603
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Slippage: it's irrelevant for this case, as this particular trading system uses limit orders only.",
+            "updated": 1610639262905,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Slippage: irrilevante in questo di Trading System",
+                    "updated": 1618060520878,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Slippage: es irrelevante para este caso, ya que este Trading System en particular usa órdenes limitadas solamente.",
+                    "updated": 1624453374005,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Slippage: ist in diesem Fall irrelevant, da dieses spezielle Handelssystem nur Limit-Orders verwendet.",
+                    "updated": 1634222103935
+                },
+                {
+                    "language": "TR",
+                    "text": "Slippage (Kayma): Bu özel ticaret sistemi sadece limit emirleri kullandığından, bu durum için önemsizdir.",
+                    "updated": 1636121458592
+                },
+                {
+                    "language": "RU",
+                    "text": "Slippage (Проскальзование): в данном случае это не имеет значения, т.к. данная конкретная торговая система использует только лимитные ордера.",
+                    "updated": 1641833026230
+                },
+                {
+                    "language": "ID",
+                    "text": "Slippage: itu tidak relevan untuk kasus ini, karena sistem perdagangan khusus ini hanya menggunakan pesanan terbatas.",
+                    "updated": 1639747757651
+                },
+                {
+                    "language": "NL",
+                    "text": "Slippage: het is in dit geval niet relevant, omdat dit specifieke handelssysteem alleen limietorders gebruikt.",
+                    "updated": 1666875484854
+                },
+                {
+                    "language": "FR",
+                    "text": "Slippage:  il n'est pas pertinent dans ce cas, car ce système de trading particulier utilise uniquement des ordres limites.",
+                    "updated": 1676898526948
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Fee Structure: 0.1% is just an example.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fee Structure: 0.1% è il livello iniziale di Binance.",
+                    "updated": 1618060361331,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fee Structure: 0.1% es solamente un ejemplo",
+                    "updated": 1675280026678,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fee Structure: 0,1% ist die niedrigste Binance-Stufe.",
+                    "updated": 1634222115242
+                },
+                {
+                    "language": "TR",
+                    "text": "Fee Structure (Komisyon): Borsa için %0,1 olduğunu varsayalım.",
+                    "updated": 1640627850968
+                },
+                {
+                    "language": "RU",
+                    "text": "Fee Structure (Структура комиссии): 0,1% - это просто пример.",
+                    "updated": 1641832713243
+                },
+                {
+                    "language": "NL",
+                    "text": "Fee Structure: 0.1% is slechts een voorbeeld.",
+                    "updated": 1666875514167
+                },
+                {
+                    "language": "FR",
+                    "text": "Fee Structure: 0.1% est juste un exemple.",
+                    "updated": 1676898539707
+                }
+            ],
+            "updated": 1640359705451
+        },
+        {
+            "style": "Text",
+            "text": "The remaining parameters do not affect the simulation. To learn more about Trading Parameters, take a look at the documentation.",
+            "updated": 1610640777415,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I restanti parametri non influenzano questa simulazione. Se vuoi saperne di più, consulta la sezione Trading Parameters nella documentazione.",
+                    "updated": 1618060588588,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters puedes consultar la documentación.",
+                    "updated": 1675280001073,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die übrigen Parameter haben keinen Einfluss auf die Simulation. Um mehr über Trading Parameters zu erfahren, werfen Sie einen Blick in die Dokumentation.",
+                    "updated": 1634222122265
+                },
+                {
+                    "language": "TR",
+                    "text": "Kalan parametreler simülasyonu etkilemez. İşlem Parametreleri hakkında daha fazla bilgi edinmek için belgelere bakın.",
+                    "updated": 1636121544786
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальные параметры не влияют на моделирование. Чтобы узнать больше о Trading Parameters, ознакомьтесь с документацией.",
+                    "updated": 1636930345208
+                },
+                {
+                    "language": "ID",
+                    "text": "Parameter yang tersisa tidak mempengaruhi simulasi. Untuk mempelajari lebih lanjut tentang Trading Parameters, lihat documentation.",
+                    "updated": 1639747598611
+                },
+                {
+                    "language": "NL",
+                    "text": "De overige parameters hebben geen invloed op de simulatie. Bekijk de documentatie voor meer informatie over Trading Parameters.",
+                    "updated": 1666875543591
+                },
+                {
+                    "language": "FR",
+                    "text": "Les autres paramètres n'affectent pas la simulation. Pour en savoir plus sur les paramètres de Trading, consultez la documentation.",
+                    "updated": 1676898573841
+                }
+            ]
+        }
+    ]
+}

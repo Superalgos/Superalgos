@@ -1,0 +1,197 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 65,
+    "type": "Tutorial Step - Visual Scripting on Steroids",
+    "definition": {
+        "icon": {
+            "name": "indicator-bot",
+            "project": "Data-Mining"
+        },
+        "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "A proposito di costruzioni a blocchi, ora siamo nei confini del Masters Data Mine. Alla tua sinistra vedi la definizione di uno dei bots per cui hai avviato il mining giusto prima.",
+                "updated": 1618056284204,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hablando de la construcción de bloques, ahora estamos en los confines del Master Data Mine.  A tu izquierda, la definición de uno de los bots que has enviado hace minutos a la minería.",
+                "updated": 1627309457470,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Apropos Blockbildung: Wir befinden uns jetzt in der Masters Data Mine. Zu Ihrer Linken sehen Sie die Definition eines der Bots, die Sie vor einigen Minuten zum Abbau geschickt haben.",
+                "updated": 1634218419044
+            },
+            {
+                "language": "TR",
+                "text": "Blok oluşturma hakkında konuşurken, artık Masters Data Mine'ın sınırlarındayız. Solunuzda, dakikalar önce madenciliğe gönderdiğiniz botlardan birini görüyorsunuz.",
+                "updated": 1636105640974
+            },
+            {
+                "language": "RU",
+                "text": "Говоря о блочном строительстве, мы сейчас находимся в пределах шахты Masters Data Mine. Слева от Вас - определение одного из ботов, которого Вы отправили на майнинг несколько минут назад.",
+                "updated": 1636569166410
+            },
+            {
+                "language": "ID",
+                "text": "Berbicara tentang pembangunan blok, kita sekarang berada dalam batas-batas Masters Data Mine. Di sebelah kiri, definisi salah satu bot yang kamu kirim untuk mining  beberapa menit yang lalu.",
+                "updated": 1639709000796
+            },
+            {
+                "language": "NL",
+                "text": "Over het bouwen van blokken gesproken, we bevinden ons nu binnen de grenzen van de Masters Data Mine. Links van je, zie je de definitie van een van de bots die je minuten geleden aan het minen hebt gezet.",
+                "updated": 1666788217273
+            },
+            {
+                "language": "FR",
+                "text": "En parlant de construction de blocs, nous sommes maintenant dans les confins de la Masters Data Mine. À votre gauche, la définition de l'un des bots que vous avez envoyé il y a quelques minutes.",
+                "updated": 1668414371634
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty much like with the Lego-like definitions of the Charting Space, bots are too defined on a visual environment.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Analogamente alle dinamiche \"stile Lego\" del Charting Space, anche i bots sono definiti visivamente.",
+                    "updated": 1618056303696,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Casi como con las definiciones similares a Lego del Charting Space, los bots están también definidos en un entorno visual.",
+                    "updated": 1624413580741,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ähnlich wie bei den Lego-ähnlichen Definitionen des Charting Space werden auch die Bots in einer visuellen Umgebung definiert.",
+                    "updated": 1634218423345
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanının yapısının ( Charting Space ) Lego benzeri olduğu gibi, botlarda görsel bir ortamda tanımlanmıştır.",
+                    "updated": 1669920146189
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с определениями Charting Space, очень похожими на Lego, боты слишком четко выделяются в визуальной среде.",
+                    "updated": 1636569602975
+                },
+                {
+                    "language": "ID",
+                    "text": "Hampir mirip dengan definisi Charting Space yang mirip Lego, bot akan ditentukan pada visual environment.",
+                    "updated": 1639709076112
+                },
+                {
+                    "language": "NL",
+                    "text": "Net als bij de Lego-achtige definities van de Charting Space, zijn bots te gedefinieerd in een visuele omgeving.",
+                    "updated": 1666788244598
+                },
+                {
+                    "language": "FR",
+                    "text": "Un peu comme avec les définitions de type Lego de l'espace graphique, les bots aussi sont définis sur un environnement visuel.",
+                    "updated": 1668414392668
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "All developers need to code is the actual Data Building Procedure.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutto ciò che gli sviluppatori devono programmare è la Data Building Procedure che verrà usata.",
+                    "updated": 1618056067442,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Todos lo que los desarrolladores necesitan codificar es el Data Building Procedure.",
+                    "updated": 1624413641085,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles, was die Entwickler programmieren müssen, ist die eigentliche Data Building Procedure.",
+                    "updated": 1634218433837
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri oluşturma prosedürleri ( Data Building Procedure ) geliştiriciler tarafından tanımlanmıştır.",
+                    "updated": 1636106164354
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что разработчикам нужно для программирования - это фактическая Data Building Procedure.",
+                    "updated": 1636569663881
+                },
+                {
+                    "language": "ID",
+                    "text": "Semua developers diminta mengcoding agar mendapatkan Data Building Procedure yang actual.",
+                    "updated": 1639709197859
+                },
+                {
+                    "language": "NL",
+                    "text": "Het enige dat ontwikkelaars hoeven te programmeren, is de feitelijke Data Building Procedure.",
+                    "updated": 1666788289279
+                },
+                {
+                    "language": "FR",
+                    "text": "Tout ce dont les développeurs ont besoin pour coder est la procédure de construction de données ( Data Building Procedure).",
+                    "updated": 1668414428600
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Everything else is defined on a visual setting: processes with their dependencies, outputs and so on, and products, with their record and dataset definitions, etc.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni cosa ha una rappresentazione visiva: sia i processi, con le loro dipendenze e output, che i prodotti, con i loro record e datasets, così come ogni altra entità presente nel programma.",
+                    "updated": 1618056262610,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Todo lo demás se define en un entorno visual: procesos con sus dependencias, salidas, etc., y productos, con sus definiciones de registros y conjuntos de datos, etc.",
+                    "updated": 1624413706861,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles andere wird in einer visuellen Umgebung definiert: Prozesse mit ihren Abhängigkeiten, Ausgaben usw. und Produkte mit ihren Datensatz- und Datasetdefinitionen usw.",
+                    "updated": 1634218442797
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer her şey görsel bir ortamda tanımlanır: bağımlılıklar, çıktılar, süreçler, kayıt, veri seti tanımları, ürünler vb.",
+                    "updated": 1636106291422
+                },
+                {
+                    "language": "RU",
+                    "text": "Все остальное определяется визуальной настройкой: процессы с их зависимостями, данными на выходе и т.п., а также продукты с их определениями записей, наборы данных и т.д.",
+                    "updated": 1636569954401
+                },
+                {
+                    "language": "ID",
+                    "text": "Segala sesuatu yang lain didefinisikan pada visual setting: proses dengan dependensinya, output dan sebagainya, serta produk, dengan definisi record dan datasetnya, dll.",
+                    "updated": 1639709617027
+                },
+                {
+                    "language": "NL",
+                    "text": "Al het andere wordt gedefinieerd op een visuele instelling: processen met hun afhankelijkheden, outputs enzovoort, en producten, met hun record- en datasetdefinities, enz.",
+                    "updated": 1666788332280
+                }
+            ]
+        }
+    ]
+}

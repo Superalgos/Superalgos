@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 85,
+    "type": "Tutorial Step - The Seller",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "execution-algorithm"
+        },
+        "text": "We are now in the Close Stage. I thought it would be interesting to tell you more about execution algorithms with another example.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora siamo nel Close Stage. Pensavo sarebbe stato interessante dirti di più sugli Execution Algorithm con un altro esempio.",
+                "updated": 1618065500220,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora estamos en el Close Stage. Pensé que sería interesante contarte más sobre los algoritmos de ejecución, con otro ejemplo.",
+                "updated": 1624460166181,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir befinden uns jetzt in der Close Stage. Ich dachte, es wäre interessant, Ihnen mehr über Ausführungsalgorithmen zu erzählen, mit einem weiteren Beispiel.",
+                "updated": 1634225742357
+            },
+            {
+                "language": "TR",
+                "text": "Artık Kapanış Aşamasındayız ( Close Stage ). Size yürütme algoritmaları hakkında başka bir örnekle daha fazla bilgi vermenin ilginç olacağını düşündüm.",
+                "updated": 1636208526405
+            },
+            {
+                "language": "RU",
+                "text": "Сейчас мы находимся на Close Stage. Я думал, что было бы интересно рассказать вам больше об алгоритмах выполнения на другом примере.",
+                "updated": 1637757485185
+            },
+            {
+                "language": "ID",
+                "text": "Kita sekarang berada di Close Stage. Aku pikir akan menarik untuk memberi tahu kamu lebih banyak tentang execution algorithms, dengan contoh berbeda.",
+                "updated": 1640565537409
+            },
+            {
+                "language": "NL",
+                "text": "We zitten nu in de Close Stage. Ik dacht dat het interessant zou zijn om je meer te vertellen over uitvoeringsalgoritmen, met een ander voorbeeld.",
+                "updated": 1666880237782
+            },
+            {
+                "language": "FR",
+                "text": "Nous sommes maintenant dans la phase de clôture du trade. J'ai pensé qu'il serait intéressant de vous en dire plus sur les algorithmes d'exécution, avec un autre exemple.",
+                "updated": 1676957993578
+            }
+        ],
+        "updated": 1687722867130
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "An Execution Algorithm may handle multiple orders, of all types. In this case, multiple limit sell orders are defined.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Un Execution Algorithm può gestire più ordini di ogni tipo. In questo caso, vari limit sell orders sono definiti.",
+                    "updated": 1618065545085,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Un Execution Algorithm puede manejar múltiples pedidos, de todo tipo. En este caso, se definen múltiples órdenes de venta límite.",
+                    "updated": 1624460189547,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Execution Algorithm kann mehrere Aufträge aller Art verarbeiten. In diesem Fall werden mehrere limitierte Verkaufsaufträge definiert.",
+                    "updated": 1634225749803
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Yürütme Algoritması ( Execution Algorithm ), her türden birden fazla siparişi işleyebilir. Bu durumda çoklu limit satış emirleri tanımlanır.",
+                    "updated": 1636208571976
+                },
+                {
+                    "language": "RU",
+                    "text": "Execution Algorithm может обрабатывать множество ордеров всех типов. В этом случае определяется множество лимитных ордеров на продажу.",
+                    "updated": 1637757731866
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebuah Execution Algorithm dapat menangani  multiple orders, dari semua tipe. Dalam hal ini, multiple limit sell orders ditentukan.",
+                    "updated": 1640565667772
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Execution Algorithm kan meerdere orders van alle soorten verwerken. In dit geval worden meerdere limiet verkooporders gedefinieerd.",
+                    "updated": 1666880281733
+                },
+                {
+                    "language": "FR",
+                    "text": "Un algorithme d'exécution peut traiter des ordres multiples, de tous types. Dans ce cas, des ordres de vente limite multiples sont définis.",
+                    "updated": 1676958034697
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Select Configure on the menu of the algorithm and reflect on the implications of this definition!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Seleziona Configure dal menu dell'algoritmo e rifletti sulle implicazioni di questa definizione!",
+                    "updated": 1618065569642,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Configure en el menú del algoritmo y reflexiona sobre las implicaciones de esta definición.",
+                    "updated": 1624460238790,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie Configure im Menü des Algorithmus und denken Sie über die Auswirkungen dieser Definition nach!",
+                    "updated": 1634225757960
+                },
+                {
+                    "language": "TR",
+                    "text": "Algoritmanın menüsünde Yapılandır'ı (Configure) seçin ve bu tanımın sonuçlarını düşünün!",
+                    "updated": 1636208699352
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню алгоритма и подумайте над значением этого определения!",
+                    "updated": 1637757772068
+                },
+                {
+                    "language": "ID",
+                    "text": "Pilih Configure pada menu algorithm dan reflect implikasi dari definisi ini!",
+                    "updated": 1640565742692
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer Configure in het menu van het algoritme en denk na over de implicaties van deze definitie!",
+                    "updated": 1666880310737
+                },
+                {
+                    "language": "FR",
+                    "text": "Sélectionnez Configurer dans le menu de l'algorithme et réfléchissez aux implications de cette définition !",
+                    "updated": 1676958054332
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Both the open stage, where you define how to take a position, and the close stage, where you define how to exit, may feature multiple execution algorithms, each of them handling a certain amount of capital.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sia l'Open Stage, dove definisci come aprire una posizione, che il Close Stage, dove invece definisci come chiuderla, possono contenere diversi Execution Algorithm, ognuno dei quali gestisce un certo capitale.",
+                    "updated": 1618065707647,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tanto la etapa abierta, donde se define cómo tomar una posición, como la etapa de cierre, donde se define cómo salir, pueden presentar múltiples algoritmos de ejecución, cada uno de los cuales maneja una cierta cantidad de capital.",
+                    "updated": 1624460260432,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sowohl in der Eröffnungsphase, in der Sie festlegen, wie eine Position eingegangen werden soll, als auch in der Schließungsphase, in der Sie festlegen, wie der Handel beendet werden soll, können mehrere Ausführungsalgorithmen eingesetzt werden, von denen jeder einen bestimmten Kapitalbetrag verwaltet.",
+                    "updated": 1634225767316
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem nasıl pozisyon alınacağını tanımladığınız açık aşama hem de nasıl çıkılacağını tanımladığınız kapalı aşama, her biri belirli bir miktarda sermayeyi işleyen birden fazla yürütme algoritması içerebilir.",
+                    "updated": 1636208733018
+                },
+                {
+                    "language": "RU",
+                    "text": "Как на этапе открытия, где Вы определяете как открыть позицию, так и на этапе закрытия - как выйти, может быть множество алгоритмов выполнения, каждый из которых обрабатывает определенное количество капитала.",
+                    "updated": 1637757971911
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik open stage, tempat kamu menentukan cara mengambil posisi, dan close stage, tempat kamu menentukan cara keluar, dapat menampilkan multiple execution algorithms, masing-masing menangani sejumlah modal tertentu.",
+                    "updated": 1640565889214
+                },
+                {
+                    "language": "NL",
+                    "text": "Zowel de open fase, waarin je bepaalt hoe je een positie inneemt, als de close-fase, waarin je bepaalt wanneer je wilt uitstappen, kunnen meerdere uitvoeringsalgoritmen bevatten, die elk een bepaalde hoeveelheid kapitaal verwerken.",
+                    "updated": 1666880372869
+                },
+                {
+                    "language": "FR",
+                    "text": "Aussi bien la phase d'ouverture, où vous définissez la manière de prendre une position, que la phase de clôture, où vous définissez la manière de la liquider, peuvent comporter plusieurs algorithmes d'exécution, chacun d'entre eux gérant une certaine quantité du capital.",
+                    "updated": 1676958099849
+                }
+            ]
+        }
+    ]
+}

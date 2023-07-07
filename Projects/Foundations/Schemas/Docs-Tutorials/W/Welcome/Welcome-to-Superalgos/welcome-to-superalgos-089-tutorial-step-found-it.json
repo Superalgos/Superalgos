@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 89,
+    "type": "Tutorial Step - Found It?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "copy-path"
+        },
+        "text": "This is how the Trading Engine makes every bit of information processed by the Trading Bot available to trading systems.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "È in questo modo che il Trading Engine rende ogni dato processato dal Trading Bot disponibile a tutti i trading system.",
+                "updated": 1618067637676,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Así es como el Trading Engine hace que toda la información disponible en el Trading System sea procesada por el Trading Bot.",
+                "updated": 1675361119844,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Auf diese Weise macht die Trading Engine alle vom Trading Bot verarbeiteten Informationen für Handelssysteme verfügbar.",
+                "updated": 1634226260355
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Motoru (Trading Engine ), Alım Satım Botu ( Trading Bot ) tarafından işlenen her türlü bilgiyi alım satım sistemlerine bu şekilde aktarır.",
+                "updated": 1636377270492
+            },
+            {
+                "language": "ID",
+                "text": "Bagian ini adalah bagaimana Trading Engine membuat setiap bit informasi yang diproses oleh Trading Bot tersedia untuk trading systems.",
+                "updated": 1640569049941
+            },
+            {
+                "language": "RU",
+                "text": "Таким образом, Trading Engine делает каждый бит информации, обработанной Trading Bot, доступным для торговых систем.",
+                "updated": 1642769333026
+            },
+            {
+                "language": "NL",
+                "text": "Dit is hoe de Trading Engine elk stukje informatie dat door de Trading Bot wordt verwerkt, beschikbaar maakt voor handelssystemen.",
+                "updated": 1667128540621
+            },
+            {
+                "language": "FR",
+                "text": "C'est ainsi que le moteur de trading met à la disposition des systèmes de trading toutes les informations traitées par le Trading Bot.",
+                "updated": 1676958501869
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is a path to every piece of data, and by knowing the path, you may access the data from within any Formula or Condition in a Trading Strategy. Let's run a quick check:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esiste un percorso a ogni informazione, e conoscendolo è possibile accedervi da ogni Formula o Condition di una Trading Strategy. Facciamo una prova:",
+                    "updated": 1618067702996,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Hay una ruta para cada pieza de datos y, al conocer la ruta, puede acceder a los datos desde cualquier Formula o Condition en un Trading Strategy. Hagamos una comprobación rápida:",
+                    "updated": 1624461972400,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einen Pfad zu jedem Datenelement, und wenn Sie den Pfad kennen, können Sie von jeder Formula oder Condition in einer Trading Strategy auf die Daten zugreifen. Lassen Sie uns einen kurzen Test durchführen:",
+                    "updated": 1634226270054
+                },
+                {
+                    "language": "TR",
+                    "text": "Her veri parçasının bir yolu vardır ve bu yol ile bir Ticaret Stratejisindeki ( Trading Strategy ) herhangi bir Formül ( Formula ) veya Koşuldan ( Condition ) verilere erişebilirsiniz. Hızlı bir kontrol yapalım:",
+                    "updated": 1639225101766
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada jalur ke setiap bagian data, dan dengan mengetahui jalurnya, kamu dapat mengakses data dari dalam Formula atau Condition dalam Trading Strategy. Mari kita jalankan pemeriksaan cepat :",
+                    "updated": 1640569263982
+                },
+                {
+                    "language": "RU",
+                    "text": "К каждой части данных существует путь, и, зная этот путь, вы можете получить доступ к данным из любой формулы (Formula) или условия (Condition) в торговой стратегии. Давайте проведем быструю проверку:",
+                    "updated": 1642769415127
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is een pad naar elk stukje gegeven en door het pad te kennen, heeft u toegang tot de gegevens vanuit elke Formula of Condition in een Trading Strategy. Laten we een snelle controle uitvoeren:",
+                    "updated": 1667128606185
+                },
+                {
+                    "language": "FR",
+                    "text": "Il existe un chemin d'accès à chaque donnée, et en connaissant ce chemin, vous pouvez accéder aux données à partir de n'importe quelle formule ou condition dans une stratégie de trading. Faisons une vérification rapide :",
+                    "updated": 1676958521184
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Access the menu of the Exit Target Rate node to the left, and click \"Copy node path\". Now, open an external text editor and paste what you copied.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Apri il menu del nodo Exit Target Rate a sinistra, e clicca Copy Node Path. Poi apri un editor di testo e incolla ciò che hai copiato.",
+                    "updated": 1618067741606,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Accede al menú del nodo Exit Target Rate, a la izquierda, y haz clic en \"Copiar ruta de nodo\". Ahora, abre un editor de texto externo y pega lo que has copiado.",
+                    "updated": 1675361187678,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie das Menü des Knotens \"Exit Target Rate\" auf der linken Seite auf und klicken Sie auf \"Copy Node Path\". Öffnen Sie nun einen externen Texteditor und fügen Sie den kopierten Text ein. ",
+                    "updated": 1642152499640
+                },
+                {
+                    "language": "TR",
+                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın (Copy Node Path). Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
+                    "updated": 1670011034151
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses menu dari Exit Target Rate node ke kiri, dan klik \"Copy node path\". Sekarang, buka external text editor dan tempel apa yang kamu salin.",
+                    "updated": 1640569441360
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в меню узла Exit Target Rate слева и нажмите \"Copy node path\". Теперь откройте внешний текстовый редактор и вставьте то, что вы скопировали.",
+                    "updated": 1642769438898
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het menu van het Exit Target Rate knooppunt aan de linkerkant en klik op \"Copy node path\". Open nu een externe tekstverwerker en plak wat u heeft gekopieerd.",
+                    "updated": 1667125163690
+                },
+                {
+                    "language": "FR",
+                    "text": "Accédez au menu du nœud Exit Target Rate à gauche, et cliquez sur \"Copy node path\". Maintenant, ouvrez un éditeur de texte externe et collez ce que vous avez copié.",
+                    "updated": 1676958545023
+                }
+            ],
+            "updated": 1636911911813
+        },
+        {
+            "style": "Text",
+            "text": "Ok! This is how formulas and conditions access the information... How about humans?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Okay, quindi formule e condizioni accedono ai dati in questo modo. E invece gli umani?",
+                    "updated": 1618067770485,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡OK! Así es como las fórmulas y las condiciones acceden a la información ... ¿Y los humanos?",
+                    "updated": 1624463387465,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fertig! So greifen Formeln und Bedingungen auf die Informationen zu... Wie sieht es mit Menschen aus?",
+                    "updated": 1634226301372
+                },
+                {
+                    "language": "TR",
+                    "text": "Tamam! Formüller ve koşullar bilgiye böyle ulaşır... Peki ya insanlar?",
+                    "updated": 1636377423892
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik! Beginilah Formula dan Condition mengakses informasi... Bagaimana dengan Humans?",
+                    "updated": 1640569563377
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо! Вот как формулы и условия получают доступ к информации... А как насчет людей?",
+                    "updated": 1642769453309
+                },
+                {
+                    "language": "NL",
+                    "text": "OK! Dit is hoe formules en voorwaarden toegang krijgen tot de informatie... Hoe zit het met mensen?",
+                    "updated": 1667125181913
+                },
+                {
+                    "language": "FR",
+                    "text": "Ok ! C'est ainsi que les formules et les conditions accèdent à l'information... Et pour les humains ?",
+                    "updated": 1676958560648
+                }
+            ]
+        }
+    ]
+}

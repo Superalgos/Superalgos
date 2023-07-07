@@ -9,6 +9,11 @@
                 "language": "TR",
                 "text": "Bu inceleme sayfası için bir özet yazın.",
                 "updated": 1669312316521
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1687638531736
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "TR",
                     "text": "Harika GUI - hiyerarşi, simgeleri taşıma seçenekleri, yedeklemeler ve çalışma alanları oluşturma.",
                     "updated": 1669312327996
+                },
+                {
+                    "language": "DE",
+                    "text": "Großartige grafische Benutzeroberfläche - Hierarchie, Optionen zum Verschieben von Symbolen, Erstellen von Sicherungskopien und Arbeitsbereichen.",
+                    "updated": 1687638545696
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "TR",
                     "text": "Bununla birlikte, sorun giderme hatalarını iyileştirme fırsatı mevcuttur ( e.g.ekranda daha fazla kullanıcı geri bildirimi sağlar). Başlangıç ​​öğreticileri sırasında benim için birkaç hata oluştu ve bu da öğrenme deneyimimi biraz sinir bozucu hale getirdi.",
                     "updated": 1669312337873
+                },
+                {
+                    "language": "DE",
+                    "text": "Allerdings besteht die Möglichkeit, die Fehlerbehebung zu verbessern (z. B. durch mehr Benutzer-Feedback auf dem Bildschirm). Während der Anleitungen für die ersten Schritte traten bei mir einige Fehler auf, die meine Lernerfahrung ein wenig frustrierend machten.",
+                    "updated": 1687638578943
                 }
             ]
         },
@@ -58,6 +73,11 @@
                     "language": "TR",
                     "text": "Aksi takdirde, uygulama çerçevesinin tüm potansiyelini keşfetmeyi dört gözle bekliyorum!:)",
                     "updated": 1669312382181
+                },
+                {
+                    "language": "DE",
+                    "text": "Ansonsten freue ich mich darauf, das volle Potenzial des App-Frameworks zu erkunden:)",
+                    "updated": 1687638634442
                 }
             ]
         }

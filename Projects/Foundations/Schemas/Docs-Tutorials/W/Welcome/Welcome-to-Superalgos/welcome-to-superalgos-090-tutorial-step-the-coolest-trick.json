@@ -1,0 +1,251 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 90,
+    "type": "Tutorial Step - The Coolest Trick!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "exit-target-rate"
+        },
+        "text": "Humans may access this information by using a cool trick that makes the charting space interact with the design space!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Gli umani possono accedere a questi dati utilizzando un trucchetto che permette al Charting Space di interagire con il Design Space.",
+                "updated": 1618067821598,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los humanos pueden acceder a esta información utilizando un truco genial que hace que el espacio de gráficos interactúe con el espacio de diseño.",
+                "updated": 1624463589570,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Menschen können auf diese Informationen zugreifen, indem sie einen coolen Trick anwenden, der den Charting Space mit dem Design Space interagieren lässt!",
+                "updated": 1634226392881
+            },
+            {
+                "language": "TR",
+                "text": "İnsanlar, grafik alanını tasarım alanıyla etkileşime sokan harika bir numara kullanarak bu bilgilere erişebilir!",
+                "updated": 1636377604628
+            },
+            {
+                "language": "ID",
+                "text": "Humans dapat mengakses informasi ini dengan menggunakan trik keren yang membuat charting space berinteraksi dengan design space!",
+                "updated": 1640570748576
+            },
+            {
+                "language": "RU",
+                "text": "Люди могут получить доступ к этой информации, используя классный трюк, который заставляет пространство диаграмм взаимодействовать с пространством проектирования!",
+                "updated": 1642769480612
+            },
+            {
+                "language": "NL",
+                "text": "Mensen kunnen toegang krijgen tot deze informatie door een coole truc te gebruiken die ervoor zorgt dat de grafiekruimte interageert met de ontwerpruimte!",
+                "updated": 1667125252947
+            },
+            {
+                "language": "FR",
+                "text": "Les humains peuvent accéder à ces informations en utilisant un truc sympa qui fait interagir l'espace graphique avec l'espace de conception !",
+                "updated": 1676958584522
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To use this trick, I just did the following:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per usare questo trucco basta fare così:",
+                    "updated": 1618067975774,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para usar este truco, hice lo siguiente:",
+                    "updated": 1624463610320,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um diesen Trick anzuwenden, habe ich einfach Folgendes getan:",
+                    "updated": 1634226400148
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapabilmek için aşağıdakileri yaptım:",
+                    "updated": 1636377635056
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menggunakan trik ini, Aku hanya melakukan yang berikut :",
+                    "updated": 1640572916586
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать этот трюк, я просто сделал следующее:",
+                    "updated": 1642769496764
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deze truc te gebruiken, deed ik het volgende:",
+                    "updated": 1667125278411
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour utiliser cette astuce, j'ai simplement fait ce qui suit :",
+                    "updated": 1676958599553
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Split the screen in half pulling the slider up so that we can see both spaces at the same time.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dividi lo schermo in due trascinando lo slider in su, così che possiamo vedere entrambi gli spazi",
+                    "updated": 1618067893855,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Divide la pantalla por la mitad tirando del control deslizante hacia arriba para que podamos ver ambos espacios al mismo tiempo.",
+                    "updated": 1624463628608,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilen Sie den Bildschirm in zwei Hälften und ziehen Sie den Schieberegler nach oben, so dass wir beide Bereiche gleichzeitig sehen können.",
+                    "updated": 1634226408567
+                },
+                {
+                    "language": "TR",
+                    "text": "İki alanı aynı anda görebilmemiz için kaydırıcıyı aşağı çekerek ekranı ikiye bölün.",
+                    "updated": 1636377658042
+                },
+                {
+                    "language": "ID",
+                    "text": "Split layar menjadi dua, tarik slider ke atas sehingga kita dapat melihat kedua spaces secara bersamaan.",
+                    "updated": 1640573003032
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделите экран пополам, потянув ползунок вверх, чтобы мы могли видеть оба пространства одновременно.",
+                    "updated": 1642769512294
+                },
+                {
+                    "language": "NL",
+                    "text": "Splits het scherm in tweeën en trek de schuifregelaar omhoog zodat we beide ruimtes tegelijkertijd kunnen zien.",
+                    "updated": 1667125290506
+                },
+                {
+                    "language": "FR",
+                    "text": "Divisez l'écran en deux en tirant le curseur vers le haut afin de pouvoir voir les deux espaces en même temps.",
+                    "updated": 1676958632767
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Turn on the Current Position layer on the Trading engine layer manager. I chose this layer because it corresponds to this section of the hierarchy... tradingEngine.tradingCurrent.position, remember?",
+            "updated": 1616430381277,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Attiva il layer Current Position nel layer manager del Trading Engine. Ho scelto questo layer perchè corrisponde alla famosa sezione della gerarchia... tradingEngine.tradingCurrent.position, ricordi?",
+                    "updated": 1618067950391,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Enciende el Current Position Layer en el Trading Engine Layer Manager. Elegí esta capa porque corresponde a esta sección de la jerarquía... tradingEngine.tradingCurrent.position",
+                    "updated": 1625926367329,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktivieren Sie die Ebene Aktuelle Position im Ebenenmanager der Handelsmaschine. Ich habe diese Ebene gewählt, weil sie diesem Abschnitt der Hierarchie entspricht... tradingEngine.tradingCurrent.position, erinnern Sie sich?",
+                    "updated": 1634226425815
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoru katmanı yöneticisinde Mevcut Konum ( Position ) katmanını açın. Bu katmanı seçtim çünkü hiyerarşinin bu bölümüne karşılık geliyor... tradingEngine.tradingCurrent.position, hatırladın mı?",
+                    "updated": 1636377701183
+                },
+                {
+                    "language": "ID",
+                    "text": "Nyalakan layer Current Position Ini pada  Trading engine layer manager. Aku memilih layer ini karena sesuai dengan bagian hierarki ini... tradingEngine.tradingCurrent.position, ingat?",
+                    "updated": 1640573077824
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой Current Position в менеджере слоев Trading Engine. Я выбрал этот слой, потому что он соответствует этой секции иерархии... tradingEngine.tradingCurrent.position, помните?",
+                    "updated": 1642769542948
+                },
+                {
+                    "language": "NL",
+                    "text": "Schakel de laag Current Position in de laagmanager van de Trading Engine in. Ik heb deze laag gekozen omdat deze overeenkomt met dit gedeelte van de hiërarchie... tradingEngine.tradingCurrent.position, weet je nog?",
+                    "updated": 1667125361083
+                },
+                {
+                    "language": "FR",
+                    "text": "Activez le calque Current Position dans le gestionnaire de calques du moteur de trading. J'ai choisi ce calque car il correspond à cette section de la hiérarchie... tradingEngine.tradingCurrent.position, vous vous souvenez?",
+                    "updated": 1676958695381
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Now, slide the mouse pointer across the candles on which the position is taken and see what happens on the nodes to the left...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ora, trascina il puntatore del mouse attraverso le candele sulle quali è definita la posizione e guarda cosa succede ai nodi a sinistra...",
+                    "updated": 1618068017032,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora, desliza el puntero del mouse sobre las velas en las que se toma la posición y observa qué sucede en los nodos de la izquierda...",
+                    "updated": 1675361240283,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie nun den Mauszeiger über die Kerzen, auf denen die Position eingenommen wird, und sehen Sie sich an, was auf den Knotenpunkten links davon passiert...",
+                    "updated": 1634226434636
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi, fare işaretçisini konumun alındığı mumların üzerinde kaydırın ve soldaki düğümlerde ne olduğunu görün...",
+                    "updated": 1636377731601
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang, geser mouse pointer melintasi candles tempat position diambil dan lihat apa yang terjadi pada nodes di sebelah kiri...",
+                    "updated": 1640573136142
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь проведите указателем мыши по свечам, по которым занята позиция, и посмотрите, что происходит на узлах слева...",
+                    "updated": 1642769561252
+                },
+                {
+                    "language": "NL",
+                    "text": "Schuif nu de muisaanwijzer over de kaarsen waarop de positie wordt ingenomen en kijk wat er gebeurt op de knooppunten aan de linkerkant...",
+                    "updated": 1667125396763
+                },
+                {
+                    "language": "FR",
+                    "text": "Maintenant, faites glisser le pointeur de la souris sur les bougies sur lesquelles la position est prise et voyez ce qui se passe sur les nœuds à gauche...",
+                    "updated": 1676958719089
+                }
+            ]
+        }
+    ]
+}

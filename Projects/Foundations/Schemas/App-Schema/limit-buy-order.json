@@ -11,6 +11,16 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "orderRate",
             "label": "Add Order Rate",
             "relatedUiObject": "Order Rate",
@@ -80,6 +90,12 @@
             "type": "node",
             "childType": "Order Rate",
             "autoAdd": true
+        },
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": false
         },
         {
             "name": "createOrderEvent",

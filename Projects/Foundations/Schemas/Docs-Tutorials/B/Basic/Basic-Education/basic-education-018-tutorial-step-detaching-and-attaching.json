@@ -1,0 +1,142 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Detaching and Attaching",
+    "definition": {
+        "text": "Now follow my lead! We are not really going to test the strategy with different parameters... we are just simulating a use case!",
+        "icon": {
+            "name": "detach-node",
+            "project": "Foundations"
+        },
+        "updated": 1615571995273,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Forza, seguimi! Non testeremo davvero la strategia con i diversi parametri...stiamo solo simulando uno scenario d'uso!",
+                "updated": 1619466373155,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Ahora sigue mi ejemplo! Realmente no vamos a probar la estrategia con diferentes parámetros ... ¡solo estamos simulando un caso de uso!",
+                "updated": 1626354471956,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt folgen Sie meinem Beispiel! Wir werden die Strategie nicht wirklich mit verschiedenen Parametern testen... wir simulieren nur einen Anwendungsfall!",
+                "updated": 1634333486436
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi beni takip et! Stratejiyi farklı parametrelerle gerçekten test etmeyeceğiz... sadece bir kullanım senaryosunu simüle ediyoruz!",
+                "updated": 1636790394665
+            },
+            {
+                "language": "RU",
+                "text": "Теперь следуйте моему примеру! На самом деле мы не собираемся тестировать стратегию с различными параметрами... мы просто симулируем вариант использования!",
+                "updated": 1640867830629
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang ikuti petunjukku! Kita tidak benar-benar akan menguji strategi dengan parameter yang berbeda... kita hanya mensimulasikan contoh!",
+                "updated": 1644516411526
+            },
+            {
+                "language": "NL",
+                "text": "Volg nu mijn voorbeeld! We gaan de strategie niet echt testen met verschillende parameters... we simuleren gewoon een scenario!",
+                "updated": 1668338327828
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's pretend we modified the Trading Parameters and now we want to go back to using the original ones. We already have the backup in the design space — detached from the hierarchy — and we need to replace the existing Trading Parameters node with the backup.",
+            "updated": 1615572909121,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo caso che abbiamo modificato i Trading Parameters, e ora vogliamo riutilizzare quelli originali. Abbiamo già il backup nel design space, scollegato dalla gerarchia, e dobbiamo rimpiazzare il nodo Trading Parameters esistente con il suo backup.",
+                    "updated": 1619466537263,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Supongamos que modificamos el Trading Parameters y ahora queremos volver a utilizar los originales. Ya tenemos la copia de seguridad en el espacio de diseño, separada de la jerarquía, y necesitamos reemplazar el existente nodo Trading Parameters con el respaldo.",
+                    "updated": 1626354986867,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, wir haben die Trading Parameter geändert und wollen nun wieder die ursprünglichen Parameter verwenden. Die Sicherungskopie befindet sich bereits im Design Space - losgelöst von der Hierarchie - und wir müssen den bestehenden Knoten Trading Parameters durch die Sicherungskopie ersetzen.",
+                    "updated": 1634333510680
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Parametrelerini ( Trading Parameters ) değiştirdiğimizi varsayalım ve şimdi orijinal olanları kullanmaya geri dönmek istiyoruz. Hiyerarşiden ayrılmış tasarım alanında yedeğimiz zaten var ve mevcut İşlem Parametreleri düğümünü yedekle değiştirmemiz gerekiyor.",
+                    "updated": 1636790758208
+                },
+                {
+                    "language": "RU",
+                    "text": "Представим, что мы изменили торговые параметры и теперь хотим вернуться к использованию исходных. У нас уже есть резервная копия в пространстве проектирования - отделенная от иерархии - и нам нужно заменить существующий узел Trading Parameters на резервный.",
+                    "updated": 1640867857899
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita berpura-pura memodifikasi Trading Parameters dan sekarang kita ingin kembali menggunakan yang asli. Kita sudah memiliki cadangan di design space - terlepas dari hierarki - dan kita perlu mengganti node Trading Parameters dengan cadangan yang ada.",
+                    "updated": 1644516533756
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we doen alsof we de Trading Parameters hebben gewijzigd en nu willen we teruggaan naar het gebruik van de originele. We hebben de back-up al in de ontwerpruimte - los van de hiërarchie - en we moeten het bestaande knooppunt Trading Parameters vervangen door de back-up.",
+                    "updated": 1668337848408
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and double-click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
+            "updated": 1620493528546,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Apri il menù del nodo Trading Parameters in uso - quello attaccato al nodo Backtesting Session- e clicca due volte il pulsante Detach Node. Il nodo si separerà dalla gerarchia! Ora puoi muoverlo di lato.",
+                    "updated": 1666638463081,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al nodo Trading Parameters que está actualmente en uso —  el adjunto al nodo Backtesting Session — y haz doble clic en el botón Detach Node. ¡El nodo se separa de la jerarquía! ¡Ahora puedes moverlo hacia un lado!",
+                    "updated": 1626356259481,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu dem derzeit verwendeten Knoten Trading Parameters, der mit dem Knoten Backtesting Session verbunden ist, und doppelklicken Sie auf die Schaltfläche Detach Node. Der Knoten wird von der Hierarchie getrennt! Sie können ihn nun zur Seite schieben!",
+                    "updated": 1634333522271
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda kullanımda olan - Geri Test Oturumu düğümüne ( Backtesting Session Node ) bağlı olan - İşlem Parametreleri ( Trading Parameter ) düğümüne gidin ve Düğümü Ayır ( Detach Node ) düğmesine çift tıklayın. Düğüm hiyerarşiden ayrılıyor! Şimdi yana kaydırabilirsiniz!",
+                    "updated": 1636790630805
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к узлу Trading Parameters, который используется в данный момент - тот, который присоединен к узлу Backtesting Session - и дважды щелкните на кнопке Detach Node. Узел отделяется от иерархии! Теперь вы можете переместить его в сторону!",
+                    "updated": 1640867887986
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka node Trading Parameters yang saat ini digunakan - yang terpasang pada node Backtesting Session - dan klik dua kali tombol Detach Node. Node telah terpisah dari hierarki! kamu sekarang dapat memindahkannya ke samping!",
+                    "updated": 1644516667771
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het knooppunt Trading Parameters dat momenteel in gebruik is - het knooppunt dat is gekoppeld aan het knooppunt Backtesting Session - en dubbelklik op de knop Detach Node. Het knooppunt scheidt zich van de hiërarchie! U kunt het nu naar de zijkant verplaatsen!",
+                    "updated": 1668337898277
+                }
+            ]
+        }
+    ]
+}

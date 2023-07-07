@@ -1,0 +1,44 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 105,
+    "type": "Tutorial Step - Welcome AscendEX Live Trading Process Progress",
+    "definition": {
+        "text": "This step plays a video in full screen mode.",
+        "updated": 1640967785818,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1642771702233
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım bir videoyu tam ekran modunda oynatır.",
+                "updated": 1654394327262,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Deze stap speelt een video af op volledig scherm.",
+                "updated": 1667135354996
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1671601576394
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675362486991
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-live-trading-ascendex-orders.gif",
+            "updated": 1640968058406
+        }
+    ]
+}

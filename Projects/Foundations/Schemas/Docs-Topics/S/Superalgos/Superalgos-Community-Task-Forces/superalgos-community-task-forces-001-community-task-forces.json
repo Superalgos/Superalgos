@@ -4,7 +4,7 @@
     "type": "Community Task Forces",
     "definition": {
         "text": "Community Task Forces are open groups on a mission lead by top contributors and open to all Community members. Task forces are how Superalgos organizes the Community to leverage the strength inherent in great numbers of people collaborating. Joining a task force is a great way to contribute to the project!",
-        "updated": 1618850148871,
+        "updated": 1686513873295,
         "translations": [
             {
                 "language": "RU",
@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "Las Fuerzas de Trabajo de la Comunidad son grupos abiertos en una misión liderada por los principales contribuyentes y abiertos a todos. los miembros de la Community. Los grupos de trabajo son la forma en que Superalgos organiza la Community para aprovechar la fuerza inherente a un gran número de personas que colaboran. Unirse a un grupo de trabajo es una excelente manera de contribuir al proyecto!",
                 "updated": 1640979568543
+            },
+            {
+                "language": "DE",
+                "text": "Community Task Forces sind offene Gruppen, die von Top-Mitarbeitern geleitet werden und für alle Community-Mitglieder offen sind. Die Arbeit der Task Forces, ist die Art und Weise, wie Superalgos die Community organisiert, um die Stärke zu nutzen, die in der Zusammenarbeit einer großen Anzahl von Menschen liegt. Der Beitritt zu einer Task Force ist eine großartige Möglichkeit, einen Beitrag für das Projekt leisten! ",
+                "updated": 1687466338763
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "ES",
                     "text": "Si desea contribuir a Superalgos pero no está seguro de por dónde empezar o necesita una tarea específica en la que trabajar, ¡unirse a un grupo de trabajo puede ser su mejor opción!",
                     "updated": 1640979634309
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Beitrag zu Superalgos leisten möchten, aber nicht wissen, wo Sie beginnen sollen, oder eine bestimmte Aufgabe suchen, dann ist die Mitarbeit in einer Arbeitsgruppe vielleicht die beste Möglichkeit für Sie! ",
+                    "updated": 1687466350931
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "ES",
                     "text": "Diferentes grupos de trabajo se involucran en diferentes áreas de desarrollo del proyecto y pueden beneficiarse de habilidades y experiencia particulares. ¡Consulte los grupos de trabajo existentes en el TOC a continuación y únase a los que más le interesen!",
                     "updated": 1640979616079
+                },
+                {
+                    "language": "DE",
+                    "text": "Verschiedene Task Forces beschäftigen sich mit unterschiedlichen Bereichen der Projektentwicklung und können von bestimmten Fähigkeiten und Fachkenntnissen profitieren. Sehen Sie sich die bestehenden Task Forces im TOC unten an und schließen Sie sich derjenigen an, die Sie am meisten interessiert! ",
+                    "updated": 1687466362531
                 }
             ]
         },

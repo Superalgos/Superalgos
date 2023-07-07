@@ -1,0 +1,110 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 79,
+    "type": "Tutorial Step - Who's Keeping Score?",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
+        },
+        "text": "Check the table below and see if you can interpret the support levels you see on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Guarda questa tabella per interpretare i livelli di supporto che vedi sul grafico.",
+                "updated": 1618062212883,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Consulta la tabla a continuación y ve si puedes interpretar los niveles de soporte que ve en los gráficos.",
+                "updated": 1624457874092,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Schauen Sie sich die folgende Tabelle an und versuchen Sie, die in den Diagrammen angegebenen Unterstützungsniveaus zu interpretieren.",
+                "updated": 1634224665354
+            },
+            {
+                "language": "TR",
+                "text": "Aşağıdaki tabloyu kontrol edin ve grafiklerde gördüğünüz destek seviyelerini yorumlayın. Her seviye ihlalinde barın rengi değişir. Örneğin Seviye 5 defa ihlal edilmişse yeşil renkli olur.",
+                "updated": 1636204496181
+            },
+            {
+                "language": "RU",
+                "text": "Проверьте таблицу ниже и посмотрите, если Вы сможете интерпретировать уровни поддержки, которые Вы видите на графиках.",
+                "updated": 1637656295257
+            },
+            {
+                "language": "ID",
+                "text": "Periksa tabel di bawah ini dan lihat apakah kamu dapat memahami level support yang kamu lihat di grafik.",
+                "updated": 1640563597419
+            },
+            {
+                "language": "NL",
+                "text": "Bekijk de onderstaande tabel en kijk of u de ondersteuningsniveaus die u in de grafieken ziet, kunt interpreteren.",
+                "updated": 1666878780035
+            },
+            {
+                "language": "FR",
+                "text": "Consultez le tableau ci-dessous et voyez si vous pouvez interpréter les niveaux de supports que vous voyez sur les graphiques.",
+                "updated": 1676899356768
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "<table>\r\n    <thead>\r\n      <tr>\r\n        <th style='text-align: center'>Rejections&nbsp;&nbsp;</th>\r\n        <th style='text-align: center'>&nbsp;&nbsp;Graphics&nbsp;&nbsp;</th>\r\n        <th style='text-align: left'>&nbsp;&nbsp;Comments</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td style='text-align: center'>1</td>\r\n        <td style='text-align: center'><span style='display: block; border-bottom: 1px dotted grey;'> </span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A faint, grey dotted line.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>2</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(150, 150, 150, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A grey block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>3</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(2, 149, 170, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A turquoise block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>4</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(244, 228, 9, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A yellow block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>5</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(188, 214, 67, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A green block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>6</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(240, 162, 2, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;An orange block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>7 or more</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(91,80, 122, 0.4); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A purple block.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>"
+        },
+        {
+            "style": "Text",
+            "text": "<br/>For a new support level with one rejection, the dotted line marks the exact level on which price bounced. For further rejections, the blocks mark the rate ranges on which subsequent rejections are counted.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<br/>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
+                    "updated": 1618062387108,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "<br/>Para un nuevo nivel de soporte con un rechazo, la línea de puntos marca el nivel exacto en el que rebotó el precio. Para más rechazos, los bloques marcan los rangos de tasas en los que se cuentan los rechazos posteriores.",
+                    "updated": 1624457944186,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "<br/>Bei einem neuen Unterstützungsniveau mit einer Ablehnung markiert die gepunktete Linie das genaue Niveau, an dem der Kurs abgeprallt ist. Bei weiteren Ablehnungen markieren die Blöcke die Kursbereiche, auf denen nachfolgende Ablehnungen gezählt werden.",
+                    "updated": 1634224722087
+                },
+                {
+                    "language": "TR",
+                    "text": "Reddedilen yeni bir destek seviyesi (noktalı çizgi ile ifade edilir), fiyatın sıçradığı tam seviyeyi gösterir. Daha sonraki retler için bloklar kullanılır ve sayıya göre renklendirilir.",
+                    "updated": 1636204639724
+                },
+                {
+                    "language": "RU",
+                    "text": "Для нового уровня поддержки с одним отказом пунктирная линия отмечает точный уровень, на котором цена отскочила. Для дальнейших отказов блоки отмечают диапазоны ставок, в которых учитываются последующие отклонения.",
+                    "updated": 1637656618967
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk level support baru dengan satu rejection, garis putus-putus menandai level yang tepat di mana harga memantul. Untuk rejection lebih lanjut, blok menandai rate ranges di mana rejection berikutnya dihitung.",
+                    "updated": 1640563863080
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor een nieuw ondersteuningsniveau met één afwijzing markeert de stippellijn het exacte niveau waarop de prijs stuiterde. Voor verdere afwijzingen markeren de blokken de prijs bereiken waarop volgende afwijzingen worden geteld.",
+                    "updated": 1666879106474
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour un nouveau niveau de support avec un seul rejet, la ligne en pointillé marque le niveau exact sur lequel le prix a rebondi. Pour les autres rejets, les blocs marquent les fourchettes de taux sur lesquelles les rejets suivants sont comptés.",
+                    "updated": 1676899446792
+                }
+            ]
+        }
+    ]
+}

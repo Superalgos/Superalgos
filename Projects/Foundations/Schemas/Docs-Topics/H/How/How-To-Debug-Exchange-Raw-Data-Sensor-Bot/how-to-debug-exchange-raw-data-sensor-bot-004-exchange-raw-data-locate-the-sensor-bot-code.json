@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Откройте в VS Code папку Task Server и сразу после этого добавьте папку Projects в рабочую область VS Code.",
                 "updated": 1640361848603
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Öffnen (Open) Sie mit VS Code den Ordner \" Task Server \" und fügen Sie unmittelbar danach den Ordner \"Projekte\" zum VS Code-Arbeitsbereich hinzu.",
+                "updated": 1687721108629
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Найдите в VS Code файл",
                     "updated": 1640361860355
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie im VS-Code die Datei",
+                    "updated": 1687721169603
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "RU",
                     "text": "который можно найти по этому пути:",
                     "updated": 1640361871362
+                },
+                {
+                    "language": "DE",
+                    "text": "die unter diesem Pfad zu finden ist:",
+                    "updated": 1687721320555
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "language": "RU",
                     "text": "Это единственный код, который выполняется для извлечения свечей и объема на 1-минутном таймфрейме с любой биржи с помощью библиотеки CCXT. Теперь вы можете установить точку останова в любом месте кода, чтобы начать отладку оттуда.",
                     "updated": 1640361898109
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist der einzelne Code, der ausgeführt wird, um Kerzen und Volumen im 1-Minuten-Zeitrahmen von jeder Börse über die CCXT -Bibliothek zu extrahieren. Sie können nun an einer beliebigen Stelle des Codes einen Haltepunkt setzen, um die Fehlersuche von dort aus zu starten.",
+                    "updated": 1687721344204
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "Настройка узла криптовалютной биржи",
                     "updated": 1640361911192
+                },
+                {
+                    "language": "DE",
+                    "text": "Krypto-Börsenknoten einrichten",
+                    "updated": 1687721352211
                 }
             ]
         },
@@ -75,6 +100,11 @@
                     "language": "RU",
                     "text": "На этом этапе хорошо бы переименовать рабочее пространство во что-то вроде Exchange XXX Test, чтобы вы могли вернуться к нему позже. Для этого нужно изменить название узла рабочего пространства.",
                     "updated": 1640361988755
+                },
+                {
+                    "language": "DE",
+                    "text": "An dieser Stelle ist es eine gute Idee, Ihren Arbeitsbereich in etwas wie Exchange XXX Test umzubenennen, damit Sie später darauf zurückkommen können. Dazu müssen Sie den Namen des Arbeitsbereichsknotens (Workspace Node) ändern.",
+                    "updated": 1687721383003
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "Теперь вы можете переименовать текущий узел криптобиржи Binance в название вашей любимой биржи, не забыв отредактировать его конфигурацию с правильным идентификатором биржи в свойстве codeName.",
                     "updated": 1640361978750
+                },
+                {
+                    "language": "DE",
+                    "text": "Jetzt können Sie den aktuellen Binance Crypto Exchange Node mit dem Namen Ihrer Lieblingsbörse umbenennen, ohne zu vergessen, seine Konfiguration mit der richtigen Börsen-ID in der codeName -Eigenschaft zu bearbeiten.",
+                    "updated": 1687721408376
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "RU",
                     "text": "Exchange Id - это Id, присвоенный этому обмену в библиотеке CCXT. Проверьте их документацию.",
                     "updated": 1640362006825
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Exchange Id ist die Id, die diesem Exchange in der CCXT Library zugewiesen wurde. Schauen Sie sich die Dokumentation dazu an.",
+                    "updated": 1687721427411
                 }
             ]
         },

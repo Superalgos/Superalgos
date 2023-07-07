@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Learning Superalgos",
+    "definition": {
+        "text": "Superalgos is a robust, vast, and flexible platform with a steep learning curve. Let's fine-tune expectations from the get go!",
+        "updated": 1687629160289,
+        "icon": {
+            "name": "superalgos",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you're looking for a plug-and-play bot that will make you money out of thin air, I'm sorry but that doesn't exist. Bot companies make you believe that trading is easy just to sell more subscriptions.",
+            "updated": 1687626765602
+        },
+        {
+            "style": "Success",
+            "text": "The truth is trading is hard and you will need to master complex concepts and tools to succeed.",
+            "updated": 1687626178946
+        },
+        {
+            "style": "Text",
+            "text": "If you don't know how to trade and are not a technical person, you're up for a real challenge! You will either learn a lot, or quit. We — tutorials — will help you along the way, but you need to do your part. Developers and/or traders should have it much easier, though.",
+            "updated": 1687630679481
+        }
+    ]
+}

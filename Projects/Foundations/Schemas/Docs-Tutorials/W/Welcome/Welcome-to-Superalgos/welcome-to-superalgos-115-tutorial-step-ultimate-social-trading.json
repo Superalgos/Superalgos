@@ -1,0 +1,232 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 115,
+    "type": "Tutorial Step - Ultimate Social Trading",
+    "definition": {
+        "text": "You may use the Superalgos Platform to produce sophisticated intelligence, but you can also use it to copy other people's trades!",
+        "updated": 1660159176962,
+        "icon": {
+            "name": "User\\user-influencer",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sie können die Superalgos Plattform verwenden, um selbst raffinierte Logiken zu entwickeln. Sie können Superalgos jedoch auch verwenden, um die Trades anderer Händler zu kopieren!",
+                "updated": 1660476003678
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Platformunu sofistike zeka üretmek için kullanabilirsiniz, ancak diğer insanların işlemlerini kopyalamak için de kullanabilirsiniz!",
+                "updated": 1670014320923
+            },
+            {
+                "language": "ID",
+                "text": "Platform Superalgos dirancang untuk melayani algo traders. Tetapi proyek ini memperluas cakupannya untuk melayani semua pengguna crypto!",
+                "updated": 1640598614989
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете использовать платформу Superalgos для производства сложного интеллекта, но вы также можете использовать ее для копирования чужих сделок!",
+                "updated": 1662035282566
+            },
+            {
+                "language": "IT",
+                "text": "Puoi usare la piattaforma Superalgos per produrre intelligenza sofisticata, ma puoi anche usarla per copiare le operazioni di altri utenti!",
+                "updated": 1666392252904
+            },
+            {
+                "language": "NL",
+                "text": "U kunt het Superalgos-platform gebruiken om geavanceerde informatie te produceren, maar u kunt het ook gebruiken om andermans transacties te kopiëren!",
+                "updated": 1667136705025
+            },
+            {
+                "language": "ES",
+                "text": "Puedes usar la Plataforma Superalgos para producir inteligencia sofisticada, ¡pero también puedes usarla para copiar las operaciones de otras personas!",
+                "updated": 1675363419705
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Algo traders get Superalgos SA Token rewards for producing and broadcasting trading signals.",
+            "updated": 1660152077831,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Algo-Händler erhalten Belohnungen über das Superalgos-Token, wenn sie Handelssignale erzeugen und verbreiten.",
+                    "updated": 1660476059905
+                },
+                {
+                    "language": "TR",
+                    "text": "Algo tüccarları, alım satım sinyalleri üretip yayınladıkları için Superalgos SA Token ödülleri alırlar.",
+                    "updated": 1670014358522
+                },
+                {
+                    "language": "ID",
+                    "text": "Terpusat oleh protokol, algo traders akan bersaing untuk memproduksi dan menyebarkan trading signals.",
+                    "updated": 1640598656754
+                },
+                {
+                    "language": "RU",
+                    "text": "Альго-трейдеры получают вознаграждение Superalgos SA Token за производство и трансляцию торговых сигналов.",
+                    "updated": 1662035303285
+                },
+                {
+                    "language": "IT",
+                    "text": "I trader Algo ricevono premi Superalgos SA Token per la produzione e la trasmissione di segnali di trading.",
+                    "updated": 1666392325067
+                },
+                {
+                    "language": "NL",
+                    "text": "Algo-handelaren ontvangen Superalgos SA Token beloningen voor het produceren en uitzenden van handelssignalen.",
+                    "updated": 1667136763769
+                },
+                {
+                    "language": "ES",
+                    "text": "Los <i>Algo traders</i> obtienen recompensas de Superalgos (SA Token) por producir y emitir señales de trading.",
+                    "updated": 1675363679062
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You may get the signals and copy-trade the pros automatically using the same platform!",
+            "updated": 1660158422455,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können diese Signale empfangen und die Trades der Profis automatisch kopieren - unter Verwendung derselben Plattform!",
+                    "updated": 1660476127135
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı platformu kullanarak sinyalleri alabilir ve profesyonelleri otomatik olarak kopyalayabilirsiniz!",
+                    "updated": 1670014374688
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengguna Crypto akan mengikuti influencer dan mendapatkan sinyal mereka di aplikasi seluler, desktop, atau server, gratis! Aplikasi ini akan memungkinkan perdagangan otomatis yang mudah, dengan kecerdasan gratis yang dihasilkan oleh para ahli!",
+                    "updated": 1640598811939
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете получать сигналы и автоматически копировать торговлю профи, используя ту же платформу!",
+                    "updated": 1662035333551
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi ricevere i segnali e copiare automaticamente i professionisti utilizzando la stessa piattaforma!",
+                    "updated": 1666392345842
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt de signalen ontvangen en de pro's automatisch kopiëren met hetzelfde platform!",
+                    "updated": 1667136757321
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes obtener las señales y copiar las operaciones de los profesionales automáticamente utilizando la misma plataforma.",
+                    "updated": 1675363483510
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To participate in the open beta testing efforts join the",
+            "updated": 1660158264259,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um am offenen Beta-Test teilzunehmen, treten Sie bitte dieser Gruppe bei:",
+                    "updated": 1660476171994
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık beta test çalışmalarına katılmak için",
+                    "updated": 1670014394135
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik algo traders dan influencer dibayar oleh protokol, sementara pengguna crypto mendapatkan semua produk dan layanan gratis. Cukup adil, bukan?",
+                    "updated": 1640598876455
+                },
+                {
+                    "language": "RU",
+                    "text": "Для участия в открытом бета-тестировании присоединяйтесь к группе",
+                    "updated": 1662035373576
+                },
+                {
+                    "language": "IT",
+                    "text": "Per partecipare al lavoro di beta testing, unisciti a",
+                    "updated": 1666392403723
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deel te nemen aan de open bèta-testinspanningen, sluit je aan bij de",
+                    "updated": 1667136782560
+                },
+                {
+                    "language": "ES",
+                    "text": "Para participar en las pruebas de la beta abierta únete al",
+                    "updated": 1675363447056
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Trading Group->t.me/superalgostrading",
+            "updated": 1660151966425
+        },
+        {
+            "style": "Success",
+            "text": "The first few signals are live now! You will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
+            "updated": 1665735018236,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu halten, um diesen Premium Community-Service zu nutzen.",
+                    "updated": 1660479416061
+                },
+                {
+                    "language": "RU",
+                    "text": "Первые несколько сигналов уже в прямом эфире! Чтобы получить доступ к премиальным услугам сообщества, вам необходимо иметь определенный баланс Superalgos SA Tokens.",
+                    "updated": 1665737028725
+                },
+                {
+                    "language": "IT",
+                    "text": "I primi segnali sono già operativi! Per accedere a questo servizio di community premium, dovrai possedere un certo saldo di token Superalgos SA.",
+                    "updated": 1666392461290
+                },
+                {
+                    "language": "NL",
+                    "text": "De eerste paar signalen zijn nu live! U moet een bepaald saldo aan Superalgos SA-tokens hebben om toegang te krijgen tot deze premium community-service.",
+                    "updated": 1667136978216
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk birkaç sinyal şimdi yayında! Bu premium topluluk hizmetine erişmek için belirli bir Superalgos SA Token bakiyesine sahip olmanız gerekecektir.",
+                    "updated": 1670014411517
+                },
+                {
+                    "language": "ES",
+                    "text": "Las primeras señales ya están disponibles. Necesitarás tener un cierto saldo de Superalgos SA Tokens para acceder a este servicio premium de la comunidad.",
+                    "updated": 1675363710284
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn how to follow signals with Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+            "updated": 1665735471005,
+            "translations": [
+                {
+                    "language": "NL",
+                    "text": "Leer hoe u signalen kunt volgen met Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+                    "updated": 1667137018184
+                }
+            ]
+        }
+    ]
+}

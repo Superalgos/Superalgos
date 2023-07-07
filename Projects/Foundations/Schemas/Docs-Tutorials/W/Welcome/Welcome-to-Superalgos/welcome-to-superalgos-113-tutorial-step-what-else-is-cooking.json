@@ -1,0 +1,228 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 113,
+    "type": "Tutorial Step - What Else Is Cooking?",
+    "definition": {
+        "icon": {
+            "name": "Crypto-Assets\\bitcoin",
+            "project": "Foundations"
+        },
+        "text": "The Bitcoin Factory crowdsources computing power from the community to train ML algorithms that predict Bitcoin prices!",
+        "updated": 1660157066315,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La Bitcoin Factory ha raccolto in crowdsourcing la potenza di calcolo della comunità per addestrare algoritmi ML che predicono i prezzi dei Bitcoin!",
+                "updated": 1666391944185,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La Bitcoin Factory utiliza la potencia de cálculo de la comunidad para entrenar algoritmos ML que predicen los precios del Bitcoin.",
+                "updated": 1675362989560,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Bitcoin Factory sammelt Rechenkapazität über Crowdsourcing um Machine Learning-Algorithmen zu trainieren, die Bitcoin-Kurse voraussagen!",
+                "updated": 1660477054768
+            },
+            {
+                "language": "TR",
+                "text": "Bitcoin Factory, Bitcoin fiyatlarını tahmin eden makine öğrenimi algoritmalarını eğitmek için topluluktan bilgi işlem gücü alıyor!",
+                "updated": 1670014037133
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos adalah platform multi-proyek, dan — setelah TensorFlow — integrasi Ethereum adalah yang berikutnya...",
+                "updated": 1640598195833
+            },
+            {
+                "language": "RU",
+                "text": "Bitcoin Factory привлекает вычислительные мощности сообщества для обучения алгоритмов ML, которые предсказывают цены на биткоин! ",
+                "updated": 1662034564589
+            },
+            {
+                "language": "NL",
+                "text": "De Bitcoin Factory crowdsourcet rekenkracht van de gemeenschap om ML-algoritmen te trainen die Bitcoin-prijzen voorspellen!",
+                "updated": 1667136429066
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Mine the Superalgos SA Token by running the Bitcoin Factory ML-Test-Client to contribute computation!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Estrai il token Superalgos SA eseguendo il client di test ML di Bitcoin Factory per contribuire al calcolo!",
+                    "updated": 1666392005832,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Mina el token Superalgos SA ejecutando el cliente de prueba ML de Bitcoin Factory para contribuir al cálculo.",
+                    "updated": 1675363052866,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erhalten Sie das Superalgos SA Token, indem Sie den Bitcoin Factory ML Test-Client ausführen und Rechenkapazität beisteuern!",
+                    "updated": 1660477117518
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplamaya katkıda bulunmak için Bitcoin Factory ML-Test-Client'ı çalıştırarak Superalgos SA Token madenciliği yapın!",
+                    "updated": 1670014043789
+                },
+                {
+                    "language": "ID",
+                    "text": "Terhubung ke Ethereum node langsung dari dalam Superalgos menggunakan interface visual.",
+                    "updated": 1640598284459
+                },
+                {
+                    "language": "RU",
+                    "text": "Добывайте токен Superalgos SA, запустив ML-Test-Client для Bitcoin Factory, чтобы внести свой вклад в вычисления!",
+                    "updated": 1662034611413
+                },
+                {
+                    "language": "NL",
+                    "text": "Mine de Superalgos SA Token door de Bitcoin Factory ML-Test-Client uit te voeren om bij te dragen aan de berekening!",
+                    "updated": 1667136490906
+                }
+            ],
+            "updated": 1660158085106
+        },
+        {
+            "style": "List",
+            "text": "Use the ML predictions and signals as intelligence you may plug into your strategies to find your edge!",
+            "updated": 1660159101605,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Usa le previsioni e i segnali del ML come intelligenza che puoi collegare alle tue strategie per trarne vantaggio!",
+                    "updated": 1666392070863,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza las predicciones y señales ML como inteligencia que puedes incorporar a tus estrategias para encontrar tu ventaja.",
+                    "updated": 1675363040193,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie die Machine Learning-Voraussagen und Signale als Datenpunkte in Ihren Handelsstrategien, um daraus Ihren individuellen Vorteil zu entwickeln!",
+                    "updated": 1660479228625
+                },
+                {
+                    "language": "TR",
+                    "text": "Avantaj sağlamak için stratejilerinize ekleyebileceğiniz ML tahminlerini ve sinyallerini istihbarat olarak kullanın!",
+                    "updated": 1670014087346
+                },
+                {
+                    "language": "ID",
+                    "text": "Tambang data blockchain untuk mengakses informasi koin dan kontrak untuk semua proyek berbasis Ethereum, termasuk De-Fi atau apa pun yang kamu miliki, memvisualisasikan data pada charts, membangun indikator, dan memanfaatkan sisa infrastruktur Superalgos.",
+                    "updated": 1640598383369
+                },
+                {
+                    "language": "RU",
+                    "text": " Используйте прогнозы и сигналы ML в качестве разведданных, которые вы можете включить в свои стратегии, чтобы найти свое преимущество!",
+                    "updated": 1662034639255
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de ML-voorspellingen en signalen als intelligentie die u kunt gebruiken bij uw strategieën om uw voordeel te behalen!",
+                    "updated": 1667136541769
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To participate, join the Bitcoin Factory team in the",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per partecipare unisciti al team Bitcoin Factory.",
+                    "updated": 1666392119132,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para participar, únete al equipo de Bitcoin Factory en el",
+                    "updated": 1675363030708,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dabei zu sein, wenden Sie sich an das Bitcoin Factory-Team in dieser Gruppe:",
+                    "updated": 1660479142124
+                },
+                {
+                    "language": "TR",
+                    "text": "Katılmak için lütfen Bitcoin Factory ekibine katılın",
+                    "updated": 1670014124135
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems!",
+                    "updated": 1640598452709
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы принять участие, присоединяйтесь к команде Bitcoin Factory",
+                    "updated": 1662034698820
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deel te nemen, sluit je aan bij het Bitcoin Factory-team in de",
+                    "updated": 1667136567981
+                }
+            ],
+            "updated": 1660158007047
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Machine Learning Group->t.me/superalgosmachinelearning",
+            "updated": 1682747864752
+        },
+        {
+            "style": "Success",
+            "text": "Once the beta phase is over, you will need to hold a certain balance of Superalgos SA Tokens to access Bitcoin Factory predictions, as it's a premium community service.",
+            "updated": 1660157821896,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach Beendigung der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu besitzen, um Bitcoin Factory-Voraussagen zu erhalten. Dabei handelt es sich um einen Premium Community-Service.",
+                    "updated": 1660479331875
+                },
+                {
+                    "language": "RU",
+                    "text": "После завершения бета-фазы вам нужно будет иметь определенный баланс Superalgos SA Tokens, чтобы получить доступ к прогнозам Bitcoin Factory, поскольку это премиум-сервис сообщества.",
+                    "updated": 1662034727340
+                },
+                {
+                    "language": "IT",
+                    "text": "Una volta terminata la fase beta, dovrai mantenere un certo saldo di token Superalgos SA per accedere alle previsioni di Bitcoin Factory, poiché è un servizio di community premium.",
+                    "updated": 1666392147802
+                },
+                {
+                    "language": "NL",
+                    "text": "Zodra de bètafase voorbij is, moet u een bepaald saldo van Superalgos SA-tokens hebben om toegang te krijgen tot Bitcoin Factory-voorspellingen, omdat het een premium community-service is.",
+                    "updated": 1667136591937
+                },
+                {
+                    "language": "TR",
+                    "text": "Beta aşaması sona erdiğinde, premium bir topluluk hizmeti olan Bitcoin Factory tahminlerine erişmek için belirli bir Superalgos SA Token bakiyesine sahip olmanız gerekecektir.",
+                    "updated": 1670014167149
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez finalizada la fase beta, será necesario disponer de un cierto saldo de Fichas Superalgos SA para acceder a las predicciones de Bitcoin Factory, ya que se trata de un servicio premium de la comunidad.",
+                    "updated": 1675363323538
+                }
+            ]
+        }
+    ]
+}

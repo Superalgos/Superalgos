@@ -1,0 +1,35 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 9,
+    "type": "Tutorial Step - This Ain’t Working!",
+    "definition": {
+        "text": "If at any point the tutorial gets confusing, the Community is ready to help! You don't need to bang your head against the wall!",
+        "updated": 1687721867222,
+        "icon": {
+            "name": "help",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I rely heavily on automated actions that your browser should be able to resolve. For instance, I will take you to places in the Design Space, open up charts in the Charting Space, turn layers on and off, and so on.",
+            "updated": 1687721920371
+        },
+        {
+            "style": "Important",
+            "text": "If you ever feel your browser is not showing you what I'm suggesting you should be seeing on screen, ask for help!",
+            "updated": 1687722090020
+        },
+        {
+            "style": "Callout",
+            "text": "Use the link below to join the Support Group now!",
+            "updated": 1687722109332
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Support Group->t.me/superalgossupport",
+            "updated": 1687721770906
+        }
+    ]
+}

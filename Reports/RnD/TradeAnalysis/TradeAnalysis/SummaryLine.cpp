@@ -150,6 +150,8 @@ void SummaryLine::feedToken( LineType lineType, int tokenNumber, string token)
 
 void SummaryLine::printSelf()
 {
+	time_t  unixTime;
+
 	calcBtcBallance();
 	calcUsdtBallance();
 
@@ -160,6 +162,11 @@ void SummaryLine::printSelf()
 	}
 	else
 	{
+		unixTime= mktime(&dateTime) * 1000;
+
+		ghtmlXGraph += to_string( unixTime );
+		ghtmlYGraph += to_string( runTotAssChange() );
+
 		cout
 			<< std::setw(2) << std::setfill('0')
 			<< dateTime.tm_mday << "/"
@@ -258,11 +265,24 @@ void SummaryLine::printSelf()
 
 	    cout << runTotAssChange() << ", "  // "Running Tot Profit (USDT)"
 			 << runDailyProfit();  // "Daily Running Tot Profit (USDT)"
+
+
 	}
 } // printSelf
 
 void SummaryLine::printSummarySelf()
 {
+	time_t  unixTime;
+
+
+	dateTime.tm_hour = 0;
+	dateTime.tm_min = 0;
+	dateTime.tm_sec = 0;
+
+	unixTime = mktime(&dateTime) * 1000;
+	ghtmlXGraph += to_string( unixTime );
+	ghtmlYGraph += to_string( runTotAssChange() );
+
 	cout << std::setw(2) << std::setfill('0')
 		 << dateTime.tm_mday << "/"
 		 

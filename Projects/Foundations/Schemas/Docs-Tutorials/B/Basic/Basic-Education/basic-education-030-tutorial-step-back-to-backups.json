@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "30",
+    "pageNumber": 30,
     "type": "Tutorial Step - Back to Backups!",
     "definition": {
         "text": "Now that you understand references, we can go deeper into Backups, and maybe even discuss the differences with Clones!",

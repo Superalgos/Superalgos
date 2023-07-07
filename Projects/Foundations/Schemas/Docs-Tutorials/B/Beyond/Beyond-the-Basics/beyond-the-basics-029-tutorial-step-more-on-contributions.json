@@ -1,0 +1,137 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 29,
+    "type": "Tutorial Step - More on Contributions",
+    "definition": {
+        "text": "I can't stress enough how important it is for the project that users contribute whatever they build with Superalgos!",
+        "icon": {
+            "name": "execution-algorithm",
+            "project": "Foundations"
+        },
+        "updated": 1617033287328,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "È cruciale per il progetto che ognuno contribuisca come può a Superalgos!",
+                "updated": 1619638010453,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡No puedo enfatizar lo suficiente lo importante que es para el proyecto que los usuarios contribuyan con lo que construyan con Superalgos!",
+                "updated": 1628198584455,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich kann gar nicht genug betonen, wie wichtig es für das Projekt ist, dass die Benutzer alles, was sie mit Superalgos bauen, beitragen!",
+                "updated": 1635151772826
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcıların Superalgos ile inşa ettikleri şeye katkıda bulunmalarının proje için ne kadar önemli olduğunu anlatmama gerek yok!",
+                "updated": 1640002927653
+            },
+            {
+                "language": "RU",
+                "text": "Я не могу не подчеркнуть, насколько важно для проекта, чтобы пользователи вносили свой вклад в развитие Superalgos!",
+                "updated": 1640163701075
+            },
+            {
+                "language": "ID",
+                "text": "Aku tidak bisa cukup menekankan betapa pentingnya bagi proyek ini bahwa pengguna berkontribusi apa saja yang mereka buat dengan Superalgos!",
+                "updated": 1669153893267
+            },
+            {
+                "language": "NL",
+                "text": "Ik kan niet genoeg benadrukken hoe belangrijk het voor het project is dat gebruikers bijdragen aan wat ze bouwen met Superalgos!",
+                "updated": 1669750418299
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you choose to get involved with the project and the Community, you may participate in the collective effort to make Superalgos better. But even if you are not interested in team work, you will still develop your skills, become a power user, and build many things that may be of use to people coming after you!",
+            "updated": 1617033959946,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se scegli di partecipare al progetto e alla Community, puoi prendere parte allo sforzo collettivo di migliorare Superalgos. E se non sei interessato al lavoro di gruppo, puoi comunque diventare un utente esperto e costruire cose utili a chi verrà dopo di te!",
+                    "updated": 1619638095140,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si decides involucrarte con el proyecto y el Community, puedes participar en el esfuerzo colectivo para mejorar Superalgos. Pero incluso si no estás interesado en el trabajo en equipo, seguirás desarrollando tus habilidades, te convertirás en un usuario avanzado y crearás muchas cosas que pueden ser útiles para las personas que vienen después de ti.",
+                    "updated": 1675454661254,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich entscheiden, sich in das Projekt und die Community einzubringen, können Sie an den kollektiven Bemühungen teilnehmen, Superalgos besser zu machen. Aber auch wenn Sie nicht an Teamarbeit interessiert sind, werden Sie Ihre Fähigkeiten weiterentwickeln, ein Power-User werden und viele Dinge bauen, die für die Menschen nach Ihnen von Nutzen sein können!",
+                    "updated": 1635151779014
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye ve Topluluğa dahil olmayı seçerseniz, Superalgos'u daha iyi hale getirmek için ortak çabaya katılabilirsiniz. Ancak ekip çalışmasına ilgi duymasanız bile, yine de becerilerinizi geliştirecek, güçlü bir kullanıcı olacak ve sizden sonra gelen insanlara faydalı olabilecek birçok şey inşa edeceksiniz!",
+                    "updated": 1640002967511
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы решите участвовать в проекте и Сообществе (Community), вы сможете принять участие в коллективных усилиях по улучшению Superalgos. Но даже если вы не заинтересованы в командной работе, вы все равно будете развивать свои навыки, станете опытным пользователем и создадите много вещей, которые могут пригодиться тем, кто придет после вас!",
+                    "updated": 1640163762784
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memilih untuk terlibat dengan proyek dan komunitas, kamu dapat berpartisipasi dalam upaya kolektif untuk membuat Superalgos lebih baik. Tetapi jika kamu tidak tertarik untuk bekerja secara tim, kamu masih harus mengembangkan skill, menjadi pengguna yang berpower, dan membangun banyak hal yang mungkin berguna bagi orang-orang yang menggunakan setelah kamu!",
+                    "updated": 1669153848805
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u ervoor kiest om betrokken te raken bij het project en de Community, kunt u deelnemen aan de collectieve inspanning om Superalgos beter te maken. Maar zelfs als u niet geïnteresseerd bent in teamwerk, zult u nog steeds uw vaardigheden ontwikkelen, een ervaren gebruiker worden en veel dingen bouwen die nuttig kunnen zijn voor mensen die na u komen!",
+                    "updated": 1669750466899
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "How to Contribute to Superalgos is the topic that covers the logistics on how to contribute trading systems, data mines, icons, documentation, translations, and so on. Remember: all contributions are incentived with Superalgos tokens!",
+            "updated": 1617034022307,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "How to Contribute to Superalgos è il topic che copre i dettagli su come contribuire a Trading Systems, Data Mines, icone, Docs, traduzioni, eccetera. Ricorda: tutti i contributi sono incentivati con il token Superalgos!",
+                    "updated": 1619638154537,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "How to Contribute to Superalgos cubre la logística sobre cómo contribuir en Trading system, Data Mines, Iconos, Documentación, Traducciones, etc. Recuerda: ¡todas las contribuciones son incentivadas con tokens de Superalgos!",
+                    "updated": 1675454706036,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " How to Contribute to Superalgos ist das Thema, das sich mit der Logistik von Handelssystemen, Data Mines, Icons, Dokumentation, Übersetzungen und so weiter beschäftigt. Denken Sie daran: alle Beiträge werden mit Superalgos-Token belohnt!",
+                    "updated": 1635151785633
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a Nasıl Katkıda Bulunulur? ( How to Contribute to Superalgos ), ticaret sistemlerine, veri madenlerine, simgelere, belgelere, çevirilere vb. katkıda bulunmayı kapsayan bir konudur. Bu arada unutmayın: tüm katkılar Superalgos jetonlarıyla teşvik edilir!",
+                    "updated": 1640003058846
+                },
+                {
+                    "language": "ID",
+                    "text": "How to Contribute to Superalgos merupakan topik yang mencakup rangkaian upaya tentang bagaimana berkontribusi pada sistem trading, data mining, ikon, dokumentasi, terjemahan, dan sebagainya. Semua kontribusi diberi insentif dengan token Superalgos!",
+                    "updated": 1669153985360
+                },
+                {
+                    "language": "NL",
+                    "text": "How to Contribute to Superalgos is het onderwerp dat de logistiek behandelt over het bijdragen aan handelssystemen, datamijnen, iconen, documentatie, vertalingen, enzovoort. Onthoud: alle bijdragen worden beloond met Superalgos-tokens!",
+                    "updated": 1669750514543
+                }
+            ]
+        }
+    ]
+}

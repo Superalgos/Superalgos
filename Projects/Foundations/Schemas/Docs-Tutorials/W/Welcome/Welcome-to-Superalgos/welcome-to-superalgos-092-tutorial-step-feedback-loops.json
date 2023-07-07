@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 92,
+    "type": "Tutorial Step - Feedback Loops",
+    "definition": {
+        "icon": {
+            "name": "Limit-Order\\limit-buy-order",
+            "project": "Foundations"
+        },
+        "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Diamo un'occhiata a un altro esempio per assorbire bene la nozione di \"constant feedback loop\" prima di proseguire!",
+                "updated": 1618068120939,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Echemos un vistazo a otro ejemplo para dejar que la noción del ciclo de retroalimentación constante se entienda antes de continuar!",
+                "updated": 1624463986592,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Schauen wir uns ein weiteres Beispiel an, um den Begriff der konstanten Rückkopplungsschleife zu verinnerlichen, bevor wir weitermachen!",
+                "updated": 1634226654216
+            },
+            {
+                "language": "TR",
+                "text": "Devam etmeden önce sabit geri besleme döngüsü kavramının anlaşılması için başka bir örneğe bakalım!",
+                "updated": 1636403007502
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat contoh lain untuk membiarkan constant feedback loop dipahami sebelum kita melanjutkan!",
+                "updated": 1640574155481
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим еще один пример, чтобы понятие постоянного цикла обратной связи стало понятнее, прежде чем мы двинемся дальше!",
+                "updated": 1642769647449
+            },
+            {
+                "language": "NL",
+                "text": "Laten we een ander voorbeeld bekijken om het idee van de constante feedback cyclus te laten bezinken voordat we verder gaan!",
+                "updated": 1667125514898
+            },
+            {
+                "language": "FR",
+                "text": "Prenons un autre exemple pour faire comprendre la notion de boucle de rétroaction constante avant de poursuivre !",
+                "updated": 1676958756694
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the data structure where information about limit buy orders is kept.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questa è la struttura di dati dove si trovano le informazioni sui limit buy orders.",
+                    "updated": 1618068157301,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es la estructura de datos donde se guarda la información sobre las órdenes de compra límite.",
+                    "updated": 1624464006602,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist die Datenstruktur, in der die Informationen über limitierte Kaufaufträge gespeichert werden.",
+                    "updated": 1634226647187
+                },
+                {
+                    "language": "TR",
+                    "text": "Limitli alış emirleri ile ilgili bilgilerin tutulduğu veri yapısıdır.",
+                    "updated": 1636403126356
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah data structure di mana informasi tentang limit buy orders disimpan.",
+                    "updated": 1640574196992
+                },
+                {
+                    "language": "RU",
+                    "text": "Это структура данных, в которой хранится информация о лимитных ордерах на покупку.",
+                    "updated": 1642769659606
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is de gegevensstructuur waarin informatie over limiet aankooporders wordt bewaard.",
+                    "updated": 1667125539168
+                },
+                {
+                    "language": "FR",
+                    "text": "Il s'agit de la structure de données où sont conservées les informations relatives aux ordres d'achat limite.",
+                    "updated": 1676958780738
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Engine layer manager on the charts (the first counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al layer manager del Trading Engine sul grafico (il secondo da sinistra). Scorri verso il basso e attiva il layer dei Limit Buy Orders. Ora passa con il mouse su alcuni dei buy orders e osserva l'effetto sui nodi nel Design Space.",
+                    "updated": 1618068248928,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Ve hacia abajo y enciende el Limit Buy Orders layer. Ahora desliza el mouse sobre algunas de las órdenes de compra y verifica el efecto en los nodos en el espacio de diseño.",
+                    "updated": 1675361310549,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ebenen-Manager der Trading Engine auf den Charts (die zweite Zählung von links). Scrollen Sie nach unten und schalten Sie die Ebene Limit Buy Orders ein. Bewegen Sie nun den Mauszeiger über einige der Kaufaufträge und prüfen Sie die Auswirkungen auf die Knoten im Design Space.",
+                    "updated": 1634226668445
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerdeki Trading Engine katmanları yöneticisine gidin (soldan ikinci). Menüde Limit Buy Order katmanını bulun ve açın. Şimdi fare imlecini birkaç satın alma siparişinin üzerinde gezidirin ve tasarım alanındaki düğümler üzerindeki etkisini kontrol edin.",
+                    "updated": 1670012281450
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke Trading Engine layers manager di charts (penghitungan kedua dari kiri). Scroll ke bawah dan nyalakan Limit Buy Orders layer. Sekarang geser mouse pointer ke beberapa buy orders dan periksa efeknya pada node pada design space.",
+                    "updated": 1640574308968
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев Trading Engine на графиках (второй счетчик слева). Прокрутите вниз и включите слой Limit Buy Orders. Теперь проведите указателем мыши по нескольким ордерам на покупку и проверьте эффект на узлах в пространстве проектирования.",
+                    "updated": 1642769679451
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de lagenmanager van de Trading Engine in de grafieken (de tweede geteld van links). Scroll naar beneden en schakel de laag Limit Buy Orders in. Veeg nu met de muisaanwijzer over enkele kooporders en controleer het effect op de knooppunten in de ontwerpruimte.",
+                    "updated": 1667125594145
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez dans le gestionnaire des calques du Trading Engine sur les graphiques (le deuxième en partant de la gauche). Faites défiler vers le bas et activez le calque Limit Buy Orders. Passez maintenant le pointeur de la souris sur quelques-uns des ordres d'achat et vérifiez l'effet sur les nœuds de l'espace de design.",
+                    "updated": 1676958831107
+                }
+            ],
+            "updated": 1687723407336
+        },
+        {
+            "style": "Text",
+            "text": "Can you envision the implications of having this level of control over the data managed by the trading bot?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Capisci le implicazioni di avere un tale livello di controllo sui dati su cui lavora il Trading Bot?",
+                    "updated": 1618068321644,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el Trading Bot?",
+                    "updated": 1675361326335,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Können Sie sich vorstellen, welche Auswirkungen es hat, wenn Sie diese Ebene der Kontrolle über die vom Trading Bot verwalteten Daten haben?",
+                    "updated": 1634226677234
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu tarafından yönetilen veriler üzerinde bu düzeyde bir kontrole sahip olmanın etkilerini hayal edebiliyor musun?",
+                    "updated": 1636403403085
+                },
+                {
+                    "language": "ID",
+                    "text": "Bisakah kamu membayangkan implikasi dari memiliki tingkat kontrol ini atas data yang dikelola oleh trading bot?",
+                    "updated": 1640574395517
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы представить себе последствия такого уровня контроля над данными, которыми управляет торговый бот?",
+                    "updated": 1642769694731
+                },
+                {
+                    "language": "NL",
+                    "text": "Kunt u zich de implicaties voorstellen van het hebben van dit niveau van controle over de gegevens die worden beheerd door de handelsbot?",
+                    "updated": 1667125616895
+                },
+                {
+                    "language": "FR",
+                    "text": "Pouvez-vous imaginer les implications d'un tel niveau de contrôle sur les données gérées par le robot de trading ?",
+                    "updated": 1676958845762
+                }
+            ]
+        }
+    ]
+}

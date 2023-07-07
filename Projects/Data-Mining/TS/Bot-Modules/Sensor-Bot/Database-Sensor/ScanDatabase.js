@@ -97,8 +97,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process has run.
-                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
-                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket);
+                        lastFile = new Date(thisReport.file.lastFile);
                         defineSince()
                         secondCallBack(dbPath, dbTable, dbTimestamp, thisReport.file.lastRun, processAndSaveMessages)
 
@@ -792,20 +792,8 @@ exports.newDataMiningBotModulesScanDatabase = function (processIndex) {
                 try {
                     if (lastFile === undefined) { return }
                     thisReport.file = {
-                        lastFile: {
-                            year: lastFile.getUTCFullYear(),
-                            month: (lastFile.getUTCMonth() + 1),
-                            days: lastFile.getUTCDate(),
-                            hours: lastFile.getUTCHours(),
-                            minutes: lastFile.getUTCMinutes()
-                        },
-                        beginingOfMarket: {
-                            year: beginingOfMarket.getUTCFullYear(),
-                            month: (beginingOfMarket.getUTCMonth() + 1),
-                            days: beginingOfMarket.getUTCDate(),
-                            hours: beginingOfMarket.getUTCHours(),
-                            minutes: beginingOfMarket.getUTCMinutes()
-                        },
+                        lastFile: lastFile.toUTCString(),
+                        beginingOfMarket: beginingOfMarket.toUTCString(),
                         uiStartDate: uiStartDate.toUTCString(),
                         lastRun: (new Date()).toUTCString(),
                         mustLoadRawData: mustLoadRawData

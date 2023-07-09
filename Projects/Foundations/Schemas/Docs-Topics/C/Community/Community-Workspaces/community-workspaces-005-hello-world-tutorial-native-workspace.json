@@ -18,8 +18,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieser Workspace dient als Demonstration, wie man eine sehr einfache Strategie erstellt, und ergänzt die Ausbildung, die der Native Workspace \"Trading System Design Tutorials\" bietet, mit einem anderen Ansatz.",
-                "updated": 1639496010559
+                "text": "Dieser Workspace dient als Demonstration, wie man eine sehr einfache Strategie erstellt, und ergänzt die Ausbildung, die der Trading System Design Tutorials Native Workspace bietet, mit einem anderen Ansatz.",
+                "updated": 1688934135868
             },
             {
                 "language": "TR",
@@ -70,8 +70,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Maintainer(Betreuer)",
-                    "updated": 1639496029983
+                    "text": "Verfasser",
+                    "updated": 1688934064728
                 },
                 {
                     "language": "RU",

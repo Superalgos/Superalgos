@@ -118,6 +118,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    SA.logger.debug('Network Http Client -> Network Client -> Message Received')
                                                     response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(payload, socketMessage)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
@@ -137,6 +138,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    SA.logger.debug('Network Http Client -> Network Peer -> Message Received')
                                                     response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(socketMessage.payload, caller.userProfile)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
@@ -180,6 +182,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                         switch (networkService) {
                             case 'Trading Signals': {
                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                    SA.logger.debug('Network Http Client -> Trading Signals -> Ping Received')
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong" + "/"  + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + "/" + NT.networkApp.p2pNetworkNode.node.config.codeName  , httpResponse)
                                 } else {
                                     let response = {

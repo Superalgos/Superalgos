@@ -5,18 +5,29 @@
 #include "SummaryLine.h"
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include <vector>
 #include <iomanip>
-#include <cstring>
+#include "cxxopts/include/cxxopts.hpp"  // Command line arguments processing
 
 
-using namespace std;
+using namespace filesystem;
+
 
 bool gSimpleBallances; // User has entered 0, 0 for initial ballances, won't track Holding amounts very well
 bool gIncTriggerCondition;
+string ghtmlXGraph;
+string ghtmlYGraph;
+bool   gwantHtml= false;
+
+
+cxxopts::Options options("TradeAnalysis", "Program to produce reports from your Binance style, order export information\n");
+cxxopts::ParseResult result;
+
 
 int main(int argc, char* argv[])
 {
+	path     myPath;
 	ifstream tradeFile;
 	string   token;
 	char     myChar;
@@ -37,24 +48,45 @@ int main(int argc, char* argv[])
 	vector<SummaryLine>  vectorSummaryLine;
 
 
-	if ( argc <  4 || argc > 5 )
+
+	// * Process program arguments
+	options.add_options()
+		("CSV_InputFile", "The Binance style .csv file you want to process", cxxopts::value<string>())
+		("BTC_Ballance", "Amount of BTC you initially have", cxxopts::value<double>())
+		("USD_Ballance", "Amount of USD you initially have", cxxopts::value<double>())
+		("s,summary", "Output daily summary only")
+		("h,html", "Produce HTML file (with graph)")
+		;
+
+	options.parse_positional({ "CSV_InputFile", "BTC_Ballance", "USD_Ballance" });
+
+	result = options.parse(argc, argv);
+
+	options.positional_help("CSV_InputFile BTC_Ballance USD_Ballance");
+
+	// if (result.count("CSV_InputFile"))
+	// 	cout << result["CSV_InputFile"].as<string>() << endl;
+	// 
+	// options.show_positional_help();   // Doesn't appear to work
+
+	if ( !result.count("CSV_InputFile") || !result.count("BTC_Ballance") || !result.count("USD_Ballance" ) )
 	{
 		cout << endl;
-		cout << "Trade Analysis Ver. " << version;
+		cout << "Trade Analysis Ver. " << version << endl;
 		cout << endl;
-		cout << "Usage:" << endl;
-		cout << "  TradeAnalysis filename.csv BTC_Ballance USDT_Ballance -s" << endl;
-		cout << endl;
-		cout << "  -s To print summary only" << endl;
-		cout << endl;
-	
+		cout << options.help() << endl
+			<< "CSV_InputFile    The Binance style .csv file you want to process (mandatory argument)" << endl
+			<< "BTC_Ballance     Amount of BTC you initially have                (mandatory argument, enter 0 if unknown)" << endl
+			<< "USD_Ballance     Amount of USD you initially have                (mandatory argument, enter 0 if unknown)" << endl;
+
 		return 0;
 	}
 
-	tradeFile.open((char*)argv[1]);
 
-	ballanceSummaryLine.orderAmount = atof( argv[2] );
-	ballanceSummaryLine.total       = atof( argv[3] );
+	tradeFile.open(result["CSV_InputFile"].as<string>() );
+
+	ballanceSummaryLine.orderAmount = result["BTC_Ballance"].as<double>();
+	ballanceSummaryLine.total       = result["USD_Ballance"].as<double>();
 
 	// Test double variables for zero
 	if ( ( -0.00000001 < ballanceSummaryLine.orderAmount && ballanceSummaryLine.orderAmount < 0.00000001) &&
@@ -67,9 +99,15 @@ int main(int argc, char* argv[])
 	ballanceSummaryLine.ballanceLine = true;
 	ballanceSummaryLine.calcBtcBallance();
 	ballanceSummaryLine.calcUsdtBallance();
-	if ( argc == 5 && !strcmp(argv[4], "-s") )
+
+	if ( result.count("summary") )
 	{
 		summaryOnly= true;
+	}
+
+	if (result.count("html"))
+	{
+		gwantHtml = true;
 	}
 
 	cout.precision(11);
@@ -94,6 +132,11 @@ int main(int argc, char* argv[])
 		summaryLine.printHeader();
 
 	gIncTriggerCondition = false;
+
+	///////////////////////////////////////////////////////////////////
+	// Begin Work
+	///////////////////////////////////////////////////////////////////
+
 
 	// File parsing loop
 	while (true) // reading file
@@ -277,10 +320,20 @@ int main(int argc, char* argv[])
 		// * Print majority of line
 		if ( ( vectorSummaryLine[itr].lastLineOfDay ) || !summaryOnly )
 		{
-			if( summaryOnly)
+			if (summaryOnly)
+			{
 				vectorSummaryLine[itr].printSummarySelf();
+
+				ghtmlXGraph += ", ";
+				ghtmlYGraph += ", ";
+			}
 			else
+			{
 				vectorSummaryLine[itr].printSelf();
+
+				ghtmlXGraph += ", ";
+				ghtmlYGraph += ", ";
+			}
 		}
 
 		// Print rest of line
@@ -340,6 +393,80 @@ int main(int argc, char* argv[])
 		if ((vectorSummaryLine[itr].lastLineOfDay) || !summaryOnly)
 		{
 			cout << endl;
+		}
+	}
+
+	if (gwantHtml)
+	{
+		string htmlGraph;
+
+
+		htmlGraph = R"HTML(
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        </head>
+        <body>
+            <div id="graph"></div>
+            <script>
+                var data = [{
+                    type: 'scatter',
+                    mode: 'lines',
+                    x: [
+        )HTML";
+
+        htmlGraph += ghtmlXGraph;
+		htmlGraph += "],\n";
+		htmlGraph += "                  y: [ ";
+		htmlGraph += ghtmlYGraph;
+		htmlGraph += R"HTML(
+              ]
+                  }];
+		  
+                  var layout = {
+        )HTML";
+
+		if (summaryOnly)
+			htmlGraph += "title: 'Summary Graph',";
+		else
+			htmlGraph += "title: 'Detailed Graph',";
+
+		htmlGraph += R"HTML(
+                      xaxis: { type: 'date',
+                               title: 'Date' },
+                      yaxis: { title: 'Profit (USD)' }
+                  };
+		  
+                  Plotly.newPlot('graph', data, layout);
+              </script>
+          </body>
+          </html>
+        )HTML";
+
+
+		////////////////////////////////////////////
+		// Output html file
+
+		string htmlFileName;
+		
+		myPath = result["CSV_InputFile"].as<string>();
+
+		htmlFileName = "Processed ";
+		if( summaryOnly )
+			htmlFileName += "Summary ";
+		htmlFileName += myPath.stem().string();
+		htmlFileName += ".html";
+
+		myPath.replace_filename(htmlFileName);
+
+		cout << endl << myPath << endl;
+
+		std::ofstream htmlFile( myPath ); 
+		if (htmlFile.is_open())
+		{
+			htmlFile << htmlGraph;
+			htmlFile.close();
 		}
 	}
 }

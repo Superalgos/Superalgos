@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Superalgos, her türlü yatırımcının sezgisel bir GUI ile birlikte çalışmasına olanak tanıyan inanılmaz bir araçtır. Uygulamanın oldukça dik bir öğrenme eğrisi var ve başlangıçta oldukça bunaltıcı görünüyor, ancak eğitimler sizi tüm önemli özelliklerde hızlı bir şekilde yönlendirecek şekilde yapılıyor ve başlangıçta ustalaşması zor görünen karmaşıklığın, programlama hakkında çok şey bilmek zorunda kalmadan inanılmaz esnekliğe izin verdiği anlaşılıyor. Ancak uygulamanın en güçlü özelliği, kullanıcıların yazılımı değiştirmesine ve böylece projeye katkıda bulunmasına olanak tanıyan topluluk odaklı yaklaşımıdır. Yani sadece geliştiriciler değil, aynı zamanda programlama bilgisi çok az olan veya hiç olmayan deneyimli yatırımcılar veya her küçük gelişme önemli olduğu için motive olmuş yeni gelenler de katkıda bulunabilir. Yazılım sürekli gelişen bir proje olduğu için, onu daha fazla keşfetmeyi ve katkıda bulunmaya yardımcı olmayı dört gözle bekliyorum.\n\nfredericopitz",
                 "updated": 1669310626849
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist ein unglaubliches Tool, das es allen Arten von Händlern ermöglicht, mit einer intuitiven Benutzeroberfläche zusammenzuarbeiten. Die App hat eine recht steile Lernkurve und scheint anfangs ziemlich überwältigend zu sein, aber die Tutorials sind so gestaltet, dass man schnell durch alle wichtigen Funktionen geführt wird und man versteht, dass die Komplexität, die anfangs schwer zu beherrschen scheint, eine unglaubliche Flexibilität ermöglicht, ohne dass man viel über Programmierung wissen muss. Die stärkste Eigenschaft der App ist jedoch ihr Community-getriebener Ansatz, der es den Nutzern erlaubt, die Software zu verändern und damit zum Projekt beizutragen. Das bedeutet, dass nicht nur Entwickler einen Beitrag leisten können, sondern auch erfahrene Trader mit wenig oder gar keinen Programmierkenntnissen oder auch motivierte Neulinge, denn jede kleine Verbesserung zählt. Da die Software ein stetig wachsendes Projekt ist, freue ich mich darauf, es weiter zu erforschen und mitzuhelfen. fredericopitz",
+                "updated": 1686342017878
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669310656047
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686342074950
                 }
             ]
         }

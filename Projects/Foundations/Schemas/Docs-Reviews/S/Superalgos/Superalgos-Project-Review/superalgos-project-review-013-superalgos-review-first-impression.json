@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "VAY CANINA! Gördüğüm şey hoşuma gitti!",
                 "updated": 1669195422580
+            },
+            {
+                "language": "DE",
+                "text": "WOW! Ich mag, was ich sehe!",
+                "updated": 1686338739304
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İlk izlenimim sadece: VAY CANINA!",
                     "updated": 1669195444491
+                },
+                {
+                    "language": "DE",
+                    "text": "Mein erster Eindruck ist einfach: WOW!",
+                    "updated": 1686338759623
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Birisi gerçekten tamamen benzersiz bir şey geliştirmek istemiş.",
                     "updated": 1669195465187
+                },
+                {
+                    "language": "DE",
+                    "text": "Jemand wollte wirklich etwas völlig Einzigartiges entwickeln.",
+                    "updated": 1686338794233
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Etkileyici Öğreticiler: Bir ton iş yapmış olmalılar.",
                     "updated": 1669195481203
+                },
+                {
+                    "language": "DE",
+                    "text": "Beeindruckende Tutorials: Das muss eine Menge Arbeit gewesen sein.",
+                    "updated": 1686338805094
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Eğlenceli Kullanıcı Arayüzü: Ticarete oyunlaştırma getirmeye olan ilgiyi görebiliyorum",
                     "updated": 1669195511854
+                },
+                {
+                    "language": "DE",
+                    "text": "Spielerische Benutzeroberfläche: Ich sehe das Interesse daran, den Handel spielerisch zu gestalten",
+                    "updated": 1686338815410
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Ben temelde görsel bir insanım ve bu nedenle botların ticaret eylemlerini mükemmel bir şekilde görselleştirmesinin, çalışan ve karlı ticaret stratejileri geliştirmeme yardımcı olacağını umuyorum. Çünkü şimdiye kadar ticaret ve kripto dünyasında aşağı yukarı bir acemiyim.",
                     "updated": 1669195558700
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin grundsätzlich ein visueller Mensch und hoffe daher, dass die großartige Visualisierung der Handelsaktionen des Bots mir helfen wird, funktionierende und profitable Handelsstrategien zu entwickeln. Denn bis jetzt bin ich ein mehr oder weniger Neuling im Handel und in der Kryptowelt.",
+                    "updated": 1686338824648
                 }
             ]
         },
@@ -114,6 +144,11 @@
                     "language": "TR",
                     "text": "Takipte kalacağım.",
                     "updated": 1669195576057
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde dranbleiben.",
+                    "updated": 1686338833992
                 }
             ]
         },

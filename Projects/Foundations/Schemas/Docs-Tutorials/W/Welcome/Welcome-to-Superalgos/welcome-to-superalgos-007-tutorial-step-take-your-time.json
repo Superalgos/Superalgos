@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Take Your Time!",
+    "definition": {
+        "text": "Fly by sections of tutorials or skip steps at your own peril! Chances are you will hit a wall like Wile E. Coyote chasing the Road Runner!",
+        "updated": 1687630748905,
+        "icon": {
+            "name": "time-machine",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may be tempted to skip steps or fly by the instructions provided in some tutorial steps. It's OK, provided that you come back and do the work later!",
+            "updated": 1687629812634
+        },
+        {
+            "style": "Success",
+            "text": "Better read carefully and let concepts sink in! You will need every ounce of knowledge to succeed.",
+            "updated": 1687630138952
+        },
+        {
+            "style": "Important",
+            "text": "I can't stress this enough! You will play the game against apex predators counting trading firms, hedge funds, and investment banks that eat retail traders for breakfast! Do the work or die!",
+            "updated": 1687630227204
+        }
+    ]
+}

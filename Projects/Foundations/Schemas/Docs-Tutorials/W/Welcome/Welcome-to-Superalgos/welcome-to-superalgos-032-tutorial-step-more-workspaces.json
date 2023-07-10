@@ -1,0 +1,227 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 32,
+    "type": "Tutorial Step - More Workspaces?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "workspace"
+        },
+        "text": "Indeed! You may work with as many as you wish and keep all of your work in perfect order!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi!",
+                "updated": 1614791394697,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri!",
+                "updated": 1616770406123,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los Native Workspaces que se envían con el sistema presentan un fondo negro en la pestaña Workspaces de la izquierda.",
+                "updated": 1675207503797,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Native Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
+                "updated": 1634167337552,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Native Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
+                "updated": 1636013396906
+            },
+            {
+                "language": "RU",
+                "text": "\nNative Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
+                "updated": 1636192226552
+            },
+            {
+                "language": "NL",
+                "text": "Native Workspaces die bij het systeem horen hebben een zwarte achtergrond in het Workspaces tabblad aan de linker kant.",
+                "updated": 1666614769872
+            },
+            {
+                "language": "FR",
+                "text": "Les Native Workspaces livrés avec le système ont un fond noir dans l'onglet des Workspaces à gauche.",
+                "updated": 1667986626783
+            },
+            {
+                "language": "PL",
+                "text": "Dostarczane z systemem Native Workspaces mają czarne tło w zakładce Workspaces, która znajduje się po lewej stronie.",
+                "updated": 1675002653309
+            }
+        ],
+        "updated": 1687633417015
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Workspaces save all the information relative to the data structures that are included in the workspace.",
+            "updated": 1629803440353,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mentre usi il sistema, il workspace viene salvato automaticamente ogni minuto. Viene salvato anche quando chiudi il browser o la tab, e puoi salvarlo manualmente usando Ctrl + Shift + Key-S",
+                    "updated": 1614791481642,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Segera setelah memulai sistem, workspace akan tersimpan setiap menit. Hal itu juga tersimpan sebelum menutup browser atau tab browser, dan juga bisa simpan manual dengan Ctrl + Shift + Key-S",
+                    "updated": 1616770552231,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los Workspaces guardan toda la información relativa a las estructuras de datos que se incluyen en el espacio de trabajo.",
+                    "updated": 1675207551825,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces speichern alle Informationen zu den Datenstrukturen, die im Arbeitsbereich enthalten sind.",
+                    "updated": 1634167346842,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanları ( Workspaces ), çalışma alanına dahil edilen veri yapılarına ilişkin tüm bilgileri kaydeder.",
+                    "updated": 1636013436668
+                },
+                {
+                    "language": "RU",
+                    "text": "Workspaces сохраняют всю информацию относительно структур данных, включенных в рабочее пространство.",
+                    "updated": 1641809425403
+                },
+                {
+                    "language": "NL",
+                    "text": "Workspaces slaan alle informatie op met betrekking tot de data structuren in de werkruimte. ",
+                    "updated": 1636978555492
+                },
+                {
+                    "language": "FR",
+                    "text": "Les Workspaces enregistrent toutes les informations relatives aux structures de données qui sont incluses dans l'espace de travail.",
+                    "updated": 1667986696978
+                },
+                {
+                    "language": "PL",
+                    "text": "Workspaces zapisuje wszystkie informacje dotyczące struktur danych, które znajdują się w przestrzeni roboczej.",
+                    "updated": 1675002678853
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's create a copy of this Native Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
+            "updated": 1687633587423,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Creemos una copia de este Native Workspaces y hagámoslo nuestro. Pulsa la siguiente combinación de teclas Ctrl + Shift + Key-S  ",
+                    "updated": 1675207601661,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Kopie dieses Native Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
+                    "updated": 1634167512053,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelin bu Native Workspace'in bir kopyasını oluşturalım ve sizin için kaydedelim! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "updated": 1644909265051
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте создадим копию этого Native Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
+                    "updated": 1636192471516
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we met een kopie deze Native Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
+                    "updated": 1636978713661
+                },
+                {
+                    "language": "FR",
+                    "text": "Créons une copie de ce Native Workspace et personnalisons-le  ! Tapez la combinaison de touches suivante : Ctrl + Shift + Key-S",
+                    "updated": 1667986754674
+                },
+                {
+                    "language": "PL",
+                    "text": "Utwórzmy kopię tego Native Workspace i uczyńmy go Twoim własnym! Wykorzystaj następującą kombinację klawiszy: Ctrl + Shift + Key-S",
+                    "updated": 1675002723308
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Remember, replace Ctrl with Cmd in MacOS!",
+            "updated": 1687633634278
+        },
+        {
+            "style": "Success",
+            "text": "Now check the User workspaces section of the menu! That's your copy of the workspace!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I file plugin non devono essere modificati in altro modo!",
+                    "updated": 1614791561359,
+                    "style": "Important"
+                },
+                {
+                    "language": "ID",
+                    "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem!",
+                    "updated": 1616770726775,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora abre la pestaña Workspaces (Espacios de trabajo) a la izquierda, desplázate hasta el final y encuentra el único espacio de trabajo con fondo morado. Ese es tu espacio de trabajo. Pero no hace falta que hagas clic en él. ",
+                    "updated": 1675207664475,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie nun die Registerkarte Workspaces auf der linken Seite, scrollen Sie ganz nach unten und suchen Sie den einzigen Workspace mit einem lila Hintergrund! Das ist Ihr Arbeitsbereich! Sie brauchen ihn aber nicht anzuklicken!",
+                    "updated": 1634167411161,
+                    "style": "Important"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip çalışma alanını bulun! Bu sizin çalışma alanınız! Ama şimdilik üzerine tıklamanıza gerek yok!",
+                    "updated": 1669837911097
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее пространство! Но пока не нужно нажимать на него!",
+                    "updated": 1641809497890
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak het Workspaces tabblad links open en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
+                    "updated": 1666614929403
+                },
+                {
+                    "language": "FR",
+                    "text": "Maintenant, ouvrez l'onglet Workspaces sur la gauche, faites défiler jusqu'en bas, et trouvez le seul espace de travail avec un fond violet ! C'est votre espace de travail ! Mais pas besoin de cliquer dessus !",
+                    "updated": 1667986790239
+                },
+                {
+                    "language": "PL",
+                    "text": "Teraz otwórz zakładkę Workspaces po lewej stronie, przewiń do dołu i znajdź jedyny obszar roboczy z fioletowym tłem! To jest twój obszar roboczy! Ale nie musisz na niego klikać!",
+                    "updated": 1675002751094
+                }
+            ],
+            "updated": 1687633746735
+        }
+    ]
+}

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Çok güzel bir yazılım. Ve ücretsiz açık kaynak. Hayret!",
                 "updated": 1669312208443
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Ein sehr schönes Stück Software. Und es ist kostenlos und quelloffen. Toll!",
+                "updated": 1687638019189
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669312226452
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687638026617
                 }
             ]
         }

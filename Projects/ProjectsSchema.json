@@ -1206,6 +1206,27 @@
                     "functionName": "newDataMiningBotModulesStudyOutput",
                     "fileName": "StudyOutput.js",
                     "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Database Scanner",
+                    "propertyName": "scanDatabase",
+                    "functionName": "newDataMiningBotModulesScanDatabase",
+                    "fileName": "ScanDatabase.js",
+                    "folderName": "Sensor-Bot/Database-Sensor"
+                }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Aggregation Methods",
+                    "propertyName": "aggregationMethods",
+                    "functionName": "newDataMiningFunctionLibrariesAggregationMethods",
+                    "fileName": "AggregationMethods.js"
+                },
+                {
+                    "name": "Database Access",
+                    "propertyName": "databaseAccess",
+                    "functionName": "newDataMiningFunctionLibrariesDatabaseAccess",
+                    "fileName": "DatabaseAccess.js"
                 }
             ]
         },
@@ -1795,12 +1816,6 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
-                },
-                {
-                    "name": "Persistence",
-                    "propertyName": "persistence",
-                    "functionName":"newNetworkGlobalsPersistence",
-                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [
@@ -1838,6 +1853,12 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newNetworkGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [
@@ -2586,5 +2607,27 @@
             ]
         },
         "plugins": []
+    },
+    {
+        "name": "Local-Storage",
+        "propertyName": "localStorage",
+        "SA": {
+            "globals": [
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newLocalStorageGlobalsPersistence",
+                    "fileName": "Persistence.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "DatabaseRepositories",
+                    "propertyName": "databaseRepositories",
+                    "functionName":"newDatabaseRepositories",
+                    "fileName": "DatabaseRepositories.js"
+                }
+            ]
+        }
     }
 ]

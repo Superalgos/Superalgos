@@ -1,0 +1,155 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 83,
+    "type": "Tutorial Step - Come Meet Someone!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "execution-algorithm"
+        },
+        "text": "Sorry for dragging you away from the charts, but I wanted to introduce you to someone: the guy on the right is the one placing the buy orders!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Scusa se ti ho trascinato via dai grafici, ma volevo presentarti a qualcuno: il tipo qui a destra è quello che piazza tutti i buy order!",
+                "updated": 1618064981900,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra!",
+                "updated": 1624458802818,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Entschuldigen Sie, dass ich Sie von den Charts weggezerrt habe, aber ich wollte Ihnen jemanden vorstellen: Der Typ rechts ist derjenige, der die Kaufaufträge erteilt!",
+                "updated": 1634225548501
+            },
+            {
+                "language": "TR",
+                "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam!",
+                "updated": 1636206465488
+            },
+            {
+                "language": "RU",
+                "text": "Извините, что оторвал Вас от графиков, но я хотел представить вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
+                "updated": 1637755743535
+            },
+            {
+                "language": "ID",
+                "text": "Maaf telah menyeret kamu keluar dari charts, tapi aku ingin memperkenalkan kamu kepada seseorang: orang di sebelah kanan adalah orang yang menempatkan buy orders!",
+                "updated": 1640564914771
+            },
+            {
+                "language": "NL",
+                "text": "Sorry voor het wegslepen van de grafieken, maar ik wilde je aan iemand voorstellen: de man aan de rechterkant is degene die de kooporders plaatst!",
+                "updated": 1666879808915
+            },
+            {
+                "language": "FR",
+                "text": "Désolé de vous éloigner des graphiques, mais je voulais vous présenter quelqu'un : le type à droite est celui qui passe les ordres d'achat !",
+                "updated": 1676899770773
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are inside the Lightning Strike Trading System, within the definitions of the Open Stage. In this stage, the Execution Algorithm takes over after the decision to take a position has already been made on the Trigger Stage. I know you still don't know what a Situation or a Condition are, but I'd still like you to do something...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Siamo all'interno del Lightning Strike Trading System, dentro la definizione dell'Open Stage. In questo stage, l'Execution Algorithm prende il sopravvento dopo che la decisione di aprire una posizione è già stata presa nel Trigger Stage. So che non sai ancora cosa siano una Situation o una Condition, ma vorrei comunque facessi una cosa...",
+                    "updated": 1618065153377,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage. Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
+                    "updated": 1675280965318,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir befinden uns im Lightning Strike Trading System, innerhalb der Definitionen der Open Stage. In dieser Phase übernimmt der Execution Algorithm, nachdem die Entscheidung, eine Position einzugehen, bereits in der Trigger Stage getroffen wurde. Ich weiß, dass Sie immer noch nicht wissen, was eine Situation oder eine Condition ist, aber ich möchte, dass Sie trotzdem etwas tun...",
+                    "updated": 1634225553603
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Trading Sisteminin (Trading System) içindeki Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması (Execution Algorithm) devreye girer. Hala bir Durum (Situation) veya Koşulun (Condition) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
+                    "updated": 1670008701820
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы находимся внутри Trading System - Lightning Strike - в рамках определений Open Stage. На этом этапе Execution Algorithm вступает в силу после того, как решение занять позицию уже было приянто на Trigger Stage. Я знаю, что Вы еще не знаете, что такое Situation или Condition, но я все равно бы хотел, чтобы Вы что-нибудь сделали...",
+                    "updated": 1637756027374
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita berada di dalam Lightning Strike Trading System, dalam definisi Open Stage. Pada tahap ini, Execution Algorithm mengambil alih setelah keputusan untuk mengambil posisi telah dibuat pada Trigger Stage. Aku tahu kamu masih belum tahu apa itu Situation atau Condition, tapi aku tetap ingin kamu melakukan sesuatu...",
+                    "updated": 1640565563790
+                },
+                {
+                    "language": "NL",
+                    "text": "We bevinden ons binnen het Lightning Strike Trading System, binnen de definities van de Open Stage. In deze fase neemt het Execution Algorithm het over nadat de beslissing om een positie in te nemen al is genomen in de Trigger Stage. Ik weet dat je nog steeds niet weet wat een Situation of een Condition is, maar ik zou toch willen dat je iets doet...",
+                    "updated": 1666879916007
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous sommes à l'intérieur du système de trading Lightning Strike, dans les définitions de la phase d'ouverture. À ce stade, l'algorithme d'exécution prend le relais après que la décision de prendre une position a déjà été prise au stade du déclenchement. Je sais que vous ne savez toujours pas ce qu'est une situation ou une condition, mais j'aimerais quand même que vous fassiez quelque chose...",
+                    "updated": 1676899775099
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a few minutes to explore the nodes downstream from the execution algorithm, check the formulas and conditions, and see what you can make of them!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esplora i nodi sotto l'Execution Algorithm, controlla le formule e condizioni, e vedi cosa puoi ricavarne!",
+                    "updated": 1618065182365,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate unos minutos para explorar los nodos posteriores al algoritmo de ejecución, comprueba las fórmulas y condiciones, ¡y a ver qué puedes hacer con ellos!",
+                    "updated": 1675280937606,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um die Knoten unterhalb des Ausführungsalgorithmus zu erkunden, die Formeln und Bedingungen zu überprüfen und zu sehen, was Sie daraus machen können!",
+                    "updated": 1634225560838
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritmasının (Execution Algorithm) altındaki düğümleri keşfetmek, formülleri ve koşulları kontrol etmek ve bunlardan ne yapabileceğinizi görmek için birkaç dakikanızı ayırın!",
+                    "updated": 1666065481872
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте несколько минут на изучение узлов, расположенных ниже алгоритма выполнения, проверьте формулы и условия и посмотрите, что вы можете из них сделать! ",
+                    "updated": 1662034309760
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
+                    "updated": 1640565111657
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem een paar minuten de tijd om de knooppunten stroomafwaarts van het execution algorithm te verkennen, de formules en voorwaarden te controleren en te zien wat u ervan kunt maken!",
+                    "updated": 1666879990494
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez quelques minutes pour explorer les nœuds en aval de l'algorithme d'exécution, vérifiez les formules et les conditions, et voyez ce que vous pouvez en faire !",
+                    "updated": 1676899790096
+                }
+            ],
+            "updated": 1649168063557
+        }
+    ]
+}

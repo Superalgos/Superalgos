@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Тестирование бирж является постоянной работой Сообщества. Если вы хотите работать с биржей, которая не тестировалась, в этой теме рассматривается все, что вам нужно знать для отладки Sensor Bot и выяснения того, что нужно сделать для достижения цели.",
                 "updated": 1640359763973
+            },
+            {
+                "language": "DE",
+                "text": "Das Testen von Tauschbörsen ist eine ständige Aufgabe der Gemeinschaft (Community). Wenn Sie mit einer nicht getesteten Börse arbeiten möchten, finden Sie in diesem Thema alles, was Sie wissen müssen, um den Sensor Bot zu debuggen und herauszufinden, was getan werden muss, um das Ziel zu erreichen.",
+                "updated": 1687719866618
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Библиотека CCXT",
                     "updated": 1640359777264
+                },
+                {
+                    "language": "DE",
+                    "text": "CCXT-Bibliothek",
+                    "updated": 1687719876818
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "CCXT - это популярная библиотека с открытым исходным кодом, которая действует как шлюз для API бирж. Ее цель - стандартизировать доступ к различным API, чтобы программное обеспечение, созданное с использованием CCXT, не нуждалось в знании особенностей работы каждой биржи. Несмотря на то, что она делает довольно хорошую работу, она не идеальна, и все еще существуют специальные конфигурации, которые необходимо использовать с различными биржами.",
                     "updated": 1640360009450
+                },
+                {
+                    "language": "DE",
+                    "text": "CCXT ist eine beliebte Open-Source-Bibliothek, die als Gateway zu den APIs der Börsen fungiert. Ihr Ziel ist es, den Zugang zu verschiedenen APIs zu standardisieren, so dass Software, die mit CCXT erstellt wird, nicht die speziellen Abläufe der einzelnen Börsen kennen muss. Auch wenn sie ihre Aufgabe recht gut erfüllt, ist sie nicht perfekt, und es gibt immer noch spezielle Konfigurationen, die mit verschiedenen Börsen verwendet werden müssen.",
+                    "updated": 1687719895842
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "language": "RU",
                     "text": "Корень этой проблемы в том, что в отрасли не существует стандарта, и каждая биржа изобретает свой собственный способ работы с каждой функциональностью.",
                     "updated": 1640360027000
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Problem besteht darin, dass es keinen branchenweiten Standard gibt und jede Börse für jede Funktion einen eigenen Weg erfindet.",
+                    "updated": 1687719905843
                 }
             ]
         },
@@ -105,6 +125,11 @@
                     "language": "RU",
                     "text": "Оригинальные тесты на Binance",
                     "updated": 1640360039800
+                },
+                {
+                    "language": "DE",
+                    "text": "Original-Tests auf Binance",
+                    "updated": 1687719915603
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "RU",
                     "text": "Программное обеспечение Superalgos развивается быстро, так как команда решила оставить тонкую настройку и установку на усмотрение сообщества. В самом начале команда протестировала Binance, поскольку это самая популярная биржа. Она не сработала с первой попытки с конфигурацией по умолчанию, поэтому была создана специальная конфигурация.",
                     "updated": 1640360069570
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Superalgos-Software entwickelt sich schnell weiter, da das Team die Feinabstimmung und Einrichtung der Community überlässt. Das Team hat Binance früh getestet, weil es die beliebteste Börse ist. Mit der Standardkonfiguration funktionierte es nicht auf Anhieb, also wurde eine spezielle Konfiguration erstellt.",
+                    "updated": 1687719938020
                 }
             ]
         },
@@ -139,6 +169,11 @@
                     "language": "RU",
                     "text": "Конфигурация Binance",
                     "updated": 1640360080470
+                },
+                {
+                    "language": "DE",
+                    "text": "Binance Konfiguration",
+                    "updated": 1687719947355
                 }
             ]
         },
@@ -161,6 +196,11 @@
                     "language": "RU",
                     "text": "Усилия сообщества",
                     "updated": 1640360097329
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemühungen der Gemeinschaft",
+                    "updated": 1687719954749
                 }
             ]
         },
@@ -183,6 +223,11 @@
                     "language": "RU",
                     "text": "Если вам удастся протестировать непроверенную биржу, пожалуйста, примите участие в работе сообщества по тестированию бирж Community Effort to Test Exchanges, задокументировав результаты!",
                     "updated": 1640360171213
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine noch nicht getestete Börse testen können, beteiligen Sie sich bitte an der Community Effort to Test Exchanges, indem Sie die Ergebnisse dokumentieren!",
+                    "updated": 1687719967890
                 }
             ]
         },
@@ -199,6 +244,11 @@
                     "language": "RU",
                     "text": "Тестирование бирж - это ценный вклад! Это позволяет всем следующим пользователям - в том числе и менее техническим - получать удовольствие от работы с любимой биржей!",
                     "updated": 1640360191629
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Testen von Tauschbörsen ist ein wertvoller Beitrag! Es ermöglicht allen, die als nächstes kommen - auch den technisch weniger versierten Nutzern -, die Arbeit mit ihrer Lieblingsbörse zu genießen!",
+                    "updated": 1687719981099
                 }
             ]
         },
@@ -216,6 +266,11 @@
                     "language": "RU",
                     "text": "Вашей любимой биржи нет в списке",
                     "updated": 1640360203165
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre bevorzugte Börse ist nicht aufgelistet",
+                    "updated": 1687719991615
                 }
             ]
         },
@@ -233,6 +288,11 @@
                     "language": "RU",
                     "text": "Существует множество причин, по которым биржа может не попасть в список даже на узле Untested Exchanges. Вот некоторые из них:",
                     "updated": 1640360230176
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt viele Gründe, warum eine Börse nicht einmal im Knotenpunkt \"Ungeprüfte Börsen\" aufgeführt ist. Hier sind einige von ihnen:",
+                    "updated": 1687720000684
                 }
             ]
         },
@@ -250,6 +310,11 @@
                     "language": "RU",
                     "text": "Когда список был создан, он не существовал (вы можете попробовать пункт меню Add Missing Exchanges узла Crypto Exchanges).",
                     "updated": 1640360257673
+                },
+                {
+                    "language": "DE",
+                    "text": "Als die Liste erstellt wurde, war sie nicht vorhanden. Sie können den Menüpunkt Fehlende Börsen hinzufügen des Krypto-Börsenknotens (Crypto Exchanges) node ausprobieren.",
+                    "updated": 1687720050531
                 }
             ]
         },
@@ -267,6 +332,11 @@
                     "language": "RU",
                     "text": "Он не указан в библиотеке CCXT, входящей в состав Superalgos (для обновления библиотеки потребуется обновление npm в нужной папке). Если биржа появится после обновления, пожалуйста, сообщите об этом команде, чтобы обновить его для всех пользователей.",
                     "updated": 1640360319986
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist nicht in der CCXT -Bibliothek aufgeführt, die in Superalgos enthalten ist (ein npm-Update wäre im richtigen Ordner erforderlich, um die Bibliothek zu aktualisieren). Wenn der Austausch nach dem Update erscheint, informieren Sie bitte das Team, damit es für alle Benutzer aktualisiert werden kann.",
+                    "updated": 1687720071894
                 }
             ]
         },
@@ -284,6 +354,11 @@
                     "language": "RU",
                     "text": "Биржа не предоставляет исторические данные в виде 1-минутных свечей (вы можете проверить документацию API биржи). Биржи, не поддерживающие эту базовую функцию, отфильтровываются при выполнении команды Add Missing Exchanges.",
                     "updated": 1640360339017
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Börse bietet keine historischen Daten in 1-Minuten-Kerzen an (Sie können die API-Dokumente der Börse einsehen). Börsen, die diese grundlegende Funktion nicht unterstützen, werden bei der Ausführung des Befehls Add Missing Exchanges herausgefiltert.",
+                    "updated": 1687720087139
                 }
             ]
         },
@@ -301,6 +376,11 @@
                     "language": "RU",
                     "text": "Биржа не поддерживает функцию списка рынков (проверьте документацию API биржи).",
                     "updated": 1640360375324
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Börse unterstützt die Funktion zum Auflisten von Märkten nicht (siehe die API-Dokumente der Börse).",
+                    "updated": 1687720096874
                 }
             ]
         },
@@ -317,6 +397,11 @@
                     "language": "RU",
                     "text": "Начало работы",
                     "updated": 1640360415074
+                },
+                {
+                    "language": "DE",
+                    "text": "Erste Schritte",
+                    "updated": 1687720105142
                 }
             ]
         },
@@ -334,6 +419,11 @@
                     "language": "RU",
                     "text": "В остальной части этого руководства мы будем считать, что вы используете рабочее пространство Getting Started, которое поставляется как Plugin. Если это не так, загрузите это рабочее пространство и закройте учебник \"Начало работы\".",
                     "updated": 1640360469370
+                },
+                {
+                    "language": "DE",
+                    "text": "Für den Rest dieser Anleitung gehen wir davon aus, dass Sie den Arbeitsbereich \"Erste Schritte\" verwenden, der als Plugin mitgeliefert wird. Wenn dies nicht der Fall ist, laden Sie bitte diesen Arbeitsbereich und schließen Sie das Willkommenstutorial.",
+                    "updated": 1687720114227
                 }
             ]
         },

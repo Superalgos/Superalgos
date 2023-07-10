@@ -3,12 +3,12 @@
     "pageNumber": 20,
     "type": "Tutorial Step - Don't Forget to Save!",
     "definition": {
-        "text": "Before you get to a novel-length kind of write-up, make sure you save the page every once in a while! No need to risk your prose!",
+        "text": "Make sure you save the page every once in a while so that you don't risk loosing your prose!",
         "icon": {
             "name": "under-construction",
             "project": "Foundations"
         },
-        "updated": 1610736735029,
+        "updated": 1687974926812,
         "translations": [
             {
                 "language": "IT",
@@ -52,8 +52,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Each paragraph you write is stored at the level of the browser session as soon as you exit Edit mode. However, to save the page on disk and avoid losing work on an eventual browser crash, run this command:",
-            "updated": 1610822788853,
+            "text": "Paragraphs are stored in memory as soon as you exit Edit mode. To save the page on disk, run this command:",
+            "updated": 1687974963380,
             "translations": [
                 {
                     "language": "IT",
@@ -99,9 +99,9 @@
             "text": "docs.save"
         },
         {
-            "style": "Success",
-            "text": "If for any reason you lose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page!",
-            "updated": 1610983878542,
+            "style": "Note",
+            "text": "If for any reason you lose sight of the page, run the docs.reindex command and search for the title you gave it! Or use the BACK button on the hidden orange navigation controls to the right!",
+            "updated": 1687954263929,
             "translations": [
                 {
                     "language": "IT",
@@ -141,6 +141,11 @@
                     "updated": 1669748238266
                 }
             ]
+        },
+        {
+            "style": "Success",
+            "text": "Continue once you're done writing/saving.",
+            "updated": 1687975036266
         }
     ]
 }

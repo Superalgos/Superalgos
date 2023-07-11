@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, yeni bir API Veri Getirme Botunun nasıl oluşturulacağına dair bir örnek içerir.",
                 "updated": 1644676722601
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält ein Beispiel für die Erstellung eines neuen API Data Fetcher Bot.",
+                "updated": 1688936929937
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639057392740
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936909929
                 }
             ]
         },

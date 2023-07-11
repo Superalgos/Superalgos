@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, ticaret sistemleri tasarlama hakkında bir dizi öğretici içerir. Kullanıcıların temel eğitimlerini tamamladıktan sonra strateji oluşturma hakkında bilgi edinmeleri için atmaları gereken ilk adımdır.",
                 "updated": 1644675422405
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält eine Reihe von Tutorials zur Entwicklung von Handelssystemen. Es ist der erste Schritt, den Benutzer nach Abschluss ihrer Grundausbildung machen sollten, um etwas über die Entwicklung von Strategien zu lernen.",
+                "updated": 1688852563561
             }
         ]
     },
@@ -118,6 +123,11 @@
                     "language": "TR",
                     "text": "Önemli: Bu seri, belirli örneklerle ticaret yürütme ve ticaret yönetimini kapsayacak şekilde büyümeye devam etmelidir.",
                     "updated": 1644675575028
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Reihe muss weiter ausgebaut werden, um die Handelsausführung und das Handelsmanagement mit konkreten Beispielen abzudecken.",
+                    "updated": 1688852551930
                 }
             ]
         },
@@ -130,6 +140,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639055864074
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688852628882
                 }
             ]
         },

@@ -21,6 +21,11 @@
                 "language": "TR",
                 "text": "Superalgos, kullanıcı katılımını kolaylaştırmak için topluluk tarafından kurulan çeşitli eklenti çalışma alanları ile birlikte gelir. Bu konu bu alanların tanımlarını kapsar ve amaçlarını açıklar.",
                 "updated": 1639143664276
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos wird mit mehreren nativen Arbeitsbereichen ausgeliefert, die von der Community eingerichtet wurden, um das Onboarding der Benutzer zu erleichtern. Dieses Thema behandelt jeden von ihnen und erklärt ihren Zweck.",
+                "updated": 1688852383266
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Superalgos ile birlikte gelen her eklenti çalışma alanı, belirli bir amaç için oluşturulmuştur.",
                     "updated": 1639759987512
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Native Workspaces, der mit Superalgos ausgeliefert wird, wurde zu einem bestimmten Zweck gebaut.",
+                    "updated": 1688852393851
                 }
             ]
         }

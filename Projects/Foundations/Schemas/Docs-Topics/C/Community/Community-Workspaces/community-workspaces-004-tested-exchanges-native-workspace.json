@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, test edilmiş veya şu anda test edilmekte olan borsalara karşılık gelen Crypto Exchange düğümlerinin koleksiyonunu içerir. Yeni değişimleri test etmeyi düşünüyorsanız bu çalışma alanını kullanın.",
                 "updated": 1644675616580
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält eine Sammlung von Krypto-Börsenknoten (Crypto Exchange), die den Börsen entsprechen, die getestet wurden oder derzeit getestet werden. Verwenden Sie diesen Arbeitsbereich, wenn Sie neue Börsen testen wollen.",
+                "updated": 1688852708371
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "İş Akışının Test Edilmesi",
                     "updated": 1644675668619
+                },
+                {
+                    "language": "DE",
+                    "text": "Ablauf der Prüfung",
+                    "updated": 1688852738104
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "TR",
                     "text": "Kripto Ekosistem hiyerarşisi ( Crypto Ecosystem hierarchy ), her bir borsanın testlerinin durumunu yansıtan beş farklı Kripto Borsası ( Crypto Exchanges ) düğümüne sahiptir.",
                     "updated": 1644675741676
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Crypto Ecosystem -Hierarchie umfasst fünf verschiedene Crypto Exchanges -Knotenpunkte, die den Status der Tests der einzelnen Börsen widerspiegeln.",
+                    "updated": 1688852837994
                 }
             ]
         },
@@ -81,6 +96,11 @@
                     "language": "TR",
                     "text": "Test edilmemiş: Kayıtlı test geçmişi olmayan değişimler.",
                     "updated": 1644675763900
+                },
+                {
+                    "language": "DE",
+                    "text": "Ungetestet: Austausche, für die es keine aufgezeichnete Historie von Tests gibt.",
+                    "updated": 1688852877809
                 }
             ]
         },
@@ -103,6 +123,11 @@
                     "language": "TR",
                     "text": "Test Kuyruğu: Geliştiricilerin şu anda test etmekte olduğu değiş tokuşlar.",
                     "updated": 1644675796511
+                },
+                {
+                    "language": "DE",
+                    "text": "Test-Warteschlange: Börsen, die derzeit von Entwicklern getestet werden.",
+                    "updated": 1688852904114
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "TR",
                     "text": "Başarısız OHLCV Testleri: Test edilmiş ancak OHLCV verilerini beklenen şekilde sunamayan değişimler. Bu kuyruktaki takaslar şu anda kullanılamaz. Onları işe koymak için daha fazla çaba gerekebilir.",
                     "updated": 1644675803371
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlgeschlagene OHLCVs-Tests: Austauschvorgänge, die getestet wurden, aber die OHLCV-Daten nicht in der erwarteten Weise übermitteln konnten. Exchanges in dieser Warteschlange sind derzeit nicht nutzbar. Es können weitere Anstrengungen erforderlich sein, um sie in Betrieb zu nehmen.",
+                    "updated": 1688852932205
                 }
             ]
         },
@@ -147,6 +177,11 @@
                     "language": "TR",
                     "text": "İşlem Testleri Beklemede: OHLCV testlerini geçen (Superalgos'un beklediği şekilde veri sunabilen) ve canlı işlem testlerini bekleyen borsalar.",
                     "updated": 1644675826681
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausstehende Handelstests (Trading Tests Pending): Börsen, die die OHLCV-Tests bestanden haben (d. h. in der Lage sind, Daten in der von Superalgos erwarteten Weise zu liefern) und auf Live-Handelstests warten.",
+                    "updated": 1688853009612
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "TR",
                     "text": "Test Edildi: Veri madenciliği ve canlı ticaret için test edilmiş ve herkesin güçlük çekmeden kullanabilmesi gereken borsalar.",
                     "updated": 1644675838112
+                },
+                {
+                    "language": "DE",
+                    "text": "Gestestet: Börsen, die für Data-Mining und Live-Trading getestet wurden und die jeder ohne Probleme nutzen können sollte.",
+                    "updated": 1688853043564
                 }
             ]
         },
@@ -181,6 +221,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1640236922589
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688934057601
                 }
             ]
         },

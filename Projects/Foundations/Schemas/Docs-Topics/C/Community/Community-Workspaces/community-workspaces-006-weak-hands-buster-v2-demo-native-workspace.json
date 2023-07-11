@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, Binance ve USDT/BTC piyasasında geriye dönük test için BTC-USDT - Weak-hands Buster - WHB Ticaret Sistemi kurulumuna sahiptir.",
                 "updated": 1644675967060
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält das BTC-USDT - Weak-hands Buster - WHB Trading System Setup für Backtesting in Binance und dem USDT/BTC Markt.",
+                "updated": 1688935886145
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Not: Bu çalışma alanını kullanmadan önce BTC-USDT - Weak-hands Buster - WHB stratejisi hakkında bilgi edinin!",
                     "updated": 1644676056956
+                },
+                {
+                    "language": "DE",
+                    "text": "Lernen Sie die BTC-USDT - Weak-hands Buster - WHB strategy kennen, bevor Sie diesen Arbeitsbereich nutzen!",
+                    "updated": 1688935926057
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639056429669
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688934169567
                 }
             ]
         },

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, Tasarım Alanı ( Design Space ) içinde özel grafikler ayarlama hakkında bilmeniz gereken her şeyde size yol gösterecektir. Öğreticiler, sizi yeni başlayanlardan grafik uzmanına kadar adım adım rehberlik etmeyi amaçlamaktadır.",
                 "updated": 1644676337360
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich führt Sie durch alles, was Sie über die Einrichtung benutzerdefinierter Diagramme im Design Space wissen müssen. Die Tutorials bieten eine schrittweise Anleitung, die Sie vom Diagramm-Anfänger zum Diagramm-Experten macht.",
+                "updated": 1688936579289
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639056785533
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936541991
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu, temiz bir sayfadan başlamak için kullanabileceğiniz minimalist bir çalışma alanıdır.",
                 "updated": 1644676397369
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist ein minimalistischer Arbeitsbereich, den Sie für einen Neuanfang nutzen können.",
+                "updated": 1688936685897
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1644676418222
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1688936693644
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Masters Trading Mine ve Candles Data Mine dahil olmak üzere temel sistem bileşenleri.",
                     "updated": 1644676430681
+                },
+                {
+                    "language": "DE",
+                    "text": "Die grundlegenden Systemkomponenten, einschließlich der Masters Trading Mine und der Candles Data Mine.",
+                    "updated": 1688936709185
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Binance borsasında kurulu BTC-USDT Piyasası.",
                     "updated": 1644676451630
+                },
+                {
+                    "language": "DE",
+                    "text": "Der BTC-USDT-Markt (BTC-USDT Market) ist auf der Binance-Börse installiert.",
+                    "updated": 1688936735192
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Borsa Varlıkları ( Exchange Assets ) düğümü altındaki varlıkların konfigürasyonunu değiştirerek farklı bir borsaya, Kripto Borsası ( Crypto Exchange ) düğümünün konfigürasyonunu değiştirerek farklı bir borsaya geçiş yapabilirsiniz. Diğer borsaların yapılandırmasını Test Edilen Borsalar konusunda bulabilirsiniz.",
                     "updated": 1644676608101
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können zu einem anderen Markt wechseln, indem Sie die Konfiguration der Assets unter dem Knoten Exchange Assets ändern, und Sie können zu einer anderen Börse wechseln, indem Sie die Konfiguration des Krypto-Börsenknotens (Crypto Exchange node) ändern. Die Konfiguration anderer Börsen finden Sie unter dem Thema Getestete Börsen.",
+                    "updated": 1688936775544
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639057086016
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936675306
                 }
             ]
         },

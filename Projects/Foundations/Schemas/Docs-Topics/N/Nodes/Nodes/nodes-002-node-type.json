@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Her Düğüm belirli bir türdedir. Bu tür, Düğümün ne için kullanılabileceğini, Düğüm Menüsünü ( Node Menu ) hangi düğümlere bağlanabileceğini ve Tasarım Alanındaki Düğüm ( Design Space ) Türüne bağlı olan diğer özellikleri tanımlar, düğümün türü Düğüm Simgesinin ( Node Icon ) altında görüntülenir.",
                 "updated": 1652803813816
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knoten (Node) ist von einem bestimmten Typ. Sein Typ definiert, wofür der Knoten verwendet werden kann, das Knotenmenü (Node Menu, an welche anderen Knoten er angehängt werden kann, und möglicherweise andere Eigenschaften, die vom Knotentyp abhängen Im Entwurfsbereich (Design Space) wird der Typ des Knotens unter dem Knotensymbol (Node Icon) angezeigt.",
+                "updated": 1689417652438
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652803845100
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689417661590
                 }
             ]
         }

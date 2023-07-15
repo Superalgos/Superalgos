@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Belirli bir Düğüm ( Node ) A'nın Ana Düğümü, A'yı oluşturmak için kullanılan Düğümdür. Düğümler ( Node ) otomatik olarak Ana Düğümlerine eklenir. Tüm düğümlerin bir Ana Düğümü yoktur.",
                 "updated": 1654892354253
+            },
+            {
+                "language": "DE",
+                "text": "Der übergeordnete Knoten (Node) eines bestimmten Knotens A ist der Knoten, der zur Erstellung von A verwendet wurde. Nicht alle Knoten haben einen Elternknoten.",
+                "updated": 1689423063285
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1654892385013
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689423077447
                 }
             ]
         }

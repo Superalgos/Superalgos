@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Her Düğüm Türü ( Node Type ) kendisini hangi Düğüm Türüne ekleyebileceğini tanımlayan bir kurallar kümesine sahip olabilir.",
                 "updated": 1652901147262
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knotentyp (Node Type) kann über eine Reihe von Regeln verfügen, die festlegen, mit welchem Knotentyp er sich verbinden kann.",
+                "updated": 1689421436956
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Her Düğüm Türü ( Node Type ) hangi düğümlere bağlanabileceğini tanımlayan bir kurallar kümesine sahip olabilir. Bu kurallar, biri uyumlu türler için diğeri uyumsuz türler için olmak üzere tam anlamıyla iki Düğüm Türü ( Node Type ) listesidir. *Herhangi Bir düğüm* anahtar sözcüğünün tür listesini değiştirme olanağı da vardır.",
                     "updated": 1652901413437
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Knotentyp kann eine Reihe von Regeln haben, die festlegen, mit welchen Knoten er verbunden werden kann. Diese Regeln sind buchstäblich zwei Listen von Knotentypen, eine für kompatible Typen und die zweite für inkompatible Typen. Es besteht auch die Möglichkeit, die Liste der Typen durch das Schlüsselwort *Any Node* zu ersetzen.",
+                    "updated": 1689421451540
                 }
             ]
         }

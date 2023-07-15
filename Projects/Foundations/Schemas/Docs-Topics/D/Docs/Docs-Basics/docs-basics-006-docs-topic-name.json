@@ -60,6 +60,11 @@
                     "language": "RU",
                     "text": "Другими словами, не существует страницы, описывающей тему. Вместо этого название темы используется для группировки набора связанных страниц под определенной темой.",
                     "updated": 1647781294980
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten, es gibt keine Seite, die ein Thema beschreibt. Stattdessen wird der Name des Docs-Themas verwendet, um eine Reihe von verwandten Seiten unter einem bestimmten Thema zu gruppieren.",
+                    "updated": 1689415959882
                 }
             ]
         }

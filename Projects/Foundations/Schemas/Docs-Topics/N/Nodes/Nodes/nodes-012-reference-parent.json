@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Belirli bir Düğüm ( Node ) A'nın Referans Üst Öğesi, A'nın bir Referans oluşturduğu düğümdür.",
                 "updated": 1654892465568
+            },
+            {
+                "language": "DE",
+                "text": "Der Referenz-Elternteil eines bestimmten Knotens A (Node A) ist der Knoten, mit dem A einen Bezug herstellt.",
+                "updated": 1689423289658
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1654892486796
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689423308926
                 }
             ]
         }

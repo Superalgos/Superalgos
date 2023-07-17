@@ -138,6 +138,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
+            const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ', '-') + "-Data"
             const { Octokit } = SA.nodeModules.octokit
             const { retry } = SA.nodeModules.retry
             const RetryOctokit = Octokit.plugin(retry)
@@ -255,7 +256,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         if (userProfile.socialPersonas === undefined) {
                             userProfile.socialPersonas = {
                                 type: 'Social Personas',
-                                name: 'New Social Personas',
+                                name: profileMessage.socialEntityHandle,
                                 project: 'Social-Trading',
                                 savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -265,7 +266,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         }
                         targetNode = {
                             type: 'Social Persona',
-                            name: 'New Social Persona',
+                            name: profileMessage.socialEntityHandle,
                             project: 'Social-Trading',
                             savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -316,7 +317,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     userProfile,
                     targetNode,
                     targetNodeTypeCount,
-                    response
+                    response,
+                    savedPayloadNode
                 )
                 if (response.result === 'Error') { resolve(response) }
             }
@@ -325,7 +327,6 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 return new Promise(promiseWork)
 
                 async function promiseWork(resolve, reject) {
-                    const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ', '-') + "-Data"
                     /*
                     Create this repository at Github 
                     */
@@ -385,7 +386,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             }
                             storageContainer = {
                                 type: 'Github Storage Container',
-                                name: 'New Github Storage Container',
+                                name: SOCIAL_TRADING_REPO_NAME,
                                 project: 'Open-Storage',
                                 savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -412,7 +413,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
                 targetNode.availableStorage = {
                     type: 'Available Storage',
-                    name: 'New Available Storage',
+                    name: profileMessage.socialEntityHandle + ' Available Storage',
                     project: 'Open-Storage',
                     savedPayload: savedPayloadNode,
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -420,23 +421,41 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     config: '{}'
                 }
 
-                let StorageContainerReference = {
+                let storageContainerReference = {
                     type: 'Storage Container Reference',
                     name: 'New Storage Container Reference',
                     project: 'Open-Storage',
                     id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     config: '{}',
-                    savedPayload: [{
+                    savedPayload: {
+                        position: {
+                            x: 0,
+                            y: 0
+                        },
+                        targetPosition: {
+                            x: 0,
+                            y: 0
+                        },
+                        floatingObject: {
+                            isPinned: false,
+                            isFrozen: false,
+                            isCollapsed: false,
+                            angleToParent: 2,
+                            distanceToParent: 3,
+                            arrangementStyle: 0
+                        },
+                        uiObject: {
+                            isRunning: false
+                        },
                         referenceParent: {
                             type: storageContainer.type,
                             name: storageContainer.name,
                             id: storageContainer.id
                         }
-                    }]
+                    }
                 }
-                StorageContainerReference.savedPayload.push(savedPayloadNode)
-
-                targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
+                
+                targetNode.availableStorage.storageContainerReferences.push(storageContainerReference)
             }
 
             async function pushUserProfileAndPullRequest() {

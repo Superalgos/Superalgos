@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Düğümler genellikle kullanıcıların düğümle etkileşime girmesine olanak tanıyan bir menüye sahiptir. Her bir Düğüm Türü ( Node Type ) farklı menü öğelerine sahip olabilir.",
                 "updated": 1652805698690
+            },
+            {
+                "language": "DE",
+                "text": "Knoten verfügen in der Regel über ein Menü, das es dem Benutzer ermöglicht, mit dem Knoten zu interagieren. Jeder Knotentyp (Node Type) kann einen anderen Satz von Menüpunkten haben.",
+                "updated": 1689423413442
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Her Düğüm Türü ( Node Type ) kullanıcıların Düğümle ( Node ) etkileşime girmesine izin veren bir menüye sahip olabilir. Sabit bir menü öğesi kümesi yoktur. Bunun yerine, her menü öğesi her Düğümün ( Node ) tanımında tanımlanır. Her menü öğesi, menü öğesi kullanıcılar tarafından tıklatıldığında sistemin bazı eylemleri gerçekleştirmesine izin veren bir dizi özelliğe sahiptir.",
                     "updated": 1652805827254
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Knotentyp kann ein Menü haben, das es den Benutzern ermöglicht, mit dem Knoten (Node) zu interagieren. Es gibt keinen festen Satz von Menüpunkten. Stattdessen wird jeder Menüpunkt bei der Definition eines jeden Knotens (Node's) definiert. Jeder Menüpunkt hat eine Reihe von Eigenschaften, die es dem System ermöglichen, eine Aktion auszuführen, wenn der Benutzer auf den Menüpunkt klickt.",
+                    "updated": 1689423436043
                 }
             ]
         }

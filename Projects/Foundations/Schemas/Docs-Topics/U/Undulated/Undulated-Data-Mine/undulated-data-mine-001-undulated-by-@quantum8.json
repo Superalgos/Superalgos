@@ -75,6 +75,10 @@
             "text": "15) SMI FMI"
         },
         {
+            "style": "List",
+            "text": "16) HLC Trend"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

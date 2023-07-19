@@ -105,25 +105,9 @@
             ]
         },
         {
-            "style": "Success",
-            "text": "In order to be exchange friendly a utility has been provided to pre-download symbol ticker data, thus saving time & net download bandwidth usage. Please refer to the documentations provided.\n\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Для того, чтобы быть дружелюбным к бирже, была разработана утилита для предварительной загрузки данных символьных тикеров, что позволяет сэкономить время и пропускную способность сети. Пожалуйста, ознакомьтесь с предоставленной документацией.\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos",
-                    "updated": 1646900377585
-                },
-                {
-                    "language": "TR",
-                    "text": "İpucu: Değişim dostu olması için, simge senedi verilerini önceden indirmek için bir yardımcı program sağlanmıştır, böylece zamandan ve net indirme bant genişliği kullanımından tasarruf edilir. Lütfen sağlanan belgelere bakın. https://github.com/PLuv/Exchange-Raw-Data-Superalgos",
-                    "updated": 1650570697416
-                }
-            ]
-        },
-        {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"binance\"\n}",
-            "updated": 1648557956370
+            "text": "{\n    \"codeName\": \"binance\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1689613063983
         },
         {
             "style": "Text",

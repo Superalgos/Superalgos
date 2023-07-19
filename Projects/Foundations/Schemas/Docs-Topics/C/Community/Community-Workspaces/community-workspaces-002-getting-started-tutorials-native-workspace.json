@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu çalışma alanı, Superalgos ile ilk temas noktanızdır. Amacı, yeni kullanıcıları Superalgos'un tüm temel yönleriyle kullanıcıları tanıştırmaktır.",
                 "updated": 1639143266142
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich ist der erste Kontaktpunkt mit Superalgos. Er dient dazu, neue Benutzer mit allen grundlegenden Aspekten von Superalgos vertraut zu machen.",
+                "updated": 1688852474603
             }
         ]
     },
@@ -93,6 +98,11 @@
                     "language": "TR",
                     "text": "Bu çalışma alanını temiz, hafif ve basit tutmak, ilk deneyimin hantal olmamasını veya kullanıcıları küçük donanımlarla sınırlamamasını sağlamak için önemlidir.",
                     "updated": 1642711107721
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig, diesen Arbeitsbereich sauber, hell und einfach zu halten, um sicherzustellen, dass die erste Erfahrung nicht umständlich ist oder Benutzer mit kleiner Hardware einschränkt.",
+                    "updated": 1688852486196
                 }
             ]
         },
@@ -110,6 +120,11 @@
                     "language": "TR",
                     "text": "Proje Yürütücüsü",
                     "updated": 1642711127270
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688852637848
                 }
             ]
         },

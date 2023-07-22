@@ -648,7 +648,7 @@ function newGovernanceUserProfileSpace() {
                             return
                         }
                         blockchainTokenTotal = blockchainTokenTotal + Number(commandResponse.balance)
-                        console.log((new Date()).toISOString(), '[DEBUG] Blockchain tokens of user profile ' + userProfile.name + ' on chain ' + token["chain"] + ': ' + commandResponse.balance)
+                        /* console.log((new Date()).toISOString(), '[DEBUG] Blockchain tokens of user profile ' + userProfile.name + ' on chain ' + token["chain"] + ': ' + commandResponse.balance) */
                     }
                     if (receivedResults === SATokenList.length) {
                         if (queryError === false) {

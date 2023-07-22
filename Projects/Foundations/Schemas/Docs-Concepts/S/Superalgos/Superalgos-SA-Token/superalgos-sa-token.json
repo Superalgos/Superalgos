@@ -107,16 +107,14 @@
             ]
         },
         {
+            "style": "Subtitle",
+            "text": "BSC Version:",
+            "updated": 1690067636839
+        },
+        {
             "style": "List",
-            "text": "BNB Smart Chain (BSC) version: 500,000,000",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Binance Smart Chain'de Dağıtılacak Miktar: 500,000,000",
-                    "updated": 1642711686936
-                }
-            ],
-            "updated": 1664309488511
+            "text": "BNB Smart Chain (BSC) Max Supply: 500,000,000",
+            "updated": 1690067089154
         },
         {
             "style": "List",
@@ -131,12 +129,28 @@
             ]
         },
         {
+            "style": "Subtitle",
+            "text": "ETH Version:",
+            "updated": 1690067641637
+        },
+        {
             "style": "List",
-            "text": "Ethereum (ETH) version: 250,000,000"
+            "text": "Ethereum (ETH) Max Supply: 250,000,000",
+            "updated": 1690067120223
         },
         {
             "style": "List",
             "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79"
+        },
+        {
+            "style": "List",
+            "text": "ZkSync Contract Address: 0xe3d85Bd3363B6f0F91351591f9a8fD0d0a1145Ed",
+            "updated": 1690067170184
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos utilizes zkSync, a Layer-2 scaling solution based on ETH. The ETH Max Supply is commonly used between ETH (L1) and zkSync (L2).",
+            "updated": 1690067429378
         },
         {
             "style": "Title",
@@ -186,7 +200,8 @@
         },
         {
             "style": "List",
-            "text": "ETH Treasury Account: 0xa54c30122d477589311ee28b85c0e8dc8f12680a"
+            "text": "ETH/zkSync Treasury Account: 0xa54c30122d477589311ee28b85c0e8dc8f12680a",
+            "updated": 1690067869914
         },
         {
             "style": "Success",

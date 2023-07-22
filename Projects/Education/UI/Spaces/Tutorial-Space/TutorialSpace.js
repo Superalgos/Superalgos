@@ -12,7 +12,7 @@ function newEducationTutorialSpace() {
         playTutorialStep: playTutorialStep,
         resumeTutorialStep: resumeTutorialStep,
         resetTutorialProgress: resetTutorialProgress,
-        sidePanelTab: undefined,
+        // sidePanelTab: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -39,8 +39,8 @@ function newEducationTutorialSpace() {
     resize()
 
     let browserResizedEventSubscriptionId
-    let openingEventSubscriptionId
-    let closingEventSubscriptionId
+    // let openingEventSubscriptionId
+    // let closingEventSubscriptionId
 
     let tutorialRootNode
     let currentNode
@@ -109,7 +109,7 @@ function newEducationTutorialSpace() {
         batchConfigChangesCounter = 0
         workspacesCounter = 0
 
-        setupSidePanelTab()
+        // setupSidePanelTab()
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         let workspace = UI.projects.workspaces.spaces.designSpace.workspace
@@ -119,8 +119,8 @@ function newEducationTutorialSpace() {
 
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
         tutorialRootNode = undefined
         currentNode = undefined
@@ -140,12 +140,12 @@ function newEducationTutorialSpace() {
 
     function getContainer(point, purpose) {
 
-        if (thisObject.sidePanelTab === undefined) { return }
+        // if (thisObject.sidePanelTab === undefined) { return }
 
-        let container
+        // let container
 
-        container = thisObject.sidePanelTab.getContainer(point, purpose)
-        if (container !== undefined) { return container }
+        // container = thisObject.sidePanelTab.getContainer(point, purpose)
+        // if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
@@ -160,13 +160,13 @@ function newEducationTutorialSpace() {
         switch (currentStatus) {
             case 'Stopped': {
                 makeInvisible()
-                thisObject.sidePanelTab.close()
+                // thisObject.sidePanelTab.close()
                 currentNode = undefined
                 break
             }
             case 'Playing Tutorial': {
                 makeVisible()
-                thisObject.sidePanelTab.open()
+                // thisObject.sidePanelTab.open()
                 break
             }
             case 'Playing Topic': {
@@ -357,18 +357,18 @@ function newEducationTutorialSpace() {
                     */
                     return
                 }
-                if (config.controlDocs.panel === "Open") {
-                    /*
-                    This forces the tutorial to open the documentation panel.
-                    */
-                    UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                }
-                if (config.controlDocs.panel === "Close") {
-                    /*
-                    This forces the tutorial to close the documentation panel.
-                    */
-                    UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                }
+                // if (config.controlDocs.panel === "Open") {
+                //     /*
+                //     This forces the tutorial to open the documentation panel.
+                //     */
+                //     UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+                // }
+                // if (config.controlDocs.panel === "Close") {
+                //     /*
+                //     This forces the tutorial to close the documentation panel.
+                //     */
+                //     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
+                // }
                 if (
                     config.controlDocs.page !== undefined &&
                     config.controlDocs.page.project !== undefined &&
@@ -396,24 +396,24 @@ function newEducationTutorialSpace() {
                 */
                 return
             }
-            if (config.workspaces === "" || config.workspaces === "Close") {
-                /*
-                This forces the tutorial to close the workspaces panel and to keep it closed.
-                */
-                if (workspacesCounter === 5) {
-                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
-                }
-                return
-            }
-            if (config.workspaces === "Open") {
-                /*
-                This forces the tutorial to open the workspaces panel and to keep it closed.
-                */
-                if (workspacesCounter === 5) {
-                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.open()
-                }
-                return
-            }
+            // if (config.workspaces === "" || config.workspaces === "Close") {
+            //     /*
+            //     This forces the tutorial to close the workspaces panel and to keep it closed.
+            //     */
+            //     if (workspacesCounter === 5) {
+            //         UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
+            //     }
+            //     return
+            // }
+            // if (config.workspaces === "Open") {
+            //     /*
+            //     This forces the tutorial to open the workspaces panel and to keep it closed.
+            //     */
+            //     if (workspacesCounter === 5) {
+            //         UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.open()
+            //     }
+            //     return
+            // }
         }
 
         function checkSlider() {
@@ -1538,36 +1538,36 @@ function newEducationTutorialSpace() {
         if (isInitialized === false) { return }
     }
 
-    function setupSidePanelTab() {
-        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'tutorial', 'Tutorial', 'left')
+    // function setupSidePanelTab() {
+    //     thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'tutorial', 'Tutorial', 'left')
 
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
-        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
-    }
+    //     openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+    //     closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+    // }
 
-    function onOpening() {
-        //console.log('onOpening');
-        if (currentStatus !== "Stopped"){return}
+    // function onOpening() {
+    //     //console.log('onOpening');
+    //     if (currentStatus !== "Stopped"){return}
 
-        let nodeResume = navigationStack.pop()
-        switch (nodeResume.type) {
-            case 'Tutorial': {
-                resumeTutorial(nodeResume)
-                break
-            }
-            case 'Tutorial Topic': {
-                resumeTutorialTopic(nodeResume)
-                break
-            }
-            case 'Tutorial Step': {
-                resumeTutorialStep(nodeResume)
-                break
-            }
-        }
-    }
+    //     let nodeResume = navigationStack.pop()
+    //     switch (nodeResume.type) {
+    //         case 'Tutorial': {
+    //             resumeTutorial(nodeResume)
+    //             break
+    //         }
+    //         case 'Tutorial Topic': {
+    //             resumeTutorialTopic(nodeResume)
+    //             break
+    //         }
+    //         case 'Tutorial Step': {
+    //             resumeTutorialStep(nodeResume)
+    //             break
+    //         }
+    //     }
+    // }
 
-    function onClosing() {
-        //console.log('onClosing');
-        stop()
-    }
+    // function onClosing() {
+    //     //console.log('onClosing');
+    //     stop()
+    // }
 }

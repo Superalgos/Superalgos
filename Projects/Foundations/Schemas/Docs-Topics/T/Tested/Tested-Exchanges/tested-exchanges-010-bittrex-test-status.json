@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bittrex tüm testleri geçti.",
                 "updated": 1650571504799
+            },
+            {
+                "language": "DE",
+                "text": "Bittrex hat alle Tests bestanden.",
+                "updated": 1690357413313
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571510716
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357422032
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650571530067
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357430009
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: 2020-01-01'den itibaren test edildi",
                     "updated": 1650571543017
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Getestet vom 2020-01-01",
+                    "updated": 1690357439592
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği [**]: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
                     "updated": 1650571554803
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability)[**]: Ja. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde überprüft.",
+                    "updated": 1690357447713
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Platformu kullanmadan önce KYC gerekli. API anahtarları oluşturmak için Google Authenticator gerekli",
                     "updated": 1650571565525
+                },
+                {
+                    "language": "DE",
+                    "text": "Kommentare: KYC vor der Nutzung der Plattform erforderlich. Google Authenticator erforderlich, um API-Schlüssel zu erstellen",
+                    "updated": 1690357455921
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571574922
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357463969
                 }
             ]
         },

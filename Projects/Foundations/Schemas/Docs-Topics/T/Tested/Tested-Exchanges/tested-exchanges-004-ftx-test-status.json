@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: FTX spot ticaret testlerini geçti",
                 "updated": 1650570824872
+            },
+            {
+                "language": "DE",
+                "text": "FTX besteht Tests im Spothandel",
+                "updated": 1690356575384
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650570832179
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690356659002
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650570850622
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690356667343
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Piyasa Geçmişi: 29-04-2020'den Başlıyor",
                     "updated": 1650570858513
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Beginnend am 29-04-2020",
+                    "updated": 1690356674411
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
                     "updated": 1650570865289
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability): Ja. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde nicht überprüft.",
+                    "updated": 1690356684272
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Kaydolurken Birinci Seviye KYC gereklidir.",
                     "updated": 1650570875158
+                },
+                {
+                    "language": "DE",
+                    "text": "Kommentare: First Level KYC bei der Anmeldung erforderlich.",
+                    "updated": 1690356697003
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650570881588
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690356703025
                 }
             ]
         },

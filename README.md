@@ -81,13 +81,13 @@ There are a few methods to install the Superalgos Platform.
 
 We will briefly describe the options available. Click the link to go to the specific README file with further instructions for the installation method of your choice.
 
-1. [Docker deployments](README_Docker.md) | Docker offers the ability to install the platform in a clean and isolated environment. The standard Docker installation is not optimized for development or contributions, but some workarounds are offered.
+1. [Developers and Contributors](#small_orange_diamond-installation-for-developers-and-contributors) | This is the default installation for developers that wish to dive into the codebase and contribute to making Superalgos better. It is also the recommended installation for non-developers who wish to contribute improvements to the Docs, translations, design work, and so on. Instructions are available further down this same file.
 
-2. [Developers and Contributors](#small_orange_diamond-installation-for-developers-and-contributors) | This is the default installation for developers that wish to dive into the codebase and contribute to making Superalgos better. It is also the recommended installation for non-developers who wish to contribute improvements to the Docs, translations, design work, and so on. Instructions are available further down this same file.
+2. [Docker deployments](README_Docker.md) | Docker offers the ability to install the platform in a clean and isolated environment. The standard Docker installation is not optimized for development or contributions, but some workarounds are offered.
 
-3. [Raspberry Pi](README_RaspberryPi.md) | Raspberry Pi installations are a great economical option for running a trading system. You will need to be comfortable with either options 1 or 2 above to proceed here.
+3. [Raspberry Pi](README_RaspberryPi.md) | Raspberry Pi installations are a great economical option for running live trading sessions. You will need to be comfortable with either options 1 or 2 above to proceed here.
 
-4. [Public Cloud](README_PublicCloud.md) | This is a great option for those who wish to run a trading system in the cloud. You will need to be comfortable with option 3 above to proceed here.
+4. [Public Cloud](README_PublicCloud.md) | This is a great option for those who wish to run live trading sessions in the cloud. You will need to be comfortable with option 3 above to proceed here.
 
 > :white_check_mark: **ABOUT REMOTE INSTALLATIONS AND MINIMALIST HARDWARE:** Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation, on a full-size PC. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
 

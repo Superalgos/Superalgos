@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "The indicator's output will show an oscillating histogram, with blue colour indicating an upward trend, and red depicting a downward trend. The overbought and oversold areas are dynamically calcuated using a statistical method to obatain n-th percentile value using the Nearest Rank Method."
+            "text": "The indicator's output will show an oscillating histogram, with blue colour indicating an upward trend, and red depicting a downward trend. The overbought and oversold areas are dynamically calculated using a statistical method to obtain n-th percentile value using the Nearest Rank Method.",
+            "updated": 1690870841147
         },
         {
             "style": "Png",

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Geliştirme (Develop) dalı, geliştiricilerin kod tabanına katkıda bulunmak için kullandığı daldır. Bu daldaki değişiklikler, her yayın veya hizmet paketinden sonra Ana dal (Master) ile birleştirilir. Geliştirme şubesinin amacı, değişikliklerin birleştirilmeye hazır olduğu yayın tarihine kadar değişiklikleri kod tabanında toplamaktır.",
                 "updated": 1642710483059
+            },
+            {
+                "language": "DE",
+                "text": "Der Develop-Zweig ist der Zweig, den die Entwickler verwenden, um zur Codebasis beizutragen. Änderungen in diesem Zweig werden bei jedem Release oder Service Pack in den Master-Zweig (Master branch) zusammengeführt. Der Zweck des Develop-Zweiges ist es, Änderungen an der Codebasis bis zum Veröffentlichungsdatum zu sammeln, wenn die Änderungen zum Zusammenführen bereit sind.",
+                "updated": 1689530425899
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu şubede çalışarak katkıda bulunanlar, Telegram Geliştirme Grubunda takılır.",
                     "updated": 1642710508818
+                },
+                {
+                    "language": "DE",
+                    "text": "Mitwirkende, die an diesem Zweig arbeiten, hängen in der Telegram Develop Group ab.",
+                    "updated": 1689530442363
                 }
             ]
         },

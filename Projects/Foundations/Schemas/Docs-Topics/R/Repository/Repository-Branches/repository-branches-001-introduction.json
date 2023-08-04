@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Superalgos Deposu, her birinin kendi amacı olan 4 ana dalı vardır: Master, Develop, Plugins-Docs ve Next-Version.",
                 "updated": 1650621802726
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos Repository hat 4 Hauptzweige, jeder mit seinem eigenen Zweck: Master, Develop, Plugins-Docs und Next-Version. ",
+                "updated": 1689530632920
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Uyarı: Eklentiler-Belgeler Şubesi  (Plugins-Docs Branch ) GEÇMİŞTİR. Tüm katkılar artık geliştirme şubesine gidiyor. Bununla ilgili sorularınız varsa, Telegram gruplarında sormaktan çekinmeyin.",
                     "updated": 1650621857621
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Plugins-Docs-Zweig (Plugins-Docs Branch) ist OUTDATED. Alle Beiträge gehen jetzt in den Entwicklungszweig. Wenn Sie Fragen dazu haben, können Sie diese gerne in den Telegramm-Gruppen stellen. ",
+                    "updated": 1689530670321
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
                     "updated": 1650621877386
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1689529941556
                 }
             ]
         },

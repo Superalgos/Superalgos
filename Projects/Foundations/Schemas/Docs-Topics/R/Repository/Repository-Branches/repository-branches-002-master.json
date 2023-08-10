@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ana dal, kararlı kodun veya geçerli sürümün bulunduğu yerdir. Bu, yazılımın varsayılan olarak yüklendiği daldır.",
                 "updated": 1650621916265
+            },
+            {
+                "language": "DE",
+                "text": "Der Master-Zweig ist der Ort, an dem sich der stabile Code oder die aktuelle Version befindet. Dies ist der Zweig, aus dem die Software standardmäßig installiert wird. ",
+                "updated": 1689530273554
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Master'da kararlı sürümü çalıştıran Superalgos kullanıcıları burada çeşitli konuları tartışıyor:",
                     "updated": 1650621942651
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer von Superalgos, die die stabile Version bei Master einsetzen, diskutieren hier verschiedene Themen: ",
+                    "updated": 1689530332508
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "TR",
                     "text": "Master'da kararlı sürümle ilgili sorunları olduğunda buradan yardım istiyorlar:",
                     "updated": 1650621956764
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sie Probleme mit der stabilen Version bei Master haben, bitten sie hier um Hilfe: ",
+                    "updated": 1689530347048
                 }
             ]
         },

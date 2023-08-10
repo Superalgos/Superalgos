@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, Binance ve USDT/BTC piyasasında geriye dönük test için BTC-USDT - BB Top Bounce - BBTB Ticaret Sistemi kurulumunu içerir.",
                 "updated": 1644676097452
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält das BTC-USDT - BB Top Bounce - BBTB Trading System -Setup zum Backtesting auf Binance und dem USDT/BTC-Markt.",
+                "updated": 1688936272172
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Not: Bu çalışma alanını kullanmadan önce BTC-USDT - BB Top Bounce - BBTB stratejisi hakkında bilgi edinin!",
                     "updated": 1644676124036
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr über die BTC-USDT - BB Top Bounce - BBTB Strategie, bevor Sie diesen Arbeitsbereich nutzen!",
+                    "updated": 1688936282136
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639056486690
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936346351
                 }
             ]
         },

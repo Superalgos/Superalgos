@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Çalışma alanı, TensorFlow Projesinin entegrasyonunu keşfetmeye başlamak için temel kurulumu içerir.",
                 "updated": 1644676284948
+            },
+            {
+                "language": "DE",
+                "text": "Der Arbeitsbereich bietet die grundlegende Einrichtung, um die Integration des TensorFlow-Projekts (TensorFlow Project) zu erforschen.",
+                "updated": 1688936531798
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639056689835
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936463673
                 }
             ]
         },

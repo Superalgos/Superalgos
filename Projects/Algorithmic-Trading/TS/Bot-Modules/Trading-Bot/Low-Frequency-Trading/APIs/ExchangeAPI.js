@@ -138,7 +138,6 @@
             */
         }
         
-        
     }
 
     function finalize() {
@@ -239,8 +238,8 @@
         
         // Uncomment for debug
         // SA.logger.info('Merged Params from Market + Order Close Stage')
-        // SA.logger.info(params)
-
+        // SA.logger.info(JSON.stringify(params))
+        // exchange.verbose = true
 
         switch (tradingSystemOrder.type) {
             case 'Market Buy Order': {
@@ -265,6 +264,9 @@
             }
         }
 
+        // Hotfix to overcome issue with Binance Spot Market Orders as per https://github.com/ccxt/ccxt/issues/18663
+        if (exchangeId === 'binance' && type === 'market') { price = undefined }
+
         /* Basic Logging */
         logInfo("createOrder -> symbol = " + symbol);
         logInfo("createOrder -> side = " + side);
@@ -283,7 +285,7 @@
             return
         }
 
-        try {
+        try {      
             // ccxt unified methods of exchanges might expect and will accept various params which affect their functionality
             let order = await (exchange.createOrder(symbol, type, side, amount, price, params))
 

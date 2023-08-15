@@ -41,7 +41,8 @@
         },
         {
             "style": "Text",
-            "text": "On Ethererum (ETH) the Treasury Account is:"
+            "text": "On Ethererum (ETH) and ZkSync (ETH L2) the Treasury Account is:",
+            "updated": 1690067743285
         },
         {
             "style": "Json",
@@ -52,6 +53,10 @@
             "style": "Link",
             "text": "Browse the Treasury Account on Etherscan->https://etherscan.io/token/0xc17272c3e15074c55b810bceba02ba0c4481cd79?a=0xa54c30122d477589311ee28b85c0e8dc8f12680a",
             "updated": 1664114558083
+        },
+        {
+            "style": "Link",
+            "text": "Browse the Treasury Account on zkSync Explorer->https://explorer.zksync.io/address/0xa54c30122d477589311ee28b85c0e8dc8f12680a"
         }
     ]
 }

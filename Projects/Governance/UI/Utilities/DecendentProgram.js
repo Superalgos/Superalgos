@@ -347,6 +347,17 @@ function newGovernanceUtilitiesDecendentProgram() {
                         drawUserNode(node, percentage)
                         if (node.payload.referenceParent !== undefined) {
                             /*
+                            Here we will validate users are not referencing themselves as a program beneficiary.
+                            */
+                            let currentUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(currentProgramNode)
+                            let referencedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+                            if (referencedUserProfile === undefined || currentUserProfile === undefined) { return }
+                            if (currentUserProfile.id === referencedUserProfile.id) {
+                                node.payload.uiObject.setErrorMessage('Referencing your own profile is not allowed.')
+                                return
+                            }
+                                                       
+                            /*
                             We want to accumulate the usedPower, but to keep the right balance, everytime we add to it the outgoingPower
                             we need to subtract the previous one, since this might be executed at every user profile and also recursively.
                             */

@@ -1,0 +1,63 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "16",
+    "type": "SMI FMI",
+    "definition": {
+        "text": "The Stochastic Momentum Index of Money Flow Index (SMI FMI) indicator as it's name implies, combines the Money Flow Index with the Stochastic True Strength. This means we are measuring momentum based on buying and selling pressure rather than just price."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "SMI FMI on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output will show an oscillating histogram, with blue colour indicating an upward trend, and red depicting a downward trend. The overbought and oversold areas are dynamically calculated using a statistical method to obtain n-th percentile value using the Nearest Rank Method.",
+            "updated": 1690870841147
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-smi-fmi.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| SMIFMI | smimfi | tsi, signal, histogram, zoneTop, zoneCentre, zoneBottom |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"SMI FMI\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-smi-fmi-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a buy trade when the tsi rises above -40:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.smimfi.tsi > -40 && chart.at15min.smimfi.previous.tsi < -40"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

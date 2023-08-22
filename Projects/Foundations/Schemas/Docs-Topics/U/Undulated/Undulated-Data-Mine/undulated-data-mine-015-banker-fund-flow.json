@@ -1,0 +1,70 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "15",
+    "type": "Banker Fund Flow",
+    "definition": {
+        "text": "The Banker Fund Flow indicator produces an oscillator that attempts to identify oversold and overbought zones where bankers/whales would traditionally enter buy and sell positions.",
+        "updated": 1689739050377
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Banker Fund Flow on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output will show an oscillating histogram, with green colour indicating an upward trend, and grey for upward losing momentum. Red depicts a downward trend with blue highlighting the downward trend is losing momentum. There are also red and green threshold zones which identify overbought and oversold zones respectively.",
+            "updated": 1689739100644
+        },
+        {
+            "style": "Text",
+            "text": "In addition, there are green arrows identifying a shift in momentum in the oversold zone, indicating a possibly entry point, and red arrows in the overbought zone indicating a possible sell point.",
+            "updated": 1690870742727
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-banker-fund-flow.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| BankerFundFlow | bfft | histval, bullBearLine, trendLine, momPiv |",
+            "updated": 1689739131437
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Banker Fund Flow\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-banker-fund-flow-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a buy trade for the buy signal of 3:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.bfft.histVal == 3 "
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -39,22 +39,22 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         thisObject.openStorageClient.initialize()
 
         /*
-        The strategy to syncronize this node with the rest of the network is like this:
+        The strategy to synchronize this node with the rest of the network is like this:
 
-        * First we will locate the most up to date node, download its events, and override
+        * First we will locate the most up-to-date node, download its events, and override
         the ones we might have, with those events.
 
         * Second we will load and apply to the social graph all these events.
 
-        * Third we will run the service and start processing online events. We know that 
-        there might be a hole on the dataset caused by the download time.
+        * Third we will run the service and start processing online events. We know  
+        there might be a hole in the dataset caused by the download time.
         
         * Fourth to fill the hole in the dataset, we will repeat the previous process after
         5 minutes.
         */
         await syncronizeWithTheNetwork()
         setInterval(saveEventsAtStorage, 60 * 1000)
-        setTimeout(syncronizeWithTheNetwork, 5 * 60 * 1000)
+        setInterval(syncronizeWithTheNetwork, 5 * 60 * 1000)
 
         async function syncronizeWithTheNetwork() {
             await syncronizeOurStorageWithAnUpToDateNode()
@@ -71,7 +71,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             let p2pNetworkNodeMostUpToDate
             let maxDataRangeEnd = 0
             /*
-            Check if we have the Data Range file, to know how up to date is this node.
+            Check if we have the Data Range file, to know how up-to-date this node is.
             */
             const fileName = "Data.Range" + ".json"
             let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/'
@@ -112,12 +112,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 return
             }
             /*
-            We will check that the node most up to date is not ourselves.
+            We will check that the node most up-to-date is not ourselves.
             */
             if (p2pNetworkNodeMostUpToDate.node.id === thisObject.p2pNetworkNode.node.id) {
                 /*
-                There is no need to update ourselves from some other node, because no other
-                is more up to date than ourselves.
+                There is no need to update ourselves from some other node because no other
+                is more up-to-date than ourselves.
                 */
                 SA.logger.info("WE ARE THE MOST UP TO DATE NETWORK NODE")
                 return

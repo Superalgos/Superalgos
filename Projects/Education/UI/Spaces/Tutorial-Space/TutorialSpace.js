@@ -801,13 +801,16 @@ function newEducationTutorialSpace() {
         }
     }
 
-    function stop() {
+    function stop(close=false) { // this could take a bool 'close' param from the UI and efault to false for the code blocks
         resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (tutorialRootNode !== undefined) {
             tutorialRootNode.payload.uiObject.isPlaying = false
             tutorialRootNode = undefined
+        }
+        if(close) {
+            doUpdateTutorialDiv = false
         }
         currentStatus = 'Stopped'
     }
@@ -1218,7 +1221,7 @@ function newEducationTutorialSpace() {
                 if (tutorialTopic.id === currentNode.id) {
                     found = true
                 } else {
-                    findNextTopic(tutorialTopic, found)
+                    findNextTopic(tutorialTopic)
                 }
             }
         }

@@ -801,7 +801,7 @@ function newEducationTutorialSpace() {
         }
     }
 
-    function stop(close=false) { // this could take a bool 'close' param from the UI and efault to false for the code blocks
+    function stop(close=false) {
         resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()

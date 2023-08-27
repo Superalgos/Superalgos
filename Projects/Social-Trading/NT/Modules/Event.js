@@ -197,7 +197,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         thisObject.timestamp,
                         thisObject.fileKeys
                     )
-                    )
+                    
                     return true
                 }
                 /*

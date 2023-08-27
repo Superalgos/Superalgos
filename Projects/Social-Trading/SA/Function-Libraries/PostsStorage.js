@@ -265,17 +265,12 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
           }
       
           // Iterate over all the file keys and delete the content and path for each one
-          let file
+          
           let removedCount = 0;
           for (let i = 0; i < fileKeys.length; i++) {
 
-            if (file !== undefined) {
-                continue
-            }
-
             let fileKey = fileKeys[i];
-            
-            let password = fileKey.password
+                        
             let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp *1)
             let fileName = fileKey.fileName;
             let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)

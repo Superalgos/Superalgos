@@ -2,7 +2,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
      
     let thisObject = {
         savePostAtStorage: savePostAtStorage,
-        loadPostFromStorage: loadPostFromStorage
+        loadPostFromStorage: loadPostFromStorage,
+        removePostAtStorage: removePostAtStorage  
     }
 
     return thisObject

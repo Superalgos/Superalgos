@@ -502,7 +502,7 @@ function newWorkspace() {
 
                         async function takeAction() {
                             thisObject.isInitialized = false
-                            UI.projects.education.spaces.tutorialSpace.stop()
+                            UI.projects.education.spaces.tutorialSpace.stop(true)
 
                             let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Visual-Scripting', callBackFunction: onDeleted })
                             if (result === false) {

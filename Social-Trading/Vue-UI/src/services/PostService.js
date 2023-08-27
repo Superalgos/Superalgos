@@ -20,6 +20,16 @@ const http = axios.create({
 
     }
 
+    /* Used for removing a post */
+    async function removePost(body) {
+        console.log('Body of removePost in postService', body)
+        return  http.delete('/posts', {params: body})
+                .then(response => {
+                    console.log('removePost response in postService', response)
+                    return response
+                });
+    }
+
 
     /* Used to get past 20 posts from a User */
     async function getPosts() {
@@ -110,6 +120,7 @@ const http = axios.create({
 
 export {
     createPost,
+    removePost,
     getPosts,
     getPost,
     reactedPost,
@@ -117,4 +128,5 @@ export {
     createReply,
     getReplies,
     repostPost
+    
 }

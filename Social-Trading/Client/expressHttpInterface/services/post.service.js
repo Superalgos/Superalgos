@@ -110,7 +110,7 @@ const createPost = async (body, res) => {
     }
 };
 
-const deletePost = async (body, res) => {
+const deletePost = async (body) => {
     try {
         
         let eventMessage;
@@ -265,6 +265,7 @@ const createRepost = async (body, res) => {
 module.exports = {
     getPosts,
     createPost,
+    deletePost ,
     getFeed,
     getReplies,
     createReply,

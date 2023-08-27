@@ -1217,9 +1217,9 @@ function newEducationTutorialSpace() {
                 }
                 if (tutorialTopic.id === currentNode.id) {
                     found = true
-                } else {
-                    findNextTopic(tutorialTopic, found)
                 }
+                    
+                findNextTopic(tutorialTopic, found)                
             }
         }
     }

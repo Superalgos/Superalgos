@@ -2,7 +2,8 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     let thisObject = {
         saveFile: saveFile,
-        loadFile: loadFile
+        loadFile: loadFile,
+        removeFile: removeFile
     }
 
     return thisObject

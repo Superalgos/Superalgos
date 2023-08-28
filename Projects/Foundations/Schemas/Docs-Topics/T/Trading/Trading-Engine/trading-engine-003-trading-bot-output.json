@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret botu ( Trading Bot ) , işlenen her bilgiyi dosyalarda saklayarak tüm verilere hem çevrimiçi hem de çevrimdışı olarak erişilmesini sağlar.",
                 "updated": 1650574717425
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot speichert alle verarbeiteten Informationen in Dateien und macht alle Daten für andere sowohl online als auch offline zugänglich.",
+                "updated": 1693254135766
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Başka bir yerde açıklandığı gibi, ticaret botu, hem tasarım alanında hem de çizelgeler üzerinde görselleştirilebilen ticaret motorunun hiyerarşisi aracılığıyla işlediği bilgileri kullanıcıların kullanımına sunar. Aynı zamanda ticaret sistemleri için kullanılabilir hale getirir.",
                     "updated": 1650574747061
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie an anderer Stelle erläutert, stellt der Trading-Bot die von ihm verarbeiteten Informationen den Nutzern über die Hierarchie der Trading-Engine zur Verfügung, die sowohl auf der Designfläche als auch auf den Charts visualisiert werden kann. Er stellt sie auch den Handelssystemen zur Verfügung.",
+                    "updated": 1693254151815
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Bunun da ötesinde, bilgiler konsepte göre sıralanmış dosyalarda da saklanır. Bunlar, çalışma zamanı bilgilerini hem çevrimiçi, yani çalışma zamanında, hem de çevrimdışı olarak erişilebilecek diğer süreçler ve harici sistemler için kullanılabilir hale getirir.",
                     "updated": 1650574755156
+                },
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus werden die Informationen auch in Dateien gespeichert, die nach Konzepten geordnet sind. Dadurch stehen die Laufzeitinformationen anderen Prozessen und externen Systemen zur Verfügung, auf die sowohl online, d. h. zur Laufzeit, als auch offline zugegriffen werden kann.",
+                    "updated": 1693254220952
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Ticaret botu ( Trading Bot ), üzerinde çalıştığı düğümdeki dosyaları, özellikle aşağıdaki konuma çıkarır:",
                     "updated": 1650574797184
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trading-Bot gibt Dateien auf dem Knoten aus, auf dem er läuft, und zwar an folgendem Ort:",
+                    "updated": 1693254229090
                 }
             ]
         },

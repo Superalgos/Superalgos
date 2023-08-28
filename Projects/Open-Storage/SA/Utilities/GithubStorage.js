@@ -162,8 +162,10 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     repo,
                     path: completePath,
                     ref: branch,
-                });                
-    
+                }); 
+
+                const sha = contentData.sha;
+                
                 await octokit.repos.deleteFile({
                     owner,
                     repo,

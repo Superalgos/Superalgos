@@ -124,12 +124,6 @@ install() {
     echo "superalgos | info | installing 'superalgos' cli"
     echo ""
     npm install -g . --omit=optional
-
-    # apply security fixes to local modules
-    echo ""
-    echo "superalgos | info | applying security patches for local dependencies"
-    echo ""
-    npm audit fix --force --omit=optional
 }
 
 main() {

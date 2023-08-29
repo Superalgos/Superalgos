@@ -357,18 +357,18 @@ function newEducationTutorialSpace() {
                     */
                     return
                 }
-                // if (config.controlDocs.panel === "Open") {
-                //     /*
-                //     This forces the tutorial to open the documentation panel.
-                //     */
-                //     UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                // }
-                // if (config.controlDocs.panel === "Close") {
-                //     /*
-                //     This forces the tutorial to close the documentation panel.
-                //     */
-                //     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                // }
+                if (config.controlDocs.panel === "Open") {
+                    /*
+                    This forces the tutorial to open the documentation panel.
+                    */
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+                }
+                if (config.controlDocs.panel === "Close") {
+                    /*
+                    This forces the tutorial to close the documentation panel.
+                    */
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.close()
+                }
                 if (
                     config.controlDocs.page !== undefined &&
                     config.controlDocs.page.project !== undefined &&
@@ -801,13 +801,16 @@ function newEducationTutorialSpace() {
         }
     }
 
-    function stop() {
+    function stop(close=false) {
         resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (tutorialRootNode !== undefined) {
             tutorialRootNode.payload.uiObject.isPlaying = false
             tutorialRootNode = undefined
+        }
+        if(close) {
+            doUpdateTutorialDiv = false
         }
         currentStatus = 'Stopped'
     }
@@ -1218,7 +1221,7 @@ function newEducationTutorialSpace() {
                 if (tutorialTopic.id === currentNode.id) {
                     found = true
                 } else {
-                    findNextTopic(tutorialTopic, found)
+                    findNextTopic(tutorialTopic)
                 }
             }
         }

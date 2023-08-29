@@ -166,7 +166,14 @@ function newGovernanceUserProfileSpace() {
                     case 'ETH':
                         url = "https://api.etherscan.io/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
                         break
-                    /*                  
+                    case 'ZKS':
+                        url = "https://block-explorer-api.mainnet.zksync.io/address/" + token["treasuryAccountAddress"] + "/transfers?limit=50"
+                        break
+                    /*
+                    THE FOLLOWING CHAINS ARE FOR TESTING PURPOSES ONLY - CODE MUST NOT BE ACTIVE IN LIVE USAGE
+                    case 'ZKT':
+                        url = "https://block-explorer-api.testnets.zksync.dev/address/" + token["treasuryAccountAddress"] + "/transfers?limit=50"
+                        break               
                     case 'GOERLI':
                         url = "https://api-goerli.etherscan.io/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
                         break      
@@ -176,37 +183,78 @@ function newGovernanceUserProfileSpace() {
                         thisObject.waitingForResponses--
                         continue
                 }
-
+                fetchTransactionHistory(url, token)
+            }
+            
+            function fetchTransactionHistory(url, token) {
                 fetch(url).then(function (response) {
                     return response.json();
                 }).then(function (data) {
 
-                    let tokenTransfers = data.result
-                    for (let i = 0; i < tokenTransfers.length; i++) {
-                        let transfer = tokenTransfers[i]
+                    if (token["chain"] === 'BSC' || token["chain"] === 'ETH') {
+                        /* Handle output of Etherscan forks */
+                        let tokenTransfers = data.result
+                        for (let i = 0; i < tokenTransfers.length; i++) {
+                            let transfer = tokenTransfers[i]
+    
+                            if (transfer.contractAddress !== token["contractAddress"]) { continue }
+                            if (transfer.from !== token["treasuryAccountAddress"]) { continue }
+    
+                            let currentReputation = Number(transfer.value) / token["decimalFactor"]
+                            addToReputation(transfer.to, currentReputation)
+                        }
+                        //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
+                        if (tokenTransfers.length > 9000) {
+                            console.log((new Date()).toISOString(), '[WARN] The total amount of ' + token["chain"] + 'Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                        } else {
+                            console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found on the ' + token["chain"] + ' blockchain. ')
+                        }
+                        thisObject.waitingForResponses--
+                    
+                    } else if (token["chain"] === 'ZKS' || token["chain"] === 'ZKT') {
+                        /* Handle output of zkSync block explorer */
+                        let tokenTransfers = data.items
+                        for (let i = 0; i < tokenTransfers.length; i++) {
+                            let transfer = tokenTransfers[i]
 
-                        if (transfer.contractAddress !== token["contractAddress"]) { continue }
-                        if (transfer.from !== token["treasuryAccountAddress"]) { continue }
+                            if (transfer.tokenAddress !== token["contractAddress"]) { continue }
+                            if (transfer.from.toLowerCase() !== token["treasuryAccountAddress"].toLowerCase()) { continue }
+                            if (transfer.type !== 'transfer') { continue }
+                            if (transfer.from === transfer.to) { continue }
 
-                        let currentReputation = Number(transfer.value) / token["decimalFactor"]
-
-                        let previousReputation = thisObject.reputationByAddress.get(transfer.to.toLowerCase())
-                        if (previousReputation === undefined) { previousReputation = 0 }
-                        let newReputation = previousReputation + currentReputation
-                        thisObject.reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
+                            let currentReputation = Number(transfer.amount) / token["decimalFactor"]
+                            addToReputation(transfer.to, currentReputation)
+                        }
+                        /* Check for further result pages and paginate if needed */
+                        if (data.links.next !== undefined && data.links.next !== '') {
+                            /* console.log((new Date()).toISOString(), '[DEBUG] Further reputation result page available on ' + token["chain"] + ', paginating...') */
+                            let newurl = ''
+                            switch(token["chain"]) {
+                                case 'ZKS':
+                                    newurl = "https://block-explorer-api.mainnet.zksync.io/" + data.links.next
+                                    break
+                                case 'ZKT':
+                                    newurl = "https://block-explorer-api.testnets.zksync.dev/" + data.links.next
+                                    break
+                            }
+                            fetchTransactionHistory(newurl, token)
+                        } else {
+                            console.log((new Date()).toISOString(), '[INFO] ' + data.meta.totalItems + ' reputation transactions found on the ' + token["chain"] + ' blockchain. ')
+                            thisObject.waitingForResponses--
+                        }
                     }
-                    //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
-                    if (tokenTransfers.length > 9000) {
-                        console.log((new Date()).toISOString(), '[WARN] The total amount of ' + token["chain"] + 'Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
-                    } else {
-                        console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found on the ' + token["chain"] + ' blockchain. ')
-                    }
-                    thisObject.waitingForResponses--
                 }).catch(function (err) {
                     const message = err.message + ' - ' + 'Can not access ' + token["chain"] + 'SCAN servers.'
                     console.log(message)
                     thisObject.waitingForResponses--
                 });
+            }
+
+            function addToReputation(walletAddress, reputation) {
+                let previousReputation = thisObject.reputationByAddress.get(walletAddress.toLowerCase())
+                if (previousReputation === undefined) { previousReputation = 0 }
+                let newReputation = previousReputation + reputation
+                thisObject.reputationByAddress.set(walletAddress.toLowerCase(), newReputation)
             }
         }
         /* 
@@ -600,6 +648,7 @@ function newGovernanceUserProfileSpace() {
                             return
                         }
                         blockchainTokenTotal = blockchainTokenTotal + Number(commandResponse.balance)
+                        /* console.log((new Date()).toISOString(), '[DEBUG] Blockchain tokens of user profile ' + userProfile.name + ' on chain ' + token["chain"] + ': ' + commandResponse.balance) */
                     }
                     if (receivedResults === SATokenList.length) {
                         if (queryError === false) {

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Temel varlıkta ve kote varlıkta belirtilen hesapları birden çok durumda takip edin. Bu sayfada aşağıdakileri göreceksiniz: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
                 "updated": 1642342380340
+            },
+            {
+                "language": "DE",
+                "text": "Behalten Sie den Überblick über Konten, die auf den Basiswert und den notierten Wert lauten, in verschiedenen Kontexten. Auf dieser Seite: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
+                "updated": 1693254270258
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Sistem mümkün olduğunca esnek olmayı amaçladığından, ticaret motoru hesapları hem temel varlığa hem de kote varlığa göre tutar. Bu, kullanıcının ticaret sistemini gerekli olan mantıkla kurmasına ve hangi hesap setinin ticaret stratejisinin amacına uygun olduğuna karar vermesine olanak tanır.",
                     "updated": 1642342446776
+                },
+                {
+                    "language": "DE",
+                    "text": "Da das System so flexibel wie möglich sein soll, behält die Handelsmaschine die Konten sowohl in Bezug auf den Basiswert als auch auf den notierten Wert. Dadurch kann der Benutzer das Handelssystem mit jeder beliebigen Logik einrichten und entscheiden, welcher Kontensatz dem Zweck - dem Ziel - der Handelsstrategie entspricht.",
+                    "updated": 1693254282527
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Dikkat edin - genellikle - bir varlıkta belirtilen hesaplar geçerli olurken, diğer varlıkta belirtilen hesaplar muhtemelen hiçbir anlam ifade etmeyecektir.",
                     "updated": 1642363998521
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Konten, die auf einen Vermögenswert lauten, in der Regel gültig sind, während die Konten, die auf den anderen Vermögenswert lauten, wahrscheinlich keinen Sinn ergeben.",
+                    "updated": 1693254297278
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Bölümün performansını izlemek için hangi hesap grubunu izleyeceğiniz, ticaret sisteminizi nasıl tanımladığınıza bağlıdır.",
                     "updated": 1642364029592
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Konten Sie überwachen werden, um die Performance der Episode zu verfolgen, hängt davon ab, wie Sie Ihr Handelssystem definieren.",
+                    "updated": 1693254308657
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Örneğin, BTC/USDT piyasasında işlem yapıyorsanız ve USDT biriktirmek için bir ticaret sistemi geliştirdiyseniz, sizin için anlamlı olacak hesap seti, kote varlıkta, yani USDT'de belirtilen hesap setidir. Bu nedenle:",
                     "updated": 1642364057203
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie beispielsweise auf dem BTC/USDT-Markt handeln und ein Handelssystem entwickelt haben, um USDT zu akkumulieren, dann ist die Gruppe von Konten, die für Sie sinnvoll ist, diejenige, die auf den notierten Vermögenswert, also auf USDT, lautet. Das ist der Grund:",
+                    "updated": 1693254325327
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Stratejiniz, BTC'yi daha yüksek bir oranda satmak ve sonunda başladığınızdan daha fazla USDT (kote edilen varlık) elde etmek için pozisyon açıkken fiyatın yükselmesini bekleyerek BTC'yi (temel varlık) satın alacaktır.",
                     "updated": 1642364201227
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Strategie kauft wahrscheinlich BTC (den Basiswert) in der Erwartung, dass der Preis steigt, während die Position offen ist, um BTC zu einem höheren Kurs zu verkaufen und am Ende mehr USDT (den börsennotierten Wert) zu haben, als Sie zu Beginn hatten.",
+                    "updated": 1693254344799
                 }
             ]
         },
@@ -109,6 +139,11 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1640344308052
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel",
+                    "updated": 1693254366189
                 }
             ]
         },
@@ -125,6 +160,11 @@
                     "language": "TR",
                     "text": "10.000 USDT değerinde BTC aldığınızı varsayalım. BTC fiyatı %10 artar, bu nedenle pozisyonu kapatmak için tüm BTC miktarını satarsınız ve 10.900 USDT ile sonuçlanırsınız (borsa komisyonlarının bakiyeden düştüğünü farzediyorum).",
                     "updated": 1642364260972
+                },
+                {
+                    "language": "DE",
+                    "text": "Angenommen, Sie kaufen BTC im Wert von 10.000 USDT. Der BTC-Preis steigt um 10 %, also verkaufen Sie die gesamte BTC-Menge, um die Position zu schließen, und haben am Ende 10.900 USDT (die Wechselgebühren werden vom Saldo abgezogen).",
+                    "updated": 1693254378146
                 }
             ]
         },
@@ -142,6 +182,11 @@
                     "language": "TR",
                     "text": "Temel varlık açısından, döviz kur dönüştürme sınırlamaları nedeniyle hesapta bir miktar BTC bıraktığından, başlangıç bakiyeniz 0 BTC ve bitiş bakiyeniz 0.00000012 BTC'dir. Ayrıca temel varlık açısından, pozisyon için kar kaybınız...",
                     "updated": 1642364341144
+                },
+                {
+                    "language": "DE",
+                    "text": "In Bezug auf den Basiswert beträgt Ihr Anfangssaldo 0 BTC und Ihr Endsaldo 0,00000012 BTC, da der Umtausch aufgrund von Kursumrechnungsbeschränkungen einige BTC auf dem Konto zurückgelassen hat. Auch in Bezug auf den Basiswert, ist Ihr Gewinn Verlust für die Position...",
+                    "updated": 1693254391799
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "TR",
                     "text": "ROI ve diğer metrikler de bu ilk gözlemlerden türetilebilir. Söylemeye gerek yok, bu tür ölçümler, USDT biriktirmek olan stratejinin amacı ile ilgisizdir.",
                     "updated": 1642364369042
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus diesen anfänglichen Beobachtungen können auch der ROI und andere Kennzahlen abgeleitet werden. Natürlich sind solche Kennzahlen für den Zweck der Strategie, nämlich die Akkumulation von USDT, irrelevant.",
+                    "updated": 1693254407810
                 }
             ]
         },
@@ -184,6 +234,11 @@
                     "language": "TR",
                     "text": "Şimdi, kote edilen varlık açısından başlangıç bakiyeniz 10.000 USD ve bitiş bakiyeniz 10.900 USD'dir borsa konisyon ücretleri bakiyeden düşülür). Ayrıca, kote edilen varlık açısından, pozisyon için kar kaybınız olur...",
                     "updated": 1642364499822
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun, in Bezug auf den notierten Vermögenswert, beträgt Ihr Anfangssaldo 10.000 USDT und Ihr Endsaldo 10.900 USDT (Wechselgebühren werden vom Saldo abgezogen). Auch in Bezug auf den notierten Vermögenswert, ist Ihr Gewinn Verlust für die Position...",
+                    "updated": 1693254417750
                 }
             ]
         },
@@ -204,6 +259,11 @@
                     "language": "TR",
                     "text": "Bunun stratejinin amacına uygun ölçüler olduğunu artık herkes biliyor.",
                     "updated": 1642364601529
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sollte inzwischen klar sein, dass dies die für die Absicht der Strategie relevanten Kennzahlen sind.",
+                    "updated": 1693254427101
                 }
             ]
         },
@@ -221,6 +281,11 @@
                     "language": "TR",
                     "text": "Diğer tür stratejilerle, örneğin amacın her iki varlığı da biriktirmek olduğu stratejilerde, her iki ölçüm grubu da alakalı olabilir. Ayrıca, istatistik bağlamında sağlanan birleştirilmiş metrikler de alakalı olabilir.",
                     "updated": 1642364535603
+                },
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Bei anderen Arten von Strategien, z. B. solchen, bei denen die Absicht besteht, beide Vermögenswerte zu akkumulieren, können beide Kennzahlensätze von Bedeutung sein. Auch die konsolidierten Kennzahlen, die im Zusammenhang mit Statistiken bereitgestellt werden, können relevant sein.",
+                    "updated": 1693254440346
                 }
             ]
         },
@@ -237,6 +302,11 @@
                     "language": "TR",
                     "text": "Her bir varlığın dengesi ve her bir varlığın perspektifinden hesaplanan performans ölçütleri gibi temel ve kote varlıkla ilgili kavramlar, aynı anda birden çok bağlamda izlenir.",
                     "updated": 1642364623194
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Konzepte in Bezug auf die Basis und die notierten Vermögenswerte, wie z. B. der Saldo jedes Vermögenswerts und die aus der Perspektive jedes Vermögenswerts berechneten Leistungskennzahlen, werden in mehreren Kontexten gleichzeitig verfolgt.",
+                    "updated": 1693254451679
                 }
             ]
         },
@@ -253,13 +323,25 @@
                     "language": "TR",
                     "text": "Aşağıda, kavramların izlendiği bağlamların her birinde temel ve kote edilmiş varlığın tanımları yer almaktadır.",
                     "updated": 1642364652467
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden die Definitionen des Basiswerts und des zitierten Vermögenswerts in den jeweiligen Kontexten, in denen die Konzepte verfolgt werden, erläutert.",
+                    "updated": 1693254461375
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Episode Base Asset",
-            "updated": 1611258577948
+            "updated": 1611258577948,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Episode Basis-Asset",
+                    "updated": 1693254476945
+                }
+            ]
         },
         {
             "style": "Include",

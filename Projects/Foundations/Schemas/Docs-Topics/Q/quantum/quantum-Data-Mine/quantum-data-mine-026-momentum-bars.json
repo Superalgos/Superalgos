@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "Orignally written by RedK on tradingview, this indicator is loosely inspired by Elder's Impulse System (EIS). Similar to the MACD, if the value line (open value) is below the signal (close) then the bar is printed in red, and if these values are below the zero line then the momentum is said to be bearish. The opposite is true for a bullish momentum, printed in green."
+            "text": "Originally written by RedK on tradingview, this indicator is loosely inspired by Elder's Impulse System (EIS). Similar to the MACD, if the value line (open value) is below the signal (close) then the bar is printed in red, and if these values are below the zero line then the momentum is said to be bearish. The opposite is true for a bullish momentum, printed in green.",
+            "updated": 1685614602131
         },
         {
             "style": "Png",

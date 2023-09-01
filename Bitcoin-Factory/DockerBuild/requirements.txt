@@ -8,6 +8,6 @@ torch==1.12.0
 torchvision==0.13.0
 tabulate
 tensorboard==2.10.1
-tensorflow==2.10.0
+tensorflow==2.11.1
 tensorflow-probability==0.18.0
 numpy==1.23.3

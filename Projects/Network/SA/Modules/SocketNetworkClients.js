@@ -96,7 +96,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             let response = JSON.parse(socketMessage.data)
 
             if (response.result !== 'Ok') {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
                 reject()
                 return
             }
@@ -107,7 +107,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             We will check that the signature received produces a valid Blockchain Account.
             */
             if (called.blockchainAccount === undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
                 reject()
                 return
             }
@@ -120,9 +120,9 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                 */
                 /*
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
+                SA.logger.warn('Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
                 */
                 reject()
                 return
@@ -136,7 +136,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             */
             let hash = web3.eth.accounts.hashMessage(signature.message)
             if (hash !== signature.messageHash) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
                 reject()
                 return
             }
@@ -145,7 +145,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             that we have on record, otherwise something is wrong and we should not proceed.
             */
             if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.config.codeName) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Profile codeName.')
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Profile codeName.')
                 reject()
                 return
             }
@@ -154,7 +154,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             signed message, to avoid man in the middle attacks.
             */
             if (signedMessage.callerProfileHandle !== SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                 reject()
                 return
             }
@@ -163,7 +163,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             signed message, also to avoid man in the middle attacks.
             */
             if (signedMessage.callerTimestamp !== callerTimestamp) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
                 reject()
                 return
             }
@@ -197,7 +197,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             let response = JSON.parse(socketMessage.data)
 
             if (response.result !== 'Ok') {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
+                SA.logger.error('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
                 reject()
                 return
             }
@@ -206,19 +206,19 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             Network Node and from now on, all response messages will be received
             at this following function.
             */
-            thisObject.socket.onmessage = socketMessage => { onMenssage(socketMessage) }
+            thisObject.socket.onmessage = socketMessage => { onMessage(socketMessage) }
             resolve()
         }
     }
 
-    function sendMessage(message) {
+    function sendMessage(message, responseHandler) {
 
         return new Promise(sendSocketMessage)
 
         function sendSocketMessage(resolve, reject) {
 
             if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> sendMessage -> Cannot send message while connection is closed.')
+                SA.logger.error('Socket Network Clients -> sendMessage -> Cannot send message while connection is closed.')
                 let response = {
                     result: 'Error',
                     message: 'Websockets Connection Not Ready.'
@@ -232,12 +232,16 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 messageType: 'Request',
                 payload: message
             }
-            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
+            
+            if (responseHandler === undefined) { 
+                responseHandler = onMessageFunction 
+            }
+            onMessageFunctionsMap.set(socketMessage.messageId, responseHandler)
             thisObject.socket.send(
                 JSON.stringify(socketMessage)
             )
 
-            function onMenssageFunction(response) {
+            function onMessageFunction(response) {
                 try {
                     if (response.result === 'Ok' || response.result === 'Warning') {
                         if (response.data !== undefined) {
@@ -246,26 +250,26 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             resolve(response)
                         }
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> onMenssageFunction -> response.message = ' + response.message)
+                        SA.logger.error('Socket Network Clients -> onMessageFunction -> response.message = ' + response.message)
                         reject(response.message)
                     }
                 } catch (err) {
                     callbackFunction = undefined
-                    console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> err.stack = ' + err.stack)
+                    SA.logger.error('Socket Network Clients -> err.stack = ' + err.stack)
                 }
             }
         }
     }
 
-    function onMenssage(socketMessage) {
+    function onMessage(socketMessage) {
 
         let messageHeader = JSON.parse(socketMessage.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        let onMenssageFunction = onMessageFunctionsMap.get(messageHeader.messageId)
+        let onMessageFunction = onMessageFunctionsMap.get(messageHeader.messageId)
 
-        if (onMenssageFunction !== undefined) {
+        if (onMessageFunction !== undefined) {
             processAnswerToARequest(messageHeader)
         } else {
             processNotification(messageHeader)
@@ -276,7 +280,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             The message received is a response to a message sent.
             */
             onMessageFunctionsMap.delete(messageHeader.messageId)
-            onMenssageFunction(messageHeader)
+            onMessageFunction(messageHeader)
         }
 
         function processNotification(messageHeader) {
@@ -286,13 +290,13 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             of an event or signal that happened at some other Client of the Network.
 
             This can only happen when this module is running at an APP like 
-            the Desktop App, Server App, Platform App, or Task Server App.
+            the Social Trading App, Platform App, or Task Server App.
             */
             let payload
             try {
                 payload = JSON.parse(messageHeader.payload)
             } catch (err) {
-                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Payload Not Correct JSON Format.')
+                SA.logger.warn('Socket Network Clients -> Payload Not Correct JSON Format.')
             }
             switch (payload.networkService) {
                 case 'Social Graph': {
@@ -302,7 +306,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             thisObject.p2pNetworkClient.eventReceivedCallbackFunction
                         )
                     } else {
-                        console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Social Graph Network Service Client Not Running')
+                        SA.logger.warn('Socket Network Clients -> Social Graph Network Service Client Not Running')
                     }
                     break
                 }
@@ -317,12 +321,12 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                             messageHeader.rankingStats
                         )
                     } else {
-                        console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Trading Signals Network Service Client Not Running')
+                        SA.logger.warn('Socket Network Clients -> Trading Signals Network Service Client Not Running')
                     }
                     break
                 }
                 default: {
-                    console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Network Service Not Supported -> messageHeader.networkService = ' + messageHeader.networkService)
+                    SA.logger.warn('Socket Network Clients -> Network Service Not Supported -> messageHeader.networkService = ' + messageHeader.networkService)
                 }
             }
         }

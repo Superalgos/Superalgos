@@ -76,8 +76,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En esta carpeta, encontrarás un archivo llamado Getting Started Tutorials.json. Tel suyo es el espacio de trabajo actual; el que estás usando en este momento. Todo lo que ha estado haciendo últimamente se ha almacenado aquí.",
-                    "updated": 1626620522459,
+                    "text": "Aquí es donde encontrarás los espacios de trabajo que hayas guardado anteriormente. Si la carpeta está vacía o no existe, significa que aún no has guardado ningún espacio de trabajo.",
+                    "updated": 1675377423380,
                     "style": "List"
                 },
                 {
@@ -109,33 +109,34 @@
         },
         {
             "style": "Json",
-            "text": "\\Projects\\Foundations\\Plugins\\Workspaces"
+            "text": "\\Plugins\\[Project]\\Workspaces",
+            "updated": 1687799294395
         },
         {
             "style": "List",
-            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the \"Community Workspaces\" topic in the Docs to learn what each of them is about!",
+            "text": "In this folder, you will find Native Workspaces shipping with Superalgos. You may want to read the \"Community Workspaces\" topic in the Docs to learn what each of them is about!",
             "updated": 1622375468421,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questa cartella troverai i Plugin Workspaces in dotazione con Superalgos. Potresti voler leggere l'argomento \"Community Workspaces\" nella documentazione per sapere di cosa tratta ciascuno!",
+                    "text": "In questa cartella troverai i Native Workspaces in dotazione con Superalgos. Potresti voler leggere l'argomento \"Community Workspaces\" nella documentazione per sapere di cosa tratta ciascuno!",
                     "updated": 1666639782473,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "En esta carpeta, encontrarás Plugin Workspaces conectando con  Superalgos. Es posible que desees leer los Documentos del \"Community Workspaces\" para saber de qué se trata cada uno de ellos.",
+                    "text": "En esta carpeta, encontrarás Native Workspaces conectando con  Superalgos. Es posible que desees leer los Documentos del \"Community Workspaces\" para saber de qué se trata cada uno de ellos.",
                     "updated": 1626620829014,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "In diesem Ordner finden Sie die Plugin Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht!",
+                    "text": "In diesem Ordner finden Sie die Native Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht!",
                     "updated": 1634587316991
                 },
                 {
                     "language": "TR",
-                    "text": "Bu klasörde, Superalgos ile birlikte gönderilen Eklenti Çalışma Alanlarını ( Plugin Workspaces ) bulacaksınız. Her birinin ne hakkında olduğunu öğrenmek için Dokümanlar'daki \"Community Workspaces\" konusunu okuyabilirsiniz.",
+                    "text": "Bu klasörde, Superalgos ile birlikte gönderilen Eklenti Çalışma Alanlarını ( Native Workspaces ) bulacaksınız. Her birinin ne hakkında olduğunu öğrenmek için Dokümanlar'daki \"Community Workspaces\" konusunu okuyabilirsiniz.",
                     "updated": 1639766445410
                 },
                 {
@@ -145,12 +146,12 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Di folder ini, kamu akan menemukan Plugin Workspaces dikirim dengan Superalgos. Kamu mungkin ingin membaca topik \"Community Workspaces\" di Docs untuk mempelajari masing-masing tentang mereka!",
+                    "text": "Di folder ini, kamu akan menemukan Native Workspaces dikirim dengan Superalgos. Kamu mungkin ingin membaca topik \"Community Workspaces\" di Docs untuk mempelajari masing-masing tentang mereka!",
                     "updated": 1645035566907
                 },
                 {
                     "language": "NL",
-                    "text": "In deze map vindt u Plugin Workspaces die standaard met Superalgos worden geleverd. Misschien wil je het onderwerp 'Community Workspaces' in de Docs lezen om erachter te komen waar ze allemaal over gaan!",
+                    "text": "In deze map vindt u Native Workspaces die standaard met Superalgos worden geleverd. Misschien wil je het onderwerp 'Community Workspaces' in de Docs lezen om erachter te komen waar ze allemaal over gaan!",
                     "updated": 1669545573273
                 }
             ]

@@ -15,7 +15,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
     async function initialize() {
 
         await scanSuperalgosUserProfiles()
-        console.log((new Date()).toISOString(), 'Starting Network "' + networkCodeName + '" with these Test Clients:')
+        SA.logger.info('Starting Network "' + networkCodeName + '" with these Test Clients:')
         console.table(testClients)
 
     }
@@ -60,7 +60,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
         const currentClientInstance = userProfile + ' / ' + instance
         switch (message.type) {
             case 'Get Next Test Case': {
-                console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Test Case')
+                SA.logger.info(currentClientInstance, 'requested a new Test Case')
                 let nextTestCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase(currentClientInstance)
                 if (nextTestCase === 'NO CASES FOR YOU') {
                     return 'ALREADY SENT YOU A CASE, WAIT 10 MINUTES TO ASK AGAIN'
@@ -69,7 +69,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
                     return 'NO TEST CASES AVAILABLE AT THE MOMENT'
                 }
 
-                console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
+                SA.logger.info('Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
                 nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
                 nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
                 nextTestCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName

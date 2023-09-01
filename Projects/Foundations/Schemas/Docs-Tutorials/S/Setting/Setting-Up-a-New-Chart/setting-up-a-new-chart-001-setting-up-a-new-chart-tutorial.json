@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu öğretici ( Tutorial ), kendi özel çizelgelerinizi nasıl oluşturacağınızı öğrenebilmeniz için Grafik Alanının ( Charting Space ) temel işlevleri konusunda size yol gösterecektir.",
                 "updated": 1642518148260
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial muestra el funcionamiento básico del Espacio de Gráficos para ayudarte a crear tus propios gráficos personalizados.",
+                "updated": 1682429028099
             }
         ]
     },
@@ -44,12 +49,17 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394090632,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1682429041673
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Custom Charts Tutorials Plugin Workspace.",
+            "text": "Workspace: Custom Charts Tutorials Native Workspace.",
             "updated": 1622013786721,
             "translations": [
                 {

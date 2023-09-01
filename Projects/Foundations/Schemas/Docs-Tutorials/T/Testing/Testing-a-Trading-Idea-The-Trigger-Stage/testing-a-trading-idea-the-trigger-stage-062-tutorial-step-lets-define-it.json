@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz!",
-                "updated": 1641663601544
+                "text": "Pozisyon Al Etkinliği altında koşulu ayarlamaya hazırız! Hadi yapalım şu işi!",
+                "updated": 1669665065650
             },
             {
                 "language": "RU",
                 "text": "Мы готовы установить условие в событии \"Take Position Event\"! Давайте сделаем это!",
                 "updated": 1642660975580
+            },
+            {
+                "language": "ES",
+                "text": "¡Estamos listos para establecer la condición bajo el evento Take Position Event! ¡Adelante!",
+                "updated": 1679100572007
             }
         ]
     },
@@ -44,13 +49,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Açıklamayı kopyalayıp yapıştırın!",
-                    "updated": 1641663614250
+                    "text": "Yukarıdaki koşulu kopyalayıp yapıştırın!",
+                    "updated": 1669665103400
                 },
                 {
                     "language": "RU",
                     "text": "Скопируйте и вставьте эту формулу!",
                     "updated": 1642661053842
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Copia y pega la declaración!",
+                    "updated": 1679100584356
                 }
             ]
         },
@@ -66,13 +76,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Duruma açıklayıcı bir ad vermeyi unutmayın! 1H Breakdown?",
-                    "updated": 1641663623590
+                    "text": "Duruma açıklayıcı bir ad vermeyi unutmayın! Örneğin 1H Breakdown?",
+                    "updated": 1669665121970
                 },
                 {
                     "language": "RU",
                     "text": "Не забудьте дать условию описательное название! Пробой 1Н?",
                     "updated": 1642661100322
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda darle a la condición un nombre descriptivo. ¿Desglose 1H?",
+                    "updated": 1679100597188
                 }
             ]
         }

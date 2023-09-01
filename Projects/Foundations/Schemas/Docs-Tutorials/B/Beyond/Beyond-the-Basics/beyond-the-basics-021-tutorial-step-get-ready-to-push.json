@@ -3,12 +3,12 @@
     "pageNumber": 21,
     "type": "Tutorial Step - Get Ready to Push!",
     "definition": {
-        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
+        "text": "Amazing! You learned how to add a page to the Docs, edit it, and save it! Now open the Contributions panel on the right and take a look inside!",
         "icon": {
             "name": "github",
             "project": "Foundations"
         },
-        "updated": 1610791858248,
+        "updated": 1692643160199,
         "translations": [
             {
                 "language": "IT",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
-                "updated": 1628191613869,
+                "text": "¡Increíble! ¡Has aprendido a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda desde tu PC y contribuir con Superalgos!",
+                "updated": 1675454078889,
                 "style": "Definition"
             },
             {
@@ -41,14 +41,19 @@
                 "language": "ID",
                 "text": "Luar biasa! kamu sudah mempelajari untuk menambahkan halaman ke Docs, mengedit itu, dan menyimpannya! Sekarang kamu harus membuatnya melebihi PC-mu, dan kontribusikan itu ke Superalgos!",
                 "updated": 1668931188377
+            },
+            {
+                "language": "NL",
+                "text": "Geweldig! Je hebt geleerd om een pagina toe te voegen aan de Docs, deze te bewerken en op te slaan! Nu moet je ervoor zorgen dat het je pc overstijgt en bijdraagt aan Superalgos!",
+                "updated": 1669748969534
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos interacts with Git to keep your Superalgos installation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
-            "updated": 1610743150715,
+            "text": "The Contributions Panel on the right helps less technical users interact with Git to keep their Superalgos installation up to date and make contributions easier. For instance, the Contribute button runs the following commands:",
+            "updated": 1687964765974,
             "translations": [
                 {
                     "language": "IT",
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Superalgos berinteraksi dengan Git untuk tetap terupdate dengan Instalasi Superalgos dan untuk berkontribusi dengan mudah terhadap user non-teknikal. App Contribute Command berjalan dengan beberapa perintah Git secara berkelanjutan:",
                     "updated": 1668931194778
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos communiceert met Git om uw Superalgos-installatie up-to-date te houden en bijdragen gemakkelijker te maken voor minder technische gebruikers. De App Contribute Command voert de volgende Git-opdrachten achter elkaar uit:",
+                    "updated": 1669749007581
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "git add: menambahkan perubahan file yang kamu kontribusikan ke git commit.",
                     "updated": 1668931203878
+                },
+                {
+                    "language": "NL",
+                    "text": "git add: voegt de wijzigingen die je hebt aangebracht aan bestanden toe aan een git commit.",
+                    "updated": 1669749041980
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "git commit: commits semua perubahan.",
                     "updated": 1668931215843
+                },
+                {
+                    "language": "NL",
+                    "text": "git commit: voert alle wijzigingen door.",
+                    "updated": 1669749054092
                 }
             ]
         },
@@ -198,6 +218,11 @@
                     "language": "ID",
                     "text": "git push: mendorong perubahan ke fork kamu.",
                     "updated": 1668931225397
+                },
+                {
+                    "language": "NL",
+                    "text": "git push: stuurt de wijzigingen naar uw fork.",
+                    "updated": 1669749084276
                 }
             ]
         },
@@ -214,8 +239,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a unexistente Pull Request.",
-                    "updated": 1628191970494,
+                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a un existente Pull Request.",
+                    "updated": 1675454109254,
                     "style": "List"
                 },
                 {
@@ -237,6 +262,11 @@
                     "language": "ID",
                     "text": "github createPullRequest: membuat Pull Request dengan repository Superalgos, atau menambahkan commits ke Pull Request yang sudah ada.",
                     "updated": 1668931235892
+                },
+                {
+                    "language": "NL",
+                    "text": "github createPullRequest: maakt een Pull Request aan in de Superalgos repository, of voegt commits toe aan een bestaande Pull Request.",
+                    "updated": 1669749116219
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Düğümlerin Alt Düğümleri olabilir. Bunu yaptıklarında, genellikle Kullanıcıya Düğüm Menüsü ( Node Menu ) aracılığıyla alt öğelerini oluşturmanın bir yolunu sunarlar. Bir Düğüm Alt Öğesi Üst Düğüme bağlı olabilir, ancak bu her zaman böyle değildir. Nodes might have children.",
                 "updated": 1654890462782
+            },
+            {
+                "language": "DE",
+                "text": "Knoten können Kinder haben. Wenn dies der Fall ist, bieten sie dem Benutzer normalerweise die Möglichkeit, über das Knotenmenü (Node Menu) Kinder zu erstellen. Ein Knoten Kinder könnte am Ende an den übergeordneten Knoten (Parent Node) angehängt werden, aber das ist nicht immer der Fall.",
+                "updated": 1689420657766
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Alt Düğüm Özellikleri",
                     "updated": 1654890926872
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften der Kinderknoten",
+                    "updated": 1689420675915
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Her düğüm türünün alt Düğümleri olabilir. Bunu yaparlarsa, çalışma zamanında düğüm nesnesinin bir veya daha fazla özelliğinde alt Düğüme bir başvuruda bulunacaktır. childrenNodes Bir dizi alt düğüme sahip genel bir özellik (HTML'deki gibi) yoktur. Bunun yerine bulabileceğimiz şey, her Düğüm Türünün ( Node Type ) hangi özelliklerin bu alt başvuruları tutacağını tanımlamasıdır.",
                     "updated": 1654890908454
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Art von Knoten kann Kinder haben. Wenn dies der Fall ist, wird ein Verweis auf die Kinder zur Laufzeit in einer oder mehreren Eigenschaften des Knotenobjekts vorhanden sein. Es gibt keine generische Eigenschaft childrenNodes (wie in HTML) mit einem Array von Kinderknoten. Stattdessen definiert jeder Knotentyp (Node Type), welche Eigenschaften die Verweise auf die Kinder enthalten.",
+                    "updated": 1689421148399
                 }
             ]
         }

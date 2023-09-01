@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Этот раздел определений предлагает еще один пример гранулярного контроля на уровне ордера, в данном случае оказывая влияние на то, как симулируются ордера!",
                 "updated": 1642941186548
+            },
+            {
+                "language": "ES",
+                "text": "Esta sección de las definiciones ofrece otro ejemplo de control granular a nivel de la orden, que en este caso afecta a cómo se simulan las órdenes.",
+                "updated": 1680806047226
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Эти определения - если они используются - переопределяют торговые параметры Slippage и Fee Structure на уровне торговой сессии, которые одинаково влияют на все ордера. Обратите внимание, что есть узел, который может даже определять, как симулировать исполнение ордеров! Если нет определения того, как симулировать индивидуальный ордер, параметры на уровне сессии остаются актуальными.",
                     "updated": 1642941222102
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas definiciones -si se utilizan- anulan los Slippage y los Fee Structure Trading Parameters a nivel de la sesión de trading, que afectan a todas las órdenes por igual. ¡Observa que hay un nodo que puede incluso definir cómo simular el llenado de las órdenes! Si no se define cómo simular la orden individual, los parámetros a nivel de sesión siguen siendo relevantes.",
+                    "updated": 1680806211345
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "На данный момент мы не собираемся использовать эти параметры симуляции на гранулярном уровне, поэтому удалите узел Simulated Exchange Events!",
                     "updated": 1642941285684
+                },
+                {
+                    "language": "ES",
+                    "text": "Por el momento, no vamos a utilizar estos parámetros de simulación a nivel granular, así que adelante, elimina el nodo de eventos de intercambio simulados.",
+                    "updated": 1680806258522
                 }
             ]
         }

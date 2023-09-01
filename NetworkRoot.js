@@ -53,9 +53,16 @@ exports.newNetworkRoot = function newNetworkRoot() {
             ws: require('ws'),
             simpleGit: require('simple-git'),
             graphql: require("@octokit/graphql"),
-            axios: require('axios')
+            axios: require('axios'),
+            crypto: require('crypto'),
+            octokit: require('@octokit/rest'),
+            childProcess: require('child_process')
         }
         SA.version = require('./package.json').version
+
+        const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Network')
+        SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'NT')
+
         /* 
         Setting up the App Schema Memory Map. 
         */
@@ -67,6 +74,14 @@ exports.newNetworkRoot = function newNetworkRoot() {
         */
         let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
+
+        /*
+         * If the network is using a local database then check and run any migrations first
+         */
+        if(global.env.DATABASE.TYPE == 'database') {
+            await SA.projects.localStorage.globals.persistence.newPersistenceStore(global.env.DATABASE.TYPE, 'migrate')
+                .then(() => SA.logger.info('Database migrations have run'))
+        }
 
         NT.app = require('./Network/NetwokApp.js').newNetworkApp()
         NT.app.run()

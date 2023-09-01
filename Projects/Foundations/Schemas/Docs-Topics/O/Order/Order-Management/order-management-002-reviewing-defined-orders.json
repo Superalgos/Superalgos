@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот проверяет все существующие ордера при каждом исполнении, чтобы определить, что нужно сделать с каждым из них.",
                 "updated": 1640176737166
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot prüft bei jeder Ausführung alle bestehenden Aufträge, um festzustellen, was mit jedem einzelnen von ihnen geschehen muss.",
+                "updated": 1679520320074
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Каждый ордер имеет событие создания ордера, а лимитные ордера могут иметь событие отмены ордера. Это означает, что ордера могут быть созданы и, в случае лимитных ордеров, отменены.",
                     "updated": 1640175422196
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jeden Auftrag gibt es ein Ereignis \"create order\" und für limitierte Aufträge ein Ereignis \"cancel order\". Dies bedeutet, dass Aufträge erstellt und im Falle von Limit-Aufträgen auch wieder gelöscht werden können.",
+                    "updated": 1679520331647
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Для каждого определенного ордера бот выполняет несколько проверок, которые могут привести к различным действиям. Отдельно анализируются два конкретных случая: когда ордер не открыт и когда ордер открыт.",
                     "updated": 1640175446709
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jeden definierten Auftrag führt der Bot mehrere Prüfungen durch, die zu unterschiedlichen Aktionen führen können. Zwei besondere Fälle werden getrennt analysiert: wenn der Auftrag nicht offen (Open) ist und wenn der Auftrag offen (Open) ist.",
+                    "updated": 1679520346473
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Ордер не открыт",
                     "updated": 1640175462560
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Auftrag ist nicht offen",
+                    "updated": 1679520359633
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Если ордер не открыт (\"Not Open\"), это означает, что его, возможно, необходимо создать. Однако необходимо провести несколько проверок.",
                     "updated": 1640175510185
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Auftrag nicht offen ist, bedeutet dies, dass er möglicherweise erstellt werden muss. Es sind jedoch einige Prüfungen erforderlich.",
+                    "updated": 1679520375077
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "Ордеры не создаются в первом цикле (Cycle).",
                     "updated": 1640175675658
+                },
+                {
+                    "language": "DE",
+                    "text": "Im ersten Zyklus (Cycle) werden keine Aufträge (Orders) erstellt.",
+                    "updated": 1679520418400
                 }
             ]
         },
@@ -88,6 +118,11 @@
                     "language": "RU",
                     "text": "Ордера не создаются на стадии закрытия.",
                     "updated": 1640175977838
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufträge (Orders) werden nicht erstellt, wenn die Bühne geschlossen wird.",
+                    "updated": 1679520441021
                 }
             ]
         },
@@ -103,6 +138,11 @@
                     "language": "RU",
                     "text": "Для определений ордеров, которые не позволяют порождать несколько ордеров, ордера не создаются в случае когда замок закрыт.",
                     "updated": 1640176169445
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Auftragsdefinitionen, die das Erzeugen von mehreren Aufträgen nicht zulassen, werden keine Aufträge erstellt, wenn die Sperre geschlossen wird.",
+                    "updated": 1679520457455
                 }
             ]
         },
@@ -119,6 +159,11 @@
                     "language": "RU",
                     "text": "Если предыдущие проверки пройдены и одна из ситуаций в событии создания ордера установлена как true, то ордер создается (см. раздел Opening Orders).",
                     "updated": 1640176278050
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die vorangegangenen Prüfungen erfolgreich waren und eine der Situationen im Ereignis \"Auftrag erstellen\" den Wert true, (wahr) hat, wird der Auftrag erstellt - siehe Eröffnung von Aufträgen (Opening Orders).",
+                    "updated": 1679520503966
                 }
             ]
         },
@@ -131,6 +176,11 @@
                     "language": "RU",
                     "text": "Ордер открыт",
                     "updated": 1640176299028
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Auftrag ist offen",
+                    "updated": 1679520516017
                 }
             ]
         },
@@ -146,6 +196,11 @@
                     "language": "RU",
                     "text": "Если ордер открыт и является лимитным, его, возможно, придется отменить (рыночные ордера не могут быть отменены, поскольку они должны исполняться почти мгновенно). Также могут потребоваться некоторые другие действия системы. Необходимо провести несколько проверок.",
                     "updated": 1640176405764
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Auftrag offen (Open) ist und es sich um einen Limit-Auftrag handelt, muss er möglicherweise storniert werden (Marktaufträge können nicht storniert werden, da sie fast sofort ausgeführt werden sollen). Außerdem können verschiedene andere Systemaktionen erforderlich sein. Ein paar Überprüfungen sind angebracht.",
+                    "updated": 1679520546081
                 }
             ]
         },
@@ -157,6 +212,11 @@
                     "language": "RU",
                     "text": "Ордера не отменяются во втором цикле, только в первом.",
                     "updated": 1640176427633
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Aufträge (Orders) werden im zweiten Zyklus nicht storniert, sondern nur im ersten.",
+                    "updated": 1679520570229
                 }
             ]
         },
@@ -172,6 +232,11 @@
                     "language": "RU",
                     "text": "Если это форвардное тестирование или реальная торговая сессия, необходимо проверить события, происходящие на бирже (см. Checking exchange events). Если проверка событий на бирже по какой-либо причине не удалась, ордер не может быть отменен и должен ждать следующего исполнения (execution).",
                     "updated": 1640176514849
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es sich um eine Forward-Testing- oder Live-Trading-Sitzung handelt, müssen die Ereignisse an der Börse überprüft werden (siehe Überprüfung von Börsenereignissen). Wenn die Überprüfung der Ereignisse an der Börse aus irgendeinem Grund fehlschlägt, kann der Auftrag nicht storniert werden und muss auf die nächste Ausführung warten.",
+                    "updated": 1679520582713
                 }
             ]
         },
@@ -183,6 +248,11 @@
                     "language": "RU",
                     "text": "Если речь идет о бэктестинге или бумажной торговой сессии, необходимо смоделировать события, происходящие на бирже (см. раздел Simulating check of events).",
                     "updated": 1640176615535
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es sich um eine Backtesting- oder Paper-Trading-Sitzung handelt, müssen die Ereignisse, die an der Börse stattfinden, simuliert werden (siehe Simulation der Ereignisprüfung).",
+                    "updated": 1679520595714
                 }
             ]
         },
@@ -194,6 +264,11 @@
                     "language": "RU",
                     "text": "Если предыдущие проверки пройдены и одна из ситуаций в событии отмены ордера принимает значение true, то ордер отменяется (см. раздел Canceling orders). Если ордер действительно закрыт, то ордер клонируется для обновления соответствующей структуры данных узла tradingEngine.tradingLast.",
                     "updated": 1640176669558
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die vorangegangenen Prüfungen erfolgreich waren und eine der Situationen im Auftragsstornierungsereignis den Wert true hat, wird der Auftrag storniert (siehe Stornierung von Aufträgen). Wenn der Auftrag tatsächlich geschlossen wird, wird er geklont, um die entsprechende Datenstruktur des Knotens tradingEngine.tradingLast zu aktualisieren.",
+                    "updated": 1679520623563
                 }
             ]
         },

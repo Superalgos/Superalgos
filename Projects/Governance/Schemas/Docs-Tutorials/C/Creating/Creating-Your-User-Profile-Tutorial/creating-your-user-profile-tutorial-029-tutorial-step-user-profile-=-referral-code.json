@@ -29,6 +29,11 @@
                 "language": "TR",
                 "text": "Bu, Superalgos'u tanıtmak için çalıştığınızda önemlidir! İnsanlara sizi nasıl bulacaklarını anlattığınızdan emin olun!",
                 "updated": 1645090001870
+            },
+            {
+                "language": "ID",
+                "text": "Ini penting ketika kamu pergi keluar untuk mempromosikan Superalgos! Pastikan kamu memberi tahu orang cara menemukan kamu!",
+                "updated": 1671527588766
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "TR",
                     "text": "Tekrar söylememe izin ver! İnsanların sizi kolayca bulabilmeleri için Kullanıcı Profili (User Profile) adınızı bilmelerini sağlayın!",
                     "updated": 1645090042544
+                },
+                {
+                    "language": "ID",
+                    "text": "Biarkan aku jelaskan kembali! Biarkan orang-orang mengetahui nama User Profile kamu sehingga mereka bisa menemukanmu dengan mudah!",
+                    "updated": 1671527596131
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "TR",
                     "text": "Ya sizi herhangi bir kişi Superalgos'a yönlendirmediyse? Bizi bir şekilde buldun, değil mi? aşağıdakiler bizi bulmana yardımcı lan birkaç senaryodur, dolayısıyla sizi yönlendiren profildir:",
                     "updated": 1645090151315
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagaimana jika tidak ada orang tertentu yang merujuk kamu ke Superalgos? Nah... entah bagaimana kamu menemukan kami, bukan? Ini adalah beberapa skenario umum dan profil yang merujuk kamu:",
+                    "updated": 1671527603112
                 }
             ]
         },
@@ -106,6 +121,11 @@
                     "language": "TR",
                     "text": "The Superalgos.org Websayfası: Julian-Molina",
                     "updated": 1645090167096
+                },
+                {
+                    "language": "ID",
+                    "text": "Website Superalgos.org: Julian-Molina",
+                    "updated": 1671527623679
                 }
             ]
         },
@@ -127,6 +147,11 @@
                     "language": "TR",
                     "text": "The Github.com Deposu: Luis-Fernando-Molina",
                     "updated": 1645090175994
+                },
+                {
+                    "language": "ID",
+                    "text": "Repo Github.com: Luis-Fernando-Molina",
+                    "updated": 1671527638019
                 }
             ]
         },
@@ -137,8 +162,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Artículos de Blog: Some by Julian-Molina, Luis-Fernando-Molina,... Por favor, comprueba el autor!",
-                    "updated": 1632025647858
+                    "text": "Artículos de blog: Por favor, compruebe el autor",
+                    "updated": 1682520988515
                 },
                 {
                     "language": "RU",
@@ -154,13 +179,30 @@
                     "language": "TR",
                     "text": "Blog Yazıları: Some by Julian-Molina, Luis-Fernando-Molina,... please check the author!",
                     "updated": 1645091775548
+                },
+                {
+                    "language": "ID",
+                    "text": "Artikel Blog: Tolong periksa pembuatnya!",
+                    "updated": 1671527649024
                 }
             ]
         },
         {
             "style": "List",
             "text": "Check with the community who may have produced the video or the social media post that hooked you!",
-            "updated": 1660592515437
+            "updated": 1660592515437,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tanyakan kepada komunitas yang mungkin telah membuat video atau postingan media sosial yang menarik kamu!",
+                    "updated": 1671527689495
+                },
+                {
+                    "language": "ES",
+                    "text": "Consulta con la comunidad que haya producido el vídeo o la publicación en las redes sociales que te enganchó.",
+                    "updated": 1682521020433
+                }
+            ]
         }
     ]
 }

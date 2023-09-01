@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
-                "updated": 1630887647502,
+                "text": "Vamos a configurar el Constructor de perfiles para crear tu perfil. Haz clic en Configurar en el menú e introduce tu nombre de usuario de GitHub.",
+                "updated": 1682520145883,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Lassen Sie uns nun den Profile Constructor konfigurieren, damit wir später das Profil erstellen können!",
                 "updated": 1640073101123
+            },
+            {
+                "language": "ID",
+                "text": "Mari mengkonfigurasi Profile Constructor untuk membuat profil kamu! Klik Configure pada menu dan memasukkan username Github!",
+                "updated": 1670853558907
             }
         ]
     },
@@ -46,8 +51,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
-                    "updated": 1632012849405,
+                    "text": "Si quieres vincular una dirección existente, escribe tu mnemónico de doce palabras en la propiedad mnemónico. Déjalo en blanco para generar una nueva dirección. La información no saldrá de tu ordenador, no se guardará en el disco y la borrarás antes de que terminemos. ",
+                    "updated": 1682520224775,
                     "style": "Text"
                 },
                 {
@@ -64,6 +69,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine bestehende Adresse verknüpfen möchten, geben Sie die zwölf Wörter der Mnemonik in die Eigenschaft mnemonic ein. Lassen Sie die Eigenschaft leer, um eine neue Adresse zu erzeugen! Sie werden diese sensiblen Daten später löschen. Die Daten verlassen Ihren Computer nicht und werden nicht auf der Festplatte gespeichert.",
                     "updated": 1640073154326
+                },
+                {
+                    "language": "ID",
+                    "text": "JIka kamu mau mentautkan alamat yang telah kamu punya, tuliskan mnemonik dua belas kata pada properti mnemonic. Biarkan kosong untuk  menghasilkan alamat baru! Infonya tidak akan meninggalkan komputer-mu, tidak akan tersimpan dalam diskamu, dan kamu akan menghapusnya nanti sebelum kita selesai.",
+                    "updated": 1670853566841
                 }
             ]
         },

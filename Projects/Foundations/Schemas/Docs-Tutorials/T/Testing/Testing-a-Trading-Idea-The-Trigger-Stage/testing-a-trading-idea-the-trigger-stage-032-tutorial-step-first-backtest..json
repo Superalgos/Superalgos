@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Artık temel tanımları oluşturduğumuza göre, ilk geriye dönük testi yapabiliriz.",
                 "updated": 1641655073364
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que ya tenemos estas definiciones básicas, podemos hacer un primer backtest.",
+                "updated": 1677101363664
             }
         ]
     },
@@ -43,8 +48,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sadece Trigger on ve Trigger off olaylarını tanımladığımız için fikri test etmeye henüz hazır değiliz. Sadece doğru tanımlara sahip olduğumuzdan emin olmak istiyoruz.",
-                    "updated": 1641655087790
+                    "text": "Sadece Trigger on ve Trigger off olaylarını tanımladığımız için tüm ticaret fikrini test etmeye henüz hazır değiliz. Sadece doğru tanımlara sahip olduğumuzdan emin olmak istiyoruz.",
+                    "updated": 1669582628705
+                },
+                {
+                    "language": "ES",
+                    "text": "No estamos listos para probar la idea, ya que sólo hemos definido los eventos de trigger on y trigger off. Sólo queremos asegurarnos de que las definiciones son correctas.",
+                    "updated": 1677101438186
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Strateji daha sonra 1H grafiği için bir mantık içerecek olsa da, mevcut tanımlar yalnızca 24h grafiği ile ilgilidir.",
                     "updated": 1641655099074
+                },
+                {
+                    "language": "ES",
+                    "text": "Aunque la estrategia eventualmente incluirá lógica relacionada con el gráfico de 1H, las definiciones actuales sólo involucran el gráfico de 24H.",
+                    "updated": 1677101448331
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "1 Ocak ile 1 Ekim 2020 arasında 24 saatlik zaman diliminde bir geriye dönük test oturumu gerçekleştireceğiz. Zaman Aralığı ( Time Range ) ve Zaman Çerçevesi ( Time Frame ) parametrelerine bir göz atın ve yukarıdakilerle eşleştiğinden emin olun!",
                     "updated": 1641655130777
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a ejecutar una sesión de backtesting entre el 1 de enero y el 1 de octubre de 2020, en el marco de tiempo de 24H. Echa un vistazo a los parámetros Time Range y Time Frame y asegúrate de que coinciden con los anteriores.",
+                    "updated": 1677101454374
                 }
             ]
         }

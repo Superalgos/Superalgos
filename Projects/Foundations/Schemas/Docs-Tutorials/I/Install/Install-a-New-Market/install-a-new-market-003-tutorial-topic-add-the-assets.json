@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si los activos con los que desea trabajar no se enumeran en Activos de Exchange, primero debe agregarlos y configurarlos.",
-                "updated": 1629162948016,
+                "text": "Si los activos con los que deseas trabajar no se enumeran en Activos de Exchange, primero debes agregarlos y configurarlos.",
+                "updated": 1682427228985,
                 "style": "Definition"
             },
             {
@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Если активы, с которыми вы хотите работать, не перечислены в разделе Exchange Assets, вы должны сначала добавить и настроить их.",
                 "updated": 1643090228970
+            },
+            {
+                "language": "NL",
+                "text": "Als de tokens waarmee u wilt werken niet worden vermeld onder Exchange Assets, moet u deze eerst toevoegen en configureren.",
+                "updated": 1676120620240
             }
         ]
     },
@@ -40,8 +45,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En esta sección del tutorial, aprenderás a definir con qué assets deseas trabajar.",
-                    "updated": 1629162994984,
+                    "text": "En esta sección del tutorial, aprenderás a definir con qué Assets deseas trabajar.",
+                    "updated": 1682427238739,
                     "style": "Callout"
                 },
                 {
@@ -58,6 +63,11 @@
                     "language": "RU",
                     "text": "В этом разделе учебника вы научитесь определять, с какими активами вы хотите работать.",
                     "updated": 1643090238384
+                },
+                {
+                    "language": "NL",
+                    "text": "In dit gedeelte van de zelfstudie leert u definiëren met welke middelen u wilt werken.",
+                    "updated": 1676120641232
                 }
             ]
         },
@@ -67,8 +77,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cada exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de basura es siempre una buena idea.",
-                    "updated": 1629163406741,
+                    "text": "Cada Exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de chatarra es siempre una buena idea.",
+                    "updated": 1682427351252,
                     "style": "Success"
                 },
                 {
@@ -85,6 +95,11 @@
                     "language": "RU",
                     "text": "На каждой бирже могут быть представлены сотни активов, однако вас, скорее всего, будут интересовать лишь некоторые из них. Некоторые автоматизированные операции могут питаться вашими определениями, поэтому держать их свободными от мусора - всегда хорошая идея.",
                     "updated": 1643090267732
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke beurs kan honderden tokens bevatten, maar u zult waarschijnlijk in slechts een paar geïnteresseerd zijn. Sommige geautomatiseerde bewerkingen kunnen uw definities voeden, dus het is altijd een goed idee om ze vrij van rommel te houden.",
+                    "updated": 1676120704128
                 }
             ]
         }

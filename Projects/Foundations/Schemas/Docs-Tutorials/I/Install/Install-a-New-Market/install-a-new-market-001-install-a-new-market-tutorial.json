@@ -26,6 +26,11 @@
                 "language": "RU",
                 "text": "В данном руководстве рассматривается процесс установки нового рынка. Процесс автоматизирует создание данных и торговых задач, а также графиков для указанного рынка.",
                 "updated": 1643090091471
+            },
+            {
+                "language": "NL",
+                "text": "Deze tutorial behandelt het proces van het installeren van een nieuwe markt. Het proces automatiseert het aanmaken van gegevens en handelstaken, evenals grafieken voor de genoemde Market.",
+                "updated": 1676120509432
             }
         ]
     },
@@ -45,12 +50,22 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394048178,
                     "style": "Title"
+                },
+                {
+                    "language": "NL",
+                    "text": "Over deze zelfstudie",
+                    "updated": 1676120522968
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1682427162743
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Tested Exchanges Plugin Workspace.",
+            "text": "Workspace: Tested Exchanges Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -69,6 +84,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394060337,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1676120545169
                 }
             ]
         }

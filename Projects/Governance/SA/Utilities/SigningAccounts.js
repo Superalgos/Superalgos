@@ -10,7 +10,8 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         userProfile,
         targetNode,
         targetNodeTypeCount,
-        response
+        response,
+        savedPayloadNode
     ) {
         /*
         Try to load the Secrets file. 
@@ -85,7 +86,8 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             name: 'New Signing Account',
             project: 'Governance',
             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            config: JSON.stringify(config)
+            config: JSON.stringify(config),
+            savedPayload: savedPayloadNode
         }
         targetNode.signingAccount = signingAccount
         /*

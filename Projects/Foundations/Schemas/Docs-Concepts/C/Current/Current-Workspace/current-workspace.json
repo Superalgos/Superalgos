@@ -1,18 +1,18 @@
 {
     "type": "Current Workspace",
     "definition": {
-        "text": "The Current Workspace is the Workspace currently loaded in the UI. It may be either a User Workspace or a Plugin Workspace.",
+        "text": "The Current Workspace is the Workspace currently loaded in the UI. It may be either a User Workspace or a Native Workspace.",
         "updated": 1629993045840,
         "translations": [
             {
                 "language": "RU",
-                "text": "Current Workspace - это рабочее пространство Workspace, загруженное в данный момент в пользовательский интерфейс UI. Это может быть рабочее пространство пользователя или рабочее пространство плагина Plugin Workspace.",
+                "text": "Current Workspace - это рабочее пространство Workspace, загруженное в данный момент в пользовательский интерфейс UI. Это может быть рабочее пространство пользователя или рабочее пространство плагина Native Workspace.",
                 "updated": 1638281407653
             },
             {
                 "language": "TR",
-                "text": "Geçerli Çalışma Alanı, kullanıcı arayüzünde o anda yüklü olan Çalışma Alanıdır. Bir Kullanıcı Çalışma Alanı ya da Eklenti Çalışma Alanı olabilir.",
-                "updated": 1654390911815
+                "text": "Geçerli Çalışma Alanı, kullanıcı arayüzünde ( UI ) o anda yüklü olan Çalışma Alanıdır ( Workspace ). Bir Kullanıcı Çalışma Alanı ( User Workspace ) ya da Eklenti Çalışma Alanı ( Native Workspace ) olabilir.",
+                "updated": 1671644479143
             }
         ]
     },

@@ -45,7 +45,7 @@
             openDashboardSocket()
             intervalIdupdateDashboard = setInterval(updateDashboard, 60 * 1000)
 
-            console.log((new Date()).toISOString(), '[INFO] Running Test Server v.' + TEST_SERVER_VERSION)
+            SA.logger.info('Running Test Server v.' + TEST_SERVER_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -61,13 +61,13 @@
     function openDashboardSocket() {
         socketClientDashboard = new SA.nodeModules.ws.WebSocket('ws://localhost:18043')
         socketClientDashboard.on('close', function (close) {
-            console.log((new Date()).toISOString(),'[INFO] {TestServer} Dashboard App has been disconnected.')
+            SA.logger.info('[INFO] {TestServer} Dashboard App has been disconnected.')
         })
         socketClientDashboard.on('error', function (error) {
-            console.log((new Date()).toISOString(),'[ERROR] {TestServer} Dashboards Client error: ', error.message, error.stack)
+            SA.logger.error('[ERROR] {TestServer} Dashboards Client error: ', error.message, error.stack)
         });
         socketClientDashboard.on('message', function (message) {
-            console.log((new Date()).toISOString(),'[INFO] {TestServer} This is a message coming from the Dashboards App', message)
+            SA.logger.info('[INFO] {TestServer} This is a message coming from the Dashboards App', message)
         });
     }
 
@@ -83,7 +83,7 @@
 
     async function start(callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), "Test Server is Starting Now.")
+            SA.logger.info("Test Server is Starting Now.")
             let queryMessage = {
                 sender: 'Test-Server',
                 instance: serverInstanceName
@@ -96,12 +96,12 @@
             }
             while (true) {
                 if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    console.log((new Date()).toISOString(), "Test Server is Stopping Now.")
+                    SA.logger.info("Test Server is Stopping Now.")
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     return
                 }
                 if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
-                    console.log((new Date()).toISOString(), "Not connected to the Superalgos Network. Retrying in 10 seconds...")
+                    SA.logger.info("Not connected to the Superalgos Network. Retrying in 10 seconds...")
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 } else {
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
@@ -114,7 +114,7 @@
                             */
                             getReadyForNewMessage()
                             if (response.result === "Ok" && response.data.result === "Ok" && response.data.message === "Next Request Already Expired.") {
-                                console.log((new Date()).toISOString(), 'Network Node Response: Next Request Already Expired.')
+                                SA.logger.info('Network Node Response: Next Request Already Expired.')
                             } else {
                                 /* No request at the moment for the Test Server */
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
@@ -131,7 +131,7 @@
                                 switch (clientData.recipient) {
                                     case 'Test Client Manager': {
                                         if (clientData.testClientVersion === undefined || clientData.testClientVersion < MIN_TEST_CLIENT_VERSION) {
-                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
+                                            SA.logger.info('Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
                                             managerResponse = 'CLIENT VERSION IS TOO OLD'
                                         } else {
                                             managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
@@ -162,18 +162,18 @@
                                 a response to the client, we will let it timeout and try again, in other words
                                 we will ignore messages that would crash the server.
                                 */
-                                console.log((new Date()).toISOString(), 'Query that produced an error at Test Server: ' + JSON.stringify(response))
-                                console.log((new Date()).toISOString(), 'err: ' + err)
-                                console.log((new Date()).toISOString(), 'err.stack: ' + err.stack)
+                                SA.logger.error('Query that produced an error at Test Server: ' + JSON.stringify(response))
+                                SA.logger.error('err: ' + err)
+                                SA.logger.error('err.stack: ' + err.stack)
                                 getReadyForNewMessage()
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                             }
                         }
                     }
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Error retrieving message from Network Node.')
-                        console.log((new Date()).toISOString(), 'err: ' + err)
-                        console.log((new Date()).toISOString(), 'Retrying in 10 seconds...')
+                        SA.logger.error('Error retrieving message from Network Node.')
+                        SA.logger.error('err: ' + err)
+                        SA.logger.error('Retrying in 10 seconds...')
                         getReadyForNewMessage()
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                     }
@@ -206,11 +206,11 @@
 
     async function updateDashboard() {
 
-        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} Updating Dashboard')
+        //SA.logger.debug('{TestServer} Updating Dashboard')
         let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
         let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Server|*|'+fileContent
         socketClientDashboard.send(messageToSend)
-        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} ' + messageToSend)
+        //SA.logger.debug('{TestServer} ' + messageToSend)
 
         fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
         messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Forecaster|*|'+fileContent

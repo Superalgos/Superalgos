@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Mari bicarakan temanku ini si search box di Docs. Dia seperti mempunyai dua kepribadian yaitu bisa mencari sekaligus sebagai tempat untuk perintah!",
                 "updated": 1667873279089
+            },
+            {
+                "language": "NL",
+                "text": "Laten we het hebben over mijn vriendin, het zoekvak in Docs. Ze heeft een beetje een dubbelleven: ze zoekt, maar beveelt ook!",
+                "updated": 1669573180004
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Maksudku search box juga bisa dimasukkan antarmuka baris perintah! List penggunaan perintah yang berkenaan yaitu:",
                     "updated": 1667871505137
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik bedoel, het zoekvak is ook een opdrachtregelinterface! De huidige lijst met commando's heeft te maken met:",
+                    "updated": 1669573197769
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Produksi dan Editing Docs.",
                     "updated": 1667871452628
+                },
+                {
+                    "language": "NL",
+                    "text": "Docs maken en bewerken.",
+                    "updated": 1669573215436
                 }
             ]
         },
@@ -129,8 +144,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Obteniendo actualizaciones.",
-                    "updated": 1628113492383,
+                    "text": "Obtener actualizaciones.",
+                    "updated": 1675449252516,
                     "style": "List"
                 },
                 {
@@ -152,6 +167,11 @@
                     "language": "ID",
                     "text": "Mendapatkan update.",
                     "updated": 1667871468099
+                },
+                {
+                    "language": "NL",
+                    "text": "Updates krijgen.",
+                    "updated": 1669573227220
                 }
             ]
         },
@@ -168,8 +188,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Contribuir con trabajo al proyecto.",
-                    "updated": 1628113514180,
+                    "text": "Contribuir tu trabajo realizado al proyecto.",
+                    "updated": 1675449326663,
                     "style": "List"
                 },
                 {
@@ -191,6 +211,11 @@
                     "language": "ID",
                     "text": "Berkontribusi kedalam proyek.",
                     "updated": 1667871483820
+                },
+                {
+                    "language": "NL",
+                    "text": "Meewerken aan het project.",
+                    "updated": 1669573237620
                 }
             ]
         },
@@ -230,6 +255,11 @@
                     "language": "ID",
                     "text": "Mari kita ke contoh praktek yang mempelajari keduanya yaitu cara mengedit Docs, dan bagaimana untuk berkontribusi, menggunakan beberapa perintah!",
                     "updated": 1667871428913
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we aan een praktisch voorbeeld werken waarbij deze twee betrokken zijn! Ik zal je leren hoe je de documenten kunt bewerken en hoe je kunt bijdragen, met behulp van een paar commando's!",
+                    "updated": 1669573265963
                 }
             ]
         },
@@ -246,8 +276,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
-                    "updated": 1628113581278,
+                    "text": "Prepararé los siguientes pasos con una pequeña historia... ¡Espero que te guste la idea!",
+                    "updated": 1675449337367,
                     "style": "Text"
                 },
                 {
@@ -269,6 +299,11 @@
                     "language": "ID",
                     "text": "Aku coba gunakan narasi cerita pada step berikutnya... Semoga kamu suka ide ini!",
                     "updated": 1667871575241
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal de volgende paar stappen opzetten met een klein verhaal... Ik hoop dat je het idee leuk vindt!",
+                    "updated": 1669573279044
                 }
             ]
         }

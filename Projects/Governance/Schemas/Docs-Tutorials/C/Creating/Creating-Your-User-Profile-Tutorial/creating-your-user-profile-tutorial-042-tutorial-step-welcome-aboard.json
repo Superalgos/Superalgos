@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Başardın! Artık resmi olarak Superalgos'un yönetiminde yer alıyorsunuz! Peki Sırada ne var?",
                 "updated": 1645105952157
+            },
+            {
+                "language": "ID",
+                "text": "Kamu berhasil! Kamu sekarang resmi menjadi bagian dari governance dari Superalgos! Jadi, apa selanjutnya?",
+                "updated": 1671546019440
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Profil Oluşturucu'yu (Profile Constructor) kullanarak yeni bir Yönetim Adresi (Governance Address) oluşturduysanız, tokenlerinizi kontrol edebilmek için bunu bir cüzdana bağlamak isteyebilirsiniz.",
                     "updated": 1645106053735
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menghasilkan Governance Address baru menggunakan Profile Constructor, kamu mungkin ingin menghubungkannya ke wallet perangkat lunak sehingga kamu memiliki kendali atas tokenmu.",
+                    "updated": 1671546033214
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Sağdaki bu Dokümanlar sayfasının \"Özel Anahtarı Cüzdana Aktar\" (Import Private Key in a Wallet) bölümüne bakın. Bu bölüm Trust Wallet kullanarak bunun nasıl yapılacağını açıklar. Göz atın!",
                     "updated": 1645106112001
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat bagian \"Import Private Key in a Wallet\" pada halaman Docs di sebelah kanan. Itu akan menjelaskan bagaimana caranya dengan Trust Wallet. Coba lihatlah!",
+                    "updated": 1671546040968
                 }
             ]
         },
@@ -97,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Siéntate libre de usar cualquier otra billetera que admita tokens BEP20 en el Binance Smart Chain.",
-                    "updated": 1630899484668,
+                    "text": " Puedes utilizar cualquier otro monedero compatible con los tokens BEP20. ",
+                    "updated": 1682522269599,
                     "style": "Note"
                 },
                 {
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Trust Wallet yerine Binance Akıllı Zincirinde BEP20 tokenlerini destekleyen diğer cüzdanlarıda kullanabilirsiniz.",
                     "updated": 1645106163562
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk menggunakan wallet lain yang mendukung token BEP20.",
+                    "updated": 1671546048130
                 }
             ]
         }

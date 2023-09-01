@@ -1,0 +1,68 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "9",
+    "type": "Recursive Median",
+    "definition": {
+        "text": "The Recursive Median as featured by John Ehlers in the march 2017 issue of Trader's Tips.",
+        "updated": 1670819059525
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Recursive Median on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "In \"Trader's Tips\", author John Ehlers presents an approach for filtering out extreme price and volume data that can throw off typical averaging calculations. Ehlers goes on to present a novel oscillator using this technique, comparing its response to the well-known RSI. ",
+            "updated": 1670819099505
+        },
+        {
+            "style": "Text",
+            "text": "He notes that by being able to smooth the data with the least amount of lag, the recursive median oscillator may give the trader a better view of the bigger picture."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-recursive-median-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RecursiveMedian | recursiveMedian | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Recursive Median\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-recursive-median-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above zero:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.recursiveMedian.value > 0 && chart.at01hs.recursiveMedian.previous.value <= 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "topic": "Aggregated Data Mine",
+    "pageNumber": "3",
+    "type": "Donchian Trend Ribbon",
+    "definition": {
+        "text": "This indicator calculates ten Donchian channels and combines them in a similar way to the EMA based guppy indicator."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Donchian Trend Ribbon on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "By calculating ten Donchian channels, the indicator then provides a final output based upon the consensus of the trend direction of all of the calculations."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-donchian-trend-ribbon.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| DonchianTrendRibbon | dtr | value0 - value9 |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the initial Donchian calculation can be adjusted by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Donchian Trend Ribbon\" Procedure Loop.",
+            "updated": 1679372929187
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-donchian-trend-ribbon-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry condition could be performed with the following example, when the first and last of the output values are aligned with a value of 2:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.dtr.value0 == 2 && chart.at01hs.dtr.value9 == 2"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

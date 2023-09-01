@@ -10,13 +10,35 @@
                 "language": "RU",
                 "text": "Учебники великолепны, и я узнаю много нового о том, как использовать Superalgos. Программа очень глубокая, и, вероятно, мне понадобится еще несколько дней, прежде чем я попробую торговать в реальном времени, но я уверен, что необходимая мне информация доступна. Superalgos имеет отличную документацию, и большинство вещей легко доступны, если вы знаете, как их найти. Не терпится внести свой вклад.\n\nLiteir",
                 "updated": 1640418624640
+            },
+            {
+                "language": "TR",
+                "text": "Eğitimler harika ve Superalgos'un nasıl kullanılacağı hakkında çok şey öğreniyorum. Program çok detaylı ve gerçek bir işlem yapabilmem için muhtemelen birkaç gün daha geçmesi gerekecek, ancak ihtiyacım olan bilgilerin mevcut olduğundan eminim. Superalgos'un harika dokümanları var ve nasıl bulacağınızı biliyorsanız çoğu şeye kolayca erişebilirsiniz. Katkıda bulunmayı dört gözle bekliyorum.\nLiteir",
+                "updated": 1669584952622
+            },
+            {
+                "language": "DE",
+                "text": "Die Tutorials sind großartig und ich lerne eine Menge über die Verwendung von Superalgos. Das Programm ist sehr detailliert und ich werde wahrscheinlich noch ein paar Tage brauchen, bevor ich einen Live-Handel ausprobiere, aber ich bin zuversichtlich, dass die Informationen, die ich brauche, verfügbar sind. Superalgos hat eine hervorragende Dokumentation und die meisten Dinge sind leicht zugänglich, wenn man weiß, wie man sie findet. Ich kann es kaum erwarten, einen Beitrag zu leisten. \n\nvon: Liteir",
+                "updated": 1687640208769
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle'ye tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1669584968551
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687640227441
+                }
+            ]
         }
     ]
 }

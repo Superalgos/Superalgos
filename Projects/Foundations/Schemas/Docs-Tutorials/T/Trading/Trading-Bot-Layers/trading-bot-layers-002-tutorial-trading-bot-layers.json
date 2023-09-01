@@ -25,6 +25,16 @@
                 "language": "TR",
                 "text": "Bu eğitimde size Trading Bot'un katmanlarının nasıl çalıştığını göstereceğim! Her türlü alım satım seansıyla ilişkili grafiklerde gösterilenleri kastediyorum!",
                 "updated": 1641717504580
+            },
+            {
+                "language": "ID",
+                "text": "Dalam tutorial ini aku memperlihatkan kamu bagaimana layers dari Trading Bot bekerja! Maksudku yang ditampilkan di chart, terkait dengan semua jenis sesi trading!",
+                "updated": 1673827739808
+            },
+            {
+                "language": "ES",
+                "text": "¡En este tutorial te mostraré cómo funcionan las capas del Trading Bot! Me refiero a las que aparecen en los gráficos, ¡asociadas a todo tipo de sesiones de trading!",
+                "updated": 1675462580043
             }
         ]
     },
@@ -49,6 +59,16 @@
                     "language": "TR",
                     "text": "Hadi devam edelim! Ticaret Botu (Trading Bot) düzinelerce ürün üretir ve bunların tümü üç ayrı Katman Yöneticisinde (Layer Managers) bulunur:",
                     "updated": 1641717582828
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita lanjutkan! Trading Bot menghasilkan lusinan produk, dan semuanya ditampilkan dalam Layers Managers terpisah:",
+                    "updated": 1673827747778
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Manos a la obra! El Trading Bot emite docenas de productos, y todos ellos aparecen en tres Layer Managers separados:",
+                    "updated": 1675462610696
                 }
             ]
         },
@@ -72,6 +92,16 @@
                     "language": "TR",
                     "text": "Trading Engine: Trading Engine hiyerarşisindeki düğümlerin değerlerinin raporlanmasını açan ve kapatan katmanlar içerir.",
                     "updated": 1641717712023
+                },
+                {
+                    "language": "ID",
+                    "text": "Trading Engine: menampilkan layers yang bisa menghidupkan dan mematikan pelaporan value atau nilai dari node dalam hierarki Trading Engine.",
+                    "updated": 1673827755659
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Engine: presenta capas que activan y desactivan la información de los valores de los nodos en la jerarquía del Trading Engine.",
+                    "updated": 1675462636012
                 }
             ]
         },
@@ -95,6 +125,16 @@
                     "language": "TR",
                     "text": "Trading System: Alım Satım Sistemi düzeyinde birden fazla rapor türünü açan ve kapatan katmanlara sahiptir.",
                     "updated": 1641717774994
+                },
+                {
+                    "language": "ID",
+                    "text": "Trading System: menampilkan layers yang bisa menghidupkan dan mematikan berbagai jenis laporan pada tingkatan Trading System.",
+                    "updated": 1673827765144
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading System: presenta capas que activan y desactivan múltiples tipos de informes a nivel del Trading System.",
+                    "updated": 1675462650076
                 }
             ]
         },
@@ -118,6 +158,16 @@
                     "language": "TR",
                     "text": "Simulation Objects: Grafikler üzerinde görsel bilgilerin oluşturulmasını etkileyen katmanları içerir.",
                     "updated": 1641717820493
+                },
+                {
+                    "language": "ID",
+                    "text": "Simulation Objects: menampilkan layers yang memperngaruhi perenderan informasi visual di atas charts.",
+                    "updated": 1673827774865
+                },
+                {
+                    "language": "ES",
+                    "text": "Simulation Objects: presenta capas que afectan a la representación de la información visual sobre los gráficos.",
+                    "updated": 1675462698191
                 }
             ]
         }

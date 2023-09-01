@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Şimdi biraz beklememiz gerekiyor! Tüm süreçler %100 'e ulaştığında, devam edebiliriz!",
                 "updated": 1641754314714
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kita hanya harus menunggu sebentar! Ketika semua prosesnya sampai tertanda 100%, Lalu kita lanjut!",
+                "updated": 1673831026968
+            },
+            {
+                "language": "ES",
+                "text": "Ahora tenemos que esperar un poco. Cuando todos los procesos alcancen el 100%, podremos continuar.",
+                "updated": 1675463326805
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Muhtemelen bildiğiniz gibi, veri madenciliği için gereken süre birçok şeye bağlıdır. Önceki etkinliklerden bu verilerin bir kısmına zaten sahipseniz, daha hızlı olabilir!",
                     "updated": 1641754375939
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang telah kamu ketahui, waktu yang diperlukan untuk mining data bergantung pada banyak hal. Jika kamu sudah memiliki beberapa data ini dari aktivitas sebelumnya, itu mungkin lebih cepat!",
+                    "updated": 1673831034532
+                },
+                {
+                    "language": "ES",
+                    "text": "Como probablemente sepas, el tiempo necesario para extraer datos depende de muchas cosas. Si ya tienes algunos de estos datos de actividades anteriores, ¡puede que sea más rápido!",
+                    "updated": 1675463344289
                 }
             ]
         },
@@ -69,6 +89,16 @@
                     "language": "TR",
                     "text": "Sparta ve Masters veri madenlerindeki tüm göstergeler için süreçleri izleyin. Hepsi %100'e ulaştığında, veri madenciliği işlemini durdurun ve devam etmek için İleri'ye tıklayın.",
                     "updated": 1641754399144
+                },
+                {
+                    "language": "ID",
+                    "text": "Pantau proses untuk semua indikator di Sparta and Masters data mines. Ketika semuanya mencapai 100%, hentikan operasi mining data dan klik Next untuk melanjutkan.",
+                    "updated": 1673831041365
+                },
+                {
+                    "language": "ES",
+                    "text": "Supervisa los procesos de todos los indicadores en las minas de datos de Sparta y Masters. Cuando todos ellos alcancen el 100%, detén la operación de minería de datos y pulsa Next para continuar.",
+                    "updated": 1675463378012
                 }
             ]
         },
@@ -86,6 +116,16 @@
                     "language": "TR",
                     "text": "\"Bollinger Channels\" göstergesi muhtemelen en son tamamlanan gösterge olacak!",
                     "updated": 1641754463513
+                },
+                {
+                    "language": "ID",
+                    "text": "Bollinger Channels kemungkinan akan menjadi yang terakhir!",
+                    "updated": 1673831047803
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Los Canales de Bollinger probablemente serán los últimos!",
+                    "updated": 1675463384097
                 }
             ]
         }

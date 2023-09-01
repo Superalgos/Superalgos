@@ -37,32 +37,35 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
             candleSignals.push(tradingSignalMessage)
         } else {
             candleSignals.push(tradingSignalMessage)
-            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(candleSignals, socialTradingBot)
+            SA.logger.debug('Outgoing Candle Signal -> persisting data to open storage')
+            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persistSignal(candleSignals, socialTradingBot)
             socialTradingBotsMap.delete(socialTradingBot.id)
         }
     }
-
+    
     async function broadcastFileKey(fileKey, socialTradingBot) {
-
+        
         if (socialTradingBot === undefined) { return }
         if (socialTradingBot.config === undefined) { return }
         if (socialTradingBot.signingAccount === undefined) { return }
-
+        
         let signalMessage = {
             signalId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(), 
             originSocialTradingBotId: socialTradingBot.id,
             fileKey: fileKey
         }
-
+        
         let messageHeader = {
             requestType: 'Signal',
             networkService: 'Trading Signals',
             signalMessage: JSON.stringify(signalMessage)
         }
- 
+        
+        SA.logger.debug('Outgoing Candle Signal -> sending signal message to P2P network')
         let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.tradingSignalsNetworkServiceClient.sendMessage(messageHeader)
+        SA.logger.debug('Outgoing Candle Signal -> signal response result = ' + response.result)
         if (response.result !== 'Ok') {
-            console.log((new Date()).toISOString(), '[ERROR] broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
+            SA.logger.error('broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
         }
     }
 }

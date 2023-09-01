@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Yapım aşamasındaki bir göstergede nasıl hata ayıklanacağı konusunda geliştiriciler için bir vaka çalışması. Bunlar, RSI göstergesini oluştururken gerçek bir sorun sırasında alınan birkaç nottur.",
                 "updated": 1647871209555
+            },
+            {
+                "language": "DE",
+                "text": "Eine Fallstudie für Entwickler, wie man einen in der Entwicklung befindlichen Indikator überprüft. Dies sind einige Notizen, die während eines echten Problems bei der Erstellung des RSI-Indikators gemacht wurden.",
+                "updated": 1678649324778
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Göstergem Çalışmıyor!",
                     "updated": 1647871234288
+                },
+                {
+                    "language": "DE",
+                    "text": "Mein Indikator läuft nicht!",
+                    "updated": 1678649334709
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Aşağıdakiler, böyle bir senaryodaki mantıksal kontrol listesidir:",
                     "updated": 1647871455206
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist die logische Checkliste in einem solchen Szenario:",
+                    "updated": 1678649343574
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Tüm bağımlılıkların çalıştığından emin olun.",
                     "updated": 1647871465612
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass alle Anwendungen ausgeführt werden.",
+                    "updated": 1678649355708
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Hangi işlemin çalışmadığını belirleyin (Multi-Time-Frame-Daily veya Multi-Time-Frame-Market).",
                     "updated": 1647871479632
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie fest, welcher Prozess nicht läuft (Multi-Time-Frame-Daily oder Multi-Time-Frame-Market).",
+                    "updated": 1678649398105
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Karşılık gelen yürütme başlatıldı olayının doğru işleme atıfta bulunup bulunmadığını kontrol edin. Başvurulan işlemin hatasız, %100'de çalıştığından emin olun.",
                     "updated": 1647871548232
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie, ob das entsprechende Ereignis \"Ausführung gestartet\" auf den richtigen Prozess verweist. Vergewissern Sie sich, dass der entsprechende Prozess fehlerfrei und zu 100 % läuft.",
+                    "updated": 1678649413510
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "TR",
                     "text": "Veri bağımlılığı referanslarının yerinde olup olmadığını kontrol edin. Bu bağımlılıkların hatasız, %100'de çalıştığından emin olun.",
                     "updated": 1647871558105
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie, ob Datenabhängigkeitsreferenzen vorhanden sind. Vergewissern Sie sich, dass diese Abhängigkeiten fehlerfrei und zu 100 % ausgeführt werden.",
+                    "updated": 1678649424107
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "TR",
                     "text": "Tüm botları durdurun ve Günlük Dosyalar klasörünü ( Log-Files ) silin, böylece mevcut günlükleri kolayca tanımlayabilirsiniz.",
                     "updated": 1647871620144
+                },
+                {
+                    "language": "DE",
+                    "text": "Stoppen Sie alle Bots und löschen Sie den Ordner \"Log-Files\", damit Sie die aktuellen Protokolle leicht identifizieren können.",
+                    "updated": 1678649433264
                 }
             ]
         },
@@ -145,6 +185,11 @@
                     "language": "TR",
                     "text": "Göstergenizin bağımlılıklarını çalıştırın.",
                     "updated": 1647871640024
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie die Abhängigkeiten Ihres Indikators aus.",
+                    "updated": 1678649441255
                 }
             ]
         },
@@ -161,6 +206,11 @@
                     "language": "TR",
                     "text": "Hatasız, düzgün bir şekilde çalıştıklarından emin olun. Şüpheniz varsa günlükleri kontrol edin.",
                     "updated": 1647871663856
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass sie ordnungsgemäß und ohne Fehler laufen. Prüfen Sie im Zweifelsfall die Protokolle. Starten Sie Ihren Indikator. Prüfen Sie die Protokolldateien Ihres Indikators.",
+                    "updated": 1678649453414
                 }
             ]
         },
@@ -177,6 +227,11 @@
                     "language": "TR",
                     "text": "Göstergenizi çalıştırın. Göstergenizin günlük dosyalarını kontrol edin.",
                     "updated": 1647871684359
+                },
+                {
+                    "language": "DE",
+                    "text": "Starten Sie Ihren Indikator. Prüfen Sie die Protokolldateien Ihres Indikators.",
+                    "updated": 1678649563877
                 }
             ]
         },
@@ -193,6 +248,11 @@
                     "language": "TR",
                     "text": "Göstergem Hatalarla Çalışıyor",
                     "updated": 1647871700016
+                },
+                {
+                    "language": "DE",
+                    "text": "Mein Indikator läuft mit Fehlern",
+                    "updated": 1678649577019
                 }
             ]
         },
@@ -210,6 +270,11 @@
                     "language": "TR",
                     "text": "Bir Görevde ( Debugging a Task ), yani göstergeyi kontrol eden Veri Görevinde Hata Ayıklayarak bir göstergede hata ayıklayabilirsiniz.",
                     "updated": 1647871770072
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können einen Indikator beobachten, indem Sie eine Task überprüfen (Debugging a Task), d.h. die Daten-Task, die den Indikator steuert.",
+                    "updated": 1678649586283
                 }
             ]
         }

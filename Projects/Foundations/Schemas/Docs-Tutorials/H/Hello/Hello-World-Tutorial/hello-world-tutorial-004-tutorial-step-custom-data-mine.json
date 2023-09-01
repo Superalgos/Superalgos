@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "No solo Workspaces se pueden modificar",
-                "updated": 1629346887546
+                "text": "No solo los Workspaces se pueden modificar",
+                "updated": 1682357652290
             },
             {
                 "language": "IT",
@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Изменять можно не только рабочие пространства",
                 "updated": 1640633292137
+            },
+            {
+                "language": "NL",
+                "text": "Niet alleen Workspaces kunnen worden aangepast",
+                "updated": 1670772979344
+            },
+            {
+                "language": "ID",
+                "text": "Tidak hanyak Workspace yang dapat diubah",
+                "updated": 1670299238770
             }
         ]
     },
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "У Superalgos модульная система, которая может быть организована так, как мы хотим для наших нужд.",
                     "updated": 1640633435587
+                },
+                {
+                    "language": "NL",
+                    "text": "SA is zeer modulair en kan worden ingericht zoals wij dat willen.",
+                    "updated": 1670772993477
+                },
+                {
+                    "language": "ID",
+                    "text": "SA sangatlah standar dan dapat diatur sesuai dengan keinginan kita.",
+                    "updated": 1670299248692
                 }
             ]
         },
@@ -101,6 +121,16 @@
                     "language": "RU",
                     "text": "Я подготовил для вас базовое рабочее пространство с новым Data Mine и расположил узлы, удалив все, что мне не нужно для этого урока.",
                     "updated": 1640633473041
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb een heel eenvoudige Workspace voor je voorbereid met een nieuwe Data Mine en de knooppunten gerangschikt om alles te verwijderen wat ik niet nodig heb voor deze tutorial.",
+                    "updated": 1670773041584
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku sarankan kamu pada Workspace standar dengan Data Mine baru serta aku hapus node yang tidak terlalu dibutuhkan untuk tutorial ini.",
+                    "updated": 1670299265923
                 }
             ]
         },
@@ -133,6 +163,16 @@
                     "language": "RU",
                     "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор!",
                     "updated": 1640633531680
+                },
+                {
+                    "language": "NL",
+                    "text": "In SA kunnen data mines worden toegevoegd en verwijderd, maar de gegevens die op uw harde schijf zijn opgeslagen, worden niet verwijderd als u een indicator verwijdert!",
+                    "updated": 1670773074817
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada SA data mines bisa ditambahkan atau dihilangkan tetapi data yang disimpan di hard disk kamu tidak akan terhapus apabila kamu menghapus indikator!",
+                    "updated": 1670299277335
                 }
             ]
         },

@@ -1,0 +1,141 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 103,
+    "type": "Tutorial Step - Let's Do This!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "live-trading-session"
+        },
+        "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Abbiamo completato tutti e tre i punti sulla nostra checklist e siamo pronti a partire!",
+                "updated": 1618071368189,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
+                "updated": 1624483496936,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los!",
+                "updated": 1634245028451
+            },
+            {
+                "language": "TR",
+                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
+                "updated": 1636573370550
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah melalui 3-point checklist dan kita siap berangkat, jadi mari kita lanjutkan!",
+                "updated": 1640576693623
+            },
+            {
+                "language": "RU",
+                "text": "Мы прошли через контрольный список из трех пунктов и готовы к работе, так что давайте приступим!",
+                "updated": 1642771513949
+            },
+            {
+                "language": "NL",
+                "text": "We hebben de 3-punts checklist doorlopen en zijn er klaar voor, dus laten we doorgaan!",
+                "updated": 1667135081022
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Run the Lightning Strike Task, and then run the Lightning Strike Live Trading Session further down the hierarchy!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esegui l'attività Lightning Strike Task, quindi esegui la Lightning Strike Live Trading Session più in basso nella gerarchia!",
+                    "updated": 1666393946847,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ejecuta el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía!",
+                    "updated": 1675362442983,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie!",
+                    "updated": 1634245034579
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Görevini ( Lightning Strike Task ) çalıştırın ve ardından Lightning Strike Live Trading Seansını çalıştırın (Hiyerarşinin daha aşağısında göreceksiniz)",
+                    "updated": 1636573921437
+                },
+                {
+                    "language": "ID",
+                    "text": "Run Lightning Strike Task, dan kemudian jalankan Lightning Strike Live Trading Session lebih jauh ke bawah hierarchy!",
+                    "updated": 1640576740486
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустите задачу Lightning Strike, а затем запустите торговую сессию Lightning Strike Live Trading Session дальше по иерархии!",
+                    "updated": 1642771548107
+                },
+                {
+                    "language": "NL",
+                    "text": "<i>Start</i> de Lightning Strike Task en voer vervolgens de Lightning Strike Live Trading Session verder in de hiërarchie uit!",
+                    "updated": 1667135157375
+                }
+            ],
+            "updated": 1622233324259
+        },
+        {
+            "style": "Note",
+            "text": "Once you run the session, the trading bot may have to wait up to 60 seconds for the last indicator to finish processing. Once it does, you will see the current date and a 0% progress notice under the Trading Process Instance, which will remain like that throughout the run, because we are not setting a time limit for the session.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta eseguita la sessione, il bot di trading potrebbe dover attendere fino a 60 secondi affinché l'ultimo indicatore termini l'elaborazione. Una volta fatto, vedrai la data corrente e un avviso di avanzamento dello 0% nell'istanza del processo di trading, che rimarrà così per tutta la durata, perché non stiamo fissando un limite di tempo per la sessione.",
+                    "updated": 1666394024795,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que ejecute la sesión, es posible que el Trading Bot tenga que esperar hasta 60 segundos para que el último indicador termine de procesarse. Una vez que lo haga, verá la fecha actual y un aviso de progreso del 0% en la Trading Process Instance, que permanecerá así durante toda la ejecución, porque no estamos estableciendo un límite de tiempo para la sesión.",
+                    "updated": 1624483658880,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie die Sitzung gestartet haben, muss der Trading-Bot möglicherweise bis zu 60 Sekunden warten, bis der letzte Indikator verarbeitet ist. Sobald dies der Fall ist, sehen Sie das aktuelle Datum und eine 0%-Fortschrittsanzeige unter der Trading Process Instance, die während des gesamten Laufs so bleibt, da wir kein Zeitlimit für die Sitzung festlegen.",
+                    "updated": 1634245041595
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturumu çalıştırdığınızda, işlem botunun son göstergenin işlemeyi bitirmesi için 60 saniyeye kadar beklemesi gerekebilir. Bunu yaptıktan sonra, Trading Process Instance düğümü altında geçerli tarihi ve %0 ilerleme bildirimini göreceksiniz, bu, oturum için bir zaman sınırı belirlemediğimizden çalışma boyunca böyle kalacaktır.",
+                    "updated": 1636574569129
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu menjalankan session, trading bot mungkin harus menunggu hingga 60 detik untuk indikator terakhir menyelesaikan pemrosesan. Setelah itu, kamu akan melihat tanggal saat ini dan pemberitahuan kemajuan 0% di bawah Trading Process Instance, yang akan tetap seperti itu sepanjang perjalanan, karena kita tidak menetapkan time limit untuk session tersebut.",
+                    "updated": 1640576857077
+                },
+                {
+                    "language": "RU",
+                    "text": "После запуска сессии торговому боту может потребоваться подождать до 60 секунд, пока последний индикатор закончит обработку. Как только это произойдет, вы увидите текущую дату и уведомление о прогрессе в 0% под экземпляром торгового процесса, который останется таким на протяжении всего сеанса, поскольку мы не устанавливаем лимит времени для сеанса.",
+                    "updated": 1642771583338
+                },
+                {
+                    "language": "NL",
+                    "text": "Nadat u de sessie hebt uitgevoerd, moet de handelsbot mogelijk tot 60 seconden wachten voordat de laatste indicator is verwerkt. Zodra dit het geval is, ziet u de huidige datum en een voortgangsmelding van 0% onder de Trading Process Instance, die gedurende de hele sessie zo zal blijven, omdat we geen tijdslimiet voor de sessie instellen.",
+                    "updated": 1667135232863
+                }
+            ],
+            "updated": 1622233370311
+        }
+    ]
+}

@@ -83,6 +83,34 @@
             "text": "15) Keltner Baseline"
         },
         {
+            "style": "List",
+            "text": "16 ) One Sided Gauss Channels"
+        },
+        {
+            "style": "List",
+            "text": "17) T3 Moving Average"
+        },
+        {
+            "style": "List",
+            "text": "18) MavilimW"
+        },
+        {
+            "style": "List",
+            "text": "19) Gann Swing"
+        },
+        {
+            "style": "List",
+            "text": "20) Mean Reversion Channels"
+        },
+        {
+            "style": "List",
+            "text": "21) GK YZ Channels"
+        },
+        {
+            "style": "List",
+            "text": "22) Jurik Filter"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

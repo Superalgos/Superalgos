@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Вместо того чтобы проверять, что произошло с ордером на бирже, бот запускает симуляцию синхронизации и обновляет торговый движок результатами расчетов.",
                 "updated": 1640331954595
+            },
+            {
+                "language": "DE",
+                "text": "Anstatt zu prüfen, was mit dem Auftrag an der Börse passiert ist, startet der Bot die Synchronisationssimulation und aktualisiert die Trading Engine mit den Ergebnissen der Berechnungen.\n",
+                "updated": 1679758671501
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Этот процесс одинаков для всех ордеров и включает в себя имитацию синхронизации с биржей (см. Simulating Sync With the Exchange), которая выполняет все проверки и вычисления, а также обновляет связанные узлы в иерархии торгового механизма.",
                     "updated": 1640332061884
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Prozess ist für alle Aufträge gleich und beinhaltet eine simulierte Synchronisation mit der Börse - siehe Synchronisation mit der Börse simulieren (Simulating Sync With the Exchange), die alle Prüfungen und Berechnungen durchführt und die zugehörigen Knoten in der Hierarchie der Trading Engine aktualisiert.",
+                    "updated": 1679758684482
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "После имитации синхронизации бот проверяет, был ли ордер полностью заполнен во время имитации...",
                     "updated": 1640332076304
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die simulierte Synchronisation abgeschlossen ist, prüft der Bot, ob der Auftrag während der Simulation vollständig ausgeführt wurde...",
+                    "updated": 1679758693976
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "... и соответствующим образом обновляет соответствующие узлы торгового движка:",
                     "updated": 1640332092540
+                },
+                {
+                    "language": "DE",
+                    "text": "... und aktualisiert die entsprechenden Trading-Engine-Knoten entsprechend:",
+                    "updated": 1679758702422
                 }
             ]
         },

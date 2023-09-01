@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Помните ли вы, как извлечь адрес узла, чтобы мы могли ссылаться на него из нашей формулы?",
                 "updated": 1642779376602
+            },
+            {
+                "language": "ES",
+                "text": "¿Recuerdas cómo extraer la dirección del nodo para poder referenciarlo desde nuestra fórmula?",
+                "updated": 1680710078107
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Войдите в меню узла и нажмите на кнопку \"Copy Node Path\"!",
                     "updated": 1642779392706
+                },
+                {
+                    "language": "ES",
+                    "text": "Accede al menú de nodos y haz clic en el botón \" Copy Node Path \".",
+                    "updated": 1680710194788
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Следующая строка должна оказаться в вашем буфере обмена:",
                     "updated": 1642779402696
+                },
+                {
+                    "language": "ES",
+                    "text": "La siguiente cadena debería aparecer en tu portapapeles:",
+                    "updated": 1680710212465
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "RU",
                     "text": "Посмотрите на путь... видите, какой в нем смысл?",
                     "updated": 1642779445561
+                },
+                {
+                    "language": "ES",
+                    "text": "Echa un vistazo al camino... ¿ves que tiene sentido?",
+                    "updated": 1680710241825
                 }
             ]
         }

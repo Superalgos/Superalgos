@@ -8,22 +8,35 @@
     letter-spacing: 0.2px;
 }
 
-nav il {
+#workspace-title {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color:#FFF;
+    padding: 8px 10px;
+    background-image: radial-gradient(rgba(0,0,0,0.7) 40%, rgba(0,0,0,0));
+}
+
+nav li {
     position: relative;
     display: block;
     opacity: 1;
     cursor: pointer;
 }
 
-nav > ul > il > a{
+nav > ul > li > a{
     background:rgb(0, 0, 0, 0);
 }
 
-nav > ul > il > ul > il a{
+nav > ul > li > ul > li a{
     background:rgb(0, 0, 0, 0.5);
 }
 
-nav il > ul {
+nav li > ul {
     padding: 0;
     position: absolute;
     pointer-events: none;
@@ -34,27 +47,27 @@ nav > ul {
     display:flex;
 }
 
-nav > ul > il {
+nav > ul > li {
     pointer-events: all;
     opacity: 1;
     text-decoration: underline;
 }
 
-ul il a {
+ul li a {
     white-space: nowrap;
     display: block;
 }
    
-il:hover > ul {
+li:hover > ul {
     pointer-events: initial;
 }
 
-il:hover > ul > il,
-ul:hover > il {
+li:hover > ul > li,
+ul:hover > li {
     opacity: 1;
 }
 
-nav > ul > il il ul {
+nav > ul > li li ul {
     transform: translateX(100%);
     top: 0;
     right: 0;
@@ -83,12 +96,12 @@ nav a:hover {
     transition: 0.1s;
 }
 
-nav > ul > il > ul > il {
+nav > ul > li > ul > li {
     transition: opacity 0.1s;
     opacity: 0;
 }
 
-il > ul > il > ul > il {
+li > ul > li > ul > li {
     transition: opacity 0.1s;
     opacity: 0;
 }

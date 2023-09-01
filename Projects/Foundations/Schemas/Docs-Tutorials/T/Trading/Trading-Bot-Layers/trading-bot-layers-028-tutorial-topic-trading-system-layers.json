@@ -23,6 +23,16 @@
                 "language": "TR",
                 "text": "Anlatılacak son katman yöneticisi, simülasyon için ticaret kurallarını içeren Ticaret Sistemi (Trading System) hakkındadır!",
                 "updated": 1642514046664
+            },
+            {
+                "language": "ID",
+                "text": "Layer manager terakhir adalah tentang Trading System yang menampilkan fitur trading rules untuk simulasi!",
+                "updated": 1673966689964
+            },
+            {
+                "language": "ES",
+                "text": "¡El último gestor de capas es sobre el Trading System que presenta las reglas de trading para la simulación!",
+                "updated": 1675468286148
             }
         ]
     },
@@ -45,6 +55,16 @@
                     "language": "TR",
                     "text": "Bu katmanlar, Trading Engine katman yöneticisindekilere benzer şekilde çalışır: grafiklerde değil, tasarım alanında bilgi gösterirler. Aradaki fark, bunların ticaret sistemi hiyerarşisinde bir şeyler göstermesidir!",
                     "updated": 1642514085700
+                },
+                {
+                    "language": "ID",
+                    "text": "Layer-layer ini bekerja mirip dengan yang ada di layer manager Trading Engine: mereka menunjukkan informasi tentang design space, bukan pada charts. Perbedaannya adalah ini menunjukkan hal-hal pada hierarki trading system!",
+                    "updated": 1673966698480
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas capas funcionan de forma similar a las del gestor de capas del Trading Engine: muestran información sobre el espacio de diseño, no sobre los gráficos. La diferencia es que ¡éstas muestran cosas sobre la jerarquía del sistema de trading!",
+                    "updated": 1675468311013
                 }
             ]
         },
@@ -66,6 +86,16 @@
                     "language": "TR",
                     "text": "Bu katmanlar özellikle stratejiler tasarlarken, test ederken ve hata ayıklarken kullanışlıdır! Sadece bekle ve gör!",
                     "updated": 1642514100581
+                },
+                {
+                    "language": "ID",
+                    "text": "Layers ini sangat berguna saat merancang, menguji, dan men-debug strategi! Tunggu dan lihat saja!",
+                    "updated": 1673966705154
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Estas capas son particularmente útiles cuando se diseñan, prueban y depuran estrategias! ¡Sólo tienes que esperar y ver!",
+                    "updated": 1675468329163
                 }
             ]
         },
@@ -87,6 +117,16 @@
                     "language": "TR",
                     "text": "Devam etmeden önce, ekranın dağınıklığını önlemek için bazı Simülasyon Nesneleri katmanlarını kapatın!",
                     "updated": 1642514116784
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebelum melanjutkan, matikan beberapa layer Simulation Objects agar layar tidak berantakan!",
+                    "updated": 1673966712148
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de continuar, desactiva algunas capas de Simulation Objects para evitar saturar la pantalla.",
+                    "updated": 1675468350991
                 }
             ]
         }

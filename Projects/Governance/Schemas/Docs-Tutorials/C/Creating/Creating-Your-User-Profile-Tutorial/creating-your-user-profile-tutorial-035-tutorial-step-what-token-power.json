@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si no tiene tokens en tu Governance Address, entonces tienes cero Token Power!¡Pero no te preocupes! ¡Trabajaremos en algo!",
-                "updated": 1630897494092,
+                "text": "Si no tienes tokens en tu Governance Address, entonces tienes cero Token Power!¡Pero no te preocupes! ¡Trabajaremos en algo!",
+                "updated": 1682521638988,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Yönetim Adresinizde jeton yoksa, jeton gücünüz sıfırdır! Ama endişelenme! Bir şeyler ayarlayacağız!",
                 "updated": 1645101334793
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu tidak memiliki token di Governance Address kamu, maka kamu punya nol Token Power! Tapi tidak perlu khawatir! Kita punya suatu kerjaan untukmu!",
+                "updated": 1671543579938
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si tienes algun Token Powero no, observe que ahora hay 0% de Token Power entrando en el Onboarding Programs y 100% entrando en el Community Building Programs! ¡Las compuertas cerradas, el flujo va a otra parte! ¡También puedes jugar con porcentajes!",
-                    "updated": 1630897759311,
+                    "text": "Tanto si tienes Poder de tokens como si no, observa que ahora hay un 0% de Token Power que va a los Programas de Incorporación y un 100% que va a los Programas de Creación de Comunidad. Cerradas las compuertas, ¡el flujo va a otra parte! Puedes jugar con los porcentajes.",
+                    "updated": 1682521684679,
                     "style": "Text"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Herhangi bir Jeton Gücünüz olsun ya da olmasın, artık Başlangıç Programlarına (Onboarding Programs) giden Token Gücünün % 0 ve Topluluk Oluşturma Programlarına (Community Building Programs) giden %100 olduğuna dikkat edin! Sel kapıları kapandı, akış başka yere gidiyor! Bu noktada yüzdelerle oynayarak değiştirbilirsiniz!",
                     "updated": 1645101455619
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu memiliki Token Power atau tidak, perhatikan bahwa sekarang ada 0% dari Token Power masuk ke Onboarding Programs dan 100% masuk ke Community Building Programs! Pintu airnya telah ditutup, alirannya mengalir ke tempat lain! Kamu bisa bermain dengan persentase-nya!",
+                    "updated": 1671543601302
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es probable que no tengas Token Power para cumplir con el tercer requisito para participar en el Community Building Programs, ¡vamos a delegar algo de poder a todos los perfiles de usuario en esta versión!",
-                    "updated": 1630897892512,
+                    "text": "Si aún no tienes Token Power, únete al Grupo de Token de Superalgos en Telegram, preséntate, haznos saber que acabas de crear tu Perfil de Usuario, ¡y pide abiertamente algo de poder delegado para utilizarlo en los Programas de Creación de Comunidad! ¡Estaremos encantados de enviarte algo de poder!",
+                    "updated": 1682521743118,
                     "style": "Important"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Şimdi, işte iyi haber... Topluluk Oluşturma Programlarına katılmak için üçüncü şartı yerine getirmelisiniz. Ancak bunun için Jeton Gücünüz olmadığından, bu sürümde tüm Kullanıcı Profillerine bir miktar yetki vereceğiz!",
                     "updated": 1645101537497
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika sekarang kamu tidak memiliki Token Power, bergabung ke Superalgos Token Group di Telegram, Perkenalkan dirimu, Biarkan kami tahu bahwa kamu baru saja membuat User Profile, dan secara terbuka meminta beberapa delegasi power untuk digunakan pada Community Building Programs! Kami akan dengan senang hati mengirimkan power untukmu!",
+                    "updated": 1671543593910
                 }
             ]
         }

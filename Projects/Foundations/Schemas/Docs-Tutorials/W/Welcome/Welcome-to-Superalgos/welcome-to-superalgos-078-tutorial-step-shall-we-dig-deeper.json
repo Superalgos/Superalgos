@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 78,
+    "type": "Tutorial Step - Shall We Dig Deeper?",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
+        },
+        "text": "The logic behind the placing of buy orders is influenced by the Resistances and Supports indicator bot from the Masters Data Mine you ran earlier.",
+        "updated": 1610641051577,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "L'inserimento dei buy orders è influenzato dai supporti e resistenze dell'Indicator Bot della Masters Data Mine che abbiamo eseguito prima.",
+                "updated": 1618061894381,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La lógica detrás de la colocación de órdenes de compra está influenciada por el bot indicador (Indicator Bot) de resistencias y soportes del Masters Data Mine que has ejecutado anteriormente.",
+                "updated": 1675280606692,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Logik, die hinter der Platzierung von Kaufaufträgen steht, wird durch die Widerstände und Unterstützungen des Indikator-Bots aus der Masters Data Mine beeinflusst, die Sie zuvor durchgeführt haben.",
+                "updated": 1634224529417
+            },
+            {
+                "language": "TR",
+                "text": "Satın alma emirlerinin verilmesinin ardındaki mantık, şöyle çalışır. Daha önce çalıştırdığınız Masters Data Mine'daki Dirençler ve Destekler botundan etkilenir.",
+                "updated": 1636204198637
+            },
+            {
+                "language": "RU",
+                "text": "На логику размещения ордеров на покупку влияет Бот-индикатор Сопротивления и Поддержки из Masters Data Mine, которую Вы запускали ранее. ",
+                "updated": 1637655375611
+            },
+            {
+                "language": "ID",
+                "text": "Logika di balik penempatan buy orders dipengaruhi oleh bot indikator Resistances and Supports dari Masters Data Mine yang kamu jalankan sebelumnya.",
+                "updated": 1640563162570
+            },
+            {
+                "language": "NL",
+                "text": "De logica achter het plaatsen van kooporders wordt beïnvloed door de Resistance en Support indicatorbot van de Masters Data Mine die u eerder heeft uitgevoerd.",
+                "updated": 1666878587844
+            },
+            {
+                "language": "FR",
+                "text": "La logique qui sous-tend le placement des ordres d'achat est influencée par le robot indicateur des résistances et des supports de la mine de données Masters que vous avez exécutée précédemment.",
+                "updated": 1676899227273
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I took the liberty to turn the Supports layer on to show you this beauty... I hope you don't mind!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mi sono preso la libertà di attivare il layer dei Supporti per mostrarti questa bellezza. Spero non ti dispiaccia!",
+                    "updated": 1618061926335,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Me tomé la libertad de activar la capa Apoyos para mostrarte esta belleza... ¡Espero que no te importe!",
+                    "updated": 1675280615476,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe mir die Freiheit genommen, den Supports-Layer einzuschalten, um Ihnen diese Schönheit zu zeigen... Ich hoffe, es macht Ihnen nichts aus!",
+                    "updated": 1634224537478
+                },
+                {
+                    "language": "TR",
+                    "text": "Size bu güzelliği göstermek için Destekler katmanını açtım... Umarım sakıncası yoktur!",
+                    "updated": 1636204235468
+                },
+                {
+                    "language": "RU",
+                    "text": "Я взял на себя смелость включить слой Поддержки, чтобы показать вам эту красоту... Надеюсь, Вы не возражаете!",
+                    "updated": 1637655439829
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku mengambil kebebasan untuk mengaktifkan Supports layer untuk menunjukkan keindahan ini kepadamu... Aku harap kamu tidak keberatan!",
+                    "updated": 1640563232488
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb de vrijheid genomen om de Supports laag aan te zetten om je deze schoonheid te laten zien... Ik hoop dat je het niet erg vindt!",
+                    "updated": 1666878618043
+                },
+                {
+                    "language": "FR",
+                    "text": "J'ai pris la liberté d'activer le calque Supports pour vous montrer cette beauté... J'espère que cela ne vous dérange pas !",
+                    "updated": 1676899253913
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The indicator identifies levels (price ranges) on which price is rejected, and keeps a counter of how many rejections occur until the level is breached.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'indicatore identifica livelli (range di prezzo) oltre i quali il prezzo fatica a salire, e tiene conto di quante volte è respinto da essi prima di romperli.",
+                    "updated": 1618062124164,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "El indicador identifica los niveles (rangos de precios) en los que se rechaza el precio y mantiene un contador de cuántos rechazos ocurren hasta que se supera el nivel.",
+                    "updated": 1624457546330,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator identifiziert Niveaus (Preisbereiche), auf denen der Preis abgelehnt wird, und führt einen Zähler, der anzeigt, wie viele Ablehnungen auftreten, bis das Niveau durchbrochen wird.",
+                    "updated": 1634224594321
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, fiyatın reddedildiği seviyeleri (fiyat aralıkları) tanımlar ve seviye ihlal edilene kadar kaç ret gerçekleştiğinin bir sayacını tutar.",
+                    "updated": 1636204267357
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикатор определяет уровни (ценовые диапазоны), на которых отклонилась цена, и ведет счет количества происходящих отклонений пока нарушен уровень",
+                    "updated": 1637655718746
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator mengidentifikasi level (price ranges) di mana harga direject, dan menghitung berapa banyak rejection yang terjadi hingga level tersebut ditembus.",
+                    "updated": 1640563498475
+                },
+                {
+                    "language": "NL",
+                    "text": "De indicator identificeert niveaus (prijs bereiken) waarop de prijs wordt afgewezen, en houdt een teller bij van het aantal afwijzingen totdat het niveau wordt overschreden.",
+                    "updated": 1666878667043
+                },
+                {
+                    "language": "FR",
+                    "text": "L'indicateur identifie les niveaux ( zones de prix ) sur lesquels le prix est rejeté, et garde un compteur du nombre de rejets qui se produisent jusqu'à ce que le niveau soit franchi.",
+                    "updated": 1676899294752
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The way levels are represented on-screen varies with the number of rejections the level has witnessed, giving us a visual clue of how strong each support level may be. Once a level is breached, it disappears.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il modo in cui i livelli sono disegnati varia a seconda del numero di \"rimbalzi\" del prezzo su quel livello, dandoci un'idea visiva di quanto sia forte il supporto. Una volta che viene rotto, sparisce.",
+                    "updated": 1618062095822,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Como se presentan los niveles en la pantalla varía con la cantidad de rechazos que presencio el nivel, lo que nos da una pista visual de cuán fuerte puede ser cada nivel de soporte. Una vez que se rompe un nivel, desaparece.",
+                    "updated": 1624457785930,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Art und Weise, wie die Niveaus auf dem Bildschirm dargestellt werden, variiert mit der Anzahl der Ablehnungen, die das Niveau erlebt hat, und gibt uns einen visuellen Anhaltspunkt dafür, wie stark jedes Unterstützungsniveau sein kann. Sobald ein Niveau durchbrochen wird, verschwindet es.",
+                    "updated": 1634224586403
+                },
+                {
+                    "language": "TR",
+                    "text": "Seviyelerin ekranda gösterilme şekli, seviyenin tanık olduğu reddedilmelerin sayısına göre değişir ve bize her bir destek seviyesinin ne kadar güçlü olabileceğine dair görsel bir ipucu verir. Bir seviye ihlal edildiğinde, kaybolur.",
+                    "updated": 1636204288960
+                },
+                {
+                    "language": "RU",
+                    "text": "Способ отображений уровней на экране зависит от количества отклонений, наблюдаемых уровнем, что дает нам визуальное представление о том, насколько силным может быть каждый уровень Поддержки. Как только уровень нарушен, он исчезает.",
+                    "updated": 1637656234089
+                },
+                {
+                    "language": "ID",
+                    "text": "Cara level direpresentasikan di layar bervariasi dengan jumlah rejection yang telah diperlihatkan oleh level tersebut, memberi kita petunjuk visual tentang seberapa kuat setiap level support. Setelah level dilanggar, level menghilang.",
+                    "updated": 1640563629085
+                },
+                {
+                    "language": "NL",
+                    "text": "De manier waarop niveaus op het scherm worden weergegeven, hangt af van het aantal afwijzingen dat het niveau heeft meegemaakt, wat ons een visueel idee geeft van hoe sterk elk ondersteuningsniveau kan zijn. Zodra een niveau wordt overschreden, verdwijnt het.",
+                    "updated": 1666878708940
+                },
+                {
+                    "language": "FR",
+                    "text": "La façon dont les niveaux sont représentés à l'écran varie en fonction du nombre de rejets dont le niveau a fait l'objet, ce qui nous donne un indice visuel de la force de chaque niveau de soutien. Lorsqu'un niveau est franchi, il disparaît.",
+                    "updated": 1676899315967
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,154 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 82,
+    "type": "Tutorial Step - Here's How it Works...",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
+        },
+        "text": "Got it? The Trading Bot places the Limit Buy Order at the fourth support level! What's the logic behind this?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Hai capito? Il Trading Bot piazza i Limit Buy Order al quarto livello di supporto! Qual'è la logica di questa scelta?",
+                "updated": 1618064697343,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Entiendes? ¡El Trading Bot coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
+                "updated": 1675280806441,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie es? Der Trading Bot platziert die Limit Buy Order auf der vierten Unterstützungsebene! Was ist die Logik dahinter?",
+                "updated": 1634225434245
+            },
+            {
+                "language": "TR",
+                "text": "Trading Bot'u, Limit Satın Alma Emri'ni (Limit Buy Order) dördüncü destek seviyesine yerleştirir! Bunun arkasındaki mantık nedir?",
+                "updated": 1670008438890
+            },
+            {
+                "language": "RU",
+                "text": "Вы поняли? Trading Bot размещает Limit Buy Order на четвертом уровне поддержки! Какая логика стоит за этим? ",
+                "updated": 1637755292494
+            },
+            {
+                "language": "ID",
+                "text": "Sudah paham? Trading Bot menempatkan Limit Buy Order pada level support keempat! Apa logika di balik ini?",
+                "updated": 1640564599187
+            },
+            {
+                "language": "NL",
+                "text": "Ik snap het? De Trading Bot plaatst de Limit Buy Order op het vierde ondersteuningsniveau! Wat is de logica hierachter?",
+                "updated": 1666879640680
+            },
+            {
+                "language": "FR",
+                "text": "Vous avez compris ? Le Trading Bot place l'ordre d'achat limite au quatrième niveau de support ! Quelle est la logique derrière cela ?",
+                "updated": 1676899669808
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's sort of arbitrary, but the strategy defines a falling knife as the price action capable of breaching at least three support levels and getting to the fourth during a single minute. Statistically, such events—in this time frame—produce more bounces than continuations. They may be caused by large market orders that temporarily increase the bid/ask spread in the order book.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È una scelta più o meno arbitraria, ma la strategia definisce come \"falling knife\" la price action che riesce a rompere almeno tre livelli di supporto e raggiungere il quarto nel giro di un singolo minuto. Statisticamente, questi eventi (su questo time frame) producono più rimbalzi che proseguimenti. Possono essere causati da market orders di grandi dimensioni che aumentano temporaneamente il bid/ask spread nell'order book.",
+                    "updated": 1618064825884,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es algo arbitrario, pero la estrategia define un vela que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
+                    "updated": 1675280824279,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist etwas willkürlich, aber die Strategie definiert ein \"fallendes Messer\" als eine Preisaktion, die in der Lage ist, mindestens drei Unterstützungsniveaus zu durchbrechen und das vierte innerhalb einer einzigen Minute zu erreichen. Statistisch gesehen führen solche Ereignisse in diesem Zeitrahmen zu mehr Abprallern als Fortsetzungen. Sie können durch große Marktaufträge verursacht werden, die die Geld-Brief-Spanne im Orderbuch vorübergehend vergrößern.",
+                    "updated": 1634225456180
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu biraz keyfi bir durumdur, ancak strateji, düşen bıçağı (fiyatın ani düşüşünü), tek bir dakika içinde en az üç destek seviyesini aşabilen ve dördüncü seviyeye ulaşabilen fiyat hareketi olarak tanımlar. İstatistiksel olarak, bu tür olaylar - bu zaman çerçevesinde - sürekli daha fazla sıçrama üretir. Emir defterindeki alış/satış farkını geçici olarak artıran büyük piyasa emirlerinden kaynaklanabilirler.",
+                    "updated": 1636206270568
+                },
+                {
+                    "language": "RU",
+                    "text": "Это происходит произвольно, но стратегия определяет падающий нож как ценовое действие, способное пробить, по крайней мере, три уровня поддержки, и добраться до четвертого в течение одной минуты. По статистике, подобные явления - в этот период времени - производят больше отскоков, чем продолжений. Они могут быть вызваны крупными рыночными ордерами, которые временно увеличивают спрос/предложение в книге заказов.",
+                    "updated": 1637755586430
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini agak sewenang-wenang, tetapi strategi mendefinisikan falling knife sebagai aksi harga yang mampu menembus setidaknya tiga support levels dan mencapai yang keempat selama satu menit. Secara statistik, peristiwa semacam itu—dalam time frame ini—menghasilkan lebih banyak pantulan daripada kelanjutan. Mungkin disebabkan oleh pesanan pasar yang besar yang untuk sementara meningkatkan bid/ask yang ada di order book.",
+                    "updated": 1640564734842
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een beetje willekeurig, maar de strategie definieert een vallend mes als de prijsactie die in staat is om ten minste drie ondersteuningsniveaus te doorbreken en in één minuut de vierde te bereiken. Statistisch gezien produceren dergelijke gebeurtenissen - in dit tijdsbestek - meer afwijzingen dan voortzettingen. Ze kunnen worden veroorzaakt door grote marktorders die de bid/ask-spread in het orderboek tijdelijk verhogen.",
+                    "updated": 1666879724696
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est un peu arbitraire, mais la stratégie définit un couteau qui tombe comme l'action du prix capable de briser au moins trois niveaux de soutien et d'atteindre le quatrième pendant une seule minute. Statistiquement, de tels événements - dans ce laps de temps - produisent plus de rebonds que de continuations. Ils peuvent être causés par des ordres de marché importants qui augmentent temporairement l'écart entre l'offre et la demande dans le carnet d'ordres.",
+                    "updated": 1676899702299
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a minute to verify that buy orders are placed at the fourth support level!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quarto supporto!",
+                    "updated": 1618064944102,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte!",
+                    "updated": 1624458716693,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich eine Minute Zeit, um zu überprüfen, ob Kaufaufträge auf der vierten Unterstützungsebene platziert werden!",
+                    "updated": 1634225445485
+                },
+                {
+                    "language": "TR",
+                    "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın!",
+                    "updated": 1636206291919
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте минуту, чтобы убедиться, что заказы на покупку размещены на четвертом уровне поддержки!",
+                    "updated": 1637755660080
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu sebentar untuk memverifikasi bahwa buy order ditempatkan di support level keempat!",
+                    "updated": 1640564815395
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem even de tijd om te controleren of kooporders op het vierde ondersteuningsniveau zijn geplaatst!",
+                    "updated": 1666879748360
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez une minute pour vérifier que les ordres d'achat sont placés au quatrième niveau de support !",
+                    "updated": 1676899722758
+                }
+            ]
+        }
+    ]
+}

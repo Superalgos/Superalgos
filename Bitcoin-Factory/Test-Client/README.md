@@ -103,7 +103,7 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 
 ## App Setup
 
-The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
+The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Native Workspace, and from there you will run the Test Client task.
 
 ## Setting up your Superalgos Profile and the Task to run
 
@@ -184,6 +184,10 @@ Locate the node Task Server App Reference, under your Test Client Task, and repl
 
 By setting up this reference you define the identity under which the test client will run on the P2P network. In other words, the signing account held under your "Task-Server-App-1" node acts like a finger print so that other entities running on the network can identify and work with your test client.
 
+Locate the P2P Network Client node and reference the P2P Network Reference to the desired network (Testnet / Mainnet).
+
+Reference the P2P Network Node Reference to the network node in use, you must import the user profile that contains the network node prior to referencing. The user profile may also require additional port configuration within the Network Interfaces Node.
+
 ### Change the Config
 
 After that, open the config of the Test-Client Sensor Bot Instance. It looks like this:
@@ -240,7 +244,7 @@ IMPORTANT NOTES:
 Now you are ready to get things rolling! You will need to open two terminals. One to run the docker container and the other to run the Test-Client Task within the Superalgos Platform.
 
 - First run the Docker Container (See below in the "Instructions for each OS" section).
-- Then run the Test Client Task located at the Bitcoin Factory Demo Plugin Workspace. 
+- Then run the Test Client Task located at the Bitcoin Factory Demo Native Workspace. 
 
 ### Docker Container Terminal Output 
 Once the docker container is running correctly you will see at the first terminal an output similar to this:

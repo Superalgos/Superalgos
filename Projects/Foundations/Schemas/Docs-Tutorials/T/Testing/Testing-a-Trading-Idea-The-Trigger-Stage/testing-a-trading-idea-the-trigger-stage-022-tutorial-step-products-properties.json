@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
-                "updated": 1641653798986
+                "text": "Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
+                "updated": 1669577478568
+            },
+            {
+                "language": "ES",
+                "text": "Esta sección de la documentación de cada indicador contiene la información necesaria para utilizar el indicador en condiciones y fórmulas.",
+                "updated": 1675640114905
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "bollingerSubChannel ürünü üç farklı özelliğe sahiptir:",
                     "updated": 1641653841018
+                },
+                {
+                    "language": "ES",
+                    "text": "El producto bollingerSubChannel presenta tres propiedades diferentes:",
+                    "updated": 1675640129063
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Yön: Yukarı (Up), Aşağı (Down)",
                     "updated": 1641653854846
+                },
+                {
+                    "language": "ES",
+                    "text": "Dirección: Arriba, Abajo",
+                    "updated": 1675640135923
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Periyot: 1'den n'ye.",
                     "updated": 1641653870816
+                },
+                {
+                    "language": "ES",
+                    "text": "Periodo: 1 a n.",
+                    "updated": 1677100059229
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Eğim: Yan (Side), Hafif (Gentle), Orta (Medium), Dik (Steep), Aşırı (Extreme).",
                     "updated": 1641653882500
+                },
+                {
+                    "language": "ES",
+                    "text": "Pendiente: Lateral, Suave, Media, Empinada, Extrema.",
+                    "updated": 1677100064946
                 }
             ]
         },
@@ -127,8 +152,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölümü dikkatlice okuyunuz, böylece çizelgelere geri dönebilelim ve eğim özelliğini nasıl kullanacağımıza karar verebilelim!",
-                    "updated": 1641653896191
+                    "text": "Bu bölümü dikkatlice okuyun, böylece çizelgelere geri dönebilir ve eğim özelliğini nasıl kullanacağımıza karar verebiliriz!",
+                    "updated": 1669577567795
+                },
+                {
+                    "language": "ES",
+                    "text": "Lee atentamente esta sección para que podamos volver a los gráficos y decidir cómo vamos a utilizar la propiedad de pendiente",
+                    "updated": 1675640183006
                 }
             ]
         }

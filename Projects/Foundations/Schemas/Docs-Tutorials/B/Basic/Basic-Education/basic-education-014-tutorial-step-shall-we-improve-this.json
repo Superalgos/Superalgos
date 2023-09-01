@@ -1,0 +1,142 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Shall We Improve This?",
+    "definition": {
+        "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not clear or predictable.",
+        "updated": 1615492937986,
+        "icon": {
+            "name": "Set\\set-node-arrangement-to-concave",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Sperimentando con questa proprietà, ti accorgerai che spesso non si comporta in modo chiaro o prevedibile.",
+                "updated": 1619461378348,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si experimentas con esta función, notarás que el comportamiento de cada una de las configuraciones no es claro ni predecible. ",
+                "updated": 1626040532082,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie mit dieser Funktion experimentieren, werden Sie feststellen, dass das Verhalten der einzelnen Einstellungen nicht eindeutig oder vorhersehbar ist.",
+                "updated": 1634333050228
+            },
+            {
+                "language": "TR",
+                "text": "Bu özelliği denerseniz, her bir ayarın davranışının net veya tahmin edilebilir olmadığını fark edeceksiniz.",
+                "updated": 1636752597353
+            },
+            {
+                "language": "RU",
+                "text": "Если вы поэкспериментируете с этой функцией, вы заметите, что поведение каждого из параметров не является четким или предсказуемым.",
+                "updated": 1640867163097
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu bereksperimen dengan fitur ini, kamu akan melihat bahwa perilaku masing-masing pengaturan tidak jelas atau dapat diprediksi.",
+                "updated": 1644514987929
+            },
+            {
+                "language": "NL",
+                "text": "Als je met deze functie experimenteert, zul je merken dat het gedrag van elk van de instellingen niet duidelijk of voorspelbaar is.",
+                "updated": 1668336729353
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "The current implementation of this feature is not optimal, and the behavior of some of the options is hard to predict. If you are a developer, this may be a great opportunity to iterate on the existing code and take this feature to a more usable state!",
+            "updated": 1615493927202,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'implementazione attuale di questa proprietà non è ottimale. Se sei uno sviluppatore, questa potrebbe essere una grande opportunità per analizzare il codice esistente e rendere più utilizzabile questa funzionalità!",
+                    "updated": 1619461465723,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "La implementación actual de esta función no es óptima y el comportamiento de algunas de las opciones es difícil de predecir. Si eres un desarrollador, esta puede ser una gran oportunidad para iterar sobre el código existente y llevar esta función a un estado más utilizable.",
+                    "updated": 1626040570613,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die derzeitige Implementierung dieser Funktion ist nicht optimal, und das Verhalten einiger der Optionen ist schwer vorhersehbar. Wenn Sie ein Entwickler sind, könnte dies eine gute Gelegenheit sein, den bestehenden Code zu überarbeiten und diese Funktion in einen brauchbareren Zustand zu bringen!",
+                    "updated": 1634333057384
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir!",
+                    "updated": 1636752636392
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация этой функции не является оптимальной, и поведение некоторых опций трудно предсказать. Если вы являетесь разработчиком, это может быть отличной возможностью поправить существующий код и довести эту функцию до более пригодного для использования состояния!",
+                    "updated": 1640867222434
+                },
+                {
+                    "language": "ID",
+                    "text": "Implementasi fitur ini saat tidak optimal sekarang, dan perilaku beberapa opsi sulit diprediksi. Jika kamu seorang developer, ini mungkin merupakan peluang besar untukmu ikut serta pada kode yang ada dan membawa fitur ini ke kondisi yang lebih dapat digunakan!",
+                    "updated": 1644515128068
+                },
+                {
+                    "language": "NL",
+                    "text": "De huidige implementatie van deze functie is niet optimaal en het gedrag van sommige opties is moeilijk te voorspellen. Als u een ontwikkelaar bent, kan dit een geweldige kans zijn om de bestaande code te verbeteren en deze functie naar een meer bruikbare staat te brengen!",
+                    "updated": 1668336798521
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Feel free to try this feature, but you will most likely want to go back to the default setting!",
+            "updated": 1615493850572,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sperimenta pure con questa funzionalità, ma probabilmente vorrai tornare alla proprietà di default!",
+                    "updated": 1619461498671,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "No dudes en probar esta función, pero lo más probable es que desees volver a la configuración predeterminada.",
+                    "updated": 1675375913039,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diese Funktion gerne ausprobieren, aber Sie werden höchstwahrscheinlich zur Standardeinstellung zurückkehren wollen!",
+                    "updated": 1634333066060
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz!",
+                    "updated": 1636752653398
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать эту функцию, но, скорее всего, вы захотите вернуться к настройкам по умолчанию!",
+                    "updated": 1640867244021
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk mencoba fitur ini, tetapi kemungkinan besar kamu ingin kembali ke pengaturan awal!",
+                    "updated": 1644514785088
+                },
+                {
+                    "language": "NL",
+                    "text": "Voel je vrij om deze functie te proberen, maar je zult waarschijnlijk terug willen naar de standaardinstelling!",
+                    "updated": 1668336748593
+                }
+            ]
+        }
+    ]
+}

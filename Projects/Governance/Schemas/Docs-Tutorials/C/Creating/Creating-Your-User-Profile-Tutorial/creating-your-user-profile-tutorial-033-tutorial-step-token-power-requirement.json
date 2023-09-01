@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Jeton Bonusunuzu kazanmak için üçüncü şartı hatırlıyor musunuz? \"Token Power'ı programa sürmelisiniz\". ",
                 "updated": 1645100768833
+            },
+            {
+                "language": "ID",
+                "text": "Ingat persyaratan ketiga untuk mendapatkan Token Bonus kamu? \"Kamu harus mengarahkan Token Power ke program\". Tentang apa semua itu?",
+                "updated": 1671529604369
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Muhtemelen burada yabani otların içine giriyoruz, ama bunu basit tutmaya çalışacağım!",
                     "updated": 1645100782366
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita mungkin agak sulit disini, tapi aku akan mencoba membuatnya tetap sederhana!",
+                    "updated": 1671529611079
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "TR",
                     "text": "Yönetim Adresinizin bakiyesinde jetonlar olduğunda, Kullanıcı Profilinizde aynı miktarda Jeton Gücü olduğunu görürsünüz.",
                     "updated": 1645100836977
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat Governance Address kamu memiliki token dalam saldonya, maka kamu memiliki kesamaan jumlah dari Token Power pada User Profile kamu.",
+                    "updated": 1671529617776
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "TR",
                     "text": "Jeton Gücü (Token Power), hiyerarşide bir nehir gibi akar! Her bir Yönetişim Programına verdiğiniz Token Gücü miktarı, programa ne kadar güçlü bir şekilde katılmak istediğinizi belirler ve programdan alabileceğiniz Token Ödüllerini (Token Rewards) etkiler.",
                     "updated": 1645100884033
+                },
+                {
+                    "language": "ID",
+                    "text": "Token Power mengalirkan kebawah pada hirarki seperti sungai! Jumlah dari Token Power yang kamu perbolehkan kesetiap Governance Program menentukan bagaimana kuatnya keinginanmu untuk berpartisipasi pada program dan berdampak pada Token Rewards yang kamu dapatkan dari itu.",
+                    "updated": 1671529623746
                 }
             ]
         },
@@ -124,8 +144,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Por defecto, Token Power fluye en cantidades iguales a todos los nodos descendientes! ¡Puedes cambiar esto difícil!",
-                    "updated": 1630897224172,
+                    "text": "Por defecto, el flujo de Token Power es igual para todos los nodos descendientes. Sin embargo, puedes cambiarlo.",
+                    "updated": 1682521587839,
                     "style": "List"
                 },
                 {
@@ -142,6 +162,11 @@
                     "language": "TR",
                     "text": "Varsayılan olarak, Token Gücü tüm alt düğümlere eşit miktarlarda dağılır! Ama bunu değiştirebilirsiniz!",
                     "updated": 1645100921670
+                },
+                {
+                    "language": "ID",
+                    "text": "Secara bawaan, Token Power mengalir dalam jumlah yang sama ke semua simpul turunan! kamu dapat mengubah ini!",
+                    "updated": 1671529630940
                 }
             ]
         }

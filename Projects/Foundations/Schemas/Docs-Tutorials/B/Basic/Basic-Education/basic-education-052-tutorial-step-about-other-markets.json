@@ -52,24 +52,24 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. I just wanted to let you know that it's easy!",
+            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Install a New Market Tutorial Native Workspace. I just wanted to let you know that it's easy!",
             "updated": 1622635572968,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non spiegherò ora come impostare un nuovo market, perchè ci penserà il tutorial <i>Install a New Market Tutorial </i> nel <i>Tested Exchanges Plugin Workspace</i>. Voglio solo dirti quanto sia facile!",
+                    "text": "Non spiegherò ora come impostare un nuovo market, perchè ci penserà il tutorial <i>Install a New Market Tutorial </i> nel <i>Tested Exchanges Native Workspace</i>. Voglio solo dirti quanto sia facile!",
                     "updated": 1666641995057,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. ¡Solo quería hacerte saber que es fácil!",
-                    "updated": 1628020854073,
+                    "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial Native Workspace. ¡Solo quería hacerte saber que es fácil!",
+                    "updated": 1675378551727,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Plugin Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
+                    "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Native Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
                     "updated": 1634590236889
                 },
                 {
@@ -79,17 +79,17 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я не буду объяснять, как устанавливать новые рынки, поскольку эта тема рассматривается в учебнике Install a New Market Tutorial в Install a New Market Tutorial Plugin Workspace. Я просто хочу сообщить вам, что это просто!",
+                    "text": "Я не буду объяснять, как устанавливать новые рынки, поскольку эта тема рассматривается в учебнике Install a New Market Tutorial в Install a New Market Tutorial Native Workspace. Я просто хочу сообщить вам, что это просто!",
                     "updated": 1640875839511
                 },
                 {
                     "language": "ID",
-                    "text": "Aku tidak akan menjelaskan cara mengatur markets baru karena topiknya dibahas dalam Install a New Market Tutorial di Install a New Market Tutorial Plugin Workspace. Aku hanya ingin memberi tahu kamu bahwa itu mudah!",
+                    "text": "Aku tidak akan menjelaskan cara mengatur markets baru karena topiknya dibahas dalam Install a New Market Tutorial di Install a New Market Tutorial Native Workspace. Aku hanya ingin memberi tahu kamu bahwa itu mudah!",
                     "updated": 1645561195904
                 },
                 {
                     "language": "NL",
-                    "text": "Ik ga niet uitleggen hoe nieuwe markten moeten worden opgezet, aangezien het onderwerp wordt behandeld in de zelfstudie Install a New Market Tutorial in de Install a New Market Tutorial Plugin Workspace. Ik wilde je alleen even laten weten dat het makkelijk is!",
+                    "text": "Ik ga niet uitleggen hoe nieuwe markten moeten worden opgezet, aangezien het onderwerp wordt behandeld in de zelfstudie Install a New Market Tutorial in de Install a New Market Tutorial Native Workspace. Ik wilde je alleen even laten weten dat het makkelijk is!",
                     "updated": 1669549132584
                 }
             ]
@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eche un vistazo al menú del mercado BTC/USDT! Observe los botones \"Install Market\" y \"Uninstall Market\" . ¡Asi es como lo haces!",
-                    "updated": 1628021245760,
+                    "text": "¡Echa un vistazo al menú del mercado BTC/USDT! Observa los botones \"Install Market\" y \"Uninstall Market\". ¡Asi es como lo haces!",
+                    "updated": 1675378572413,
                     "style": "Callout"
                 },
                 {

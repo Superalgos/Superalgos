@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "45",
+    "pageNumber": 45,
     "type": "Tutorial Step - GIF Saving Plugins",
     "definition": {
         "text": "This step will play a video in full screen mode.",
@@ -36,6 +36,11 @@
                 "language": "NL",
                 "text": "In deze stap wordt een video op volledig scherm afgespeeld.",
                 "updated": 1669547015059
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675377900907
             }
         ]
     },

@@ -1,0 +1,50 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "13",
+    "type": "API Data Fetcher Bot Demo Native Workspace",
+    "definition": {
+        "text": "This workspace features an example of how to build a new API Data Fetcher Bot.",
+        "updated": 1652066553003,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве представлен пример создания нового бота API Data Fetcher Bot.",
+                "updated": 1661275788577
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, yeni bir API Veri Getirme Botunun nasıl oluşturulacağına dair bir örnek içerir.",
+                "updated": 1644676722601
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält ein Beispiel für die Erstellung eines neuen API Data Fetcher Bot.",
+                "updated": 1688936929937
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1622625028937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639057392740
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936909929
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "updated": 1622625062405
+        }
+    ]
+}

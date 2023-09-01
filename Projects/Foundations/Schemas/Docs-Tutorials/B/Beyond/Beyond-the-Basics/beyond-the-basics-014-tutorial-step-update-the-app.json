@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "14",
+    "pageNumber": 14,
     "type": "Tutorial Step - Update the App!",
     "definition": {
         "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "El App Update Command obtiene la última versión del software del repositorio upstream en el Current Branch!",
-                "updated": 1628186697267,
+                "text": "Es una buena práctica estar al día antes de contribuir, solucionar problemas o informar de errores de cualquier tipo.",
+                "updated": 1675452243054,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Itu praktek yang baik untuk selalu terupdate sebelum berkontribusi atau setelah menyelesaikan masalah atau melaporkan kesalahan apapun!",
                 "updated": 1668787138904
+            },
+            {
+                "language": "NL",
+                "text": "Het is een goede gewoonte om up-to-date te zijn voordat u een bijdrage levert of bij het oplossen van problemen of het melden van fouten van welke aard dan ook!",
+                "updated": 1669747067013
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eso significa que puede usar este comando en cualquiera de las ramas! Eso es todo:",
-                    "updated": 1628186724646,
+                    "text": "App Update Command (sólo para la instalación de contribuidores) obtiene la última versión del software del repositorio principal en la rama actual.",
+                    "updated": 1675452292565,
                     "style": "Text"
                 },
                 {
@@ -82,6 +87,11 @@
                     "language": "ID",
                     "text": "App Update Command (hanya Penginstalan Kontributor) mengambil versi terupdate software dari repository upstream dalam Current Branch!",
                     "updated": 1668787155150
+                },
+                {
+                    "language": "NL",
+                    "text": "De App Update Command (alleen Contributors branch) haalt de nieuwste versie van de software op uit de upstream-repository in de huidige branche!",
+                    "updated": 1669747151725
                 }
             ]
         },
@@ -102,8 +112,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Copia y ejecuta el comando!",
-                    "updated": 1628186919347,
+                    "text": "Si estás en la Instalación de Contribuidores, copia y ejecuta el comando en el cuadro de búsqueda/comando en la parte superior de los Documentos.",
+                    "updated": 1675452330501,
                     "style": "Callout"
                 },
                 {
@@ -125,6 +135,11 @@
                     "language": "ID",
                     "text": "Jika kamu di Penginstalan Kontributor, salin dan jalankan di pencarian/command box di atas Docs.",
                     "updated": 1668787165529
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u zich in de Contributors branch bevindt, kopieert u de opdracht en voert u deze uit in het zoek-/commando-venster helemaal bovenaan de Documenten.",
+                    "updated": 1669747143412
                 }
             ]
         },
@@ -141,8 +156,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que se realiza la actualización, deberás cerrar la aplicación nuevamente, reiniciarla, buscar el tutorial y hacer clic en Resume, ¡como hiciste antes!",
-                    "updated": 1628186790847,
+                    "text": "Deberías estar al día después del cambio.",
+                    "updated": 1675452357891,
                     "style": "Success"
                 },
                 {
@@ -164,6 +179,11 @@
                     "language": "ID",
                     "text": "Kamu seharusnya sudah versi terkini setelah mengubah!",
                     "updated": 1668787174440
+                },
+                {
+                    "language": "NL",
+                    "text": "Je moet up-to-date zijn na de overstap!",
+                    "updated": 1669747164044
                 }
             ]
         }

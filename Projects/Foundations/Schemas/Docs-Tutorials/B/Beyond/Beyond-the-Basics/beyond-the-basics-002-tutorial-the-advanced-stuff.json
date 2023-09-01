@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Tutorial - The Advanced Stuff!",
     "definition": {
         "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en tu haber! ¡Ya eres familia! Bienvenido a la Community!",
-                "updated": 1628112222837,
+                "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en el bolsillo! ¡Ya eres familia! Bienvenido a la Community!",
+                "updated": 1675448973927,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Kamu masih disekitar sini ternyata, sekarang dengan dua tutorial yang telah kamu lakukan!, kamu sudah termasuk keluarga dan Selamat Datang di Komunitas ini!",
                 "updated": 1667870143073
+            },
+            {
+                "language": "NL",
+                "text": "Je bent er nog steeds, nu met de eerste twee zelfstudies onder de knie! Ben je al familie! Welkom bij de Community!",
+                "updated": 1669572962749
             }
         ]
     },
@@ -81,13 +86,18 @@
                     "language": "ID",
                     "text": "Dalam tutorial ini kamu akan belajar untuk selalu up to date dengan system yang ada, menggunakan command/perintah bawaan, mengganti branches, dan beberapa trik untuk mempermudah hidupmu!",
                     "updated": 1667870960513
+                },
+                {
+                    "language": "NL",
+                    "text": "In deze zelfstudie leer je je systeem up-to-date te houden, de ingebouwde opdrachtregel te gebruiken, van branch te wisselen en nog een paar trucjes die je leven gemakkelijker zullen maken!",
+                    "updated": 1669572996293
                 }
             ]
         },
         {
             "style": "Warning",
-            "text": "This tutorial cover features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
-            "updated": 1649176246476,
+            "text": "This tutorial covers features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
+            "updated": 1687888974476,
             "translations": [
                 {
                     "language": "IT",
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Las habilidades que aprenderás también te permitirán comenzar a contribuir al proyecto! Recuerda, este es un proyecto comunitario ... ¡Se espera que todos retribuyamos y ayudemos a mejorar el software!",
-                    "updated": 1628112441113,
+                    "text": "Este tutorial cubre características relevantes para los usuarios de la Instalación para Colaboradores y Desarrolladores. Si está utilizando las versiones empaquetadas o Docker, muchas de las características descritas a continuación no funcionarán para ti. Dicho esto, por favor continúa, ya que también aprenderás a utilizar los Documentos.",
+                    "updated": 1675449045352,
                     "style": "Note"
                 },
                 {
@@ -108,8 +118,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Edineceğiniz beceriler, projeye katkıda bulunmaya başlamanıza da yardımcı olacak! Unutmayın, bu bir topluluk projesidir... Hepimizinden aldıklarımızı geri vermemiz ve yazılımın geliştirilmesine yardımcı olmamız bekleniyor!",
-                    "updated": 1639859425481
+                    "text": "Bu öğretici, Katkıda Bulunanlar ve Geliştiriciler için Yükleme kullanıcılarıyla ilgili özellikleri kapsar. Paketlenmiş veya Docker sürümlerini kullanıyorsanız, bundan sonra açıklanan özelliklerin çoğu işinize yaramayacaktır! Bununla birlikte, Dokümanları nasıl kullanacağınızı da öğreneceğiniz için lütfen devam edin!",
+                    "updated": 1669616612681
                 },
                 {
                     "language": "RU",
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Fitur yang tercakup dalam Tutorial ini sangat relevan dengan user yang ingin menginstall untuk Kontribusi dan Pengembangan. Jika kamu menggunakan versi Packaged dan Docker, banyak fitur yang tidak berfungsi untuk Kamu!, Maka dari itu tolong lanjutkan saja tutorialnya sekaligus untuk mempelajari cara menggunakan Docs!",
                     "updated": 1667897784356
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze zelfstudie behandelt functies die relevant zijn voor gebruikers van de installatie, voor mensen die bijdragen en ontwikkelaars. Als u de Packaged- of Docker-versie gebruikt, zullen veel van de hierna beschreven functies niet voor u werken! Dat gezegd hebbende, ga alsjeblieft door, want je zult ook leren hoe je de Docs moet gebruiken!",
+                    "updated": 1669573071158
                 }
             ]
         },
@@ -143,6 +158,16 @@
                     "language": "ID",
                     "text": "Ngomong-ngomong, berkontribusi ke project akan mendapatkan token  Superalgos (SA), Klik untuk mempelajari lebih lanjut!->superalgos.org/token-overview.shtml",
                     "updated": 1667870927197
+                },
+                {
+                    "language": "NL",
+                    "text": "Trouwens, door bij te dragen aan het project verdien je Superalgos (SA) tokens! Klik om er meer over te leren!->superalgos.org/token-overview.shtml",
+                    "updated": 1669573107218
+                },
+                {
+                    "language": "ES",
+                    "text": "Por cierto, contribuir al proyecto te permite ganar tokens de Superalgos (SA). Haz clic para saber más->https://superalgos.org/token-overview.shtml",
+                    "updated": 1675452122572
                 }
             ]
         }

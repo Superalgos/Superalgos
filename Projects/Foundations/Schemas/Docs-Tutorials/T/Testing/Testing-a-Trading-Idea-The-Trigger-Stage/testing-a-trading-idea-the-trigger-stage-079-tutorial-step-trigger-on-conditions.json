@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Tetikleme koşulları, alt kanalın yönünün aşağı olmasını ve mevcut 24 saatlik mumdaki eğimin yan olmamasını gerektirir!",
-                "updated": 1641666063759
+                "text": "Tetikleme koşulları, alt kanalın yönünün aşağı (Down) olmasını ve mevcut 24 saatlik mumdaki eğimin yan (Side) olmamasıdır!",
+                "updated": 1669670760532
             },
             {
                 "language": "RU",
                 "text": "Условия срабатывания требуют, чтобы направление субканала было Down, а наклон не был Side на текущей свече 24H!",
                 "updated": 1642664058898
+            },
+            {
+                "language": "ES",
+                "text": "Las condiciones de activación requieren que la dirección del subcanal sea descendente y que la pendiente no sea lateral en la vela de 24 horas actual.",
+                "updated": 1679254116742
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы рассматриваем свечи 1H между 9 и 14 часами, 28 февраля. Это свечи, на которых срабатывает стратегия и занимает позицию. Проверьте сами!",
                     "updated": 1642664080825
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos mirando velas de 1H entre 9 y 14 hs, el 28 de Febrero. Esas son las velas en las que la estrategia se activa y toma la posición. ¡Compruébalo tú mismo!",
+                    "updated": 1679254110096
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut gün mumu nedir? Kapalı mumları derecelendirme hakkında daha önce öğrendiklerinizi hatırlayın!",
-                    "updated": 1641666085346
+                    "text": "Mevcut gün mumu nedir? Kapalı mumları değerlendirme hakkında daha önce öğrendiklerinizi hatırlayın!",
+                    "updated": 1669670868101
                 },
                 {
                     "language": "RU",
                     "text": "Какова текущая дневная свеча? Вспомните, что вы узнали ранее об оценке закрытых свечей!",
                     "updated": 1642664107552
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cuál es la vela diaria actual? Piensa en lo que aprendiste antes sobre la evaluación de velas cerradas.",
+                    "updated": 1679254103258
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Günün mevcut mumu en son kapatılan mumdur: 27 Şubat mumu, çünkü 28 Şubat mumu henüz kapanmamıştır! 24 saatlik grafiğe gidin ve 27 Şubat'ta alt kanalın yan tarafı değil aşağıyı gösterdiğini onaylayın!",
-                    "updated": 1641666096125
+                    "text": "Günün mevcut mumu en son kapatılan mumdur: 27 Şubat mumu. Çünkü 28 Şubat mumu henüz kapanmamıştır! 24 saatlik grafiğe baktığınızda 27 Şubat'ta alt kanalın yan (Side) değil aşağıyı (Down) gösterdiğini göreceksiniz!",
+                    "updated": 1669670994254
                 },
                 {
                     "language": "RU",
                     "text": "Текущей дневной свечой является та, которая закрылась последней: свеча 27 февраля, потому что свеча 28 февраля еще не закрылась! Перейдите на график 24H и убедитесь, что 27 февраля субканал был Down, а не Side!",
                     "updated": 1642664144104
+                },
+                {
+                    "language": "ES",
+                    "text": "La vela diaria actual es la última que cerró: la vela del 27 de febrero, ¡porque la vela del 28 de febrero aún no ha cerrado! Ve al gráfico de 24 horas y confirma que el subcanal es bajista y no lateral el 27 de febrero.",
+                    "updated": 1679254095879
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Yazılımın en son sürümüyle güncel kalmanız önemle tavsiye edilir. Nasıl yapılacağını ve ne gibi önlemler alacağınızı öğrenin.",
                 "updated": 1647859755533
+            },
+            {
+                "language": "DE",
+                "text": "Es ist sehr empfehlenswert, mit der neuesten Version der Software auf dem Laufenden zu bleiben. Erfahren Sie, wie Sie dies tun und welche Vorsichtsmaßnahmen Sie treffen sollten.",
+                "updated": 1678644225654
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos'un yeni sürümlerinin birkaç ayda bir kullanıma sunulmasını beklemelisiniz. Sürüm duyuruları resmi Superalgos Duyuru Kanalı ( Announcements Channel ) aracılığıyla yapılır.",
                     "updated": 1647859801645
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten damit rechnen, dass alle paar Monate neue Versionen von Superalgos zur Verfügung stehen werden. Release-Ankündigungen werden über den offiziellen Superalgos-Ankündigungskanal (Announcements Channel) veröffentlicht.",
+                    "updated": 1678644238811
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Not: Beta aşamasında, yamalar ve yeni özellikler geliştirme dalında haftada birkaç kez olmak üzere sık sık kullanılabilir hale gelebilir. Oluşumlarının yüksek sıklığı nedeniyle, küçük güncellemeler haber verilmeden yapılır. Bir arıza yaşarsanız, bir hatayı bildirmeden önce kurulumunuzu Superalgos deposunun geliştirme dalında bulunan en son sürüme yükselttiğinizden emin olun.",
                     "updated": 1647859960249
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Betaphase können Patches und neue Funktionen mehrmals pro Woche im Entwicklungszweig verfügbar werden. Aufgrund der Häufigkeit des Auftretens werden kleinere Aktualisierungen nicht angekündigt. Sollten Sie jemals eine Fehlfunktion feststellen, stellen Sie sicher, dass Sie Ihre Installation auf die neueste Version aktualisieren, die im Entwicklungszweig des Superalgos-Repository verfügbar ist, bevor Sie einen Fehler melden.",
+                    "updated": 1678644252630
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Duyuruyu Dikkatle Okuyun",
                     "updated": 1647859979704
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Ankündigung sorgfältig",
+                    "updated": 1678644262378
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Değişiklikleri ve iş akışınızı nasıl etkileyebileceklerini açıklayan duyuruyu okuyun ve anlayın. En önemlisi, yeni sürümün çalışma alanlarınızı veya birlikte çalışıyor olabileceğiniz diğer varlıkları (ticaret sistemleri, veri madenleri vb.) yükseltmeyi gerektirip gerektirmediğini öğrenin.",
                     "updated": 1647860005078
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Ankündigung, in der die Änderungen erläutert werden und wie sie sich auf Ihre Arbeitsabläufe auswirken können, und machen Sie sich mit ihnen vertraut. Vor allem sollten Sie herausfinden, ob die neue Version ein Upgrade Ihrer Arbeitsbereiche oder der übrigen Assets, mit denen Sie arbeiten (Handelssysteme, Data Mines usw.), erfordert.",
+                    "updated": 1678644274919
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "TR",
                     "text": "Kişisel Çalışmanızı Yedekleyin",
                     "updated": 1647860026632
+                },
+                {
+                    "language": "DE",
+                    "text": "Sichern Sie Ihre persönliche Arbeit",
+                    "updated": 1678644284165
                 }
             ]
         },
@@ -110,19 +140,24 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Всегда создавайте резервные копии своих личных наработок. Независимо от того, является ли новая версия обратно совместимой или нет, вы можете - по какой-либо причине - захотеть вернуться к состоянию дел до обновления.",
+                    "text": "Всегда создавайте резервные копии своих личных наработок. Независимо от того, является ли нова�� версия обратно совместимой или нет, вы можете - по какой-либо причине - захотеть вернуться к состоянию дел до обновления.",
                     "updated": 1640455278123
                 },
                 {
                     "language": "TR",
                     "text": "Önemli: Kişisel çalışmalarınızı her zaman yedekleyin. Yeni sürüm geriye dönük uyumlu olsun ya da olmasın, - ne sebeple olursa olsun - yükseltmeden önceki duruma geri dönmek isteyebilirsiniz.",
                     "updated": 1647860067150
+                },
+                {
+                    "language": "DE",
+                    "text": "Sichern Sie immer Ihre persönliche Arbeit. Unabhängig davon, ob die neue Version abwärtskompatibel ist oder nicht, kann es sein, dass Sie - aus welchen Gründen auch immer - zu dem Stand vor dem Upgrade zurückkehren möchten.",
+                    "updated": 1678644296440
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The new version will always ship with its own Plugin Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
+            "text": "The new version will always ship with its own Native Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
             "updated": 1617648003762,
             "translations": [
                 {
@@ -132,8 +167,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yeni sürüm her zaman kendi Eklenti Çalışma Alanlarıyla ( Plugin Workspaces ) birlikte gönderilir. Sürüm duyurusu, yeni sürümün geriye dönük uyumlu olup olmadığını açıkça belirtmelidir. Değilse, duyuru önceki sürümden yükseltme ile ilgili tüm hususları kapsamalıdır.",
+                    "text": "Yeni sürüm her zaman kendi Eklenti Çalışma Alanlarıyla ( Native Workspaces ) birlikte gönderilir. Sürüm duyurusu, yeni sürümün geriye dönük uyumlu olup olmadığını açıkça belirtmelidir. Değilse, duyuru önceki sürümden yükseltme ile ilgili tüm hususları kapsamalıdır.",
                     "updated": 1647860113590
+                },
+                {
+                    "language": "DE",
+                    "text": "Die neue Version wird immer mit ihren eigenen Native Workspaces ausgeliefert. Aus der Ankündigung sollte hervorgehen, ob die neue Version abwärtskompatibel ist oder nicht. Wenn dies nicht der Fall ist, sollte die Ankündigung alle Überlegungen enthalten, die für ein Upgrade von der Vorgängerversion relevant sind.",
+                    "updated": 1678644308281
                 }
             ]
         },
@@ -150,6 +190,11 @@
                     "language": "TR",
                     "text": "Evi düzene sokun",
                     "updated": 1647860136255
+                },
+                {
+                    "language": "DE",
+                    "text": "Bringen Sie das System in Ordnung",
+                    "updated": 1678644319135
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "TR",
                     "text": "Ağ hiyerarşisinde çalışıyor olabilecek tüm görevleri durdurun. Tüm aktivite durana kadar bir veya iki dakika bekleyin.",
                     "updated": 1647860153411
+                },
+                {
+                    "language": "DE",
+                    "text": "Stoppen Sie alle Aufgaben, die in der Netzwerkhierarchie ausgeführt werden können. Warten Sie ein oder zwei Minuten, bis alle Aktivitäten beendet sind.",
+                    "updated": 1678644363227
                 }
             ]
         },
@@ -184,6 +234,11 @@
                     "language": "TR",
                     "text": "Yeni Sürümü Kur",
                     "updated": 1647860182970
+                },
+                {
+                    "language": "DE",
+                    "text": "Installieren Sie die neue Version",
+                    "updated": 1678644369758
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "TR",
                     "text": "Uygulamanın yeni sürümünü yüklemek için Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırın. Sistem güncellendiğinde tarayıcıyı kapatmak ve istemciyi durdurmak için talimatları izleyin.",
                     "updated": 1647860217107
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Befehl \"App Update\" (App Update Command) aus, um die aktuelle Version der Anwendung zu installieren. Befolgen Sie die Anweisungen zum Schließen des Browsers und Beenden des Clients, sobald das System aktualisiert ist.",
+                    "updated": 1678644382241
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "TR",
                     "text": "Duyurudaki Rehberi Uygulayın",
                     "updated": 1647860236080
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenden Sie die Hinweise in der Ankündigung an",
+                    "updated": 1678644395229
                 }
             ]
         },
@@ -235,6 +300,11 @@
                     "language": "TR",
                     "text": "Resmi duyuru, varlıklarınızı yeni sürümde kullanmak için nasıl yükselteceğiniz konusunda bilgi veriyorsa, ilgili kılavuzu izlemenin tam zamanıdır.",
                     "updated": 1647860253621
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die offizielle Ankündigung Informationen darüber enthält, wie Sie Ihre Assets aktualisieren können, um sie in der neuen Version zu verwenden, ist dies der richtige Zeitpunkt, um die entsprechende Anleitung zu befolgen.",
+                    "updated": 1678644405806
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "TR",
                     "text": "Önemli: Açık Telegram gruplarında veya forumlarında rastgele kişilerin neler yayınlayabileceğine her zaman dikkat edin. Yamalar ve sürümler her zaman Superalgos deposunun ana dalında sunulacaktır.",
                     "updated": 1647860282394
+                },
+                {
+                    "language": "DE",
+                    "text": "Wichtig: Seien Sie immer vorsichtig mit dem, was Teilnehmer in offenen Telegram-Gruppen oder Foren posten. Patches und Releases werden immer im Master-Zweig des Superalgos-Repositorys zur Verfügung gestellt.",
+                    "updated": 1678644417996
                 }
             ]
         },
@@ -268,6 +343,11 @@
                     "language": "TR",
                     "text": "Boş Önbellek ve Sabit Yeniden Yükleme",
                     "updated": 1647860403401
+                },
+                {
+                    "language": "DE",
+                    "text": "Cache leeren und Neustart der Festplatte",
+                    "updated": 1678644435765
                 }
             ]
         },
@@ -285,6 +365,11 @@
                     "language": "TR",
                     "text": "Sistem tarayıcı pencerenize yüklendikten sonra ve çalışmaya başlamadan önce, tarayıcının yeni yüklenen dosyaları kullandığından emin olmak için Chrome'un önbelleğini boşaltmak ve yeniden yükleme yapmak her zaman iyi bir uygulamadır.",
                     "updated": 1647860438022
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald das System in Ihrem Browser-Fenster geladen ist und bevor Sie mit der Arbeit beginnen, sollten Sie den Cache von Chrome leeren und einen Neustart durchführen, um sicherzustellen, dass der Browser die neu installierten Dateien verwendet.",
+                    "updated": 1678644447970
                 }
             ]
         },
@@ -302,6 +387,11 @@
                     "language": "TR",
                     "text": "Chrome'un Geliştirici Araçlarını açmak için F12 'ye basın. Geliştirici Araçlarını kullanmanıza gerek yoktur, ancak onu açmanız bir sonraki görevi gerçekleştirmenizi sağlar.",
                     "updated": 1647860509923
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie F12, um die Entwicklertools von Chrome zu öffnen. Sie müssen die Entwicklertools nicht verwenden, aber wenn Sie sie öffnen, können Sie die nächste Aufgabe durchführen.",
+                    "updated": 1678644475445
                 }
             ]
         },
@@ -319,6 +409,11 @@
                     "language": "TR",
                     "text": "Yenile simgesine sağ tıklayın ve açılır menüden Boş Önbellek ve Sabit Yeniden Yükleme'yi seçin. Yenilendikten sonra Geliştirici Araçlarını F12 ile kapatabilirsiniz.",
                     "updated": 1647860535839
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf das Aktualisierungssymbol und wählen Sie aus dem Dropdown-Menü die Option Cache leeren und hartes Neuladen. Nach dem Aktualisieren können Sie die Entwicklertools mit F12 schließen.",
+                    "updated": 1678644522302
                 }
             ]
         },
@@ -335,6 +430,11 @@
                     "language": "TR",
                     "text": "Geliştirici Araçlarını açmak için F12, ardından yenile simgesine sağ tıklayın.",
                     "updated": 1647861044011
+                },
+                {
+                    "language": "DE",
+                    "text": "F12 , um die Entwicklertools zu öffnen, und klicken Sie dann mit der rechten Maustaste auf das Aktualisierungssymbol.",
+                    "updated": 1678644536889
                 }
             ]
         },
@@ -351,6 +451,11 @@
                     "language": "TR",
                     "text": "Son Ayar ve Test",
                     "updated": 1647861063065
+                },
+                {
+                    "language": "DE",
+                    "text": "Endabstimmung und Prüfung",
+                    "updated": 1678644551592
                 }
             ]
         },
@@ -367,6 +472,11 @@
                     "language": "TR",
                     "text": "Zaman zaman, sistemin yeni sürümü, mevcut ticaret sistemlerinizi veya çalışma alanınızın diğer bazı bölümlerini güncellemenizi gerektirebilecek değişiklikler getirebilir. Bu durumda, resmi bir duyuru nasıl devam edileceğini açıklamalıdır.",
                     "updated": 1647861086351
+                },
+                {
+                    "language": "DE",
+                    "text": "Gelegentlich kann es vorkommen, dass die neue Version des Systems Änderungen mit sich bringt, die es erforderlich machen, dass Sie Ihre bestehenden Handelssysteme oder einige andere Teile Ihres Arbeitsbereichs aktualisieren müssen. Wenn dies der Fall ist, sollte eine offizielle Ankündigung erklären, wie Sie vorgehen müssen.",
+                    "updated": 1678644559050
                 }
             ]
         },
@@ -383,6 +493,11 @@
                     "language": "TR",
                     "text": "Bu, daha önce yedeklemiş olabileceğiniz herhangi bir çalışmayı geri yükleme zamanıdır.",
                     "updated": 1647861226147
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist der Zeitpunkt, an dem Sie Ihre Arbeit, die Sie zuvor gesichert haben, wiederherstellen können.",
+                    "updated": 1678644568057
                 }
             ]
         },
@@ -400,6 +515,11 @@
                     "language": "TR",
                     "text": "İşe geri dönmeden önce, her zaman yeni sürümü biraz test etmeniz ve mevcut çalışmanızın beklediğiniz gibi performans gösterdiğinden emin olmanız önerilir.",
                     "updated": 1647861301019
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie sich wieder an die Arbeit machen, ist es immer empfehlenswert, die neue Version ein wenig zu testen und sich zu vergewissern, dass Ihre bisherige Arbeit so funktioniert, wie Sie es erwarten würden.",
+                    "updated": 1678644578620
                 }
             ]
         }

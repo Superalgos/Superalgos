@@ -85,36 +85,41 @@
         "propertyName": "workspaces",
         "systemMenu": [
             {
-                "label": "Undo/Redo",
-                "submenuConstructorFunction": {
-                    "name": "undoRedoSubmenu"
-                }
-            },
-            {
                 "label": "User Workspaces",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["user"]
-                }
+                },
+                "order": 1
             },
             {
-                "label": "Plugin Workspaces",
+                "label": "Native Workspaces ",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["plugin"]
-                }
+                },
+                "order": 2
             },
             {
                 "label": "Collapse All Root Nodes",
                 "action": {
                     "name": "collapseAllRootNodes"
-                }
+                },
+                "order": 3
+            },
+            {
+                "label": "Undo/Redo",
+                "submenuConstructorFunction": {
+                    "name": "undoRedoSubmenu"
+                },
+                "order": 4
             },
             {
                 "label": "Save Workspace",
                 "action": {
                     "name": "saveWorkspace"
-                }
+                },
+                "order": 5
             }
         ]
     },
@@ -126,20 +131,22 @@
                 "label": "Contribute all changes",
                 "action": {
                     "name": "contributeAll"
-                }
+                },
+                "order": 1
             },
             {
                 "label": "Update App",
                 "action": {
                     "name": "update"
-                }
+                },
+                "order": 2
             },
             {
                 "label": "Reset Local Repository",
                 "action": {
                     "name": "reset"
-                } 
-                
+                },
+                "order": 3
             }
         ]
     }

@@ -629,11 +629,6 @@
                     "functionName": "newFoundationsUtilitiesDrawPrint"
                 },
                 {
-                    "name": "Tutorial",
-                    "propertyName": "tutorial",
-                    "functionName": "newFoundationsUtilitiesTutorial"
-                },
-                {
                     "name": "Menu",
                     "propertyName": "menu",
                     "functionName": "newFoundationsUtilitiesMenu"
@@ -813,6 +808,12 @@
                     "propertyName": "loggerVariables",
                     "functionName": "newFoundationsGlobalsLoggerVariables",
                     "fileName": "LoggerVariables.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName": "newFoundationsGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "functionLibraries": [
@@ -872,6 +873,12 @@
                 }
             ],
             "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentialsFunctions",
+                    "functionName": "newFoundationsUtilitiesCredentialsFunctions",
+                    "fileName": "CredentialsFunctions.js"
+                },
                 {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
@@ -957,7 +964,14 @@
             ]
         },
         "PL": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Credentials Functions",
+                    "propertyName": "credentials",
+                    "functionName": "newFoundationsUtilitiesCredentials",
+                    "fileName": "CredentialsFunctions.js"
+                }
+            ]
         },
         "SA": {
             "globals": [
@@ -1192,6 +1206,27 @@
                     "functionName": "newDataMiningBotModulesStudyOutput",
                     "fileName": "StudyOutput.js",
                     "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Database Scanner",
+                    "propertyName": "scanDatabase",
+                    "functionName": "newDataMiningBotModulesScanDatabase",
+                    "fileName": "ScanDatabase.js",
+                    "folderName": "Sensor-Bot/Database-Sensor"
+                }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Aggregation Methods",
+                    "propertyName": "aggregationMethods",
+                    "functionName": "newDataMiningFunctionLibrariesAggregationMethods",
+                    "fileName": "AggregationMethods.js"
+                },
+                {
+                    "name": "Database Access",
+                    "propertyName": "databaseAccess",
+                    "functionName": "newDataMiningFunctionLibrariesDatabaseAccess",
+                    "fileName": "DatabaseAccess.js"
                 }
             ]
         },
@@ -1430,6 +1465,11 @@
                     "name": "Docs",
                     "propertyName": "docs",
                     "functionName": "newEducationUtilitiesDocs"
+                },
+                {
+                    "name": "Tutorial",
+                    "propertyName": "tutorial",
+                    "functionName": "newEducationUtilitiesTutorial"
                 }
             ],
             "spaces": [
@@ -1664,6 +1704,11 @@
                     "name": "Chains",
                     "propertyName": "chains",
                     "functionName": "newGovernanceUtilitiesChains"
+                },
+                {
+                    "name": "Node Calculations",
+                    "propertyName": "nodeCalculations",
+                    "functionName": "newGovernanceUtilitiesNodeCalculations"
                 }
             ],
             "spaces": [
@@ -1696,6 +1741,14 @@
             ]
         },
         "SA": {
+            "functionLibraries": [
+                {
+                    "name": "Profile Token Power",
+                    "propertyName": "profileTokenPower",
+                    "functionName": "newGovernanceFunctionLibraryProfileTokenPower",
+                    "fileName": "ProfileTokenPower.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Signing Accounts",
@@ -1708,6 +1761,18 @@
                     "propertyName": "balances",
                     "functionName": "newGovernanceUtilitiesBalances",
                     "fileName": "Balances.js"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesSAValidations",
+                    "fileName": "Validations.js"
+                },
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenpower",
+                    "functionName": "newGovernanceUtilitiesTokenPower",
+                    "fileName": "TokenPower.js"
                 }
             ]
         },
@@ -1733,6 +1798,17 @@
     {
         "name": "Network",
         "propertyName": "network",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newNetworkFunctionLibraryPluginsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
         "NT": {
             "globals": [
                 {
@@ -1777,6 +1853,12 @@
                     "propertyName": "memory",
                     "functionName": "newNetworkGlobalsMemory",
                     "fileName": "Memory.js"
+                },
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newNetworkGlobalsPersistence",
+                    "fileName": "Persistence.js"
                 }
             ],
             "modules": [
@@ -1815,6 +1897,12 @@
                     "propertyName": "appBootstrapingProcess",
                     "functionName": "newNetworkModulesAppBootstrapingProcess",
                     "fileName": "AppBootstrapingProcess.js"
+                },
+                {
+                    "name": "Profile Manager App Bootstraping Process",
+                    "propertyName": "profileManagerAppBootstrapingProcess",
+                    "functionName": "newNetworkModulesProfileManagerAppBootstrapingProcess",
+                    "fileName": "ProfileManagerAppBootstrapingProcess.js"
                 },
                 {
                     "name": "P2P Network Reachable Nodes",
@@ -1857,7 +1945,7 @@
             ]
         },
         "plugins": [
-            "P2P-Networks"
+            "P2P Networks"
         ]
     },
     {
@@ -2304,10 +2392,17 @@
         "SA": {
             "modules": [
                 {
-                    "name": "Open Storage Client",
-                    "propertyName": "openStorageClient",
-                    "functionName": "newOpenStorageModulesOpenStorageClient",
-                    "fileName": "OpenStorageClient.js",
+                    "name": "Open Storage Task Server Client ",
+                    "propertyName": "openStorageTaskServerClient",
+                    "functionName": "newOpenStorageModulesOpenStorageTaskServerClient",
+                    "fileName": "OpenStorageTaskServerClient.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Open Storage Network Client",
+                    "propertyName": "openStorageNetworkClient",
+                    "functionName": "newOpenStorageModulesOpenStorageNetworkClient",
+                    "fileName": "OpenStorageNetworkClient.js",
                     "folderName": ""
                 }
             ],
@@ -2512,5 +2607,27 @@
             ]
         },
         "plugins": []
+    },
+    {
+        "name": "Local-Storage",
+        "propertyName": "localStorage",
+        "SA": {
+            "globals": [
+                {
+                    "name": "Persistence",
+                    "propertyName": "persistence",
+                    "functionName":"newLocalStorageGlobalsPersistence",
+                    "fileName": "Persistence.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "DatabaseRepositories",
+                    "propertyName": "databaseRepositories",
+                    "functionName":"newDatabaseRepositories",
+                    "fileName": "DatabaseRepositories.js"
+                }
+            ]
+        }
     }
 ]

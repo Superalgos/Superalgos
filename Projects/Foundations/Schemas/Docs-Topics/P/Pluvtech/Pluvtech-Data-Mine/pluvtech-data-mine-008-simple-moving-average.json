@@ -64,6 +64,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Simple Moving Average Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’SMA’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647933776649
+                },
+                {
+                    "language": "ES",
+                    "text": "La longitud del cálculo del indicador de Media Móvil Simple puede cambiarse localizando y abriendo el Código Javascript en Procedimiento de Construcción de Datos -> Inicialización de Procedimientos bajo Definición de Producto 'SMA'.",
+                    "updated": 1682515157513
                 }
             ]
         },
@@ -85,6 +90,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647933806309
+                },
+                {
+                    "language": "ES",
+                    "text": "Productos y propiedades",
+                    "updated": 1682515172932
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647933816544
+                },
+                {
+                    "language": "ES",
+                    "text": "Se puede acceder a las siguientes propiedades:",
+                    "updated": 1682515189929
                 }
             ]
         },
@@ -146,6 +161,11 @@
                     "language": "DE",
                     "text": "Der SMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des SMA schließt:",
                     "updated": 1647933900186
+                },
+                {
+                    "language": "ES",
+                    "text": "El indicador SMA podría utilizarse para generar una señal de compra cuando una vela cierra por encima del SMA:",
+                    "updated": 1682515209252
                 }
             ]
         },

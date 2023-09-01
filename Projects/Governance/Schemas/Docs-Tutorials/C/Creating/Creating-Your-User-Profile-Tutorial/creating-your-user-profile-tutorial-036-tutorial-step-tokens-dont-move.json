@@ -29,6 +29,11 @@
                 "language": "TR",
                 "text": "Token Power Flows'dan bahsederken, jetonlarınızın hiçbir yere gitmediğini söyleyelim. Giden sadece Token Gücünüzdür!",
                 "updated": 1645101621540
+            },
+            {
+                "language": "ID",
+                "text": "Saat kita berbicara Token Power Flows, penting untuk mengklarifikasi bahwa token tidak ke mana-mana! Kekuatan Tokenlah yang mengalir!",
+                "updated": 1671543851019
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "TR",
                     "text": "Yönetim Adresinizdeki jetonlar adresinizden asla kaybolmaz! Yönetime katılmanın sıfır maliyeti vardır! Adresinizdeki bakiye, Kullanıcı Profilinize Token Gücü verir ve hiyerarşide aşağı doğru akan gerçek Tokenler değil, bu tokenlerden gelen gücünüzdür.",
                     "updated": 1645101689739
+                },
+                {
+                    "language": "ID",
+                    "text": "Token yang ada pada Governance Address kamu tidak pernah pindah keluar! Tidak ada biaya untuk berpartisipasi dalam governance! Saldo pada alamat kamu memberikan Token Power ke User Profile kamu, dan abstraksi inilah yang mengalir ke bawah hierarki, bukan token yang sebenarnya.",
+                    "updated": 1671543857245
                 }
             ]
         },
@@ -67,8 +77,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Recuérdame que te muestre icomo jugar con Token Power Flows antes de que embalemos el tutorial! Pero regresemos a Community Building Programs antes de que perdamos el rumbo!",
-                    "updated": 1633296908255
+                    "text": "Te mostraré cómo jugar con los Token Power Flows antes de terminar el tutorial. ¡Volvamos ahora a los Community Building Programs! ",
+                    "updated": 1682521846104
                 },
                 {
                     "language": "RU",
@@ -84,6 +94,11 @@
                     "language": "TR",
                     "text": "Öğreticiyi tamamlamadan önce Token Power Flows ile nasıl oynanacağını göstermemi bana hatırlat! Ama yolumuzu kaybetmeden önce Topluluk Oluşturma Programlarına (Community Building Programs) geri dönelim!",
                     "updated": 1645101763408
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan memperlihatkanmu bagaimana bermain dengan Token Power Flows sebelum kita mengakhiri tutorialnya! Sekarang mari kita kembali ke Community Building Programs!",
+                    "updated": 1671543863416
                 }
             ]
         }

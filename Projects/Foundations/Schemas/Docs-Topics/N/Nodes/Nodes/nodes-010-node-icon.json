@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Her Düğümün ( Node ) Tasarım Alanındaki Düğümü ( Node ) temsil eden bir simgeye sahip olması gerekir.",
                 "updated": 1652901953564
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knoten (Node) muss ein Icon haben, das den Knoten im Desing Space repräsentiert.",
+                "updated": 1689422403577
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652901973480
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689422415233
                 }
             ]
         }

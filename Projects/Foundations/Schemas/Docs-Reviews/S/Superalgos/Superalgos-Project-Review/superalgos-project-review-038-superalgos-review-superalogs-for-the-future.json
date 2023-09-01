@@ -3,7 +3,19 @@
     "pageNumber": 38,
     "type": "Superalgos Review - SuperAlogs for the future",
     "definition": {
-        "text": "Write a summary for this review page."
+        "text": "Write a summary for this review page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": " Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1669585494760
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1687640857624
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,6 +27,16 @@
                     "language": "RU",
                     "text": "В процессе обучения я пришел к пониманию того, что платформа Superalgos станет неотъемлемой частью трейдинга в будущем.",
                     "updated": 1640418659707
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiliğim ( Tutorial )  sırasında, Superalgos platformunun gelecekte ticaretin ayrılmaz bir parçasını oluşturacağının farkına vardım",
+                    "updated": 1669585429284
+                },
+                {
+                    "language": "DE",
+                    "text": "Während meines Tutorial ´s bin ich zu der Erkenntnis gelangt, dass die Superalgos-Plattform in Zukunft ein fester Bestandteil des Handels sein wird.",
+                    "updated": 1687640966918
                 }
             ]
         },
@@ -26,6 +48,16 @@
                     "language": "RU",
                     "text": "Наличие бесплатной системы, управляемой сообществом, - это замечательно, это позволяет каждому получить пользу от множества людей и поделиться своими знаниями.",
                     "updated": 1640418677350
+                },
+                {
+                    "language": "TR",
+                    "text": "Ücretsiz ve topluluk tarafından yönetilen bir sisteme sahip olmak harika, bu herkesin birden fazla kişiden yararlanmasına ve bilgilerini paylaşmasına olanak tanıyor.",
+                    "updated": 1669585460522
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein kostenloses und von der Gemeinschaft verwaltetes System ist großartig, denn so kann jeder von mehreren Personen profitieren und sein Wissen teilen.",
+                    "updated": 1687640983442
                 }
             ]
         },
@@ -37,6 +69,16 @@
                     "language": "RU",
                     "text": "Спасибо основателям, так как это потрясающий проект, который понравится людям.",
                     "updated": 1640418770612
+                },
+                {
+                    "language": "TR",
+                    "text": "Kuruculara teşekkür ederiz, çünkü bu proje insanların keyif alabileceği harika bir proje.",
+                    "updated": 1669585481022
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein kleines Dankeschön an die Gründer, denn dies ist und wird ein großartiges Projekt sein, an dem sich die Menschen erfreuen können.",
+                    "updated": 1687640994331
                 }
             ]
         },

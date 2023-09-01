@@ -240,16 +240,17 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_RETRIES)
                     }
                     else {
-                        console.log((new Date()).toISOString(), '[WARN] Signal for current candle was NEVER received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
-                        console.log((new Date()).toISOString(), '[WARN] The possible reasons for this to happen are: ')
-                        console.log((new Date()).toISOString(), '[WARN]                                              1) If you never received the signals from this provider before, you might be using an outdated User Profile of the Signal Provider. ')
-                        console.log((new Date()).toISOString(), '[WARN]                                              2) If you were receiving before signals from this Signal Provider, then maybe the provider stopped sending signals. Please check the providers Telegram Group for any notifications.')
+                        SA.logger.warn('Signal for current candle was NEVER received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                        SA.logger.warn('The possible reasons for this to happen are: ')
+                        SA.logger.warn('    1) You may not be following the Signal Provider. Ensure a Followed Bot Reference node is added to the referenced Social Trading Bot in your User Profile. ')
+                        SA.logger.warn('    2) You may be using an outdated User Profile of the Signal Provider. Please make sure your setup is up to date. ')
+                        SA.logger.warn('    3) The Signal Provider may have stopped sending signals. Please check the provider\'s Telegram Group for any notifications.')
                         
                         allGood = false
                         break
                     }
                 } else {
-                    console.log((new Date()).toISOString(), '[INFO] Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
+                    SA.logger.info('Signal for current candle was received while running the simulation. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
                     allGood = true
                     break
                 }

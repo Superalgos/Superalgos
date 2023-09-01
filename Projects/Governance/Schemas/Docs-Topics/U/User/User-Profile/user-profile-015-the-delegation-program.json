@@ -13,8 +13,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ayude a sus colegas a realizar sus primeras declaraciones!",
-                "updated": 1640960645858
+                "text": "Ayuda a tus colegas a realizar sus primeras declaraciones!",
+                "updated": 1682796739755
             },
             {
                 "language": "TR",
@@ -42,6 +42,11 @@
                     "language": "TR",
                     "text": "Temsilci Güç Anahtarı",
                     "updated": 1646304978448
+                },
+                {
+                    "language": "ES",
+                    "text": "Interruptor de encendido delegado",
+                    "updated": 1682796766561
                 }
             ]
         },
@@ -62,6 +67,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Temsilcisi",
                     "updated": 1646304994493
+                },
+                {
+                    "language": "ES",
+                    "text": "Usuario Delegado",
+                    "updated": 1682796776181
                 }
             ]
         },

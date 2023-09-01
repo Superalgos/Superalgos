@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Artık tüm aşamalarda temel tanımlara sahip olduğumuza göre, ilk geriye dönük test yapabiliriz!",
-                "updated": 1641797495481
+                "text": "Artık bu temel tanımlara sahip olduğumuza göre, ilk geriye dönük testi yapabiliriz.",
+                "updated": 1669582374278
             },
             {
                 "language": "RU",
                 "text": "Теперь, когда у нас есть основные определения на всех этапах, мы можем провести первый бэктест!",
                 "updated": 1642943617754
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que ya tenemos las definiciones básicas en todas las etapas, ¡podemos hacer un primer backtest!",
+                "updated": 1681055324453
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы будем использовать те же параметры, что и в конце предыдущего урока. Не поленитесь зайти и проверить!",
                     "updated": 1642943673072
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilizaremos los mismos parámetros que al final del tutorial anterior. ¡Siéntete libre de ir y comprobarlo!",
+                    "updated": 1681055344252
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Запустите задание для BB Breakdown 2 и запустите соответствующую сессию бэктестинга!",
                     "updated": 1642943718578
+                },
+                {
+                    "language": "ES",
+                    "text": "Inicie la tarea para BB Breakdown 2 e inicie también la sesión de backtesting correspondiente.",
+                    "updated": 1681055368601
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Я предполагаю, что у вас есть данные, которые мы добыли в предыдущем уроке! Если у вас их нет, это вряд ли сработает!",
                     "updated": 1642943735176
+                },
+                {
+                    "language": "ES",
+                    "text": "Asumo que tienes los datos que extrajimos en el tutorial anterior. Si no es así, es poco probable que esto funcione.",
+                    "updated": 1681055386368
                 }
             ]
         }

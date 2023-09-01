@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Mentorlar, Katkıda Bulunanları geliştirmek için çok önemlidir. Onlar, ilerlemenize ve Superalgos'ta ustalaşmanıza yardımcı olmak için ekstra yol kat eden insanlardır!",
                 "updated": 1645102045242
+            },
+            {
+                "language": "ID",
+                "text": "Mentor sangat krusial untuk mengembangkan kontributor. Mereka adalah orang-orang yang bekerja ekstra untuk membantu kamu maju dan menguasai Superalgos!",
+                "updated": 1671544925504
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Mentorship Programes muy similar al Support Program, solo que sus mentores no necesitan ser moderadores. ¡Puede ser tu amigo aprendiendo Superalgos contigo, o otro miembro de la comunidad!",
-                    "updated": 1630898711625,
+                    "text": "El Programa de Mentores es muy similar al Programa de Apoyo, sólo que tus mentores no necesitan ser moderadores. Puede ser tu amigo aprendiendo Superalgos contigo, o cualquier otro miembro de la Comunidad",
+                    "updated": 1682522020426,
                     "style": "Text"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Mentorluk Programı (Mentorship Program), Destek Programına (Support Program) çok benzer, ancak mentorlarınızın moderatör olması gerekmez. Sizinle Superalgos öğrenen bir arkadaşınız veya başka bir Topluluk üyesi olabilir!",
                     "updated": 1645102094486
+                },
+                {
+                    "language": "ID",
+                    "text": "Mentorship Program sangat mirip dengan Support Program, hanya saja mentor kamu tidak perlu menjadi moderator. Mungkin sesama temanmu yang mempelajari Superalgos bersama-sama, atau anggota Community lainnya!",
+                    "updated": 1671544932257
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Programı uygulayın ve akıl hocalarınızı ilan edin!",
                     "updated": 1645102125343
+                },
+                {
+                    "language": "ID",
+                    "text": "Deploy programnya, dan nyatakan mentormu!",
+                    "updated": 1671544938643
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Bununla yeni gelenlere yönelik ana Yönetim Programlarının (Governance Programs) kurulumunu tamamladınız! Şimdi Kullanıcı Profilinizi Superalgos deposuna gönderme zamanı!",
                     "updated": 1645102891410
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan ini kamu telah menyelesaikan penyiapan utama Governance Programs yang diorientasikan pada pendatang baru! Sekarang saatnya kontribusikan User Profil kamu ke repositori Superalgos!",
+                    "updated": 1671544968508
                 }
             ]
         }

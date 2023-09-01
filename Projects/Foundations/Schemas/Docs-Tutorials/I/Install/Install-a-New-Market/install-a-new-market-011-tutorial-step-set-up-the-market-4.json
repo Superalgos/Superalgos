@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Etiqueta el Market con los nombres de ticker correspondientes a el Market Base Asset ay el Market Quoted Asset, al igual que la lista de exchange.",
-                "updated": 1629247010585
+                "text": "Etiqueta el Market con los nombres de ticker correspondientes a el Market Base Asset y el Market Quoted Asset, al igual que la lista de exchange.",
+                "updated": 1682427458073
             },
             {
                 "language": "DE",
@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Пометьте Market тикерными именами, соответствующими Market Base Asset и Market Quoted Asset, подобно биржевому листингу.",
                 "updated": 1643090585605
+            },
+            {
+                "language": "NL",
+                "text": "Label de Market met het tokenpaar die overeenkomen met de Market Base Asset en de Market Quoted Asset, zoals geregistreerd bij het handelsplatform.",
+                "updated": 1676124853436
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Например: ETH/USDT.",
                     "updated": 1643090594424
+                },
+                {
+                    "language": "NL",
+                    "text": "Bijvoorbeeld: ETH/USDT.",
+                    "updated": 1676124876905
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "RU",
                     "text": "Поддержание опрятного рабочего пространства с соответствующими метками для значимых узлов помогает в управлении большими операциями и администрировании сложностей. Эти метки могут быть использованы другими узлами!",
                     "updated": 1643090610545
+                },
+                {
+                    "language": "NL",
+                    "text": "Een opgeruimde Workspace met de juiste labels voor belangrijke knooppunten helpt bij het beheren van grote bewerkingen en het beheren van complexiteit. Deze labels kunnen door andere nodes worden gebruikt!",
+                    "updated": 1676124900957
                 }
             ]
         }

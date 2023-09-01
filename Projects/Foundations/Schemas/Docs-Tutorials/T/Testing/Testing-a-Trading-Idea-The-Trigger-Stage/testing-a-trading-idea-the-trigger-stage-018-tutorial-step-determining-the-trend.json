@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Muhtemelen dünyada yaşayan tüccarlar gibi bir eğilim belirlemenin birçok yolu vardır! Bu bir tarz meselesi ve çoğunlukla öznel!",
-                "updated": 1641653161688
+                "text": "Bir trendi belirlemenin muhtemelen Dünya gezegeninde yaşayan tüccarlar kadar çok yolu vardır! Bu bir tarz meselesidir ve çoğunlukla özneldir!",
+                "updated": 1669576481664
+            },
+            {
+                "language": "ES",
+                "text": "Probablemente haya tantas formas de determinar una tendencia como traders habitan el planeta Tierra. Es una cuestión de estilo y, sobre todo, subjetiva.",
+                "updated": 1675622381493
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bollinger Bantlarında oluşturulmuş 20 dönemlik hareketli ortalamaya (MA) dayalı, keyfi ve oldukça basit bir yaklaşım izleyeceğiz.",
                     "updated": 1641653171354
+                },
+                {
+                    "language": "ES",
+                    "text": "Adoptaremos un enfoque arbitrario y bastante simple basado en la media móvil (MA) de 20 periodos incorporada en las Bandas de Bollinger.",
+                    "updated": 1675622399166
                 }
             ]
         },
@@ -65,8 +75,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( Layer ) Katmanını açın!",
-                    "updated": 1641653199650
+                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( (Bollinger Channels Objects) Katmanını (Layer) açın!",
+                    "updated": 1669576557806
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al Bollinger Data Layer Manager y activa la capa \"Bollinger Channels Objects\".",
+                    "updated": 1675622449033
                 }
             ]
         },
@@ -86,8 +101,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bu gösterge MA'nın yönünü alır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
-                    "updated": 1641653214188
+                    "text": "Not: Bu gösterge MA'nın yönüne göre çalışır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
+                    "updated": 1669576593762
+                },
+                {
+                    "language": "ES",
+                    "text": "Este indicador deriva la dirección de la MA y dibuja un canal verde cuando la MA está subiendo y un canal rojo cuando está bajando.",
+                    "updated": 1675622453899
                 }
             ]
         }

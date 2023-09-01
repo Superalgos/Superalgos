@@ -1,0 +1,180 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Congrats and Thank You!",
+    "definition": {
+        "text": "You are already helping the project! We are grateful for your first contribution and hope there's more to come!",
+        "updated": 1636914650684,
+        "icon": {
+            "name": "Docs\\docs-success-style",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Fantastico! Stai già aiutando il progetto! Ti siamo grati per questo primo contributo e speriamo ce ne siano altri in futuro!",
+                "updated": 1619637816559,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Ya estás ayudando al proyecto! Te agradecemos tu primera contribución y esperamos que haya más.",
+                "updated": 1675454615664,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das ist großartig! Du hilfst dem Projekt bereits! Wir sind dankbar für Ihren ersten Beitrag und hoffen, dass noch weitere folgen werden!",
+                "updated": 1635151669411
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'a ilgi duymak ve onu anlayıp kullanmaya çalışmakla projeye zaten yardım ediyorsunuz! İlk katkınız için minnettarız ve daha fazlasının geleceğini umuyoruz!",
+                "updated": 1640002412839
+            },
+            {
+                "language": "RU",
+                "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все!",
+                "updated": 1640163557924
+            },
+            {
+                "language": "ID",
+                "text": "Kamu pada akhirnya telah membantu proyek! Kami sangat berterima kasih dengan kontribusi pertamamu dan berharap terus ada dimasa mendatang!",
+                "updated": 1668997205176
+            },
+            {
+                "language": "NL",
+                "text": "Je helpt het project al! We zijn dankbaar voor je eerste bijdrage en hopen dat er nog meer volgen!",
+                "updated": 1669750298722
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If everything went well, you should see a confirmation that changes were contributed!",
+            "updated": 1688055888235,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "`Se tutto è andato bene nell'autenticazione, vedrai la pagin App Message - Contribution Done!",
+                    "updated": 1619637854204,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si todo salió bien con tu autenticación, deberías ver el App Message - Contribution Done!",
+                    "updated": 1628198389832,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles mit Ihrer Authentifizierung gut gelaufen ist, sollten Sie die Seite App Message - Contribution Done sehen!",
+                    "updated": 1635151689672
+                },
+                {
+                    "language": "TR",
+                    "text": "Kimlik doğrulamanızla ilgili her şey yolunda gittiyse, \"App Message - Contribution Done page!\" mesajını görmelisiniz.",
+                    "updated": 1640002467526
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done!",
+                    "updated": 1640163574867
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semua berjalan lancar dengan otentikasi, kamu seharusnya mendapatkan halaman  App Message - Contribution Done!",
+                    "updated": 1668997216327
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alles goed is gegaan met uw authenticatie, zou u de pagina App Message - Contribution Done moeten zien!",
+                    "updated": 1669750322671
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Project maintainers will review your Pull Request and act accordingly. If it is possible to merge it without conflicts, it should go live soon! Keep an eye on notifications from GitHub.com!",
+            "updated": 1622029481268,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I manutentori del progetto esamineranno la Pull Request. Se è possibile integrarla senza conflitti, dovrebbe essere presto in live! Tieni d'occhio le notifiche su GitHub.com!",
+                    "updated": 1619637945490,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuarán en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
+                    "updated": 1675454598062,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Projektbetreuer werden Ihren Pull Request überprüfen und entsprechend handeln. Wenn es möglich ist, ihn ohne Konflikte zusammenzuführen, sollte er bald live gehen! Behalten Sie die Benachrichtigungen von GitHub.com im Auge!",
+                    "updated": 1635151697994
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje liderleri Çekme Talebinizi gözden geçirecek ve buna göre hareket edecektir. Herhangi bir uyumsuzluk yok ise birleştirilecektir.! Github.com'dan gelen bildirimleri takip edin.",
+                    "updated": 1640002725575
+                },
+                {
+                    "language": "RU",
+                    "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com!",
+                    "updated": 1640163619040
+                },
+                {
+                    "language": "ID",
+                    "text": " Pemelihara proyek akan mengulas Pull Request dan bertindak sesuai seharusnya. Jika memiliki kemungkinan untuk menggabungkannya tanpa konflik, Seharusnya itu segera tayang! Tetap perhatikan notifikasi dari GitHub.com!",
+                    "updated": 1668997224948
+                },
+                {
+                    "language": "NL",
+                    "text": "Project beheerders zullen uw Pull Request beoordelen en dienovereenkomstig handelen. Als het mogelijk is om het zonder conflicten samen te voegen, zou het binnenkort live moeten gaan! Houd notificaties van GitHub.com in de gaten!",
+                    "updated": 1669750350678
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "If something went wrong, please check your console or terminal for errors and feel free to ask for help in the Develop Group.",
+            "updated": 1688055986498,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si algo salió mal con el Git Authentication, Sigue las instrucciones de la página de error para solucionar el problema o pide ayuda en el Develop Group.",
+                    "updated": 1628198531991,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn etwas mit der Git-Authentifizierung schief gelaufen ist, folgen Sie bitte den Anweisungen auf der Fehlerseite, um das Problem zu beheben, oder bitten Sie in der Develop Group um Hilfe.",
+                    "updated": 1635151705982
+                },
+                {
+                    "language": "TR",
+                    "text": "Git Kimlik Doğrulaması ile ilgili bir şeyler ters giderse, sorunu gidermek veya Geliştirme Grubundan yardım istemek için lütfen hata sayfasındaki talimatları izleyin.",
+                    "updated": 1640002743864
+                },
+                {
+                    "language": "RU",
+                    "text": "Если что-то пошло не так с аутентификацией Git, пожалуйста, следуйте инструкциям на странице ошибки для устранения проблемы или обратитесь за помощью в группу разработчиков Develop Group.",
+                    "updated": 1640163658875
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika sesuatu berjalan tidak sesuai dengan otentikasi Git, ikuti petunjuk pada halaman kesalahan untuk memecahkan masalah atau meminta bantuan di Develop Group.",
+                    "updated": 1668997234762
+                },
+                {
+                    "language": "NL",
+                    "text": "Als er iets mis is gegaan met de Git-authenticatie, volg dan de instructies op de foutpagina om het probleem op te lossen of vraag om hulp in de Develop Group.",
+                    "updated": 1669750375182
+                }
+            ]
+        }
+    ]
+}

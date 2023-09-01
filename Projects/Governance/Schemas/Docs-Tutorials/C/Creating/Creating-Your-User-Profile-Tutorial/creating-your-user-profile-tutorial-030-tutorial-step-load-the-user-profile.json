@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Sabes quién es tu referente? ¿Su referente tiene un perfil de usuario? ¿Cómo encuentra y carga el perfil correcto? ¡Todas esas son buenas preguntas!",
-                "updated": 1630896021100,
+                "text": "Utilice el cuadro de búsqueda para encontrar el perfil que busca. Vaya a la pestaña Espacio de trabajo y busque el nodo Perfil de usuario que coincida con el nombre que ha buscado. ",
+                "updated": 1682521134676,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Özet: Yönlendirenin kim olduğunu biliyor musun? Yönlendiren kişinin Kullanıcı Profili (User Profile) var mı? Doğru profili nasıl bulur ve yüklersiniz?",
                 "updated": 1645092385492
+            },
+            {
+                "language": "ID",
+                "text": "Gunakan box pencarian untuk menemukan profil yang kamu cari! Pergi ke tab Workspace dan temukan node User Profile yang sama dengan nama yang kamu cari!",
+                "updated": 1671528150953
             }
         ]
     },
@@ -37,7 +42,19 @@
         {
             "style": "Callout",
             "text": "Make sure you find an actual User Profile node, and not any other kind of node, and click on it!",
-            "updated": 1660646418044
+            "updated": 1660646418044,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Pastikan kamu menemukan node User Profile yang sebenarnya, dan bukan jenis node lainnya, dan klik di atasnya!",
+                    "updated": 1671528158112
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de encontrar un nodo de perfil de usuario real, y no cualquier otro tipo de nodo, y haz clic en él.",
+                    "updated": 1682521149810
+                }
+            ]
         },
         {
             "style": "Note",
@@ -46,8 +63,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Te traje al perfil ficticio mencionado en la guía para que te sea más fácil!",
-                    "updated": 1630896053331,
+                    "text": "Si no encuentras el perfil que buscas, puede que tengas que añadirlo manualmente al área de trabajo. ¡En ese caso, consulte la página Cargar un perfil de usuario en Docs!",
+                    "updated": 1682521173668,
                     "style": "Note"
                 },
                 {
@@ -64,18 +81,23 @@
                     "language": "TR",
                     "text": "İşinizi kolaylaştırmak için sizi rehberde bahsedilen Dummy profiline getirdim!",
                     "updated": 1645092431093
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak memenukan profil yang kamu cari, kamu harus menambahkannya secara manual ke workspace. Jika itu kasusnya, silahkan lihat halaman Load a User Profile di Docs!",
+                    "updated": 1671528164608
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "New profiles are added to the governance Plugin Workspace before each distribution event.",
+            "text": "New profiles are added to the governance Native Workspace before each distribution event.",
             "updated": 1660643324416,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Founding Team ya están cargados.",
-                    "updated": 1630896089076,
+                    "text": "Los nuevos perfiles se añaden al Native Workspace de gobierno antes de cada evento de distribución.",
+                    "updated": 1682521246636,
                     "style": "Success"
                 },
                 {
@@ -92,6 +114,11 @@
                     "language": "TR",
                     "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Founding Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
                     "updated": 1645092477222
+                },
+                {
+                    "language": "ID",
+                    "text": "Profil baru akan ditambahkan ke governance Native Workspaces ebelum tiap event distribusi.",
+                    "updated": 1671528173184
                 }
             ]
         }

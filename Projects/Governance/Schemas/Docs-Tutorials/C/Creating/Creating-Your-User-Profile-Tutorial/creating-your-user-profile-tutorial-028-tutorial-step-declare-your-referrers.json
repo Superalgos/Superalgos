@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡El programa está implementado! ¡Ahora tienes que declarar tu referente para cumplir con el segundo requisito!",
-                "updated": 1630895782489,
+                "text": "¡El programa está en marcha! Ahora tienes que indicar tu referente para cumplir el segundo requisito. ",
+                "updated": 1682520824685,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Das Programm wird eingesetzt! Jetzt müssen Sie Ihren Referrer angeben, um die zweite Anforderung zu erfüllen!",
                 "updated": 1640079593034
+            },
+            {
+                "language": "ID",
+                "text": "Programnya sudah terdeploy! Sekarang kamu harus menyatakan perujukmu untuk memenuhi persyaratan kedua!",
+                "updated": 1671527141584
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Declarar tus referencias es la mejor manera de agradecer a las personas que pueden haber escrito ese artículo o tweet, producido ese video, mantenido el sitio web etc....",
-                    "updated": 1632024727440,
+                    "text": "Puede que hayas conocido Superalgos a través de un artículo, un vídeo, un comentario en Reddit, un tweet, la página web oficial o alguien que te ha hablado de nosotros.",
+                    "updated": 1682520866688,
                     "style": "Success"
                 },
                 {
@@ -59,12 +64,29 @@
                     "language": "DE",
                     "text": "Die Angabe von Empfehlungsgebern ist der beste Weg, sich bei den Personen zu bedanken, die den Artikel oder Tweet geschrieben, das Video produziert, die Website gepflegt oder Ihnen von Superalgos erzählt haben!",
                     "updated": 1640079619440
+                },
+                {
+                    "language": "ID",
+                    "text": "Mungkin sekarang kamu belajar tentang Superalgos dari artikel, video, komen di Reddit, sebuah tweet, Official Website, atau seseorang yang memberitahumu tentang kami!",
+                    "updated": 1671527149772
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Declaring your referrers is the best way to thank the people that did the work!"
+            "text": "Declaring your referrers is the best way to thank the people that did the work!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Menyatakan perujukmu adalah jalan terbaik untuk berterima kasih kepada orang yang telah bekerja untuk itu!",
+                    "updated": 1671527162213
+                },
+                {
+                    "language": "ES",
+                    "text": "Dar a conocer a las personas que te han recomendado es la mejor manera de dar las gracias a los que han hecho el trabajo.",
+                    "updated": 1682520927790
+                }
+            ]
         },
         {
             "style": "Note",
@@ -91,6 +113,11 @@
                     "language": "DE",
                     "text": "Um einen Referrer zu deklarieren, müssen Sie einen Verweis vom Knoten User Referrer auf das Benutzerprofil Ihres Referrers herstellen! Das bedeutet, dass der Name eines Benutzerprofils (User Profile ) auch ein Empfehlungscode ist!",
                     "updated": 1640079659488
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menyatakan perujukmu, kamu harus membuat referensi dari node User Referrer ke User Profile dari perujuk kamu! Artinya, nama User Profile juga merupakan kode referensi!",
+                    "updated": 1671527172913
                 }
             ]
         }

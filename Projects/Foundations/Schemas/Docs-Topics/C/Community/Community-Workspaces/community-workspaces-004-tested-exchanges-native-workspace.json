@@ -1,0 +1,238 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "4",
+    "type": "Tested Exchanges Native Workspace",
+    "definition": {
+        "text": "This workspace features the collection of Crypto Exchange nodes corresponding to exchanges that have been or are currently being tested. Use this workspace if you intend to test new exchanges.",
+        "updated": 1622624683862,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace presenta la colección de nodos Crypto Exchange correspondiente a exchanges que han sido o están siendo probados actualmente. Utiliza este espacio de trabajo si tienes la intención de probar nuevos exchanges.",
+                "updated": 1628045858670
+            },
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве представлена ​​коллекция узлов Crypto Exchange, соответствующих биржам, которые были или в настоящее время тестируются. Используйте это рабочее пространство, если вы собираетесь тестировать новые биржи.",
+                "updated": 1639055927749
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, test edilmiş veya şu anda test edilmekte olan borsalara karşılık gelen Crypto Exchange düğümlerinin koleksiyonunu içerir. Yeni değişimleri test etmeyi düşünüyorsanız bu çalışma alanını kullanın.",
+                "updated": 1644675616580
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält eine Sammlung von Krypto-Börsenknoten (Crypto Exchange), die den Börsen entsprechen, die getestet wurden oder derzeit getestet werden. Verwenden Sie diesen Arbeitsbereich, wenn Sie neue Börsen testen wollen.",
+                "updated": 1688852708371
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Testing Workflow",
+            "updated": 1616156093719,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рабочий процесс тестирования",
+                    "updated": 1639055942440
+                },
+                {
+                    "language": "TR",
+                    "text": "İş Akışının Test Edilmesi",
+                    "updated": 1644675668619
+                },
+                {
+                    "language": "DE",
+                    "text": "Ablauf der Prüfung",
+                    "updated": 1688852738104
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Crypto Ecosystem hierarchy features five different Crypto Exchanges nodes reflecting the status of the tests of each of the exchanges.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La jerarquía Crypto Ecosystem (ecosistemas cripto) presenta cinco tipos diferentes de nodos Crypto Exchanges reflejando el status de los test de cada uno de los exchanges.",
+                    "updated": 1636366812201
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархия Crypto Ecosystem включает пять различных узлов Crypto Exchanges, отражающих статус тестов каждой из бирж.",
+                    "updated": 1639055959487
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Ekosistem hiyerarşisi ( Crypto Ecosystem hierarchy ), her bir borsanın testlerinin durumunu yansıtan beş farklı Kripto Borsası ( Crypto Exchanges ) düğümüne sahiptir.",
+                    "updated": 1644675741676
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Crypto Ecosystem -Hierarchie umfasst fünf verschiedene Crypto Exchanges -Knotenpunkte, die den Status der Tests der einzelnen Börsen widerspiegeln.",
+                    "updated": 1688852837994
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Untested: Exchanges for which there is no recorded history of tests.",
+            "updated": 1616155760279,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Untested ( no testeados): Exchanges para los cuales no existe ningun registro pasado de testeos.",
+                    "updated": 1636366882316
+                },
+                {
+                    "language": "RU",
+                    "text": "Untested: Биржи, для которых нет зарегистрированной истории испытаний.",
+                    "updated": 1639055978955
+                },
+                {
+                    "language": "TR",
+                    "text": "Test edilmemiş: Kayıtlı test geçmişi olmayan değişimler.",
+                    "updated": 1644675763900
+                },
+                {
+                    "language": "DE",
+                    "text": "Ungetestet: Austausche, für die es keine aufgezeichnete Historie von Tests gibt.",
+                    "updated": 1688852877809
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing Queue: Exchanges that developers are currently testing.",
+            "updated": 1616155779390,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing Queue ( Testeando en fila): Exchanges que los developers están actualmente testeando.",
+                    "updated": 1636366941024
+                },
+                {
+                    "language": "RU",
+                    "text": "Testing Queue: Биржи, которые в настоящее время тестируют разработчики.",
+                    "updated": 1639055996774
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Kuyruğu: Geliştiricilerin şu anda test etmekte olduğu değiş tokuşlar.",
+                    "updated": 1644675796511
+                },
+                {
+                    "language": "DE",
+                    "text": "Test-Warteschlange: Börsen, die derzeit von Entwicklern getestet werden.",
+                    "updated": 1688852904114
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Failed OHLCVs Tests: Exchanges that were tested but failed to serve OHLCV data in the expected manner. Exchanges in this queue are not usable at the moment. Further efforts may be required to put them to work.",
+            "updated": 1616155913345,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Failed OHLCVs Tests Testeo fallido): Exchanges que han sid testeados pero fallaron al servir los datos de OHLCV de la manera esperada. Exchanges en este listado no son utilizables por el momento. Mayores esfuerzos serán necesarios para lograr hacerlos trabajar.",
+                    "updated": 1636367109571
+                },
+                {
+                    "language": "RU",
+                    "text": "Failed OHLCVs Tests: Биржи, которые были протестированы, но не смогли предоставить данные OHLCV ожидаемым образом. Биржи из этого списка в данный момент недоступны. Могут потребоваться дополнительные усилия, чтобы заставить их работать.",
+                    "updated": 1639056083021
+                },
+                {
+                    "language": "TR",
+                    "text": "Başarısız OHLCV Testleri: Test edilmiş ancak OHLCV verilerini beklenen şekilde sunamayan değişimler. Bu kuyruktaki takaslar şu anda kullanılamaz. Onları işe koymak için daha fazla çaba gerekebilir.",
+                    "updated": 1644675803371
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlgeschlagene OHLCVs-Tests: Austauschvorgänge, die getestet wurden, aber die OHLCV-Daten nicht in der erwarteten Weise übermitteln konnten. Exchanges in dieser Warteschlange sind derzeit nicht nutzbar. Es können weitere Anstrengungen erforderlich sein, um sie in Betrieb zu nehmen.",
+                    "updated": 1688852932205
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Tests Pending: Exchanges that have passed the OHLCV tests (are able to serve data in the manner Superalgos expects it) and are awaiting live trading tests.",
+            "updated": 1616156044085,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading Tests Pending (Tests de trading Pendientes): Exchanges que han pasado los test OHLCV (porporcionan datos en la manera en que Superalgos espera) y están a la espera de los test de trading en vivo.",
+                    "updated": 1636367468491
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Tests Pending: Биржи, прошедшие тесты OHLCV (могут предоставлять данные так, как этого ожидает Superalgos) и ожидают реальных торговых тестов.",
+                    "updated": 1639056105477
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Testleri Beklemede: OHLCV testlerini geçen (Superalgos'un beklediği şekilde veri sunabilen) ve canlı işlem testlerini bekleyen borsalar.",
+                    "updated": 1644675826681
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausstehende Handelstests (Trading Tests Pending): Börsen, die die OHLCV-Tests bestanden haben (d. h. in der Lage sind, Daten in der von Superalgos erwarteten Weise zu liefern) und auf Live-Handelstests warten.",
+                    "updated": 1688853009612
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Tested: Exchanges that have been tested for data-mining and live trading, and that everyone should be able to use without hassle.",
+            "updated": 1616156004370,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tested ( testeados): Exchanges que han sido testeados con data-mining y trading en vivo, y que cualquiera debería poder usuarlos sin inconvenientes.",
+                    "updated": 1636367462636
+                },
+                {
+                    "language": "RU",
+                    "text": "Tested: Биржи, которые были протестированы для интеллектуального анализа данных и торговли в реальном времени, и каждый должен иметь возможность использовать их без проблем.",
+                    "updated": 1639056175209
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Edildi: Veri madenciliği ve canlı ticaret için test edilmiş ve herkesin güçlük çekmeden kullanabilmesi gereken borsalar.",
+                    "updated": 1644675838112
+                },
+                {
+                    "language": "DE",
+                    "text": "Gestestet: Börsen, die für Data-Mining und Live-Trading getestet wurden und die jeder ohne Probleme nutzen können sollte.",
+                    "updated": 1688853043564
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616151450651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236922589
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688934057601
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "@us9808",
+            "updated": 1616151454415
+        }
+    ]
+}

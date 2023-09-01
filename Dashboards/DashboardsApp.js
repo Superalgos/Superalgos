@@ -10,24 +10,24 @@ exports.newDashboardsApp = function newDashboardsApp() {
         
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-                console.log("The Superalgos Dashboards Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Dashboards Client might be already running.")
+                SA.logger.error("The Superalgos Dashboards Client cannot be started. Reason: the port configured might be being used by another application, or Superalgos Dashboards Client might be already running.")
                 return
             }
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> uncaughtException -> err.message = ' + err.message)
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> uncaughtException -> err.stack = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> uncaughtException -> err = ' + err)
+            SA.logger.error('Dashboards App -> uncaughtException -> err.message = ' + err.message)
+            SA.logger.error('Dashboards App -> uncaughtException -> err.stack = ' + err.stack)
+            SA.logger.error('Dashboards App -> uncaughtException -> err = ' + err)
             process.exit(1)
         })
 
         process.on('unhandledRejection', (reason, p) => {
             // Signal user that a necessary node module is missing
             if (reason.code == 'MODULE_NOT_FOUND') {
-                console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Dashboards Client.")
-                console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> reason = ' + JSON.stringify(reason))
+                SA.logger.error("Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Dashboards Client.")
+                SA.logger.error('Dashboards App -> reason = ' + JSON.stringify(reason))
                 process.exit(1)
             }
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> unhandledRejection -> p = ' + JSON.stringify(p))
+            SA.logger.error('Dashboards App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+            SA.logger.error('Dashboards App -> unhandledRejection -> p = ' + JSON.stringify(p))
             process.exit(1)
         })
         try {
@@ -68,39 +68,39 @@ exports.newDashboardsApp = function newDashboardsApp() {
             Setting up servers running inside this Client.
             */
             DS.servers = {}
-            console.log('SUPERALGOS DASHBOARDS CLIENT SERVERS:')
-            console.log('')
+            SA.logger.info('SUPERALGOS DASHBOARDS CLIENT SERVERS:')
+            SA.logger.info('')
 
             if (mode === "devBackend") {
                 DS.servers.WEBSOCKET_SERVER = WEBSOCKET_SERVER.newWebSocketsServer()
                 DS.servers.WEBSOCKET_SERVER.initialize()
-                console.log('Websocket Server .................................................. Started in Dev Mode')
+                SA.logger.info('Websocket Server .................................................. Started in Dev Mode')
                 
             } else if (mode === "devFrontend") {
                 DS.servers.UI_SERVER = UI_SERVER.newDashboardsUIApp()
                 DS.servers.UI_SERVER.initialize()
-                console.log('UI Server .................................................. Started in Dev Mode')
+                SA.logger.info('UI Server .................................................. Started in Dev Mode')
             
             } else {
                 // Start both front and backend if no dev mode declared
                 DS.servers.WEBSOCKET_SERVER = WEBSOCKET_SERVER.newWebSocketsServer()
                 DS.servers.WEBSOCKET_SERVER.initialize()
-                console.log('Websocket Server .................................................. Started')
+                SA.logger.info('Websocket Server .................................................. Started')
 
                 DS.servers.UI_SERVER = UI_SERVER.newDashboardsUIApp()
                 DS.servers.UI_SERVER.initialize()
-                console.log('UI Server .................................................. Started')
+                SA.logger.info('UI Server .................................................. Started')
             }
 
-            console.log('')
-            console.log("You are running Superalgos Dashboards App: " + SA.version)
-            console.log('')
-            console.log('Join the @superalgosdevelop Telegram Group to learn more!')
+            SA.logger.info('')
+            SA.logger.info("You are running Superalgos Dashboards App: " + SA.version)
+            SA.logger.info('')
+            SA.logger.info('Join the @superalgosdevelop Telegram Group to learn more!')
 
-            console.log('')
+            SA.logger.info('')
 
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Error = ' + err.stack)
+            SA.logger.error('Dashboards App -> Error = ' + err.stack)
         }
     }
 }

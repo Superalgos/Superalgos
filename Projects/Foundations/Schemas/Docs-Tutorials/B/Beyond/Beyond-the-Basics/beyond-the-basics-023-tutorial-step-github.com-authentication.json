@@ -1,10 +1,10 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "23",
+    "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
-        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
-        "updated": 1610799914806,
+        "text": "For the Contributions Panel to work, you need to enter the credentials to authenticate with GiHub.com first!",
+        "updated": 1687965036004,
         "icon": {
             "name": "github-api",
             "project": "Foundations"
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
-                "updated": 1628194149826,
+                "text": "Para que el app.contribute comando funcione, debes autenticarte en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
+                "updated": 1675454184901,
                 "style": "Definition"
             },
             {
@@ -41,14 +41,19 @@
                 "language": "ID",
                 "text": "Untuk menjalankan perintah app.contribute , kamu harus memberikan autentikasi ke beberapa level berbeda. Kita akan berurusan dengan Github.com terlebih dulu!",
                 "updated": 1668949514138
+            },
+            {
+                "language": "NL",
+                "text": "Om de opdracht app.contribute te laten werken, moet u zich op twee verschillende niveaus authenticeren. We zullen GiHub.com eerst behandelen!",
+                "updated": 1669749347515
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will use the Github Personal Access Token you created while installing the platform or create a new one if you lost it!",
-            "updated": 1649178153308,
+            "text": "You need to authenticate at GitHub.com so that the Client may create the Pull Request in the upstream Superalgos repositories on your behalf. To do that, you will use the Github Personal Access Token you created while installing the platform or create a new one if you lost it!",
+            "updated": 1688041087920,
             "translations": [
                 {
                     "language": "IT",
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Necesitas autenticarte en GitHub.com para el Client para crear el Pull Request en tu nombre. Para hacer eso, crearás un Personal Access Token en GitHub.com:",
-                    "updated": 1628194254004,
+                    "text": "Necesitas autenticarte en GitHub.com para que el Cliente cree el Pull Request en tu nombre. Para ello, utilizarás el Token de Acceso Personal a Github que creaste al instalar la plataforma o crearás uno nuevo si lo perdiste.",
+                    "updated": 1675454209716,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu harus memberikan autentikasi ke Github.com untuk Client untuk membuat Pull Request atas kehendakmu. Untuk melakukan itu, kamu harus menggunakan Github Personal Access Token yang kamu buat saat menginstall platform ini atau membuat baru jika kamu lupa!",
                     "updated": 1668949520986
+                },
+                {
+                    "language": "NL",
+                    "text": "U moet zich authenticeren op GitHub.com zodat de Client namens u het Pull Request kan maken. Om dat te doen, gebruikt u het Github Personal Access Token dat u hebt gemaakt tijdens het installeren van het platform of maakt u een nieuwe aan als u deze bent kwijtgeraakt!",
+                    "updated": 1669749389116
                 }
             ]
         },
@@ -104,6 +114,16 @@
                     "language": "ID",
                     "text": "Membuat Github Personal Access Token->github.com/settings/tokens/new",
                     "updated": 1668949530671
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een persoonlijk toegangstoken voor GitHub.com->github.com/settings/tokens/new",
+                    "updated": 1669749405931
+                },
+                {
+                    "language": "ES",
+                    "text": "Crea un Personal Access Token en GitHub.com->github.com/settings/tokens/new",
+                    "updated": 1675454237212
                 }
             ]
         },
@@ -120,8 +140,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic en el enlace y sigue las instrucciones. Asegúrate de darle al token el repositorio y los alcances del flujo de trabajo. Mira el clip en el siguiente paso para mayor claridad…",
-                    "updated": 1628194375782,
+                    "text": "Asegúrate de dar al token los ámbitos de repo y workflow. ¡Comprueba el clip en el siguiente paso!",
+                    "updated": 1675454271912,
                     "style": "Callout"
                 },
                 {
@@ -143,6 +163,11 @@
                     "language": "ID",
                     "text": "Perhatikan bahwa kamu meberikan token cakupan repo dan workflow. Periksa klip di langkah selanjutnya!",
                     "updated": 1668949538372
+                },
+                {
+                    "language": "NL",
+                    "text": "Zorg ervoor dat u het token de repo- en workflow rechten geeft. Bekijk de video bij de volgende stap!",
+                    "updated": 1669749453554
                 }
             ]
         },
@@ -159,8 +184,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sugiero que lo nombres  \"Superalgos\" para referencia futura, asegúrate de marcar la casilla de verificación del repositorio para definir el alcance del token.",
-                    "updated": 1628195225900,
+                    "text": "Te sugiero que le pongas el nombre de Superalgos para que lo reconozcas más adelante. ",
+                    "updated": 1675454293847,
                     "style": "Text"
                 },
                 {
@@ -182,6 +207,11 @@
                     "language": "ID",
                     "text": "Aku saranku kamu memberikan nama token Superalgos yang bisa kamu kenali selanjutnya!",
                     "updated": 1668949545386
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik stel voor dat u het token naar Superalgos vernoemt, zodat u het later kunt herkennen!",
+                    "updated": 1669749469363
                 }
             ]
         }

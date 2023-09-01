@@ -12,13 +12,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu adım, videoyu tam ekran modunda oynatır.",
-                "updated": 1641665382187
+                "text": "Bu adım, videoyu tam ekran modunda oynatır.",
+                "updated": 1669670365347
             },
             {
                 "language": "RU",
                 "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
                 "updated": 1642663795643
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo a pantalla completa.",
+                "updated": 1679253895713
             }
         ]
     },

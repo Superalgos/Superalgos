@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Beyond the Basics Tutorial",
     "definition": {
         "text": "This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
@@ -30,6 +30,11 @@
                 "language": "ID",
                 "text": "Tutorial ini mencakup penyiapan untuk mengizinkan aplikasi berinteraksi dengan fork Github kamu, perintah untuk memperbarui aplikasi, berpindah branch, dan cara berkontribusi pada proyek.",
                 "updated": 1669167244790
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie behandelt de instellingen om de app te laten communiceren met uw Github fork, de opdrachten om de app bij te werken, het schakelen tussen branches en hoe u kunt bijdragen aan het project.",
+                "updated": 1669572869326
             }
         ]
     },
@@ -54,18 +59,28 @@
                     "language": "ID",
                     "text": "Tentang Tutorial Ini",
                     "updated": 1669167198461
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620850766
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Plugin Workspace.",
+            "text": "Workspace: Getting Started Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
                     "text": "Çalışma alanı: Başlarken Eklenti Çalışma Alanı.",
                     "updated": 1654393881519,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Getting Started Tutorials Native Workspace.",
+                    "updated": 1675448884756
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654393887009,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675448895422
                 }
             ]
         }

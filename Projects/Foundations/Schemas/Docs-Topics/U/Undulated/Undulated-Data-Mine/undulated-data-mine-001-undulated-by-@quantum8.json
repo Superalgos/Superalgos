@@ -31,6 +31,54 @@
             "updated": 1660521962615
         },
         {
+            "style": "List",
+            "text": "5) T3 Velocity"
+        },
+        {
+            "style": "List",
+            "text": "6) Trend Confirmation Index"
+        },
+        {
+            "style": "List",
+            "text": "7) Rahul Mohinder Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "8) Recursive Median"
+        },
+        {
+            "style": "List",
+            "text": "9) Fisher Ribbons"
+        },
+        {
+            "style": "List",
+            "text": "10) AK MACD BB"
+        },
+        {
+            "style": "List",
+            "text": "11) Hurst Channel Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "12) LW Proxy"
+        },
+        {
+            "style": "List",
+            "text": "13) TDFI"
+        },
+        {
+            "style": "List",
+            "text": "14) Banker Fund Flow"
+        },
+        {
+            "style": "List",
+            "text": "15) SMI FMI"
+        },
+        {
+            "style": "List",
+            "text": "16) HLC Trend"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

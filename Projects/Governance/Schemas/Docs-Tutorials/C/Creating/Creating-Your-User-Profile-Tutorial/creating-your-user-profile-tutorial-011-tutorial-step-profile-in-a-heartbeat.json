@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil.",
-                "updated": 1630882802325,
+                "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil y crear o vincular un monedero compatible con la Máquina Virtual Ethereum (EVM).",
+                "updated": 1682520000877,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Der Profile Constructor ist das Gerät, das Sie zum Einrichten Ihres Profils verwenden.",
                 "updated": 1640072911650
+            },
+            {
+                "language": "ID",
+                "text": "Profile Constructor merupakan perangkat yang akan kamu gunakan untuk mengatur profil mu dan membuat atau menghubungkan Ethereum Virtual Machine (EVM) dengan wallet yang kompatibel.",
+                "updated": 1670852731908
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Crearás una billetera Binance Smart Chain única que está conectada con tu perfil: tu Governance Address.",
-                    "updated": 1630886603829,
+                    "text": "El monedero admite fichas BSC y Ethereum, y está conectado con tu perfil. Llamamos a este monedero tu Dirección de Gobernanza. ",
+                    "updated": 1682520071372,
                     "style": "Text"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Er erstellt eine einzigartige Binance Smart Chain-Brieftasche, die mit Ihrem Profil verbunden ist: Ihre Governance Adresse.",
                     "updated": 1640072931374
+                },
+                {
+                    "language": "ID",
+                    "text": "Wallet yang mendukung token BSC dan Ethereum, serta mengkoneksikan dengan profil kamu. Kita menyebutkan wallet ini sebagai Governance Address kamu.",
+                    "updated": 1670852738372
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Sin embargo, si ya posees una billetera BSC, tendrás la opción de vincular esa dirección en lugar de crear una nueva.",
-                    "updated": 1630886627305,
+                    "text": "Sin embargo, si ya posee un monedero EVM, tendrá la opción de vincular esa dirección en lugar de crear una nueva.",
+                    "updated": 1682520097362,
                     "style": "Note"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Wenn Sie jedoch bereits ein BSC-Wallet besitzen, haben Sie die Möglichkeit, diese Adresse zu verknüpfen, anstatt eine neue zu erstellen.",
                     "updated": 1640072963422
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, jika kamu sudah memiliki EVM wallet kamu akan memiliki opsi untuk mentautkan alamat daripada membuat yang baru.",
+                    "updated": 1670852744789
                 }
             ]
         },
@@ -97,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y le asignará a tu perfil una cantidad equivalente de Token Power.",
-                    "updated": 1630886677089,
+                    "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y te asignará a tu perfil una cantidad equivalente de Token Power.",
+                    "updated": 1682520114121,
                     "style": "Text"
                 },
                 {
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Ihre Governance Address ermöglicht es Ihnen, die SA-Token zu erhalten, die Sie verdienen. Superalgos liest den Kontostand dieser Adresse aus, um die Anzahl der von Ihnen gehaltenen SA-Token zu erfahren, und weist Ihrem Profil eine entsprechende Menge an Token Power zu.",
                     "updated": 1640900909908
+                },
+                {
+                    "language": "ID",
+                    "text": "Governance Address kamu akan memperbolehkan kamu untuk menerima SA Token yang kamu telah dapatkan. Superalgos akan membaca saldo dari alamat kamu untuk mengetahui jumlah Token SA yang kamu pegang, dan menetapkan profil kamu dengan jumlah Token Power yang setara.",
+                    "updated": 1670852752778
                 }
             ]
         }

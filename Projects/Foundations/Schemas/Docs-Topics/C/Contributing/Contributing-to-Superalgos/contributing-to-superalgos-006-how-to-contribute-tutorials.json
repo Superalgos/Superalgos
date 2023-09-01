@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Öğreticiler Superalgos'ta bulunan en iyi eğitim kaynağıdır ve yeni kullanıcıların göreve sunulması sırasında çok önemli bir rol oynarlar. Katkıda bulunan öğreticiler, projenin kullanıcı tabanını büyütmesine yardımcı etmenin harika bir yoludur ve çok takdir edilir!",
                 "updated": 1645296933905
+            },
+            {
+                "language": "DE",
+                "text": "Tutorials sind die ultimative Bildungsressource, die in Superalgos zur Verfügung steht, und sie spielen eine entscheidende Rolle bei der Einarbeitung neuer Benutzer. Das Beitragen von Tutorials ist eine großartige Möglichkeit, dem Projekt zu helfen, die Benutzerbasis zu vergrößern und wird sehr geschätzt!",
+                "updated": 1681511558110
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Bu sayfada, Superalgos eğitimlerini oluşturmak ve katkıda bulunmak için en iyi uygulamalar anlatılmaktadır. Yapı eğitimlerinin gerçek mekaniğini kapsamaz. Bunun yerine, neyin arzu edildiğine odaklanır.",
                     "updated": 1645296990967
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf dieser Seite werden die besten Praktiken zur Erstellung von Superalgos-Tutorials besprochen. Sie befasst sich nicht mit den eigentlichen Mechanismen der Erstellung von Tutorials. Stattdessen konzentriert sie sich darauf, was wünschenswert ist.",
+                    "updated": 1681511589694
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "RU",
                     "text": "Сопряженное рабочее пространство",
                     "updated": 1647782985241
+                },
+                {
+                    "language": "DE",
+                    "text": "Der assoziierte Arbeitsbereich",
+                    "updated": 1681511618290
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "TR",
                     "text": "Mümkün olan en iyi deneyimi sunmak için, bir öğretici belirli bir Çalışma Alanında ( Workspace ) yer almalı ve çalışma alanı öğreticiye hizmet edecek şekilde özel olarak uyarlanmalıdır. Çalışma alanı temiz olmalı ve öğrenme deneyiminin optimal olması için gereken varlıklara sahip olmalıdır. Çalışma alanını temiz, hafif ve gereksiz kaynaklardan arındırılmış tutmak en iyisidir.",
                     "updated": 1645297122788
+                },
+                {
+                    "language": "DE",
+                    "text": "Um ein optimales Lernerlebnis zu bieten, muss ein Lernprogramm in einem bestimmten Arbeitsbereich (Workspace) angezeigt werden, der auf das Lernprogramm zugeschnitten ist. Der Arbeitsbereich muss übersichtlich sein und die für ein optimales Lernerlebnis erforderlichen Elemente enthalten. Am besten ist es, den Arbeitsbereich sauber und übersichtlich zu halten und ihn von unnötigen Ressourcen zu befreien.",
+                    "updated": 1681511644487
                 }
             ]
         },
@@ -103,28 +123,38 @@
                     "language": "TR",
                     "text": "Binance.com'da USDT/BTC Pazarını kullanın",
                     "updated": 1645297152658
+                },
+                {
+                    "language": "DE",
+                    "text": "Nutzen Sie den USDT/BTC-Markt auf Binance.com",
+                    "updated": 1681511754119
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If your tutorial deals with data, it is best to use the same exchange, market, and date ranges already in use in the Getting Started Plugin Workspace tutorials. This way, users will already have the data and can go through the tutorial easier.",
+            "text": "If your tutorial deals with data, it is best to use the same exchange, market, and date ranges already in use in the Getting Started Native Workspace tutorials. This way, users will already have the data and can go through the tutorial easier.",
             "updated": 1621871223112,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
+                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Native Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
                     "updated": 1640113215381
                 },
                 {
                     "language": "RU",
-                    "text": "Если ваш учебник посвящен данным, лучше всего использовать те же биржи, рынки и диапазоны дат, которые уже используются в учебниках Getting Started Plugin Workspace. Таким образом, пользователи уже будут иметь необходимые данные и смогут легче пройти обучение.",
+                    "text": "Если ваш учебник посвящен данным, лучше всего использовать те же биржи, рынки и диапазоны дат, которые уже используются в учебниках Getting Started Native Workspace. Таким образом, пользователи уже будут иметь необходимые данные и смогут легче пройти обучение.",
                     "updated": 1640268844627
                 },
                 {
                     "language": "TR",
-                    "text": "Eğitiminiz verilerle ilgiliyse, Eklenti Çalışma Alanına ( Plugin Workspace ) Başlarken eğitimlerinde halihazırda kullanımda olan aynı borsa, pazar ve tarih aralıklarını kullanmak en iyisidir. Bu şekilde, kullanıcılar verilere zaten sahip olacak ve öğreticiyi daha kolay geçebilir.",
+                    "text": "Eğitiminiz verilerle ilgiliyse, Eklenti Çalışma Alanına ( Native Workspace ) Başlarken eğitimlerinde halihazırda kullanımda olan aynı borsa, pazar ve tarih aralıklarını kullanmak en iyisidir. Bu şekilde, kullanıcılar verilere zaten sahip olacak ve öğreticiyi daha kolay geçebilir.",
                     "updated": 1645297237805
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich Ihr Tutorial mit Daten befasst, ist es am besten, dieselben Börsen-, Markt- und Datumsbereiche zu verwenden, die bereits in den Tutorials für den Plugin-Arbeitsbereich (Native Workspace) \"Erste Schritte\" verwendet werden. Auf diese Weise verfügen die Benutzer bereits über die Daten und können das Lernprogramm leichter durcharbeiten.",
+                    "updated": 1681511787796
                 }
             ]
         },
@@ -147,6 +177,11 @@
                     "language": "TR",
                     "text": " Not: Her ne sebeple olursa olsun, öğreticinin içeriği sunmak için diğer pazarlarla ve/veya borsalarla ilgilenmesi gerekiyorsa, devam edin ve yukarıdakileri göz ardı edin.",
                     "updated": 1645297270857
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie einen Schritt einbauen, der es den Nutzern ermöglicht, zu BinanceUS zu wechseln, falls sie dies benötigen, genau wie im tutorial Willkommen bei Superalgos.",
+                    "updated": 1681511818855
                 }
             ]
         },
@@ -168,6 +203,11 @@
                     "language": "TR",
                     "text": "İpucu: Superalgos'a Hoş Geldiniz Eğitiminde ( Welcome to Superalgos Tutorial ) olduğu gibi, kullanıcıların ihtiyaç duymaları durumunda BinanceUS'a geçmelerine izin veren bir adım eklediğinizden emin olun.",
                     "updated": 1645297368332
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie einen Schritt einbauen, der es den Nutzern ermöglicht, zu BinanceUS zu wechseln, falls sie dies benötigen, genau wie im tutorial Willkommen bei Superalgos (Welcome to Superalgos Tutorial).",
+                    "updated": 1681511865312
                 }
             ]
         },
@@ -184,6 +224,11 @@
                     "language": "RU",
                     "text": "Серия уроков и планирование",
                     "updated": 1647782996406
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials & Planungen",
+                    "updated": 1681511948841
                 }
             ]
         },
@@ -206,28 +251,38 @@
                     "language": "TR",
                     "text": "Bazı konular geniştir, sonuçları vardır veya kapsamlı bir şekilde ele alınması için nüanslı bir analiz gerektirir. Bu gibi durumlarda, bir dizi öğreticiyi planlamak idealdir.",
                     "updated": 1645297425858
+                },
+                {
+                    "language": "DE",
+                    "text": "Einige Themen sind sehr umfangreich, haben weitreichende Auswirkungen oder erfordern eine differenzierte Analyse, um gründlich behandelt zu werden. In solchen Fällen ist es ideal, eine Reihe von Tutorials zu planen.",
+                    "updated": 1681511971164
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Plugin Workspace:",
+            "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Native Workspace:",
             "updated": 1617712745906,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Tome, por ejemplo, las series de tutoriales en el Trading System Design Tutorials Plugin Workspace:",
+                    "text": "Tome, por ejemplo, las series de tutoriales en el Trading System Design Tutorials Native Workspace:",
                     "updated": 1633365963577
                 },
                 {
                     "language": "RU",
-                    "text": "Возьмем, к примеру, серию учебников в Trading System Design Tutorials Plugin Workspace:",
+                    "text": "Возьмем, к примеру, серию учебников в Trading System Design Tutorials Native Workspace:",
                     "updated": 1640269077954
                 },
                 {
                     "language": "TR",
-                    "text": "Örneğin, İşlem Sistemi Tasarım Öğreticileri Eklentisi Çalışma Alanındaki ( Trading System Design Tutorials Plugin Workspace ) öğreticiler dizisini alın:",
+                    "text": "Örneğin, İşlem Sistemi Tasarım Öğreticileri Eklentisi Çalışma Alanındaki ( Trading System Design Tutorials Native Workspace ) öğreticiler dizisini alın:",
                     "updated": 1645297485094
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie zum Beispiel die Reihe der Tutorials im Plugin-Arbeitsbereich (Trading System Design Tutorials Native Workspace) für das Design von Handelssystemen:",
+                    "updated": 1681512080387
                 }
             ]
         },
@@ -249,6 +304,11 @@
                     "language": "TR",
                     "text": "Serideki ilk öğretici, konuya çoğunlukla kavramsal terimlerle geniş bir giriş sağlar. Bu, kullanıcıların büyük resmi görmelerine ve kavramların nasıl yapılandırıldığını ve neden oldukları gibi yapılandırıldıklarını öğrenmelerine olanak tanır.",
                     "updated": 1645297506496
+                },
+                {
+                    "language": "DE",
+                    "text": "Das erste tutorial der Reihe gibt eine umfassende Einführung in das Thema, meist in konzeptioneller Hinsicht. Dies ermöglicht es den Benutzern, das Gesamtbild zu sehen und zu lernen, wie die Konzepte strukturiert sind und warum sie so strukturiert sind, wie sie sind.",
+                    "updated": 1681512149400
                 }
             ]
         },
@@ -271,6 +331,11 @@
                     "language": "TR",
                     "text": "Serideki ikinci öğretici, geliştirmek ve uygulamak için birkaç öğretici daha gerektiren bir alıştırma önermektedir. Yani öğretici, dizinin neleri kapsayacağının temelini oluşturuyor.",
                     "updated": 1645297524401
+                },
+                {
+                    "language": "DE",
+                    "text": "Das zweite Tutorial der Reihe schlägt eine Übung vor, für deren Entwicklung und Umsetzung mehrere weitere Tutorials erforderlich sind. Das heißt, das Tutorial legt die Grundlage für die weiteren Themen der Reihe.",
+                    "updated": 1681512160598
                 }
             ]
         },
@@ -293,6 +358,11 @@
                     "language": "TR",
                     "text": "Dizideki kalan öğreticiler, daha önce önerilen alıştırmayı inceliyor ve uygulamayı ince bir ayrıntı düzeyiyle ele alıyor. Aynı zamanda, tüm bağlamı ve birçok yan konuyu kapsarlar.",
                     "updated": 1645297554270
+                },
+                {
+                    "language": "DE",
+                    "text": "Die verbleibenden Tutorien der Reihe nehmen die zuvor vorgeschlagene Übung auseinander und behandeln die Umsetzung mit einem hohen Maß an Detailgenauigkeit. Gleichzeitig decken sie den gesamten Kontext und viele Randthemen ab.",
+                    "updated": 1681512187774
                 }
             ]
         },
@@ -315,6 +385,11 @@
                     "language": "TR",
                     "text": "Not: Serinin tamamı ortak bir temayı işliyor ve onu adım adım en basitten en karmaşık kavramlara doğru geliştiriyor. Bir eğitim dizisi kapsamlı olmalı ve nihayetinde tüm konuyu kapsamalıdır. Konu hakkında bilgi edinmek için nihai araç haline gelmelidir!",
                     "updated": 1645297590879
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gesamte Reihe behandelt ein gemeinsames Thema und entwickelt es Schritt für Schritt von den einfachsten zu den komplexesten Konzepten. Eine Lehrgangsserie muss erschöpfend sein und schließlich das gesamte Thema abdecken. Sie muss das ultimative Werkzeug sein, um etwas über das Thema zu lernen!",
+                    "updated": 1681512210194
                 }
             ]
         },
@@ -337,6 +412,11 @@
                     "language": "TR",
                     "text": "İpucu: Serideki her öğretici için iyi adların ne olacağını proje yöneticilerine danışın. Öğreticileri açık ve açıklayıcı adlarla adlandırmak önemlidir.",
                     "updated": 1645297616448
+                },
+                {
+                    "language": "DE",
+                    "text": "Beraten Sie sich mit den Projektbetreuern, welche Namen für die einzelnen Tutorials der Reihe geeignet wären. Die Benennung von Tutorials mit klaren und beschreibenden Namen ist wichtig.",
+                    "updated": 1681512281947
                 }
             ]
         },
@@ -353,6 +433,11 @@
                     "language": "RU",
                     "text": "Целевая аудитория",
                     "updated": 1647783004577
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Zielgruppe",
+                    "updated": 1681512304100
                 }
             ]
         },
@@ -375,6 +460,11 @@
                     "language": "TR",
                     "text": "İnsanlar farklıdır. Hepimizin kafası biraz farklı çalışır ve hepimiz farklı şekilde öğreniriz. Bu anlamda, öğreticiler oluşturmak biraz zor. Bazı insanlar doğrudan konuya giden ve onlara çok özel bir sorunun nasıl çözüleceğini gösteren öğreticilerden hoşlanır. Diğerleri, özüne inen, her ayrıntıyı açıklayan ve bağlamı uygun şekilde kapsayan öğreticileri tercih eder.",
                     "updated": 1645297755712
+                },
+                {
+                    "language": "DE",
+                    "text": "Menschen sind unterschiedlich. Wir haben alle etwas andere Verdrahtungen in unseren Köpfen, und wir alle lernen anders. In diesem Sinne ist die Erstellung von Tutorials eine kleine Herausforderung. Manche Leute mögen Tutorials, die direkt auf den Punkt kommen und ihnen zeigen, wie sie ein ganz bestimmtes Problem lösen können. Andere bevorzugen Tutorials, die bis ins kleinste Detail gehen, jedes Detail erklären und den Kontext richtig erfassen.",
+                    "updated": 1681512787539
                 }
             ]
         },
@@ -397,6 +487,11 @@
                     "language": "TR",
                     "text": "Bu erken aşamada, çabaları çoğaltmayı ve farklı türdeki öğrenciler için farklı öğreticiler oluşturmayı göze alamayız. Projeye en iyi hizmet eden yöntemi seçmeliyiz.",
                     "updated": 1645297780414
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem frühen Stadium können wir es uns nicht leisten, doppelte Arbeit zu leisten und verschiedene Tutorials für verschiedene Arten von Lernenden zu erstellen. Wir müssen die Methode wählen, die dem Projekt am besten dient.",
+                    "updated": 1681513035818
                 }
             ]
         },
@@ -419,6 +514,11 @@
                     "language": "TR",
                     "text": "Önemli: Herkesin takip edebileceği ve kimseyi geride bırakmayan kapsamlı eğitimler oluşturmaya odaklanmayı seçiyoruz. Yavaş ilerleyen, her ayrıntıyı kapsayan ve nüansı açıklamaya zaman ayıran bir eğitimin bu aşamada doğru yaklaşım olduğuna inanıyoruz. Öğreticileri bu şekilde oluşturarak, sistemi öğrenmek için zaman ayırmaya istekli olanların hızla ileri düzey kullanıcılar olmak için yeterli materyale sahip olmasını garanti ediyoruz.",
                     "updated": 1645297802561
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir haben uns entschieden, uns auf die Erstellung umfassender Tutorials zu konzentrieren, denen jeder folgen kann und die niemanden zurücklassen. Wir glauben, dass ein tutorial, das langsam vorgeht, jedes Detail abdeckt und sich die Zeit nimmt, jede Nuance zu erklären, der richtige Ansatz in dieser Phase ist. Auf diese Weise garantieren wir, dass diejenigen, die bereit sind, die Zeit zu investieren, um das System zu erlernen, genügend Material haben, um schnell zu Power-Usern zu werden.",
+                    "updated": 1681513073215
                 }
             ]
         },
@@ -441,6 +541,11 @@
                     "language": "TR",
                     "text": "Bu tür öğreticiler, hızlı öğrenenler veya yalnızca belirli bir sorunun yanıtlanmasını isteyen kişiler için biraz can sıkıcı olabilir. Ancak bu tür ihtiyaçlar, Dokümanlar'da bulunan aranabilir bilgi tabanı tarafından zaten karşılanmaktadır.",
                     "updated": 1645297829350
+                },
+                {
+                    "language": "DE",
+                    "text": "Solche Tutorien können für Schnelllerner oder für Leute, die nur eine bestimmte Frage beantwortet haben wollen, etwas störend sein. Aber solche Bedürfnisse werden bereits durch die durchsuchbare Wissensdatenbank in den Docs abgedeckt.",
+                    "updated": 1681513085636
                 }
             ]
         },
@@ -457,6 +562,11 @@
                     "language": "RU",
                     "text": "Коммуникационные ресурсы",
                     "updated": 1647782155431
+                },
+                {
+                    "language": "DE",
+                    "text": "Ressourcen für die Kommunikation",
+                    "updated": 1681513095473
                 }
             ]
         },
@@ -479,6 +589,11 @@
                     "language": "TR",
                     "text": "Superalgos için öğreticiler oluşturmanın bazı özelliklerine bakalım!",
                     "updated": 1645297875376
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns auf einige der Besonderheiten bei der Erstellung von Tutorials für Superalgos eingehen!",
+                    "updated": 1681513126726
                 }
             ]
         },
@@ -501,6 +616,11 @@
                     "language": "TR",
                     "text": "Superalgos eğitimleri, ilk benimseyenlerden gelen birkaç aylık geri bildirimle gelişti. Tatlı bir nokta bulduğumuzu hissediyoruz ve her eğitim adımında mevcut alanı kullanma şeklimizde bir stil geliştirmeye başladık. Aşağıda, mevcut eğitimlerin biçimiyle eşleşen öğreticiler oluşturmanıza yardımcı olacak bazı notlar bulunmaktadır.",
                     "updated": 1645297901612
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Superalgos-Tutorials haben sich über mehrere Monate hinweg durch das Feedback der ersten Nutzer entwickelt. Wir sind der Meinung, dass wir einen guten Punkt gefunden haben und haben begonnen, einen Stil zu entwickeln, wie wir den verfügbaren Platz in jedem Schritt des Tutorials nutzen. Im Folgenden finden Sie einige Hinweise, die Ihnen helfen werden, Tutorials zu erstellen, die dem Format der bestehenden Tutorials entsprechen.",
+                    "updated": 1681513191502
                 }
             ]
         },
@@ -522,6 +642,11 @@
                     "language": "RU",
                     "text": "Последовательное использование пространства и стилей",
                     "updated": 1647783018408
+                },
+                {
+                    "language": "DE",
+                    "text": "Konsistente Nutzung von Raum und Stilen",
+                    "updated": 1681513238065
                 }
             ]
         },
@@ -543,6 +668,11 @@
                     "language": "TR",
                     "text": "Tutarlı amaçlar için sayfadaki farklı bölümleri ve farklı paragraf stillerini kullanın. Bu, kullanıcıların sayfanın her bölümünden ne bekleyeceklerini bilmeleri için belirli bir biçime alışmalarına yardımcı olur. Bilginin iletilme biçimindeki tutarlılık, öğreticileri daha kullanışlı hale getirir!",
                     "updated": 1645297979034
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie die verschiedenen Abschnitte auf der Seite und die verschiedenen Absatzformate für einheitliche Zwecke. Dies hilft den Benutzern, sich an ein bestimmtes Format zu gewöhnen, so dass sie wissen, was sie von jedem Abschnitt der Seite erwarten können. Konsistenz in der Art und Weise, wie die Informationen vermittelt werden, erhöht die Benutzerfreundlichkeit von Tutorials!",
+                    "updated": 1681513286600
                 }
             ]
         },
@@ -559,6 +689,11 @@
                     "language": "TR",
                     "text": "Tanım Kutusu",
                     "updated": 1645297995449
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Definitionsfeld",
+                    "updated": 1681513333112
                 }
             ]
         },
@@ -581,6 +716,11 @@
                     "language": "TR",
                     "text": "Tanım kutusu, başlığın altında, simgenin sağındaki boşluktur. Adımın ne hakkında olduğunu tanıtmak, yani adımın anlatacağı hikayeyi kurmak veya bazı temel bağlamları sağlamak için bu alanı kullanın.",
                     "updated": 1645298008152
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Definitionsfeld ist der Bereich rechts neben dem Symbol, unterhalb des Titels. Verwenden Sie diesen Bereich, um den Schritt vorzustellen, d. h. um die Geschichte, die der Schritt erzählt, darzustellen, oder um einen grundlegenden Kontext anzugeben.",
+                    "updated": 1681513342649
                 }
             ]
         },
@@ -603,6 +743,11 @@
                     "language": "TR",
                     "text": "Not: Tanım kutusunu doğru kullanmak için bağlamı dört ila beş satırda açıklayın. Bir veya iki satırdan veya beşten fazla satırdan kaçının.",
                     "updated": 1645298057489
+                },
+                {
+                    "language": "DE",
+                    "text": "Um das Definitionsfeld korrekt zu verwenden, sollten Sie den Zusammenhang in vier bis fünf Zeilen erläutern. Vermeiden Sie ein oder zwei Zeilen oder mehr als fünf.",
+                    "updated": 1681513352368
                 }
             ]
         },
@@ -619,6 +764,11 @@
                     "language": "TR",
                     "text": "Eylem Çağrısı",
                     "updated": 1645298082494
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Aufruf zum Handeln",
+                    "updated": 1681513362126
                 }
             ]
         },
@@ -641,6 +791,11 @@
                     "language": "TR",
                     "text": "Herhangi bir adımdaki en önemli bölüm, eylem çağrısı, yani kullanıcının öğreticide ilerlemek için izlemesi gereken talimattır. Çoğu zaman kullanıcılar, her şeyi doğru yaptıklarından emin olmak için öğreticileri yeniden yapar veya birkaç adım geri gider.",
                     "updated": 1645298095827
+                },
+                {
+                    "language": "DE",
+                    "text": "Der wichtigste Abschnitt eines jeden Schrittes ist die Aufforderung zum Handeln, d. h. die Anweisung, die der Benutzer befolgen muss, um im Lernprogramm weiterzukommen. Oftmals wiederholen Benutzer Tutorials oder gehen ein paar Schritte zurück, nur um sicherzustellen, dass sie alles richtig gemacht haben.",
+                    "updated": 1681513447708
                 }
             ]
         },
@@ -662,6 +817,11 @@
                     "language": "TR",
                     "text": "Eylem çağrısı için her zaman bu paragrafa uygulanan açıklama stilini kullanın! Benzer şekilde, bu stili başka herhangi bir şey için kullanmaktan kaçının. Belirli bir adımın bir eylem çağrısı yoksa, adımın bu stili hiç içermemesi gerekir!",
                     "updated": 1645298114511
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie für die Handlungsaufforderung immer den Stil \"Callout\", wie er in diesem Absatz verwendet wird! Versuchen Sie auch, diesen Stil nicht für andere Dinge zu verwenden. Wenn der betreffende Schritt keine Handlungsaufforderung enthält, sollte der Schritt überhaupt nicht mit diesem Stil versehen werden!",
+                    "updated": 1681513460427
                 }
             ]
         },
@@ -684,6 +844,11 @@
                     "language": "TR",
                     "text": "Her öğretici adımın tek bir eylem çağrısı, yani kullanıcının gerçekleştirmesi gereken tek bir talimat olmalıdır. Bu ideal durum senaryosudur. Örneğin, kullanıcıdan Dokümanlar'daki bir sayfayı okumasını ve ana talimat olarak başka bir şey yapmasını istediğimizde istisnalar olabilir.",
                     "updated": 1645298130349
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Schritt des Tutorials sollte eine einzige Handlungsaufforderung enthalten, d. h. eine einzige Anweisung, die der Benutzer ausführen muss. Dies ist der Idealfall. Es kann Ausnahmen geben, z. B. wenn wir den Benutzer auffordern, eine Seite in den Dokumenten zu lesen und als Hauptanweisung etwas anderes zu tun.",
+                    "updated": 1681513471121
                 }
             ]
         },
@@ -706,6 +871,11 @@
                     "language": "TR",
                     "text": "İpucu: Genel anlamda ve mümkün olduğunda, kullanıcıya aynı adımda birden fazla görev vermekten kaçınmaya çalışın. Bunun yerine, kullanıcının birkaç ardışık eylem gerçekleştirmesini bekliyorsanız, süreci birden fazla adıma bölmeye çalışın - mümkün olduğu kadar çok.",
                     "updated": 1645298149905
+                },
+                {
+                    "language": "DE",
+                    "text": "Generell sollten Sie, wenn möglich, vermeiden, dem Benutzer mehr als eine Aufgabe im selben Schritt zu übertragen. Wenn Sie erwarten, dass der Benutzer mehrere aufeinanderfolgende Aktionen ausführt, versuchen Sie stattdessen, den Prozess in mehrere Schritte aufzuteilen - so viele, wie nötig sind.",
+                    "updated": 1681513483014
                 }
             ]
         },
@@ -727,6 +897,11 @@
                     "language": "TR",
                     "text": "Bazı durumlarda, ana harekete geçirici mesajın iletilebilmesi için kullanıcının çok basit bir işlem yapması gerekebilir. Bu gibi durumlarda, kullanıcıya sayfanın ilerleyen kısımlarında verilen eylem çağrısını yürütmeye nasıl hazırlanacağını anlatmak için tanım kutusunu kullanabilirsiniz.",
                     "updated": 1645298168707
+                },
+                {
+                    "language": "DE",
+                    "text": "In manchen Fällen muss der Benutzer eine sehr einfache Aktion ausführen, damit die eigentliche Aufforderung zur Aktion erfolgen kann. In solchen Fällen können Sie das Definitionsfeld verwenden, um dem Benutzer mitzuteilen, wie er sich auf die Ausführung der Aufforderung zur Handlung vorbereiten soll, die später auf der Seite erfolgt.",
+                    "updated": 1681513492624
                 }
             ]
         },
@@ -748,6 +923,11 @@
                     "language": "RU",
                     "text": "Использование страниц документации",
                     "updated": 1647782201432
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwendung von Docs-Seiten",
+                    "updated": 1681513540295
                 }
             ]
         },
@@ -770,6 +950,11 @@
                     "language": "TR",
                     "text": "Konuyla ilgili doğru bağlamı elde etmek için kullanıcının belirli bir kavram hakkında bilgi edinmesine ihtiyaç duyduğunuzda, Dokümanlar'da bulunan eğitim bilgilerini tekrarlamayın. Belgeleri ve öğreticileri korumayı zorlaştırdığından, bilgileri çoğaltmak iyi bir fikir değildir.",
                     "updated": 1645298286953
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Benutzer etwas über ein bestimmtes Konzept lernen muss, um den richtigen Kontext zu diesem Thema zu erhalten, sollten Sie in den Tutorials keine Informationen wiederholen, die bereits in den Docs vorhanden sind. Das Duplizieren von Informationen ist keine gute Idee, da es die Pflege der Dokumente und Tutorials erschwert.",
+                    "updated": 1681513797391
                 }
             ]
         },
@@ -792,6 +977,11 @@
                     "language": "TR",
                     "text": "İpucu: Kullanıcıdan Dokümanlar'daki bir sayfayı veya sayfanın bir bölümünü okumasını istemek doğru yaklaşımdır. Bu, kullanıcının Dokümanlar'ın konuyu kapsadığını bilmesini sağlama avantajına da sahiptir.",
                     "updated": 1645298311327
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitten Sie den Benutzer, eine Seite oder einen Abschnitt einer Seite in den Docs zu lesen, ist der richtige Ansatz. Dies hat den zusätzlichen Vorteil, dass der Benutzer darauf aufmerksam gemacht wird, dass die Docs das Thema ebenfalls behandeln.",
+                    "updated": 1681513810444
                 }
             ]
         },
@@ -814,6 +1004,11 @@
                     "language": "TR",
                     "text": "Önemli: Dokümanlar'daki ilgili sayfanın güncel olmadığını, konuyu uygun derinlikte kapsamadığını veya belki de mevcut olmadığını fark ederseniz, bu sayfadaki bilgilerin oluşturulmasına, tamamlanmasına ve/veya sunumunun iyileştirilmesine yardımcı olur. Dokümanlar, öğreticiyi oluşturmak kadar değerlidir! Uzun formatlı açıklamalar öğreticilere pek uymuyor. Dokümanlar'a iyi uyuyorlar!",
                     "updated": 1645298340158
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie feststellen, dass die relevante Seite in den Docs veraltet ist, das Thema nicht mit der angemessenen Tiefe abdeckt oder vielleicht sogar gar nicht existiert, ist Ihre Hilfe bei der Erstellung, Vervollständigung und/oder Verbesserung der Informationen in den Docs genauso wertvoll wie die Erstellung des Tutorials! Langformatige Erklärungen passen nicht gut in Tutorials. Sie passen aber gut in die Docs!",
+                    "updated": 1681513822135
                 }
             ]
         },
@@ -831,6 +1026,11 @@
                     "language": "TR",
                     "text": "Etkileşim",
                     "updated": 1645298376053
+                },
+                {
+                    "language": "DE",
+                    "text": "Interaktivität",
+                    "updated": 1681513834648
                 }
             ]
         },
@@ -853,6 +1053,11 @@
                     "language": "TR",
                     "text": "Öğreticilerin tüm amacı - ve öğrenme materyali olarak Dokümanlar ile arasındaki temel fark - uygulamalı öğrenme fırsatı sunmalarıdır. Dokümanlar daha az etkileşimliyken öğreticiler etkileşimlidir!",
                     "updated": 1645298393507
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Sinn von Tutorials - und der Hauptunterschied zu den Docs als Lernmaterial - ist, dass sie die Möglichkeit zum praktischen Lernen bieten. Tutorials sind interaktiv, während die Docs es weniger sind!",
+                    "updated": 1681513851717
                 }
             ]
         },
@@ -875,6 +1080,11 @@
                     "language": "TR",
                     "text": "Bu kaliteyi sonuna kadar kullandığınızdan emin olun, ancak aynı zamanda belirli bir dengeyi korumaya çalışın!",
                     "updated": 1645298413848
+                },
+                {
+                    "language": "DE",
+                    "text": "Nutzen Sie diese Eigenschaft in vollem Umfang, aber achten Sie auch auf ein gewisses Gleichgewicht!",
+                    "updated": 1681513863319
                 }
             ]
         },
@@ -897,6 +1107,11 @@
                     "language": "TR",
                     "text": "Öğretici bir hiyerarşi, bir grup düğüm veya belirli bir düğümden bahsediyorsa, öğretici adımının sizi Çalışma Alanında (  Workspace ) o yere götürdüğünden emin olun. Bu, açıklamaya görsel bir öğe ekler ve kullanıcının ilgili veri yapılarını tanımasına yardımcı olur.",
                     "updated": 1645298507780
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich das Tutorial auf eine Hierarchie, eine Gruppe von Knoten oder einen bestimmten Knoten bezieht, stellen Sie sicher, dass der Schritt des Tutorials Sie zu dieser Stelle im Arbeitsbereich (Workspace) führt. Dies fügt der Erklärung ein visuelles Element hinzu und hilft dem Benutzer, sich mit den beteiligten Datenstrukturen vertraut zu machen.",
+                    "updated": 1681513901545
                 }
             ]
         },
@@ -919,6 +1134,11 @@
                     "language": "TR",
                     "text": "Öğreticiler, kullanıcının yapabileceği eylemleri çoğaltarak Çalışma Alanını ( Workspace ) birçok yönden etkileyebilir. Kullanıcının bir şeyi yapmayı öğrenmesini istediğinizde, öğreticinin kullanıcı için yapmasını sağlamak yerine, kullanıcıdan yapmasını istemek en iyisidir.",
                     "updated": 1645298541312
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials können den Arbeitsbereich (Workspace) in vielerlei Hinsicht beeinflussen, indem sie Aktionen des Benutzers nachahmen. Wenn Sie wollen, dass der Benutzer etwas lernt, ist es am besten, den Benutzer aufzufordern, es zu tun, anstatt es das Lernprogramm für den Benutzer tun zu lassen. ",
+                    "updated": 1681514036095
                 }
             ]
         },
@@ -941,6 +1161,11 @@
                     "language": "TR",
                     "text": "Öte yandan, öğretici, öğreticinin bağlamıyla ilgili bir şeyler öğrenmeye elverişli olmayan belirli şeyleri yapmaya özen göstermelidir. Bu eylemleri doğrudan gerçekleştirmek, kullanıcının en önemli şeye odaklanmasına yardımcı olabilir.",
                     "updated": 1645298575607
+                },
+                {
+                    "language": "DE",
+                    "text": "Andererseits sollte das Lernprogramm sich darum kümmern, bestimmte Dinge zu tun, die dem Lernen von etwas, das für den Kontext des Lernprogramms relevant ist, nicht förderlich sind. Das direkte Ausführen dieser Aktionen kann dazu beitragen, dass sich der Benutzer auf das Wesentliche konzentriert.",
+                    "updated": 1681514125129
                 }
             ]
         },
@@ -963,6 +1188,11 @@
                     "language": "TR",
                     "text": "Bazı durumlarda, kullanıcıların yaptığı eylemlerin belirli etkileri olabilir. Kullanıcılara, bir görevi tamamladıktan hemen sonra eylemlerinin sonucunu göstermek, büyük bir eğitim değerine sahiptir. Örneğin, kullanıcı Grafik Alanı ( Charting Space ) ile ilgili bir eğitimde yeni bir Zaman Makinesi ( Time Machine ) kuruyorsa, kullanıcılara zaman makinesinin oluşturulduktan hemen sonra grafik alanında nasıl göründüğünü gösterin. Kullanıcılar daha sonra belirli bir Veri Madeni'ne ( Data Mine ) referans veren bir Zaman Çizelgesi Grafiği ayarlarsa, kullanıcılara yeni Zaman Çizelgesi Grafiğinin ( Timeline Chart ) Zaman Makinesi içinde nasıl göründüğünü gösterin ve beklenen katman yöneticilerinin orada olduğunu doğrulamalarına izin verin. Bir ileri bir geri gitmekten korkmayın... işte bütün mesele bu!",
                     "updated": 1645299003749
+                },
+                {
+                    "language": "DE",
+                    "text": "In einigen Fällen können die Handlungen der Benutzer bestimmte Auswirkungen haben. Es hat einen großen pädagogischen Wert, den Benutzern das Ergebnis ihrer Aktionen unmittelbar nach Abschluss einer Aufgabe zu zeigen. Wenn der Benutzer beispielsweise in einem Tutorial über den Charting Space eine neue Zeitmaschine (Time Machine) einrichtet, zeigen Sie ihm, wie die Zeitmaschine unmittelbar nach ihrer Erstellung im Charting Space erscheint. Wenn der Benutzer dann ein Zeitachsendiagramm (Timeline Chart) einrichtet, das auf eine bestimmte Data Mine verweist, zeigen Sie ihm, wie das neue Zeitachsendiagramm (Timeline Chart) in der Zeitmaschine erscheint, und lassen Sie ihn überprüfen, ob die erwarteten Ebenenmanager vorhanden sind. Scheuen Sie sich nicht, hin und her zu gehen... das ist schließlich der Sinn der Sache!",
+                    "updated": 1681514216230
                 }
             ]
         },
@@ -990,6 +1220,11 @@
                     "language": "TR",
                     "text": "Düğümlerin Adlandırılması",
                     "updated": 1645299040627
+                },
+                {
+                    "language": "DE",
+                    "text": "Benennung von Knoten",
+                    "updated": 1681514283318
                 }
             ]
         },
@@ -1012,6 +1247,11 @@
                     "language": "TR",
                     "text": "Superalgos karmaşık bir sistemdir. Kullanıcıların iyi organizasyon alışkanlıkları geliştirmelerine yardımcı olmak son derece arzu edilir. Ne kadar çok üst düzey kullanıcı oluşturmamıza yardımcı olabilirsek, proje o kadar güçlü olur.",
                     "updated": 1645299060135
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein komplexes System. Es ist sehr wünschenswert, dass wir den Benutzern helfen, gute organisatorische Gewohnheiten zu entwickeln. Je mehr Top-Level-Nutzer wir bei der Bildung unterstützen können, desto leistungsfähiger wird das Projekt.",
+                    "updated": 1681514294614
                 }
             ]
         },
@@ -1034,6 +1274,11 @@
                     "language": "TR",
                     "text": "Kullanıcılar yeni veri yapıları oluşturduğunda, ilgili düğümleri adlandırmalarını sağlamak iyi bir uygulamadır. Bu, adlarını diğer düğümlere referanslar yoluyla aktaran düğümler için özellikle önemlidir.",
                     "updated": 1645299078415
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Benutzer neue Datenstrukturen erstellen, ist es eine gute Praxis, die entsprechenden Knoten zu benennen. Dies ist besonders wichtig bei Knoten, die ihre Namen durch Verweise auf andere Knoten weitergeben.",
+                    "updated": 1681514310484
                 }
             ]
         },
@@ -1056,6 +1301,11 @@
                     "language": "TR",
                     "text": "Not: Eğitiminizin ekstra yol kat ettiğinden ve kullanıcılara bu tür düğümleri adlandırmalarını hatırlattığından emin olun. Belirli bir isim önermek idealdir. Kullanıcının daha sonra ne olacağını veya oluşturma sırasında düğümün ne için kullanıldığını bilemeyebileceğini, dolayısıyla ilgili adın ne olabileceğini bilemeyebileceğini unutmayın. Ancak bunu yaparsınız, bu nedenle öğreticinin amacı ile tutarlı bir ad önerebilirsiniz.",
                     "updated": 1645299180600
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, dass Ihr Tutorium die Benutzer daran erinnert, diese Art von Knoten zu benennen. Ideal ist es, einen bestimmten Namen vorzuschlagen. Denken Sie daran, dass der Benutzer zum Zeitpunkt der Erstellung möglicherweise nicht weiß, was als Nächstes kommt oder wofür der Knoten verwendet wird, so dass er nicht weiß, was ein relevanter Name sein könnte. Aber Sie wissen es, also können Sie einen Namen vorschlagen, der mit dem Ziel des Tutorials übereinstimmt.",
+                    "updated": 1681514325986
                 }
             ]
         },
@@ -1078,6 +1328,11 @@
                     "language": "TR",
                     "text": "Bak ve hisset",
                     "updated": 1645299203738
+                },
+                {
+                    "language": "DE",
+                    "text": "Aussehen und Gefühl",
+                    "updated": 1681514368624
                 }
             ]
         },
@@ -1104,6 +1359,11 @@
                     "language": "TR",
                     "text": "Güzelliğin nesnel mi yoksa öznel mi olduğu konusunda felsefi bir tartışma vardır. Bazı insanlar güzelliğin bakanın gözünde olduğunu düşünürken, diğerleri doğal olarak güzel şeylerin olduğuna inanır.",
                     "updated": 1645299217737
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt eine philosophische Debatte darüber, ob Schönheit objektiv oder subjektiv ist. Manche meinen, Schönheit liege im Auge des Betrachters, während andere glauben, dass es von Natur aus schöne Dinge gibt.",
+                    "updated": 1681514375876
                 }
             ]
         },
@@ -1126,6 +1386,11 @@
                     "language": "TR",
                     "text": "Durum ne olursa olsun, öğreticilerin genel görünümünün ve hissinin tutarlı olmasını istiyoruz!",
                     "updated": 1645299229467
+                },
+                {
+                    "language": "DE",
+                    "text": "Was auch immer der Fall sein mag, wir wollen, dass das Gesamtbild der Tutorials einheitlich ist!",
+                    "updated": 1681514399092
                 }
             ]
         },
@@ -1148,6 +1413,11 @@
                     "language": "TR",
                     "text": "Eğiticilerin görünüm ve hislerinde tutarlı olmalarına yardımcı olacak gereksinimlerin bir listesi:",
                     "updated": 1645299248227
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier finden Sie eine Liste von Anforderungen, die dazu beitragen, dass die Tutorials einheitlich aussehen und funktionieren:",
+                    "updated": 1681514409558
                 }
             ]
         },
@@ -1169,6 +1439,11 @@
                     "language": "TR",
                     "text": "Adımı göstermek için her zaman bir simge kullanın. Bazen uygun simge, kullanıcının birlikte çalıştığı düğüme karşılık gelen simgedir. Diğer zamanlarda simgeleri mecazi olarak kullanabilir, çizimin neyi temsil edebileceğinin alternatif anlamlarıyla oynayabilirsiniz.",
                     "updated": 1645299302530
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie immer ein Symbol, um den Schritt zu veranschaulichen. Manchmal ist das passende Symbol dasjenige, das dem Knoten entspricht, mit dem der Benutzer gerade arbeitet. In anderen Fällen können Sie Symbole bildlich verwenden und mit alternativen Bedeutungen dessen spielen, was die Zeichnung darstellen könnte.",
+                    "updated": 1681514421268
                 }
             ]
         },
@@ -1191,6 +1466,11 @@
                     "language": "TR",
                     "text": "Çok az içeriğe sahip adımlar boş görünüyor ve garip hissettiriyor. Alanı anlamsız veya gereksiz bilgilerle hissetmenize gerek yok. Bunun yerine, eylem çağrısı için bağlam sağlamak için alanı kullanmayı deneyin. Kullanıcıdan neden bunu yapmasının istendiğini açıklayın. Kullanıcıya eylemden ne beklenebileceğini bildirin vb.",
                     "updated": 1645299442058
+                },
+                {
+                    "language": "DE",
+                    "text": "Vermeiden Sie Schritt-Seiten. Schritte mit sehr wenig Inhalt wirken leer und fremd. Sie brauchen den Platz nicht mit Kauderwelsch oder unnötigen Informationen zu füllen. Versuchen Sie stattdessen, den Platz zu nutzen, um den Kontext für die Aufforderung zum Handeln zu vermitteln. Erklären Sie, warum der Nutzer aufgefordert wird, dies oder jenes zu tun. Lassen Sie den Benutzer wissen, was er von der Aktion erwarten kann usw.",
+                    "updated": 1681514448719
                 }
             ]
         },
@@ -1213,6 +1493,11 @@
                     "language": "TR",
                     "text": "Yukarıdakilerin bir sonucu olarak, bunun tersi durum da sorunlu olabilir. Diğer bir deyişle, içerik sayfaya zar zor sığdığında ve her adımın altında sabitlenmiş düğmeler satırına çok yaklaştığında. Sorun, bazı tarayıcıların/işletim sistemi kombinasyonlarının stilleri biraz farklı oluşturmasıdır ve bir sistemdeki düğmelere yakın görünen şey, sonraki düğmelerle çakışabilir. En az bir dolu boş satırı düzleştirmeye çalışın - tercihen iki.",
                     "updated": 1645299487584
+                },
+                {
+                    "language": "DE",
+                    "text": "Als logische Folge des oben Gesagten kann auch der umgekehrte Fall problematisch sein. Nämlich dann, wenn der Inhalt kaum auf die Seite passt und zu nahe an die Reihe der Schaltflächen kommt, die am unteren Ende jeder Stufe angebracht sind. Das Problem ist, dass einige Browser/Betriebssystem-Kombinationen Stile leicht unterschiedlich darstellen, und was in einem System nahe an den Schaltflächen zu liegen scheint, kann in einem anderen System die Schaltflächen überlappen. Versuchen Sie, mindestens eine volle leere Zeile einzuplanen - vorzugsweise zwei.",
+                    "updated": 1681514480718
                 }
             ]
         },
@@ -1235,6 +1520,11 @@
                     "language": "TR",
                     "text": "Aynı stille iki ardışık paragraf ayarlamayın. Tek istisna madde işareti listeleri içindir. Dokümanlar Metin Stili ( Docs Text Style ) bile bir öğretici bağlamında ardışık paragraflar gibi iyi görünecek şekilde biçimlendirilmemiştir (paragraflar arasında dolgu yoktur).",
                     "updated": 1645299579260
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie nicht zwei aufeinanderfolgende Absätze mit demselben Stil. Die einzige Ausnahme sind Aufzählungslisten. Selbst die Textvorlage Docs (Docs Text Style) ist nicht so formatiert, dass sie als aufeinanderfolgende Absätze im Rahmen eines Tutorials gut aussieht (es gibt keine Füllung zwischen den Absätzen).",
+                    "updated": 1681514542181
                 }
             ]
         },
@@ -1257,6 +1547,11 @@
                     "language": "TR",
                     "text": "Eğitim penceresinin altındaki düğmelerden önce en az bir satır boş bırakın. Aksi takdirde diğer tarayıcılarda içerik pencereden taşabilir.",
                     "updated": 1645299608024
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie mindestens eine Zeile vor den Schaltflächen am unteren Rand des Lehrgangsfensters frei. Andernfalls kann der Inhalt in anderen Browsern das Fenster überfüllen.",
+                    "updated": 1681514561741
                 }
             ]
         },
@@ -1311,6 +1606,11 @@
                     "language": "TR",
                     "text": "Önemli: Bir eğitim adımının başlığının aynı zamanda ilgili Dokümanlar Sayfasının ( Docs Page ) benzersiz tanımlayıcısı olduğunu unutmayın. Bu, sistemin yinelenen başlıklara izin vermediği anlamına gelir. Her ne pahasına olursa olsun sayfaları tek kelime veya kısa kelime öbeklerinden sonra adlandırmaktan kaçının. Bu tür özel ifadelerin kullanılmasını hak edebilecek özel durumlar için bu benzersiz adları bırakalım.",
                     "updated": 1645299732662
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass der Titel eines Anleitungsschritts auch der eindeutige Bezeichner der entsprechenden Docs-Seite (Docs Page) ist. Das bedeutet, dass das System keine doppelten Titel zulässt. Vermeiden Sie es auf jeden Fall, Seiten nach einzelnen Wörtern oder kurzen Sätzen zu benennen. Überlassen Sie diese eindeutigen Namen den besonderen Fällen, in denen die Verwendung solcher speziellen Ausdrücke sinnvoll ist.",
+                    "updated": 1681514831111
                 }
             ]
         },
@@ -1333,6 +1633,11 @@
                     "language": "TR",
                     "text": "Aynı nedenle, tüm başlıklar aşağıdaki sabit metin dizisiyle başlamalıdır:",
                     "updated": 1645299753514
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus demselben Grund sollten alle Titel mit der folgenden festen Zeichenfolge beginnen:",
+                    "updated": 1681514856520
                 }
             ]
         },
@@ -1367,6 +1672,11 @@
                     "language": "TR",
                     "text": "Yukarıdakiler, öğreticilerden farklı bağlamlar için bazı ifadelerin ayrılmasına yardımcı olur.",
                     "updated": 1645299808471
+                },
+                {
+                    "language": "DE",
+                    "text": "Die obigen Ausführungen helfen dabei, einige Sätze für andere Kontexte als Tutorien zu reservieren.",
+                    "updated": 1681514878182
                 }
             ]
         },
@@ -1389,6 +1699,11 @@
                     "language": "TR",
                     "text": "İpucu: Endişelenme! Başlıklarınız öğreticide çirkin görünmeyecek, çünkü sistem öneki filtreler ve öğretici penceresinde göstermez!",
                     "updated": 1645299838708
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie sich keine Sorgen! Ihre Titel werden im Tutorial nicht hässlich aussehen, da das System das Präfix filtert und es im Tutorial-Fenster nicht anzeigt!",
+                    "updated": 1681514974268
                 }
             ]
         },
@@ -1410,6 +1725,11 @@
                     "language": "RU",
                     "text": "Первая страница",
                     "updated": 1647782229652
+                },
+                {
+                    "language": "DE",
+                    "text": "Die erste Seite",
+                    "updated": 1681515020839
                 }
             ]
         },
@@ -1432,6 +1752,11 @@
                     "language": "TR",
                     "text": "Bir öğreticinin ilk sayfası, Özet alanını kullanarak öğreticinin ne hakkında olduğunu kısaca açıklayan bir sayfadır. Sayfa, öğreticiyle aynı ada sahip olmalı ve \"Öğretici\" kelimesiyle bitmelidir, çünkü girdiğiniz özet, Dokümanlar'da eğiticiden bahsedildiğinde bir ipucu görevi görecektir.",
                     "updated": 1645299884193
+                },
+                {
+                    "language": "DE",
+                    "text": "Die allererste Seite eines Tutorials ist eine Seite, die kurz beschreibt, worum es in dem tutorial geht, indem sie das Feld \"Zusammenfassung\" verwendet. Die Seite muss den gleichen Namen wie das Tutorium haben und mit dem Wort \"Tutorium\" enden, da die von Ihnen eingegebene Zusammenfassung als Tooltip dient, wenn das Tutorium in den Docs erwähnt wird.",
+                    "updated": 1681515255423
                 }
             ]
         },
@@ -1453,6 +1778,11 @@
                     "language": "TR",
                     "text": "Örneğin, Superalgos'a Hoş Geldiniz! öğretici, Superalgos Eğitimine Hoş Geldiniz. ( Welcome to Superalgos Tutorial )",
                     "updated": 1645299923085
+                },
+                {
+                    "language": "DE",
+                    "text": "Die erste Seite des Tutorials Willkommen bei Superalgos! heißt zum Beispiel Willkommen beim Superalgos tutorial (Welcome to Superalgos Tutorial).",
+                    "updated": 1681515645431
                 }
             ]
         },
@@ -1475,6 +1805,11 @@
                     "language": "TR",
                     "text": "Sayfada, öğreticinin ( Tutorial ) hangi Çalışma Alanında ( Workspace ) mevcut olduğunu ve bakıcının kim olduğunu belirten, tercihen temel iletişim ayrıntılarıyla (Github, Telegram veya Discord kullanıcı adı) bir Bu Eğitim Hakkında başlığı bulunmalıdır.",
                     "updated": 1645300017706
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Seite sollte eine Überschrift \"Über dieses Tutorial\" haben, die angibt, in welchem Arbeitsbereich (Workspace) das Tutorial verfügbar ist und wer der Betreuer ist, vorzugsweise mit grundlegenden Kontaktdaten (Github-, Telegram- oder Discord-Nutzername).",
+                    "updated": 1681515787911
                 }
             ]
         },
@@ -1497,6 +1832,11 @@
                     "language": "TR",
                     "text": "İpucu: Örnek için Superalgos Eğitimine Hoş Geldiniz sayfasına bakın.",
                     "updated": 1645300044177
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der Seite Willkommen bei Superalgos Tutorial (Welcome to Superalgos Tutorial) finden Sie ein Beispiel.",
+                    "updated": 1681515745397
                 }
             ]
         },
@@ -1518,6 +1858,11 @@
                     "language": "TR",
                     "text": "İlk Birkaç Adım",
                     "updated": 1645300093236
+                },
+                {
+                    "language": "DE",
+                    "text": "Die ersten Schritte",
+                    "updated": 1681515728461
                 }
             ]
         },
@@ -1539,12 +1884,17 @@
                     "language": "TR",
                     "text": "Öğreticiler bir hoş geldiniz mesajıyla ve kullanıcının öğreticiyi takip ederken ne yapacağına ve hangi derslerin öğrenileceğine ilişkin kısa bir açıklama dahil olmak üzere öğreticinin ne hakkında olduğuna dair net bir açıklama ile başlamalıdır. Her şeyi tek bir adıma sıkıştırmaya gerek yok... iki hatta üç adım yeterlidir.",
                     "updated": 1645300118943
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials sollten mit einer Willkommensnachricht und einer klaren Erklärung beginnen, worum es in dem tutorial geht, einschließlich einer kurzen Beschreibung dessen, was der Benutzer tun wird, während er dem tutorial folgt, und welche Lektionen er lernen wird. Es ist nicht nötig, alles in einen einzigen Schritt zu packen... zwei oder sogar drei Schritte sind in Ordnung.",
+                    "updated": 1681515843333
                 }
             ]
         },
         {
             "style": "List",
-            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
+            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Native Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
             "translations": [
                 {
                     "language": "ES",
@@ -1558,8 +1908,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Öğretici, Başlarken Öğreticiler Eklentisi Çalışma Alanının ( Getting Started Tutorials Plugin Workspace ) ötesinde bir ön bilgi gerektiriyorsa, kullanıcıların önce ilgili öğreticileri tamamlayabilmesi için hangi ön bilgilerin gerekli olduğunu açıklamaya bir adım ayırın.",
+                    "text": "Öğretici, Başlarken Öğreticiler Eklentisi Çalışma Alanının ( Getting Started Tutorials Native Workspace ) ötesinde bir ön bilgi gerektiriyorsa, kullanıcıların önce ilgili öğreticileri tamamlayabilmesi için hangi ön bilgilerin gerekli olduğunu açıklamaya bir adım ayırın.",
                     "updated": 1645300183494
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn für das Tutorial Vorkenntnisse erforderlich sind, die über den Plugin-Arbeitsbereich der Einführungs-Tutorials (Getting Started Tutorials Native Workspace) hinausgehen, sollten Sie in einem eigenen Schritt erklären, welche Vorkenntnisse erforderlich sind, damit die Benutzer zunächst die entsprechenden Tutorials durcharbeiten können.",
+                    "updated": 1681515882960
                 }
             ],
             "updated": 1642955219046
@@ -1583,6 +1938,11 @@
                     "language": "TR",
                     "text": "Ayrıca Çalışma Alanında ( Workspace ) nelerin öne çıktığını açıklamak için zaman ayırmalısınız. Buradaki fikir, kullanıcıların daha önce karşılaşmış olabilecekleri diğer çalışma alanlarından nasıl farklı olabileceğini anlamak için çalışma alanına mümkün olan en kısa sürede aşina olmaları gerektiğidir. Hangi madenleri kullanacağınızı belirtebilir, eklenti olarak eklenip eklenmediğini, hangi ticaret sistemlerini netleştirebilirsiniz. Ağ veya Ticaret Motoru ( Trading Engine ) gibi zorunlu hiyerarşileri atlayabilirsiniz.",
                     "updated": 1645300284575
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten sich auch die Zeit nehmen, um zu erklären, was der Arbeitsbereich (Workspace) bietet. Die Idee ist, dass sich die Nutzer so schnell wie möglich mit dem Arbeitsbereich vertraut machen sollten, um zu verstehen, inwiefern er sich von anderen Arbeitsbereichen unterscheidet, die sie vielleicht schon kennengelernt haben. Sie können erwähnen, welche Minen Sie verwenden werden, klären, ob sie als plugins hinzugefügt werden oder nicht, welche Handelssysteme usw. Sie können die obligatorischen Hierarchien, wie Netzwerk oder Handelsmaschine (Trading Engine), auslassen.",
+                    "updated": 1681516035701
                 }
             ]
         },
@@ -1605,6 +1965,11 @@
                     "language": "TR",
                     "text": "Herhangi bir pazar kurduysanız, özel grafikler oluşturduysanız, Ağ hiyerarşisinde belirli bir görev kurulumu veya varsayılan pazar kurulumunda bulunmayan herhangi bir belirli veri yapısı varsa, ne yaptığınızı ve nedenini açıkladığınızdan emin olun. Kullanıcıların bir şeyler bulması ve oraya nasıl geldiklerini bilmemeleri kafa karıştırıcı olabilir.",
                     "updated": 1645300316716
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Märkte installiert, benutzerdefinierte Diagramme erstellt, eine bestimmte Anordnung von Aufgaben in der Netzwerkhierarchie oder eine spezifische Datenstruktur erstellt haben, die in der Standardmarktinstallation nicht vorhanden ist, sollten Sie unbedingt erklären, was Sie getan haben und warum. Es kann für die Benutzer verwirrend sein, Dinge zu finden und nicht zu wissen, wie sie dorthin gekommen sind.",
+                    "updated": 1681516049072
                 }
             ]
         },
@@ -1626,6 +1991,11 @@
                     "language": "TR",
                     "text": "Son Birkaç Adım",
                     "updated": 1645300344937
+                },
+                {
+                    "language": "DE",
+                    "text": "Die letzten Schritte",
+                    "updated": 1681516234584
                 }
             ]
         },
@@ -1647,6 +2017,11 @@
                     "language": "TR",
                     "text": "Seride daha fazla eğitim varsa, kullanıcıları bir sonraki derste bıraktığınızdan ve onları devam etmeye davet ettiğinizden emin olun.",
                     "updated": 1645300355290
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es weitere tutorials in der Serie gibt, stellen Sie sicher, dass Sie die Nutzer direkt beim nächsten tutorial stehen lassen und sie einladen, weiterzumachen.",
+                    "updated": 1681516328911
                 }
             ]
         },
@@ -1669,6 +2044,11 @@
                     "language": "TR",
                     "text": "Dizideki diğer öğreticiler henüz hazır değilse, dizide başka nelerin ele alınacağını açıklamak için son birkaç adımı kullanın ve kullanıcılardan bizi izlemeye devam etmelerini isteyin.",
                     "updated": 1645300367045
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die verbleibenden Tutorials der Reihe noch nicht fertig sind, beschreiben Sie in den letzten Schritten, was in der Reihe noch behandelt wird, und bitten Sie die Benutzer, dranzubleiben.",
+                    "updated": 1681516266477
                 }
             ]
         },
@@ -1690,6 +2070,11 @@
                     "language": "TR",
                     "text": "Toparlama",
                     "updated": 1645300444828
+                },
+                {
+                    "language": "DE",
+                    "text": "Einpacken",
+                    "updated": 1681516350146
                 }
             ]
         },
@@ -1712,6 +2097,11 @@
                     "language": "TR",
                     "text": "Eğitiminiz hazır olduğunda ve proje sahipleri tarafından gözden geçirildiğinde, çalışma alanı ve öğreticilerin kolayca bulunabilmesi için dikkat etmeniz gereken birkaç şey vardır.",
                     "updated": 1645300454750
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr Lernprogramm fertig ist und von den Projektbetreuern geprüft wurde, müssen Sie einige Dinge beachten, damit der Arbeitsbereich und die Lernprogramme leicht zu finden sind.",
+                    "updated": 1681516374676
                 }
             ]
         },
@@ -1733,6 +2123,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı için Sayfa Oluşturun",
                     "updated": 1645300472563
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Seite für den Arbeitsbereich erstellen",
+                    "updated": 1681516391062
                 }
             ]
         },
@@ -1754,12 +2149,17 @@
                     "language": "TR",
                     "text": "Her çalışma alanı belgelenmelidir, bu nedenle 'Topluluk Çalışma Alanları' Konusunda çalışma alanı için bir sayfa oluşturduğunuzdan emin olun.",
                     "updated": 1645300487606
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Arbeitsbereich muss dokumentiert werden, also stellen Sie sicher, dass Sie eine Seite für den Arbeitsbereich im Thema `Community Workspaces` erstellen.",
+                    "updated": 1681516471573
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "Please use a clear and descriptive name and follow the naming convention ending the name with `Plugin Workspace`. Feel free to consult what a good name may be with other contributors in the Docs Group.",
+            "text": "Please use a clear and descriptive name and follow the naming convention ending the name with `Native Workspace`. Feel free to consult what a good name may be with other contributors in the Docs Group.",
             "updated": 1621874212145,
             "translations": [
                 {
@@ -1769,19 +2169,24 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Plugin Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
+                    "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Native Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
                     "updated": 1640275791724
                 },
                 {
                     "language": "TR",
                     "text": "Önemli: Lütfen açık ve açıklayıcı bir ad kullanın ve adı \"Eklenti Çalışma Alanı\" ile biten adlandırma kuralına uyun. Dokümanlar Grubundaki ( Docs Group ) diğer katkıda bulunanlarla iyi bir ismin ne olabileceğini danışmaktan çekinmeyin.",
                     "updated": 1645300565401
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte verwenden Sie einen eindeutigen und beschreibenden Namen und halten Sie sich an die Namenskonvention, die den Namen mit \"Native Workspace\" beendet. Es steht Ihnen frei, sich mit anderen Mitwirkenden in der Docs-Gruppe (Docs Group) darüber zu beraten, was ein guter Name sein könnte.",
+                    "updated": 1681516527689
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "List of Plugin Workspaces and Tutorials",
+            "text": "List of Native Workspaces and Tutorials",
             "updated": 1621875320874,
             "translations": [
                 {
@@ -1793,28 +2198,38 @@
                     "language": "TR",
                     "text": "Eklenti Çalışma Alanları ve Öğreticilerin Listesi",
                     "updated": 1645300619872
+                },
+                {
+                    "language": "DE",
+                    "text": "Liste der Native Workspaces und Tutorials",
+                    "updated": 1681517459798
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Add the workspace and the tutorial to this list: List of Plugin Workspaces and Tutorials, so that they show up in the First Steps Tutorials book.",
+            "text": "Add the workspace and the tutorial to this list: List of Native Workspaces and Tutorials, so that they show up in the First Steps Tutorials book.",
             "updated": 1621875373640,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Agregue el espacio de trabajo y el tutorial a esta lista: List of Plugin Workspaces and Tutorials, para que aparezcan en el libro Tutoriales de primeros pasos.",
+                    "text": "Agregue el espacio de trabajo y el tutorial a esta lista: List of Native Workspaces and Tutorials, para que aparezcan en el libro Tutoriales de primeros pasos.",
                     "updated": 1640110079022
                 },
                 {
                     "language": "RU",
-                    "text": "Добавьте рабочее пространство и учебник в этот список: List of Plugin Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
+                    "text": "Добавьте рабочее пространство и учебник в этот список: List of Native Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
                     "updated": 1640275953541
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma alanını ve öğreticiyi bu listeye ekleyin: Eklenti Çalışma Alanları ve Öğreticiler Listesi ( List of Plugin Workspaces and Tutorials ), böylece İlk Adımlar Öğreticiler kitabında ( First Steps Tutorials ) görünecekler.",
+                    "text": "Çalışma alanını ve öğreticiyi bu listeye ekleyin: Eklenti Çalışma Alanları ve Öğreticiler Listesi ( List of Native Workspaces and Tutorials ), böylece İlk Adımlar Öğreticiler kitabında ( First Steps Tutorials ) görünecekler.",
                     "updated": 1645300721010
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den Arbeitsbereich und das Lernprogramm zu dieser Liste hinzu: Liste der Plugin-Arbeitsbereiche und Tutorials (List of Native Workspaces and Tutorials), damit sie im Buch Erste Schritte Tutorials (First Steps Tutorials) angezeigt werden.",
+                    "updated": 1681517574975
                 }
             ]
         },
@@ -1836,6 +2251,11 @@
                     "language": "TR",
                     "text": "İpucu: Eğitimin listede alması gereken yeri proje yöneticilerine danışın.",
                     "updated": 1645300764431
+                },
+                {
+                    "language": "DE",
+                    "text": "Sprechen Sie mit den Projektverantwortlichen darüber, welchen Platz das Lernprogramm in der Liste einnehmen soll.",
+                    "updated": 1681517602902
                 }
             ]
         },
@@ -1853,6 +2273,11 @@
                     "language": "TR",
                     "text": "İlk Adım Öğreticiler Kitabı",
                     "updated": 1645300779127
+                },
+                {
+                    "language": "DE",
+                    "text": "First Step Tutorials Buch",
+                    "updated": 1681517623018
                 }
             ]
         },
@@ -1875,6 +2300,11 @@
                     "language": "TR",
                     "text": "Öğreticiyi İlk Adımlar Öğreticiler kitabına ( First Steps Tutorials ) bir bölüm olarak ekleyin.",
                     "updated": 1645300812079
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie das tutorial als Kapitel in das Buch First Steps Tutorials ein.",
+                    "updated": 1681517667685
                 }
             ]
         },

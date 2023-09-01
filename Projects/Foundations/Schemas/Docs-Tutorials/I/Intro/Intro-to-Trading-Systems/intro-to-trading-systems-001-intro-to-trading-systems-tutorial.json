@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este tutorial es el primero de una serie de tutoriales que le enseñan a construir sistemas de trading. La serie profundiza en múltiples temas y lo lleva a través de una progresión que tiene la intención de hacer coincidir el conocimiento comercial básico con implementaciones particulares de Superalgos.Este primer tutorial cubre conceptos teóricos, explica cómo se estructuran los sistemas de negociación en Superalgos y destaca cómo debe enmarcar sus estrategias para aprovechar al máximo el marco de negociación integrado en el sistema.",
-                "updated": 1636738336791
+                "text": "Este tutorial es el primero de una serie de tutoriales que te enseñarán a construir sistemas de trading (Trading System). La serie profundiza en múltiples temas y te llevará a través de una progresión que tiene la intención de hacer coincidir el conocimiento de trading básico con implementaciones particulares de Superalgos. Este primer tutorial cubre conceptos teóricos, explica cómo se estructuran los sistemas de trading en Superalgos y destaca cómo debes enmarcar tus estrategias para aprovechar al máximo el marco de trading integrado en el sistema.",
+                "updated": 1675618604186
             },
             {
                 "language": "DE",
@@ -25,6 +25,16 @@
                 "language": "RU",
                 "text": "Этот учебник является первым в серии учебников, которые научат вас создавать торговые системы. Серия углубляется во множество тем и проводит вас через последовательность, которая призвана соотнести базовые знания о торговле с конкретными реализациями Superalgos. В этом первом уроке рассматриваются теоретические концепции, объясняется, как построены торговые системы в Superalgos, и подчеркивается, как нужно строить свои стратегии, чтобы извлечь максимальную пользу из торговой платформы, встроенной в систему.",
                 "updated": 1640878603688
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie is de eerste in een reeks zelfstudies die u leren hoe u handelssystemen kunt bouwen. De serie gaat diep in op meerdere onderwerpen en neemt je mee door een progressie die bedoeld is om basiskennis van handelen te matchen met bepaalde Superalgos-implementaties. Deze eerste zelfstudie behandelt theoretische concepten, legt uit hoe handelssystemen zijn gestructureerd in Superalgos en laat zien hoe u uw strategieën moet omkaderen om het meeste uit het in het systeem ingebouwde handelsraamwerk te halen.",
+                "updated": 1670790670019
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini adalah yang pertama dari serangkaian tutorial yang mengajarkan kamu cara membangun trading system. Serial ini masuk jauh ke dalam berbagai topik dan membawa kamu melalui perkembangan yang bermaksud mencocokkan pengetahuan basic tradingmu dengan implementasi Superalgos tertentu. Tutorial pertama ini mencakup konsep teoretis, menjelaskan bagaimana struktur sistem trading di Superalgos, dan menyoroti bagaimana kamu perlu frame strategimu untuk memanfaatkan framework perdagangan yang ada di dalam sistem.",
+                "updated": 1674461845687
             }
         ]
     },
@@ -49,12 +59,22 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394067318,
                     "style": "Title"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1674637804050
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620912854
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace.",
+            "text": "Workspace: Trading System Design Tutorials Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -73,6 +93,16 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394079013,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1670790678945
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675618610296
                 }
             ]
         }

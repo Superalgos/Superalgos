@@ -1,0 +1,51 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 26,
+    "type": "Momentum Bars",
+    "definition": {
+        "text": "The Momentum Bars indicator helps visualise momentum using simple technical anaysis techniques to become an enhanced MACD."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Momentum Bars On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "Originally written by RedK on tradingview, this indicator is loosely inspired by Elder's Impulse System (EIS). Similar to the MACD, if the value line (open value) is below the signal (close) then the bar is printed in red, and if these values are below the zero line then the momentum is said to be bearish. The opposite is true for a bullish momentum, printed in green.",
+            "updated": 1685614602131
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-momentum-bars-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Momentum Bars indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Momentum Bars\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-momentum-bars-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Momentum Bars Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Momentum-Bar | mombar | valueOpen, valueClose, rising |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the open value is above the close value and the open is above the zero line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.mombar.valueOpen > chart.at15min.mombar.valueClose && chart.at15min.mombar.valueOpen > 0"
+        }
+    ]
+}

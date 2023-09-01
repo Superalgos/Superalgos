@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "48",
+    "pageNumber": 48,
     "type": "Tutorial Step - Let's Talk Exchanges",
     "definition": {
         "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puede usar...",
-                "updated": 1628014366400,
+                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puedes usar...",
+                "updated": 1675378132266,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con intercambios que cumplen con el estándar:",
-                    "updated": 1628014486689,
+                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con exchanges que cumplen con el estándar:",
+                    "updated": 1675378221316,
                     "style": "Text"
                 },
                 {
@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo.  Mira el TOC para encontrar qué intercambios se han probado y en qué medida.",
-                    "updated": 1628014928782,
+                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo. Mira el TOC para encontrar qué exchanges se han probado y en qué medida.",
+                    "updated": 1675378212286,
                     "style": "Note"
                 },
                 {

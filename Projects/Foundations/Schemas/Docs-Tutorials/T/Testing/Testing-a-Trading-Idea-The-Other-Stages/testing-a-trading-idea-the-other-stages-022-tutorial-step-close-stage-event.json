@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы не собираемся использовать событие Close Stage Event, поэтому удалите и его!",
                 "updated": 1642941297394
+            },
+            {
+                "language": "ES",
+                "text": "Tampoco vamos a utilizar el Close Stage Event así que también elimínalo.",
+                "updated": 1680806552082
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Этап открытия закрывается автоматически после заполнения целевого размера или при достижении целей стоп-лосс или тейк-профит. В нашем случае мы ожидаем, что произойдет именно первое, поскольку мы используем один рыночный ордер для взятия позиции, и он размещается сразу после того, как срабатывает событие взятия позиции. Можно с уверенностью предположить, что ордер будет исполнен немедленно.",
                     "updated": 1642941327609
+                },
+                {
+                    "language": "ES",
+                    "text": "La fase de apertura se cierra automáticamente cuando se alcanza el Target Size, o cuando se alcanzan los objetivos de Stop Loss o Take Profit. Lo primero es lo que esperamos que suceda en nuestro caso, ya que estamos utilizando una sola orden de mercado para tomar la posición, y se coloca tan pronto como se activa el Take Position Event. Es seguro asumir que la orden se ejecutará inmediatamente.",
+                    "updated": 1680806867880
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Событие этапа закрытия предлагает - опять же - дополнительный уровень контроля! Например, когда позиция занята несколькими ордерами, вы можете захотеть прекратить размещение ордеров при определенных обстоятельствах.",
                     "updated": 1642941367529
+                },
+                {
+                    "language": "ES",
+                    "text": "El Close Stage Event ofrece, de nuevo, un nivel adicional de control. Por ejemplo, cuando la posición se toma con múltiples órdenes, es posible que desees dejar de colocar órdenes bajo ciertas circunstancias.",
+                    "updated": 1680806911940
                 }
             ]
         }

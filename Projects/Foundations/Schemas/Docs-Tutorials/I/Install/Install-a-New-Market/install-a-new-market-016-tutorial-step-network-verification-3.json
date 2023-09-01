@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что задачи Production Trading Tasks для соответствующего Market были успешно созданы.",
                 "updated": 1643091091604
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de taken voor de Production Trading Tasks voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676125980698
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "RU",
                     "text": "Найдите следующие структуры данных:",
                     "updated": 1643091098661
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676125993066
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "language": "RU",
                     "text": "Узел Market Trading Tasks для нового рынка.",
                     "updated": 1643091109445
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt voor Market Trading Tasks voor de nieuwe markt.",
+                    "updated": 1676126036535
                 }
             ]
         },
@@ -97,6 +112,16 @@
                     "language": "RU",
                     "text": "Один узел Trading Mine Tasks для каждого Trading Mine, включенного в рабочее пространство (Workspace).",
                     "updated": 1643091145503
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Trading Mine Tasks knooppunt voor elke handelsmijn in de werkruimte.",
+                    "updated": 1676126076324
+                },
+                {
+                    "language": "ES",
+                    "text": "Un Trading Mine Tasks nodo por cada mina comercial incluida en el espacio de trabajo.",
+                    "updated": 1682427867951
                 }
             ]
         },
@@ -106,8 +131,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un Task Manager por Trading Mine y un Task con una Backtesting Session para cada Trading System en el espacio de trabajo.",
-                    "updated": 1629249792961
+                    "text": "Un Task Manager por Trading Mine y un Task con una Backtesting Session para cada Trading System en el espacio de trabajo. ",
+                    "updated": 1682428038958
                 },
                 {
                     "language": "DE",
@@ -123,6 +148,11 @@
                     "language": "RU",
                     "text": "Один менеджер задач (Task Manager) на каждый Trading Mine и одна задача (Task) с Live Trading Session для каждой торговой системы в рабочем пространстве (Workspace).",
                     "updated": 1643091215122
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Task Manager per Trading Mine en één Task met een Live Trading Session voor elk Trading System in de werkruimte.",
+                    "updated": 1676126139945
                 }
             ],
             "updated": 1640709691528

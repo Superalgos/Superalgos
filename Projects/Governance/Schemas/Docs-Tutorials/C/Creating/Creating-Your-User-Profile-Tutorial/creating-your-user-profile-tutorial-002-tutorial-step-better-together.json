@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este es el Governance Project! Hoy te ayudaré a crear un User ProfileY únete a los primeros Governance Programs",
-                "updated": 1630870722161,
+                "text": "Este es el Governance Project! Hoy te ayudaré a crear un User Profile y únete a los primeros Governance Programs",
+                "updated": 1682519245072,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Dies ist das Governance Project ! Heute werde ich Ihnen helfen, ein Benutzerprofil ( User Profile ) zu erstellen und an den ersten Governance Programmen teilzunehmen!",
                 "updated": 1640071828303
+            },
+            {
+                "language": "ID",
+                "text": "Ini dia Governance Project! Sekarang aku akan membantumu dalam membuat User Profile dan ikut serta Governance Programs pertamamu!",
+                "updated": 1670671268541
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pero antes de comenzar, debe saber que solo puede enviar su perfil a la rama Develop , ¡así que es hora de cambiar!",
-                    "updated": 1630870746617,
+                    "text": "Pero antes de comenzar, debes saber que solo puede enviar su perfil a la rama Develop, ¡así que es hora de cambiar! ",
+                    "updated": 1682519282957,
                     "style": "Note"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "\"Aber bevor Sie beginnen, sollten Sie wissen, dass Sie Ihr Profil nur im Zweig \"Develop\" einreichen können, also ist es Zeit zu wechseln!",
                     "updated": 1640071907480
+                },
+                {
+                    "language": "ID",
+                    "text": "Tapi sebelum kamu memulai, kamu harus tahu bahwa kamu hanya bisa memasukkan profilemu dalam branch Develop, jadi sekarang saatnya untuk beralih!",
+                    "updated": 1670671274768
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Ve al pie de página y cambia la rama Contrubutions  a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial!",
-                    "updated": 1630870801873,
+                    "text": "Ve al pie de página y cambia la rama Contrubutions a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial! ",
+                    "updated": 1682519327985,
                     "style": "Callout"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zur Fußzeile und schalten Sie sowohl den Beitragszweig als auch den aktuellen Zweig auf Develop um.<br><br>Führen Sie nun den Befehl app.update aus, um Develop auf den neuesten Stand zu bringen, starten Sie den Client und die Benutzeroberfläche ( UI ) neu, und erst dann können Sie mit diesem Tutorial fortfahren!",
                     "updated": 1640901184246
+                },
+                {
+                    "language": "ID",
+                    "text": "Turun ke footer dan ubah keduanya Contributions Branch dan Current Branch ke Develop. Sekarang jalankan perintah app.update untuk mendapatkan Develop yang terbaru, jalankan ulang Client dan UI, baru setelah itu kamu dapat melanjutkan kembali tutorial ini!",
+                    "updated": 1670671340365
                 }
             ]
         },

@@ -3,7 +3,7 @@
 
 import random
 import pandas as pd
-import numpy as np
+#import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import os, sys, time, platform, subprocess
@@ -28,22 +28,31 @@ def import_install_packages(package):
 
 import_install_packages('string')
 import string
+
 import_install_packages('packaging')
 from packaging.version import parse as parse_version
+
+import_install_packages('importlib')
+import importlib
 
 import_install_packages('quantstats')
 import quantstats
 quantstats.extend_pandas()
 
-import_install_packages('gym')
-import gym
+import_install_packages('gym==0.12.1')
+import gym as gym
 from gym import spaces
 
-import_install_packages('ray[all]')
+import_install_packages('numpy==1.23.3')
+import numpy as np
+
+import_install_packages('ray[all]==1.12.1')
 import ray
 
 import_install_packages('tabulate')
 from tabulate import tabulate
+
+import_install_packages('py-rsync')
 
 print("""Python version: %s
 Platform: %s
@@ -85,7 +94,7 @@ from ray.rllib.policy.sample_batch import SampleBatch
 
 location: str = "/tf/notebooks/"
 instructions_file: str = "instructions.csv"
-run_forcast: bool = False
+run_forecast: bool = False
 res_dir: str = location + "/ray_results/"
 RESUME = False # Resume training from the last checkpoint if any exists  [True, False, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
 
@@ -905,7 +914,7 @@ ppo_trainer_config = {
         "num_cpus_per_worker": parallel_config.get("num_cpus_per_worker"), # After some testing, seems the fastest way for this kind of enviroment. It's better to run more trials in parallel than to finish a trial with a couple of minutes faster. Because we can end trial earlier if we see that our model eventuall converge
         "num_cpus_for_driver": parallel_config.get("num_cpus_for_driver"), # Number of CPUs to use for the driver. This is the number of CPUs used for the training process.
         "num_gpus_per_worker": parallel_config.get("num_gpus_per_worker"), 
-        "rollout_fragment_length": ROLLOUT_FRAGMENT_LENGTH, # Size of batches collected from each worker. If num_envs_per_worker is > 1 the rollout value will be multiplied by num_envs_per_worker
+        #"rollout_fragment_length": ROLLOUT_FRAGMENT_LENGTH, # Size of batches collected from each worker. If num_envs_per_worker is > 1 the rollout value will be multiplied by num_envs_per_worker
         "train_batch_size": TRAIN_BATCH_SIZE, # Number of timesteps collected for each SGD round. This defines the size of each SGD epoch. the batch size is composed of fragments defined above
         "sgd_minibatch_size": SGD_MINIBATCH_SIZE,
         "batch_mode": BATCH_MODE,

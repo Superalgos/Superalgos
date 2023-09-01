@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Время занять позицию (Position)!",
                 "updated": 1640856251728
+            },
+            {
+                "language": "NL",
+                "text": "Tijd om Position in te nemen!",
+                "updated": 1670774511359
+            },
+            {
+                "language": "ID",
+                "text": "Waktunya untuk mengambil Position!",
+                "updated": 1670305379136
             }
         ]
     },
@@ -52,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En este nodo utilizo el mismo truco utilizado para el Trigger Off Event pero en este caso obligándolo a True.Ya lo definí en el Trigger On Event cuales son mis condiciones. Entonces en este nodo puedo simplemente copiar las dos condiciones o configurarlo en True.",
-                    "updated": 1629355939657
+                    "text": "En este nodo utilizo el mismo truco utilizado para el Trigger Off Event pero en este caso obligándolo a True. Ya lo definí en el Trigger On Event cuales son mis condiciones. Entonces en este nodo puedo simplemente copiar las dos condiciones o configurarlo en True.",
+                    "updated": 1682357755795
                 },
                 {
                     "language": "IT",
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "В этом узле я использую тот же прием, что и для события Trigger Off Event, но в данном случае заставляю его принимать значение True. В событии Trigger On Event я уже определил, каковы мои условия. Поэтому в этом узле я могу просто скопировать эти два условия или установить их в True.",
                     "updated": 1640885064499
+                },
+                {
+                    "language": "NL",
+                    "text": "In dit knooppunt gebruik ik dezelfde truc die wordt gebruikt voor de Trigger Off Event, maar in dit geval forceer ik het naar True. Ik heb al in de Trigger On Event gedefinieerd wat mijn voorwaarden zijn. Dus in dit knooppunt kan ik gewoon de twee voorwaarden kopiëren of op True zetten.",
+                    "updated": 1670774544143
+                },
+                {
+                    "language": "ID",
+                    "text": "Didalam node ini aku menggunakan trik yang sama aku gunakan pada Trigger Off Event tapi dalam kasus ini wajib diatur ke True. Aku telah mendefinisikan di Trigger On Event tentang kondisi-ku. Jadi dalam node ini aku hanya tinggal menyalin dua kondisi atau mengaturnya sebagai True.",
+                    "updated": 1670305404419
                 }
             ]
         },
@@ -101,6 +121,16 @@
                     "language": "RU",
                     "text": "Конечно, если мне понадобится больше условий, я могу добавить или изменить их в соответствии с моими потребностями!",
                     "updated": 1640856441565
+                },
+                {
+                    "language": "NL",
+                    "text": "Als ik meer voorwaarden nodig heb, kan ik ze natuurlijk toevoegen of wijzigen volgens mijn behoeften!",
+                    "updated": 1670774559467
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentu saja jika aku membutuhkan lebih banyak kondisi aku bisa menambah atau mengubahnya sesuai dengan kebutuhanku!",
+                    "updated": 1670305414351
                 }
             ]
         },
@@ -133,6 +163,16 @@
                     "language": "RU",
                     "text": "Отлично. Мои первоначальные определения установлены. Пора переходить к стадии открытия (Open Stage)!",
                     "updated": 1640856486187
+                },
+                {
+                    "language": "NL",
+                    "text": "Cool. Mijn eerste definities zijn ingesteld. Het is tijd om naar het Open Stage te gaan!",
+                    "updated": 1670774580979
+                },
+                {
+                    "language": "ID",
+                    "text": "Keren. Definisi awalku sudah siap. Ini saatnya untuk pindah ke Open Stage!",
+                    "updated": 1670305422917
                 }
             ]
         }

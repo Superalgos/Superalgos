@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Çalışma Alanınızı ( Workspace ) kaydederken sorun mu yaşıyorsunuz? Çalışma alanındaki değişiklikleriniz kayboldu mu? Çalışma alanı sıfırlandı mı? Yoksa değişikliklerin kaybolduğuna mı inanıyorsun? Sistemin değişikliklerin kalıcılığını nasıl ele aldığı konusunda kafanız mı karıştı? Çalışma Alanınız ( Workspace ) değişikliklerinizi kaydetmiyor mu?",
                 "updated": 1647872060542
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie Probleme beim Speichern Ihres Arbeitsbereichs (Workspace)? Sind Ihre Änderungen im Arbeitsbereich verschwunden? Wurde der Arbeitsbereich zurückgesetzt? Oder glauben Sie, dass die Änderungen verloren gegangen sind? Sind Sie unsicher, wie das System mit der Persistenz von Änderungen umgeht? Speichert Ihr Arbeitsbereich (Workspace) Ihre Änderungen nicht?",
+                "updated": 1678649703714
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Panik yapmayın. Burada, sistemin kalıcı değişikliklerle nasıl başa çıktığına dair bilmeniz gereken her şeyi bulacaksınız.",
                     "updated": 1647872071763
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur keine Panik. Hier finden Sie alles, was Sie darüber wissen müssen, wie das System mit dauerhaften Änderungen umgeht.",
+                    "updated": 1678649725389
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Değişiklikleri nasıl ele aldığımızı ve bunları nasıl kaydettiğimizi öğrenmek için anlamanız gereken 3 kavram vardır.",
                     "updated": 1647872083449
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt 3 Konzepte, die Sie verstehen müssen, um zu lernen, wie wir mit Änderungen umgehen und wie wir sie speichern.",
+                    "updated": 1678649737768
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı ( Workspaces )",
                     "updated": 1647872196280
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeitsbereiche",
+                    "updated": 1678649752715
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Çalışma alanı, tasarımcıda düğümler tarafından temsil edilen veri yapılarının bir koleksiyonudur. Tek bir dosyada saklanırlar.",
                     "updated": 1647872224149
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Arbeitsbereich ist eine Sammlung von Datenstrukturen, die durch Knoten im Designer dargestellt werden. Sie werden in einer einzigen Datei gespeichert.",
+                    "updated": 1678649890845
                 }
             ]
         },
@@ -116,6 +141,11 @@
                     "language": "TR",
                     "text": "Eklentiler ( Plugins ), katkıda bulunanlar tarafından geliştirilen ve bir eklenti olarak toplulukla paylaşılan dosyalarda bulunan veri yapılarıdır. Eklenti ( Plugins ) dosyaları, Projeler klasörünün içindeki klasördedir.",
                     "updated": 1647872304563
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins sind Datenstrukturen, die sich in Dateien befinden, die von Mitwirkenden entwickelt und mit der Gemeinschaft als Plugin geteilt wurden. Die Plugins -Dateien befinden sich in einem Ordner innerhalb des Ordners \"Projekte\".",
+                    "updated": 1678649799107
                 }
             ]
         },
@@ -132,6 +162,11 @@
                     "language": "TR",
                     "text": "Eklenti Çalışma Alanları",
                     "updated": 1647872362717
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins Arbeitsbereiche",
+                    "updated": 1678649829769
                 }
             ]
         },
@@ -149,6 +184,11 @@
                     "language": "TR",
                     "text": "Bunlar aynı zamanda bir çalışma alanı oldukları için özel bir eklenti türüdür. Eklentiler hakkında konuştuğumuzda, çalışma alanı olmayan eklentilere atıfta bulunuruz.",
                     "updated": 1647872342231
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese sind eine besondere Art von Plugins, da sie gleichzeitig ein Arbeitsbereich sind. Wenn wir über Plugins sprechen, beziehen wir uns auf Plugins, die keine Arbeitsbereiche sind.",
+                    "updated": 1678649841736
                 }
             ]
         },
@@ -165,6 +205,11 @@
                     "language": "TR",
                     "text": "Tüm bunlar nasıl çalışır?",
                     "updated": 1647872378869
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie funktioniert das alles?",
+                    "updated": 1678649850051
                 }
             ]
         },
@@ -182,6 +227,11 @@
                     "language": "TR",
                     "text": "Bunu aşağıdaki bölümde inceleyeceğiz.",
                     "updated": 1647872401481
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden dies im folgenden Abschnitt untersuchen.",
+                    "updated": 1678649863402
                 }
             ]
         },
@@ -198,6 +248,11 @@
                     "language": "TR",
                     "text": "Başlangıçta hangi çalışma alanı yüklenir?",
                     "updated": 1647872422312
+                },
+                {
+                    "language": "DE",
+                    "text": "Welcher Arbeitsbereich wird beim Starten geladen?",
+                    "updated": 1678649871390
                 }
             ]
         },
@@ -214,6 +269,11 @@
                     "language": "TR",
                     "text": "Superalgos'u her çalıştırdığınızda, sistem en son yüklenen çalışma alanını yüklemeye çalışacaktır. En son başarıyla yüklenen çalışma alanının adını tarayıcının yerel deposunda sakladığı için son çalışma alanını hatırlar.",
                     "updated": 1647872443360
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Mal, wenn Sie Superalgos starten, wird das System versuchen, den zuletzt geladenen Arbeitsbereich zu laden. Es merkt sich den letzten Arbeitsbereich, weil es im lokalen Speicher des Browsers den Namen des zuletzt erfolgreich geladenen Arbeitsbereichs speichert.",
+                    "updated": 1678649909007
                 }
             ]
         },
@@ -231,6 +291,11 @@
                     "language": "TR",
                     "text": "Not: Superalgos'un en son yüklenen çalışma alanını unutmasını istiyorsanız, bunu tarayıcıdaki yerel depolama değişkenini silerek yapabilirsiniz.",
                     "updated": 1647872517581
+                },
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Wenn Sie also möchten, dass Superalgos den zuletzt geladenen Arbeitsbereich vergisst, können Sie dies tun, indem Sie die lokale Speichervariable im Browser löschen.",
+                    "updated": 1678649915800
                 }
             ]
         },
@@ -248,23 +313,33 @@
                     "language": "TR",
                     "text": "Daha önce yüklenmiş bir çalışma alanı olmadığında ne olur?",
                     "updated": 1647872538473
+                },
+                {
+                    "language": "DE",
+                    "text": "Was passiert, wenn es keinen zuvor geladenen Arbeitsbereich gibt?",
+                    "updated": 1678650844133
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Plugin Workspace.",
+            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Native Workspace.",
             "updated": 1620846971983,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если система не находит никакого названия в локальном хранилище браузера, или если она находит название, но не может найти файл этого рабочего пространства, то она попытается загрузить рабочее пространство \"по умолчанию\", которое является Getting Started Plugin Workspace.",
+                    "text": "Если система не находит никакого названия в локальном хранилище браузера, или если она находит название, но не может найти файл этого рабочего пространства, то она попытается загрузить рабочее пространство \"по умолчанию\", которое является Getting Started Native Workspace.",
                     "updated": 1640541727756
                 },
                 {
                     "language": "TR",
-                    "text": "Sistem, tarayıcının yerel deposunda herhangi bir ad bulamazsa veya bir ad bulur ancak bu çalışma alanının dosyasını bulamazsa, 'varsayılan' çalışma alanını, yani Başlarken Eklenti Çalışma Alanı'nı ( Getting Started Plugin Workspace ) yüklemeye çalışır.",
+                    "text": "Sistem, tarayıcının yerel deposunda herhangi bir ad bulamazsa veya bir ad bulur ancak bu çalışma alanının dosyasını bulamazsa, 'varsayılan' çalışma alanını, yani Başlarken Eklenti Çalışma Alanı'nı ( Getting Started Native Workspace ) yüklemeye çalışır.",
                     "updated": 1647872602958
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das System keinen Namen im lokalen Speicher des Browsers findet oder wenn es einen Namen findet, aber die Datei dieses Arbeitsbereichs nicht finden kann, versuchen sie den'Standard'-Arbeitsbereich zu laden, d .h. den Plugin-Arbeitsbereich (Native Workspace) \"Erste Schritte\".",
+                    "updated": 1678650769848
                 }
             ]
         },
@@ -281,6 +356,11 @@
                     "language": "TR",
                     "text": "Not: Çalışma Alanlarım klasöründen en son çalışma alanı dosyasını silerseniz, sistemi varsayılan çalışma alanını yüklemeye zorlayacağınız anlamına gelir.",
                     "updated": 1647872648648
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die letzte Arbeitsbereichsdatei aus dem Ordner \"Meine Arbeitsbereiche\" (My Workspaces) löschen, zwingen Sie das System, den Standardarbeitsbereich zu laden.",
+                    "updated": 1678649968671
                 }
             ]
         },
@@ -298,22 +378,32 @@
                     "language": "TR",
                     "text": "Nasıl yeni bir çalışma alanı oluştururum?",
                     "updated": 1647872681248
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich einen neuen Arbeitsbereich erstellen?",
+                    "updated": 1678649983156
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The first time you run Superalgos it will load the Getting Started Plugin Workspace. The system will try to save the loaded workspace every minute. But Plugin Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. ",
+            "text": "The first time you run Superalgos it will load the Getting Started Native Workspace. The system will try to save the loaded workspace every minute. But Native Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. ",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "При первом запуске Superalgos будет загружено рабочее пространство Getting Started Plugin Workspace. Система будет пытаться сохранить загруженное рабочее пространство каждую минуту. Но рабочее пространство Plugin Workspaces не может быть заменено загруженным, вместо этого создается его копия в папке My Workspaces с названием узла типа Workspace, который представляет все рабочее пространство. Создать новое рабочее пространство можно, переименовав узел рабочего пространства и сохранив его после этого.",
+                    "text": "При первом запуске Superalgos будет загружено рабочее пространство Getting Started Native Workspace. Система будет пытаться сохранить загруженное рабочее пространство каждую минуту. Но рабочее пространство Native Workspaces не может быть заменено загруженным, вместо этого создается его копия в папке My Workspaces с названием узла типа Workspace, который представляет все рабочее пространство. Создать новое рабочее пространство можно, переименовав узел рабочего пространства и сохранив его после этого.",
                     "updated": 1640541811121
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos'u ilk çalıştırdığınızda, Başlarken Eklenti Çalışma Alanını ( Plugin Workspace ) yükleyecektir. Sistem, yüklenen çalışma alanını her dakika kaydetmeye çalışacaktır. Ancak Eklenti Çalışma Alanları ( Plugin Workspace ), yüklenenle değiştirilemez, bunun yerine Çalışma Alanlarım klasöründe, tüm çalışma alanını temsil eden Çalışma Alanı ( Workspaces ) türü düğüm adıyla bir kopyası oluşturulur. Yeni bir çalışma alanı yaratmanın yolu, çalışma alanı düğümünü yeniden adlandırmak ve bundan sonra kaydetmektir.",
+                    "text": "Superalgos'u ilk çalıştırdığınızda, Başlarken Eklenti Çalışma Alanını ( Native Workspace ) yükleyecektir. Sistem, yüklenen çalışma alanını her dakika kaydetmeye çalışacaktır. Ancak Eklenti Çalışma Alanları ( Native Workspace ), yüklenenle değiştirilemez, bunun yerine Çalışma Alanlarım klasöründe, tüm çalışma alanını temsil eden Çalışma Alanı ( Workspaces ) türü düğüm adıyla bir kopyası oluşturulur. Yeni bir çalışma alanı yaratmanın yolu, çalışma alanı düğümünü yeniden adlandırmak ve bundan sonra kaydetmektir.",
                     "updated": 1647872763170
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System wird versuchen, den geladenen Arbeitsbereich jede Minute zu speichern. Plugin-Arbeitsbereiche (Native Workspace) können jedoch nicht durch den geladenen ersetzt werden, sondern es wird eine Kopie davon im Ordner Meine Arbeitsbereiche (Workspaces) mit dem Namen des Knotens vom Typ Arbeitsbereich (Workspace) erstellt, der den gesamten Arbeitsbereich repräsentiert. Um einen neuen Arbeitsbereich zu erstellen, muss der Arbeitsbereichsknoten umbenannt und anschließend gespeichert werden.",
+                    "updated": 1678650035600
                 }
             ]
         },
@@ -330,6 +420,11 @@
                     "language": "TR",
                     "text": "Not: Kaydetmek için sistemin otomatik kaydetmesi için bir dakika bekleyebilir veya CTRL + SHIFT + S tuşlarına basabilirsiniz.",
                     "updated": 1647873255883
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Speichern können Sie einfach eine Minute warten, bis das System automatisch speichert, oder Sie drücken STRG + SHIFT + S",
+                    "updated": 1678650055367
                 }
             ]
         },
@@ -347,33 +442,48 @@
                     "language": "TR",
                     "text": "Değiştirilmiş / yeniden adlandırılmış bir çalışma alanına nasıl erişirim?",
                     "updated": 1647873266586
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich auf einen geänderten/umbenannten Arbeitsbereich zugreifen?",
+                    "updated": 1678650069379
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel.",
+            "text": "Every time you open the left side bar, the system will search the Native Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Каждый раз, когда вы открываете левую боковую вкладку, система будет искать папку Plugin Workspaces и помещать все найденные там файлы в эту кладку. Она также просканирует всю папку My Workspaces и добавит эти файлы в нижнюю часть левой боковой вклади.",
+                    "text": "Каждый раз, когда вы открываете левую боковую вкладку, система будет искать папку Native Workspaces и помещать все найденные там файлы в эту кладку. Она также просканирует всю папку My Workspaces и добавит эти файлы в нижнюю часть левой боковой вклади.",
                     "updated": 1640541998896
                 },
                 {
                     "language": "TR",
-                    "text": "Sol taraftaki çubuğu her açtığınızda, sistem Plugin Workspaces klasörünü arayacak ve orada bulunan tüm dosyaları sol taraftaki panele yerleştirecektir. Ayrıca tüm Çalışma Alanlarım klasörünü tarayacak ve bu dosyaları sol yan panelin altına ekleyecektir.",
+                    "text": "Sol taraftaki çubuğu her açtığınızda, sistem Native Workspaces klasörünü arayacak ve orada bulunan tüm dosyaları sol taraftaki panele yerleştirecektir. Ayrıca tüm Çalışma Alanlarım klasörünü tarayacak ve bu dosyaları sol yan panelin altına ekleyecektir.",
                     "updated": 1647873349212
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Mal, wenn Sie die linke Seitenleiste öffnen, durchsucht das System den Ordner Native Workspaces und platziert alle dort gefundenen Dateien in der linken Seitenleiste. Es durchsucht auch alle My Workspaces -Ordner und fügt diese Dateien unten in der linken Seitenleiste hinzu.",
+                    "updated": 1678650086373
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Plugin Workspaces finishes, you will see the ones saved / renamed by you.",
+            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Native Workspaces finishes, you will see the ones saved / renamed by you.",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Чтобы получить доступ к сохраненному или переименованному рабочему пространству, откройте вкладку слева и прокрутите ее вниз, после того как список рабочих пространств плагинов закончится, вы увидите те, которые были сохранены / переименованы вами.",
                     "updated": 1640542073914
+                },
+                {
+                    "language": "DE",
+                    "text": "Um auf einen gespeicherten oder umbenannten Arbeitsbereich zuzugreifen, öffnen Sie das linke Seitenfenster und scrollen Sie nach unten, um die von Ihnen gespeicherten/umbenannten Arbeitsbereiche (Native Workspaces) zu sehen.",
+                    "updated": 1678650101817
                 }
             ]
         },
@@ -386,23 +496,33 @@
                     "language": "RU",
                     "text": "Как восстановить систему, если последнее рабочее пространство не загружается?",
                     "updated": 1640542093269
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich das System wiederherstellen, wenn mein letzter Arbeitsbereich nicht geladen wird?",
+                    "updated": 1678650116339
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Plugin Workspace. ",
+            "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Native Workspace. ",
             "updated": 1620847650616,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Возможно, файл был поврежден, или версия системы изменилась и не распознает ваш формат файла. Вам нужно переместить файл рабочего пространства из папки My Workspaces, чтобы система загрузила рабочее пространство по умолчанию, которым будет являться рабочее пространство Getting Started Plugin Workspace.",
+                    "text": "Возможно, файл был поврежден, или версия системы изменилась и не распознает ваш формат файла. Вам нужно переместить файл рабочего пространства из папки My Workspaces, чтобы система загрузила рабочее пространство по умолчанию, которым будет являться рабочее пространство Getting Started Native Workspace.",
                     "updated": 1640542133436
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Kaydedilmiş veya yeniden adlandırılmış bir çalışma alanına erişmek için sol yan paneli açın ve aşağıya doğru kaydırın, Eklenti Çalışma Alanları ( Plugin Workspaces ) listesi tamamlandıktan sonra, sizin tarafınızdan kaydedilen / yeniden adlandırılanları göreceksiniz.",
+                    "text": "Not: Kaydedilmiş veya yeniden adlandırılmış bir çalışma alanına erişmek için sol yan paneli açın ve aşağıya doğru kaydırın, Eklenti Çalışma Alanları ( Native Workspaces ) listesi tamamlandıktan sonra, sizin tarafınızdan kaydedilen / yeniden adlandırılanları göreceksiniz.",
                     "updated": 1647873384836
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann vorkommen, dass die Datei beschädigt wurde oder die Systemversion sich geändert hat und Ihr Dateiformat nicht erkennt. Sie müssen Ihre Arbeitsbereichsdatei aus dem Ordner \"Meine Arbeitsbereiche\" (My Workspaces) verschieben, damit das System den Standardarbeitsbereich lädt, d. h. den Plugin-Arbeitsbereich (Native Workspace) \"Erste Schritte\".",
+                    "updated": 1678650124854
                 }
             ]
         },
@@ -419,6 +539,11 @@
                     "language": "TR",
                     "text": "Not: Ardından, en son çalışma alanı dosyanızı bir metin düzenleyiciyle kontrol edebilir veya çalışma alanınızı en son sürüme nasıl geçireceğinize ilişkin talimatlar için yazılımın yeni sürümünün BENİOKU dosyasını okuyabilirsiniz.",
                     "updated": 1647873437309
+                },
+                {
+                    "language": "DE",
+                    "text": "Anschließend können Sie mit einem Texteditor Ihre aktuelle Arbeitsbereichsdatei überprüfen oder in der README-Datei der neuen Softwareversion nachlesen, wie Sie Ihren Arbeitsbereich auf die neueste Version migrieren können.",
+                    "updated": 1678650138897
                 }
             ]
         },
@@ -436,22 +561,32 @@
                     "language": "TR",
                     "text": "Çalışma alanında bir değişiklik yaptıysam ve şimdi veri madenciliği, geriye dönük test veya alım satım görevlerini çalıştırmıyorsa sistemi nasıl kurtarabilirim?",
                     "updated": 1647873456523
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich das System wiederherstellen, wenn ich eine Änderung am Arbeitsbereich vorgenommen habe und es nun keine Data-Mining-, Backtesting- oder Handelsaufgaben ausführt?",
+                    "updated": 1678650149155
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If you are using a Plugin Workspace, the way to recover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well.",
+            "text": "If you are using a Native Workspace, the way to recover is by loading that Native Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если вы используете подключаемое рабочее пространство (Plugin Workspace), способ восстановления заключается в повторной загрузке этого подключаемого рабочего пространства. Естественно, система сохранит копию в папке My Workspaces, перезаписав все внесенные вами изменения. После этого все задачи будут выполняться нормально.",
+                    "text": "Если вы используете подключаемое рабочее пространство (Native Workspace), способ восстановления заключается в повторной загрузке этого подключаемого рабочего пространства. Естественно, система сохранит копию в папке My Workspaces, перезаписав все внесенные вами изменения. После этого все задачи будут выполняться нормально.",
                     "updated": 1640542235344
                 },
                 {
                     "language": "TR",
-                    "text": "Bir Eklenti Çalışma Alanı ( Plugin Workspaces ) kullanıyorsanız, kurtarmanın yolu, o Eklenti Çalışma Alanını yeniden yüklemektir. Sistem, doğal olarak, yaptığınız değişikliklerin üzerine yazarak Çalışma Alanlarım ( Workspaces ) klasörüne bir kopya kaydedecektir. Oradan tüm görevler iyi çalışmalıdır.",
+                    "text": "Bir Eklenti Çalışma Alanı ( Native Workspaces ) kullanıyorsanız, kurtarmanın yolu, o Eklenti Çalışma Alanını yeniden yüklemektir. Sistem, doğal olarak, yaptığınız değişikliklerin üzerine yazarak Çalışma Alanlarım ( Workspaces ) klasörüne bir kopya kaydedecektir. Oradan tüm görevler iyi çalışmalıdır.",
                     "updated": 1647873830342
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Plugin-Arbeitsbereich (Native Workspace) verwenden, können Sie diesen wiederherstellen, indem Sie den Plugin-Arbeitsbereich (Native Workspace) erneut laden. Das System speichert dann natürlich eine Kopie im Ordner Mein Arbeitsbereich (My Workspaces) und überschreibt dabei alle von Ihnen vorgenommenen Änderungen. Von dort aus sollten alle Aufgaben gut laufen.",
+                    "updated": 1678650171416
                 }
             ]
         },
@@ -469,6 +604,11 @@
                     "language": "TR",
                     "text": "Otomatik kaydetme özelliği var mıdır?",
                     "updated": 1647873849583
+                },
+                {
+                    "language": "DE",
+                    "text": "Gibt es eine automatische Speicherfunktion?",
+                    "updated": 1678650188172
                 }
             ]
         },
@@ -485,6 +625,11 @@
                     "language": "TR",
                     "text": "Evet var ve her zaman açık.",
                     "updated": 1647873858615
+                },
+                {
+                    "language": "DE",
+                    "text": "Ja, und sie ist immer eingeschaltet.",
+                    "updated": 1678650196737
                 }
             ]
         },
@@ -501,6 +646,11 @@
                     "language": "TR",
                     "text": "Not: Sistem, mevcut yüklü çalışma alanını her dakikada bir otomatik olarak kaydetmeye çalışacaktır. Mümkünse, kaydırma çubuğunda kısaca bir not görüntüler.",
                     "updated": 1647873897604
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System versucht etwa jede Minute, den aktuell geladenen Arbeitsbereich automatisch zu speichern. Wenn dies gelingt, wird kurz ein Hinweis in der Schiebereglerleiste angezeigt.",
+                    "updated": 1678650211201
                 }
             ]
         },
@@ -518,6 +668,11 @@
                     "language": "TR",
                     "text": "İpucu: Çalışma alanını istediğiniz zaman CTRL + SHIFT + S ile manuel olarak kaydedebilirsiniz.",
                     "updated": 1647873929753
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können den Arbeitsbereich jederzeit manuell mit der Tastenkombination STRG + SHIFT + S speichern.",
+                    "updated": 1678650220613
                 }
             ]
         },
@@ -535,6 +690,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanımın yedeklerini nasıl oluşturabilirim?",
                     "updated": 1647873941123
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie erstelle ich Backups von meinem Arbeitsbereich?",
+                    "updated": 1678650232617
                 }
             ]
         },
@@ -551,6 +711,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı düğümünün adını değiştirirseniz, onu bir sonraki kaydettiğinizde veya otomatik olarak kaydedildiğinde, önceki dosya silinmez, çalışma alanını yeniden adlandırılır.",
                     "updated": 1647874060074
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Namen des Knotens \"Arbeitsbereich (Workspace)\" (der den Arbeitsbereich (Workspace) darstellt) ändern, wird er beim nächsten Speichern oder bei der automatischen Speicherung unter dem neuen Namen gespeichert, ohne dass die vorherige Datei gelöscht wird.",
+                    "updated": 1678650245460
                 }
             ]
         },
@@ -568,6 +733,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu, örneğin, çalışma alanı düğümünün adının sonuna 1, 2, 3 sürümlerini eklerseniz, çalışmalarınızın birkaç yedeğini oluşturacağınız anlamına gelir.",
                     "updated": 1647874358469
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie mehrere Sicherungskopien Ihrer Arbeiten erstellen, wenn Sie z.B. Version 1, 2, 3 an das Ende des Namens des Arbeitsbereichsknotens anhängen.",
+                    "updated": 1678650259695
                 }
             ]
         },
@@ -585,6 +755,11 @@
                     "language": "TR",
                     "text": "İpucu: Diğer bir teknik, çalışma alanı düğümündeki Yedekleme simgesini kullanmaktır.",
                     "updated": 1647874658882
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine andere Methode ist die Verwendung des Sicherungssymbols am Arbeitsbereichsknoten.",
+                    "updated": 1678650272030
                 }
             ]
         },
@@ -602,6 +777,11 @@
                     "language": "TR",
                     "text": "Çalışma alanıma eklentileri nasıl eklerim?",
                     "updated": 1647874691006
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich Plugins zu meinem Arbeitsbereich hinzufügen?",
+                    "updated": 1678650280365
                 }
             ]
         },
@@ -618,6 +798,11 @@
                     "language": "TR",
                     "text": "Eklentileri eklemek için, bunları Eklentiler hiyerarşisinde ayarlamanız gerekir.",
                     "updated": 1647874880453
+                },
+                {
+                    "language": "DE",
+                    "text": "Um plugins hinzuzufügen, müssen Sie sie in der Plugins -Hierarchie einrichten.",
+                    "updated": 1678650485396
                 }
             ]
         },
@@ -635,6 +820,11 @@
                     "language": "TR",
                     "text": "Çalışma alanında 2 tür hiyerarşi vardır:",
                     "updated": 1647874966270
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Arbeitsbereich gibt es 2 Arten von Hierarchien:",
+                    "updated": 1678650429847
                 }
             ]
         },
@@ -652,6 +842,11 @@
                     "language": "TR",
                     "text": "a) Eklentiler: örneğin Veri Madenleri, Ticaret Sistemleri ve diğerleri gibi.",
                     "updated": 1647874979654
+                },
+                {
+                    "language": "DE",
+                    "text": "a) Plugins: wie z. B. Data Mines, Handelssysteme (Trading Systems), und andere.",
+                    "updated": 1678650534689
                 }
             ]
         },
@@ -669,6 +864,11 @@
                     "language": "TR",
                     "text": "b) Eklentiler Olmayanlar: Ağ, Kripto Ekosistemi ve diğerleri gibi.",
                     "updated": 1647875006316
+                },
+                {
+                    "language": "DE",
+                    "text": "b) Nicht Plugins: wie das Netzwerk, Crypto Ecosystem und andere.",
+                    "updated": 1678650569588
                 }
             ]
         },
@@ -686,6 +886,11 @@
                     "language": "TR",
                     "text": "İpucu: Çalışma alanındaki eklentiler, hiyerarşinin başını çevreleyen halka kapalı olduğu için tanınır. Eklentiler Olmayanlar, açıklıkları olan halkaya sahiptir.",
                     "updated": 1647875089229
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins innerhalb des Arbeitsbereichs werden erkannt, weil der Ring um den Kopf der Hierarchie geschlossen ist. Nicht- Plugins haben diesen Ring mit Öffnungen.",
+                    "updated": 1678650683372
                 }
             ]
         },
@@ -702,6 +907,11 @@
                     "language": "TR",
                     "text": "Değişikliklerim neden kaydedilmedi?",
                     "updated": 1647875098604
+                },
+                {
+                    "language": "DE",
+                    "text": "Warum wurden meine Änderungen nicht gespeichert?",
+                    "updated": 1678650692831
                 }
             ]
         },
@@ -718,6 +928,11 @@
                     "language": "TR",
                     "text": "Belki bir Eklentide değişiklik yaptığınız içindir.",
                     "updated": 1647875109427
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht, weil Sie Änderungen an einem Plugin vorgenommen haben.",
+                    "updated": 1678650703160
                 }
             ]
         },
@@ -735,6 +950,11 @@
                     "language": "TR",
                     "text": "Önemli: Eklentilerde yapılan değişiklikler çalışma alanına kaydedilmez. Çalışma alanınıza yüklenen bir Eklentide yaptığınız bir değişikliğin kalıcı olmasını istiyorsanız, o eklentinin bir yedeğini (Yedekleme simgesiyle) oluşturmanız ve eklentiler klasörüne kaydetmeniz gerekir. Geçerli eklenti dosyasını değiştirirseniz, o eklentiyi içeren çalışma alanını bir sonraki yüklediğinizde değişiklikleriniz yüklenir; farklı bir adla kaydederseniz, bunları çalışma alanında Eklentiler hiyerarşisini kullanarak ayarlamanız gerekir.",
                     "updated": 1647875155788
+                },
+                {
+                    "language": "DE",
+                    "text": "Änderungen an Plugins werden nicht im Arbeitsbereich gespeichert. Wenn Sie möchten, dass eine Änderung, die Sie an einem in Ihren Arbeitsbereich geladenen Plugin vorgenommen haben, beibehalten wird, müssen Sie eine Sicherungskopie dieses Plugins erstellen (mit dem Backup-Symbol) und diese im Plugin-Ordner speichern. Wenn Sie die aktuelle Plugin-Datei ersetzen, werden Ihre Änderungen beim nächsten Laden des Arbeitsbereichs, der das Plugin enthält, geladen; wenn Sie das Plugin unter einem anderen Namen speichern, müssen Sie es über die Plugins -Hierarchie im Arbeitsbereich einrichten.",
+                    "updated": 1678650716875
                 }
             ]
         },
@@ -752,6 +972,11 @@
                     "language": "TR",
                     "text": "Bir Eklentiyi nasıl değiştirebilir ve değişikliklerin kalıcı olmasını sağlayabilirim?",
                     "updated": 1647875172110
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann ich ein Plugin ändern und die Änderungen beibehalten?",
+                    "updated": 1678650737638
                 }
             ]
         },
@@ -769,6 +994,11 @@
                     "language": "TR",
                     "text": "İki yol var. Birincisi, değiştirilmiş Eklentiyi yedeklemek ve orijinal Eklenti dosyasını değiştirilmiş olanla değiştirmek. İkinci yol, Eklentiyi eklenti olmayan veri yapısı olarak dahil etmektir.",
                     "updated": 1647875197243
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt zwei Möglichkeiten. Die eine ist, das geänderte Plugin zu sichern und die ursprüngliche Plugin-Datei durch die geänderte zu ersetzen. Die zweite Möglichkeit besteht darin, das Plugin als Nicht-Plugin-Datenstruktur einzubinden.",
+                    "updated": 1678650746651
                 }
             ]
         },
@@ -785,6 +1015,11 @@
                     "language": "TR",
                     "text": "Önemli: Bir eklenti yapısını yedeklerseniz ve onu tekrar çalışma alanına atarsanız, eklenti olarak kabul edilmeyecektir, çünkü Eklentiler hiyerarşisi tarafından tanımlanan mekanizmanın bir parçası olarak yüklenmemiştir, yani bir olmayan olarak kabul edilecektir. eklenti ve çalışma alanınızın bir parçası olun. Aynı şey, eklenti olsun ya da olmasın, yedeklenmiş herhangi bir dosyayı sürükleyip bıraktığınızda da olur. Çalışma alanınızın bir parçası olacak ve çalışma alanıyla birlikte kaydedilecektir. Yalnızca çalışma alanı yüklendiğinde sistem tarafından yüklenen eklenti dosyaları eklenti olarak kabul edilir. Eklentiler Hiyerarşisinde sisteme hangi eklentilerin yükleneceğini söylediğinizi unutmayın.",
                     "updated": 1647875223096
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Plugin-Struktur (Plugins hierarchy) sichern und sie dann wieder in den Arbeitsbereich ziehen, wird sie nicht als Plugin betrachtet, da sie nicht im Rahmen des durch die Plugin-Hierarchie definierten Mechanismus geladen wurde. Dasselbe geschieht, wenn Sie eine beliebige Datei, ob Plugin oder nicht, per Drag & Drop sichern. Sie wird Teil Ihres Arbeitsbereichs und wird zusammen mit dem Arbeitsbereich gespeichert. Nur Plugin-Dateien, die vom System beim Laden des Arbeitsbereichs geladen werden, gelten als Plugins. Denken Sie daran, dass Sie dem System in der Plugin-Hierarchie (Plugins hierarchy) mitteilen, welche Plugins geladen werden sollen.",
+                    "updated": 1678650787740
                 }
             ]
         },

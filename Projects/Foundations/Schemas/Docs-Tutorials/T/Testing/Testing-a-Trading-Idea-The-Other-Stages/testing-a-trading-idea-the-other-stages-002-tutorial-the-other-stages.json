@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: İlk ticaret fikrini tam olarak test etmekten sadece birkaç adım uzaktayız! Ama ondan önce, bir iki şey öğrenmelisin!",
-                "updated": 1641667867083
+                "text": "İlk ticaret fikrini tam olarak test etmekten sadece birkaç adım uzaktayız! Ama ondan önce, bir iki şey öğrenmelisin!",
+                "updated": 1669800608786
             },
             {
                 "language": "RU",
                 "text": "Мы находимся в нескольких шагах от того, чтобы полностью протестировать первую торговую идею! Сначала вам нужно научиться кое-чему!",
                 "updated": 1642776099264
+            },
+            {
+                "language": "ES",
+                "text": "¡Estamos a unos pasos de poder probar a fondo la primera idea de trading! Pero antes hay que aprender un par de cosas.",
+                "updated": 1680621629501
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "В третьем уроке серии мы рассмотрели определения и нюансы стадии срабатывания (Trigger Stage).",
                     "updated": 1642776147516
+                },
+                {
+                    "language": "ES",
+                    "text": "En el tercer tutorial de la serie, cubrimos las definiciones y matices de la Trigger Stage.",
+                    "updated": 1680621654441
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "В этом учебнике мы дадим основные определения остальных стадий (этапов), чтобы, наконец, проверить нашу гипотезу!",
                     "updated": 1642776216008
+                },
+                {
+                    "language": "ES",
+                    "text": "En este tutorial, completaremos las definiciones básicas del resto de las etapas para que finalmente podamos probar nuestra hipótesis.",
+                    "updated": 1680621681207
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Я настоятельно рекомендую вам прочесть первые три учебника из этой серии, прежде чем изучать этот! История переносится из одного в другой!",
                     "updated": 1642776247677
+                },
+                {
+                    "language": "ES",
+                    "text": " ¡Te recomiendo encarecidamente que hagas los tres primeros tutoriales de la serie antes de hacer éste! La historia se transmite de uno a otro.",
+                    "updated": 1680621703473
                 }
             ]
         }

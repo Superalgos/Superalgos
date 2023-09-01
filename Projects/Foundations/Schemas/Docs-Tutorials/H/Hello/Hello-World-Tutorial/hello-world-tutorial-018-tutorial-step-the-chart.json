@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Наслаждайтесь бэктестом!",
                 "updated": 1640857620372
+            },
+            {
+                "language": "NL",
+                "text": "Geniet van je backtest!",
+                "updated": 1670776763395
+            },
+            {
+                "language": "ID",
+                "text": "Nikmati backtest-mu!",
+                "updated": 1670588305268
             }
         ]
     },
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "Теперь пришло время перейти в Charting Space и (если он еще не запущен) запустить работу:",
                     "updated": 1640857683899
+                },
+                {
+                    "language": "NL",
+                    "text": "Nu is het tijd om naar de Charting Space te gaan en (indien nog niet actief) deze te starten:",
+                    "updated": 1670776802815
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang saatnya untuk pindah ke Charting Space dan (jika belum berjalan) jalankan:",
+                    "updated": 1670588311778
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "TR",
                     "text": "Stratejiler ( Strategies )",
                     "updated": 1640618564547
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategi (Strategies)",
+                    "updated": 1670588421190
                 }
             ]
         },
@@ -105,6 +130,11 @@
                     "language": "TR",
                     "text": "Mumlar",
                     "updated": 1640618573665
+                },
+                {
+                    "language": "ID",
+                    "text": "Lilin (Candles)",
+                    "updated": 1670588484471
                 }
             ]
         },
@@ -122,6 +152,16 @@
                     "language": "TR",
                     "text": "Piyasa Emirleri ( Market Orders ) Al ve Sat",
                     "updated": 1640618588052
+                },
+                {
+                    "language": "NL",
+                    "text": "Buy en Sell Market Orders",
+                    "updated": 1670776814279
+                },
+                {
+                    "language": "ID",
+                    "text": "Market Orders Beli dan Jual",
+                    "updated": 1670588458063
                 }
             ]
         },
@@ -149,8 +189,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tómese su tiempo y explore los resultados visuales. Aplique el indicador SMA al gráfico y asegúrese de que el bot haya tomado posición cuando se esperaba",
-                    "updated": 1629578671372
+                    "text": "Tómate tu tiempo y explora los resultados visuales. Aplica el indicador SMA al gráfico y asegúrate de que el bot haya tomado posición cuando se esperaba",
+                    "updated": 1682357909366
                 },
                 {
                     "language": "IT",
@@ -166,6 +206,16 @@
                     "language": "RU",
                     "text": "Не торопитесь и изучите визуальные результаты. Примените индикатор SMA к графику и убедитесь, что бот занял позицию, когда это ожидалось.",
                     "updated": 1640857737238
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem de tijd en verken de visuele resultaten. Pas de SMA-indicator toe in de grafiek en zorg ervoor dat de bot positie heeft ingenomen wanneer verwacht",
+                    "updated": 1670776856607
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktumu dan eksplorasi hasil visual. Gunakan indikator SMA ke chart dan pastikan bot telah mengambil posisi sesuai ekspektasimu.",
+                    "updated": 1670588375726
                 }
             ]
         }

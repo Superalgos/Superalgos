@@ -25,6 +25,16 @@
                 "text": "Kim olursanız olun, Superalgos ağına değer katabilirsiniz!",
                 "updated": 1654395662458,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Tidak penting siapa dirimu, kamu bisa membawa sesuatu yang berharga kepada jaringan Superalgos!",
+                "updated": 1670849076414
+            },
+            {
+                "language": "ES",
+                "text": "No importa quién seas, ¡puedes aportar valor a la red Superalgos!",
+                "updated": 1682519692666
             }
         ]
     },
@@ -49,6 +59,16 @@
                     "text": "Her birimiz Superalgos ile olan çalışmalarımıza benzersiz yetenekler ve deneyimler katıyoruz. Bir programcı veya uzman tüccar olmasanız bile, dahil olmanız için hala yollar var!",
                     "updated": 1654395669684,
                     "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap dari kita memiliki talenta unik dan bereksperience ke pekerjaan kita dengan Superalgos. Bahkan jika kamu bukanlah programmer atau trader expert selalu ada jalan untuk kamu dalam berkembang!",
+                    "updated": 1670849083559
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada uno de nosotros aporta un talento y una experiencia únicos a nuestro trabajo con Superalgos. Incluso si no eres un programador o un operador experto, ¡aún hay formas de que participes!",
+                    "updated": 1682519798504
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "text": "Projeye yapabileceğiniz ilk katkılardan biri yönetişimin kendisine dahil olmaktır. Superalgos'a rehberlik eden kullanıcı ağı, açık işbirliğimizin başarısının ayrılmaz bir parçasıdır. Sadece bir parçası olarak bile bu ağa değer katabilirsiniz!",
                     "updated": 1654395675953,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Salah satu kontribusi pertama yang bisa kamu berikan kepada proyek ini yaitu terlibat dalam tata kelola (governance) itu sendiri. Jaringan dari sesama pengguna yang saling memandu dalam Superalgos adalah bagian integral dari keberhasilan kolaborasi terbuka kita. Kamu membawa nilai ke jaringan hanya dengan menjadi bagiannya!",
+                    "updated": 1670849090150
+                },
+                {
+                    "language": "ES",
+                    "text": "Una de las primeras contribuciones que puedes hacer al proyecto es implicarte en la propia gobernanza. La red de usuarios que guían Superalgos es parte integrante del éxito de nuestra colaboración abierta. Tú aportas valor a la red por el simple hecho de formar parte de ella.",
+                    "updated": 1682519836558
                 }
             ]
         }

@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
-                "updated": 1641660658243
+                "text": "Hata öğesine tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
+                "updated": 1669587410029
             },
             {
                 "language": "RU",
                 "text": "Снова коснитесь символа ошибки и обратите внимание, как пространство проектирования переместится в узел, наиболее связанный с ошибкой, в данном случае это узел Condition. Это очень важная информация!",
                 "updated": 1642657243264
+            },
+            {
+                "language": "ES",
+                "text": "Vuelve a tocar la viñeta de error y observa cómo el espacio de diseño se reposiciona en el nodo más relacionado con el error, en este caso, un nodo Condition. Esta información es crucial.",
+                "updated": 1677104848555
             }
         ]
     },
@@ -40,13 +45,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin!",
-                    "updated": 1641660677597
+                    "text": "Durum ( Condition Node ) Düğümünü kontrol edin!",
+                    "updated": 1669587420523
                 },
                 {
                     "language": "RU",
                     "text": "Проверьте этот узел!",
                     "updated": 1642657276531
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Comprueba el nodo Condition!",
+                    "updated": 1677104866094
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "На данный момент мы получили отличную информацию о следующем:",
                     "updated": 1642657323025
+                },
+                {
+                    "language": "ES",
+                    "text": "Hasta ahora, tenemos buena información sobre:",
+                    "updated": 1677104883776
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "когда произошла ошибка;",
                     "updated": 1642657334521
+                },
+                {
+                    "language": "ES",
+                    "text": "cuándo se produjo el error;",
+                    "updated": 1677104909512
                 }
             ]
         },
@@ -110,6 +130,11 @@
                     "language": "RU",
                     "text": "в чем заключается ошибка;",
                     "updated": 1642657345700
+                },
+                {
+                    "language": "ES",
+                    "text": "de qué se trata el error;",
+                    "updated": 1677104904404
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "RU",
                     "text": "и где это произошло!",
                     "updated": 1642657356250
+                },
+                {
+                    "language": "ES",
+                    "text": "y dónde ocurrió.",
+                    "updated": 1677104918378
                 }
             ]
         },
@@ -153,6 +183,11 @@
                     "language": "RU",
                     "text": "Кажется, что у нас есть все кусочки головоломки! Давайте потратим несколько минут на анализ улик!",
                     "updated": 1642657375243
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Parece que tenemos todas las piezas del puzzle! Tomémonos unos minutos para analizar las pruebas.",
+                    "updated": 1677104924457
                 }
             ]
         }

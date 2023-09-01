@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Das Empfehlungsprogramm ( Referral Program ) bietet Anreize für die Werbung für das Projekt, entweder durch Mundpropaganda oder \"in Masse\" durch Artikel, Beiträge in sozialen Medien, Videos und andere Formen des Influencer-Marketings!",
                 "updated": 1640079326751
+            },
+            {
+                "language": "ID",
+                "text": "Referral Program memberikan insentif dari mempromosikan proyek, baik dari mulut ke mulut atau “secara massal” melalui artikel, postingan media sosial, video, dan bentuk pemasaran influencer lainnya!",
+                "updated": 1671526660732
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Knoten Community Building Programs und klicken Sie auf <i>Add Referral Program</i>.",
                     "updated": 1640079348295
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi node Community Building Programs dan klik Add Referral Program.",
+                    "updated": 1671526674721
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Primero, aclaremos qué reglas debe cumplir para ganar su Tokens Bonus",
-                    "updated": 1630895569223,
+                    "text": "Primero, aclaremos qué reglas debes cumplir para ganar tu Tokens Bonus",
+                    "updated": 1682520780295,
                     "style": "Text"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Lassen Sie uns zunächst klären, welche Regeln Sie erfüllen müssen, um Ihren Token Bonus zu erhalten!",
                     "updated": 1640079366144
+                },
+                {
+                    "language": "ID",
+                    "text": "Pertama-tama, Mari perjelas aturan apa yang harus kamu penuhi untuk mendapatkan Tokens Bonus!",
+                    "updated": 1671526684975
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Sie müssen das Programm bereitstellen: Erledigt!",
                     "updated": 1640079431424
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus mendeploy program: Selesai!",
+                    "updated": 1671526693150
                 }
             ]
         },
@@ -143,6 +163,11 @@
                     "language": "DE",
                     "text": "Sie müssen Ihren Referenzgeber angeben: Das machen wir als nächstes!",
                     "updated": 1640079463169
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus menyatakan perujukmu: Kita akan lakukan itu selanjutnya!",
+                    "updated": 1671526701349
                 }
             ]
         },
@@ -171,6 +196,11 @@
                     "language": "DE",
                     "text": "Sie müssen Token Power in das Programm einbringen: Wooh... Token Power... klingt das nicht toll? Und ob!",
                     "updated": 1640079480513
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus mengarahkan Token Power ke program: Wooh... token power... kedengarannya bagus? sudah pasti!",
+                    "updated": 1671526770539
                 }
             ]
         }

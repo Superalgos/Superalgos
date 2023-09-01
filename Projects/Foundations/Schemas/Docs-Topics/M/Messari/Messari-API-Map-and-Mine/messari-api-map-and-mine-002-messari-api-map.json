@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Geçerli Messari API Haritası, Messari API'sinin aşağıdaki uç noktalarına erişir.",
                 "updated": 1650624557749
+            },
+            {
+                "language": "DE",
+                "text": "Die aktuelle Messari API Map greift auf die folgenden Endpunkte der Messari API zu.",
+                "updated": 1693333536828
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Messari API'si için belgeler aşağıdaki bağlantıda bulunabilir:",
                     "updated": 1650624587579
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Dokumentation für die Messari-API finden Sie unter dem folgenden Link:",
+                    "updated": 1693333556750
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "TR",
                     "text": "Temel istek URL'si:",
                     "updated": 1650624622370
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Basis-URL der Anfrage lautet:",
+                    "updated": 1693333570372
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "language": "TR",
                     "text": "Eşlenen Uç Noktalar",
                     "updated": 1650624810170
+                },
+                {
+                    "language": "DE",
+                    "text": "Zugeordnete Endpunkte",
+                    "updated": 1693333579887
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "TR",
                     "text": "Varlık Metriklerini Alın",
                     "updated": 1650624822588
+                },
+                {
+                    "language": "DE",
+                    "text": "Asset-Metriken abrufen",
+                    "updated": 1693333590058
                 }
             ]
         },
@@ -109,6 +134,11 @@
                     "language": "TR",
                     "text": "Mevcut varlık için mevcut tüm nicel metrikleri alın.",
                     "updated": 1650624837519
+                },
+                {
+                    "language": "DE",
+                    "text": "Erhalten Sie alle verfügbaren quantitativen Metriken für das aktuelle Asset.",
+                    "updated": 1693333597787
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "TR",
                     "text": "Ham Döndürülen Değerler",
                     "updated": 1650624848191
+                },
+                {
+                    "language": "DE",
+                    "text": "Zurückgegebene Rohwerte",
+                    "updated": 1693333605715
                 }
             ]
         },
@@ -137,6 +172,11 @@
                     "language": "TR",
                     "text": "elapsed: Bu yanıtı oluşturmak için geçen milisaniye sayısı.",
                     "updated": 1650624861224
+                },
+                {
+                    "language": "DE",
+                    "text": "elapsed: Anzahl der Millisekunden, die zur Erzeugung dieser Antwort benötigt wurden.",
+                    "updated": 1693333618730
                 }
             ]
         },
@@ -158,6 +198,11 @@
                     "language": "TR",
                     "text": "zaman damgası ( timestamp ):Sunucudaki geçerli zaman damgası (ISO 8601).",
                     "updated": 1650624893052
+                },
+                {
+                    "language": "DE",
+                    "text": "timestamp: Aktueller Zeitstempel (ISO 8601) auf dem Server.",
+                    "updated": 1693333738042
                 }
             ]
         },
@@ -175,6 +220,11 @@
                     "language": "TR",
                     "text": "id: mevcut varlığın tanımlayıcısı.",
                     "updated": 1650624901339
+                },
+                {
+                    "language": "DE",
+                    "text": "id: Kennung des aktuellen Vermögenswerts.",
+                    "updated": 1693333637731
                 }
             ]
         },
@@ -192,6 +242,11 @@
                     "language": "TR",
                     "text": "sembol: Bir varlık için yaygın olarak kabul edilen \"sembol\".",
                     "updated": 1650624912943
+                },
+                {
+                    "language": "DE",
+                    "text": "symbol: Das allgemein akzeptierte \"Symbol\" für einen Vermögenswert.",
+                    "updated": 1693333651499
                 }
             ]
         },
@@ -209,6 +264,11 @@
                     "language": "TR",
                     "text": "isim: Varlığın adı.",
                     "updated": 1650624923096
+                },
+                {
+                    "language": "DE",
+                    "text": "name: Name der Anlage.",
+                    "updated": 1693333661970
                 }
             ]
         },
@@ -226,6 +286,11 @@
                     "language": "TR",
                     "text": "slug: Kimliğe alternatif, Web URL'si dostu kısa yol slug.",
                     "updated": 1650624947516
+                },
+                {
+                    "language": "DE",
+                    "text": "slug: Web-URL-freundliche Kurzbezeichnung, alternativ zur ID.",
+                    "updated": 1693333673370
                 }
             ]
         },
@@ -243,6 +308,11 @@
                     "language": "TR",
                     "text": "price_usd: USD cinsinden piyasa fiyatı.",
                     "updated": 1650624955922
+                },
+                {
+                    "language": "DE",
+                    "text": "price_usd: Marktpreis in USD.",
+                    "updated": 1693333685931
                 }
             ]
         },
@@ -260,6 +330,11 @@
                     "language": "TR",
                     "text": "price_btc: BTC cinsinden piyasa fiyatı.",
                     "updated": 1650624966710
+                },
+                {
+                    "language": "DE",
+                    "text": "price_btc: Marktpreis in BTC.",
+                    "updated": 1693333716211
                 }
             ]
         },
@@ -277,6 +352,11 @@
                     "language": "TR",
                     "text": "volume_last_24_hours: USD cinsinden 24 saatlik işlem hacmi.",
                     "updated": 1650624988566
+                },
+                {
+                    "language": "DE",
+                    "text": "volume_last_24_hours: 24-Stunden-Handelsvolumen in USD.",
+                    "updated": 1693333775734
                 }
             ]
         },
@@ -294,6 +374,11 @@
                     "language": "TR",
                     "text": "real_volume_last_24_hours: USD cinsinden 24 saat \"gerçek\" işlem hacmi, daha fazlasını buradan okuyun: https://messari.io/article/messari-methodology.",
                     "updated": 1650625032693
+                },
+                {
+                    "language": "DE",
+                    "text": "real_volume_last_24_hours: 24h \"echtes\" Handelsvolumen in USD, mehr dazu hier:  https://messari.io/article/messari-methodology.",
+                    "updated": 1693333795146
                 }
             ]
         },
@@ -328,6 +413,11 @@
                     "language": "TR",
                     "text": "yüzde_change_usd_last_24_hours: USD cinsinden fiyatın 24 saatlik yüzde değişimi. Dönüş değeri 1,23 ise %1,23 demektir.",
                     "updated": 1650625067334
+                },
+                {
+                    "language": "DE",
+                    "text": "percent_change_usd_last_24_hours: 24-stündige prozentuale Veränderung des auf USD lautenden Kurses. Wenn der Rückgabewert 1,23 ist, bedeutet dies 1,23 %.",
+                    "updated": 1693333829570
                 }
             ]
         },
@@ -345,6 +435,11 @@
                     "language": "TR",
                     "text": "yüzde_change_btc_last_24_hours: BTC cinsinden fiyatın 24 saatlik yüzde değişimi. Dönüş değeri 1,23 ise %1,23 demektir.",
                     "updated": 1650625095765
+                },
+                {
+                    "language": "DE",
+                    "text": "percent_change_btc_last_24_hours: 24 Stunden prozentuale Veränderung des BTC-Kurses. Wenn der Rückgabewert 1,23 ist, bedeutet dies 1,23 %.",
+                    "updated": 1693333864139
                 }
             ]
         },
@@ -362,6 +457,11 @@
                     "language": "TR",
                     "text": "ohlcv_last_1_hour: Mevcut varlık için son bir saatlik mum.",
                     "updated": 1650625124712
+                },
+                {
+                    "language": "DE",
+                    "text": "ohlcv_last_1_hour: Letzte Ein-Stunden-Kerze für den aktuellen Vermögenswert.",
+                    "updated": 1693333877939
                 }
             ]
         },
@@ -379,6 +479,11 @@
                     "language": "TR",
                     "text": "ohlcv_last_24_hour: Mevcut varlık için son 24 saatlik mum.",
                     "updated": 1650625127959
+                },
+                {
+                    "language": "DE",
+                    "text": "ohlcv_last_24_hour: Letzte 24h-Kerze für den aktuellen Vermögenswert.",
+                    "updated": 1693333906369
                 }
             ]
         },
@@ -396,6 +501,11 @@
                     "language": "TR",
                     "text": "arz-> y_2050: 1 Ocak 2050'de beklenen arz.",
                     "updated": 1650625179179
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> y_2050: Das erwartete Angebot am 1. Januar 2050.",
+                    "updated": 1693333918026
                 }
             ]
         },
@@ -413,6 +523,11 @@
                     "language": "TR",
                     "text": "arz-> y_2050_percent_issued: Daha önce verilmiş olan Y2050 arzının yüzdesi.",
                     "updated": 1650625188251
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> y_2050_percent_issued: Der Prozentsatz des Y2050-Angebots, der bereits ausgegeben wurde. supply_yplus_10: Das erwartete Angebot in 10 Jahren.",
+                    "updated": 1693333932625
                 }
             ]
         },
@@ -430,6 +545,11 @@
                     "language": "TR",
                     "text": "Supply_yplus_10: Bundan 10 yıl sonra beklenen tedarik.",
                     "updated": 1650625201601
+                },
+                {
+                    "language": "DE",
+                    "text": "supply_yplus_10: Das erwartete Angebot in 10 Jahren.",
+                    "updated": 1693333960711
                 }
             ]
         },
@@ -447,6 +567,11 @@
                     "language": "TR",
                     "text": "arz-> y_plus10_issued_percent: Bugün piyasada şu anda likit olan Y+10 arzının yüzdesi.",
                     "updated": 1650625209307
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> y_plus10_issued_percent: Der prozentuale Anteil des Y+10-Angebots, der heute auf dem Markt verfügbar ist.",
+                    "updated": 1693333973231
                 }
             ]
         },
@@ -464,6 +589,11 @@
                     "language": "TR",
                     "text": "arz-> liquid: liquid Tedarik, zincir üzerinde bulunan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen jetonları ifade eder. Veriler, mevcut olduğunda Messari araştırma ekibi tarafından sağlanır.",
                     "updated": 1650625253888
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> liquid: Liquid Supply bezieht sich auf Token, die auf der Kette existieren und von denen nicht bekannt ist, dass sie durch irgendwelche Verträge (programmatisch oder rechtlich) belastet sind. Die Daten stammen, soweit verfügbar, vom Messari-Forschungsteam.",
+                    "updated": 1693333993794
                 }
             ]
         },
@@ -481,6 +611,11 @@
                     "language": "TR",
                     "text": "arz-> dolaşım: Dönen Arz, zincir üzerinde var olan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen jetonları ifade eder.",
                     "updated": 1650625269899
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> circulating: Umlaufendes Angebot bezieht sich auf Token, die auf der Kette existieren und von denen nicht bekannt ist, dass sie durch irgendwelche Verträge (programmatisch oder rechtlich) belastet sind.",
+                    "updated": 1693334011772
                 }
             ]
         },
@@ -498,6 +633,11 @@
                     "language": "TR",
                     "text": "arz-> stock_to_flow: Stok Akışı, bugün Sıvı Arzını alarak ve Sıvı Arzında öngörülen 12 aylık artışa bölünerek hesaplanır. Bu, esasen Mevcut Enflasyonun tersidir. Sabit veya azalan Likit Arzı olan varlıklar için değer boştur.",
                     "updated": 1650625277705
+                },
+                {
+                    "language": "DE",
+                    "text": "supply-> stock_to_flow: Stock to Flow wird berechnet, indem man den heutigen Bestand an liquiden Mitteln durch den prognostizierten 12-monatigen Anstieg des Bestands an liquiden Mitteln dividiert. Dies ist im Wesentlichen die Umkehrung der aktuellen Inflation. Bei Vermögenswerten mit festem oder abnehmendem Liquiditätsbestand ist der Wert Null.",
+                    "updated": 1693334024453
                 }
             ]
         },
@@ -587,6 +727,11 @@
                     "language": "TR",
                     "text": "all_time_high-> fiyat: Varlığın USD cinsinden en yüksek saatlik açılışı.",
                     "updated": 1650625428967
+                },
+                {
+                    "language": "DE",
+                    "text": "all_time_high-> price: Der höchste stündliche Eröffnungskurs des Vermögenswerts in USD.",
+                    "updated": 1693334049704
                 }
             ]
         },
@@ -604,6 +749,11 @@
                     "language": "TR",
                     "text": "all_time_high-> at: varlığın tüm zamanların en yüksek değerine ulaştığı tarihin ISO8601 zaman damgası.",
                     "updated": 1650625437324
+                },
+                {
+                    "language": "DE",
+                    "text": "all_time_high-> at: ISO8601-Zeitstempel des Datums, an dem der Vermögenswert sein Allzeithoch erreichte.",
+                    "updated": 1693334077475
                 }
             ]
         },
@@ -621,6 +771,11 @@
                     "language": "TR",
                     "text": "all_time_high-> days_since: Varlığın tüm zamanların en yüksek seviyesini kaydetmesinden bu yana geçen gün sayısı.",
                     "updated": 1650625446699
+                },
+                {
+                    "language": "DE",
+                    "text": "all_time_high-> days_since: Tage (Days) seit dem Allzeithoch des Vermögenswerts.",
+                    "updated": 1693334098435
                 }
             ]
         },
@@ -638,6 +793,11 @@
                     "language": "TR",
                     "text": "all_time_high-> yüzde_down: Mevcut varlığın tüm zamanların en yüksek seviyesinden düşüş yüzdesi.",
                     "updated": 1650625458264
+                },
+                {
+                    "language": "DE",
+                    "text": "all_time_high-> percent_down: Prozentsatz, um den der aktuelle Vermögenswert vom Allzeithoch entfernt ist.",
+                    "updated": 1693334107964
                 }
             ]
         },
@@ -711,11 +871,25 @@
         },
         {
             "style": "List",
-            "text": "categories\t"
+            "text": "categories\t",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kategorien",
+                    "updated": 1693334121843
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "sector"
+            "text": "sector",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sektor",
+                    "updated": 1693334129320
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -725,6 +899,11 @@
                     "language": "TR",
                     "text": "Tüm Haberleri Alın",
                     "updated": 1650625490642
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Nachrichten erhalten",
+                    "updated": 1693334144203
                 }
             ]
         },
@@ -754,6 +933,11 @@
                     "language": "TR",
                     "text": "Tüm varlıklar için en son (sayfalandırılmış) haberleri ve analizleri alın.",
                     "updated": 1650625508427
+                },
+                {
+                    "language": "DE",
+                    "text": "Erhalten Sie die neuesten (paginierten) Nachrichten und Analysen für alle Vermögenswerte.",
+                    "updated": 1693334153163
                 }
             ]
         },
@@ -765,6 +949,11 @@
                     "language": "TR",
                     "text": "Ham Döndürülen Değerler",
                     "updated": 1650625516659
+                },
+                {
+                    "language": "DE",
+                    "text": "Zurückgegebene Rohdaten",
+                    "updated": 1693334164172
                 }
             ]
         },
@@ -782,6 +971,11 @@
                     "language": "TR",
                     "text": "zaman damgası ( timestamp ): Sunucudaki geçerli zaman damgası (ISO 8601).",
                     "updated": 1650625557674
+                },
+                {
+                    "language": "DE",
+                    "text": "timestamp: Aktueller Zeitstempel (ISO 8601) auf dem Server.",
+                    "updated": 1693334180281
                 }
             ]
         },
@@ -799,6 +993,11 @@
                     "language": "TR",
                     "text": "elapsed: Bu yanıtı oluşturmak için geçen milisaniye sayısı",
                     "updated": 1650625572842
+                },
+                {
+                    "language": "DE",
+                    "text": "elapsed: Anzahl der Millisekunden, die zur Erzeugung dieser Antwort benötigt wurden",
+                    "updated": 1693334191730
                 }
             ]
         },
@@ -816,6 +1015,11 @@
                     "language": "TR",
                     "text": "id: mevcut makalenin tanımlayıcısı.",
                     "updated": 1650625582355
+                },
+                {
+                    "language": "DE",
+                    "text": "id: Kennung für den aktuellen Artikel.",
+                    "updated": 1693334202835
                 }
             ]
         },
@@ -833,6 +1037,11 @@
                     "language": "TR",
                     "text": "başlık: Mevcut makalenin başlığı.",
                     "updated": 1650625588470
+                },
+                {
+                    "language": "DE",
+                    "text": "title: Titel des aktuellen Artikels.",
+                    "updated": 1693334212793
                 }
             ]
         },
@@ -850,6 +1059,11 @@
                     "language": "TR",
                     "text": "içerik: Mevcut makalenin içeriği.",
                     "updated": 1650625596579
+                },
+                {
+                    "language": "DE",
+                    "text": "content: Inhalt des aktuellen Artikels.",
+                    "updated": 1693334223051
                 }
             ]
         },
@@ -867,6 +1081,11 @@
                     "language": "TR",
                     "text": "referanslar-> isim: Atıf yapılan materyalin adı.",
                     "updated": 1650625606481
+                },
+                {
+                    "language": "DE",
+                    "text": "references-> name: Name des zitierten Materials.",
+                    "updated": 1693334240090
                 }
             ]
         },
@@ -884,6 +1103,11 @@
                     "language": "TR",
                     "text": "referanslar-> url: Atıf yapılan materyalin URL'si.",
                     "updated": 1650625613623
+                },
+                {
+                    "language": "DE",
+                    "text": "references-> url: URL des zitierten Materials.",
+                    "updated": 1693334270418
                 }
             ]
         },
@@ -901,6 +1125,11 @@
                     "language": "TR",
                     "text": "referans_başlığı: Mevcut makalenin kısaltılmış başlığı.",
                     "updated": 1650625622029
+                },
+                {
+                    "language": "DE",
+                    "text": "reference_title: Gekürzter Titel des aktuellen Artikels.",
+                    "updated": 1693334278833
                 }
             ]
         },
@@ -918,6 +1147,11 @@
                     "language": "TR",
                     "text": "yayınlanan_at: Güncel makalenin yayınlandığı saat.",
                     "updated": 1650625633598
+                },
+                {
+                    "language": "DE",
+                    "text": "published_at: Zeitpunkt, zu dem der aktuelle Artikel veröffentlicht wurde.",
+                    "updated": 1693334289273
                 }
             ]
         },
@@ -935,6 +1169,11 @@
                     "language": "TR",
                     "text": "yazar-> isim: Makalenin yazarının adı.",
                     "updated": 1650625641970
+                },
+                {
+                    "language": "DE",
+                    "text": "author-> name: Name des Autors des Artikels.",
+                    "updated": 1693334299057
                 }
             ]
         },
@@ -952,6 +1191,11 @@
                     "language": "TR",
                     "text": "etiketler: Geçerli makaleyle ilişkili etiketler. \"BTC\" gibi.",
                     "updated": 1650625650493
+                },
+                {
+                    "language": "DE",
+                    "text": "tags: Tags, die mit dem aktuellen Artikel verbunden sind. Wie zum Beispiel \"BTC\".",
+                    "updated": 1693334309721
                 }
             ]
         },
@@ -969,6 +1213,11 @@
                     "language": "TR",
                     "text": "url: Geçerli makalenin URL'si.",
                     "updated": 1650625657168
+                },
+                {
+                    "language": "DE",
+                    "text": "url: URL zum aktuellen Artikel.",
+                    "updated": 1693334318864
                 }
             ]
         },

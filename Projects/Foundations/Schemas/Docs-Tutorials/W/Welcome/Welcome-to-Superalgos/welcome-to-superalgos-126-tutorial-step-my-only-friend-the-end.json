@@ -139,8 +139,8 @@
         },
         {
             "style": "Success",
-            "text": "We're done! Click Next to finish with me and click Play on the next tutorial when you are ready!",
-            "updated": 1616706565119,
+            "text": "We're done! Click Stop to finish with me and click Play on the next tutorial when you are ready!",
+            "updated": 1693565239023,
             "translations": [
                 {
                     "language": "IT",

@@ -2,7 +2,8 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
      
     let thisObject = {
         savePostAtStorage: savePostAtStorage,
-        loadPostFromStorage: loadPostFromStorage
+        loadPostFromStorage: loadPostFromStorage,
+        removePostAtStorage: removePostAtStorage
     }
 
     return thisObject
@@ -225,4 +226,90 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
             }
         }
     }
+
+    async function removePostAtStorage(eventMessage, socialEntity) {
+        return new Promise(removePostAsync);
+      
+        async function removePostAsync(resolve, reject) {
+          let availableStorage = socialEntity.node.availableStorage;
+      
+          // Check if available storage is defined
+          if (!availableStorage) {
+            let response = {
+              result: "Error",
+              message: "Cannot remove post because available storage is undefined",
+            };
+            resolve(response);
+            return;
+          }
+      
+          // Check if there are any storage container references
+          if (!availableStorage.storageContainerReferences || !availableStorage.storageContainerReferences.length) {
+            let response = {
+              result: "Error",
+              message: "Cannot remove post because storage container references are zero",
+            };
+            resolve(response);
+            return;
+          }
+      
+          // Get file keys
+          let fileKeys = eventMessage.fileKeys;
+          if (!fileKeys || !fileKeys.length) {
+            let response = {
+              result: "Error",
+              message: "Cannot remove post because file keys are missing",
+            };
+            resolve(response);
+            return;
+          }
+      
+          // Iterate over all the file keys and delete the content and path for each one          
+          let removedCount = 0;
+          for (let i = 0; i < fileKeys.length; i++) {
+
+            let fileKey = fileKeys[i];        
+            
+            let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp *1)
+            let fileName = fileKey.fileName;
+            let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
+
+            try {
+                switch (storageContainer.parentNode.type) {
+                    case 'Github Storage': {
+
+                        await SA.projects.openStorage.utilities.githubStorage.removeFile(fileName, filePath, storageContainer)
+                            
+                        break
+                    }
+                    case 'Superalgos Storage': {
+                        // TODO Build the Superalgos Storage Provider
+                        break
+                    }
+                }
+            } catch (err) {
+                reject(err)
+            }
+      
+      
+            // Increment the count of removed files
+            removedCount++;
+          }
+      
+          // Check if any files were removed
+          if (removedCount > 0) {
+            let response = {
+              result: "Ok",
+              message: "Post removed",
+            };
+            resolve(response);
+          } else {
+            let response = {
+              result: "Error",
+              message: "Storage provider failed to remove the post file",
+            };
+            resolve(response);
+          }
+        }
+    } 
 }

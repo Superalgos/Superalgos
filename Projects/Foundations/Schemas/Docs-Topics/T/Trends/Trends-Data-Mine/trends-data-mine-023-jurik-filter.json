@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "The indicator uses a non-linear regression analysis to predict the average of the price based on previous data samples. It then applies a GK-YZ historial volatility filter to help reduce noise in the price action."
+            "text": "The indicator uses a Jurik-filtered moving average that acts as both a baseline and a support and resistance indicator. The Jurik filter is an adaptive smoothing process which helps reduces lag while simultaneously smoothing the input data.",
+            "updated": 1693780392882
         },
         {
             "style": "Png",
@@ -30,7 +31,7 @@
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| JurikFilter | JF | value |"
         },
-		{
+        {
             "style": "Text",
             "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Jurik Filter\" Procedure Loop."
         },

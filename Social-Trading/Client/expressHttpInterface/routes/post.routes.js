@@ -9,6 +9,10 @@ router
 
 router
     .route('')
+    .delete(postController.deletePost);
+
+router
+    .route('')
     .get(postController.getPosts);
 
 router

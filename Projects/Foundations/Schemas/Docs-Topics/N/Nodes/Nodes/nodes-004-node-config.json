@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Düğümler, yalnızca gerektiğinde, bu düğümle ilgili bilgileri depolamak için kullanılan bir yapılandırmaya sahip olabilir. Bunu yaptıklarında, genellikle kullanıcıların Düğüm Menü ( Node Menu ) öğelerinden biri aracılığıyla erişmelerine izin verirler. Düğüm Yapılandırması daha sonra Görevler veya Önyüklemeler tarafından işlenirken kullanılır.",
                 "updated": 1652804625025
+            },
+            {
+                "language": "DE",
+                "text": "Knoten können - nur bei Bedarf - eine Konfiguration haben, die zum Speichern von Informationen zu diesem Knoten verwendet wird. Wenn dies der Fall ist, kann der Benutzer normalerweise über einen der Knotenmenüpunkte (Node Menu) darauf zugreifen. Eine Knotenkonfiguration wird später von Tasks oder Bots während ihrer Verarbeitung verwendet.",
+                "updated": 1689420114035
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Her düğüm türü, yapılandırması için başlangıç değerlerine sahip bir tanıma sahip olabilir. Düğüm ( Node ) ilk oluşturulduğunda başlangıç Değerleri düğümde ayarlanır.",
                     "updated": 1652804685508
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Knotentyp kann eine Definition mit den Anfangswerten für seine Konfiguration haben. Die Anfangswerte werden am Knoten festgelegt, wenn der Knoten (Node) zum ersten Mal erstellt wird.",
+                    "updated": 1689420141109
                 }
             ]
         }

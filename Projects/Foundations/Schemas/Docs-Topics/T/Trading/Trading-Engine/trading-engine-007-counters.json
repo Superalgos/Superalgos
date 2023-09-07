@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Belirli bir bağlamda belirli nesnelerin kaç örneğinin var olduğunu takip edin. Bu sayfada: Dönemler, Stratejiler, Pozisyonlar, Emirler ve Günler ( Periods, Strategies, Positions, Orders, and Days ).",
                 "updated": 1650616769161
+            },
+            {
+                "language": "DE",
+                "text": "Verfolgen Sie, wie viele Instanzen bestimmter Objekte in einem bestimmten Kontext existieren. Auf dieser Seite: Perioden, Strategien, Positionen, Aufträge und Tage (Periods, Strategies, Positions, Orders, and Days).",
+                "updated": 1693254552999
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bir sayaç, belirli bir bağlam süresi boyunca belirli nesnelerin kaç örneğinin var olduğunu veya belirli bir değer aldığını takip eder.",
                     "updated": 1650616818199
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Zähler hält fest, wie viele Instanzen bestimmter Objekte während der Dauer eines bestimmten Kontextes entstanden sind oder einen bestimmten Wert angenommen haben.",
+                    "updated": 1693254565921
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Örneğin, bir bölüm boyunca kaç tane pozisyon açıldı veya bu pozisyonlardan kaç tanesi isabet aldı.",
                     "updated": 1650616821396
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel, wie viele Positionen während einer Episode offen waren oder wie viele dieser Positionen Treffer waren.",
+                    "updated": 1693254576887
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Sayaçlar aynı anda birden çok bağlamda tutulur. Özellikle bölüm sayaçlarını, strateji sayaçlarını, konum sayaçlarını ve sipariş sayaçlarını bulacaksınız.",
                     "updated": 1650616834978
+                },
+                {
+                    "language": "DE",
+                    "text": "Zähler werden in mehreren Kontexten gleichzeitig geführt. Es gibt insbesondere Episodenzähler, Strategiezähler, Positionszähler und Auftragszähler.",
+                    "updated": 1693254586409
                 }
             ]
         },
@@ -80,6 +100,11 @@
                     "language": "TR",
                     "text": "Sayaca Özel Düğümler",
                     "updated": 1650616848394
+                },
+                {
+                    "language": "DE",
+                    "text": "Zählerspezifische Knotenpunkte",
+                    "updated": 1693254594550
                 }
             ]
         },
@@ -92,6 +117,11 @@
                     "language": "TR",
                     "text": "periyotlar ( Periods )",
                     "updated": 1650616885132
+                },
+                {
+                    "language": "DE",
+                    "text": "Zeiträume",
+                    "updated": 1693254600638
                 }
             ]
         },
@@ -109,6 +139,11 @@
                     "language": "TR",
                     "text": "Stratejiler ( Strategies )",
                     "updated": 1650616893571
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategien",
+                    "updated": 1693254612077
                 }
             ]
         },
@@ -126,6 +161,11 @@
                     "language": "TR",
                     "text": "Pozisyonlar ( Positions )",
                     "updated": 1650616909370
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionen",
+                    "updated": 1693254621031
                 }
             ]
         },
@@ -143,6 +183,11 @@
                     "language": "TR",
                     "text": "Emirler ( Orders )",
                     "updated": 1650616930941
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufträge",
+                    "updated": 1693254665911
                 }
             ]
         },
@@ -160,6 +205,11 @@
                     "language": "TR",
                     "text": "Günler ( Days )",
                     "updated": 1650616943609
+                },
+                {
+                    "language": "DE",
+                    "text": "Tage",
+                    "updated": 1693254718583
                 }
             ]
         },
@@ -191,6 +241,11 @@
                     "language": "TR",
                     "text": "Not: Sayaçlara özgü diğer özellikler, sayaçlara özgü olmadıklarından başka yerlerde tanımlanmıştır. Sayaçların bulunduğu farklı bağlamları aşağıda bulabilirsiniz.",
                     "updated": 1650616991266
+                },
+                {
+                    "language": "DE",
+                    "text": "Andere für Zähler typische Eigenschaften werden an anderer Stelle definiert, da sie nicht spezifisch für Zähler sind. Nachstehend finden Sie die verschiedenen Kontexte, in denen Zähler vorkommen.",
+                    "updated": 1693254849775
                 }
             ]
         },
@@ -203,6 +258,11 @@
                     "language": "TR",
                     "text": "Ticaret Bölüm Sayaçları ( Trading Episode Counters )",
                     "updated": 1650617013938
+                },
+                {
+                    "language": "DE",
+                    "text": "Handel mit Episodenzählern",
+                    "updated": 1693254862536
                 }
             ]
         },
@@ -228,6 +288,11 @@
                     "language": "TR",
                     "text": "Strateji Sayaçları ( Strategy Counters )",
                     "updated": 1650617038608
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategie-Zähler",
+                    "updated": 1693254876205
                 }
             ]
         },
@@ -254,6 +319,11 @@
                     "language": "TR",
                     "text": "Pozisyon Sayaçları ( Position Counters )",
                     "updated": 1650617060895
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionszähler",
+                    "updated": 1693254892178
                 }
             ]
         },
@@ -280,6 +350,11 @@
                     "language": "TR",
                     "text": "Sipariş Sayaçları ( Order Counters )",
                     "updated": 1650617079207
+                },
+                {
+                    "language": "DE",
+                    "text": "Zähler bestellen",
+                    "updated": 1693255198446
                 }
             ]
         },

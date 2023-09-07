@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "С помощью информации, которую вы собрали в Exchange Raw Data - Research Your Exchange, в сочетании с пониманием, полученным при отладке кода шаг за шагом, вы могли бы выяснить, почему он не работает.",
                 "updated": 1640362529067
+            },
+            {
+                "language": "DE",
+                "text": "Mit den Informationen, die Sie in Exchange Raw Data - Research Your Exchange gesammelt haben, und den Erkenntnissen, die Sie durch schrittweises Debuggen des Codes gewonnen haben, haben Sie vielleicht herausgefunden, warum es nicht funktioniert.",
+                "updated": 1687722004539
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В процессе работы вы можете попробовать различные конфигурации. Для этого просто помните, что после любых изменений в конфигурации криптобиржи необходимо повторно запустить задачу.",
                     "updated": 1640362553222
+                },
+                {
+                    "language": "DE",
+                    "text": "Dabei können Sie verschiedene Konfigurationen ausprobieren. Denken Sie daran, dass Sie den Task nach jeder Änderung an der Crypto Exchange -Konfiguration erneut ausführen müssen.",
+                    "updated": 1687722030879
                 }
             ]
         }

@@ -150,6 +150,17 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.referenceParent !== undefined &&
                     node.type === 'User Delegate'
                 ) {
+                    /*
+                    Here we will validate users are not delegating to themselves.
+                    */
+                    let currentUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(currentProgramNode)
+                    let referencedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+                    if (referencedUserProfile === undefined || currentUserProfile === undefined) { return }
+                    if (currentUserProfile.id === referencedUserProfile.id) {
+                        node.payload.uiObject.setErrorMessage('Delegating to your own profile is not allowed.')
+                        return
+                    }
+                                     
                     currentProgramNode.payload.delegationProgram.usedPower = currentProgramNode.payload.delegationProgram.usedPower + programPower
                     distributeProgramPower(
                         currentProgramNode, 

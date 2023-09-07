@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "31",
+    "pageNumber": 30,
     "type": "Tutorial Step - A Book on Tutorials",
     "definition": {
         "text": "Congratulations! You reached the end of another tutorial! I hope you feel that you're starting to grasp how Superalgos works!",
@@ -96,8 +96,8 @@
         },
         {
             "style": "Success",
-            "text": "Take a look at the list of tutorials available on each of the Native Workspaces and choose which one to do next!",
-            "updated": 1630945219778,
+            "text": "Take a look at the list of tutorials available on each of the Native Workspaces. The proposed sequence is recommended, but it's up to you!",
+            "updated": 1688056219873,
             "translations": [
                 {
                     "language": "IT",

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Kraken, veri madenciliği için test edilmiştir, ancak canlı ticaret için test edilmemiştir.",
                 "updated": 1650571420308
+            },
+            {
+                "language": "DE",
+                "text": "Kraken ist für Data Mining getestet, aber nicht für den Live-Handel.",
+                "updated": 1690357347856
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571427494
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357354512
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650571436302
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357366456
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: Bilinmiyor",
                     "updated": 1650571448767
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte: Unbekannt",
+                    "updated": 1690357375704
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği [**]: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
                     "updated": 1650571833409
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelskapazitäten (Trading Capability)[**]: Unbekannt. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde nicht überprüft.",
+                    "updated": 1690357385968
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Standart ayarlarla yalnızca bir günlük Ham Veri alınır. Kraken'de Ham Verileri almak için yapılandırmadaki çiftler tersine çevrilir. Geriye dönük test ve Canlı Ticaret davranışı bilinmiyor",
                     "updated": 1650571484258
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Mit den Standardeinstellungen werden nur die Rohdaten (Raw Data) eines Tages abgerufen. Um die Rohdaten (Raw Data) in Kraken abzurufen, werden die Paare in der Konfiguration umgedreht. Backtesting und Live Trading Verhalten unbekannt",
+                    "updated": 1690357394505
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571391973
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357400984
                 }
             ]
         },

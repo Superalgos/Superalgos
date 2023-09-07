@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu çalışma alanı, Exchange Hesap Anahtarınızı ( Exchange Account Key ) kolayca test edebilmeniz için Ağdaki Üretim Ticaret Görevleri ( Production Trading Tasks ) düğümü altında ilgili dört ticaret göreviyle dört basit Ticaret Sistemi ( Trading Systems ) içerir.",
                 "updated": 1644676255262
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält vier einfache Handelssysteme (Trading Systems) mit ihren vier jeweiligen Handelsaufgaben unter dem Knoten Production Trading Tasks im Netzwerk, so dass Sie Ihren Börsenkontoschlüssel (Exchange Account Key) leicht testen können.",
+                "updated": 1688936435873
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1639056610978
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936366785
                 }
             ]
         },

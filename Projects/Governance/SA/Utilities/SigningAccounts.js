@@ -10,7 +10,8 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         userProfile,
         targetNode,
         targetNodeTypeCount,
-        response
+        response,
+        savedPayloadNode
     ) {
         /*
         Try to load the Secrets file. 
@@ -86,27 +87,7 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             project: 'Governance',
             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             config: JSON.stringify(config),
-            savedPayloadNode: {
-                position: {
-                    x: 0,
-                    y: 0
-                },
-                targetPosition: {
-                    x: 0,
-                    y: 0
-                },
-                floatingObject: {
-                    isPinned: false,
-                    isFrozen: false,
-                    isCollapsed: false,
-                    angleToParent: 2,
-                    distanceToParent: 3,
-                    arrangementStyle: 0
-                },
-                uiObject: {
-                    isRunning: false
-                }
-            }
+            savedPayload: savedPayloadNode
         }
         targetNode.signingAccount = signingAccount
         /*

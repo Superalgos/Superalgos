@@ -59,8 +59,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Master Branch: features the stable version of the software. Never submit contributions to this branch!",
-            "updated": 1649176347588,
+            "text": "Master branch: features the stable version of the software. Never submit contributions to this branch!",
+            "updated": 1687889225296,
             "translations": [
                 {
                     "language": "IT",
@@ -110,8 +110,8 @@
         },
         {
             "style": "List",
-            "text": "Develop Branch: features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
-            "updated": 1649176354254,
+            "text": "Develop branch: features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "updated": 1687889230928,
             "translations": [
                 {
                     "language": "IT",

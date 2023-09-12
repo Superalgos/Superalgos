@@ -3,6 +3,8 @@ function newCircularMenuItem() {
     const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
+        confirmationLabelTranslationKey: undefined,
+        translationKey: undefined,
         type: undefined,
         isDeployed: undefined,
         askConfirmation: undefined,

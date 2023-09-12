@@ -131,7 +131,7 @@
     },
     {
         "name": "Contributions",
-        "translationKey": "nav.contibutions.title",
+        "translationKey": "nav.contributions.title",
         "propertyName": "contributions",
         "systemMenu": [
             {

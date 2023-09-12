@@ -1,7 +1,7 @@
 {
     "nav": {
         "workspaces": {
-            "title": "Espaces de travail",
+            "title": "Workspaces",
             "user": "User Workspaces",
             "native": "Native Workspaces",
             "collapseNodes": "Collapse All Root Nodes",
@@ -17,6 +17,35 @@
     },
     "general": {
         "previous": "Previous",
-        "next": "Next"
+        "next": "Next",
+        "stop": "Stop",
+        "skip": "Skip",
+        "play": "Play",
+        "resume": "Resume",
+        "configure": "Configure",
+        "delete": "Delete",
+        "confirm": {
+            "delete": "Confirm to Delete"
+        }
+    },
+    "docs": {
+        "space": {
+            "style": "Add Docs Space Style",
+            "settings": "Add Docs Space Settings",
+            "add": "Add Docs Space"
+        }
+    },
+    "tutorial": {
+        "add": "Add Tutorial",
+        "reset": "Reset Tutorial Progress",
+        "step": {
+            "add": "Add Tutorial Step"
+        },
+        "topic": {
+            "add": "Add Tutorial Topic"
+        },
+        "confirmation": {
+            "reset": "Confirm to Reset"
+        }
     }
 }

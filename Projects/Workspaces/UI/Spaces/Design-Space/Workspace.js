@@ -228,7 +228,7 @@ function newWorkspace() {
         setWorkspaceTitle()
 
         async function createProjectMenuListItem(project) {
-            let html = '<li><a class="locale" data-i18n="' + project.translationKey + '">' + project.name + '</a><ul>'
+            let html = '<li><a ' + addDataAttribute(project.translationKey) + '>' + project.name + '</a><ul>'
             /* call addMenuItem on the highest system menu hierarchy */
             await addMenuItem(project.systemMenu)
             return html + '</ul></li>'
@@ -278,14 +278,14 @@ function newWorkspace() {
                     /* for a menu item that has an explicit submenu instead of an action */
                     } else if (item.subMenu !== undefined ) {
                         let label = item.label + ' →'
-                        html = html + '<li><a class="locale" data-i18n="' + item.translationKey + '">' + label + '</a><ul>'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
                         /* recurse into the submenu */
                         addMenuItem(item.subMenu)
                         html = html + '</ul></li>'
                     /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
                     } else if (item.submenuConstructorFunction !== undefined) {
                         let label = item.label + ' →'
-                        html = html + '<li><a class="locale" data-i18n="' + item.translationKey + '">' + label + '</a><ul>'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
                         let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
                         addMenuItem(subMenu)
                         html = html + '</ul></li>'
@@ -294,7 +294,7 @@ function newWorkspace() {
                         item.label !== undefined &&
                         item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
                         ) {
-                        html = html + '<li class="label locale" data-i18n="' + item.translationKey + '">' + item.label + '</li>'
+                        html = html + '<li ' + addDataAttribute(item.translationKey) + '>' + item.label + '</li>'
                     }
                 }
             }

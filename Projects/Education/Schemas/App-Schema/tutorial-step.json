@@ -5,6 +5,7 @@
             "action": "Play Tutorial Step",
             "actionProject": "Education",
             "label": "Play",
+            "translationKey": "generic.play",
             "iconPathOn": "play",
             "iconPathOff": "play",
             "actionFunction": "payload.executeAction"
@@ -13,6 +14,7 @@
             "action": "Resume Tutorial Step",
             "actionProject": "Education",
             "label": "Resume",
+            "translationKey": "generic.resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
             "actionFunction": "payload.executeAction"
@@ -21,6 +23,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "generic.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -30,6 +33,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
+            "translationKey": "generic.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

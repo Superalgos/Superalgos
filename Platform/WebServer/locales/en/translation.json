@@ -1,0 +1,22 @@
+{
+    "nav": {
+        "workspaces": {
+            "title": "Espaces de travail",
+            "user": "User Workspaces",
+            "native": "Native Workspaces",
+            "collapseNodes": "Collapse All Root Nodes",
+            "undoRedo": "Undo/Redo",
+            "save": "Save Workspace"
+        },
+        "contributions": {
+            "title": "Contributions",
+            "contribute": "Contribute all changes",
+            "update": "Update App",
+            "reset": "Reset Local Repository"
+        }
+    },
+    "general": {
+        "previous": "Previous",
+        "next": "Next"
+    }
+}

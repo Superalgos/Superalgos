@@ -19,6 +19,17 @@
 
     <script src="externalScripts/jquery-3.6.0.js"></script>
     <script src="externalScripts/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
+            start: function (event, ui) {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function (event, ui) {
+                $(this).css("cursor", "grab");
+            } });
+        });
+    </script> 
 
     <script type="text/javascript" src="WebServer/require.js"></script>
     <script type="text/javascript" src="AppPreLoader.js"></script>
@@ -43,13 +54,6 @@
         require.config({paths: {'vs': 'externalScripts/monaco/vs'}});
     </script>
     <script type="text/javascript">
-        $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
-        start: function (event, ui) {
-            $(this).css("cursor", "grabbing");
-        },
-        stop: function (event, ui) {
-            $(this).css("cursor", "grab");
-        } });
         function loadApp() {
             // Prevent click-jacking
             try {
@@ -193,8 +197,8 @@
 </head>
 
 <body id="body" onload="loadApp()"
-style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
-onresize="onResize()">
+    style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+    onresize="onResize()">
 <div id="splash-text" class="credits">
     <p id="splash-text-line-1" style="font-size: 120%;"></p>
     <p id="splash-text-line-2" style="font-size: 120%;"></p>
@@ -228,31 +232,36 @@ onresize="onResize()">
 <!-- Tutorial Template Divs -->
 <div id="tutorialDiv" class="tutorial-step" style="width:400; height:675; z-index:1; display:none">
     <div id="tutorialFormDiv" class="tutorial-form">
-        <form>
-            <table class="tutorial-buttonsTable">
-                <tr>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-stop-button"
+        <!-- <form> -->
+            <div class="tutorial-buttonsTable tTable">
+                <div class="tTableRow">
+                    <div align="center" class="tTableCell">
+                        <div class="tutorial-font-small tutorial-button tutorial-stop-button"
                             onclick="UI.projects.education.spaces.tutorialSpace.stop(true)"
-                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-skip-button"
+                            value=""
+                            data-i18n="general.skip">Stop</div>
+                    </div>
+                    <div align="center" class="tTableCell">
+                        <div class="tutorial-font-small tutorial-button tutorial-skip-button"
                             onclick="UI.projects.education.spaces.tutorialSpace.skip()"
-                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-previous-button"
-                            onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-next-button"
+                            value=""
+                            data-i18n="general.skip">Skip</div>
+                    </div>
+                    <div align="center" class="tTableCell">
+                        <div class="tutorial-font-small tutorial-button tutorial-previous-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.previous()" 
+                            value=""
+                            data-i18n="general.previous">Previous</div>
+                    </div>
+                    <div align="center" class="tTableCell">
+                        <div class="tutorial-font-small tutorial-button tutorial-next-button"
                             onclick="UI.projects.education.spaces.tutorialSpace.next()"
-                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                </tr>
-            </table>
-        </form>
+                            value=""
+                            data-i18n="general.next">Next</div>
+                    </div>
+                </div>
+            </div>
+        <!-- </form> -->
     </div>
 </div>
 

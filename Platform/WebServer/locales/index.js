@@ -19,6 +19,13 @@ function changeLanguage(lang='en') {
 }
 
 function translate() {
-    $('#topMenu').localize();
+    $('body').localize();
     console.log('localized top menu')
+}
+
+function addDataAttribute(value) {
+    if(value) {
+        return 'data-i18n="' + value + '"'
+    }
+    return ''
 }

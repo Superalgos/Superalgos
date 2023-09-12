@@ -191,52 +191,42 @@ text-rendering:auto;
 line-height: 150%
 }
 
+.tutorial-button {
+    padding: 12px 0;
+    border-radius: 4px;
+    margin: 0;
+}
+
 .tutorial-stop-button {
 color: #a94442;
 background-color: #f2dede;
 border-color: #ebccd1;
-padding: 12px;
 border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
 border-top-color: #e4b9c0;
-min-width: 100px;
 }
 
 .tutorial-skip-button {
 color: #8a6d3b;
 background-color: #fcf8e3;
 border-color: #faebcc;
-padding: 12px;
 border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
 border-top-color: #f7e1b5;
-min-width: 100px;
 }
 
 .tutorial-previous-button {
 color: #31708f;
 background-color: #d9edf7;
 border-color: #bce8f1;
-padding: 12px;
 border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
 border-top-color: #c9e2b3;
-min-width: 100px;
 }
 
 .tutorial-next-button {
 color: #3c763d;
 background-color: #dff0d8;
 border-color: #d6e9c6;
-padding: 12px;
 border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
 border-top-color: #c9e2b3;
-min-width: 100px;
 }
 
 .tutorial-form {
@@ -249,6 +239,34 @@ width: 100%;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;
 caret-color: transparent;
+}
+
+.tTable {
+    display: block;
+    width: 100%;
+}
+
+.tTableHeading, .tTableBody, .tTableFoot, .tTableRow{
+    clear: both;
+}
+
+.tTableCell, .tTableHead {
+    float: left;
+    overflow: hidden;
+    width: 24%;
+    margin: 0 5px 0 0;
+}
+.tTableCell:last-child, .tTableHead:last-child {
+    margin: 0;
+}
+
+.tTable:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
 }
 
 .tutorial-buttonsTable {

@@ -35,6 +35,30 @@
             "add": "Add Docs Space"
         }
     },
+    "add": {
+        "plotter": "Add Plotter",
+        "missingChildren": "Add Missing Children",
+        "process": {
+            "definition": "Add Process Definition"
+        },
+        "product": {
+            "definition": "Add Product Definition",
+            "definitionFolder": "Add Product Definition Folder"
+        },
+        "trading": {
+            "bot": "Add Trading Bot",
+            "engine": "Add Trading Engine",
+            "mine": "Add Trading Mine",
+            "strategy": "Add Trading Strategy",
+            "system": "Add Trading System"
+        },
+        "dynamicIndicators": "Add Dynamic Indicators",
+        "signals": {
+            "outgoing": "Add Outgoing Signals",
+            "incoming": "Add Incoming Signals"
+        },
+        "portfoliaManagedSystem": "Add Portfolio Managed System"
+    },
     "tutorial": {
         "add": "Add Tutorial",
         "reset": "Reset Tutorial Progress",

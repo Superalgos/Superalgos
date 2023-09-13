@@ -1,0 +1,15 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 56,
+    "type": "Superalgos Review - A dificult start but mindblown concept once up and running",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "The first installation on my windows machine wasn't quite easy nor straightforward. On my second attempt closely following the docs on how to install I got Superalgos was running successfully. So pay very close attention to every step on the installation docs for your system. Once running the tutorial for me is the only thing to do in order to get on track. Really. Its quite a steep learning curve but now its actually fun! I am learning just a few hours per day in order to avoid headaches:-)",
+            "updated": 1694616530611
+        }
+    ]
+}

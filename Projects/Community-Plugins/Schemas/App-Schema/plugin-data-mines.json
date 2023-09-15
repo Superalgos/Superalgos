@@ -4,8 +4,10 @@
         {
             "action": "Add Missing Plugin Data Mines",
             "label": "Add Missing Data Mines",
+            "translationKey": "add.api.missing.dataMines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "iconPathOn": "data-mine",
             "iconPathOff": "data-mine",
@@ -16,6 +18,7 @@
         {
             "action": "Add Specified Plugin Data Mine",
             "label": "Add Specified Plugin Data Mine",
+            "translationKey": "add.plugin.specified.dataMine",
             "iconPathOn": "data-mine",
             "iconPathOff": "data-mine",
             "iconProject": "Data-Mining",
@@ -29,7 +32,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

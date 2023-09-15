@@ -25,7 +25,8 @@
         "configure": "Configure",
         "delete": "Delete",
         "confirm": {
-            "delete": "Confirm to Delete"
+            "delete": "Confirm to Delete",
+            "proceed": "Confirm to Proceed"
         }
     },
     "docs": {
@@ -36,6 +37,21 @@
         }
     },
     "add": {
+        "api": {
+            "missing":{
+                "maps": "Add Missing API Maps",
+                "assets": "Add Missing Assets",
+                "dataMines": "Add Missing Data Mines",
+                "features": "Add Missing Features",
+                "learningEngines": "Add Missing Learning Engines"
+            }
+        },
+        "plugin": {
+            "specified": {
+                "dataMine": "Add Specified Plugin Data Mine"
+            },
+            "filePosition": "Add Plugin File Position"
+        },
         "plotter": "Add Plotter",
         "missingChildren": "Add Missing Children",
         "process": {
@@ -58,6 +74,10 @@
             "incoming": "Add Incoming Signals"
         },
         "portfoliaManagedSystem": "Add Portfolio Managed System"
+    },
+    "save": {
+        "enableWithWorkspace": "Enable Saving With Workspace",
+        "pluginFile": "Save Plugin File"
     },
     "tutorial": {
         "add": "Add Tutorial",

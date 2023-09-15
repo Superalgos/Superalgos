@@ -29,3 +29,13 @@ function addDataAttribute(value) {
     }
     return ''
 }
+
+function findTranslation(translationKey) {
+    const currentLanguage = UI.projects.education.spaces.docsSpace.language.toLowerCase()
+    let value = i18next.translator.resourceStore.data[currentLanguage].translation
+    const tKeyParts = translationKey.split('.')
+    for(let i = 0; i < tKeyParts.length; i++) {
+        value = value[tKeyParts[i]]
+    }
+    return value
+}

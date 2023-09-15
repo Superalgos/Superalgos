@@ -633,6 +633,10 @@ function newCircularMenuItem() {
         /* Menu Label */
         if (thisObject.type === 'Icon & Text') {
             label = labelToPrint
+            const translationKey = labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey
+            if(translationKey) {
+                label = findTranslation(translationKey)
+            }
             if (thisObject.shorcutNumber !== undefined) {
                 label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
             }

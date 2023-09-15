@@ -68,6 +68,7 @@ function newCircularMenu() {
             menuItem.actionFunction = menuItemInitialValue.actionFunction
             menuItem.actionStatus = menuItemInitialValue.actionStatus
             menuItem.label = menuItemInitialValue.label
+            menuItem.translationKey = menuItemInitialValue.translationKey
             menuItem.workingLabel = menuItemInitialValue.workingLabel
             menuItem.workDoneLabel = menuItemInitialValue.workDoneLabel
             menuItem.workFailedLabel = menuItemInitialValue.workFailedLabel
@@ -92,6 +93,7 @@ function newCircularMenu() {
             menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
             menuItem.askConfirmation = menuItemInitialValue.askConfirmation
             menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel
+            menuItem.confirmationLabelTranslationKey = menuItemInitialValue.confirmationLabelTranslationKey
             menuItem.disableIfPropertyIsDefined = menuItemInitialValue.disableIfPropertyIsDefined
             menuItem.propertyToCheckFor = menuItemInitialValue.propertyToCheckFor
             menuItem.ring = menuItemInitialValue.ring

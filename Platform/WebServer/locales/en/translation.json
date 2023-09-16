@@ -37,21 +37,22 @@
         }
     },
     "add": {
-        "api": {
-            "missing":{
-                "maps": "Add Missing API Maps",
-                "assets": "Add Missing Assets",
-                "dataMines": "Add Missing Data Mines",
-                "features": "Add Missing Features",
-                "learningEngines": "Add Missing Learning Engines"
-            }
+        "missing":{
+            "apiMaps": "Add Missing API Maps",
+            "assets": "Add Missing Assets",
+            "dataMines": "Add Missing Data Mines",
+            "features": "Add Missing Features",
+            "learningEngines": "Add Missing Learning Engines",
+            "learningMines": "Add Missing Learning Mines",
+            "learningSystems": "Add Missing Learning Systems",
+            "p2pNetworks": "Add Missing P2P Networks",
+            "pools": "Add Missing Pools",
         },
-        "plugin": {
-            "specified": {
-                "dataMine": "Add Specified Plugin Data Mine"
-            },
-            "filePosition": "Add Plugin File Position"
+        "specified": {
+            "pluginDataMine": "Add Specified Plugin Data Mine",
+            "p2pNetwork": "Add Specified P2P Network"
         },
+        "pluginFilePosition": "Add Plugin File Position",
         "plotter": "Add Plotter",
         "missingChildren": "Add Missing Children",
         "process": {

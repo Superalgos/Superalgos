@@ -16,7 +16,7 @@
             "propertyToCheckFor": "pluginFilePosition",
             "actionFunction": "payload.executeAction",
             "label": "Add Plugin File Position",
-            "translationKey": "add.plugin.filePosition",
+            "translationKey": "add.pluginFilePosition",
             "relatedUiObject": "Plugin File Position",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Community-Plugins"

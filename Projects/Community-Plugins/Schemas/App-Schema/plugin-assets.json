@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Plugin Assets",
             "label": "Add Missing Assets",
+            "translationKey": "add.missing.assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",

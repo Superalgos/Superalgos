@@ -4,7 +4,7 @@
         {
             "action": "Add Missing Plugin API Maps",
             "label": "Add Missing API Maps",
-            "translationKey": "add.api.missing.maps",
+            "translationKey": "add.missing.apiMaps",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",

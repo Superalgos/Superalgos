@@ -4,7 +4,7 @@
         {
             "action": "Add Missing Plugin Features",
             "label": "Add Missing Features",
-            "translationKey": "add.api.missing.features",
+            "translationKey": "add.missing.features",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",

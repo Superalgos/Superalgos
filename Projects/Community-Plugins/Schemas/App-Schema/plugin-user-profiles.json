@@ -4,8 +4,10 @@
         {
             "action": "Add Missing Plugin User Profiles",
             "label": "Add Missing User Profiles",
+            "translationKey": "add.missing.userProfiles",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "User Profile",
             "actionFunction": "payload.executeAction",
@@ -15,6 +17,7 @@
         {
             "action": "Add Specified User Profile",
             "label": "Add Specified User Profile",
+            "translationKey": "add.specified.userProfile",
             "iconPathOn": "user-profile",
             "iconPathOff": "user-profile",
             "iconProject": "Governance",
@@ -28,7 +31,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

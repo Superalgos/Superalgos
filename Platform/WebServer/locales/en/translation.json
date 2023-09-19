@@ -24,6 +24,7 @@
         "resume": "Resume",
         "configure": "Configure",
         "delete": "Delete",
+        "edit": "Edit",
         "confirm": {
             "delete": "Confirm to Delete",
             "proceed": "Confirm to Proceed"
@@ -61,6 +62,20 @@
         "tokens": "Add Tokens",
         "tokenOutBaseAsset": "Add Token Out (Base Asset)",
         "tokenInQuotedAsset": "Add Token In (Quoted Asset)",
+        "ethBalance": "Add ETH Balance",
+        "tokenBalance": "Add Token Balance",
+        "solidarityCode": "Add Solidity Code",
+        "networkClient": "Add Network Client",
+        "blockchainScannerBot": "Add Blockchain Scanner Bot",
+        "blockchainNetwork": "Add Blockchain Network",
+        "blockchain": "Add Blockchain",
+        "ethereumToken": "Add Ethereum Token",
+        "smartContract": "Add Smart Contract",
+        "childReference": "Add Client Reference",
+        "walletAccount": "Add Wallet Account",
+        "wallet": "Add Wallet",
+        "tokenDefinitions": "Add Token Definitions",
+        "decentralizedApplication": "Add Decentralized Application",
         "missing":{
             "apiMaps": "Add Missing API Maps",
             "assets": "Add Missing Assets",

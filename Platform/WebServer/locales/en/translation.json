@@ -36,6 +36,12 @@
             "add": "Add Docs Space"
         }
     },
+    "install": {
+        "marketPair": "Install Pair (Market)"
+    },
+    "uninstall": {
+        "marketPair": "Uninstall Pair (Market)"
+    },
     "add": {
         "sensorBot": "Add Sensor Bot",
         "studyBot": "Add Study Bot",
@@ -48,6 +54,13 @@
         "portfoliaManagedSystem": "Add Portfolio Managed System",
         "plugins": "Add Plugins",
         "dataMine": "Add Data Mine",
+        "defiWallet": "Add DeFi Wallet",
+        "swapPair": "Add Swap Pair",
+        "swapPairs": "Add Swap Pairs",
+        "token": "Add Token",
+        "tokens": "Add Tokens",
+        "tokenOutBaseAsset": "Add Token Out (Base Asset)",
+        "tokenInQuotedAsset": "Add Token In (Quoted Asset)",
         "missing":{
             "apiMaps": "Add Missing API Maps",
             "assets": "Add Missing Assets",
@@ -67,9 +80,11 @@
             "tradingMines": "Add Missing Trading Mines",
             "tradingSystems": "Add Missing Trading Systems",
             "tutorials": "Add Missing Tutorials",
+            "tokens": "Add Missing Tokens",
             "userProfiles": "Add Missing User Profiles",
             "children": "Add Missing Children",
-            "projects": "Add Missing Projects"
+            "projects": "Add Missing Projects",
+            "swapPairs": "Add Missing Swap Pairs"
         },
         "specified": {
             "pluginDataMine": "Add Specified Plugin Data Mine",
@@ -93,6 +108,17 @@
         "signals": {
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals"
+        },
+        "import": {
+            "existing": {
+                "wallet": {
+                    "mnemonic": "Import Existing Wallet from Mnemonic",
+                    "privateKey": "Import Existing Wallet from Private Key"
+                }
+            }
+        },
+        "create": {
+            "newWallet": "Create New Wallet"
         }
     },
     "save": {

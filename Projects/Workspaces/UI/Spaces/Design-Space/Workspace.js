@@ -274,7 +274,7 @@ function newWorkspace() {
                         } else {
                             action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\', params:['  + item.action.params + ']})'
                         }
-                        html = html + '<li><a onclick="' + action + '">' + item.label + '</a></li>'
+                        html = html + '<li><a onclick="' + action + '" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</a></li>'
                     /* for a menu item that has an explicit submenu instead of an action */
                     } else if (item.subMenu !== undefined ) {
                         let label = item.label + ' →'
@@ -294,7 +294,7 @@ function newWorkspace() {
                         item.label !== undefined &&
                         item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
                         ) {
-                        html = html + '<li ' + addDataAttribute(item.translationKey) + '>' + item.label + '</li>'
+                        html = html + '<li class="label" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</li>'
                     }
                 }
             }

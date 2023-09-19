@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "iconPathOn": "data-mining-project",
             "iconPathOff": "data-mining-project",
             "iconProject": "Data-Mining",
@@ -13,6 +14,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Mine",
+            "translationKey": "add.dataMine",
             "relatedUiObject": "Data Mine",
             "relatedUiObjectProject": "Data-Mining",
             "actionFunction": "payload.executeAction",
@@ -24,7 +26,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

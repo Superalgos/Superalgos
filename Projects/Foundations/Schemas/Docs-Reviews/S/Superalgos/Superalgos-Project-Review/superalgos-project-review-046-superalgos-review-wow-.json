@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
                 "updated": 1687641820524
+            },
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1696017691121
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Dies ist ein sehr interessantes Projekt. Ich habe mich mit mehreren Alternativen beschäftigt, aber jetzt hat Superalgos meine volle Aufmerksamkeit. Die Lernkurve ist frustrierend steil, aber ich habe das Gefühl, dass sich die Mühe lohnt. Die Anleitungen und Handbücher sind gut strukturiert, und ich freue mich darauf, diese Reise anzutreten. Ich freue mich darauf, einen sinnvollen Beitrag zu diesem Projekt leisten zu können.",
                     "updated": 1687641840579
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çok ilginç bir proje. Birkaç alternatifi araştırıyordum ama şimdi Superalgos tüm dikkatimi çekti. Öğrenme eğrisi sinir bozucu derecede dik, ancak çabaya değdiğini hissediyorum. Öğreticiler ve kılavuzlar iyi yapılandırılmış ve bu yolculukta olduğum için heyecanlıyım. Bu projeye anlamlı bir şekilde katkıda bulunabilmeyi dört gözle bekliyorum.",
+                    "updated": 1696017698968
                 }
             ]
         },

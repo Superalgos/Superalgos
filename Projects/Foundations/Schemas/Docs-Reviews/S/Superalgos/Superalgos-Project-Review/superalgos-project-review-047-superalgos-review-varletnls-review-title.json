@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
                 "updated": 1687642048845
+            },
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1696017733449
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Superalgos hat großes Potenzial, es verarbeitet Krypto-Entscheidungen so viel schneller, als man es manuell tun kann.",
                     "updated": 1687642063258
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un büyük bir potansiyeli var, kripto kararlarını manuel olarak bile yapabileceğinizden çok daha hızlı işliyor.",
+                    "updated": 1696017739880
                 }
             ]
         },

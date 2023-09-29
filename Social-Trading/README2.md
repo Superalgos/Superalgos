@@ -1,22 +1,5 @@
 # Superalgos Social Trading App
 
-Welcome to Superalgos Social Trading App! This project is built with:
-
-### Vue UI
-
-### React-UI
-
-### Clean UI
-
-
-_** This Document and App is Under Development **_
-
-
-
-
-
-
-
 Welcome to Superalgos Social Trading App! This project is built with Vue.js, Vite, and Vuetify.
 
 ## Getting Started
@@ -89,47 +72,35 @@ To successfully run the app, please follow these preliminary steps:
       ```bash
       node socialTradingVueDev
       ```
-    - This command starts the development server, and you can view the application in the browser.
+    - This command starts the development server, and you can view your application in the browser.
 
   4. **Start Developing:**
     - Superalgos Social Trading App is now set up! Explore the source code, make changes, and start building with us on [Telegram](https://t.me/superalgosdevelop/19772).
-	
-	
-	## Development Status
-
-	|**Active**|**Non-Active**|
-	|----------|------------|
-	|[Vue-UI](#vue-ui)| |
-	| |[React-UI](#react-ui)|
-	| |[Clean-UI](#clean-ui)|
-	
-	_Anyone is welcome to start work back up on any non-active UI's at any time._
-	
-	---
 
 
-###  Project Structure
-	- src/: Contains the source code of the Vue.js application.
-    - public/: Contains static assets.
+   ###  Project Structure
 
-### Available Scripts
+     - src/: Contains the source code of the Vue.js application.
+     - public/: Contains static assets.
 
-    - "install:vue-cli": Checks if @vue/cli is installed globally and installs it if not.
-    - "add:vuetify": Checks if Vuetify is installed locally and adds it to the project if not.
-    - "start:dev": Prints a message and starts the Vite development server.
-    - "dev": Runs the install, add, and start scripts in sequence when the user runs npm run dev/ when you run node socialTradingVue.
+   ### Available Scripts
 
-### Troubleshooting
+     - "install:vue-cli": Checks if @vue/cli is installed globally and installs it if not.
+     - "add:vuetify": Checks if Vuetify is installed locally and adds it to the project if not.
+     - "start:dev": Prints a message and starts the Vite development server.
+     - "dev": Runs the install, add, and start scripts in sequence when the user runs npm run dev/ when you run node socialTradingVue.
 
-     - If you encounter any issues or have questions, please refer to the issue tracker or create a new issue.
+  ### Troubleshooting
 
-### Additional Information
+      - If you encounter any issues or have questions, please refer to the issue tracker or create a new issue.
+
+ ### Additional Information
 
 - For more details on Vite, Vue.js, and Vuetify, refer to their official documentation:
-	- [Vite](https://vitejs.dev/)
-	- [Vue.js](https://vuejs.org/)
-	- [Vuetify](https://vuetifyjs.com/)
-	  
+  - [Vite](https://vitejs.dev/)
+  - [Vue.js](https://vuejs.org/)
+  - [Vuetify](https://vuetifyjs.com/)
+  
 - Join the development community on Telegram: [Superalgos Development Group](https://t.me/superalgosdevelop/19772)
 
 ### Pending Changes and Work in Progress
@@ -138,21 +109,20 @@ To successfully run the app, please follow these preliminary steps:
    - There are local changes on my development machine that have not yet been pushed to the GitHub repository. I will commit and push these changes soon.
 
 2. **Unconnected Service Functions:**
-   - Some functions in the service router are not yet connected to the UI. I'm actively working ON enhance the overall functionality of the application.
+   - Some functions in the service router are not yet connected to the UI. This includes [list the specific functions or describe the functionality]. I'm actively working on connecting these functions to enhance the overall functionality of the application.
 
 ---
 
 ### Update History
 
 - **Date:** [2023/08/27]
-  - RemovePost()
+  - Updated information about unpushed local changes and unconnected service functions in the README.
 
 ---
 
 ### To-Do List
 
-
-
+- [ ] Commit and push local changes to the GitHub repository.
 - [ ] Connect the following service functions to the UI:
   - [ ] RemovePost Function
   - [ ] Function 2

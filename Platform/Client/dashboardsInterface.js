@@ -142,10 +142,13 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             let message = (new Date()).toISOString() + '|*|Platform|*|Info|*|Platform Dashboards Client has been Opened'
             socketClient.send(message)
             
-            sendExample()
-            sendGlobals()
+            //sendExample()
+            //sendGlobals()
             // Resend every 10 minutes
-            setInterval(sendGlobals, 600000)
+            //setInterval(sendGlobals, 6000)
+
+            sendGovernance()
+            setInterval(sendGovernance, 6000)
         });
 
         socketClient.on('close', function (close) {
@@ -222,7 +225,27 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             }
         }
     }
+    async function sendGovernance() {
+        /*let test = {
+                                User1: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 123456789, TokenPower: 987654321},
+                                User2: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 'User Token Balance', TokenPower: 'User Token Power'},
+                                User3: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 'User Token Balance', TokenPower: 'User Token Power'},
 
+                            }
+        */
+        let userInfo1 = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+        let userInfo2 = await SA.projects.network.modules.AppBootstrapingProcess.extractInfoFromUserProfiles(userProfile)
+
+        userInfo2
+
+        let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|Governance-UserInfo|*|'/* + JSON.stringify(test) */+ '|*|' + JSON.stringify(userInfo1) + '|*|' + JSON.stringify(userInfo2)
+        socketClient.send(messageToSend)
+
+        //SA.logger.info('from UserInfo to Dashboard APP:' , test)
+        SA.logger.info('from UserInfo 1 to Dashboard APP:' , userInfo1)
+        SA.logger.info('from UserInfo 2 to Dashboard APP:' , userInfo2)
+
+    }
     function sendExample() {
         let oneObjToSend = { 
                                 example1: 'string data', 

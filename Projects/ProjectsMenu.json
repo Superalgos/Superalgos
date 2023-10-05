@@ -82,10 +82,12 @@
     },
     {
         "name": "Workspaces",
+        "translationKey": "nav.workspaces.title",
         "propertyName": "workspaces",
         "systemMenu": [
             {
                 "label": "User Workspaces",
+                "translationKey": "nav.workspaces.user",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["user"]
@@ -93,7 +95,8 @@
                 "order": 1
             },
             {
-                "label": "Native Workspaces ",
+                "label": "Native Workspaces",
+                "translationKey": "nav.workspaces.native",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["plugin"]
@@ -102,6 +105,7 @@
             },
             {
                 "label": "Collapse All Root Nodes",
+                "translationKey": "nav.workspaces.collapseNodes",
                 "action": {
                     "name": "collapseAllRootNodes"
                 },
@@ -109,6 +113,7 @@
             },
             {
                 "label": "Undo/Redo",
+                "translationKey": "nav.workspaces.undoRedo",
                 "submenuConstructorFunction": {
                     "name": "undoRedoSubmenu"
                 },
@@ -116,6 +121,7 @@
             },
             {
                 "label": "Save Workspace",
+                "translationKey": "nav.workspaces.save",
                 "action": {
                     "name": "saveWorkspace"
                 },
@@ -125,10 +131,12 @@
     },
     {
         "name": "Contributions",
+        "translationKey": "nav.contributions.title",
         "propertyName": "contributions",
         "systemMenu": [
             {
                 "label": "Contribute all changes",
+                "translationKey": "nav.contributions.contribute",
                 "action": {
                     "name": "contributeAll"
                 },
@@ -136,6 +144,7 @@
             },
             {
                 "label": "Update App",
+                "translationKey": "nav.contributions.update",
                 "action": {
                     "name": "update"
                 },
@@ -143,6 +152,7 @@
             },
             {
                 "label": "Reset Local Repository",
+                "translationKey": "nav.contributions.reset",
                 "action": {
                     "name": "reset"
                 },

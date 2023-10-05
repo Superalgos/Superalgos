@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Add UI Object",
             "label": "Add API Endpoint",
+            "translationKey": "add.apiEndpoint",
             "relatedUiObject": "API Endpoint",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -21,7 +23,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

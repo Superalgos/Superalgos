@@ -5,6 +5,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Smart Contract",
+            "translationKey": "add.smartContract",
             "relatedUiObject": "Smart Contract",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

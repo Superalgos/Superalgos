@@ -22,6 +22,7 @@
         "skip": "Skip",
         "play": "Play",
         "resume": "Resume",
+        "run": "Run",
         "configure": "Configure",
         "delete": "Delete",
         "edit": "Edit",
@@ -44,6 +45,9 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+        "layer": "Add Layer",
+        "layerFolder": "Add Layer Folder",
+        "socialBots": "Add Social Bots",
         "sensorBot": "Add Sensor Bot",
         "studyBot": "Add Study Bot",
         "indicatorBot": "Add Indicator Bot",
@@ -139,16 +143,34 @@
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals"
         },
-        "import": {
-            "existing": {
-                "wallet": {
-                    "mnemonic": "Import Existing Wallet from Mnemonic",
-                    "privateKey": "Import Existing Wallet from Private Key"
-                }
+        "data": {
+            "dependency": "Add Data Dependency",
+            "dependencyFolder": "Add Data Dependency Folder",
+            "product": "Add Data Product",
+            "productFolder": "Add Data Product Folder"
+        }
+    },
+    "import": {
+        "existing": {
+            "wallet": {
+                "mnemonic": "Import Existing Wallet from Mnemonic",
+                "privateKey": "Import Existing Wallet from Private Key"
             }
-        },
-        "create": {
-            "newWallet": "Create New Wallet"
+        }
+    },
+    "create": {
+        "newWallet": "Create New Wallet"
+    },
+    "switch": {
+        "to": {
+            "paperTrading": "Switch To Paper Trading"
+        }
+    },
+    "copy": {
+        "node": {
+            "path": "Copy Node Path",
+            "value": "Copy Node Value",
+            "type": "Copy Node Type"
         }
     },
     "save": {

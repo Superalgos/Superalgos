@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Layer",
+            "translationKey": "add.layer",
             "relatedUiObject": "Layer",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Layer Folder",
+            "translationKey": "add.layerFolder",
             "relatedUiObject": "Layer Folder",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -22,7 +24,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

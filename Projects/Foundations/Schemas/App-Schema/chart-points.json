@@ -18,6 +18,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Point",
+            "translationKey": "add.point",
             "relatedUiObject": "Point",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -28,7 +29,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

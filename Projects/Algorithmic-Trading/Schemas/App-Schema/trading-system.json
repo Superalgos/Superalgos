@@ -50,7 +50,7 @@
             "propertyToCheckFor": "portfolioManagedSystem",
             "actionFunction": "payload.executeAction",
             "label": "Add Portfolio Managed System",
-            "translationKey": "add.portfoliaManagedSystem",
+            "translationKey": "add.portfolioManagedSystem",
             "relatedUiObject": "Portfolio Managed System",
             "relatedUiObjectProject": "Portfolio-Management"
         },        

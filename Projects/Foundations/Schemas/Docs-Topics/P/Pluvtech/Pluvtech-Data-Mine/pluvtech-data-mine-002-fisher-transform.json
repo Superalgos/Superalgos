@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Die Fisher Transformation - Ein Versuch, eine nicht-normale Verteilung zu normalisieren.",
                 "updated": 1647445508524
+            },
+            {
+                "language": "TR",
+                "text": "Fisher Transform - Normal olmayan bir dağılımı normalleştirme girişimi.",
+                "updated": 1697833526537
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Fisher Transformation in den Charts",
                     "updated": 1647445558693
+                },
+                {
+                    "language": "TR",
+                    "text": "Fisher Transform Grafiklerde",
+                    "updated": 1697833542837
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Ein von John F. Ehlers entwickelter technischer Indikator, der die Preise in eine Gaußsche Normalverteilung umwandelt. Der Indikator hebt hervor, wenn sich die Preise auf der Grundlage der jüngsten Preise in ein Extrem bewegt haben. Dies kann dabei helfen, Wendepunkte im Preis eines Vermögenswerts zu erkennen. Er hilft auch, den Trend aufzuzeigen und die Preiswellen innerhalb eines Trends zu isolieren.",
                     "updated": 1647445619839
+                },
+                {
+                    "language": "TR",
+                    "text": "John F. Ehlers tarafından oluşturulan ve fiyatları Gauss normal dağılımına dönüştüren teknik bir göstergedir. Gösterge, son fiyatlara dayanarak fiyatların ne zaman aşırıya kaçtığını vurgular. Bu, bir varlığın fiyatındaki dönüm noktalarının tespit edilmesine yardımcı olabilir. Ayrıca trendin gösterilmesine ve bir trend içindeki fiyat dalgalarının izole edilmesine yardımcı olur.",
+                    "updated": 1697833576098
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "DE",
                     "text": "Dieser technische Indikator wird in der Regel von Händlern verwendet, die nach vorlaufenden Signalen und nicht nach nachlaufenden Indikatoren suchen.",
                     "updated": 1647445652553
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu teknik gösterge, gecikmeli göstergeler yerine öncü sinyaller arayan tüccarlar tarafından yaygın olarak kullanılır.",
+                    "updated": 1697833590018
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "DE",
                     "text": "Die Länge der Fisher-Transform-Berechnung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’Fisher Transform’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647445740473
+                },
+                {
+                    "language": "TR",
+                    "text": "Fisher transform hesaplamasının uzunluğu, 'Fisher transform' Ürün Tanımı altında Veri Oluşturma Prosedürü -> ( Data Building Procedure ) Prosedür Başlatma altındaki ( Procedure Initialization ) Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1697833736923
                 }
             ]
         },
@@ -111,6 +136,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647445761733
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697833761322
                 }
             ]
         },
@@ -127,6 +157,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647445784793
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697833780090
                 }
             ]
         },
@@ -156,6 +191,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647445874412
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697833787802
                 }
             ]
         },
@@ -172,6 +212,11 @@
                     "language": "DE",
                     "text": "Die Fisher Transformation könnte verwendet werden, um ein Kaufsignal zu generieren, wenn die Fisher Linie nach einem extremen Tief die Triggerlinie kreuzt.",
                     "updated": 1647445884650
+                },
+                {
+                    "language": "TR",
+                    "text": "Fisher transform, Fisher çizgisi aşırı düşük bir seviyeden sonra tetik çizgisini geçtiğinde bir satın alma sinyali oluşturmak için kullanılabilir.",
+                    "updated": 1697833815275
                 }
             ]
         },
@@ -193,6 +238,11 @@
                     "language": "DE",
                     "text": "Um das Vertrauen in die Bestätigung zu erhöhen, kann dieser Indikator mit anderen Indikatoren wie dem Parabolic SAR oder den Bollinger Bändern gekoppelt werden.",
                     "updated": 1647445915875
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için bu gösterge Parabolik SAR veya Bollinger Bantları gibi diğer göstergelerle eşleştirilebilir.",
+                    "updated": 1697833858228
                 }
             ]
         },

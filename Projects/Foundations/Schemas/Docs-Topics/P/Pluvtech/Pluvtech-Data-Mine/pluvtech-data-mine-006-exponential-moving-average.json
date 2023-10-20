@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der EMA ist eine Art gewichteter gleitender Durchschnitt (WMA), der den jüngsten Kursdaten mehr Gewicht oder Bedeutung beimisst.",
                 "updated": 1647854902665
+            },
+            {
+                "language": "TR",
+                "text": "EMA, son fiyat verilerine daha fazla ağırlık veya önem veren bir tür ağırlıklı hareketli ortalamadır (WMA).",
+                "updated": 1697834778953
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610457220
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697834785969
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Indikators Exponential Moving Average kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization  unter  ’EMA’ Product Definition suchen und öffnen.",
                     "updated": 1647855002388
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstel Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'EMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697834848898
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647855056389
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697834861321
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647855066789
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697834867946
                 }
             ]
         },
@@ -119,6 +144,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647855128800
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697834872978
                 }
             ]
         },
@@ -135,6 +165,11 @@
                     "language": "DE",
                     "text": "Der EMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des EMA schließt:",
                     "updated": 1647855146258
+                },
+                {
+                    "language": "TR",
+                    "text": "EMA göstergesi, bir mum EMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697834876680
                 }
             ]
         },

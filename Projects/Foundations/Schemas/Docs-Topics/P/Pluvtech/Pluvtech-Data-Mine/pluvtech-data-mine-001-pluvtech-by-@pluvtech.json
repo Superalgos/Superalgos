@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Die Pluvtech Data Mine verfügt über mehrere Indikatoren, die unten aufgeführt sind. Die Parameter dieser Indikatoren können in der Indicator Bot Instance unter dem entsprechenden Data Mining Task Node angepasst werden (die Standardeinstellungen für die meisten sind willkürlich). Und jetzt gehen Sie Geld verdienen!",
                 "updated": 1647445387266
+            },
+            {
+                "language": "TR",
+                "text": "Pluvtech Veri Madeni ( Data Mine ) aşağıda listelenen çeşitli göstergelere sahiptir. Bu göstergelerin parametreleri, ilgili Veri Madenciliği Görev Düğümü altındaki Gösterge Botu Örneğinde ( Indicator Bot Instance ) ayarlanabilir (Çoğu için varsayılanlar keyfidir). Şimdi gidip biraz para kazanın!",
+                "updated": 1697833470915
             }
         ]
     },

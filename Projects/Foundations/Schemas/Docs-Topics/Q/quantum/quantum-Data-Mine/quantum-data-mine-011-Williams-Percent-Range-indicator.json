@@ -14,11 +14,6 @@
                 "language": "DE",
                 "text": "Williams %R, auch bekannt als Williams Percent Range, ist eine Art Momentum Indikator, der sich zwischen 0 und -100 bewegt und überkaufte und überverkaufte Niveaus misst.",
                 "updated": 1671637537111
-            },
-            {
-                "language": "TR",
-                "text": "Williams Yüzde Aralığı olarak da bilinen Williams %R, 0 ile -100 arasında hareket eden ve aşırı alım ve aşırı satım seviyelerini ölçen bir tür momentum göstergesidir.",
-                "updated": 1698089120268
             }
         ]
     },
@@ -53,11 +48,6 @@
                     "language": "DE",
                     "text": "Laut Investopedia: Der Williams %R kann verwendet werden, um Einstiegs- und Ausstiegspunkte auf dem Markt zu finden. Der Indikator ist dem Stochastik-Oszillator sehr ähnlich und wird auf dieselbe Weise verwendet. Er wurde von Larry Williams entwickelt und vergleicht den Schlusskurs einer Aktie mit der Hoch-Tief Spanne über einen bestimmten Zeitraum, normalerweise 14 Tage oder Zeiträume.",
                     "updated": 1671637601237
-                },
-                {
-                    "language": "TR",
-                    "text": "Investopedia'ya göre: Williams %R piyasadaki giriş ve çıkış noktalarını bulmak için kullanılabilir. Gösterge Stokastik osilatöre çok benzer ve aynı şekilde kullanılır. Larry Williams tarafından geliştirilmiştir ve bir hisse senedinin kapanış fiyatını belirli bir dönemdeki (genellikle 14 gün veya dönemler) yüksek-düşük aralığıyla karşılaştırır.",
-                    "updated": 1698089125570
                 }
             ]
         },
@@ -74,11 +64,6 @@
                     "language": "DE",
                     "text": "Schlüsselkonzepte:",
                     "updated": 1671640651846
-                },
-                {
-                    "language": "TR",
-                    "text": "Anahtar kavramlar:",
-                    "updated": 1698089130634
                 }
             ]
         },
@@ -95,11 +80,6 @@
                     "language": "DE",
                     "text": "Bewegt sich zwischen Null und -100",
                     "updated": 1671637655941
-                },
-                {
-                    "language": "TR",
-                    "text": "Sıfır ile -100 arasında hareket eder",
-                    "updated": 1698089134793
                 }
             ]
         },
@@ -116,11 +96,6 @@
                     "language": "DE",
                     "text": "-20 ist überkauft",
                     "updated": 1671637669947
-                },
-                {
-                    "language": "TR",
-                    "text": "-20 aşırı alımdır",
-                    "updated": 1698089137922
                 }
             ]
         },
@@ -137,11 +112,6 @@
                     "language": "DE",
                     "text": "-80 ist überverkauft",
                     "updated": 1671637684288
-                },
-                {
-                    "language": "TR",
-                    "text": "-80 aşırı satımdır",
-                    "updated": 1698089141906
                 }
             ]
         },
@@ -166,11 +136,6 @@
                     "language": "DE",
                     "text": "Die Parameter des Williams %R können geändert werden, indem der Javascript Code unter  Data Building Procedure -> Procedure Loop unter \"Williams %R\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1671637744463
-                },
-                {
-                    "language": "TR",
-                    "text": "Williams %R parametreleri, \"Williams %R\" Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop under ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
-                    "updated": 1698089166211
                 }
             ]
         },
@@ -191,11 +156,6 @@
                     "language": "DE",
                     "text": "Williams %R Produkte & Eigenschaften",
                     "updated": 1671637764022
-                },
-                {
-                    "language": "TR",
-                    "text": "Williams %R Ürünleri ve Özellikleri",
-                    "updated": 1698089171410
                 }
             ]
         },
@@ -228,11 +188,6 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1671640636678
-                },
-                {
-                    "language": "TR",
-                    "text": "Örnek:",
-                    "updated": 1698089174704
                 }
             ]
         },
@@ -249,11 +204,6 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der %R-Wert den überkauften Bereich von -80 verlässt:",
                     "updated": 1671637809707
-                },
-                {
-                    "language": "TR",
-                    "text": "R değeri -80'lik aşırı alım alanını terk ettiğinde bir ticarete girerek basit bir strateji oluşturulabilir:",
-                    "updated": 1698089178714
                 }
             ]
         },

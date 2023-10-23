@@ -14,11 +14,6 @@
                 "language": "DE",
                 "text": "Der Random Walk Index (RWI) vergleicht die Kursbewegungen mit einer Zufallsstichprobe, um festzustellen, ob sich ein statistisch signifikanter Trend entwickelt hat.",
                 "updated": 1671639125616
-            },
-            {
-                "language": "TR",
-                "text": "Rastgele Yürüyüş Endeksi (RWI), istatistiksel olarak anlamlı bir trend içinde olup olmadığını belirlemek için fiyat hareketlerini rastgele bir örneklemle karşılaştırır.",
-                "updated": 1698089186642
             }
         ]
     },
@@ -52,11 +47,6 @@
                     "language": "DE",
                     "text": "Laut Investopedia wurde dieser Indikator von Michael Poulos entwickelt, um festzustellen, ob der aktuelle Kurs eines Wertpapiers einen \"Random Walk\" aufweist oder das Ergebnis eines statistisch signifikanten Trends nach oben oder unten ist.",
                     "updated": 1671639232823
-                },
-                {
-                    "language": "TR",
-                    "text": "Investopedia'ya göre, bu gösterge Michael Poulos tarafından bir menkul kıymetin mevcut fiyat hareketinin 'rastgele yürüyüş' sergileyip sergilemediğini veya istatistiksel olarak anlamlı bir eğilimin sonucu olup olmadığını, daha yüksek veya daha düşük olup olmadığını belirlemek için oluşturulmuştur.",
-                    "updated": 1698089192585
                 }
             ]
         },
@@ -73,11 +63,6 @@
                     "language": "DE",
                     "text": "Schlüsselkonzepte:",
                     "updated": 1671640352889
-                },
-                {
-                    "language": "TR",
-                    "text": "Anahtar kavramlar:",
-                    "updated": 1698089196193
                 }
             ]
         },
@@ -94,11 +79,6 @@
                     "language": "DE",
                     "text": "Enthält zwei Trendlinien; Hoch und Tief, die den Aufwärtstrend bzw. den Abwärtstrend messen.",
                     "updated": 1671639388818
-                },
-                {
-                    "language": "TR",
-                    "text": "İki trend çizgisi içerir; sırasıyla yükseliş ve düşüş trendini ölçen Yüksek ve Düşük.",
-                    "updated": 1698089200177
                 }
             ]
         },
@@ -115,11 +95,6 @@
                     "language": "DE",
                     "text": "Wenn das Hoch über dem Tief liegt, bedeutet dies, dass es mehr Aufwärts- als Abwärtskraft gibt, und umgekehrt.",
                     "updated": 1671639422484
-                },
-                {
-                    "language": "TR",
-                    "text": "Yüksek, Düşük'ün üzerinde olduğunda, aşağıya doğru güçten daha fazla yukarı doğru güç olduğu anlamına gelir ve bunun tersi de geçerlidir.",
-                    "updated": 1698089205585
                 }
             ]
         },
@@ -136,11 +111,6 @@
                     "language": "DE",
                     "text": "Wenn entweder der Höchst- oder der Tiefstwert über eins liegt, deutet dies auf einen starken, nicht zufälligen Trend hin.",
                     "updated": 1671639444318
-                },
-                {
-                    "language": "TR",
-                    "text": "En Yüksek veya En Düşük değerin birin üzerinde olması, güçlü ve rastgele olmayan bir trendin mevcut olduğunu gösterir.",
-                    "updated": 1698089209849
                 }
             ]
         },
@@ -165,11 +135,6 @@
                     "language": "DE",
                     "text": "Die Parameter des RWI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Random Walk Index\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1671639494231
-                },
-                {
-                    "language": "TR",
-                    "text": "RWI parametreleri, Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop under ) altında \"Rastgele Yürüyüş Endeksi\" Ürün Tanımı altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
-                    "updated": 1698089247441
                 }
             ]
         },
@@ -190,11 +155,6 @@
                     "language": "DE",
                     "text": "RWI Produkte & Eigenschaften",
                     "updated": 1671639516176
-                },
-                {
-                    "language": "TR",
-                    "text": "RWI Ürünleri ve Özellikleri",
-                    "updated": 1698089215818
                 }
             ]
         },
@@ -222,11 +182,6 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1671639547967
-                },
-                {
-                    "language": "TR",
-                    "text": "Örnek:",
-                    "updated": 1698089219561
                 }
             ]
         },
@@ -243,11 +198,6 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der Hochwert über dem Tiefwert und über eins liegt:",
                     "updated": 1671639570077
-                },
-                {
-                    "language": "TR",
-                    "text": "Yüksek değer Düşük değerin üzerinde ve birin üzerinde olduğunda bir ticarete girerek basit bir strateji oluşturulabilir:",
-                    "updated": 1698089223942
                 }
             ]
         },

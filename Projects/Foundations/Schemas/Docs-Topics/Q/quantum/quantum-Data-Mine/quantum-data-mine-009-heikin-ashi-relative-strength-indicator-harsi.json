@@ -14,11 +14,6 @@
                 "language": "DE",
                 "text": "Dieses Skript, das ursprünglich von JayRogers auf TradingView erstellt wurde, übersetzt die Heikin Ashi Kerzen in einen RSI Oszillator, um klare Trends auf dem Markt anzuzeigen.",
                 "updated": 1671548570104
-            },
-            {
-                "language": "TR",
-                "text": "Orijinali TradingView'de JayRogers tarafından yapılan bu komut dosyası, piyasadaki net eğilimleri göstermek için Heikin Ashi Mumlarını bir RSI osilatörüne çevirir.",
-                "updated": 1698089002652
             }
         ]
     },
@@ -52,11 +47,6 @@
                     "language": "DE",
                     "text": "Der HARSI Indikator verwendet den RSI als Grundlage, um die Stärke eines Preistrends anzuzeigen. Er zeichnet den RSI Oszillator auf, verschiebt ihn aber so, dass er um den Nullpunkt statt um einen Wert von 50 oszilliert. Kauf- und Verkaufszonen werden dann bei den Linien -20 bzw. 20 eingerichtet. Anschließend wird ein Histogramm im Stil von Heikin Ashi gezeichnet, wobei die RSI Funktion als Eingabe verwendet wird. Dies liefert ein potenzielles Kauf-/Verkaufssignal, wenn die Kerzen in die jeweiligen Zonen eintreten.",
                     "updated": 1671548647380
-                },
-                {
-                    "language": "TR",
-                    "text": "HARSI göstergesi, bir fiyat trendindeki gücü göstermek için RSI'yı temel olarak kullanır. RSI osilatörünü çizer, ancak 50 değeri yerine sıfır noktası etrafında salınacak şekilde kaydırır. Alış ve Satış bölgeleri daha sonra sırasıyla -20 ve 20 çizgilerinde belirlenir. Daha sonra RSI fonksiyonu girdi olarak kullanılarak Heikin Ashi tarzı bir histogram çizilir. Bu, mumlar ilgili bölgelere girdiğinde potansiyel bir alım/satım sinyali sağlar.",
-                    "updated": 1698089007108
                 }
             ]
         },
@@ -77,11 +67,6 @@
                     "language": "DE",
                     "text": "Die Parameter der HARSI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"HARSI\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1671548704703
-                },
-                {
-                    "language": "TR",
-                    "text": "HARSI parametreleri, \"HARSI\" Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop under ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
-                    "updated": 1698089028797
                 }
             ]
         },
@@ -102,11 +87,6 @@
                     "language": "DE",
                     "text": "HARSI Produkte & Eigenschaften",
                     "updated": 1671548753629
-                },
-                {
-                    "language": "TR",
-                    "text": "HARSI Ürünleri ve Özellikleri",
-                    "updated": 1698089034643
                 }
             ]
         },
@@ -135,11 +115,6 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1671548795323
-                },
-                {
-                    "language": "TR",
-                    "text": "Örnek:",
-                    "updated": 1698089038404
                 }
             ]
         },
@@ -156,11 +131,6 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn das HA Histogramm bei -20 in die Kaufzone eintritt und sie dann wieder verlässt:",
                     "updated": 1671548832911
-                },
-                {
-                    "language": "TR",
-                    "text": "HA histogramı -20'de satın alma bölgesine girdiğinde ve ardından tekrar bıraktığında bir ticarete girerek basit bir strateji oluşturulabilir:",
-                    "updated": 1698089042195
                 }
             ]
         },

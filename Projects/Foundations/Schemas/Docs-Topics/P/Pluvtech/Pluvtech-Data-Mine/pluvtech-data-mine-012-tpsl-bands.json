@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Dieser Indikator ist kein signalgenerierender Indikator, sondern eher eine von vielen Methoden, um Take Profit und Stop Loss Levels zu generieren.",
                 "updated": 1647936351306
+            },
+            {
+                "language": "TR",
+                "text": "Bu gösterge sinyal üreten bir gösterge değil, Kar Al ( Take Profit ) ve Zararı Durdur ( Stop Loss ) seviyeleri oluşturmanın birçok yönteminden biridir.",
+                "updated": 1697835467585
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645611058137
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697835488418
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "DE",
                     "text": "Die Hauptanwendung dieses Indikators besteht darin, die berechneten Daten (die im Panel angezeigt werden) für Take-Profit- und Stop-Loss-Signale zu verwenden, wenn ein Handel bereits eingegangen wurde.",
                     "updated": 1647936626872
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu göstergenin birincil kullanımı, bir trase zaten girildiğinde kar alma ve zararı durdurma sinyali için hesaplanan verileri (panelde gösterilir) kullanmaktır.",
+                    "updated": 1697835492658
                 }
             ]
         },
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Es gibt einen Plotter, der im Chart angezeigt wird, falls Sie die Levels in Ihrem Chart sehen möchten.",
                     "updated": 1647936640691
+                },
+                {
+                    "language": "TR",
+                    "text": "Seviyeleri grafiğinizde görmek istemeniz durumunda grafikte gösterilen bir çizici vardır.",
+                    "updated": 1697835498194
                 }
             ]
         },
@@ -79,6 +99,11 @@
                     "language": "DE",
                     "text": "Die Standardwerte (unten) sind willkürlich und basieren auf relativeMovingAverage(trueRange).",
                     "updated": 1647936662584
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan değerler (aşağıda) keyfidir ve relativeMovingAverage(trueRange) değerine dayanır.",
+                    "updated": 1697835502810
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "DE",
                     "text": "Parameter für Indikator Bot Instanz:",
                     "updated": 1647936886938
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Bot Örneği için Parametreler:",
+                    "updated": 1697835520180
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "DE",
                     "text": "Periods = 15; (für die Berechnung der ATR)",
                     "updated": 1647936898135
+                },
+                {
+                    "language": "TR",
+                    "text": "Periyotlar = 15; (ATR'nin hesaplanması için)",
+                    "updated": 1697835531753
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "DE",
                     "text": "Take Profit Multiplikator (von ATR) = 1; (d.h. - 100% von ATR.)",
                     "updated": 1647936917660
+                },
+                {
+                    "language": "TR",
+                    "text": "Kar çarpanı (ATR'nin) = 1; (yani - ATR'nin %100'ü).",
+                    "updated": 1697835535137
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "DE",
                     "text": "Stop Loss Multiplikator (von ATR) = 1,5; (d.h.- 150% von ATR.)",
                     "updated": 1647936932385
+                },
+                {
+                    "language": "TR",
+                    "text": "Zararı Durdurma Çarpanı (ATR'nin) = 1,5; (yani - ATR'nin %150'si).",
+                    "updated": 1697835539025
                 }
             ]
         },
@@ -169,6 +214,11 @@
                     "language": "DE",
                     "text": "*Anmerkung* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
                     "updated": 1647936945254
+                },
+                {
+                    "language": "TR",
+                    "text": "*Not* TP1 = %100; TP2 = %200; TP3 = %300",
+                    "updated": 1697835543097
                 }
             ]
         },
@@ -185,6 +235,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung der TPSL Bänder kann geändert werden, indem der Javascript Code unter  Data Building Procedure -> Procedure Initialization unter  ’TPSL’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647936960884
+                },
+                {
+                    "language": "TR",
+                    "text": "TPSL bantları hesaplamasının uzunluğu, 'TPSL' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835574557
                 }
             ]
         },
@@ -206,6 +261,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647936989471
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835580138
                 }
             ]
         },
@@ -222,6 +282,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647937006728
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835583425
                 }
             ]
         },
@@ -251,6 +316,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1647937396342
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697835589337
                 }
             ]
         },
@@ -267,6 +337,11 @@
                     "language": "DE",
                     "text": "Die folgenden Beispiele werden normalerweise im Knoten Manage Stage des Trading System für Managed Take Profit und  Managed Stop Loss verwendet, können aber an jeder beliebigen Stelle eingesetzt werden:",
                     "updated": 1647937482271
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnekler normalde, Yönetilen Kâr Al ( Managed Take Profit ) ve Yönetilen Zararı Durdur ( Managed Stop Loss ) için Ticaret Sisteminin ( Trading System ) Aşamayı Yönet düğümünde ( Manage Stage node ) kullanılır, ancak uygun gördüğünüz her yerde kullanılabilir:",
+                    "updated": 1697835699626
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der Indikator erzeugt ein Volatilitätssignal und basiert auf dem Indikator, der ursprünglich vom TradingRush channel auf YouTube geschrieben wurde.",
                 "updated": 1671463419710
+            },
+            {
+                "language": "TR",
+                "text": "Gösterge bir volatiliy sinyali üretir ve orijinal olarak YouTube'daki TradingRush kanalı tarafından yazılan göstergeye dayanır.",
+                "updated": 1698088828935
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Der Choppy Indikator besteht aus drei Komponenten. Wenn die Kursbewegung gut ist, zeigt der Choppy-Indikator grüne Balken an. Wenn die Bewegung sehr gut ist, wird der Balken dunkelgrün angezeigt. Wenn die Bewegung abgehackt ist, gibt es keine farbigen Balken.",
                     "updated": 1671463494628
+                },
+                {
+                    "language": "TR",
+                    "text": "Choppy göstergesinin üç bileşeni vardır. Fiyat hareketi iyi olduğunda, Choppy göstergesi yeşil çubuklar gösterecektir. Hareket çok iyi olduğunda, çubuk koyu yeşili gösterecektir. Hareket dalgalı ise, renkli çubuklar olmayacaktır.",
+                    "updated": 1698088833810
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "DE",
                     "text": "Das Liniendiagramm wird mit jedem grünen Balken größer, was auf einen sich bewegenden Markt hinweist. Der Wert der Linie liegt zwischen 0-100. Bitte beachten Sie, dass dies nicht die Richtung der Preisbewegung anzeigt, sondern nur, dass sich der Markt im Trend befindet.",
                     "updated": 1671463519132
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizgi grafiği, basılan her yeşil çubuk için artacak ve hareketli bir piyasayı gösterecektir. Çizginin değeri 0-100 arasındadır. Lütfen bunun fiyat hareketinin yönünü göstermediğini, yalnızca piyasanın trendde olduğunu unutmayın.",
+                    "updated": 1698088839106
                 }
             ]
         },
@@ -84,6 +99,11 @@
                     "language": "DE",
                     "text": "Wenn die Linie die gedruckten Balken durchbricht, deutet dies auf einen starken Trend und ein mögliches Kauf-/Verkaufssignal hin.",
                     "updated": 1671463540030
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizgi basılı çubukları kırdığında, bu güçlü bir eğilime ve olası bir alım/satım sinyaline işaret eder.",
+                    "updated": 1698088842370
                 }
             ]
         },
@@ -105,6 +125,11 @@
                     "language": "DE",
                     "text": "Um die für die Berechnung benötigten Parameter an Ihre Bedürfnisse anzupassen, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter  \"Choppy\" Product Definition. Durch Ändern der Variable \"line\" wird die Schwellenwertlinie für das Kaufsignal angepasst und standardmäßig auf 50 gesetzt. Der ursprüngliche Standardwert bei TradingRush war 20.",
                     "updated": 1671463624290
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama için gereken parametreleri ihtiyaçlarınıza göre değiştirmek için, Veri Oluşturma Prosedürü -> Prosedür Döngüsü ( Procedure Loop under ) altında \"Choppy\" Ürün Tanımı altındaki Javascript Kodunu bulun ve açın. \"Çizgi\" değişkeninin değiştirilmesi, satın alma sinyali eşik çizgisini ayarlar ve varsayılan değer 50'dir. TradingRush'taki Orijinal varsayılan değer 20 idi.",
+                    "updated": 1698088891839
                 }
             ]
         },
@@ -126,6 +151,11 @@
                     "language": "DE",
                     "text": "Choppy Produkte & Eigenschaften",
                     "updated": 1671463651146
+                },
+                {
+                    "language": "TR",
+                    "text": "Choppy Ürünleri & Özellikleri",
+                    "updated": 1698088902089
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "DE",
                     "text": "Die Eigenschaftsfunktionen sind wie folgt:",
                     "updated": 1671463689674
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik fonksiyonları aşağıdaki gibidir:",
+                    "updated": 1698088905905
                 }
             ]
         },
@@ -172,6 +207,11 @@
                     "language": "DE",
                     "text": "<b>maProperty:</b> der Wert des Histogrammbalkens. Mögliche Werte sind, von der Reihenfolge der Konsolidierung bis zur Tendenz; Choppy, Slower, Slow, Up",
                     "updated": 1671463790859
+                },
+                {
+                    "language": "TR",
+                    "text": "maProperty: histogram çubuğunun değeri. Olası değerler, konsolidasyon sırasından trend sırasına göre; Dalgalı, Yavaş, Yavaş, Yukarı",
+                    "updated": 1698088910784
                 }
             ]
         },
@@ -189,6 +229,11 @@
                     "language": "DE",
                     "text": "<b>graph:</b> der Wert des gezeichneten Kurve",
                     "updated": 1671463896020
+                },
+                {
+                    "language": "TR",
+                    "text": "graph: çizilen grafiğin değeri",
+                    "updated": 1698088926281
                 }
             ]
         },
@@ -206,6 +251,11 @@
                     "language": "DE",
                     "text": "<b>threshold:</b> der Wert, bei dem die Trendkurve stärker wird als der Histogrammbalken.",
                     "updated": 1671463935442
+                },
+                {
+                    "language": "TR",
+                    "text": "eşik: eğilim grafiğinin histogram çubuğundan daha güçlü hale geldiği değer.",
+                    "updated": 1698088930273
                 }
             ]
         },
@@ -223,6 +273,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1671463950195
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1698088933624
                 }
             ]
         },
@@ -239,6 +294,11 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie kann erstellt werden, indem ein Handel eingegangen wird, wenn der Schwellenwert über die Histogrammgröße ansteigt.",
                     "updated": 1671463966300
+                },
+                {
+                    "language": "TR",
+                    "text": "Eşik histogram boyutunun üzerine çıktığında bir ticarete girerek basit bir strateji oluşturulabilir.",
+                    "updated": 1698088936969
                 }
             ]
         },

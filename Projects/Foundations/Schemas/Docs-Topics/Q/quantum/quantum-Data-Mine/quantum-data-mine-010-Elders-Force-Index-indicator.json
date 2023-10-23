@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Der Elder's Force Index misst die Richtung und das Ausmaß der Preisveränderung sowie das Handelsvolumen über einen bestimmten Zeitraum, um die Macht der Bullen oder Bären in diesem Zeitrahmen anzuzeigen.",
                 "updated": 1671549620225
+            },
+            {
+                "language": "TR",
+                "text": "Elder'ın Güç Endeksi, fiyat değişiminin yönünü ve kapsamını ve o zaman dilimindeki boğaların veya ayıların gücünü göstermek için belirli bir süre boyunca işlem hacmini ölçer.",
+                "updated": 1698089059227
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Laut investopedia hat Dr. Alexander Elder diesen Indikator entwickelt, indem er die drei Elemente der Handelskraft (Richtung und Ausmaß der Preisveränderung und Volumen) mit einem gleitenden Durchschnitt kombiniert hat, um signifikante Veränderungen auf dem Markt genau zu messen.",
                     "updated": 1671549690748
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, Dr. Alexander Elder bu göstergeyi ticaret gücünün üç unsurunu (fiyat değişiminin yönü ve kapsamı ve Hacim) alarak yarattı ve piyasadaki önemli değişiklikleri doğru bir şekilde ölçmek için hareketli bir ortalama ile birleştirdi.",
+                    "updated": 1698089064155
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "DE",
                     "text": "Da der Force Index Volumen und Preis kombiniert, ist er sehr gut geeignet, die Stärke eines Trends anzuzeigen. Wenn der Index einen neuen Höchststand erreicht, ist es wahrscheinlich, dass ein bestimmter Aufwärtstrend anhält. Das Gleiche gilt für neue Tiefststände und Abwärtstrends. Ein abflachender Kraftindex ist ebenfalls eine wichtige Lage; er bedeutet, dass die Preisänderung weder durch steigendes noch durch fallendes Volumen unterstützt wird und dass sich der Trend wahrscheinlich umkehren wird.",
                     "updated": 1671549892734
+                },
+                {
+                    "language": "TR",
+                    "text": "Kuvvet Endeksi hacim ve fiyatı birleştirdiğinden, bir trendin gücünü göstermede çok iyidir. Endeks yeni bir zirveye ulaştığında, belirli bir yükseliş trendinin devam etmesi muhtemeldir. Aynı şey yeni dipler ve düşüş trendleri için de geçerlidir. Kuvvet endeksinin düzleşmesi de önemli bir durumdur; fiyatlardaki değişimin artan ya da azalan hacim tarafından desteklenmediği ve trendin tersine dönme olasılığının yüksek olduğu anlamına gelir.",
+                    "updated": 1698089068172
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "DE",
                     "text": "Die Parameter des EFI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Elder\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1671549958675
+                },
+                {
+                    "language": "TR",
+                    "text": "EFI parametreleri, Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop under ) altında \"Elder\" Ürün Tanımı altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1698089093554
                 }
             ]
         },
@@ -107,6 +127,11 @@
                     "language": "DE",
                     "text": "EFI Produkte & Eigenschaften",
                     "updated": 1671549979384
+                },
+                {
+                    "language": "TR",
+                    "text": "EFI Ürünleri ve Özellikleri",
+                    "updated": 1698089098721
                 }
             ]
         },
@@ -139,6 +164,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1671550014873
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1698089102130
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der EFI Wert über -50 steigt:",
                     "updated": 1671550041546
+                },
+                {
+                    "language": "TR",
+                    "text": "EFI değeri -50'nin üzerine çıktığında bir işleme girerek basit bir strateji oluşturulabilir:",
+                    "updated": 1698089105457
                 }
             ]
         },

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Der TRIX Indikator (Triple Exponential Average) ist ein Momentum Oszillator, der dazu dient, überverkaufte und überkaufte Märkte zu identifizieren.",
                 "updated": 1671639987309
+            },
+            {
+                "language": "TR",
+                "text": "Üçlü Üstel Ortalama (TRIX) göstergesi, aşırı satım ve aşırı alım piyasalarını belirlemek için kullanılan bir momentum osilatörüdür.",
+                "updated": 1698089264802
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "DE",
                     "text": "Laut Investopedia berechnet dieser Indikator einen dreifachen exponentiellen gleitenden Durchschnitt (EMA) des Logarithmus des Preisinputs über einen bestimmten Zeitraum. Dies ergibt eine prozentuale Veränderung eines gleitenden Durchschnitts, der dreimal exponentiell geglättet wurde. Er erzeugt Signale, die dem Indikator Moving Average Convergence-Divergence (MACD) ähneln.",
                     "updated": 1671640103116
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre bu gösterge, belirli bir süre boyunca fiyat girdisinin logunun üçlü üstel hareketli ortalamasını (EMA) hesaplar. Bu, hareketli ortalamada üç kez üstel olarak düzeltilmiş bir yüzde değişikliği üretir. Doğası gereği Hareketli Ortalama Yakınsama-Uzaklaşma (MACD) göstergesine benzer sinyaller üretir.",
+                    "updated": 1698089270306
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "DE",
                     "text": "Hervorragende Filterung von Marktstörungen und Erkennung von überverkauften und überkauften Märkten",
                     "updated": 1671640142136
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa gürültüsünü mükemmel şekilde filtreler ve aşırı satım ve aşırı alım piyasalarını belirleyebilir",
+                    "updated": 1698089274131
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Kann als Frühindikator betrachtet werden",
                     "updated": 1671640170555
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncü gösterge olarak kabul edilebilir",
+                    "updated": 1698089283562
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "DE",
                     "text": "Die Parameter des TRIX können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"TRIX\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1671640420026
+                },
+                {
+                    "language": "TR",
+                    "text": "TRIX'in parametreleri, \"TRIX\" Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop under ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1698089303529
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "DE",
                     "text": "TRIX Produkte & Eigenschaften",
                     "updated": 1671640437419
+                },
+                {
+                    "language": "TR",
+                    "text": "TRIX Ürünleri ve Özellikleri",
+                    "updated": 1698089307561
                 }
             ]
         },
@@ -123,6 +153,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1671640475983
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1698089339049
                 }
             ]
         },
@@ -134,6 +169,11 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der TRIX Wert die Signallinie überschreitet, wenn er unter Null liegt:",
                     "updated": 1671640511229
+                },
+                {
+                    "language": "TR",
+                    "text": "TRIX değeri sıfırın altındayken sinyal çizgisinin üzerine çıktığında bir ticarete girerek basit bir strateji oluşturulabilir:",
+                    "updated": 1698089343505
                 }
             ]
         },

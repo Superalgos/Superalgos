@@ -5,6 +5,7 @@
             "action": "Edit",
             "actionFunction": "uiObject.conditionEditor.activate",
             "label": "Edit",
+            "translationKey": "general.edit",
             "relatedUiObject": "Condition",
             "relatedUiObjectProject": "Foundations"
         },
@@ -13,6 +14,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "javascriptCode",
             "label": "Add Code",
+            "translationKey": "add.code",
             "relatedUiObject": "Javascript Code",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -21,6 +23,7 @@
         {
             "action": "Fetch Code to Javascript Code",
             "label": "Fetch from Javascript Code",
+            "translationKey": "fetch.fromJavascriptCode",
             "relatedUiObject": "Javascript Code",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -28,6 +31,7 @@
         {
             "action": "Push Code to Javascript Code",
             "label": "Push to Javascript Code",
+            "translationKey": "push.toJavascriptCode",
             "relatedUiObject": "Javascript Code",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -37,7 +41,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

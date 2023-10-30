@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Superalgos bricht die Komplexität auf und beschreibt die grundlegenden Konzepte, die die Handelsintelligenz in Hierarchien von Nodes aufbauen. Nodes können auf andere Nodes verweisen, um auf Informationen in anderen Hierarchien zuzugreifen.",
                 "updated": 1641740211253
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos karmaşıklığı parçalara ayırır ve düğüm hiyerarşilerinde ticari zekayı oluşturan temel kavramları tanımlar. Düğümler, diğer hiyerarşilerdeki bilgilere erişmek için diğer düğümlere referans verebilir.",
+                "updated": 1698698747813
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "DE",
                     "text": "Algorithmischer Handel ist eine datengesteuerte Anwendung. Es ist vor allem die überlegene Fähigkeit, Intelligenz aus Daten abzuleiten, die dem automatisierten Handel einen Vorteil gegenüber dem manuellen Handel verschafft.",
                     "updated": 1641740288966
+                },
+                {
+                    "language": "TR",
+                    "text": "Algoritmik ticaret veri odaklı bir uygulamadır. Otomatik ticarete manuel ticarete göre avantaj sağlayan şey, her şeyden önce verilerden istihbarat elde etme konusundaki üstün yetenektir.",
+                    "updated": 1698698753186
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "language": "DE",
                     "text": "Es wäre jedoch zu einfach, anzunehmen, dass sich Handelsintelligenz allein aus Daten ergibt.",
                     "updated": 1641740355686
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, ticari zekanın yalnızca verilerden ortaya çıktığını varsaymak basitlik olur.",
+                    "updated": 1698698757385
                 }
             ]
         },
@@ -105,6 +120,11 @@
                     "language": "DE",
                     "text": "Handelsintelligenz entsteht durch die Nutzung des Zusammenspiels mehrerer komplexer Konzepte.",
                     "updated": 1641740408555
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticari zeka, çok sayıda karmaşık kavramın etkileşiminden yararlanılarak ortaya çıkar.",
+                    "updated": 1698698761378
                 }
             ]
         },
@@ -131,6 +151,11 @@
                     "language": "DE",
                     "text": "Superalgos ist eine Software-Infrastruktur, die dazu beiträgt, diese Konzepte und Wechselwirkungen nutzbar zu machen, indem sie die Komplexität in kleine Informationseinheiten, so genannte Nodes (Knoten), zerlegt und diese in größeren Datenstrukturen, so genannten Hierarchien, anordnet.",
                     "updated": 1641740634980
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, karmaşıklığı düğüm adı verilen küçük bilgi birimlerine ayırarak ve bunları hiyerarşi adı verilen daha büyük veri yapıları halinde düzenleyerek bu kavramların ve etkileşimlerin kullanılmasına katkıda bulunan bir yazılım altyapısıdır.",
+                    "updated": 1698698766857
                 }
             ]
         },
@@ -157,6 +182,11 @@
                     "language": "DE",
                     "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes Konzept auf oberster Ebene darstellt, das zu einer langen Kette von Nodes führt, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, wobei jede von ihnen einen bestimmten Schwerpunkt hat. Zum Beispiel Crypto Ecosystem, Data Mines oder Charting Space.",
                     "updated": 1641740590308
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi, kapsayıcı, üst düzey bir kavramı temsil eden ve genellikle birçok dallanmaya sahip uzun bir düğüm zinciriyle sonuçlanan bir veri yapısıdır. Sistem, her biri belirli bir odağa sahip farklı hiyerarşi türlerini yönetir. Örneğin, kripto ekosistemi, veri madenleri veya grafik alanı.",
+                    "updated": 1698698770953
                 }
             ]
         },
@@ -183,6 +213,11 @@
                     "language": "DE",
                     "text": "Ein Node ist eine kleine Datenstruktur, die Informationen enthält, die sich auf Marktinformationen, Handelsinformationen, den Betrieb des Systems oder andere Konzepte beziehen können. Sie werden visuell durch Symbole im Design Space dargestellt.",
                     "updated": 1641740672837
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğüm, piyasa bilgileri, ticari istihbarat, sistemin çalışması veya diğer kavramlarla ilgili olabilecek bilgileri içeren küçük bir veri yapısıdır. Tasarım alanında görsel olarak simgelerle temsil edilirler.",
+                    "updated": 1698698776586
                 }
             ]
         },
@@ -209,6 +244,11 @@
                     "language": "DE",
                     "text": "Der Design Space ist die visuelle Umgebung, die alle System- und Benutzerdefinitionen enthält. In der Praxis handelt es sich um den schwarzen Bereich unterhalb des Schiebereglers, der den Bildschirm horizontal teilt und den Design Space im unteren Bereich vom Charting Space im oberen Bereich trennt. Als Hierarchie enthält sie Nodes, die dem Benutzer die Kontrolle über bestimmte Aspekte des Aussehens, der Handhabung und des Verhaltens des Bereichs ermöglichen.",
                     "updated": 1641740724784
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen ve alttaki tasarım alanını üstteki grafik alanından ayıran kaydırıcının altındaki siyah alandır. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolünü sağlayan düğümlere sahiptir.",
+                    "updated": 1698698782203
                 }
             ]
         },
@@ -235,6 +275,11 @@
                     "language": "DE",
                     "text": "Mit anderen Worten: Die in hierarchischen Datenstrukturen angeordneten Nodes beschreiben die Top-Level-Konzepte, aus denen sich die Handelsintelligenz zusammensetzt, auf eine Art und Weise, die den Benutzern hilft, sie zu visualisieren und besser zu verstehen.",
                     "updated": 1641740780043
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, hiyerarşik veri yapılarında düzenlenen düğümler, ticari zekayı oluşturan üst düzey kavramları, kullanıcıların bunları görselleştirmesine ve daha iyi anlamasına yardımcı olacak şekilde tanımlar.",
+                    "updated": 1698698786850
                 }
             ]
         },
@@ -261,6 +306,11 @@
                     "language": "DE",
                     "text": "Diese als Hierarchien beschriebenen Top-Level-Konzepte interagieren mit anderen Konzepten, d. h. mit anderen Hierarchien. Die Interaktionen zwischen den Hierarchien werden als References (Beziehungen) bezeichnet.",
                     "updated": 1641740888555
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiler olarak tanımlanan bu üst düzey kavramlar diğer kavramlarla, yani diğer hiyerarşilerle etkileşim halindedir. Hiyerarşiler arasındaki etkileşimler referanslar olarak adlandırılır.",
+                    "updated": 1698698791642
                 }
             ]
         },
@@ -287,6 +337,11 @@
                     "language": "DE",
                     "text": "Eine Referenz ist ein Mechanismus, durch den Informationen in einem Node mit anderen Nodes in Beziehung gesetzt oder von ihnen abgerufen werden. Die Fähigkeit eines Nodes, einen Bezug zu einem anderen Node herzustellen, ermöglicht dem ersten Node den Zugang zu den Informationen oder Merkmalen, die der zweite Node beinhaltet.",
                     "updated": 1641741082888
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans, bir düğümdeki bilginin diğer düğümlerle ilişkili olduğu veya diğer düğümler tarafından erişildiği bir mekanizmadır. Bir düğümün başka bir düğümle referans kurabilmesi, ilkinin ikincisinde bulunan bilgi ya da özelliklere erişebilmesini sağlar.",
+                    "updated": 1698698796569
                 }
             ]
         },
@@ -313,6 +368,11 @@
                     "language": "DE",
                     "text": "Um all diese Informationen zu organisieren, verwaltet Superalgos das Konzept der Workspaces (Arbeitsbereiche). Ein Workspace ist eine Einheit, die alle System- und Benutzerinformationen speichert, mit Ausnahme des Zustands und der Inhalte von Plugins. Technisch gesehen ist ein Workspace eine JSON-Datei.",
                     "updated": 1641741129226
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bu bilgileri düzenlemek için Superalgos çalışma alanları kavramını yönetir. Çalışma alanı, eklentilerin durumu ve içeriği hariç olmak üzere, tüm sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir varlıktır. Teknik açıdan, bir çalışma alanı bir JSON dosyasıdır.",
+                    "updated": 1698698800705
                 }
             ]
         },
@@ -340,6 +400,11 @@
                     "language": "DE",
                     "text": "Die Seite Bots bringt diese konzeptionellen Definitionen auf den Boden der Tatsachen zurück und bietet einen Überblick darüber, was diese Top-Level-Konzepte sind und wie sie miteinander interagieren.",
                     "updated": 1641741163266
+                },
+                {
+                    "language": "TR",
+                    "text": "Botlar sayfası bu kavramsal tanımları yeryüzüne indirir ve bu üst düzey kavramların ne olduğuna ve birbirleriyle nasıl etkileşime girdiklerine dair genel bir bakış sunar.",
+                    "updated": 1698698805541
                 }
             ]
         }

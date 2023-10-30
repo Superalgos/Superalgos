@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Bots sind ein entscheidendes Konzept in Superalgos und ein guter Leitfaden, um zu erklären, wie Hierarchien miteinander interagieren.",
                 "updated": 1641741276059
+            },
+            {
+                "language": "TR",
+                "text": "Botlar Superalgos'da çok önemli bir kavramdır ve hiyerarşilerin birbirleriyle nasıl etkileşime girdiğini açıklamak için iyi bir konu başlığıdır.",
+                "updated": 1698699077443
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Während die Begriffe Trading Bot, Trading Strategie und Trading System manchmal synonym verwendet werden, ist die Unterscheidung in Superalgos scharf und unmissverständlich. Lassen Sie uns mit drei grundlegenden Definitionen beginnen:",
                     "updated": 1641741337487
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen insanlar ticaret botu, ticaret stratejisi ve ticaret sistemi terimlerini birbirinin yerine kullanırken, Superalgos'ta ayrım keskin ve nettir. Üç temel tanım sunarak başlayalım:",
+                    "updated": 1698699082731
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "DE",
                     "text": "Trading System: Ein Trading System ist ein Rahmenwerk, das die Low-Level-Logik handhabt, die dazu dient, die Prozesse und Methoden zu strukturieren, die für die Implementierung und den Einsatz von Trading Strategies verwendet werden.",
                     "updated": 1641741502917
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi ( Trading System ) : Bir ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı ele alan bir çerçevedir.",
+                    "updated": 1698699101162
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "DE",
                     "text": "Trading Strategy: Eine Trading Strategy (Handelsstrategie) ist die Beschreibung einer Reihe von Aktionen oder Ereignissen, die schrittweise ausgeführt werden. Ereignisse werden ausgelöst, wenn bestimmte Bedingungen erfüllt sind, die bestimmte Marktsituationen beschreiben. Handelsstrategien sind darauf ausgelegt, ein bestimmtes Ziel im Rahmen des umfassenderen Plans eines Handelssystems durch das Eingehen und Verwalten von Positionen zu erreichen.",
                     "updated": 1641742187305
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Stratejisi ( Trading Strategy ): Bir alım satım stratejisi, aşamalı olarak yürütülen bir dizi eylem veya olayın açıklamasıdır. Olaylar, belirli piyasa durumlarını tanımlayan kesin koşulların doğrulanması üzerine tetiklenir. Alım satım stratejileri, pozisyon alma ve yönetme yoluyla bir alım satım sisteminin daha geniş planı dahilinde belirli bir hedefe ulaşmak için tasarlanmıştır.",
+                    "updated": 1698699132018
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "DE",
                     "text": "Trading Bot: Ein Trading Bot ist ein Computerprogramm, das auf der Grundlage von Datensätzen, die von anderen Bots (Counting Sensors, Indikatoren und sogar anderen Trading-Bots) als Produkte ausgegeben werden, die in einem Handelssystem definierte Handelslogik anwendet, um einerseits eine vollständige Handelssimulation zu generieren (Ausgabe von Datensätzen, die Trades, die Wirkung von Strategien, die Validierung von Bedingungen usw. umfassen) und andererseits die Ausführung von Aufträgen während einer Forward-Testing- oder Live-Trading-Session zu verwalten.",
                     "updated": 1641742338856
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Botu ( Trading Bot ): Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak ortaya çıkarılan veri kümelerine dayalı olarak, bir tarafta eksiksiz bir ticaret simülasyonu oluşturmak (alım satımları, stratejilerin eylemini, koşulların doğrulanmasını vb. içeren veri kümelerinin çıktısını almak) için bir ticaret sisteminde tanımlanan ticaret mantığını uygulayan ve diğer tarafta, ileri test veya canlı ticaret oturumundayken emirlerin uygulanmasını yöneten bir bilgisayar programıdır.",
+                    "updated": 1698699162721
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "DE",
                     "text": "In Superalgos sind Trading Systems und Trading Strategies Definitionen, die die Handelslogik beschreiben, während der Trading Bot das Computerprogramm ist, das die Handelslogik verwendet, um Strategien zu testen, Simulationen zu erstellen und zu handeln.",
                     "updated": 1641742387913
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta ticaret sistemleri ve ticaret stratejileri, ticaret mantığını açıklayan tanımlardır; ticaret botu ise stratejileri test etmek, simülasyonlar üretmek ve ticaret yapmak için ticaret mantığını kullanan bilgisayar programıdır.",
+                    "updated": 1698699170017
                 }
             ]
         },
@@ -149,6 +179,11 @@
                     "language": "DE",
                     "text": "In dieser Dokumentation wird ausführlich auf diese drei Konzepte eingegangen. Vorläufig reicht die obige Unterscheidung aus, um fortzufahren.",
                     "updated": 1641742417822
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu dokümantasyon bu üç kavramı kapsamlı bir şekilde açıklamaktadır. Şimdilik, yukarıdaki ayrım devam etmek için yeterlidir.",
+                    "updated": 1698699174650
                 }
             ]
         },
@@ -170,6 +205,11 @@
                     "language": "DE",
                     "text": "Bevor wir die einzelnen Hierarchien eingehend erforschen, ist ein kurzer Überblick angebracht. Eines der wichtigsten grundlegenden Konzepte in Superalgos ist das der Bots. Anhand der Bots wollen wir Ihnen zeigen, wie die verschiedenen Hierarchien in Superalgos miteinander interagieren.",
                     "updated": 1641757433329
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bir hiyerarşiyi derinlemesine incelemeye başlamadan önce, hızlı bir genel bakış yapmak yerinde olacaktır. Superalgos'un altında yatan en önemli kavramlardan biri botlardır. O halde, Superalgos'taki farklı hiyerarşilerin birbirleriyle nasıl etkileşime girdiğini göstermek için botları yol gösterici olarak kullanalım.",
+                    "updated": 1698699179278
                 }
             ]
         },
@@ -191,6 +231,11 @@
                     "language": "DE",
                     "text": "Bot-Definitionen",
                     "updated": 1641757446978
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Tanımları ( Bot Definitions )",
+                    "updated": 1698699233610
                 }
             ]
         },
@@ -212,6 +257,11 @@
                     "language": "DE",
                     "text": "Auf den Seiten, die Data Mines und Trading Mines beschreiben, werden Sie lernen, dass Bots Algorithmen sind, die in solchen Minen definiert werden. Das heißt, Minen enthalten den Quellcode und die Konfiguration - den kompletten Satz an Definitionen - der drei existierenden Arten von Bots: Sensoren, Indikatoren und den Trading Bot.",
                     "updated": 1641758511780
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenlerini ve ticaret madenlerini anlatan sayfalarda botların bu madenlerde tanımlanan algoritmalar olduğunu öğreneceksiniz. Yani madenler, mevcut üç bot türünün kaynak kodunu ve yapılandırmasını (eksiksiz tanımlar kümesi) tutar: sensörler, göstergeler ve ticaret botu.",
+                    "updated": 1698699189474
                 }
             ]
         },
@@ -233,6 +283,11 @@
                     "language": "DE",
                     "text": "Als Benutzer können Sie alle Bots in den Minen verwenden, die mit dem System ausgeliefert werden. Als Entwickler können Sie Ihre eigenen Minen erstellen, um Ihre eigenen Sensoren, Indikatoren und sogar einen neuen Trading-Bot zu entwickeln.",
                     "updated": 1641757561971
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kullanıcı olarak, sistemle birlikte gönderilen veri madenlerindeki tüm botları kullanabilirsiniz. Bir geliştirici olarak, kendi sensörlerinizi, göstergelerinizi ve hatta yeni bir ticaret botu geliştirmek için kendi madenlerinizi oluşturabilirsiniz.",
+                    "updated": 1698699194571
                 }
             ]
         },
@@ -254,6 +309,11 @@
                     "language": "DE",
                     "text": "Bot-Instanzen",
                     "updated": 1641757587831
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Örnekleri ( Bot Instances )",
+                    "updated": 1698699206978
                 }
             ]
         },
@@ -275,6 +335,11 @@
                     "language": "DE",
                     "text": "Die Verwendung eines dieser Bots erfordert die Erstellung einer Instanz der Bot-Definition, damit diese Instanz den Code des Bots ausführen kann. In den seltensten Fällen müssen Sie Bot-Instanzen manuell erstellen, da bei der Installation eines neuen Marktes alle erforderlichen Bot-Instanzen für Ihre Data-Mining-Operation und für die Durchführung von Handelssitzungen erstellt werden (Märkte werden übrigens innerhalb der Krypto-Ökosystem-Hierarchie definiert und installiert).",
                     "updated": 1641757618628
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu botlardan herhangi birini kullanmak, bot tanımının bir örneğini oluşturmayı gerektirir, böylece bu örnek botun kodunu çalıştırabilir. Yeni bir piyasa kurma işlemi, veri madenciliği operasyonunuz ve alım satım oturumlarını yürütmek için gerekli tüm bot örneklerini oluşturduğundan, bot örneklerini nadiren manuel olarak oluşturmanız gerekecektir (bu arada, piyasalar kripto ekosistemi hiyerarşisi içinden tanımlanır ve kurulur).",
+                    "updated": 1698699239074
                 }
             ]
         },
@@ -296,6 +361,11 @@
                     "language": "DE",
                     "text": "Eine Bot-Instanz ist ein Verweis auf einen Bot, wie er in einer Daten- oder Handelsmine definiert ist. Die Instanz des Bots führt die definierten Prozesse aus und erzeugt die definierten Datenprodukte.",
                     "updated": 1641757678220
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bot örneği, bir veri veya ticaret madeninde tanımlandığı şekliyle bir bota referanstır. Bot örneği, tanımlanan süreçleri çalıştırır ve tanımlanan veri ürünlerini üretir.",
+                    "updated": 1698699242922
                 }
             ]
         },
@@ -317,6 +387,11 @@
                     "language": "DE",
                     "text": "Bot-Instanzen werden innerhalb der Netzwerkhierarchie ausgeführt. Sie verwenden Task-Manager und Tasks, um Bot-Instanzen zu steuern, d. h. um sie zu starten und zu stoppen. Ebenfalls in der Netzhierarchie liegen die Konfigurationen darüber, wo die von ihnen erzeugten Daten gespeichert werden sollen.",
                     "updated": 1641757696179
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot örnekleri ağ hiyerarşisi içinden çalıştırılır. Bot örneklerini kontrol etmek, yani onları başlatmak ve durdurmak için görev yöneticilerini ve görevleri kullanırsınız. Ayrıca ağ hiyerarşisinde, ürettikleri verilerin nerede saklanacağına ilişkin yapılandırmalar da yer alır.",
+                    "updated": 1698699246890
                 }
             ]
         },
@@ -338,6 +413,11 @@
                     "language": "DE",
                     "text": "Bot-Abhängigkeiten",
                     "updated": 1641757817729
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Bağımlılıkları ( Bot Dependencies )",
+                    "updated": 1698699255365
                 }
             ]
         },
@@ -359,6 +439,11 @@
                     "language": "DE",
                     "text": "Bei der Ausführung laufen die Bot-Instanzen in einer verzweigten Reihenfolge, die durch ihren Status und ihre Datenabhängigkeiten bestimmt wird. Wenn z. B. Bot Alice von den Daten abhängt, die von Bot Bob erzeugt werden, wird Alice so konfiguriert, dass sie ausgeführt wird, sobald Bob seine Ausführung beendet hat. Diese Konfigurationen sind bereits in den entsprechenden Datenminen für alle vorhandenen Bots eingerichtet. Sie müssen sich also nur darum kümmern, wenn Sie neue Bots entwickeln.",
                     "updated": 1641759638398
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütüldükten sonra, bot örnekleri durumları ve veri bağımlılıkları tarafından belirlenen dallanmış bir sırayla çalışır. Örneğin, Alice botu Bob botu tarafından üretilen verilere bağımlıysa, Alice, Bob yürütmesini bitirir bitirmez çalışacak şekilde yapılandırılır. Bu konfigürasyonlar mevcut tüm botlar için ilgili veri madenlerinde zaten ayarlanmıştır. Bu nedenle, yalnızca yeni botlar geliştirdiğinizde bu konuda endişelenmeniz gerekir.",
+                    "updated": 1698699260577
                 }
             ]
         },
@@ -380,6 +465,11 @@
                     "language": "DE",
                     "text": "Was Sie als Benutzer verstehen müssen, ist, dass, wenn Alice von den Daten abhängt, die Bob produziert, Bob laufen muss, damit Alice ihre Arbeit machen kann. Wenn Bob nicht läuft, kann Alice nur dasitzen und warten, bis Bob seinen Teil erledigt hat.",
                     "updated": 1641759651611
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kullanıcı olarak anlamanız gereken şey, Alice Bob'un ürettiği verilere bağlıysa, Alice'in işini yapabilmesi için Bob'un çalışıyor olması gerektiğidir. Eğer Bob çalışmıyorsa, Alice sadece oturup Bob'un önce kendi görevini yapmasını bekleyebilir.",
+                    "updated": 1698699264921
                 }
             ]
         },
@@ -401,6 +491,11 @@
                     "language": "DE",
                     "text": "Ein gutes Beispiel für derartige Abhängigkeiten ist eine Live-Trading-Session. In einem solchen Fall hängt der Trading-Bot vom Sensor und allen Indikator-Bots ab, die im referenzierten Trading System verwendet werden. Die Indikatoren müssen die Daten verarbeiten, damit der Trading-Bot sie in Echtzeit auswerten kann. Daher muss vor der Durchführung einer Live-Trading-Session die Data-Mining-Operation ausgeführt werden und auf dem neuesten Stand sein.",
                     "updated": 1641759752672
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür bağımlılıklara iyi bir örnek, canlı bir ticaret oturumu yürütülürken bulunabilir. Böyle bir durumda, alım satım botu sensöre ve referans alınan alım satım sisteminde kullanılan tüm gösterge botlarına bağlıdır. Göstergeler, alım satım botunun gerçek zamanlı olarak analiz edebilmesi için verileri işlemelidir. Bu nedenle, canlı bir alım satım seansı gerçekleştirmeden önce veri madenciliği işleminin çalışıyor ve güncel olması gerekir.",
+                    "updated": 1698699269009
                 }
             ]
         },
@@ -422,6 +517,11 @@
                     "language": "DE",
                     "text": "Ausführung der Bots",
                     "updated": 1641759787452
+                },
+                {
+                    "language": "TR",
+                    "text": "Botların Yürütülmesi ( Bots Execution )",
+                    "updated": 1698699277978
                 }
             ]
         },
@@ -443,6 +543,11 @@
                     "language": "DE",
                     "text": "Jeder Bot läuft so lange, wie er für die Ausführung seiner Aufgabe benötigt, in der Regel in der Größenordnung von einigen Sekunden, und schläft dann, bis der nächste Zyklus ansteht. Das heißt, die Bots laufen in kurzen Intervallen, in häufigen Zyklen. Der Grund für dieses Verhalten ist, dass die Bots darauf vorbereitet sind, Live-Daten zu lesen und online zu verarbeiten.",
                     "updated": 1641759843963
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bot görevini yerine getirmek için ihtiyaç duyduğu süre boyunca, genellikle birkaç saniye boyunca çalışır ve bir sonraki döngünün zamanı gelene kadar uykuda kalır. Yani, botlar sık döngüler halinde kısa sürelerle çalışır. Bu davranışın nedeni, botların canlı veri akışlarını okumak ve çevrimiçi olarak işlemek için hazırlanmış olmasıdır.",
+                    "updated": 1698699283657
                 }
             ]
         },
@@ -464,6 +569,11 @@
                     "language": "DE",
                     "text": "Bots müssen wissen, mit welchem Markt oder welcher Börse sie arbeiten sollen. Die Börsen und Märkte sind in der Hierarchie des Krypto-Ökosystems definiert. Bots erhalten diese Informationen, indem sie Referenzen zu den entsprechenden Märkten in dieser Hierarchie herstellen.",
                     "updated": 1641759873181
+                },
+                {
+                    "language": "TR",
+                    "text": "Botların hangi borsanın hangi piyasası ile çalışması gerektiğini bilmesi gerekir. Borsalar ve piyasalar kripto ekosistemi hiyerarşisinde tanımlanmıştır. Botlar, bu hiyerarşideki uygun piyasalarla referanslar kurarak bu bilgileri elde eder.",
+                    "updated": 1698699291611
                 }
             ]
         },
@@ -485,6 +595,11 @@
                     "language": "DE",
                     "text": "Im Falle des Trading-Bots muss er auch wissen, welche Art von Trading-Session er durchführen soll und welche Regeln des Trading-System er befolgen soll. Aus diesen Gründen werden Trading Bots mit einer bestimmten Sitzung gekoppelt, die ihrerseits auf ein Handelssystem verweist.",
                     "updated": 1641760067260
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu söz konusu olduğunda, hangi tür ticaret oturumunu çalıştırması gerektiğini ve hangi ticaret sisteminin kurallarına uyması gerektiğini de bilmesi gerekir. Bu nedenlerle, ticaret botları belirli bir oturumla eşleştirilir ve bu da bir ticaret sistemine referans verir.",
+                    "updated": 1698699295362
                 }
             ]
         },
@@ -506,6 +621,11 @@
                     "language": "DE",
                     "text": "Trading-Systeme selbst sind Hierarchien. Ein Trading System können Sie erstellen, indem Sie einem Framework folgen, in dem Strategien in Stufen beschrieben werden. Sie müssen nicht programmieren, um eine Strategie zu erstellen, da die Regeln mit einfachen mathematischen Aussagen geschrieben werden. Allerdings sind sowohl grundlegende als auch fortgeschrittene JavaScript-Kenntnisse von Vorteil. Sie können Ihr Handelssystem testen und einsetzen, indem Sie Handelssitzungen innerhalb der Netzwerkhierarchie durchführen.",
                     "updated": 1641760198660
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sistemlerinin kendileri de hiyerarşidir. Stratejilerin aşamalar halinde tanımlandığı bir çerçeveyi takip ederek bir alım satım sistemi oluşturabilirsiniz. Kurallar basit matematiksel ifadelerle yazıldığından, bir strateji oluşturmak için kod yazmanıza gerek yoktur. Ancak, hem temel hem de ileri düzey JavaScript bilgisi size avantaj sağlayacaktır. Ağ hiyerarşisi içinden alım satım oturumları çalıştırarak alım satım sisteminizi test edebilir ve dağıtabilirsiniz.",
+                    "updated": 1698699300029
                 }
             ]
         },

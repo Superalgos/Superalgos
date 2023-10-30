@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes, übergeordnetes Konzept darstellt, das in einer langen Kette von Nodes resultiert, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, die jeweils einen bestimmten Schwerpunkt haben.",
                 "updated": 1641760405719
+            },
+            {
+                "language": "TR",
+                "text": "Hiyerarşi, kapsayıcı, üst düzey bir kavramı temsil eden ve genellikle birçok dallanmaya sahip uzun bir düğüm zinciriyle sonuçlanan bir veri yapısıdır. Sistem, her biri belirli bir odağa sahip olan farklı hiyerarşi türlerini yönetir.",
+                "updated": 1698699306798
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "DE",
                     "text": "Im Design Space wird der Kopf oder der übergeordnete Node jeder Hierarchie durch das entsprechende Symbol dargestellt, das von einem immer vorhandenen weißen Ring umgeben ist, so dass sie im Workspace leichter zu finden sind.",
                     "updated": 1641760501185
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanında, her hiyerarşinin başı veya üst düğümü, çalışma alanında daha kolay bulunabilmeleri için her zaman mevcut olan beyaz bir halka ile çevrili ilgili simge ile temsil edilir.",
+                    "updated": 1698699312458
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Hierarchien, die als Plugin in einen Workspace eingebunden sind, werden nicht auf Workspace-Ebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
                     "updated": 1641760717804
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı olmaz. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamanız veya yedeklemeniz ve bunun yerine ortaya çıkan kopya üzerinde çalışmanız gerekir.",
+                    "updated": 1698699317418
                 }
             ]
         },
@@ -82,6 +97,11 @@
                     "language": "EL",
                     "text": "Foundations Project (Θεμέλια Έργου)",
                     "updated": 1641829322472
+                },
+                {
+                    "language": "TR",
+                    "text": "Vakıflar Projesi ( Foundations Project )",
+                    "updated": 1698699375483
                 }
             ]
         },
@@ -104,6 +124,11 @@
                     "language": "EL",
                     "text": "Design Space (Σχεδιαστικός Χώρος)",
                     "updated": 1641829340807
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı ( Design Space )",
+                    "updated": 1698699390770
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "EL",
                     "text": "Crypto Ecosystem (Οικοσύστημα Κρύπτο)",
                     "updated": 1641829398687
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Ekosistemi ( Crypto Ecosystem )",
+                    "updated": 1698699403648
                 }
             ]
         },
@@ -147,6 +177,11 @@
                     "language": "EL",
                     "text": "LAN Network (Τοπικό Δίκτυο)",
                     "updated": 1641829428671
+                },
+                {
+                    "language": "TR",
+                    "text": "LAN Ağı ( LAN Network )",
+                    "updated": 1698699420457
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "EL",
                     "text": "Charting Space (Χώρος Χαρτογράφησης)",
                     "updated": 1641829459703
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space )",
+                    "updated": 1698699435642
                 }
             ]
         },
@@ -191,6 +231,11 @@
                     "language": "EL",
                     "text": "Trading System (Σύστημα Συναλλαγών)",
                     "updated": 1641829478309
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi ( Trading System )",
+                    "updated": 1698699452639
                 }
             ]
         },
@@ -212,6 +257,11 @@
                     "language": "EL",
                     "text": "Trading Mine (Εξορυκτήριο Συναλλαγών)",
                     "updated": 1641829495848
+                },
+                {
+                    "language": "TR",
+                    "text": "Maden Ticareti ( Trading Mine )",
+                    "updated": 1698699466010
                 }
             ]
         },
@@ -234,6 +284,11 @@
                     "language": "EL",
                     "text": "Trading Engine (Μηχανή Συναλλαγών)",
                     "updated": 1641829513089
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Motoru ( Trading Mine )",
+                    "updated": 1698699475808
                 }
             ]
         },
@@ -256,6 +311,11 @@
                     "language": "EL",
                     "text": "Data Mine (Εξόρυξη Δεδομένων)",
                     "updated": 1641829567621
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni ( Data Mine )",
+                    "updated": 1698699492082
                 }
             ]
         },
@@ -278,6 +338,11 @@
                     "language": "EL",
                     "text": "Plugins (Πρόσθετα)",
                     "updated": 1641829590336
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler ( Plugins )",
+                    "updated": 1698699521562
                 }
             ]
         },
@@ -300,6 +365,11 @@
                     "language": "EL",
                     "text": "Tutorial (Οδηγός Εκμάθησης)",
                     "updated": 1641829607889
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici ( Tutorial )",
+                    "updated": 1698699537298
                 }
             ]
         },
@@ -322,6 +392,11 @@
                     "language": "EL",
                     "text": "Super Scripts (Σούπερ Σενάρια)",
                     "updated": 1641829613351
+                },
+                {
+                    "language": "TR",
+                    "text": "Süper Komut Dosyaları ( Super Scripts )",
+                    "updated": 1698699549612
                 }
             ]
         },

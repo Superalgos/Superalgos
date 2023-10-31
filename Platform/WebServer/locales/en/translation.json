@@ -45,6 +45,8 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+
+        "executionAlgorithm": "Add Execution Algorithm",
         "viewport": "Add Viewport",
         "spaceStyle": "Add Space Style",
         "spaceSettings": "Add Space Settings",
@@ -128,7 +130,8 @@
             "userProfiles": "Add Missing User Profiles",
             "children": "Add Missing Children",
             "projects": "Add Missing Projects",
-            "swapPairs": "Add Missing Swap Pairs"
+            "swapPairs": "Add Missing Swap Pairs",
+            "items": "Add Missing Items"
         },
         "specified": {
             "pluginDataMine": "Add Specified Plugin Data Mine",
@@ -158,6 +161,12 @@
             "dependencyFolder": "Add Data Dependency Folder",
             "product": "Add Data Product",
             "productFolder": "Add Data Product Folder"
+        },
+        "fetch": {
+            "fromJavascriptCode": "Fetch from Javascript Code"
+        },
+        "push": {
+            "toJavascriptCode": "Push to Javascript Code"
         }
     },
     "import": {

@@ -28,7 +28,9 @@
         "edit": "Edit",
         "confirm": {
             "delete": "Confirm to Delete",
-            "proceed": "Confirm to Proceed"
+            "proceed": "Confirm to Proceed",
+            "run": "Confirm to Run",
+            "stop": "Confirm to Stop"
         }
     },
     "docs": {
@@ -45,13 +47,10 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
-        "exchange": {
-            "accounts": "Add Exchange Accounts",
-            "assets": "Add Exchange Assets",
-            "centralized": "Add Centralized Exchange",
-            "decentralized": "Add Decentralized Exchange",
-            "markets": "Add Exchange Markets"
-        },
+        "taskManager": "Add Task Manager",
+        "allTasks": "Add All Tasks",
+        "botProducts": "Add Bot Products",
+        "timeMachine": "Add Time Machine",
         "cryptoExchanges": "Add Crypto Exchanges",
         "executionAlgorithm": "Add Execution Algorithm",
         "viewport": "Add Viewport",
@@ -115,6 +114,7 @@
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
         "missing":{
+            "timeMachines": "Add Missing Time Machines",
             "exchanges": "Add Missing Exchanges",
             "apiMaps": "Add Missing API Maps",
             "assets": "Add Missing Assets",
@@ -140,6 +140,13 @@
             "projects": "Add Missing Projects",
             "swapPairs": "Add Missing Swap Pairs",
             "items": "Add Missing Items"
+        },
+        "exchange": {
+            "accounts": "Add Exchange Accounts",
+            "assets": "Add Exchange Assets",
+            "centralized": "Add Centralized Exchange",
+            "decentralized": "Add Decentralized Exchange",
+            "markets": "Add Exchange Markets"
         },
         "specified": {
             "pluginDataMine": "Add Specified Plugin Data Mine",
@@ -169,7 +176,11 @@
             "dependency": "Add Data Dependency",
             "dependencyFolder": "Add Data Dependency Folder",
             "product": "Add Data Product",
-            "productFolder": "Add Data Product Folder"
+            "productFolder": "Add Data Product Folder",
+            "allDependencies": "Add All Data Dependencies",
+            "botDependencies": "Add Bot Data Dependencies",
+            "allProducts": "Add All Data Products",
+            "projectProducts": "Add Project Data Products"
         },
         "fetch": {
             "fromJavascriptCode": "Fetch from Javascript Code"
@@ -216,6 +227,14 @@
         },
         "confirmation": {
             "reset": "Confirm to Reset"
+        }
+    },
+    "task": {
+        "all": {
+            "managers": {
+                "run": "Run All Task Managers",
+                "stop": "Stop All Task Managers"               
+            }
         }
     }
 }

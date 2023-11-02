@@ -49,6 +49,7 @@
             "translationKey": "add.missing.projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Project Dashboards",
             "actionFunction": "payload.executeAction",

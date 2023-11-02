@@ -25,6 +25,7 @@
             "translationKey": "add.missing.exchanges",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Crypto Exchange",
             "actionFunction": "payload.executeAction",

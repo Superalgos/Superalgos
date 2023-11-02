@@ -45,7 +45,14 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
-
+        "exchange": {
+            "accounts": "Add Exchange Accounts",
+            "assets": "Add Exchange Assets",
+            "centralized": "Add Centralized Exchange",
+            "decentralized": "Add Decentralized Exchange",
+            "markets": "Add Exchange Markets"
+        },
+        "cryptoExchanges": "Add Crypto Exchanges",
         "executionAlgorithm": "Add Execution Algorithm",
         "viewport": "Add Viewport",
         "spaceStyle": "Add Space Style",
@@ -108,6 +115,7 @@
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
         "missing":{
+            "exchanges": "Add Missing Exchanges",
             "apiMaps": "Add Missing API Maps",
             "assets": "Add Missing Assets",
             "dataMines": "Add Missing Data Mines",
@@ -153,6 +161,7 @@
             "system": "Add Trading System"
         },
         "signals": {
+            "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals"
         },

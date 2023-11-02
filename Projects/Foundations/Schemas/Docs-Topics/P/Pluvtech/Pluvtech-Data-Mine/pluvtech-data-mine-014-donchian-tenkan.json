@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der Donchian-Tenkan Indikator ist ein kurzfristiger Unterstützungs-/Widerstandswert, der das Momentum eines Vermögenswerts hervorheben kann. Er ist eine Komponente der Ichimoku Cloud Indikatoren.",
                 "updated": 1647939120228
+            },
+            {
+                "language": "TR",
+                "text": "Donchian-Tenkan göstergesi, bir varlığın momentumunu vurgulayabilen kısa vadeli bir destek/direnç değeridir. Ichimoku bulut göstergelerinin bir bileşenidir.",
+                "updated": 1697835921366
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Donchian-Tenkan in den Charts:",
                     "updated": 1647939151944
+                },
+                {
+                    "language": "TR",
+                    "text": "Donchian-Tenkan :",
+                    "updated": 1697835942514
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Der Donchian-Tenkan wird berechnet, indem der Durchschnitt der vorherigen Höchst- und Tiefstwerte gebildet wird, um einen Donchian-Kanal zu erstellen, und dann der Mittelpunkt dieser Extreme verwendet wird, um den zurückgegebenen Wert zu erstellen. Dieser Wert kann dann als Unterstützungs-/Widerstandslinie verwendet werden.",
                     "updated": 1647939196608
+                },
+                {
+                    "language": "TR",
+                    "text": "Donchian-Tenkan, bir donchian kanalı oluşturmak için önceki en yüksek ve en düşük değerlerin ortalaması alınarak ve ardından döndürülen değeri oluşturmak için bu uç noktaların orta noktası kullanılarak hesaplanır. Bu değer daha sonra bir destek/direnç çizgisi olarak kullanılabilir.",
+                    "updated": 1697835948289
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "DE",
                     "text": "Der Parameter für die Periodenlänge der Berechnung des Donchian-Tenkan-Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’Donchian-Tenkan’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647939274755
+                },
+                {
+                    "language": "TR",
+                    "text": "Donchian-Tenkan gösterge hesaplamasının dönem uzunluğu parametresi, 'Donchian-Tenkan' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835994842
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647939309404
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835999937
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647939319924
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697836004113
                 }
             ]
         },
@@ -136,6 +166,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1647939401847
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697836007593
                 }
             ]
         },
@@ -152,6 +187,11 @@
                     "language": "DE",
                     "text": "Der Donchian-Tenkan-Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn der Schlusskurs über dem midPoint Wert liegt:",
                     "updated": 1647939413121
+                },
+                {
+                    "language": "TR",
+                    "text": "Donchian-Tenkan göstergesi, kapanış fiyatı orta Nokta değerinin üzerinde olduğunda bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697836012703
                 }
             ]
         },
@@ -173,6 +213,11 @@
                     "language": "DE",
                     "text": "Dieser Indikator kann auch dazu verwendet werden, einen Trailing-Stop-Loss zu setzen, indem überprüft wird, ob der Kerzenschluss noch über dem midPoint Wert liegt.",
                     "updated": 1647939470294
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge, mum kapanışının hala orta Nokta değerinin üzerinde olup olmadığını kontrol ederek bir işlem sırasında takip eden bir durdurma kaybı sağlamak için de kullanılabilir.",
+                    "updated": 1697836028568
                 }
             ]
         },

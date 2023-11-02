@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Görev Sunucusu, Superalgos'un 3 ana yazılım bileşeninden birisidir. Görev Sunucusunun amacı bir Görevi çalıştırmaktır ( Task ). Görevler kullanıcı arayüzündeki ( UI ) bir Çalışma Alanında ( Workspace )  tanımlanır. Bir Görevi çalıştırmak ( Task ) için, Görev Sunucusu çalışma zamanında kullanıcı arayüzündeki ( UI ) gerekli tüm tanımları alır.",
                 "updated": 1666873964930
+            },
+            {
+                "language": "DE",
+                "text": "Der Task Server ist eine der 3 Haupt-Softwarekomponenten von Superalgos. Der Zweck des Task Servers ist es, einen Task auszuführen. Tasks werden in einem Workspace auf der UI definiert. Um einen Task auszuführen, erhält der Task Server zur Laufzeit alle benötigten Definitionen von der Benutzeroberfläche (UI).",
+                "updated": 1698613567456
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Geliştiriciler için: Kodu okurken TS nesnesinin yoğun bir şekilde kullanıldığını fark etmelisiniz. TS nesnesi, Görev Sunucusu içinde çalışma zamanında mevcut olan bir veri yapısının kök nesnesidir.",
                     "updated": 1666874205445
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Entwickler: Wenn Sie den Code durchlesen, werden Sie feststellen, dass das TS Objekt häufig verwendet wird. Das TS Objekt ist das Stammobjekt einer Datenstruktur, die zur Laufzeit innerhalb des Task Server ´s verfügbar ist.",
+                    "updated": 1698613625025
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Görev sunucusunda çalıştırılan bir görevde nasıl hata ayıklanacağına ilişkin bir açıklama için lütfen Görevde Hata Ayıklama ( Debugging a Task )  sayfasına bakın.",
                     "updated": 1666874429108
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Beschreibung, wie Sie eine auf dem Aufgabenserver ausgeführte Aufgabe debuggen können, finden Sie auf der Seite Debuggen einer Aufgabe (Debugging a Task).",
+                    "updated": 1698613652407
                 }
             ]
         }
